@@ -39,6 +39,9 @@ The list is split into 2 parts. In the first part there non-formal documents fro
 ### Other
 - [United Arab Emirates: Policy on the Use of AI in the Healthcare Sector](https://www.doh.gov.ae/-/media/E9C1470A575146B18015DEBE57E47F8D.ashx)
 - [Canada: Directive on Automated Decision-Making](https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32592&section=html)
+- [China: Personal Data Protection Act](https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=I0050021)
+- [Singapore: PERSONAL DATA PROTECTION ACT](https://sso.agc.gov.sg/Act/PDPA2012)
+- [Singapore: PROTECTION FROM ONLINE FALSEHOODS AND MANIPULATION ACT](https://sso.agc.gov.sg/Acts-Supp/18-2019/Published/20190625?DocDate=20190625)
 
 ## Sites aggregating AI regulations
 
