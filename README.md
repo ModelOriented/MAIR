@@ -19,6 +19,8 @@ The list is split into 2 parts. In the first part there non-formal documents fro
 - [EU: Civil Law Rules on Robotics](https://www.europarl.europa.eu/doceo/document/TA-8-2017-0051_EN.pdf)
 - [European Comission: ETHICS GUIDELINES FOR TRUSTWORTHY AI](https://ec.europa.eu/futurium/en/ai-alliance-consultation/guidelines)
 - [Joint Committee Report on the results of the monitoring exercise on ‘automation in financial advice’](https://esas-joint-committee.europa.eu/Publications/Reports/JC%202018%2029%20-%20JC%20Report%20on%20automation%20in%20financial%20advice.pdf)
+- [CONCLUSIONS ON THE CHARTER OF FUNDAMENTAL RIGHTS
+IN THE CONTEXT OF ARTIFICIAL INTELLIGENCE AND DIGITAL CHANGE](https://www.consilium.europa.eu/media/46496/st11481-en20.pdf)
 ### Other
 - [Singapore: Principles to Promote Fairness, Ethics, Accountability and Transparency (FEAT) in the Use of Artificial Intelligence and Data Analytics in Singapore’s Financial Sector](https://www.mas.gov.sg/-/media/MAS/News-and-Publications/Monographs-and-Information-Papers/FEAT-Principles-Updated-7-Feb-19.pdf)
 
