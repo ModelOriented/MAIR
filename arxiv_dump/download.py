@@ -75,7 +75,7 @@ def url_generator(k, categories, step):
         if k['exact']:
             k['name'] = wrap_apostrophes(k['name'])
         search_url = '+OR+'.join(['({})'.format(keyword_string(f, [k['name']])) for f in k['fields']])
-    filter_url = '{}?search_query=({})&({})'.format(BASE_URL, search_url, filter_category)
+    filter_url = '{}?search_query=(({})+AND({}))'.format(BASE_URL, search_url, filter_category)
     start = 0
     while True:
         yield '{}&start={}&max_results={}'.format(filter_url, start, step)
