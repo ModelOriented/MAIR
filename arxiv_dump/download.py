@@ -12,7 +12,7 @@ BASE_URL = 'http://export.arxiv.org/api/query'
 KEYWORDS_FILE = 'keywords.txt'
 CATEGORIES = 'arxiv_categories.txt'
 PAPERS_DIR = 'papers'
-SEARCH_RESULTS_DIR = 'search_results'
+SEARCH_RESULTS = 'search_results.json'
 
 
 def get_categories():
@@ -25,6 +25,8 @@ def get_categories():
 
 def parse_entry(entry, keyword):
     links = [link['href'] for link in entry['links'] if 'title' in link and link['type'] == 'application/pdf']
+    keyword_name = re.sub('"', '', keyword['name'])
+    keyword_name = re.sub('\+', ' ', keyword_name)
     if links:
         link = links[0]
     else:
@@ -40,7 +42,7 @@ def parse_entry(entry, keyword):
         'journal_ref': entry['arxiv_journal_ref'] if 'arxiv_journal_ref' in entry else None,
         'link': link,
         'primary_category': entry['arxiv_primary_category']['term'],
-        'keyword': re.sub('"', '', keyword['name']),
+        'keywords': [re.sub('"', '', keyword_name)],
     }
 
 
@@ -48,16 +50,31 @@ def parse_search_records(res, keyword):
     r = res.read()
     results_tree = feedparser.parse(r)
     entries = results_tree['entries']
-    records = [parse_entry(entry, keyword) for entry in entries]
+    records = {entry['id']: parse_entry(entry, keyword) for entry in entries}
     return records
+
+
+def keyword_string(field, keywords):
+    keywords = [re.sub(' ', '+', k) for k in keywords]
+    return '+AND+'.join(['{}:{}'.format(field, k) for k in keywords])
+
+
+def wrap_apostrophes(s):
+    return '"{}"'.format(s)
 
 
 def url_generator(k, categories, step):
     k['name'] = re.sub(' ', '+', k['name'])
-    if k['exact']:
-        k['name'] = '"{}"'.format(k['name'])
     filter_category = '+OR+'.join(['cat:{}'.format(cat) for cat in categories])
-    search_url = '+OR+'.join(['{}:{}'.format(f, k['name']) for f in k['fields']])
+    if 'names' in k:
+        if k['exact']:
+            k['names'] = [wrap_apostrophes(s) for s in k['names']]
+        print(keyword_string('abs', k['names']))
+        search_url = '+OR+'.join(['({})'.format(keyword_string(f, k['names'])) for f in k['fields']])
+    else:
+        if k['exact']:
+            k['name'] = wrap_apostrophes(k['name'])
+        search_url = '+OR+'.join(['({})'.format(keyword_string(f, [k['name']])) for f in k['fields']])
     filter_url = '{}?search_query=({})&({})'.format(BASE_URL, search_url, filter_category)
     start = 0
     while True:
@@ -65,16 +82,9 @@ def url_generator(k, categories, step):
         start += step
 
 
-def get_atom_results(k, categories, use_cache=True, step=100):
-    filename = os.path.join(SEARCH_RESULTS_DIR, 'search_results_{}.json'.format(k['name']))
-
-    # read from cache
-    if os.path.exists(filename) and use_cache:
-        with open(filename, 'r') as f:
-            return json.load(f)
-
+def get_atom_results(k, categories, step=100):
     # fetch results
-    records = []
+    records = dict()
     start = 0
     urls = url_generator(k, categories, step)
     while True:
@@ -83,14 +93,11 @@ def get_atom_results(k, categories, use_cache=True, step=100):
             new_records = parse_search_records(res, k)
             print('Fetched info about {} for {}'.format(len(new_records), k))
             print('Together we have: {}'.format(len(records) + len(new_records)))
-            records.extend(new_records)
+            records.update(new_records)
             if len(new_records) < step or not new_records:
                 break
         start += step
 
-    # cache the result
-    with open(filename, 'w') as f:
-        json.dump(records, f, indent=2, ensure_ascii=False)
     return records
 
 
@@ -99,51 +106,68 @@ def download_pdf(record):
 
     if not record['link']:
         print('Link unavailable for {}'.format(record['id']))
-    filename = os.path.join(PAPERS_DIR, record['keyword'], record['id'] + '.pdf')
+    filename = os.path.join(PAPERS_DIR, record['id'] + '.pdf')
     if not os.path.exists(filename):
-        with open(filename, 'wb') as f:
-            while True:
-                try:
-                    # sleep from time to time
-                    if hash(record['title']) % 20 == 0:
-                        time.sleep(5)
-                    if hash(record['title']) + 1 % 100 == 0:
-                        time.sleep(10)
-
-                    # a mirror of arXiv for automated access
-                    link = record['link'][:7] + 'export.' + record['link'][7:]
-                    print(link)
-                    response = requests.get(link)
-                    # print(len(response.content))
-                    print('Downloading {}'.format(record['title']))
-                    f.write(response.content)
-                    break
-                except Exception as e:
-                    print(e)
-                    print('Retrying on download failure...')
+        while True:
+            try:
+                # sleep from time to time
+                if hash(record['title']) % 20 == 0:
+                    time.sleep(5)
+                if hash(record['title']) + 1 % 100 == 0:
                     time.sleep(10)
-                    continue
+
+                # a mirror of arXiv for automated access
+                link = record['link'][:7] + 'export.' + record['link'][7:]
+                print(link)
+                response = requests.get(link)
+                if response.headers['Content-Type'] != 'application/pdf':
+                    print('{} is not a pdf format, {} detected instead'.format(
+                        record['id'], response.headers['Content-Type']))
+                    break
+                # print(len(response.content))
+                print('Downloading {}'.format(record['title']))
+                with open(filename, 'wb') as f:
+                    f.write(response.content)
+                break
+            except ConnectionError as e:
+                print(e)
+                print('Retrying on download failure...')
+                time.sleep(10)
+                continue
     else:
         pass
         # print('{} already exists'.format(record['title']))
 
 
 def download_files(records):
-    for i, r in enumerate(records):
+    for i, r in enumerate(records.values()):
         download_pdf(r)
+
+
+def update_records(records, new_records):
+    for key, v in new_records.items():
+        if not key in records:
+            records[key] = v
+        else:
+            records[key]['keywords'] = list(set(records[key]['keywords'] + new_records[key]['keywords']))
 
 
 if __name__ == "__main__":
     categories = get_categories()
     if not os.path.exists(PAPERS_DIR):
         os.mkdir(PAPERS_DIR)
-    if not os.path.exists(SEARCH_RESULTS_DIR):
-        os.mkdir(SEARCH_RESULTS_DIR)
 
-    for k in KEYWORDS:
-        if not os.path.exists(os.path.join(PAPERS_DIR, k['name'])):
-            os.mkdir(os.path.join(PAPERS_DIR, k['name']))
+    records = dict()
 
-        print('Processing keyword: {}'.format(k['name']))
-        records = get_atom_results(k, categories, use_cache=False, step=100)
-        download_files(records)
+    if os.path.exists(SEARCH_RESULTS):
+        with open(SEARCH_RESULTS, 'r') as f:
+            records = json.load(f)
+    else:
+        for k in KEYWORDS:
+            print('Processing keyword: {}'.format(k['name']))
+            new_records = get_atom_results(k, categories, step=1000)
+            update_records(records, new_records)
+
+        with open(SEARCH_RESULTS, 'w') as f:
+            json.dump(records, f, indent=2, ensure_ascii=False)
+    download_files(records)
