@@ -12,7 +12,14 @@ BASE_URL = 'http://export.arxiv.org/api/query'
 KEYWORDS_FILE = 'keywords.txt'
 CATEGORIES = 'arxiv_categories.txt'
 PAPERS_DIR = 'papers'
+SOURCES_DIR = 'sources'
 SEARCH_RESULTS = 'search_results.json'
+
+SOURCES = True
+if SOURCES:
+    FILES_DIR = SOURCES_DIR
+else:
+    FILES_DIR = PAPERS_DIR
 
 
 def get_categories():
@@ -24,13 +31,9 @@ def get_categories():
 
 
 def parse_entry(entry, keyword):
-    links = [link['href'] for link in entry['links'] if 'title' in link and link['type'] == 'application/pdf']
+    links = entry['links']
     keyword_name = re.sub('"', '', keyword['name'])
     keyword_name = re.sub('\+', ' ', keyword_name)
-    if links:
-        link = links[0]
-    else:
-        link = None
     return {
         'id': entry['id'].split('/')[-1],
         'abs_id': entry['id'],
@@ -40,7 +43,7 @@ def parse_entry(entry, keyword):
         'summary': entry['summary'],
         'authors': entry['authors'],
         'journal_ref': entry['arxiv_journal_ref'] if 'arxiv_journal_ref' in entry else None,
-        'link': link,
+        'links': links,
         'primary_category': entry['arxiv_primary_category']['term'],
         'keywords': [re.sub('"', '', keyword_name)],
     }
@@ -101,12 +104,23 @@ def get_atom_results(k, categories, step=100):
     return records
 
 
-def download_pdf(record):
-    # TODO remove older versions when duplicated
+def get_link_and_filename(record):
+    if SOURCES:
+        extension = 'tar.gz'
+    else:
+        extension = 'pdf'
+    filename = os.path.join(FILES_DIR, record['id'] + '.{}'.format(extension))
+    link = [r['href'] for r in record['links'] if r['type'] == 'application/pdf'][0]
+    if SOURCES:
+        link = re.sub('/pdf/', '/src/', link)
+    return filename, link
 
-    if not record['link']:
-        print('Link unavailable for {}'.format(record['id']))
-    filename = os.path.join(PAPERS_DIR, record['id'] + '.pdf')
+
+def download_file(record):
+    # TODO remove older versions when duplicated
+    if not record['links']:
+        print('Links unavailable for {}'.format(record['id']))
+    filename, link = get_link_and_filename(record)
     if not os.path.exists(filename):
         while True:
             try:
@@ -115,15 +129,12 @@ def download_pdf(record):
                     time.sleep(5)
                 if hash(record['title']) + 1 % 100 == 0:
                     time.sleep(10)
-
+                if link is None:
+                    print('No matching link for download')
+                    break
                 # a mirror of arXiv for automated access
-                link = record['link'][:7] + 'export.' + record['link'][7:]
                 print(link)
                 response = requests.get(link)
-                if response.headers['Content-Type'] != 'application/pdf':
-                    print('{} is not a pdf format, {} detected instead'.format(
-                        record['id'], response.headers['Content-Type']))
-                    break
                 # print(len(response.content))
                 print('Downloading {}'.format(record['title']))
                 with open(filename, 'wb') as f:
@@ -141,7 +152,7 @@ def download_pdf(record):
 
 def download_files(records):
     for i, r in enumerate(records.values()):
-        download_pdf(r)
+        download_file(r)
 
 
 def update_records(records, new_records):
@@ -154,8 +165,8 @@ def update_records(records, new_records):
 
 if __name__ == "__main__":
     categories = get_categories()
-    if not os.path.exists(PAPERS_DIR):
-        os.mkdir(PAPERS_DIR)
+    if not os.path.exists(FILES_DIR):
+        os.mkdir(FILES_DIR)
 
     records = dict()
 
