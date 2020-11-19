@@ -1,1 +1,753 @@
-{"abstractText": "We developed an explainable artificial intelligence (AI) early warning score (xAI-EWS) system for early detection of acute critical illness. While maintaining a high predictive performance, our system explains to the clinician on which relevant electronic health records (EHRs) data the prediction is grounded. Acute critical illness is often preceded by deterioration of routinely measured clinical parameters, e.g., blood pressure and heart rate. Early clinical prediction is typically based on manually calculated screening metrics that simply weigh these parameters, such as Early Warning Scores (EWS). The predictive performance of EWSs yields a tradeoff between sensitivity and specificity that can lead to negative outcomes for the patient.1\u20133 Previous work on EHR-trained AI systems offers promising results with high levels of predictive performance in relation to the early, real-time prediction of acute critical illness.4\u201321 However, without insight into the complex decisions by such system, clinical translation is hindered. In this paper, we present our xAI-EWS system, which potentiates clinical translation by accompanying a prediction with information on the EHR data explaining it. Artificial Intelligence (AI) is capable of predicting acute critical illness earlier and with greater accuracy than traditional Early Warning Score (MEWS) systems, such as modified EWSs (MEWSs) and Sequential Organ Failure Assessment Scores (SOFAs).4, 8, 9, 11\u201313, 15, 17\u201319, 22\u201326 Unfortunately, standard deep learning (DL) that comprise available AI models are black-boxes and their predictions cannot readily be explained to clinicians. The importance of explainable and transparent DL algorithms in clinical medicine is without question and was recently highlighted in the Nature Medicine review by Topol, E. J.27, 28 Transparency and explainability are an absolute necessity for the widespread introduction of AI models into clinical practice, where an incorrect prediction can have grave consequences.28\u201331 Clinicians must be able to understand the underlying reasoning of AI models so they can trust the predictions and be able to identify individual cases in which an AI model potentially gives incorrect predictions.28\u201330, 32 In this paper, we will present xAI-EWS, which comprises a robust and accurate AI model for predicting acute critical illness from Electronic Health Records (EHRs). Importantly, xAI-EWS was designed to provide explanations for the given predictions. To demonstrate the general clinical relevance of the xAI-EWS, we present results here from three emergency medicine cases: sepsis, Acute Kidney Injury (AKI), and Acute Lung Injury (ALI). The xAI-EWS is composed of a temporal convolutional network (TCN)33\u201335 prediction module and a deep Taylor decomposition (DTD)36\u201340 explanation module, tailored to temporal explanations (see figure 1). The architecture of the TCN has proven to be particularly effective at predicting events that have a temporal component, such as the development of critical illness.12, 34, 35, 41, 42 The TCN operates sequentially over individual EHRs and outputs predictions in the range of 0% to 100%, where the predicted risk should be higher for those patients at risk of later acute critical illness, compared to those who are not. The DTD explanation module delineates the TCN predictions in terms of input variables by producing a decomposition of the TCN output on the input variables. As comparative measures for the predictive performance, we used the area under the receiver operating characteristic curve (AUROC) and the area under the precision-recall curve (AUPRC). ar X iv :1 91 2. 01 26 6v 1 [ cs .A I] 3 D ec 2 01 9 A PREPRINT DECEMBER 4, 2019", "authors": [{"affiliations": [], "name": "Simon Meyer Lauritsen"}, {"affiliations": [], "name": "Mads Kristensen"}, {"affiliations": [], "name": "Mathias Vassard Olsen"}, {"affiliations": [], "name": "Morten Skaarup Larsen"}, {"affiliations": [], "name": "Katrine Meyer Lauritsen"}, {"affiliations": [], "name": "Marianne Johansson J\u00f8rgensen"}, {"affiliations": [], "name": "Jeppe Lange"}, {"affiliations": [], "name": "Bo Thiesson"}], "id": "SP:f50c1930e507ac2492169e6ac66d01d9ae37beb9", "references": [{"authors": ["CL Downey", "W Tahir", "R Randell", "JM Brown", "DG Jayne"], "title": "Strengths and limitations of early warning scores: a systematic review and narrative synthesis", "venue": "International Journal of Nursing Studies, 76:106\u2013119,", "year": 2017}, {"authors": ["Sarah Forster", "Gemma Housley", "Tricia M McKeever", "Dominick E Shaw"], "title": "Investigating the discriminative value of early warning scores in patients with respiratory disease using a retrospective cohort analysis of admissions to nottingham university hospitals trust over a 2-year period", "venue": "BMJ open,", "year": 2026}, {"authors": ["Nadia Alam", "Elke L Hobbelink", "Arne-Jon van Tienhoven", "Peter M van de Ven", "Eline P Jansma", "Prabath WB Nanayakkara"], "title": "The impact of the use of the early warning score (ews) on patient outcomes: a systematic review", "year": 2014}, {"authors": ["Nenad Toma\u0161ev", "Xavier Glorot", "Jack W Rae", "Michal Zielinski", "Harry Askham", "Andre Saraiva", "Anne Mottram", "Clemens Meyer", "Suman Ravuri", "Ivan Protsyuk"], "title": "A clinically applicable approach to continuous prediction of future acute kidney", "venue": "injury. Nature,", "year": 2019}, {"authors": ["Scott M Lundberg", "Gabriel Erion", "Hugh Chen", "Alex DeGrave", "Jordan M Prutkin", "Bala Nair", "Ronit Katz", "Jonathan Himmelfarb", "Nisha Bansal", "Su-In Lee"], "title": "Explainable ai for trees: From local explanations to global understanding", "venue": "arXiv preprint arXiv:1905.04610,", "year": 2019}, {"authors": ["Deepak A Kaji", "John R Zech", "Jun S Kim", "Samuel K Cho", "Neha S Dangayach", "Anthony B Costa", "Eric K Oermann"], "title": "An attention based deep learning model of clinical events in the intensive care unit", "venue": "PloS one,", "year": 2019}, {"authors": ["Ran Liu", "Joseph L Greenstein", "Stephen J Granite", "James C Fackler", "Melania M Bembea", "Sridevi V Sarma", "Raimond L Winslow"], "title": "Data-driven discovery of a novel sepsis pre-shock state predicts impending septic shock in the icu", "venue": "Scientific reports,", "year": 2019}, {"authors": ["Simon Meyer Lauritsen", "Mads Ellersgaard Kal\u00f8r", "Emil Lund Kongsgaard", "Katrine Meyer Lauritsen", "Marianne Johansson J\u00f8rgensen", "Jeppe Lange", "Bo Thiesson"], "title": "Early detection of sepsis utilizing deep learning on electronic health record event sequences", "venue": "arXiv preprint arXiv:1906.02956,", "year": 2019}, {"authors": ["Christopher Barton", "Uli Chettipally", "Yifan Zhou", "Zirui Jiang", "Anna Lynn-Palevsky", "Sidney Le", "Jacob Calvert", "Ritankar Das"], "title": "Evaluation of a machine learning algorithm for up to 48-hour advance prediction of sepsis using six vital signs", "venue": "Computers in biology and medicine,", "year": 2019}, {"authors": ["Matthieu Scherpf", "Felix Gr\u00e4\u00dfer", "Hagen Malberg", "Sebastian Zaunseder"], "title": "Predicting sepsis with a recurrent neural network using the mimic iii database", "venue": "Computers in biology and medicine,", "year": 2019}, {"authors": ["Md Mohaimenul Islam", "Tahmina Nasrin", "Bruno Andreas Walther", "Chieh-Chen Wu", "Hsuan-Chia Yang", "Yu-Chuan Li"], "title": "Prediction of sepsis patients using machine learning approach: a meta-analysis", "venue": "Computer methods and programs in biomedicine,", "year": 2019}, {"authors": ["Michael Moor", "Max Horn", "Bastian Rieck", "Damian Roqueiro", "Karsten Borgwardt"], "title": "Temporal convolutional networks and dynamic time warping can drastically improve the early prediction of sepsis", "year": 1902}, {"authors": ["Joseph Futoma", "Anthony Lin", "Mark Sendak", "Armando Bedoya", "Meredith Clement", "Cara O\u2019Brien", "Katherine Heller"], "title": "Learning to treat sepsis with multi-output gaussian process deep recurrent q-networks", "year": 2018}, {"authors": ["Zhengxing Huang", "Wei Dong", "Huilong Duan", "Jiquan Liu"], "title": "A regularized deep learning approach for clinical risk prediction of acute coronary syndrome using electronic health records", "venue": "IEEE Transactions on Biomedical Engineering,", "year": 2017}, {"authors": ["Qingqing Mao", "Melissa Jay", "Jana L Hoffman", "Jacob Calvert", "Christopher Barton", "David Shimabukuro", "Lisa Shieh", "Uli Chettipally", "Grant Fletcher", "Yaniv Kerem"], "title": "Multicentre validation of a sepsis prediction algorithm using only vital sign data in the emergency department, general ward and icu", "venue": "BMJ open,", "year": 2018}, {"authors": ["Shamim Nemati", "Andre Holder", "Fereshteh Razmi", "Matthew D Stanley", "Gari D Clifford", "Timothy G Buchman"], "title": "An interpretable machine learning model for accurate prediction of sepsis in the icu", "venue": "Critical care medicine,", "year": 2018}, {"authors": ["David W Shimabukuro", "Christopher W Barton", "Mitchell D Feldman", "Samson J Mataraso", "Ritankar Das"], "title": "Effect of a machine learning-based severe sepsis prediction algorithm on patient survival and hospital length of stay: a randomised clinical trial", "venue": "BMJ open respiratory research,", "year": 2017}, {"authors": ["Hye Jin Kam", "Ha Young Kim"], "title": "Learning representations for the early detection of sepsis with deep neural networks", "venue": "Computers in biology and medicine,", "year": 2017}, {"authors": ["Jacob S Calvert", "Daniel A Price", "Uli K Chettipally", "Christopher W Barton", "Mitchell D Feldman", "Jana L Hoffman", "Melissa Jay", "Ritankar Das"], "title": "A computational approach to early sepsis detection", "venue": "Computers in biology and medicine,", "year": 2016}, {"authors": ["Sumanth Swaminathan", "Klajdi Qirko", "Ted Smith", "Ethan Corcoran", "Nicholas G Wysham", "Gaurav Bazaz", "George Kappel", "Anthony N Gerber"], "title": "A machine learning approach to triaging patients with chronic obstructive pulmonary disease", "venue": "PloS one,", "year": 2017}, {"authors": ["Zhengxing Huang", "Wei Dong", "Huilong Duan", "Jiquan Liu"], "title": "A regularized deep learning approach for clinical risk prediction of acute coronary syndrome using electronic health records", "venue": "IEEE Transactions on Biomedical Engineering,", "year": 2017}, {"authors": ["Joseph Futoma", "Sanjay Hariharan", "Mark Sendak", "Nathan Brajer", "Meredith Clement", "Armando Bedoya", "Cara O\u2019Brien", "Katherine Heller"], "title": "An improved multi-output gaussian process rnn with real-time validation for early sepsis detection", "venue": "arXiv preprint arXiv:1708.05894,", "year": 2017}, {"authors": ["Joseph Futoma", "Sanjay Hariharan", "Katherine Heller"], "title": "Learning to detect sepsis with a multitask gaussian process rnn classifier", "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume", "year": 2017}, {"authors": ["Alfredo Vellido", "Vicent Ribas", "Carles Morales", "Adolfo Ruiz Sanmart\u00edn", "Juan Carlos Ruiz-Rodr\u00edguez"], "title": "Machine learning for critical care: An overview and a sepsis case study", "venue": "In International Conference on Bioinformatics and Biomedical Engineering,", "year": 2017}, {"authors": ["Kevin ten Haaf", "Jihyoun Jeon", "Martin C Tammem\u00e4gi", "Summer S Han", "Chung Yin Kong", "Sylvia K Plevritis", "Eric J Feuer", "Harry J de Koning", "Ewout W Steyerberg", "Rafael Meza"], "title": "Risk prediction models for selection of lung cancer screening candidates: A retrospective validation study", "venue": "PLoS medicine,", "year": 2017}, {"authors": ["Benjamin Shickel", "Tyler J Loftus", "Lasith Adhikari", "Tezcan Ozrazgat-Baslanti", "Azra Bihorac", "Parisa Rashidi"], "title": "Deepsofa: A continuous acuity score for critically ill patients using clinically interpretable deep learning", "venue": "Scientific reports,", "year": 2019}, {"authors": ["Eric J Topol"], "title": "High-performance medicine: the convergence of human and artificial intelligence", "venue": "Nature medicine,", "year": 2019}, {"authors": ["Benjamin Shickel", "Patrick James Tighe", "Azra Bihorac", "Parisa Rashidi"], "title": "Deep ehr: a survey of recent advances in deep learning techniques for electronic health record (ehr) analysis", "venue": "IEEE journal of biomedical and health informatics,", "year": 2017}, {"authors": ["Alvin Rajkomar", "Jeffrey Dean", "Isaac Kohane"], "title": "Machine learning in medicine", "venue": "New England Journal of Medicine,", "year": 2019}, {"authors": ["Cao Xiao", "Edward Choi", "Jimeng Sun"], "title": "Opportunities and challenges in developing deep learning models using electronic health records data: a systematic review", "venue": "Journal of the American Medical Informatics Association,", "year": 2018}, {"authors": ["Federico Cabitza", "Raffaele Rasoini", "Gian Franco Gensini"], "title": "Unintended consequences of machine learning in medicine", "venue": "Jama,", "year": 2017}, {"authors": ["Nal Kalchbrenner", "Lasse Espeholt", "Karen Simonyan", "Aaron van den Oord", "Alex Graves", "Koray Kavukcuoglu"], "title": "Neural machine translation in linear time", "venue": "arXiv preprint arXiv:1610.10099,", "year": 2016}, {"authors": ["Shaojie Bai", "J Zico Kolter", "Vladlen Koltun"], "title": "An empirical evaluation of generic convolutional and recurrent networks for sequence modeling", "venue": "arXiv preprint arXiv:1803.01271,", "year": 2018}, {"authors": ["Colin Lea", "Rene Vidal", "Austin Reiter", "Gregory D Hager"], "title": "Temporal convolutional networks: A unified approach to action segmentation", "venue": "In European Conference on Computer Vision,", "year": 2019}, {"authors": ["Gr\u00e9goire Montavon", "Sebastian Lapuschkin", "Alexander Binder", "Wojciech Samek", "Klaus-Robert M\u00fcller"], "title": "Explaining nonlinear classification decisions with deep taylor decomposition", "venue": "Pattern Recognition,", "year": 2017}, {"authors": ["Gr\u00e9goire Montavon", "Wojciech Samek", "Klaus-Robert M\u00fcller"], "title": "Methods for interpreting and understanding deep neural networks", "venue": "Digital Signal Processing,", "year": 2018}, {"authors": ["Sebastian Bach", "Alexander Binder", "Gr\u00e9goire Montavon", "Frederick Klauschen", "Klaus-Robert M\u00fcller", "Wojciech Samek"], "title": "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation", "venue": "PloS one,", "year": 2015}, {"authors": ["Wojciech Samek", "Thomas Wiegand", "Klaus-Robert M\u00fcller"], "title": "Explainable artificial intelligence: Understanding, visualizing and interpreting deep learning models", "venue": "arXiv preprint arXiv:1708.08296,", "year": 2017}, {"authors": ["Wojciech Samek", "Alexander Binder", "Gr\u00e9goire Montavon", "Sebastian Lapuschkin", "Klaus-Robert M\u00fcller"], "title": "Evaluating the visualization of what a deep neural network has learned", "venue": "IEEE transactions on neural networks and learning systems,", "year": 2016}, {"authors": ["Emre Aksan", "Otmar Hilliges"], "title": "Stcn: Stochastic temporal convolutional networks", "venue": "arXiv preprint arXiv:1902.06568,", "year": 2019}, {"authors": ["Carsten B\u00f8cker Pedersen"], "title": "The danish civil registration system", "venue": "Scandinavian journal of public health,", "year": 2011}, {"authors": ["Mervyn Singer", "Clifford S Deutschman", "Christopher Warren Seymour", "Manu Shankar-Hari", "Djillali Annane", "Michael Bauer", "Rinaldo Bellomo", "Gordon R Bernard", "Jean-Daniel Chiche", "Craig M Coopersmith"], "title": "The third international consensus definitions for sepsis and septic shock", "venue": "(sepsis-3). Jama,", "year": 2016}, {"authors": ["Arif Khwaja"], "title": "Kdigo clinical practice guidelines for acute kidney injury", "venue": "Nephron Clinical Practice, 120(4):c179\u2013", "year": 2012}, {"authors": ["Margot E Kaminski"], "title": "The right to explanation, explained", "venue": "Berkeley Tech. LJ,", "year": 2019}, {"authors": ["Andrew D Selbst", "Julia Powles"], "title": "Meaningful information and the right to explanation", "venue": "International Data Privacy Law,", "year": 2017}, {"authors": ["Christopher W Seymour", "Vincent X Liu", "Theodore J Iwashyna", "Frank M Brunkhorst", "Thomas D Rea", "Andr\u00e9 Scherag", "Gordon Rubenfeld", "Jeremy M Kahn", "Manu Shankar-Hari", "Mervyn Singer"], "title": "Assessment of clinical criteria for sepsis: for the third international consensus definitions for sepsis and septic shock", "venue": "(sepsis-3). Jama,", "year": 2016}, {"authors": ["J-L Vincent", "Rui Moreno", "Jukka Takala", "Sheila Willatts", "Arnaldo De Mendon\u00e7a", "Hajo Bruining", "CK Reinhart", "PeterM Suter", "LG Thijs"], "title": "The sofa (sepsis-related organ failure assessment) score to describe organ dysfunction/failure", "venue": "Intensive care medicine,", "year": 1996}, {"authors": ["Xiang Zhang", "Junbo Zhao", "Yann LeCun"], "title": "Character-level convolutional networks for text classification", "venue": "In Advances in neural information processing systems,", "year": 2015}, {"authors": ["James L Crowley", "Arthur C Sanderson"], "title": "Multiple resolution representation and probabilistic matching of 2-d gray-scale shape", "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence,", "year": 1987}, {"authors": ["Vinod Nair", "Geoffrey E Hinton"], "title": "Rectified linear units improve restricted boltzmann machines", "venue": "In Proceedings of the 27th international conference on machine learning", "year": 2010}, {"authors": ["Jonathan Tompson", "Ross Goroshin", "Arjun Jain", "Yann LeCun", "Christoph Bregler"], "title": "Efficient object localization using convolutional networks", "venue": "In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition,", "year": 2015}, {"authors": ["Diederik P Kingma", "Jimmy Ba"], "title": "Adam: A method for stochastic optimization", "venue": "arXiv preprint arXiv:1412.6980,", "year": 2014}, {"authors": ["Kaiming He", "Xiangyu Zhang", "Shaoqing Ren", "Jian Sun"], "title": "Deep residual learning for image recognition", "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,", "year": 2016}, {"authors": ["Arti Patle", "Deepak Singh Chouhan"], "title": "Svm kernel functions for classification", "venue": "In 2013 International Conference on Advances in Technology and Engineering (ICATE),", "year": 2013}, {"authors": ["Maximilian Alber", "Sebastian Lapuschkin", "Philipp Seegerer", "Miriam H\u00e4gele", "Kristof T Sch\u00fctt", "Gr\u00e9goire Montavon", "Wojciech Samek", "Klaus-Robert M\u00fcller", "Sven D\u00e4hne", "Pieter-Jan Kindermans"], "title": "innvestigate neural networks", "venue": "Journal of Machine Learning Research,", "year": 2019}, {"authors": ["HISTORISK PERSPEKTIV"], "title": "Gennemgang af early warning score til forebyggelse af uventet kritisk sygdom og d\u00f8d", "venue": "Ugeskr L\u00e6ger, 180:V02180135,", "year": 2018}], "sections": [{"text": "Artificial Intelligence (AI) is capable of predicting acute critical illness earlier and with greater accuracy than traditional Early Warning Score (MEWS) systems, such as modified EWSs (MEWSs) and Sequential Organ Failure Assessment Scores (SOFAs).4, 8, 9, 11\u201313, 15, 17\u201319, 22\u201326 Unfortunately, standard deep learning (DL) that comprise available AI models are black-boxes and their predictions cannot readily be explained to clinicians. The importance of explainable and transparent DL algorithms in clinical medicine is without question and was recently highlighted in the Nature Medicine review by Topol, E. J.27, 28 Transparency and explainability are an absolute necessity for the widespread introduction of AI models into clinical practice, where an incorrect prediction can have grave consequences.28\u201331 Clinicians must be able to understand the underlying reasoning of AI models so they can trust the predictions and be able to identify individual cases in which an AI model potentially gives incorrect predictions.28\u201330, 32\nIn this paper, we will present xAI-EWS, which comprises a robust and accurate AI model for predicting acute critical illness from Electronic Health Records (EHRs). Importantly, xAI-EWS was designed to provide explanations for the given predictions. To demonstrate the general clinical relevance of the xAI-EWS, we present results here from three emergency medicine cases: sepsis, Acute Kidney Injury (AKI), and Acute Lung Injury (ALI). The xAI-EWS is composed of a temporal convolutional network (TCN)33\u201335 prediction module and a deep Taylor decomposition (DTD)36\u201340 explanation module, tailored to temporal explanations (see figure 1). The architecture of the TCN has proven to be particularly effective at predicting events that have a temporal component, such as the development of critical illness.12, 34, 35, 41, 42 The TCN operates sequentially over individual EHRs and outputs predictions in the range of 0% to 100%, where the predicted risk should be higher for those patients at risk of later acute critical illness, compared to those who are not. The DTD explanation module delineates the TCN predictions in terms of input variables by producing a decomposition of the TCN output on the input variables. As comparative measures for the predictive performance, we used the area under the receiver operating characteristic curve (AUROC) and the area under the precision-recall curve (AUPRC).\nar X\niv :1\n91 2.\n01 26\n6v 1\n[ cs\n.A I]\n3 D"}, {"heading": "P-Creatinine", "text": ""}, {"heading": "Kidney eGFR", "text": ""}, {"heading": "P-Potassium", "text": ""}, {"heading": "P-Creatinine", "text": ""}, {"heading": "Kidney eGFR", "text": ""}, {"heading": "P-Potassium", "text": "Regarding the explanations, the quality was assessed by manual inspection of trained specialists (medical doctors) in emergency medicine. The xAI-EWS system was trained using data from a multi-center Danish data set, which included the health information of citizens aged 18 years and older with residency in one of four Danish municipalities for the period of 2012 to 2017. The dataset contained information from EHRs related to biochemistry, medicine and microbiology from a diverse set of clinical departments. A total of 163,050 admissions (45.86% male), distributed across 66,288 unique citizens were included for analysis. Patients were randomized across training (80%), validation (10%), and test (10%) sets. The xAI-EWS was validated using a five-fold cross-validation. A ground-truth label for the presence of sepsis, AKI, and ALI at any given point in time was added using the criteria of the Third International Consensus Definitions for Sepsis (Sepsis-3),43 the Kidney Disease: Improving Global Outcomes (KDIGO)44 , and the need for noninvasive ventilation (NIV) or continuous positive airway pressure (CPAP), respectively. Among the admissions, the prevalence for sepsis, AKI, and ALI were 2.44%, 0.75%, and 1.68%, respectively. We implemented two clinical baseline models (MEWS and SOFA) and a gradient-boosting model.\nFor each patient, data from 34 chosen clinical parameters were extracted from the EHRs and used as input for the prediction module (Extended Data Table 1). Based on this data, each of the three prediction models output a prediction in the range of 0% to 100%, such as a 78% risk of developing AKI during admission. The DTD explanation module was then used to explain individual patient predictions in terms of the clinical parameters measured during their admission. The module produced an explanation by running a backward pass on the prediction output according to a predefined set of propagation rules (Figure 1).\nIn Figure 2, the predictive power of the xAI-EWS is presented in summary form with results from the onset time to 24 hours before onset. AUROC with mean values and 95% Confidence Intervals (CIs) were 0.92(0.9-0.95)\u20130.8(0.78-83), 0.88(0.86\u20130.9)\u20130.79(0.78\u20130.8), and 0.90(0.89\u20130.92)\u20130.84(0.82\u20130.85) for sepsis, AKI, and ALI, respectively. AUPRC with mean values and 95% CIs were 0.43(0.36\u20130.51)\u20130.08(0.07-0.09), 0.22(0.19-0.24)-0.13(0.12-0.14), and 0.23(0.21- 0.26)\u20130.23(0.22-0.24) for sepsis, AKI, and ALI, respectively. (Extended Data Table 3 and 4). The xAI-EWS enabled two perspectives on the model explanations: an individual and a population-based perspective. For the individual perspective, the explanation module enabled the xAI-EWS to pinpoint which clinical parameters at a given point in time were relevant for a given prediction. In current clinical practice, the workflow normally follows that clinicians observe either a high EWS or an increase in EWS. However, the following targeted clinical intervention concerning the potential critical illness happens when the clinician understands which clinical parameters have caused the high EWS or the change in EWS. This is one of the main reasons why AI-based EWS systems need to be able to explain their predictions. The xAI-EWS system we developed allows for such explanations in real time and across all clinical parameters used in\nthe model. An example of an output from the explanation module, utilizing the individual perspective, is illustrated in Figure 3. Individual clinical parameters are sized according to the amount of backpropagated relevance. Figure 3a shows the 10 most relevant parameters with respect to sepsis for a single patient with a risk score of 76.2%. High respiration frequency, high pulse rate, and low plasma albumin are the most important predictors of sepsis. The physiological values of respiration frequency and pulse rate do not seem to increase close to the prediction time, but, inspecting the increasing sizes of relevance, it appears that the xAI-EWS attributes more weight to recent values. Figure 3b and Figure 3c show the 10 most relevant parameters with respect to AKI and ALI for two patients with risk scores of 90.4% and 83.8%, respectively.\nIn terms of the population-based perspective, the xAI-EWS is able to facilitate transparency and, thereby, induce trust, by giving clinicians insights into the internal mechanics of the model without any deep technical knowledge of the mechanisms behind it. In Figure 4, the 10 most important clinical parameters for each of the three models are shown. The parameters are sorted by the decreasing mean relevance as computed for the local, back-propagated relevance scores across the entire population, but only for patients who were positive for sepsis, AKI, or ALI.\nThe blue horizontal bars in the left column of Figure 4 display the mean relevance. In the local explanation summary in the right-hand column of Figure 4, the distribution of the back-propagated relevance scores for each clinical parameter are shown and color-coded by the parameter value associated with the local explanation. As an example, in Figure 4c and Figure 4d, the AKI model seems to associate high P-creatinine levels and low estimated glomerular filtration rates with AKI. When the model is confident about a decision, it will output a high probability. This high probability will result in more relevance available for distributing backward; it will also result in larger relevance scores. On the contrary, when the model does not believe that a patient will develop an acute critical illness, it will output a low probability, and the associated relevance scores will also be low. The summary distribution allows clinicians to get an idea of what to expect from the model in clinical practice. It is important to note that the xAI-EWS presented in this study should not be conceived as the one-and-only multi-outcome model. Rather, it should be viewed as a general method of building precise and explainable models for acute critical illness. Following this line of thinking, it is obvious that other models with important critical outcomes, such as hypokalemia, hyperkalemia, acute constipation, and cardiac arrest, should be added to the three models presented in this study. This will result in a series of EWS models that are all specialists in their respective fields.\nOne important aspect on the basis of our model is that more work is needed to investigate better ground truth definitions of the evaluated critical illnesses, such as AKI and ALI. We based the ground truth on the need for Continuous Positive Airway Pressure (CPAP) or Noninvasive ventilation (NIV) due to the lack of a convention on how to label ALI. The KDIGO is an indicator of AKI that has a long lag time after the initial renal impairment, as mentioned by Toma\u0161ev et al.4 Our model is trained and has been tested on a large dataset that is highly representative of the Danish population. However, validating the predictive performance of the xAI-EWS on a different population would make for an interesting study, and, as the xAI-EWS currently uses just 34 clinical parameters, this appears feasible.\nIn summary, we have presented the xAI-EWS\u2014an explainable AI EWS system for the prediction of acute critical illness using EHRs. The xAI-EWS shows a high predictive performance while enabling the possibility to explain the predictions in terms of pinpointing decisive input data to empower clinicians to understand the underlying reasoning of the predictions. We hope that our results will be a steppingstone toward a more widespread adoption of AI in clinical practice. As stated, explainable predictions facilitate trust and transparency\u2014properties that also make it possible to comply with the regulations of the European Union General Data Protection Regulation, the Conformit\u00e9 Europ\u00e9enne (CE) marking, and the United States Food and Drug Administration (FDA).45, 46\nMethods"}, {"heading": "Data description", "text": "In this study, we analyzed the secondary healthcare data of all residents of four Danish municipalities (Odder, Hedensted, Skanderborg, and Horsens) who were 18 years of age or older for the period of 2012\u20132017.47 The data contained information from the electronic health record (EHR), including biochemistry, medicine, microbiology, and procedure codes, and was extracted from the \u201cCROSS-TRACKS\u201d cohort, which embraces a mixed rural and urban multi-center population with four regional hospitals and one larger university hospital. Each hospital comprises multiple departmental units, such as emergency medicine, intensive care, and thoracic surgery. We included all 163,050 available inpatient admissions (45.86% male) during the study period and excluded only outpatient admissions. The included admissions were distributed across 66,288 unique residents. The prevalence for sepsis, AKI, and ALI among these admissions was 2.44%, 0.75%, and 1.68%, respectively (see Extended Data Table 2). The CROSS-TRACKS cohort receives data from the regional data warehouse (Central Denmark Region), which offers a combined dimensional model of the secondary healthcare data. Merging all data sets is possible via a unique personal identification number given to all Danish citizens and by which all information within any public institution is collected.42 The model parameters were limited to include only a small subset of the total available events, namely, 28 laboratory parameters and six vital signs (see Extended Data Table 1). The parameters were selected by trained specialists in emergency medicine (medical doctors) with the sole purpose of simplifying the model to enable a better discussion of the model explanations. Therefore, frequently recorded parameters having known correlations with acute critical illnesses were preferred. While a deeper model with a latent representation of thousands of clinical parameters might lead to better performance, it would also have made the continuous discussions between clinicians and software engineers difficult. Therefore, the scope of this article is not to obtain the best performance at all costs but to demonstrate how clinical tasks can be supported by a fully explainable deep learning approach.\nData preprocessing. In the data extracted from the CROSS-TRACKS cohort, each admission is represented as a time-ordered sequence of EHR events. Importantly, the time-stamped order of this data reflects the point in time at which the clinicians record each event during the admission. Each event comprises three elements: a time stamp; an event name, such as blood pressure; and a numerical value. The event sequence is partitioned in aggregated intervals of one hour, such that the observation window of 24 hours is divided into 24 one-hour periods, and all the events occurring within the same one-hour period are grouped together by their average numerical value.\nGold standards. Via a classification process, each admission was classified as sepsis-positive, AKI-positive, ALIpositive, or negative (no critical illness). For sepsis classification, we followed the recent Sepsis-343, 48 implementation by Moor et al.,12 according to which both suspected infection and organ dysfunction are required to be present.12, 43, 48 Suspected infection was defined by the co-occurrence of body fluid sampling and antibiotic administration. When a culture sample was obtained before antibiotics administration, the antibiotic had to be ordered within 72 hours.12 If the antibiotic was administered first, then the culture sample had to follow within 24 hours.48 Organ dysfunction occurs when the SOFA49 score displays an acute increase of more than or equal to two points.48 To implement the organ dysfunction criterion, we used a 72-hour window from 48 hours before to 24 hours after the time of suspected infection, as suggested by Singeret et al.43 and Moor et al.12 The Sepsis-3 implementation is visualized in Extended Data Figure 1.\nSOFA Score\nSI-window\n48h 24h\n>=2 pts.\nSI\nSepsis onset AKI onset ALI onset\nFirst NIV/CPAP treatment\na b c\nCPAP CPAP NIV\np-Creatinine >1.5 x habitual / 7 days >26.5 \u03bcmol/L / 48 hHabitual\nExtended Data Figure 1 \u2013 Gold standards for sepsis, AKI, and ALI. Sepsis (a); AKI (c); ALI (e); Suspected infection (SI).\nAKI classification was performed according to the KDIGO criteria.44 KDIGO accepts three definitions of AKI: (1) an increase in serum creatinine of 0.3 mg/dl (26.5\u00b5mol/l) within 48 hours; (2) an increase in serum creatinine by 1.5 times the habitual creatinine level of a patient within the previous seven days; and (3) a urine output of < 0.5 ml/kg/h over 6 hours. Following the work of Toma\u0161ev et al.,4 only the first two definitions were used to provide ground-truth labels for the onset of AKI as urine measurements were not available. The habitual creatinine level was computed as the mean creatinine level during the previous 365 days. We used binary encoding for AKI such that all three severity stages (KDIGO stages 1, 2, and 3) were encoded as positive AKI. For ALI classification, we simply considered the\npresence of either NIV or CPAP during the admission. The ALI onset was the first occurrence of either NIV or CPAP (see Extended Data Figure 1).\nPrediction module. The AI-EWS model is designed as a variation of a convolutional neural network (CNN) called a temporal convolutional network (TCN). CNNs have dominated computer vision tasks for the last century32 and are also highly capable of performing sequential tasks, such as text analysis and machine translation.34, 50 A TCN34, 35 models the joint probability distribution over sequences by decomposing the distribution over discrete time-steps p\u03b8(x) = qTt=1p\u03b8(xt|x1:t\u22121), where x = {x1, x2, . . . , xT } is a sequence, and the joint distribution is parameterized by the TCN parameter \u03b8. Thus, a TCN operates under the autoregressive premise that only past values affect the current or future values, e.g., if a patient will develop acute critical illness. Moreover, TCNs differ from \u201cordinary\u201d CNNs by at least two properties: (1) the convolutions in TCNs are causal in the sense that a convolution filter at time t is only dependent on the inputs that are no later than t, wherein the input subsequence isx1, x2, . . . , xt; and (2) TCNs can take a sequence of any length as input and output a sequence of the same length, similar to RNNs.35 The TCN achieves this by increasing the receptive field of the model with dilated convolutions instead of performing the traditional max pooling operation, as seen in most CNNs. Dilated convolutions achieve a larger receptive field with fewer parameters by having an exponential stride compared to the traditional linear stride. By increasing the receptive field, a temporal hierarchy comparable to multi-scale analysis from computer vision can be achieved.51 The Extended Data in Figure 2 schematizes the xAI-EWS model and the concept of dilated convolutions. At the time of prediction, the xAI-EWS model receives an input matrix of shape \"time-steps\" \u00d7 \"features\" for each patient.\nInput\nDilation = 4\nHidden layer Dilation = 1\nHidden layer Dilation = 1\nDilation structure\nOnset\n0 hr3hr12 hr24 hr 6 hr Predictions\n24 hour observation\nwindows\nAdmission\nInput to model\nDilated Causal Conv\nLayer Norm\nSpatial Dropout\nReLU\nDilated Causal Conv\nLayer Norm\nSpatial Dropout\nReLU\nTemporal blockc\na\nTemporal block 2 (TB2)\nTemporal block 1 (TB1)\nGlobal Average Pooling\nDense\nSoftmax\nOutput\nInput\nb Output to upper layers\nHidden layer Dilation = 2\nHidden layer Dilation = 2\nTB2\nTB1\nFlatten\nTemporal block 3 (TB3)\nd\nDilation = 4 Hidden layer\nTB3\nExtended Data Figure 2 \u2013 The xAI-EWS model architecture. The models in this study are trained and evaluated at 0, 3, 6, 12, and 24 hours before the onset of critical illness. Each model has a 24-hour retrospective observation window. The color gradient from green to red illustrates continuous deterioration towards acute critical illness (a). The overall model architecture of the AI-EWS model is shown in (b). The xAI-EWS uses three temporal blocks (c), each comprising one-dimensional dilated causal convolution layers, ReLU activations, one-dimensional dropout layers, and normalization layers. Red layers are only used during training and are omitted when the model is used for predictions and explanations. The overall dilation structure of the model is shown in (d). The one-dimensional dilated causal convolution layers allow the model to skip some points during convolution and, thereby, increase the receptive field of the model.\nThe data is processed by three temporal blocks, each including one-dimensional dilated causal convolutions with 64 filters, ReLU activations,52 layers normalization,53 and one-dimensional spatial dropout layers.54 Outputs from the third temporal block are pooled together across time-steps by a global average pooling operation55 to obtain a stabilizing\neffect for the final output of the model. The pooled output from each kernel in the dilated causal convolutions is flattened to a single vector that is used as input to a final dense layer followed by a softmax activation function. The output from the softmax activation is the probability of future sepsis, AKI, or ALI during admission.\nTraining and hyperparameters. The model was trained to optimize the cross-entropy loss using the Adam optimizer56 with mini-batches of the size of 200, a learning rate of 0.001, and a dropout rate of 10%. All weights were initialized with He Normal initialization.57 The model was trained on a NVIDIA Tesla V100 GPU. Convergence was reached in approximately 30 minutes.\nExplanation module. In linear models, such as linear regression models33 and support vector machines (with a linear kernel),58 the association between parameters and outcomes is modeled linearly and is, therefore, readily transparent and explainable. Consider the linear function fc that weights the input x by wc in order to assign a decision for class c, where, for notational convenience, the bias is included in the input vector with a fixed weight of one:\nfc(x) = wTc x = \u2211 i wicxi. (1)\nFrom this expression, we can conclude that each input xi of x contributes together with the trainable parameter wic to the overall evaluation of fc through the quantity wicxi. The weight wic can therefore be interpreted as a factor that reflects the importance of the parameter xi, and this interpretation, thereby, offers a simple explanation for each decision made by the linear model. In contrast, the complexity associated with the multi-layer non-linear nature of deep learning models counteracts with such simplicity in explanations. Layer-wise relevance propagation (LRP)36, 37, 39, 53\u201355 is an explantory technique that applies to deep-learning models, such as TCNs. Starting from the output fc(x), LRP decomposes an explanation into simpler local updates, each recursively defining the contribution to the explanation (called relevance) for all activating neurons in the previous layer. The relevance explanation of a prediction is, in this way, propagated backward from the initial relevance score Rj = fc(x) through the network by local relevance updates Ri\u2190j between connecting neurons i and j until the input layer is finally reached. Extended Data Figure 3 illustrates this process, which is similar to standard back-propagation of errors except that the relevance data are propagated backward in the network instead. The so-called deep Taylor decomposition (DTD)35 defines a sound theoretical framework behind most implementations of LRP. In DTD, a local backward propagation of relevance from a neuron to the activating neurons in the previous layer resembles the above explanation for the simple linear model except that the DTD relevance-propagation rule accounts for non-linearity in the model by a first-order Taylor approximation at some well-chosen root-point. For models where linear projections are followed by non-linear ReLU activation functions, such as this work, the standard update rule for propagating the relevance Rj at neuron j backwards to neuron i is given by\nRi\u2190j = w+ijai\u2211 i w + ijai Rj , (2)\nwhere ai is the activation for neuron i, and w+ij = wij for positive weights and otherwise equals zero. Notice that, aside from the restriction to positive weights, this local relevance update rule is similar to the simple explanation rule for the linear model.\nRi j Ri Rj\nOutputInput\nExtended Data Figure 3 \u2013 Deep Taylor Decomposition (DTD). DTD decomposes the problem of explaining a complex multilayer neural network model into simpler sub-functions that are easier to analyze and explain. The relevance score at input neuron Ri is obtained by pooling all incoming relevance values Rj from the output neurons in the next layer.\nFinally, to propagate the relevance at neuron i further back in the network, the collective relevance score Ri is obtained by pooling all incoming relevance values Ri\u2190j from the output neurons to which i contributes in the forward pass.\nRi = \u2211 j Ri\u2190j (3)\nTogether, Equations (2) and (3) define the DTD procedure, where the relevance propagation rule in (2) is a special instance of DTD. In general, the Taylor expansion defining the relevance propagation rule depends on the type of\nnon-linearity and can, in addition, be engineered to enforce desirable properties based on root point restrictions. For more details about DTD, please refer to the original work by Montavon et al.35 or the collection of works in Montavon et al.57\nThe AI-EWS explanation module allows two perspectives on model explanations: an individual and a population-based perspective. For the individual perspective, DTD can be used for all patients with a high probability of developing acute critical illness. The module will simply pinpoint which clinical parameters at a given point in time were relevant for any given prediction (Figure 3). For the population-based perspective, relevance is back-propagated from the output neuron representing the positive classes (sepsis, AKI, and ALI) and is only considered for the patients with a positive label (sepsis, AKI, and ALI). The individual data points and back-propagated relevance scores for these patients were aggregated in two ways to enable global parameter importance estimation and local explanation summary5 (4). For estimating global parameter importance, the mean relevance scores associated with each clinical parameter were computed. This computation enabled parameter-importance estimation comparable to standardized regression coefficients in multiple linear regression or feature importance measures in random forest.36 The local explanation summary (Figure 4b) presents all individual data points, colored by parameter value and displaced by the relevance. In the local explanation summary, the height of the data points shown for each parameter correlates with the number of data points at their associated level of relevance. The population-based perspective is simplified by ignoring potential temporal relevance variations and treating all data points at different times equally. The visual concepts of global parameter importance estimation and local explanation summary used in this paper are adopted from the SHapley Additive exPlanations (SHAP)5 library by Lundberg et al. In this paper, DTD was implemented using the iNNvestigate59 library developed by Alber et al. iNNvestigate is a high-level library with an easy-to-use interface for many of the most-used explanation methods for neural networks.\nBaseline models. MEWS. The MEWS baseline model interprets raw MEWS scores as a prediction model for acute critical illness. MEWS was implemented as the Danish variant called \u201cEarly detection of critical illness\u201d [TOKS: Tidlig opsporing af kritisk sygdom].60 MEWS scores were calculated each time one of the model components was updated with a new measurement. Missing values were imputed with a standard carry-forward interpolation.\nSOFA. This baseline model interprets raw SOFA43, 48 scores as a prediction model for acute critical illness. SOFA scores were calculated each time one of the model components was updated with a new measurement. Missing values were imputed with a standard carry-forward interpolation.\nGB-Vital. This baseline model is a replication of a well-known sepsis detection mode15, 19 from the literature, which has shown great results in a randomized study.17 The complete technical description of the model can be found in the study from Mao et al.15 The model parameters are constructed by considering only six vital-sign events from the raw EHR event sequences: systolic blood pressure, diastolic blood pressure, heart rate, respiratory rate, peripheral capillary oxygen saturation, and temperature. The constructed parameters highly aggregate the sequence information, and only limited ordering information is retained. That is, for each of the six vital signs, five parameters are constructed to represent the average value for the current hour, the prior hour, and the hour prior to that hour, together with the trend value between two succeeding hours. Based on these 30 parameters (five parameters from each of the six vital-sign events), the GB-Vital model is constructed as a gradient-boosted classifier of decision trees61.\nEvaluation. The xAI-EWS model outputs a prediction that reflects the risk of developing critical illness during a hospital admission if not intervened upon. This prediction ranges from zero to one, where the predicted risk should be higher for those patients who are at a risk of developing a critical illness in the future than the patients who are not at risk. The xAI-EWS model was validated using five-fold cross-validation. For each fold, the data were divided into training data (80%), validation data (10%), and test data (10%). The training data were used to fit the xAI-EWS model parameters. The validation data were used to perform an unbiased evaluation of a model fit during training, and the test data were used to provide an unbiased evaluation of the final model. As comparative measures, we used the area under the receiver operating characteristic curve (AUROC) and the area under the precision-recall curve (AUPRC).\nEthics and information governance. The study was approved by The Danish Data Protection Agency [case number 1-16-02-541-15]. Additionally, the data used in this work were collected with the approval of the steering committee for CROSS-TRACKS. Only retrospective data were used for this research without the active involvement of patients or potential influence on their treatment. Therefore, under the current national legislature, no formal ethical approval was necessary."}, {"heading": "Data availability", "text": "The authors have accessed the data referred to herein by applying the CROSS-TRACKS cohort, which is a newer Danish cohort that combines primary and secondary sector data. Due to the EU regulations, GDPR, these data are not readily available to the wider research community per se. However, all researchers can apply for access to the data by following the instructions on this page:http://www.tvaerspor.dk/adgang-til-data."}, {"heading": "Code availability", "text": "We made use of several open-source libraries to conduct our experiments: the high-level library explaining neural networks iNNvestigate (https://github.com/albermax/innvestigate); the machine learning framework TensorFlow (https://github.com/tensorflow/tensor-flow); and SHAP (https://github.com/slundberg/ shap). Our experimental framework makes use of proprietary libraries, and we are unable to publicly release this code. We have described the experiments and implementation details in the Methods section to allow for independent replication. Further inquiry regarding the specific nature of the AI model can be made by relevant parties to the corresponding author."}], "title": "EXPLAINABLE ARTIFICIAL INTELLIGENCE MODEL TO PREDICT ACUTE CRITICAL ILLNESS FROM ELECTRONIC HEALTH RECORDS", "year": 2019}
+{
+  "abstractText": "We developed an explainable artificial intelligence (AI) early warning score (xAI-EWS) system for early detection of acute critical illness. While maintaining a high predictive performance, our system explains to the clinician on which relevant electronic health records (EHRs) data the prediction is grounded. Acute critical illness is often preceded by deterioration of routinely measured clinical parameters, e.g., blood pressure and heart rate. Early clinical prediction is typically based on manually calculated screening metrics that simply weigh these parameters, such as Early Warning Scores (EWS). The predictive performance of EWSs yields a tradeoff between sensitivity and specificity that can lead to negative outcomes for the patient.1\u20133 Previous work on EHR-trained AI systems offers promising results with high levels of predictive performance in relation to the early, real-time prediction of acute critical illness.4\u201321 However, without insight into the complex decisions by such system, clinical translation is hindered. In this paper, we present our xAI-EWS system, which potentiates clinical translation by accompanying a prediction with information on the EHR data explaining it. Artificial Intelligence (AI) is capable of predicting acute critical illness earlier and with greater accuracy than traditional Early Warning Score (MEWS) systems, such as modified EWSs (MEWSs) and Sequential Organ Failure Assessment Scores (SOFAs).4, 8, 9, 11\u201313, 15, 17\u201319, 22\u201326 Unfortunately, standard deep learning (DL) that comprise available AI models are black-boxes and their predictions cannot readily be explained to clinicians. The importance of explainable and transparent DL algorithms in clinical medicine is without question and was recently highlighted in the Nature Medicine review by Topol, E. J.27, 28 Transparency and explainability are an absolute necessity for the widespread introduction of AI models into clinical practice, where an incorrect prediction can have grave consequences.28\u201331 Clinicians must be able to understand the underlying reasoning of AI models so they can trust the predictions and be able to identify individual cases in which an AI model potentially gives incorrect predictions.28\u201330, 32 In this paper, we will present xAI-EWS, which comprises a robust and accurate AI model for predicting acute critical illness from Electronic Health Records (EHRs). Importantly, xAI-EWS was designed to provide explanations for the given predictions. To demonstrate the general clinical relevance of the xAI-EWS, we present results here from three emergency medicine cases: sepsis, Acute Kidney Injury (AKI), and Acute Lung Injury (ALI). The xAI-EWS is composed of a temporal convolutional network (TCN)33\u201335 prediction module and a deep Taylor decomposition (DTD)36\u201340 explanation module, tailored to temporal explanations (see figure 1). The architecture of the TCN has proven to be particularly effective at predicting events that have a temporal component, such as the development of critical illness.12, 34, 35, 41, 42 The TCN operates sequentially over individual EHRs and outputs predictions in the range of 0% to 100%, where the predicted risk should be higher for those patients at risk of later acute critical illness, compared to those who are not. The DTD explanation module delineates the TCN predictions in terms of input variables by producing a decomposition of the TCN output on the input variables. As comparative measures for the predictive performance, we used the area under the receiver operating characteristic curve (AUROC) and the area under the precision-recall curve (AUPRC). ar X iv :1 91 2. 01 26 6v 1 [ cs .A I] 3 D ec 2 01 9 A PREPRINT DECEMBER 4, 2019",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Simon Meyer Lauritsen"
+    },
+    {
+      "affiliations": [],
+      "name": "Mads Kristensen"
+    },
+    {
+      "affiliations": [],
+      "name": "Mathias Vassard Olsen"
+    },
+    {
+      "affiliations": [],
+      "name": "Morten Skaarup Larsen"
+    },
+    {
+      "affiliations": [],
+      "name": "Katrine Meyer Lauritsen"
+    },
+    {
+      "affiliations": [],
+      "name": "Marianne Johansson J\u00f8rgensen"
+    },
+    {
+      "affiliations": [],
+      "name": "Jeppe Lange"
+    },
+    {
+      "affiliations": [],
+      "name": "Bo Thiesson"
+    }
+  ],
+  "id": "SP:f50c1930e507ac2492169e6ac66d01d9ae37beb9",
+  "references": [
+    {
+      "authors": [
+        "CL Downey",
+        "W Tahir",
+        "R Randell",
+        "JM Brown",
+        "DG Jayne"
+      ],
+      "title": "Strengths and limitations of early warning scores: a systematic review and narrative synthesis",
+      "venue": "International Journal of Nursing Studies, 76:106\u2013119,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Sarah Forster",
+        "Gemma Housley",
+        "Tricia M McKeever",
+        "Dominick E Shaw"
+      ],
+      "title": "Investigating the discriminative value of early warning scores in patients with respiratory disease using a retrospective cohort analysis of admissions to nottingham university hospitals trust over a 2-year period",
+      "venue": "BMJ open,",
+      "year": 2026
+    },
+    {
+      "authors": [
+        "Nadia Alam",
+        "Elke L Hobbelink",
+        "Arne-Jon van Tienhoven",
+        "Peter M van de Ven",
+        "Eline P Jansma",
+        "Prabath WB Nanayakkara"
+      ],
+      "title": "The impact of the use of the early warning score (ews) on patient outcomes: a systematic review",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Nenad Toma\u0161ev",
+        "Xavier Glorot",
+        "Jack W Rae",
+        "Michal Zielinski",
+        "Harry Askham",
+        "Andre Saraiva",
+        "Anne Mottram",
+        "Clemens Meyer",
+        "Suman Ravuri",
+        "Ivan Protsyuk"
+      ],
+      "title": "A clinically applicable approach to continuous prediction of future acute kidney",
+      "venue": "injury. Nature,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Scott M Lundberg",
+        "Gabriel Erion",
+        "Hugh Chen",
+        "Alex DeGrave",
+        "Jordan M Prutkin",
+        "Bala Nair",
+        "Ronit Katz",
+        "Jonathan Himmelfarb",
+        "Nisha Bansal",
+        "Su-In Lee"
+      ],
+      "title": "Explainable ai for trees: From local explanations to global understanding",
+      "venue": "arXiv preprint arXiv:1905.04610,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Deepak A Kaji",
+        "John R Zech",
+        "Jun S Kim",
+        "Samuel K Cho",
+        "Neha S Dangayach",
+        "Anthony B Costa",
+        "Eric K Oermann"
+      ],
+      "title": "An attention based deep learning model of clinical events in the intensive care unit",
+      "venue": "PloS one,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ran Liu",
+        "Joseph L Greenstein",
+        "Stephen J Granite",
+        "James C Fackler",
+        "Melania M Bembea",
+        "Sridevi V Sarma",
+        "Raimond L Winslow"
+      ],
+      "title": "Data-driven discovery of a novel sepsis pre-shock state predicts impending septic shock in the icu",
+      "venue": "Scientific reports,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Simon Meyer Lauritsen",
+        "Mads Ellersgaard Kal\u00f8r",
+        "Emil Lund Kongsgaard",
+        "Katrine Meyer Lauritsen",
+        "Marianne Johansson J\u00f8rgensen",
+        "Jeppe Lange",
+        "Bo Thiesson"
+      ],
+      "title": "Early detection of sepsis utilizing deep learning on electronic health record event sequences",
+      "venue": "arXiv preprint arXiv:1906.02956,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Christopher Barton",
+        "Uli Chettipally",
+        "Yifan Zhou",
+        "Zirui Jiang",
+        "Anna Lynn-Palevsky",
+        "Sidney Le",
+        "Jacob Calvert",
+        "Ritankar Das"
+      ],
+      "title": "Evaluation of a machine learning algorithm for up to 48-hour advance prediction of sepsis using six vital signs",
+      "venue": "Computers in biology and medicine,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Matthieu Scherpf",
+        "Felix Gr\u00e4\u00dfer",
+        "Hagen Malberg",
+        "Sebastian Zaunseder"
+      ],
+      "title": "Predicting sepsis with a recurrent neural network using the mimic iii database",
+      "venue": "Computers in biology and medicine,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Md Mohaimenul Islam",
+        "Tahmina Nasrin",
+        "Bruno Andreas Walther",
+        "Chieh-Chen Wu",
+        "Hsuan-Chia Yang",
+        "Yu-Chuan Li"
+      ],
+      "title": "Prediction of sepsis patients using machine learning approach: a meta-analysis",
+      "venue": "Computer methods and programs in biomedicine,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Michael Moor",
+        "Max Horn",
+        "Bastian Rieck",
+        "Damian Roqueiro",
+        "Karsten Borgwardt"
+      ],
+      "title": "Temporal convolutional networks and dynamic time warping can drastically improve the early prediction of sepsis",
+      "year": 1902
+    },
+    {
+      "authors": [
+        "Joseph Futoma",
+        "Anthony Lin",
+        "Mark Sendak",
+        "Armando Bedoya",
+        "Meredith Clement",
+        "Cara O\u2019Brien",
+        "Katherine Heller"
+      ],
+      "title": "Learning to treat sepsis with multi-output gaussian process deep recurrent q-networks",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Zhengxing Huang",
+        "Wei Dong",
+        "Huilong Duan",
+        "Jiquan Liu"
+      ],
+      "title": "A regularized deep learning approach for clinical risk prediction of acute coronary syndrome using electronic health records",
+      "venue": "IEEE Transactions on Biomedical Engineering,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Qingqing Mao",
+        "Melissa Jay",
+        "Jana L Hoffman",
+        "Jacob Calvert",
+        "Christopher Barton",
+        "David Shimabukuro",
+        "Lisa Shieh",
+        "Uli Chettipally",
+        "Grant Fletcher",
+        "Yaniv Kerem"
+      ],
+      "title": "Multicentre validation of a sepsis prediction algorithm using only vital sign data in the emergency department, general ward and icu",
+      "venue": "BMJ open,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Shamim Nemati",
+        "Andre Holder",
+        "Fereshteh Razmi",
+        "Matthew D Stanley",
+        "Gari D Clifford",
+        "Timothy G Buchman"
+      ],
+      "title": "An interpretable machine learning model for accurate prediction of sepsis in the icu",
+      "venue": "Critical care medicine,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "David W Shimabukuro",
+        "Christopher W Barton",
+        "Mitchell D Feldman",
+        "Samson J Mataraso",
+        "Ritankar Das"
+      ],
+      "title": "Effect of a machine learning-based severe sepsis prediction algorithm on patient survival and hospital length of stay: a randomised clinical trial",
+      "venue": "BMJ open respiratory research,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Hye Jin Kam",
+        "Ha Young Kim"
+      ],
+      "title": "Learning representations for the early detection of sepsis with deep neural networks",
+      "venue": "Computers in biology and medicine,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jacob S Calvert",
+        "Daniel A Price",
+        "Uli K Chettipally",
+        "Christopher W Barton",
+        "Mitchell D Feldman",
+        "Jana L Hoffman",
+        "Melissa Jay",
+        "Ritankar Das"
+      ],
+      "title": "A computational approach to early sepsis detection",
+      "venue": "Computers in biology and medicine,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Sumanth Swaminathan",
+        "Klajdi Qirko",
+        "Ted Smith",
+        "Ethan Corcoran",
+        "Nicholas G Wysham",
+        "Gaurav Bazaz",
+        "George Kappel",
+        "Anthony N Gerber"
+      ],
+      "title": "A machine learning approach to triaging patients with chronic obstructive pulmonary disease",
+      "venue": "PloS one,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Zhengxing Huang",
+        "Wei Dong",
+        "Huilong Duan",
+        "Jiquan Liu"
+      ],
+      "title": "A regularized deep learning approach for clinical risk prediction of acute coronary syndrome using electronic health records",
+      "venue": "IEEE Transactions on Biomedical Engineering,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Joseph Futoma",
+        "Sanjay Hariharan",
+        "Mark Sendak",
+        "Nathan Brajer",
+        "Meredith Clement",
+        "Armando Bedoya",
+        "Cara O\u2019Brien",
+        "Katherine Heller"
+      ],
+      "title": "An improved multi-output gaussian process rnn with real-time validation for early sepsis detection",
+      "venue": "arXiv preprint arXiv:1708.05894,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Joseph Futoma",
+        "Sanjay Hariharan",
+        "Katherine Heller"
+      ],
+      "title": "Learning to detect sepsis with a multitask gaussian process rnn classifier",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Alfredo Vellido",
+        "Vicent Ribas",
+        "Carles Morales",
+        "Adolfo Ruiz Sanmart\u00edn",
+        "Juan Carlos Ruiz-Rodr\u00edguez"
+      ],
+      "title": "Machine learning for critical care: An overview and a sepsis case study",
+      "venue": "In International Conference on Bioinformatics and Biomedical Engineering,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Kevin ten Haaf",
+        "Jihyoun Jeon",
+        "Martin C Tammem\u00e4gi",
+        "Summer S Han",
+        "Chung Yin Kong",
+        "Sylvia K Plevritis",
+        "Eric J Feuer",
+        "Harry J de Koning",
+        "Ewout W Steyerberg",
+        "Rafael Meza"
+      ],
+      "title": "Risk prediction models for selection of lung cancer screening candidates: A retrospective validation study",
+      "venue": "PLoS medicine,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Benjamin Shickel",
+        "Tyler J Loftus",
+        "Lasith Adhikari",
+        "Tezcan Ozrazgat-Baslanti",
+        "Azra Bihorac",
+        "Parisa Rashidi"
+      ],
+      "title": "Deepsofa: A continuous acuity score for critically ill patients using clinically interpretable deep learning",
+      "venue": "Scientific reports,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Eric J Topol"
+      ],
+      "title": "High-performance medicine: the convergence of human and artificial intelligence",
+      "venue": "Nature medicine,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Benjamin Shickel",
+        "Patrick James Tighe",
+        "Azra Bihorac",
+        "Parisa Rashidi"
+      ],
+      "title": "Deep ehr: a survey of recent advances in deep learning techniques for electronic health record (ehr) analysis",
+      "venue": "IEEE journal of biomedical and health informatics,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Alvin Rajkomar",
+        "Jeffrey Dean",
+        "Isaac Kohane"
+      ],
+      "title": "Machine learning in medicine",
+      "venue": "New England Journal of Medicine,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Cao Xiao",
+        "Edward Choi",
+        "Jimeng Sun"
+      ],
+      "title": "Opportunities and challenges in developing deep learning models using electronic health records data: a systematic review",
+      "venue": "Journal of the American Medical Informatics Association,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Federico Cabitza",
+        "Raffaele Rasoini",
+        "Gian Franco Gensini"
+      ],
+      "title": "Unintended consequences of machine learning in medicine",
+      "venue": "Jama,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Nal Kalchbrenner",
+        "Lasse Espeholt",
+        "Karen Simonyan",
+        "Aaron van den Oord",
+        "Alex Graves",
+        "Koray Kavukcuoglu"
+      ],
+      "title": "Neural machine translation in linear time",
+      "venue": "arXiv preprint arXiv:1610.10099,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Shaojie Bai",
+        "J Zico Kolter",
+        "Vladlen Koltun"
+      ],
+      "title": "An empirical evaluation of generic convolutional and recurrent networks for sequence modeling",
+      "venue": "arXiv preprint arXiv:1803.01271,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Colin Lea",
+        "Rene Vidal",
+        "Austin Reiter",
+        "Gregory D Hager"
+      ],
+      "title": "Temporal convolutional networks: A unified approach to action segmentation",
+      "venue": "In European Conference on Computer Vision,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Gr\u00e9goire Montavon",
+        "Sebastian Lapuschkin",
+        "Alexander Binder",
+        "Wojciech Samek",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "Explaining nonlinear classification decisions with deep taylor decomposition",
+      "venue": "Pattern Recognition,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Gr\u00e9goire Montavon",
+        "Wojciech Samek",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "Methods for interpreting and understanding deep neural networks",
+      "venue": "Digital Signal Processing,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Sebastian Bach",
+        "Alexander Binder",
+        "Gr\u00e9goire Montavon",
+        "Frederick Klauschen",
+        "Klaus-Robert M\u00fcller",
+        "Wojciech Samek"
+      ],
+      "title": "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation",
+      "venue": "PloS one,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Wojciech Samek",
+        "Thomas Wiegand",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "Explainable artificial intelligence: Understanding, visualizing and interpreting deep learning models",
+      "venue": "arXiv preprint arXiv:1708.08296,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Wojciech Samek",
+        "Alexander Binder",
+        "Gr\u00e9goire Montavon",
+        "Sebastian Lapuschkin",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "Evaluating the visualization of what a deep neural network has learned",
+      "venue": "IEEE transactions on neural networks and learning systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Emre Aksan",
+        "Otmar Hilliges"
+      ],
+      "title": "Stcn: Stochastic temporal convolutional networks",
+      "venue": "arXiv preprint arXiv:1902.06568,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Carsten B\u00f8cker Pedersen"
+      ],
+      "title": "The danish civil registration system",
+      "venue": "Scandinavian journal of public health,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Mervyn Singer",
+        "Clifford S Deutschman",
+        "Christopher Warren Seymour",
+        "Manu Shankar-Hari",
+        "Djillali Annane",
+        "Michael Bauer",
+        "Rinaldo Bellomo",
+        "Gordon R Bernard",
+        "Jean-Daniel Chiche",
+        "Craig M Coopersmith"
+      ],
+      "title": "The third international consensus definitions for sepsis and septic shock",
+      "venue": "(sepsis-3). Jama,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Arif Khwaja"
+      ],
+      "title": "Kdigo clinical practice guidelines for acute kidney injury",
+      "venue": "Nephron Clinical Practice, 120(4):c179\u2013",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Margot E Kaminski"
+      ],
+      "title": "The right to explanation, explained",
+      "venue": "Berkeley Tech. LJ,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Andrew D Selbst",
+        "Julia Powles"
+      ],
+      "title": "Meaningful information and the right to explanation",
+      "venue": "International Data Privacy Law,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Christopher W Seymour",
+        "Vincent X Liu",
+        "Theodore J Iwashyna",
+        "Frank M Brunkhorst",
+        "Thomas D Rea",
+        "Andr\u00e9 Scherag",
+        "Gordon Rubenfeld",
+        "Jeremy M Kahn",
+        "Manu Shankar-Hari",
+        "Mervyn Singer"
+      ],
+      "title": "Assessment of clinical criteria for sepsis: for the third international consensus definitions for sepsis and septic shock",
+      "venue": "(sepsis-3). Jama,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J-L Vincent",
+        "Rui Moreno",
+        "Jukka Takala",
+        "Sheila Willatts",
+        "Arnaldo De Mendon\u00e7a",
+        "Hajo Bruining",
+        "CK Reinhart",
+        "PeterM Suter",
+        "LG Thijs"
+      ],
+      "title": "The sofa (sepsis-related organ failure assessment) score to describe organ dysfunction/failure",
+      "venue": "Intensive care medicine,",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "Xiang Zhang",
+        "Junbo Zhao",
+        "Yann LeCun"
+      ],
+      "title": "Character-level convolutional networks for text classification",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "James L Crowley",
+        "Arthur C Sanderson"
+      ],
+      "title": "Multiple resolution representation and probabilistic matching of 2-d gray-scale shape",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence,",
+      "year": 1987
+    },
+    {
+      "authors": [
+        "Vinod Nair",
+        "Geoffrey E Hinton"
+      ],
+      "title": "Rectified linear units improve restricted boltzmann machines",
+      "venue": "In Proceedings of the 27th international conference on machine learning",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Jonathan Tompson",
+        "Ross Goroshin",
+        "Arjun Jain",
+        "Yann LeCun",
+        "Christoph Bregler"
+      ],
+      "title": "Efficient object localization using convolutional networks",
+      "venue": "In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Diederik P Kingma",
+        "Jimmy Ba"
+      ],
+      "title": "Adam: A method for stochastic optimization",
+      "venue": "arXiv preprint arXiv:1412.6980,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Kaiming He",
+        "Xiangyu Zhang",
+        "Shaoqing Ren",
+        "Jian Sun"
+      ],
+      "title": "Deep residual learning for image recognition",
+      "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Arti Patle",
+        "Deepak Singh Chouhan"
+      ],
+      "title": "Svm kernel functions for classification",
+      "venue": "In 2013 International Conference on Advances in Technology and Engineering (ICATE),",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Maximilian Alber",
+        "Sebastian Lapuschkin",
+        "Philipp Seegerer",
+        "Miriam H\u00e4gele",
+        "Kristof T Sch\u00fctt",
+        "Gr\u00e9goire Montavon",
+        "Wojciech Samek",
+        "Klaus-Robert M\u00fcller",
+        "Sven D\u00e4hne",
+        "Pieter-Jan Kindermans"
+      ],
+      "title": "innvestigate neural networks",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "HISTORISK PERSPEKTIV"
+      ],
+      "title": "Gennemgang af early warning score til forebyggelse af uventet kritisk sygdom og d\u00f8d",
+      "venue": "Ugeskr L\u00e6ger, 180:V02180135,",
+      "year": 2018
+    }
+  ],
+  "sections": [
+    {
+      "text": "Artificial Intelligence (AI) is capable of predicting acute critical illness earlier and with greater accuracy than traditional Early Warning Score (MEWS) systems, such as modified EWSs (MEWSs) and Sequential Organ Failure Assessment Scores (SOFAs).4, 8, 9, 11\u201313, 15, 17\u201319, 22\u201326 Unfortunately, standard deep learning (DL) that comprise available AI models are black-boxes and their predictions cannot readily be explained to clinicians. The importance of explainable and transparent DL algorithms in clinical medicine is without question and was recently highlighted in the Nature Medicine review by Topol, E. J.27, 28 Transparency and explainability are an absolute necessity for the widespread introduction of AI models into clinical practice, where an incorrect prediction can have grave consequences.28\u201331 Clinicians must be able to understand the underlying reasoning of AI models so they can trust the predictions and be able to identify individual cases in which an AI model potentially gives incorrect predictions.28\u201330, 32\nIn this paper, we will present xAI-EWS, which comprises a robust and accurate AI model for predicting acute critical illness from Electronic Health Records (EHRs). Importantly, xAI-EWS was designed to provide explanations for the given predictions. To demonstrate the general clinical relevance of the xAI-EWS, we present results here from three emergency medicine cases: sepsis, Acute Kidney Injury (AKI), and Acute Lung Injury (ALI). The xAI-EWS is composed of a temporal convolutional network (TCN)33\u201335 prediction module and a deep Taylor decomposition (DTD)36\u201340 explanation module, tailored to temporal explanations (see figure 1). The architecture of the TCN has proven to be particularly effective at predicting events that have a temporal component, such as the development of critical illness.12, 34, 35, 41, 42 The TCN operates sequentially over individual EHRs and outputs predictions in the range of 0% to 100%, where the predicted risk should be higher for those patients at risk of later acute critical illness, compared to those who are not. The DTD explanation module delineates the TCN predictions in terms of input variables by producing a decomposition of the TCN output on the input variables. As comparative measures for the predictive performance, we used the area under the receiver operating characteristic curve (AUROC) and the area under the precision-recall curve (AUPRC).\nar X\niv :1\n91 2.\n01 26\n6v 1\n[ cs\n.A I]\n3 D"
+    },
+    {
+      "heading": "P-Creatinine",
+      "text": ""
+    },
+    {
+      "heading": "Kidney eGFR",
+      "text": ""
+    },
+    {
+      "heading": "P-Potassium",
+      "text": ""
+    },
+    {
+      "heading": "P-Creatinine",
+      "text": ""
+    },
+    {
+      "heading": "Kidney eGFR",
+      "text": ""
+    },
+    {
+      "heading": "P-Potassium",
+      "text": "Regarding the explanations, the quality was assessed by manual inspection of trained specialists (medical doctors) in emergency medicine. The xAI-EWS system was trained using data from a multi-center Danish data set, which included the health information of citizens aged 18 years and older with residency in one of four Danish municipalities for the period of 2012 to 2017. The dataset contained information from EHRs related to biochemistry, medicine and microbiology from a diverse set of clinical departments. A total of 163,050 admissions (45.86% male), distributed across 66,288 unique citizens were included for analysis. Patients were randomized across training (80%), validation (10%), and test (10%) sets. The xAI-EWS was validated using a five-fold cross-validation. A ground-truth label for the presence of sepsis, AKI, and ALI at any given point in time was added using the criteria of the Third International Consensus Definitions for Sepsis (Sepsis-3),43 the Kidney Disease: Improving Global Outcomes (KDIGO)44 , and the need for noninvasive ventilation (NIV) or continuous positive airway pressure (CPAP), respectively. Among the admissions, the prevalence for sepsis, AKI, and ALI were 2.44%, 0.75%, and 1.68%, respectively. We implemented two clinical baseline models (MEWS and SOFA) and a gradient-boosting model.\nFor each patient, data from 34 chosen clinical parameters were extracted from the EHRs and used as input for the prediction module (Extended Data Table 1). Based on this data, each of the three prediction models output a prediction in the range of 0% to 100%, such as a 78% risk of developing AKI during admission. The DTD explanation module was then used to explain individual patient predictions in terms of the clinical parameters measured during their admission. The module produced an explanation by running a backward pass on the prediction output according to a predefined set of propagation rules (Figure 1).\nIn Figure 2, the predictive power of the xAI-EWS is presented in summary form with results from the onset time to 24 hours before onset. AUROC with mean values and 95% Confidence Intervals (CIs) were 0.92(0.9-0.95)\u20130.8(0.78-83), 0.88(0.86\u20130.9)\u20130.79(0.78\u20130.8), and 0.90(0.89\u20130.92)\u20130.84(0.82\u20130.85) for sepsis, AKI, and ALI, respectively. AUPRC with mean values and 95% CIs were 0.43(0.36\u20130.51)\u20130.08(0.07-0.09), 0.22(0.19-0.24)-0.13(0.12-0.14), and 0.23(0.21- 0.26)\u20130.23(0.22-0.24) for sepsis, AKI, and ALI, respectively. (Extended Data Table 3 and 4). The xAI-EWS enabled two perspectives on the model explanations: an individual and a population-based perspective. For the individual perspective, the explanation module enabled the xAI-EWS to pinpoint which clinical parameters at a given point in time were relevant for a given prediction. In current clinical practice, the workflow normally follows that clinicians observe either a high EWS or an increase in EWS. However, the following targeted clinical intervention concerning the potential critical illness happens when the clinician understands which clinical parameters have caused the high EWS or the change in EWS. This is one of the main reasons why AI-based EWS systems need to be able to explain their predictions. The xAI-EWS system we developed allows for such explanations in real time and across all clinical parameters used in\nthe model. An example of an output from the explanation module, utilizing the individual perspective, is illustrated in Figure 3. Individual clinical parameters are sized according to the amount of backpropagated relevance. Figure 3a shows the 10 most relevant parameters with respect to sepsis for a single patient with a risk score of 76.2%. High respiration frequency, high pulse rate, and low plasma albumin are the most important predictors of sepsis. The physiological values of respiration frequency and pulse rate do not seem to increase close to the prediction time, but, inspecting the increasing sizes of relevance, it appears that the xAI-EWS attributes more weight to recent values. Figure 3b and Figure 3c show the 10 most relevant parameters with respect to AKI and ALI for two patients with risk scores of 90.4% and 83.8%, respectively.\nIn terms of the population-based perspective, the xAI-EWS is able to facilitate transparency and, thereby, induce trust, by giving clinicians insights into the internal mechanics of the model without any deep technical knowledge of the mechanisms behind it. In Figure 4, the 10 most important clinical parameters for each of the three models are shown. The parameters are sorted by the decreasing mean relevance as computed for the local, back-propagated relevance scores across the entire population, but only for patients who were positive for sepsis, AKI, or ALI.\nThe blue horizontal bars in the left column of Figure 4 display the mean relevance. In the local explanation summary in the right-hand column of Figure 4, the distribution of the back-propagated relevance scores for each clinical parameter are shown and color-coded by the parameter value associated with the local explanation. As an example, in Figure 4c and Figure 4d, the AKI model seems to associate high P-creatinine levels and low estimated glomerular filtration rates with AKI. When the model is confident about a decision, it will output a high probability. This high probability will result in more relevance available for distributing backward; it will also result in larger relevance scores. On the contrary, when the model does not believe that a patient will develop an acute critical illness, it will output a low probability, and the associated relevance scores will also be low. The summary distribution allows clinicians to get an idea of what to expect from the model in clinical practice. It is important to note that the xAI-EWS presented in this study should not be conceived as the one-and-only multi-outcome model. Rather, it should be viewed as a general method of building precise and explainable models for acute critical illness. Following this line of thinking, it is obvious that other models with important critical outcomes, such as hypokalemia, hyperkalemia, acute constipation, and cardiac arrest, should be added to the three models presented in this study. This will result in a series of EWS models that are all specialists in their respective fields.\nOne important aspect on the basis of our model is that more work is needed to investigate better ground truth definitions of the evaluated critical illnesses, such as AKI and ALI. We based the ground truth on the need for Continuous Positive Airway Pressure (CPAP) or Noninvasive ventilation (NIV) due to the lack of a convention on how to label ALI. The KDIGO is an indicator of AKI that has a long lag time after the initial renal impairment, as mentioned by Toma\u0161ev et al.4 Our model is trained and has been tested on a large dataset that is highly representative of the Danish population. However, validating the predictive performance of the xAI-EWS on a different population would make for an interesting study, and, as the xAI-EWS currently uses just 34 clinical parameters, this appears feasible.\nIn summary, we have presented the xAI-EWS\u2014an explainable AI EWS system for the prediction of acute critical illness using EHRs. The xAI-EWS shows a high predictive performance while enabling the possibility to explain the predictions in terms of pinpointing decisive input data to empower clinicians to understand the underlying reasoning of the predictions. We hope that our results will be a steppingstone toward a more widespread adoption of AI in clinical practice. As stated, explainable predictions facilitate trust and transparency\u2014properties that also make it possible to comply with the regulations of the European Union General Data Protection Regulation, the Conformit\u00e9 Europ\u00e9enne (CE) marking, and the United States Food and Drug Administration (FDA).45, 46\nMethods"
+    },
+    {
+      "heading": "Data description",
+      "text": "In this study, we analyzed the secondary healthcare data of all residents of four Danish municipalities (Odder, Hedensted, Skanderborg, and Horsens) who were 18 years of age or older for the period of 2012\u20132017.47 The data contained information from the electronic health record (EHR), including biochemistry, medicine, microbiology, and procedure codes, and was extracted from the \u201cCROSS-TRACKS\u201d cohort, which embraces a mixed rural and urban multi-center population with four regional hospitals and one larger university hospital. Each hospital comprises multiple departmental units, such as emergency medicine, intensive care, and thoracic surgery. We included all 163,050 available inpatient admissions (45.86% male) during the study period and excluded only outpatient admissions. The included admissions were distributed across 66,288 unique residents. The prevalence for sepsis, AKI, and ALI among these admissions was 2.44%, 0.75%, and 1.68%, respectively (see Extended Data Table 2). The CROSS-TRACKS cohort receives data from the regional data warehouse (Central Denmark Region), which offers a combined dimensional model of the secondary healthcare data. Merging all data sets is possible via a unique personal identification number given to all Danish citizens and by which all information within any public institution is collected.42 The model parameters were limited to include only a small subset of the total available events, namely, 28 laboratory parameters and six vital signs (see Extended Data Table 1). The parameters were selected by trained specialists in emergency medicine (medical doctors) with the sole purpose of simplifying the model to enable a better discussion of the model explanations. Therefore, frequently recorded parameters having known correlations with acute critical illnesses were preferred. While a deeper model with a latent representation of thousands of clinical parameters might lead to better performance, it would also have made the continuous discussions between clinicians and software engineers difficult. Therefore, the scope of this article is not to obtain the best performance at all costs but to demonstrate how clinical tasks can be supported by a fully explainable deep learning approach.\nData preprocessing. In the data extracted from the CROSS-TRACKS cohort, each admission is represented as a time-ordered sequence of EHR events. Importantly, the time-stamped order of this data reflects the point in time at which the clinicians record each event during the admission. Each event comprises three elements: a time stamp; an event name, such as blood pressure; and a numerical value. The event sequence is partitioned in aggregated intervals of one hour, such that the observation window of 24 hours is divided into 24 one-hour periods, and all the events occurring within the same one-hour period are grouped together by their average numerical value.\nGold standards. Via a classification process, each admission was classified as sepsis-positive, AKI-positive, ALIpositive, or negative (no critical illness). For sepsis classification, we followed the recent Sepsis-343, 48 implementation by Moor et al.,12 according to which both suspected infection and organ dysfunction are required to be present.12, 43, 48 Suspected infection was defined by the co-occurrence of body fluid sampling and antibiotic administration. When a culture sample was obtained before antibiotics administration, the antibiotic had to be ordered within 72 hours.12 If the antibiotic was administered first, then the culture sample had to follow within 24 hours.48 Organ dysfunction occurs when the SOFA49 score displays an acute increase of more than or equal to two points.48 To implement the organ dysfunction criterion, we used a 72-hour window from 48 hours before to 24 hours after the time of suspected infection, as suggested by Singeret et al.43 and Moor et al.12 The Sepsis-3 implementation is visualized in Extended Data Figure 1.\nSOFA Score\nSI-window\n48h 24h\n>=2 pts.\nSI\nSepsis onset AKI onset ALI onset\nFirst NIV/CPAP treatment\na b c\nCPAP CPAP NIV\np-Creatinine >1.5 x habitual / 7 days >26.5 \u03bcmol/L / 48 hHabitual\nExtended Data Figure 1 \u2013 Gold standards for sepsis, AKI, and ALI. Sepsis (a); AKI (c); ALI (e); Suspected infection (SI).\nAKI classification was performed according to the KDIGO criteria.44 KDIGO accepts three definitions of AKI: (1) an increase in serum creatinine of 0.3 mg/dl (26.5\u00b5mol/l) within 48 hours; (2) an increase in serum creatinine by 1.5 times the habitual creatinine level of a patient within the previous seven days; and (3) a urine output of < 0.5 ml/kg/h over 6 hours. Following the work of Toma\u0161ev et al.,4 only the first two definitions were used to provide ground-truth labels for the onset of AKI as urine measurements were not available. The habitual creatinine level was computed as the mean creatinine level during the previous 365 days. We used binary encoding for AKI such that all three severity stages (KDIGO stages 1, 2, and 3) were encoded as positive AKI. For ALI classification, we simply considered the\npresence of either NIV or CPAP during the admission. The ALI onset was the first occurrence of either NIV or CPAP (see Extended Data Figure 1).\nPrediction module. The AI-EWS model is designed as a variation of a convolutional neural network (CNN) called a temporal convolutional network (TCN). CNNs have dominated computer vision tasks for the last century32 and are also highly capable of performing sequential tasks, such as text analysis and machine translation.34, 50 A TCN34, 35 models the joint probability distribution over sequences by decomposing the distribution over discrete time-steps p\u03b8(x) = qTt=1p\u03b8(xt|x1:t\u22121), where x = {x1, x2, . . . , xT } is a sequence, and the joint distribution is parameterized by the TCN parameter \u03b8. Thus, a TCN operates under the autoregressive premise that only past values affect the current or future values, e.g., if a patient will develop acute critical illness. Moreover, TCNs differ from \u201cordinary\u201d CNNs by at least two properties: (1) the convolutions in TCNs are causal in the sense that a convolution filter at time t is only dependent on the inputs that are no later than t, wherein the input subsequence isx1, x2, . . . , xt; and (2) TCNs can take a sequence of any length as input and output a sequence of the same length, similar to RNNs.35 The TCN achieves this by increasing the receptive field of the model with dilated convolutions instead of performing the traditional max pooling operation, as seen in most CNNs. Dilated convolutions achieve a larger receptive field with fewer parameters by having an exponential stride compared to the traditional linear stride. By increasing the receptive field, a temporal hierarchy comparable to multi-scale analysis from computer vision can be achieved.51 The Extended Data in Figure 2 schematizes the xAI-EWS model and the concept of dilated convolutions. At the time of prediction, the xAI-EWS model receives an input matrix of shape \"time-steps\" \u00d7 \"features\" for each patient.\nInput\nDilation = 4\nHidden layer Dilation = 1\nHidden layer Dilation = 1\nDilation structure\nOnset\n0 hr3hr12 hr24 hr 6 hr Predictions\n24 hour observation\nwindows\nAdmission\nInput to model\nDilated Causal Conv\nLayer Norm\nSpatial Dropout\nReLU\nDilated Causal Conv\nLayer Norm\nSpatial Dropout\nReLU\nTemporal blockc\na\nTemporal block 2 (TB2)\nTemporal block 1 (TB1)\nGlobal Average Pooling\nDense\nSoftmax\nOutput\nInput\nb Output to upper layers\nHidden layer Dilation = 2\nHidden layer Dilation = 2\nTB2\nTB1\nFlatten\nTemporal block 3 (TB3)\nd\nDilation = 4 Hidden layer\nTB3\nExtended Data Figure 2 \u2013 The xAI-EWS model architecture. The models in this study are trained and evaluated at 0, 3, 6, 12, and 24 hours before the onset of critical illness. Each model has a 24-hour retrospective observation window. The color gradient from green to red illustrates continuous deterioration towards acute critical illness (a). The overall model architecture of the AI-EWS model is shown in (b). The xAI-EWS uses three temporal blocks (c), each comprising one-dimensional dilated causal convolution layers, ReLU activations, one-dimensional dropout layers, and normalization layers. Red layers are only used during training and are omitted when the model is used for predictions and explanations. The overall dilation structure of the model is shown in (d). The one-dimensional dilated causal convolution layers allow the model to skip some points during convolution and, thereby, increase the receptive field of the model.\nThe data is processed by three temporal blocks, each including one-dimensional dilated causal convolutions with 64 filters, ReLU activations,52 layers normalization,53 and one-dimensional spatial dropout layers.54 Outputs from the third temporal block are pooled together across time-steps by a global average pooling operation55 to obtain a stabilizing\neffect for the final output of the model. The pooled output from each kernel in the dilated causal convolutions is flattened to a single vector that is used as input to a final dense layer followed by a softmax activation function. The output from the softmax activation is the probability of future sepsis, AKI, or ALI during admission.\nTraining and hyperparameters. The model was trained to optimize the cross-entropy loss using the Adam optimizer56 with mini-batches of the size of 200, a learning rate of 0.001, and a dropout rate of 10%. All weights were initialized with He Normal initialization.57 The model was trained on a NVIDIA Tesla V100 GPU. Convergence was reached in approximately 30 minutes.\nExplanation module. In linear models, such as linear regression models33 and support vector machines (with a linear kernel),58 the association between parameters and outcomes is modeled linearly and is, therefore, readily transparent and explainable. Consider the linear function fc that weights the input x by wc in order to assign a decision for class c, where, for notational convenience, the bias is included in the input vector with a fixed weight of one:\nfc(x) = wTc x = \u2211 i wicxi. (1)\nFrom this expression, we can conclude that each input xi of x contributes together with the trainable parameter wic to the overall evaluation of fc through the quantity wicxi. The weight wic can therefore be interpreted as a factor that reflects the importance of the parameter xi, and this interpretation, thereby, offers a simple explanation for each decision made by the linear model. In contrast, the complexity associated with the multi-layer non-linear nature of deep learning models counteracts with such simplicity in explanations. Layer-wise relevance propagation (LRP)36, 37, 39, 53\u201355 is an explantory technique that applies to deep-learning models, such as TCNs. Starting from the output fc(x), LRP decomposes an explanation into simpler local updates, each recursively defining the contribution to the explanation (called relevance) for all activating neurons in the previous layer. The relevance explanation of a prediction is, in this way, propagated backward from the initial relevance score Rj = fc(x) through the network by local relevance updates Ri\u2190j between connecting neurons i and j until the input layer is finally reached. Extended Data Figure 3 illustrates this process, which is similar to standard back-propagation of errors except that the relevance data are propagated backward in the network instead. The so-called deep Taylor decomposition (DTD)35 defines a sound theoretical framework behind most implementations of LRP. In DTD, a local backward propagation of relevance from a neuron to the activating neurons in the previous layer resembles the above explanation for the simple linear model except that the DTD relevance-propagation rule accounts for non-linearity in the model by a first-order Taylor approximation at some well-chosen root-point. For models where linear projections are followed by non-linear ReLU activation functions, such as this work, the standard update rule for propagating the relevance Rj at neuron j backwards to neuron i is given by\nRi\u2190j = w+ijai\u2211 i w + ijai Rj , (2)\nwhere ai is the activation for neuron i, and w+ij = wij for positive weights and otherwise equals zero. Notice that, aside from the restriction to positive weights, this local relevance update rule is similar to the simple explanation rule for the linear model.\nRi j Ri Rj\nOutputInput\nExtended Data Figure 3 \u2013 Deep Taylor Decomposition (DTD). DTD decomposes the problem of explaining a complex multilayer neural network model into simpler sub-functions that are easier to analyze and explain. The relevance score at input neuron Ri is obtained by pooling all incoming relevance values Rj from the output neurons in the next layer.\nFinally, to propagate the relevance at neuron i further back in the network, the collective relevance score Ri is obtained by pooling all incoming relevance values Ri\u2190j from the output neurons to which i contributes in the forward pass.\nRi = \u2211 j Ri\u2190j (3)\nTogether, Equations (2) and (3) define the DTD procedure, where the relevance propagation rule in (2) is a special instance of DTD. In general, the Taylor expansion defining the relevance propagation rule depends on the type of\nnon-linearity and can, in addition, be engineered to enforce desirable properties based on root point restrictions. For more details about DTD, please refer to the original work by Montavon et al.35 or the collection of works in Montavon et al.57\nThe AI-EWS explanation module allows two perspectives on model explanations: an individual and a population-based perspective. For the individual perspective, DTD can be used for all patients with a high probability of developing acute critical illness. The module will simply pinpoint which clinical parameters at a given point in time were relevant for any given prediction (Figure 3). For the population-based perspective, relevance is back-propagated from the output neuron representing the positive classes (sepsis, AKI, and ALI) and is only considered for the patients with a positive label (sepsis, AKI, and ALI). The individual data points and back-propagated relevance scores for these patients were aggregated in two ways to enable global parameter importance estimation and local explanation summary5 (4). For estimating global parameter importance, the mean relevance scores associated with each clinical parameter were computed. This computation enabled parameter-importance estimation comparable to standardized regression coefficients in multiple linear regression or feature importance measures in random forest.36 The local explanation summary (Figure 4b) presents all individual data points, colored by parameter value and displaced by the relevance. In the local explanation summary, the height of the data points shown for each parameter correlates with the number of data points at their associated level of relevance. The population-based perspective is simplified by ignoring potential temporal relevance variations and treating all data points at different times equally. The visual concepts of global parameter importance estimation and local explanation summary used in this paper are adopted from the SHapley Additive exPlanations (SHAP)5 library by Lundberg et al. In this paper, DTD was implemented using the iNNvestigate59 library developed by Alber et al. iNNvestigate is a high-level library with an easy-to-use interface for many of the most-used explanation methods for neural networks.\nBaseline models. MEWS. The MEWS baseline model interprets raw MEWS scores as a prediction model for acute critical illness. MEWS was implemented as the Danish variant called \u201cEarly detection of critical illness\u201d [TOKS: Tidlig opsporing af kritisk sygdom].60 MEWS scores were calculated each time one of the model components was updated with a new measurement. Missing values were imputed with a standard carry-forward interpolation.\nSOFA. This baseline model interprets raw SOFA43, 48 scores as a prediction model for acute critical illness. SOFA scores were calculated each time one of the model components was updated with a new measurement. Missing values were imputed with a standard carry-forward interpolation.\nGB-Vital. This baseline model is a replication of a well-known sepsis detection mode15, 19 from the literature, which has shown great results in a randomized study.17 The complete technical description of the model can be found in the study from Mao et al.15 The model parameters are constructed by considering only six vital-sign events from the raw EHR event sequences: systolic blood pressure, diastolic blood pressure, heart rate, respiratory rate, peripheral capillary oxygen saturation, and temperature. The constructed parameters highly aggregate the sequence information, and only limited ordering information is retained. That is, for each of the six vital signs, five parameters are constructed to represent the average value for the current hour, the prior hour, and the hour prior to that hour, together with the trend value between two succeeding hours. Based on these 30 parameters (five parameters from each of the six vital-sign events), the GB-Vital model is constructed as a gradient-boosted classifier of decision trees61.\nEvaluation. The xAI-EWS model outputs a prediction that reflects the risk of developing critical illness during a hospital admission if not intervened upon. This prediction ranges from zero to one, where the predicted risk should be higher for those patients who are at a risk of developing a critical illness in the future than the patients who are not at risk. The xAI-EWS model was validated using five-fold cross-validation. For each fold, the data were divided into training data (80%), validation data (10%), and test data (10%). The training data were used to fit the xAI-EWS model parameters. The validation data were used to perform an unbiased evaluation of a model fit during training, and the test data were used to provide an unbiased evaluation of the final model. As comparative measures, we used the area under the receiver operating characteristic curve (AUROC) and the area under the precision-recall curve (AUPRC).\nEthics and information governance. The study was approved by The Danish Data Protection Agency [case number 1-16-02-541-15]. Additionally, the data used in this work were collected with the approval of the steering committee for CROSS-TRACKS. Only retrospective data were used for this research without the active involvement of patients or potential influence on their treatment. Therefore, under the current national legislature, no formal ethical approval was necessary."
+    },
+    {
+      "heading": "Data availability",
+      "text": "The authors have accessed the data referred to herein by applying the CROSS-TRACKS cohort, which is a newer Danish cohort that combines primary and secondary sector data. Due to the EU regulations, GDPR, these data are not readily available to the wider research community per se. However, all researchers can apply for access to the data by following the instructions on this page:http://www.tvaerspor.dk/adgang-til-data."
+    },
+    {
+      "heading": "Code availability",
+      "text": "We made use of several open-source libraries to conduct our experiments: the high-level library explaining neural networks iNNvestigate (https://github.com/albermax/innvestigate); the machine learning framework TensorFlow (https://github.com/tensorflow/tensor-flow); and SHAP (https://github.com/slundberg/ shap). Our experimental framework makes use of proprietary libraries, and we are unable to publicly release this code. We have described the experiments and implementation details in the Methods section to allow for independent replication. Further inquiry regarding the specific nature of the AI model can be made by relevant parties to the corresponding author."
+    }
+  ],
+  "title": "EXPLAINABLE ARTIFICIAL INTELLIGENCE MODEL TO PREDICT ACUTE CRITICAL ILLNESS FROM ELECTRONIC HEALTH RECORDS",
+  "year": 2019
+}

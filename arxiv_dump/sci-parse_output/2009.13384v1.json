@@ -1,1 +1,709 @@
-{"abstractText": "A major requirement for credit scoring models is to provide a maximally accurate risk prediction. Additionally, regulators demand these models to be transparent and auditable. Thus, in credit scoring, very simple predictive models such as logistic regression or decision trees are still widely used and the superior predictive power of modern machine learning algorithms cannot be fully leveraged. Significant potential is therefore missed, leading to higher reserves or more credit defaults. This paper works out different dimensions that have to be considered for making credit scoring models understandable and presents a framework for making \u201cblack box\u201d machine learning models transparent, auditable and explainable. Following this framework, we present an overview of techniques, demonstrate how they can be applied in credit scoring and how results compare to the interpretability of score cards. A real world case study shows that a comparable degree of interpretability can be achieved while machine learning techniques keep their ability to improve predictive power. \u2217CONTACT Michael B\u00fccker. Email: michael.buecker@fh-muenster.de, Gero Szepannek. Email: gero.szepannek@hochschule-stralsund.de, Alicja Gosiewska. Email: a.gosiewska@ mini.pw.edu.pl, Przemyslaw Biecek. Email: p.biecek@mimuw.edu.pl", "authors": [{"affiliations": [], "name": "Michael B\u00fccker"}, {"affiliations": [], "name": "Gero Szepannek"}], "id": "SP:f7696f1806f4f6d1a43d6ee1c53142af26a6711b", "references": [{"authors": ["H. Alemzadeh", "J. Raman", "N. Leveson", "Z. Kalbarczyk", "R.K. Iyer"], "title": "Adverse events in robotic surgery: A retrospective study of 14 years of fda data", "venue": "PLOS ONE, 11(4):1\u201320.", "year": 2016}, {"authors": ["M.J. Ariza-Garz\u00f3n", "J. Arroyo", "A. Caparrini", "M. Segovia-Vargas"], "title": "Explainability of a machine learning granting scoring model in peer-to-peer lending", "venue": "IEEE Access, 8:64873\u201364890.", "year": 2020}, {"authors": ["V. Arya", "R.K.E. Bellamy", "Chen", "P.-Y", "A. Dhurandhar", "M. Hind", "S.C. Hoffman", "S. Houde", "Q.V. Liao", "R. Luss", "A. Mojsilovi\u0107", "S. Mourad", "P. Pedemonte", "R. Raghavendra", "J. Richards", "P. Sattigeri", "K. Shanmugam", "M. Singh", "K.R. Varshney", "D. Wei", "Y. Zhang"], "title": "One explanation does not fit all: A toolkit and taxonomy of ai explainability techniques", "year": 2019}, {"authors": ["A. Azevedo", "M.F. Santos"], "title": "Kdd, semma and crisp-dm: a parallel overview", "venue": "Europ. Conf. Data Mining (IADIS), page 182\u2013185.", "year": 2008}, {"authors": ["B. Baesens", "T.V. Gestel", "S. Viaene", "M. Stepanova", "J. Suykens", "J. Vanthienen"], "title": "Benchmarking state-of-the-art classification algorithms for credit scoring", "venue": "JORS, 54(6):627\u2013635.", "year": 2002}, {"authors": ["J. Banasik", "J. Crook"], "title": "Reject inference, augmentation and sample selection", "venue": "European Journal of Operational Research, 183:1582\u20131594.", "year": 2007}, {"authors": ["T. Bellotti", "J. Crook"], "title": "Support vector machines for credit scoring and discovery of significant features", "venue": "Expert Systems with Applications, 2(33):3302\u20133308.", "year": 2009}, {"authors": ["P. Biecek"], "title": "Dalex: explainers for complex predictive models", "venue": "Journal of Machine Learning Research, 19(84):1\u20135.", "year": 2018}, {"authors": ["P. Biecek", "T. Burzykowski"], "title": "Explanatory model analysis", "venue": "explore, explain and examine predictive models. online.", "year": 2019}, {"authors": ["B. Bischl", "T. K\u00fchn", "G. Szepannek"], "title": "On class imbalance correction for classification algorithms in credit scoring", "venue": "L\u00fcbbecke, M., Koster, A., P., L., R., M., B., P., and Walther, G., editors, Operations Research Proceedings, pages 37\u201343.", "year": 2014}, {"authors": ["I. Brown", "M. Christophe"], "title": "An experimental comparison of classification algorithms for imbalanced credit scoring data sets", "venue": "Expert Systems with Applications, 3(39):3446\u20133453.", "year": 2012}, {"authors": ["M. B\u00fccker", "M. van Kampen", "W. Kr\u00e4mer"], "title": "Reject inference in consumer credit scoring with nonignorable missing data", "venue": "Journal of Banking & Finance,", "year": 2013}, {"authors": ["T. Chen", "C. Guestrin"], "title": "Xgboost: A scalable tree boosting system", "venue": "Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD \u201916, pages 785\u2013794, New York, NY, USA. ACM.", "year": 2016}, {"authors": ["D. Cook"], "title": "Practical Machine Learning with H2O: Powerful, Scalable Techniques for Deep Learning and AI", "venue": "O\u2019Reilly Media.", "year": 2016}, {"authors": ["C. Cortes", "V. Vapnik"], "title": "Support-vector networks", "venue": "Machine Learning, 20(3):273\u2013297.", "year": 1995}, {"authors": ["J. Crook", "D. Edelman", "L.C. Thomas"], "title": "Recent developments in consumer credit risk assessment", "venue": "Journal of the Operational Research Society, (183):1447\u20131465.", "year": 2007}, {"authors": ["S. Dash", "O. G\u00fcnl\u00fck", "D. Wei"], "title": "Boolean decision rules via column generation", "venue": "Proceedings of the 32nd International Conference on Neural Information Processing Systems, NIPS\u201918, page 4660\u20134670, Red Hook, NY, USA. Curran Associates Inc.", "year": 2018}, {"authors": ["AI EU Expert Group on"], "title": "Ethics guidelines for trustworthy ai", "venue": "Online.", "year": 2019}, {"authors": ["European Banking Authority"], "title": "Guidelines on pd estimation, lgd estimation and the treatment of defaulted exposures", "venue": "Online.", "year": 2017}, {"authors": ["European Commission"], "title": "On artificial intelligence - a european approach to excellence and trust", "venue": "Online.", "year": 2020}, {"authors": ["European Union", "G.D.P. R"], "title": "Regulation (eu) 2016/679 of the european parliament and of the council", "year": 2016}, {"authors": ["FICO"], "title": "xml challenge", "venue": "Online.", "year": 2019}, {"authors": ["Financial Stability Board"], "title": "Artificial intelligence and machine learning in financial services \u2013 market developments and financial stability implications", "venue": "Online.", "year": 2017}, {"authors": ["S. Finlay"], "title": "Credit Scoring, Response Modelling and Insurance Rating", "venue": "Palgarve MacMillan.", "year": 2012}, {"authors": ["A. Fisher", "C. Rudin", "F. Dominici"], "title": "Model class reliance: Variable importance measures for any machine learning model class, from the \u2019rashomon\u2019 perspective", "venue": "Journal of Computational and Graphical Statistics.", "year": 2018}, {"authors": ["T. Fitzpatrick", "C. Mues"], "title": "An empirical comparison of classification algorithms for mortgage default prediction: evidence from a distressed mortgage market", "venue": "European Journal of Operational Research, 2(249):427\u2013439.", "year": 2016}, {"authors": ["J. Friedman", "T. Hastie", "R. Tibshirani"], "title": "Regularization paths for generalized linear models via coordinate descent", "venue": "Journal of Statistical Software,", "year": 2010}, {"authors": ["J.H. Friedman"], "title": "Greedy function approximation: A gradient boosting machine", "venue": "Annals of Statistics, 29:1189\u20131232.", "year": 2000}, {"authors": ["U. Garzcarek", "D. Steuer"], "title": "Approaching Ethical Guidelines for Data Scientists, pages 151\u2013169", "venue": "Springer International Publishing.", "year": 2019}, {"authors": ["N. Gill", "P. Hall"], "title": "An introduction to machine learning interpretability", "venue": "O\u2019Reilly Media, Inc.", "year": 2018}, {"authors": ["A. Goldstein", "A. Kapelner", "J. Bleich", "E. Pitkin"], "title": "Peeking inside the black box: Visualizing statistical learning with plots of individual conditional expectation", "venue": "Journal of Computational and Graphical Statistics, 24(1):44\u201365.", "year": 2015}, {"authors": ["O. Gomez", "S. Holter", "J. Yuan", "E. Bertini"], "title": "Vice: Visual counterfactual explanations for machine learning models", "venue": "Proceedings of the 25th International Conference on Intelligent User Interfaces, IUI \u201920, page 531\u2013535. ACM.", "year": 2020}, {"authors": ["B. Goodman", "S. Flaxman"], "title": "European union regulations on algorithmic decision-making and a \u201cright to explanation", "venue": "AI Magazine, 38(3):50\u201357.", "year": 2017}, {"authors": ["A. Gosiewska", "P. Biecek"], "title": "Do Not Trust Additive Explanations", "venue": "arXiv e-prints, page arXiv:1903.11420.", "year": 2019}, {"authors": ["B. Greenwell", "B. Boehmke", "J. Cunningham", "G. Developers"], "title": "gbm: Generalized Boosted Regression Models", "venue": "R package version 2.1.5.", "year": 2019}, {"authors": ["B.M. Greenwell"], "title": "pdp: An r package for constructing partial dependence plots", "venue": "The R Journal, 9(1):421\u2013436.", "year": 2017}, {"authors": ["D. Hand"], "title": "Measuring classifier performance: a coherent alternative to the area under the roc curve", "venue": "Machine Learning, 77:103\u2014-123.", "year": 2009}, {"authors": ["F. Harrell"], "title": "Regression Modeling Strategies: With Applications to Linear Models, Logistic and Ordinal Regression, and Survival Analysis", "venue": "Springer Series in Statistics. Springer International Publishing.", "year": 2015}, {"authors": ["M. Kusner", "J. Loftus"], "title": "The long road to fairer algorithms", "venue": "Nature, 534:34\u201336.", "year": 2020}, {"authors": ["A. Liaw", "M. Wiener"], "title": "Classification and regression by randomforest", "venue": "European Journal of Operational Research,", "year": 2002}, {"authors": ["R News", "F. 2(3):18\u201322. Louzada", "A. Ara", "G. Fernandes"], "title": "Classification methods applied", "year": 2016}, {"authors": ["Curran Associates", "M. Inc. McGough"], "title": "How bad is Sacramento\u2019s air, exactly? Google results", "venue": "Processing Systems", "year": 2018}, {"authors": ["B. Bischl", "G. Casalicchio"], "title": "iml: An R package", "year": 2018}, {"authors": ["G. Montavon", "W. Samek", "M\u00fcller", "K.-R"], "title": "Interpretable Machine Learning", "venue": "Journal of Open Source Software,", "year": 2018}, {"authors": ["C. O\u2019Neil"], "title": "Weapons of Math Destruction: How Big Data Increases", "year": 2016}, {"authors": ["P. lo\u0144ski"], "title": "mljar-supervised: The Automated Machine Learning - the new standard in ML. Machine Learning for Humans", "year": 2019}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "why should I trust you?\u201d: Explaining the predictions of any classifier", "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, San Francisco, CA, USA, August 13-17, 2016, pages 1135\u20131144.", "year": 2016}, {"authors": ["X. Robin", "N. Turck", "A. Hainard", "N. Tiberti", "F. Lisacek", "J. Sanchez", "M. M\u00fcller"], "title": "proc: an open-source package for r and s+ to analyze and compare roc curves", "venue": "BMC Bioinformatics, 12.", "year": 2011}, {"authors": ["C. Rudin"], "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead", "venue": "Nature Machine Intelligence,", "year": 2019}, {"authors": ["G. Scallan"], "title": "Class(ic) scorecards \u2013 selecting attributes in logistic regression", "venue": "Credit Scoring and Credit Control XIII.", "year": 2011}, {"authors": ["B. Sch\u00f6lkopf"], "title": "Causality for machine learning", "year": 2019}, {"authors": ["K. Sokol", "P. Flach"], "title": "One Explanation Does Not Fit All", "venue": "KI Kunstliche Intelligenz.", "year": 2020}, {"authors": ["G. Szepannek"], "title": "A framework for scorecard modelling using r", "venue": "Credit Scoring and Credit Control XV.", "year": 2017}, {"authors": ["G. Szepannek"], "title": "On the practical relevance of modern machine learning algorithms for credit scoring applications", "venue": "WIAS Report Series, 29:88\u201396.", "year": 2017}, {"authors": ["G. Szepannek"], "title": "How much can we see? A note on quantifying explainability of machine learning models", "venue": "arxiv.", "year": 2019}, {"authors": ["G. Szepannek", "R. Aschenbruck"], "title": "Predicting ebay prices: Selecting and interpreting machine learning models \u2013 results of the ag dank 2018 data science competition", "venue": "Archives of Data Science A (accepted).", "year": 2019}, {"authors": ["L.C. Thomas", "J.N. Crook", "D.B. Edelman"], "title": "Credit Scoring and its Applications", "venue": "SIAM, second edition.", "year": 2019}, {"authors": ["E. Tobback", "D. Martens"], "title": "Retail credit scoring using fine-grained payment data", "venue": "Journal of the Royal Statistical Society: Series A (Statistics in Society), 182(4):1227\u20131246.", "year": 2019}, {"authors": ["T. Verbraken", "C. Bravo", "W. Richard", "B. Baesens"], "title": "Development and application of consumer credit scoring models using profit-based classification measures", "venue": "European Journal of Operational Research, 238(2):505\u2013513.", "year": 2014}, {"authors": ["R. Wexler"], "title": "When a Computer Program Keeps You in Jail", "year": 2017}, {"authors": ["M.N. Wright", "A. Ziegler"], "title": "ranger: A fast implementation of random forests for high dimensional data in C++ and R", "venue": "Journal of Statistical Software, 77(1):1\u201317.", "year": 2017}, {"authors": ["Q. Zhao", "T. Hastie"], "title": "Causal interpretations of black-box models", "venue": "Journal of Business & Economic Statistics.", "year": 2019}], "sections": [{"text": "\u2217CONTACT Michael Bu\u0308cker. Email: michael.buecker@fh-muenster.de, Gero Szepannek. Email: gero.szepannek@hochschule-stralsund.de, Alicja Gosiewska. Email: a.gosiewska@ mini.pw.edu.pl, Przemyslaw Biecek. Email: p.biecek@mimuw.edu.pl"}, {"heading": "1 Introduction", "text": "The field of interpretable machine learning has rapidly advanced in recent years. There are at least three reasons for this. First, there are an increasing number of predictive models that affect our everyday life. A popular example is credit decisions based on scoring models. The unprecedented scale in which autonomous systems affect our lives bring people\u2019s attention to a potential negative impact of such automation, which has led to new regulations such as GDPR (Goodman and Flaxman 2017) and ehtical guidelines such as the one published by the EU Expert Group on AI (2019).\nSecondly, there is an increasing availability of large datasets and cheap computational power. Traditionally, predictive models were built mostly based on domain knowledge. Recent machine learning algorithms automatically seek patterns in collected data, which is different from the model developer perspective: Models based on domain knowledge are understandable to model developers. Elastic and complex data-hungry models are not necessarily transparent anymore.\nFor the application of machine learning in financial services the Finacial Stability Board (FSB) states that \u201cthe use of complex algorithms could result in a lack of transparency to consumers. This \u2018black box\u2019 aspect of machine learning algorithms may in turn raise concerns. When using machine learning to assign credit scores and make credit decisions, it is generally more difficult to provide consumers, auditors, and supervisors with an explanation of a credit score and resulting credit decision if challenged\u201d (Financial Stability Board 2017). Thus, model developers are confronted with an increasing need for tools to better understand what their models have learned.\nThirdly, there is a growing number of reported failures of complex predictive models in different domains in the recent past that can be traced back to a lack of proper model validation and model understanding (Alemzadeh et al. 2016; Wexler 2017; McGough 2018; O\u2019Neil 2016).\nIn the context of credit risk modelling there are several specific requirements for models, which have led to consistent popularity of logistic regression models (Szepannek 2017b):\n1. the models are subject to regulation and auditors are typically familiar with interpreting logistic regression models due to their linear nature,\n2. regulation further requires recurrent monitoring, which can be easily interpreted on a variable level for logistic regression models,\n3. customers have a right to explanation of individual decisions, and an answer to the question why a credit application has been rejected can be easily broken down since the score computed from a logistic regression model is the sum of the variables\u2019 effects.\nThus, based on the above reasons, standard logistic regression is currently still considered as the gold standard methodology in the credit scoring industry,\ndespite the general superiority of modern machine learning techniques (cf. e.g. Baesens et al. 2002; Lessmann et al. 2015; Louzada et al. 2016; Bischl et al. 2014; Szepannek 2017b; Brown and Christophe 2012; Bellotti and Crook 2009; Fitzpatrick and Mues 2016).\nFor Machine Learning models which often act as black-boxes and lack the transparency of simpler models such as logistic regression, many techniques have been developed that help to create explanations for models and predictions (cf. Molnar 2019). However, a standardized framework for these explainable ML (sometimes also denoted as explainable AI, abbrev. XAI) methods that can provide structured guidance on how to apply them in an application such as credit scoring is still missing."}, {"heading": "2 Framework for Transparency, Auditability and", "text": "eXplainability of Models for Credit Scoring"}, {"heading": "2.1 Requirements for Credit Scoring", "text": "There are several specific requirements to model exploration in the context of credit scoring. In this section, these requirements will be detaied out. In the following subsections we will map these requirements to specific XAI methods.\nAn important set of requirements on the transparency of models are based on the Basel Commitee on Banking Supervision (BCBS): According to the European Banking Authority \u201cthe selection of certain risk drivers and rating criteria should be based not only on statistical analysis, but [that] the relevant business experts should be consulted on the business rationale and risk contribution of the risk drivers under consideration\u201d (European Banking Authority 2017). Companies should establish checks and tests at each stage of the development process and be able to \u201cdemonstrate developmental evidence of theoretical construction, behavioural characteristics and key assumptions, types and use of input data, numerical analysis routines and specified mathematical calculations, and code writing language and protocols (to replicate the model)\u201d (Financial Stability Board 2017). While the last two aspects refer to reproducibility and proper documentation the first three ones are closely related to global-level explanations as described in section 4.1.\nOne important aspect of data protection regulations is the right to explanation. Specifically, the European Union General Data Protection Regulation states, that a person whose personal data is used \u201cshall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her\u201d (European Union 2016, Article 22 (1)). Also, \u201cthe data controller shall implement suitable measures to safeguard the data subject\u2019s rights and freedoms and legitimate interests, at least the right to obtain human intervention on the part of the controller, to express his or her point of view and to contest the decision\u201d (European Union 2016, Article 22 (3)). This requires transparency of every single credit decision supported by data and algorithms.\nThus, it is not sufficient for banks to be able to explain a credit scoring algorithm and how it is making predictions in general but also to explain any single credit decision and to identify the most adverse characteristics of an applicant which means being able to provide instance-level explanations as described in section 4.2.\nAccording to the Financial Stability Board the use of machine learning techniques in combination with new data sources bears the potential of risk assessment also for customers without known credit experience while at the same time risking to introduce bias or ethical issues into modelling, e.g. by learning models that yield combinations of borrower characteristics that are nothing but correlates of race or gender (Financial Stability Board 2017, Sec. 3.1.1 and Annex B). A road towards ethical fairness of machine learning models is discussed in (Kusner and Loftus 2020). As outlined in (Garzcarek and Steuer 2019) ethical considerations will become an increasing challenge for the future role of data scientists. In April 2019, the European Commission High-Level Expert Group on AI presented \u201cEthics Guidelines for Trustworthy Artificial Intelligence\u201d (EU Expert Group on AI 2019). Three of the guidelines directly refer to explainability:\n1. Human agency and oversight: proper oversight mechanisms need to be ensured, which can be achieved through human-in-the-loop approach\n2. Transparency: AI systems and their decisions should be explained in a manner adapted to the stakeholder concerned and\n3. Accountability: Mechanisms should be put in place to ensure responsibility and accountability for AI systems and their outcomes.\nThese requirements imply that the problem of explainability should be addressed more broadly than just from the perspective of the bank\u2019s data science division, or from the perspective of the customer. The topic of explainability should be analysed from the perspective of all stakeholders present in the in the model life cycle (Arya et al. 2019; Sokol and Flach 2020). The topic of explainability and ethics of AI appears in EU documents not only in the context of requirements protecting civil rigths, but also in the context of strategies towards responsible algorithms (European Commission 2020)."}, {"heading": "2.2 Proposed Framework for Transparency, Auditability and eXplainability", "text": "In this section we introduce a systematic model exploration process focused on Transparency, Auditability and eXplainability for Credit Scoring models (TAX4CS). Its outline is presented in the Figure 1."}, {"heading": "2.2.1 Stakeholders", "text": "As recommended in (EU Expert Group on AI 2019), the first step of the process is to identify the stakeholders that participate in the model life cycle. These\nstakeholders may include the bank\u2019s data science team, internal or external auditors, regulators and, of course, the bank\u2019s customers. The list of stakeholders may be larger for certain models."}, {"heading": "2.2.2 Lifetime", "text": "In the next step it is necessary to define the life cycle of the model and to identify which stakeholders are involved at which point. The role of model developers is active at the beginning of the model life cycle. The auditor\u2019s role begins when the model has been created. Then regular monitorings and audits may be carried out periodically to determine the current effectiveness of the model as required in (Financial Stability Board 2017). Figure 1 presents a proposal, but for different products the life cycle may vary."}, {"heading": "2.2.3 Needs", "text": "After identifying the stakeholders and their activities during the model life cycle, we can proceed to identify stakeholder needs. These needs should meet the requirements listed in the regulations from the previous section. Some examples\n\u2022 A credit officer should be able to understand what were the key features behind a credit decision so that they can express his or her point of view and to contest the decision, as requested in (European Union 2016),\n\u2022 The auditor should be able to establish checks and balances at each stage of the development process as requested in (Financial Stability Board 2017),\n\u2022 Proper oversight mechanisms shall be avaliable for auditor as requested in (EU Expert Group on AI 2019)."}, {"heading": "2.2.4 XAI methods", "text": "There are different aspects in which one can categorise methods for model interpretations. One is whatever method is model-specific, i.e. works only for a selected class of predictive models, or is model-agnostic, that does not assume anything about the internal structure of a model, such as e.g. tracing signal through layers of deep neural network (Montavon et al. 2018). Model specific tools can be very powerful since they make use of the explicit model structure for the analysis, e.g. for linear models such as logistic regression the interpretation is straightforward and given by the resulting effect estimates. In this paper, we focus on model-agnostic tools. These tools offer the opportunity to compare side by side models of different structures, which allows for champion-challenger analysis of black box models against interpretable glass box models.\nThe choice for a specific method should be based on the identified needs of the stakeholder. In order to identify an appropriate set of techniques the proposed pyramid of XAI methods depicts available methods along two dimensions.\nThe first dimension - the vertical direction of the pyramid - corresponds to the depth of model exploration. Methods are divided with respect to the aspect\nof the model or prediction that should be analysed. The underlying idea is to start with a simple measure of model and prediction performance and drill down into factors that influence model performance and individual predictions. It starts with general performance metrics. Subsequently, they are broken down into components related to specific characteristics of the credit application. The next step is to analyse the response profile as \u201cwhat-if\u201d questions. This cascade approach allows stakeholders to choose a level of explanation that matches their needs.\nThe second (horizontal) dimension concerns the global versus local aspect of model explainability, shown as the left and right side of the pyramid. The global aspect is needed to verify the possible systemic discrimination or biases of the model and to provide specific overall checks. The local aspect is needed to facilitate explanation of the model\u2019s for individual credit applications.\nWe now summarize a list of methods for the two groups of methods for locallevel and global-level explanations (Gill and Hall 2018; Molnar 2019; Biecek and Burzykowski 2019; Szepannek and Aschenbruck 2019). The methods presented below are implemented in packages for R (Biecek 2018; Molnar et al. 2018) or Python (Jenkins et al. 2019).\nGlobal-level explanations are focused on the model behavior in general. One example is the model-agnostic feature importance. This can be calculated as drop in the model performance after a permutation of a selected feature (Fisher et al. 2018). Once the most important features are identified, they can be examined in detail using Partial Dependence Plots (PDP, Friedman 2000; Greenwell 2017). PDPs summarise how on average the model response changes with a shift of the value for a single feature.\nLocal-level explanations are focused on a model behavior around a single model prediction. Individual conditional expectations (Goldstein et al. 2015) trace how the model response would change with a shift in the model input. The disadvantage of such an approach is that one needs to trace every variable. This can be problematic for large numbers of variables. Local Interpretable Modelagnostic Explanation (LIME, Ribeiro et al. 2016) identifies sparse explanations based on small numbers of features. LIME is based on simple interpretable surrogate models that are fitted locally to the black box model. A disadvantage of LIME is that feature explanations do not add to the model predictions. In contrast, the SHapley Additive exPlanations (SHAP) method (Lundberg and Lee 2017) uses Shapley values from cooperative game theory to attribute additive feature effects to final model predictions. The iBreakDown method (Gosiewska and Biecek 2019) can be used for identification of non-additive decompositions."}, {"heading": "3 Comparative study of Scorecards and Explain-", "text": "able Machine Learning\nTo illustrate the proposed process, in this section we show a comparative analysis of several models for credit scoring. We compare both the performance and, more importantly, the explainability of a logistic regression model with modern machine learning models in a credit scoring context. For the comparative study, a publicly available data set has been used. This data set was provided by FICO, one of the major credit bureaus in the United States (FICO 2019)."}, {"heading": "3.1 Description of the data", "text": "The data relate to the Home Equity Line of Credit (HELOC) with customers requesting a credit line in the range of $5,000 - $150,000. The data set has n = 10, 459 observations of 23 covariates and one binary target variable. The task is to predict whether a consumer was ever more than 90 days overdue within a 24 months period. The predictor variables are all quantitative or categorical, and come from anonymised credit bureau data.\nEleven additional dummy variables have been created after manual inspection of the data in order to identify missing observations where no information, no valid information or no bureau data is available. In order to support rigorous analysis, the data set has been split and randomly assigned into two sets: training data (75% or 7844 obs.) and test data (25% or 2615 obs.), where the\nformer has been used for model training and parameter tuning while the latter has been set aside and only used for performance evaluation.\nIn addition to creating a model of highest discriminatory power according to the challenge description, a monotonic dependency of the risk prediction on some of the predictor variables has to be ensured (cf. FICO 2019)."}, {"heading": "3.2 Models for comparison", "text": ""}, {"heading": "3.2.1 Scorecard model", "text": "In the first step, a traditional credit risk scorecard has been developed as a baseline for further comparison to represent the current industry standard. A typical scorecard modelling process consists of a chain of subsequent modelling steps and can be considered as a special case of well-known general process standards for data mining business practice such as KDD or CRISP-DM (Azevedo and Santos 2008). Typically, at each stage of the process, exploratory analyses are conducted resulting in modelling decisions based on business knowledge (Szepannek 2017a). A typical preprocessing (cf. e.g. Finlay 2012) consists in coarse classing of the original variables as well as an optional subsequent WOE transform of the resulting dummy variables. The preprocessd data are used for logistic regression using variable selection, which is often performed by manual interaction of the analyst using business information with suggestions of an automatic selection strategy.\nVariable coarse classing is generally obtained using an initial algorithm-based binning which has to be manually updated by the analyst in a second step. In the case of the HELOC data, the initial binning has been generated using recursive binary splits of numeric variables that maximise the information value (IV = \u2211 x(f(x|1)\u2212f(x|0))WOE(x)) of the binned variable, where a minimum relative IV improvement of 5% for any additional split has to be reached. For categorical variables, all levels that do cover less than 2% of the data are assigned to a new \u201crest\u201d level. The remaining levels are sorted according to their default rate and any two subsequent levels are merged (from low to high) as long as their default rates do not significantly differ (\u03b1 = 0.1) using a \u03c72 test (Szepannek 2017a). Afterwards, few resulting very small classes of numeric variables have been manually merged with their adjacent class as well as a few bins that were violating the monotonicity constraints as given by the competition (cf. FICO 2019) after the initial automatic binning. An example for this is given by the variable months since the most recent delinquency : As an advantage over the challenger black box algorithms presented in the next section, the traditional approach of white box scorecard development allows for a visualization of the resulting bins in terms of default rates and by manual inspection in this case a non-linear trend can be observed in the data (cf. Figure 2, left). A challenge now consists in explaining such non-linearities to the stakeholders and regulators. In case of this competition a constraint of monotonicity of the default rate w.r.t. the variable months since the most recent delinquency was required and therefore the 2nd and 3rd class have been manually merged (2, right).\nThe resulting coarse classes are given in the Appendix. Subsequently WOEs are assigned to the classes: WOE(x) = log( f(x|1)f(x|0) ) (cf. e.g. Thomas et al. 2019). For reasons of parsimony and in order to ensure that the resulting model respects the trends of the risk drivers in practice WOEs are typically used instead of dummy variables which has also been the case for the HELOC data.\nThe resulting WOE variables are used to train a logistic regression model where, in a forward selection manner, variables are chosen using marginal information values (MIV, Scallan 2011) as long as the improvement of the model as measured by the MIV is at least 0.01. The resulting scorecard model has 16 variables and it is given in the appendix. It has been scaled to a score of 500 for odds of 50 and 20 points to double the odds.\nAn advantage of the preceding methodology using coarse classing is that it takes into account nonlinear relationships between the predictor variables and the target, while simultaneously guaranteeing a plausibility check by the analyst after each modelling step. This plausibility check allows for the integration of business expert experience, as required by the regulators. On the other hand, it is not possible to cover nonlinear high-order multidimensional dependencies in the data and this becomes a potential source of error resulting from the manual interference if the number of variables is large. The latter two issues can be overcome using modern machine learning techniques but the resulting models typically are of a black box nature, as it has been outlined in the previous section."}, {"heading": "3.2.2 Challenger Approaches", "text": "Several black-box machine learning models have been tested to challenge the scorecard model. The algorithms considered in this paper are state-of-theart machine learning models, including: generalised boosted models (Greenwell et al. 2019), elastic net (Friedman et al. 2010), logistic regression with splinebased transformations (Harrell 2015), two implementations of random forests (Liaw and Wiener 2002; Wright and Ziegler 2017), support vector machines\n(Cortes and Vapnik 1995), and extreme gradient boosting (Chen and Guestrin 2016). Moreover, two automated machine learning frameworks were examined, namely H2O (Cook 2016) and mljar (P lon\u0301ski 2019). These models are able to cover a wide range of potential relationships between variables and can capture complex interactions.\nThe challenger models have been trained without any further data preprocessing. Random search optimisation has been used to tune hyperparameters of the models. All optimised hyperparameters and their tuning ranges are provided in Table 3 and Table 2.\nOn the test data, the best results were obtained for the logistic regression with spline-based transformations (rms), see Figure 3. For 13 continuous variables the linear tail-restricted cubic spline transformation was applied to adapt for non-linear relations. Additionally, we also considered a model with manually tuned penalty parameters. Reproducible code for all models can be found in the respective GitHub repository: https://github.com/agosiewska/ fico-experiments."}, {"heading": "4 Results of model and instance level exploration", "text": "and explanation"}, {"heading": "4.1 Model level exploration and explanation", "text": ""}, {"heading": "4.1.1 Model performance", "text": "For the model level exploration, the first step is usually related to model performance. Different measures may be used. Common choices for credit scoring include AUC, Gini, KS, F1, pAUC (Robin et al. 2011), H-measure (Hand 2009) or profit-based measures (Crook et al. 2007; Verbraken et al. 2014). As the discussion of performance measures is not the scope of this paper, we apply the commonly used AUC for the remainder of the paper.\nWe denote the performance of a model f\u03b8 measured on a dataset X with known values of a target variable y as\nM(\u03b8) = L(f\u03b8, X, y),\nwhere L represents the performance measure (loss function) of interest. Typically, model performances on training and test data are compared. It is common practice to compare model performance on at least out-of-sample and out-of-time test data. In case of the HELOC data out of time data is not available. For this reason, during the comparative study of this paper, we restricted the analysis to a comparison of model performance between training and test data.\nA performance comparison of the various models is provided in Figure 3. Surprisingly, the more complex machine learning models showed only slightly superior performance compared to the baseline scorecard using the HELOC\ndata. The best results on both training and test data were obtained for logistic regression using spline transformations.\nElastic models are known to be sensitive to overfitting. Usually, overfitting is assessed as the difference in model performance on the training and test dataset.\noverfitting(\u03b8) = L(f\u03b8, Xtrain, ytrain)\u2212 L(f\u03b8, Xtest, ytest),\nFigure 4 shows a scatterplot with model performance on the train and test data sets. Note the different scale of both axes. The graph nicely shows the common performance gap between training and test data for random forests (cf. e.g. Szepannek 2017b). For further analysis we selected four models based on a comparison of their predictive power on the training and test data to account for potential overfitting (cf. Figure 4): the traditional scorecard, the SVM, the GBM10000 as well as the best model."}, {"heading": "4.1.2 Variable importance", "text": "The next step, according to the introduced framework, consists in assessing the importance of each variable. Model agnostic variable importance (Fisher et al. 2018) measures how much the model\u2019s loss function (or performance function) will change if a selected variable is randomly permuted.\nIt may be simply introduced as\nFI(\u03b8, i,X, y) = L(f\u03b8, X, y)\u2212 L(f\u03b8, X\u2217,j , y),\nwhere X\u2217,j is a dataset X with jth column being permuted. Figure 6 shows the importance FI for the GBM 10000 model in terms of a decrease in 1-AUC, which takes into account the explicit performance measure under investigation. As an example, the most important feature is the ExternalRiskEstimate: After permutation of this variable the 1-AUC increases from 0.25 to over 0.28.\nNoValid_MSinceMostRecentInqexcl7days\nVariable importance for Score Card model\n0.25 0.26 0.27 0.28\nNetFractionInstallBurden NumTrades60Ever2DerogPubRec NoValid_NetFractionInstallBurden\nNoValid_NumInstallTradesWBalance MaxDelqEver\nNoValid_NumRevolvingTradesWBalance RiskPerformance\nNoValid_NetFractionRevolvingBurden NumInstallTradesWBalance\nMSinceMostRecentTradeOpen NoValid_MSinceOldestTradeOpen NumTrades90Ever2DerogPubRec\nPercentTradesWBalance NoValid_NumBank2NatlTradesWHighUtilization\nNoValid_MSinceMostRecentDelq No_MSinceMostRecentDelq\nNumTotalTrades NoBureau\nNumInqLast6Mexcl7days NumBank2NatlTradesWHighUtilization\nNumTradesOpeninLast12M NoValid_MSinceMostRecentInqexcl7days\nNo_MSinceMostRecentInqexcl7days MSinceMostRecentDelq\nMaxDelq2PublicRecLast12M PercentInstallTrades\nMSinceOldestTradeOpen NumRevolvingTradesWBalance\nMSinceMostRecentInqexcl7days AverageMInFile\nNumSatisfactoryTrades NumInqLast6M\nPercentTradesNeverDelq NetFractionRevolvingBurden\nExternalRiskEstimate\n1 \u2212 AUC\nVariable importance for GBM 10000 model\nFigure 6: Drop-out loss of AUC as measure of variable importance for the Machine Learning models.\nNote that variable importance corresponds to the effect of a variable if all other variables are part of the model (similar to a backward variable selection from a full model) which should be taken into account during the analysis (Szepannek and Aschenbruck 2019)."}, {"heading": "4.1.3 Variable effects", "text": "Once the most important features are selected, the next layer of model exploration is the assessment of marginal effects. Partial Dependency Profiles are useful plots that show how an average model response changes along changes in a selected feature.\nPD profiles can be calculated as\nPD(\u03b8, i, z) = E[f\u03b8(x|i = z)]\nwhere x|i = z is an observation x with ith coordinate replaced by value z. The E stands for expected value over the marginal distribution of all variable except i.\nFor the scorecard model (Figure 7) the effect of a variable is directly given by the scorecard points (cf. Appendix), which are often a linear transformation of a variable\u2019s effect on the logit of the default probabilities. For the Scorecard, the variables\u2019 effects are given by step functions, which result from the preliminary coarse classing step in model development.\nFigure 9 compares all four models using PDPs for the variable ExternalRiskEstimate. This suggests that more complex models typically show smoother responses. Three of the presented models, SVM, scorecard and RMS, have monotonic responses while the GBM model exhibits some non-monotonic behavior on the edges.\nNote that the Partial Dependency Profile is an average of individual model responses. A sample of such individual responses is presented in Figure 8. If these individual profiles are parallel to each other, then an average correctly describes individual behavior of the model. In the presence of interactions, model responses may not be parallel.\nWhenever PDPs are used it has to be kept in mind that the value of a true model prediction typically differs from the PDP depending on the explicit values in all other variables. In (Szepannek 2019) a measure is proposed to quantify how well the visualisation as given by a partial dependence function matches the predictions of the model of interest."}, {"heading": "4.2 Instance level exploration and explanation", "text": "For model level exploration, as presented in the previous section, the average behavior of the whole model has been examined. For additive and linear models, the average behavior is often similar to a local behavior for particular instances. However, it is not necessarily the case for more complex and elastic models. Interaction effects for particular instances may be different than the average.\nFor this reason in the proposed framework, the subsequent step consists of instant level explanations.\nThere are two primary use cases for instance level explanations. Either the target is to explain the prediction for a new observation when the model is applied (in this case we want to identify factors that contribute strongly the model prediction) or a second possibility is that some interesting points in the training data have been identified. The latter case represents a useful tool for model debugging during the development process: For the observations with largest residuals, one may look for factors that fool the model predictions."}, {"heading": "4.2.1 Model prediction", "text": "The first step of instance level explanations and exploration of a model is to look at the accuracy of the prediction for a single observation.\nThe prediction is denoted as y\u0302i = f\u03b8(xi), where xi stands for ith observation."}, {"heading": "4.2.2 Local variable attribution", "text": "The second layer in the local part of the TAX4CS framework is given by the attribution of particular features to the final model response for a selected observation which allows to identify an applicant\u2019s most adverse characteristics that were negatively contributing to a credit rejection by a given model. For the traditional scorecard model, these effects can be directly assessed by comparing scorecard points for a single observation x in variable i to the average score of the entire training sample in this variable. Figure 10 shows an example where these differences are compared for all variables and a single observation.\nThere are various model-agnostic methods which can be used to assign local contributions to a single prediction, e.g. LIME, SHAP or iBreakDown as introduced in the previous section. A desired property for such methods is the completeness of the explanation, i.e. the sum of variable attributions shall sum up to model response\nf\u03b8(x) = \u2211 i \u03b4i(\u03b8, x),\nwhere \u03b4i(\u03b8, x) is the attribution of the i th variable. Both SHAP and iBreakDown do possess this property. Figure 11 shows the iBreakDown result for instance level attributions of the GBM 10000 model. The three most influential variables are presented in the first three segments of the waterfall plot. For non-additive models, feature attribution depends on the order in which features are added to the iBreakDown Plot. Figure 12 shows an average contribution from different paths. Such averages are approximations of Shapley Additive exPlanations (SHAP values).\nThe main goal of these attributions is to identify key factors that influence model prediction."}, {"heading": "4.2.3 Local variable effects", "text": "The third layer of the local part of TAX4CS is also related to effects of particular features on model response for a single observation. These effects can be captured with Ceteris Paribus (CP) profiles. Figure 8 shows responses for the ExternalRiskEstimate for 10 example observations.\nCP profiles for an observation x and a variable i are defined in the following way:\nCP (\u03b8, x, i, z) = f\u03b8(x|i = z),\ni.e. it corresponds to a model response profile for an observation in which variable ith is changed to z.\nPlease note that the partial dependency profile is a pointwise average of individual Ceteris Paribus profiles. For additive relations, individual Ceteris Paribus profiles are parallel and have the same shape as the Partial Dependency profile. However, for non-additive models, individual profiles can bring additional information about instance-specific model behavior."}, {"heading": "4.3 Conclusions", "text": "In this section, we saw a minor advantage of complex machine learning models over the the traditional scorecard baseline model. Similar results were also described by participants in the Explainable Machine Learning Challenge. For example, the second-place winners have shown that an SVM model with a linear kernel achieved higher accuracy than more complex models, such as random forest (Holter et al.). Also when comparing multiple measures, such as balanced\nNumSatisfactoryTrades PercentTradesNeverDelq\nNetFractionRevolvingBurden NumInqLast6M\nExternalRiskEstimate NoValid_MSinceMostRecentInqexcl7days\nAverageMInFile MSinceOldestTradeOpen\nPercentInstallTrades MaxDelq2PublicRecLast12M\nMSinceMostRecentDelq NumBank2NatlTradesWHighUtilization\nNumRevolvingTradesWBalance MSinceMostRecentInqexcl7days\n\u2212 10 0 10\nScore Card points\nIndividual variable importance for Score Card model\nFigure 10: ScorecardPoints for a single prediction as individual explanation of variable importance\n0.471\n+0.066 \u22120.061\n+0.053 \u22120.024\n\u22120.014\n+0.019\n+0.015 \u22120.015 +0.014\n+0.019\n+0.024 0.569\n0.4 0.5 0.6 0.7\nintercept\nMSinceMostRecentInqexcl7days = 3\nNumSatisfactoryTrades = 10\nMSinceMostRecentDelq = 54 NetFractionRevolvingBurden = 57\nPercentTradesNeverDelq = 91 NumRevolvingTradesWBalance = 3 No_MSinceMostRecentInqexcl7days = 0\nMSinceOldestTradeOpen = 200\nNumBank2NatlTradesWHighUtilization = 0\nExternalRiskEstimate = 71\n+ all other factors\nprediction\nBreak Down profile for GBM model\nFigure 11: Additive breakdown for a single prediction as individual model agnostic explanation of variable importance for Machine Leaning models (here: Gradient Boosting)\n\u22120.05 0.00 0.05 NoValid_MSinceOldestTradeOpen = 0NoValid_NetFractionInstallBurden = 1\nNoValid_NetFractionRevolvingBurden = 0NoValid_NumRevolvingTradesWBalance = 0 RiskPerformance = GoodNumTrades60Ever2DerogPubRec = 2\nNumTrades90Ever2DerogPubRec = 1No_MSinceMostRecentDelq = 0 NoBureau = 0NoValid_NumInstallTradesWBalance = 0\nNumInstallTradesWBalance = 3NoValid_MSinceMostRecentDelq = 0 NoValid_NumBank2NatlTradesWHighUtilization = 0NumTradesOpeninLast12M = 1\nNumInqLast6M = 2MSinceMostRecentTradeOpen = 8 PercentTradesWBalance = 86NumTotalTrades = 11\nNoValid_MSinceMostRecentInqexcl7days = 0NetFractionInstallBurden = 69 NumInqLast6Mexcl7days = 2MaxDelqEver = 5\nAverageMInFile = 76NumBank2NatlTradesWHighUtilization = 0 MSinceOldestTradeOpen = 200MaxDelq2PublicRecLast12M = 6\nExternalRiskEstimate = 71PercentInstallTrades = 36 No_MSinceMostRecentInqexcl7days = 0PercentTradesNeverDelq = 91\nNumRevolvingTradesWBalance = 3NetFractionRevolvingBurden = 57 MSinceMostRecentDelq = 54NumSatisfactoryTrades = 10\nMSinceMostRecentInqexcl7days = 3\ncontribution\nSHAP contributions for GBM model\nFigure 12: Average additive breakdown aka SHAP values for a single prediction as individual model agnostic explanation of variable importance for Machine Leaning models (here: Gradient Boosting)\nand unbalanced accuracy, AUC, and Kolmogorov Smirnov statistic complex models have achieved little or no advantage over simple models (Ariza-Garzo\u0301n et al. 2020). As a first conclusion we want to note that a blind belief in the superior performance of modern ML algorithms should always be challenged and a proper benchmark analysis of its benefits from the stakeholder\u2019s perspective should be undertaken for each separate scorecard model development (see also Szepannek 2017b; Rudin 2019).\nMany participants have developed new explainable classification algorithms: The winning team proposed the column generation (CG) algorithm to efficiently search the best possible rule set (Dash et al. 2018), while the Recognition Award winning team used 10 small regression models combined into a globally interpretable model (Chen et al.).\nThe teams that took high spots in the competition used existing interpretable models or developed their own one. The suggested framework for Transparency, Auditability and eXplainability for Credit Scoring (TAX4CS) provides a structured set of steps required for explanatory analysis of any complex model, which makes it possible to place greater emphasis on the suitability of the model instead of interpretability only. It allows to not only explore a single model but also provides tools for comparison of several models. Once the algorithms of interest are chosen, the similarity of them might be assessed by variable importance. Models driven by similar factors would have an overlap between the most important variables. In the next step, comparing PD profiles of important variables between models can be used to determine whether the type of relationships between variables and predictions are the same or different for different models, for example, linear vs squared relationships. In the HELOC dataset example, SVM, scorecard, and RMS models had similar monotonic responses while the GBM model was non-monotonic at the edges. With this insight, it might be desired to further check of suitability of GBM, whether it caught a relationship undiscovered by other models or overfitted due to the small number of observations with extreme values. In addition, PD profiles can\nbe used to assess the model\u2019s appropriateness. If the dependency between variable and model predictions is inconsistent with the domain knowledge it can be considered as a signal that the model might be poorly suited.\nAn important aspect to be considered within scorecard developments is bias. As an example consider a binary variable denoting whether one or several debtors are liable. From historical data it might turn out that additional debtors were added often if the creditworthiness of the applicant alone was not sufficient for granting the credit (i.e. more likely to occur in situations of a higher probability of default). This kind of sampling bias will erroneously lead to an increased score if a potential additional debtor will be removed from an application which is of course not desirable from the business point of view. In contrast, it is desirable to avoid such kind of wrong conclusions from correlations in data which are the topic of causal inference (cf. also Luebke et al. 2020). A similar sampling bias can be implied through reject inference (Banasik and Crook 2007; Bu\u0308cker et al. 2013). Scho\u0308lkopf (2019) reviews the impact on causal inference on machine learning. The connection between partial dependence plots and the back-door adjustment for causal effects is shown in Zhao and Hastie (2019): PDPs can be used for causal inference if corresponding assumptions are met. Gomez et al. (2020) suggests to use Visual Counterfactual Explanations (ViCE).\nThe analysis of a single observation can be performed with instance level methods. The local variable attributions assess the influence of the variables on the prediction for the selected observation. The iBreakDown method was used for explaining GBM model in the HELOC data set example because in contrast to LIME or SHAP, iBreakDown might be supported by the analysis of the stability, presented in Figure 12. Once the contribution of variables is established, the Ceteris Paribus (CP) profiles for the most impactful variables can be used for what-if analysis of the model\u2019s predictions. The results might be then confronted with domain experts to assess the suitability of predictions.\nThe methods presented in this chapter with the example on the HELOC dataset form a structured framework for explanation analysis of machine learning models. The proposed framework provides tools to not only assess the suitability of models but also to compare them. This is a strongly increasing field of research in AI. The framework shows how this can be added to the process for developing score cards. Future research could look into how to include more and newly developed methods into the framework."}, {"heading": "5 Summary", "text": "We have demonstrated that interpretations comparable to those of traditional logistic regression models are also possible for modern complex machine learning techniques. We propose a structured framework (TAX4CS) for model-level and instance-level exploration, starting with general measures of model performance (or accuracy of single predictions respectively) and drill down into detailed descriptions of model behavior through variable importance and effects (attribution and response profiles for instance level explanations respectively).\nFor every single step in the process we provide an introduction to model agnostic measures and approaches that can be used for arbitrary predictive models such as black-box Machine Learning algorithms used for classification or regression. This framework can be used in fields of application such as credit scoring as a guideline to ensure that the required degree of explanability can be achieved.\nIn an empirical study on a publicly available credit bureau data set, the available methodology for model transparency is compared to the interpretability given by the traditional scorecard modelling approach. Notably, the basic scorecard shows suprisingly good performance in comparison with advanced Machine Learning techniques such as Gradient Boosting or Support Vector Machines. As a consequence, we find that in practice, it is advisable to run different models of different complexity and carefully evaluate up to which degree a higher model complexity is beneficial for each specific situation (cf. also Szepannek 2017b)\nThe comparable performance of the scorecard model in our study can be explained by the simple tabular structure of the data set as well as the thorough manual data preparation that enables the Logistic Regression model to capture the relevant information in a similar fashion as more complex and non-linear models. Given that the use of transaction data and additional external data sources (e.g. in social scoring) is going to increase significantly in the future, the data used for credit scoring will become more complex and feature engineering will become more important. Since manual data preparation for using logistic regression with a large number of variables will become more and more extensive and costly, machine learning will be able to leverage its strengths (Tobback and Martens 2019; Financial Stability Board 2017). In this case, the presented model exploration process will be inevitable in order to meet regulatory requirements."}, {"heading": "6 Appendix: Scorecard Model", "text": ""}, {"heading": "7 Appendix: Challenger Models", "text": "The reproducible R and Python code for model tuning can be found in the GitHub repository: https://github.com/agosiewska/fico-experiments."}], "title": "Transparency, Auditability and eXplainability of Machine Learning Models in Credit Scoring", "year": 2020}
+{
+  "abstractText": "A major requirement for credit scoring models is to provide a maximally accurate risk prediction. Additionally, regulators demand these models to be transparent and auditable. Thus, in credit scoring, very simple predictive models such as logistic regression or decision trees are still widely used and the superior predictive power of modern machine learning algorithms cannot be fully leveraged. Significant potential is therefore missed, leading to higher reserves or more credit defaults. This paper works out different dimensions that have to be considered for making credit scoring models understandable and presents a framework for making \u201cblack box\u201d machine learning models transparent, auditable and explainable. Following this framework, we present an overview of techniques, demonstrate how they can be applied in credit scoring and how results compare to the interpretability of score cards. A real world case study shows that a comparable degree of interpretability can be achieved while machine learning techniques keep their ability to improve predictive power. \u2217CONTACT Michael B\u00fccker. Email: michael.buecker@fh-muenster.de, Gero Szepannek. Email: gero.szepannek@hochschule-stralsund.de, Alicja Gosiewska. Email: a.gosiewska@ mini.pw.edu.pl, Przemyslaw Biecek. Email: p.biecek@mimuw.edu.pl",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Michael B\u00fccker"
+    },
+    {
+      "affiliations": [],
+      "name": "Gero Szepannek"
+    }
+  ],
+  "id": "SP:f7696f1806f4f6d1a43d6ee1c53142af26a6711b",
+  "references": [
+    {
+      "authors": [
+        "H. Alemzadeh",
+        "J. Raman",
+        "N. Leveson",
+        "Z. Kalbarczyk",
+        "R.K. Iyer"
+      ],
+      "title": "Adverse events in robotic surgery: A retrospective study of 14 years of fda data",
+      "venue": "PLOS ONE, 11(4):1\u201320.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M.J. Ariza-Garz\u00f3n",
+        "J. Arroyo",
+        "A. Caparrini",
+        "M. Segovia-Vargas"
+      ],
+      "title": "Explainability of a machine learning granting scoring model in peer-to-peer lending",
+      "venue": "IEEE Access, 8:64873\u201364890.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "V. Arya",
+        "R.K.E. Bellamy",
+        "Chen",
+        "P.-Y",
+        "A. Dhurandhar",
+        "M. Hind",
+        "S.C. Hoffman",
+        "S. Houde",
+        "Q.V. Liao",
+        "R. Luss",
+        "A. Mojsilovi\u0107",
+        "S. Mourad",
+        "P. Pedemonte",
+        "R. Raghavendra",
+        "J. Richards",
+        "P. Sattigeri",
+        "K. Shanmugam",
+        "M. Singh",
+        "K.R. Varshney",
+        "D. Wei",
+        "Y. Zhang"
+      ],
+      "title": "One explanation does not fit all: A toolkit and taxonomy of ai explainability techniques",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Azevedo",
+        "M.F. Santos"
+      ],
+      "title": "Kdd, semma and crisp-dm: a parallel overview",
+      "venue": "Europ. Conf. Data Mining (IADIS), page 182\u2013185.",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "B. Baesens",
+        "T.V. Gestel",
+        "S. Viaene",
+        "M. Stepanova",
+        "J. Suykens",
+        "J. Vanthienen"
+      ],
+      "title": "Benchmarking state-of-the-art classification algorithms for credit scoring",
+      "venue": "JORS, 54(6):627\u2013635.",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "J. Banasik",
+        "J. Crook"
+      ],
+      "title": "Reject inference, augmentation and sample selection",
+      "venue": "European Journal of Operational Research, 183:1582\u20131594.",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "T. Bellotti",
+        "J. Crook"
+      ],
+      "title": "Support vector machines for credit scoring and discovery of significant features",
+      "venue": "Expert Systems with Applications, 2(33):3302\u20133308.",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "P. Biecek"
+      ],
+      "title": "Dalex: explainers for complex predictive models",
+      "venue": "Journal of Machine Learning Research, 19(84):1\u20135.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "P. Biecek",
+        "T. Burzykowski"
+      ],
+      "title": "Explanatory model analysis",
+      "venue": "explore, explain and examine predictive models. online.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "B. Bischl",
+        "T. K\u00fchn",
+        "G. Szepannek"
+      ],
+      "title": "On class imbalance correction for classification algorithms in credit scoring",
+      "venue": "L\u00fcbbecke, M., Koster, A., P., L., R., M., B., P., and Walther, G., editors, Operations Research Proceedings, pages 37\u201343.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "I. Brown",
+        "M. Christophe"
+      ],
+      "title": "An experimental comparison of classification algorithms for imbalanced credit scoring data sets",
+      "venue": "Expert Systems with Applications, 3(39):3446\u20133453.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "M. B\u00fccker",
+        "M. van Kampen",
+        "W. Kr\u00e4mer"
+      ],
+      "title": "Reject inference in consumer credit scoring with nonignorable missing data",
+      "venue": "Journal of Banking & Finance,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "T. Chen",
+        "C. Guestrin"
+      ],
+      "title": "Xgboost: A scalable tree boosting system",
+      "venue": "Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD \u201916, pages 785\u2013794, New York, NY, USA. ACM.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "D. Cook"
+      ],
+      "title": "Practical Machine Learning with H2O: Powerful, Scalable Techniques for Deep Learning and AI",
+      "venue": "O\u2019Reilly Media.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "C. Cortes",
+        "V. Vapnik"
+      ],
+      "title": "Support-vector networks",
+      "venue": "Machine Learning, 20(3):273\u2013297.",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "J. Crook",
+        "D. Edelman",
+        "L.C. Thomas"
+      ],
+      "title": "Recent developments in consumer credit risk assessment",
+      "venue": "Journal of the Operational Research Society, (183):1447\u20131465.",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "S. Dash",
+        "O. G\u00fcnl\u00fck",
+        "D. Wei"
+      ],
+      "title": "Boolean decision rules via column generation",
+      "venue": "Proceedings of the 32nd International Conference on Neural Information Processing Systems, NIPS\u201918, page 4660\u20134670, Red Hook, NY, USA. Curran Associates Inc.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "AI EU Expert Group on"
+      ],
+      "title": "Ethics guidelines for trustworthy ai",
+      "venue": "Online.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "European Banking Authority"
+      ],
+      "title": "Guidelines on pd estimation, lgd estimation and the treatment of defaulted exposures",
+      "venue": "Online.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "European Commission"
+      ],
+      "title": "On artificial intelligence - a european approach to excellence and trust",
+      "venue": "Online.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "European Union",
+        "G.D.P. R"
+      ],
+      "title": "Regulation (eu) 2016/679 of the european parliament and of the council",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "FICO"
+      ],
+      "title": "xml challenge",
+      "venue": "Online.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Financial Stability Board"
+      ],
+      "title": "Artificial intelligence and machine learning in financial services \u2013 market developments and financial stability implications",
+      "venue": "Online.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Finlay"
+      ],
+      "title": "Credit Scoring, Response Modelling and Insurance Rating",
+      "venue": "Palgarve MacMillan.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "A. Fisher",
+        "C. Rudin",
+        "F. Dominici"
+      ],
+      "title": "Model class reliance: Variable importance measures for any machine learning model class, from the \u2019rashomon\u2019 perspective",
+      "venue": "Journal of Computational and Graphical Statistics.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "T. Fitzpatrick",
+        "C. Mues"
+      ],
+      "title": "An empirical comparison of classification algorithms for mortgage default prediction: evidence from a distressed mortgage market",
+      "venue": "European Journal of Operational Research, 2(249):427\u2013439.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J. Friedman",
+        "T. Hastie",
+        "R. Tibshirani"
+      ],
+      "title": "Regularization paths for generalized linear models via coordinate descent",
+      "venue": "Journal of Statistical Software,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "J.H. Friedman"
+      ],
+      "title": "Greedy function approximation: A gradient boosting machine",
+      "venue": "Annals of Statistics, 29:1189\u20131232.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "U. Garzcarek",
+        "D. Steuer"
+      ],
+      "title": "Approaching Ethical Guidelines for Data Scientists, pages 151\u2013169",
+      "venue": "Springer International Publishing.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "N. Gill",
+        "P. Hall"
+      ],
+      "title": "An introduction to machine learning interpretability",
+      "venue": "O\u2019Reilly Media, Inc.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Goldstein",
+        "A. Kapelner",
+        "J. Bleich",
+        "E. Pitkin"
+      ],
+      "title": "Peeking inside the black box: Visualizing statistical learning with plots of individual conditional expectation",
+      "venue": "Journal of Computational and Graphical Statistics, 24(1):44\u201365.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "O. Gomez",
+        "S. Holter",
+        "J. Yuan",
+        "E. Bertini"
+      ],
+      "title": "Vice: Visual counterfactual explanations for machine learning models",
+      "venue": "Proceedings of the 25th International Conference on Intelligent User Interfaces, IUI \u201920, page 531\u2013535. ACM.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "B. Goodman",
+        "S. Flaxman"
+      ],
+      "title": "European union regulations on algorithmic decision-making and a \u201cright to explanation",
+      "venue": "AI Magazine, 38(3):50\u201357.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Gosiewska",
+        "P. Biecek"
+      ],
+      "title": "Do Not Trust Additive Explanations",
+      "venue": "arXiv e-prints, page arXiv:1903.11420.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "B. Greenwell",
+        "B. Boehmke",
+        "J. Cunningham",
+        "G. Developers"
+      ],
+      "title": "gbm: Generalized Boosted Regression Models",
+      "venue": "R package version 2.1.5.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "B.M. Greenwell"
+      ],
+      "title": "pdp: An r package for constructing partial dependence plots",
+      "venue": "The R Journal, 9(1):421\u2013436.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Hand"
+      ],
+      "title": "Measuring classifier performance: a coherent alternative to the area under the roc curve",
+      "venue": "Machine Learning, 77:103\u2014-123.",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "F. Harrell"
+      ],
+      "title": "Regression Modeling Strategies: With Applications to Linear Models, Logistic and Ordinal Regression, and Survival Analysis",
+      "venue": "Springer Series in Statistics. Springer International Publishing.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M. Kusner",
+        "J. Loftus"
+      ],
+      "title": "The long road to fairer algorithms",
+      "venue": "Nature, 534:34\u201336.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Liaw",
+        "M. Wiener"
+      ],
+      "title": "Classification and regression by randomforest",
+      "venue": "European Journal of Operational Research,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "R News",
+        "F. 2(3):18\u201322. Louzada",
+        "A. Ara",
+        "G. Fernandes"
+      ],
+      "title": "Classification methods applied",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Curran Associates",
+        "M. Inc. McGough"
+      ],
+      "title": "How bad is Sacramento\u2019s air, exactly? Google results",
+      "venue": "Processing Systems",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "B. Bischl",
+        "G. Casalicchio"
+      ],
+      "title": "iml: An R package",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "G. Montavon",
+        "W. Samek",
+        "M\u00fcller",
+        "K.-R"
+      ],
+      "title": "Interpretable Machine Learning",
+      "venue": "Journal of Open Source Software,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C. O\u2019Neil"
+      ],
+      "title": "Weapons of Math Destruction: How Big Data Increases",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "P. lo\u0144ski"
+      ],
+      "title": "mljar-supervised: The Automated Machine Learning - the new standard in ML. Machine Learning for Humans",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "why should I trust you?\u201d: Explaining the predictions of any classifier",
+      "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, San Francisco, CA, USA, August 13-17, 2016, pages 1135\u20131144.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "X. Robin",
+        "N. Turck",
+        "A. Hainard",
+        "N. Tiberti",
+        "F. Lisacek",
+        "J. Sanchez",
+        "M. M\u00fcller"
+      ],
+      "title": "proc: an open-source package for r and s+ to analyze and compare roc curves",
+      "venue": "BMC Bioinformatics, 12.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "C. Rudin"
+      ],
+      "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+      "venue": "Nature Machine Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "G. Scallan"
+      ],
+      "title": "Class(ic) scorecards \u2013 selecting attributes in logistic regression",
+      "venue": "Credit Scoring and Credit Control XIII.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "B. Sch\u00f6lkopf"
+      ],
+      "title": "Causality for machine learning",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Sokol",
+        "P. Flach"
+      ],
+      "title": "One Explanation Does Not Fit All",
+      "venue": "KI Kunstliche Intelligenz.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "G. Szepannek"
+      ],
+      "title": "A framework for scorecard modelling using r",
+      "venue": "Credit Scoring and Credit Control XV.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "G. Szepannek"
+      ],
+      "title": "On the practical relevance of modern machine learning algorithms for credit scoring applications",
+      "venue": "WIAS Report Series, 29:88\u201396.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "G. Szepannek"
+      ],
+      "title": "How much can we see? A note on quantifying explainability of machine learning models",
+      "venue": "arxiv.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "G. Szepannek",
+        "R. Aschenbruck"
+      ],
+      "title": "Predicting ebay prices: Selecting and interpreting machine learning models \u2013 results of the ag dank 2018 data science competition",
+      "venue": "Archives of Data Science A (accepted).",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L.C. Thomas",
+        "J.N. Crook",
+        "D.B. Edelman"
+      ],
+      "title": "Credit Scoring and its Applications",
+      "venue": "SIAM, second edition.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "E. Tobback",
+        "D. Martens"
+      ],
+      "title": "Retail credit scoring using fine-grained payment data",
+      "venue": "Journal of the Royal Statistical Society: Series A (Statistics in Society), 182(4):1227\u20131246.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "T. Verbraken",
+        "C. Bravo",
+        "W. Richard",
+        "B. Baesens"
+      ],
+      "title": "Development and application of consumer credit scoring models using profit-based classification measures",
+      "venue": "European Journal of Operational Research, 238(2):505\u2013513.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "R. Wexler"
+      ],
+      "title": "When a Computer Program Keeps You in Jail",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M.N. Wright",
+        "A. Ziegler"
+      ],
+      "title": "ranger: A fast implementation of random forests for high dimensional data in C++ and R",
+      "venue": "Journal of Statistical Software, 77(1):1\u201317.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Q. Zhao",
+        "T. Hastie"
+      ],
+      "title": "Causal interpretations of black-box models",
+      "venue": "Journal of Business & Economic Statistics.",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "text": "\u2217CONTACT Michael Bu\u0308cker. Email: michael.buecker@fh-muenster.de, Gero Szepannek. Email: gero.szepannek@hochschule-stralsund.de, Alicja Gosiewska. Email: a.gosiewska@ mini.pw.edu.pl, Przemyslaw Biecek. Email: p.biecek@mimuw.edu.pl"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "The field of interpretable machine learning has rapidly advanced in recent years. There are at least three reasons for this. First, there are an increasing number of predictive models that affect our everyday life. A popular example is credit decisions based on scoring models. The unprecedented scale in which autonomous systems affect our lives bring people\u2019s attention to a potential negative impact of such automation, which has led to new regulations such as GDPR (Goodman and Flaxman 2017) and ehtical guidelines such as the one published by the EU Expert Group on AI (2019).\nSecondly, there is an increasing availability of large datasets and cheap computational power. Traditionally, predictive models were built mostly based on domain knowledge. Recent machine learning algorithms automatically seek patterns in collected data, which is different from the model developer perspective: Models based on domain knowledge are understandable to model developers. Elastic and complex data-hungry models are not necessarily transparent anymore.\nFor the application of machine learning in financial services the Finacial Stability Board (FSB) states that \u201cthe use of complex algorithms could result in a lack of transparency to consumers. This \u2018black box\u2019 aspect of machine learning algorithms may in turn raise concerns. When using machine learning to assign credit scores and make credit decisions, it is generally more difficult to provide consumers, auditors, and supervisors with an explanation of a credit score and resulting credit decision if challenged\u201d (Financial Stability Board 2017). Thus, model developers are confronted with an increasing need for tools to better understand what their models have learned.\nThirdly, there is a growing number of reported failures of complex predictive models in different domains in the recent past that can be traced back to a lack of proper model validation and model understanding (Alemzadeh et al. 2016; Wexler 2017; McGough 2018; O\u2019Neil 2016).\nIn the context of credit risk modelling there are several specific requirements for models, which have led to consistent popularity of logistic regression models (Szepannek 2017b):\n1. the models are subject to regulation and auditors are typically familiar with interpreting logistic regression models due to their linear nature,\n2. regulation further requires recurrent monitoring, which can be easily interpreted on a variable level for logistic regression models,\n3. customers have a right to explanation of individual decisions, and an answer to the question why a credit application has been rejected can be easily broken down since the score computed from a logistic regression model is the sum of the variables\u2019 effects.\nThus, based on the above reasons, standard logistic regression is currently still considered as the gold standard methodology in the credit scoring industry,\ndespite the general superiority of modern machine learning techniques (cf. e.g. Baesens et al. 2002; Lessmann et al. 2015; Louzada et al. 2016; Bischl et al. 2014; Szepannek 2017b; Brown and Christophe 2012; Bellotti and Crook 2009; Fitzpatrick and Mues 2016).\nFor Machine Learning models which often act as black-boxes and lack the transparency of simpler models such as logistic regression, many techniques have been developed that help to create explanations for models and predictions (cf. Molnar 2019). However, a standardized framework for these explainable ML (sometimes also denoted as explainable AI, abbrev. XAI) methods that can provide structured guidance on how to apply them in an application such as credit scoring is still missing."
+    },
+    {
+      "heading": "2 Framework for Transparency, Auditability and",
+      "text": "eXplainability of Models for Credit Scoring"
+    },
+    {
+      "heading": "2.1 Requirements for Credit Scoring",
+      "text": "There are several specific requirements to model exploration in the context of credit scoring. In this section, these requirements will be detaied out. In the following subsections we will map these requirements to specific XAI methods.\nAn important set of requirements on the transparency of models are based on the Basel Commitee on Banking Supervision (BCBS): According to the European Banking Authority \u201cthe selection of certain risk drivers and rating criteria should be based not only on statistical analysis, but [that] the relevant business experts should be consulted on the business rationale and risk contribution of the risk drivers under consideration\u201d (European Banking Authority 2017). Companies should establish checks and tests at each stage of the development process and be able to \u201cdemonstrate developmental evidence of theoretical construction, behavioural characteristics and key assumptions, types and use of input data, numerical analysis routines and specified mathematical calculations, and code writing language and protocols (to replicate the model)\u201d (Financial Stability Board 2017). While the last two aspects refer to reproducibility and proper documentation the first three ones are closely related to global-level explanations as described in section 4.1.\nOne important aspect of data protection regulations is the right to explanation. Specifically, the European Union General Data Protection Regulation states, that a person whose personal data is used \u201cshall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her\u201d (European Union 2016, Article 22 (1)). Also, \u201cthe data controller shall implement suitable measures to safeguard the data subject\u2019s rights and freedoms and legitimate interests, at least the right to obtain human intervention on the part of the controller, to express his or her point of view and to contest the decision\u201d (European Union 2016, Article 22 (3)). This requires transparency of every single credit decision supported by data and algorithms.\nThus, it is not sufficient for banks to be able to explain a credit scoring algorithm and how it is making predictions in general but also to explain any single credit decision and to identify the most adverse characteristics of an applicant which means being able to provide instance-level explanations as described in section 4.2.\nAccording to the Financial Stability Board the use of machine learning techniques in combination with new data sources bears the potential of risk assessment also for customers without known credit experience while at the same time risking to introduce bias or ethical issues into modelling, e.g. by learning models that yield combinations of borrower characteristics that are nothing but correlates of race or gender (Financial Stability Board 2017, Sec. 3.1.1 and Annex B). A road towards ethical fairness of machine learning models is discussed in (Kusner and Loftus 2020). As outlined in (Garzcarek and Steuer 2019) ethical considerations will become an increasing challenge for the future role of data scientists. In April 2019, the European Commission High-Level Expert Group on AI presented \u201cEthics Guidelines for Trustworthy Artificial Intelligence\u201d (EU Expert Group on AI 2019). Three of the guidelines directly refer to explainability:\n1. Human agency and oversight: proper oversight mechanisms need to be ensured, which can be achieved through human-in-the-loop approach\n2. Transparency: AI systems and their decisions should be explained in a manner adapted to the stakeholder concerned and\n3. Accountability: Mechanisms should be put in place to ensure responsibility and accountability for AI systems and their outcomes.\nThese requirements imply that the problem of explainability should be addressed more broadly than just from the perspective of the bank\u2019s data science division, or from the perspective of the customer. The topic of explainability should be analysed from the perspective of all stakeholders present in the in the model life cycle (Arya et al. 2019; Sokol and Flach 2020). The topic of explainability and ethics of AI appears in EU documents not only in the context of requirements protecting civil rigths, but also in the context of strategies towards responsible algorithms (European Commission 2020)."
+    },
+    {
+      "heading": "2.2 Proposed Framework for Transparency, Auditability and eXplainability",
+      "text": "In this section we introduce a systematic model exploration process focused on Transparency, Auditability and eXplainability for Credit Scoring models (TAX4CS). Its outline is presented in the Figure 1."
+    },
+    {
+      "heading": "2.2.1 Stakeholders",
+      "text": "As recommended in (EU Expert Group on AI 2019), the first step of the process is to identify the stakeholders that participate in the model life cycle. These\nstakeholders may include the bank\u2019s data science team, internal or external auditors, regulators and, of course, the bank\u2019s customers. The list of stakeholders may be larger for certain models."
+    },
+    {
+      "heading": "2.2.2 Lifetime",
+      "text": "In the next step it is necessary to define the life cycle of the model and to identify which stakeholders are involved at which point. The role of model developers is active at the beginning of the model life cycle. The auditor\u2019s role begins when the model has been created. Then regular monitorings and audits may be carried out periodically to determine the current effectiveness of the model as required in (Financial Stability Board 2017). Figure 1 presents a proposal, but for different products the life cycle may vary."
+    },
+    {
+      "heading": "2.2.3 Needs",
+      "text": "After identifying the stakeholders and their activities during the model life cycle, we can proceed to identify stakeholder needs. These needs should meet the requirements listed in the regulations from the previous section. Some examples\n\u2022 A credit officer should be able to understand what were the key features behind a credit decision so that they can express his or her point of view and to contest the decision, as requested in (European Union 2016),\n\u2022 The auditor should be able to establish checks and balances at each stage of the development process as requested in (Financial Stability Board 2017),\n\u2022 Proper oversight mechanisms shall be avaliable for auditor as requested in (EU Expert Group on AI 2019)."
+    },
+    {
+      "heading": "2.2.4 XAI methods",
+      "text": "There are different aspects in which one can categorise methods for model interpretations. One is whatever method is model-specific, i.e. works only for a selected class of predictive models, or is model-agnostic, that does not assume anything about the internal structure of a model, such as e.g. tracing signal through layers of deep neural network (Montavon et al. 2018). Model specific tools can be very powerful since they make use of the explicit model structure for the analysis, e.g. for linear models such as logistic regression the interpretation is straightforward and given by the resulting effect estimates. In this paper, we focus on model-agnostic tools. These tools offer the opportunity to compare side by side models of different structures, which allows for champion-challenger analysis of black box models against interpretable glass box models.\nThe choice for a specific method should be based on the identified needs of the stakeholder. In order to identify an appropriate set of techniques the proposed pyramid of XAI methods depicts available methods along two dimensions.\nThe first dimension - the vertical direction of the pyramid - corresponds to the depth of model exploration. Methods are divided with respect to the aspect\nof the model or prediction that should be analysed. The underlying idea is to start with a simple measure of model and prediction performance and drill down into factors that influence model performance and individual predictions. It starts with general performance metrics. Subsequently, they are broken down into components related to specific characteristics of the credit application. The next step is to analyse the response profile as \u201cwhat-if\u201d questions. This cascade approach allows stakeholders to choose a level of explanation that matches their needs.\nThe second (horizontal) dimension concerns the global versus local aspect of model explainability, shown as the left and right side of the pyramid. The global aspect is needed to verify the possible systemic discrimination or biases of the model and to provide specific overall checks. The local aspect is needed to facilitate explanation of the model\u2019s for individual credit applications.\nWe now summarize a list of methods for the two groups of methods for locallevel and global-level explanations (Gill and Hall 2018; Molnar 2019; Biecek and Burzykowski 2019; Szepannek and Aschenbruck 2019). The methods presented below are implemented in packages for R (Biecek 2018; Molnar et al. 2018) or Python (Jenkins et al. 2019).\nGlobal-level explanations are focused on the model behavior in general. One example is the model-agnostic feature importance. This can be calculated as drop in the model performance after a permutation of a selected feature (Fisher et al. 2018). Once the most important features are identified, they can be examined in detail using Partial Dependence Plots (PDP, Friedman 2000; Greenwell 2017). PDPs summarise how on average the model response changes with a shift of the value for a single feature.\nLocal-level explanations are focused on a model behavior around a single model prediction. Individual conditional expectations (Goldstein et al. 2015) trace how the model response would change with a shift in the model input. The disadvantage of such an approach is that one needs to trace every variable. This can be problematic for large numbers of variables. Local Interpretable Modelagnostic Explanation (LIME, Ribeiro et al. 2016) identifies sparse explanations based on small numbers of features. LIME is based on simple interpretable surrogate models that are fitted locally to the black box model. A disadvantage of LIME is that feature explanations do not add to the model predictions. In contrast, the SHapley Additive exPlanations (SHAP) method (Lundberg and Lee 2017) uses Shapley values from cooperative game theory to attribute additive feature effects to final model predictions. The iBreakDown method (Gosiewska and Biecek 2019) can be used for identification of non-additive decompositions."
+    },
+    {
+      "heading": "3 Comparative study of Scorecards and Explain-",
+      "text": "able Machine Learning\nTo illustrate the proposed process, in this section we show a comparative analysis of several models for credit scoring. We compare both the performance and, more importantly, the explainability of a logistic regression model with modern machine learning models in a credit scoring context. For the comparative study, a publicly available data set has been used. This data set was provided by FICO, one of the major credit bureaus in the United States (FICO 2019)."
+    },
+    {
+      "heading": "3.1 Description of the data",
+      "text": "The data relate to the Home Equity Line of Credit (HELOC) with customers requesting a credit line in the range of $5,000 - $150,000. The data set has n = 10, 459 observations of 23 covariates and one binary target variable. The task is to predict whether a consumer was ever more than 90 days overdue within a 24 months period. The predictor variables are all quantitative or categorical, and come from anonymised credit bureau data.\nEleven additional dummy variables have been created after manual inspection of the data in order to identify missing observations where no information, no valid information or no bureau data is available. In order to support rigorous analysis, the data set has been split and randomly assigned into two sets: training data (75% or 7844 obs.) and test data (25% or 2615 obs.), where the\nformer has been used for model training and parameter tuning while the latter has been set aside and only used for performance evaluation.\nIn addition to creating a model of highest discriminatory power according to the challenge description, a monotonic dependency of the risk prediction on some of the predictor variables has to be ensured (cf. FICO 2019)."
+    },
+    {
+      "heading": "3.2 Models for comparison",
+      "text": ""
+    },
+    {
+      "heading": "3.2.1 Scorecard model",
+      "text": "In the first step, a traditional credit risk scorecard has been developed as a baseline for further comparison to represent the current industry standard. A typical scorecard modelling process consists of a chain of subsequent modelling steps and can be considered as a special case of well-known general process standards for data mining business practice such as KDD or CRISP-DM (Azevedo and Santos 2008). Typically, at each stage of the process, exploratory analyses are conducted resulting in modelling decisions based on business knowledge (Szepannek 2017a). A typical preprocessing (cf. e.g. Finlay 2012) consists in coarse classing of the original variables as well as an optional subsequent WOE transform of the resulting dummy variables. The preprocessd data are used for logistic regression using variable selection, which is often performed by manual interaction of the analyst using business information with suggestions of an automatic selection strategy.\nVariable coarse classing is generally obtained using an initial algorithm-based binning which has to be manually updated by the analyst in a second step. In the case of the HELOC data, the initial binning has been generated using recursive binary splits of numeric variables that maximise the information value (IV = \u2211 x(f(x|1)\u2212f(x|0))WOE(x)) of the binned variable, where a minimum relative IV improvement of 5% for any additional split has to be reached. For categorical variables, all levels that do cover less than 2% of the data are assigned to a new \u201crest\u201d level. The remaining levels are sorted according to their default rate and any two subsequent levels are merged (from low to high) as long as their default rates do not significantly differ (\u03b1 = 0.1) using a \u03c72 test (Szepannek 2017a). Afterwards, few resulting very small classes of numeric variables have been manually merged with their adjacent class as well as a few bins that were violating the monotonicity constraints as given by the competition (cf. FICO 2019) after the initial automatic binning. An example for this is given by the variable months since the most recent delinquency : As an advantage over the challenger black box algorithms presented in the next section, the traditional approach of white box scorecard development allows for a visualization of the resulting bins in terms of default rates and by manual inspection in this case a non-linear trend can be observed in the data (cf. Figure 2, left). A challenge now consists in explaining such non-linearities to the stakeholders and regulators. In case of this competition a constraint of monotonicity of the default rate w.r.t. the variable months since the most recent delinquency was required and therefore the 2nd and 3rd class have been manually merged (2, right).\nThe resulting coarse classes are given in the Appendix. Subsequently WOEs are assigned to the classes: WOE(x) = log( f(x|1)f(x|0) ) (cf. e.g. Thomas et al. 2019). For reasons of parsimony and in order to ensure that the resulting model respects the trends of the risk drivers in practice WOEs are typically used instead of dummy variables which has also been the case for the HELOC data.\nThe resulting WOE variables are used to train a logistic regression model where, in a forward selection manner, variables are chosen using marginal information values (MIV, Scallan 2011) as long as the improvement of the model as measured by the MIV is at least 0.01. The resulting scorecard model has 16 variables and it is given in the appendix. It has been scaled to a score of 500 for odds of 50 and 20 points to double the odds.\nAn advantage of the preceding methodology using coarse classing is that it takes into account nonlinear relationships between the predictor variables and the target, while simultaneously guaranteeing a plausibility check by the analyst after each modelling step. This plausibility check allows for the integration of business expert experience, as required by the regulators. On the other hand, it is not possible to cover nonlinear high-order multidimensional dependencies in the data and this becomes a potential source of error resulting from the manual interference if the number of variables is large. The latter two issues can be overcome using modern machine learning techniques but the resulting models typically are of a black box nature, as it has been outlined in the previous section."
+    },
+    {
+      "heading": "3.2.2 Challenger Approaches",
+      "text": "Several black-box machine learning models have been tested to challenge the scorecard model. The algorithms considered in this paper are state-of-theart machine learning models, including: generalised boosted models (Greenwell et al. 2019), elastic net (Friedman et al. 2010), logistic regression with splinebased transformations (Harrell 2015), two implementations of random forests (Liaw and Wiener 2002; Wright and Ziegler 2017), support vector machines\n(Cortes and Vapnik 1995), and extreme gradient boosting (Chen and Guestrin 2016). Moreover, two automated machine learning frameworks were examined, namely H2O (Cook 2016) and mljar (P lon\u0301ski 2019). These models are able to cover a wide range of potential relationships between variables and can capture complex interactions.\nThe challenger models have been trained without any further data preprocessing. Random search optimisation has been used to tune hyperparameters of the models. All optimised hyperparameters and their tuning ranges are provided in Table 3 and Table 2.\nOn the test data, the best results were obtained for the logistic regression with spline-based transformations (rms), see Figure 3. For 13 continuous variables the linear tail-restricted cubic spline transformation was applied to adapt for non-linear relations. Additionally, we also considered a model with manually tuned penalty parameters. Reproducible code for all models can be found in the respective GitHub repository: https://github.com/agosiewska/ fico-experiments."
+    },
+    {
+      "heading": "4 Results of model and instance level exploration",
+      "text": "and explanation"
+    },
+    {
+      "heading": "4.1 Model level exploration and explanation",
+      "text": ""
+    },
+    {
+      "heading": "4.1.1 Model performance",
+      "text": "For the model level exploration, the first step is usually related to model performance. Different measures may be used. Common choices for credit scoring include AUC, Gini, KS, F1, pAUC (Robin et al. 2011), H-measure (Hand 2009) or profit-based measures (Crook et al. 2007; Verbraken et al. 2014). As the discussion of performance measures is not the scope of this paper, we apply the commonly used AUC for the remainder of the paper.\nWe denote the performance of a model f\u03b8 measured on a dataset X with known values of a target variable y as\nM(\u03b8) = L(f\u03b8, X, y),\nwhere L represents the performance measure (loss function) of interest. Typically, model performances on training and test data are compared. It is common practice to compare model performance on at least out-of-sample and out-of-time test data. In case of the HELOC data out of time data is not available. For this reason, during the comparative study of this paper, we restricted the analysis to a comparison of model performance between training and test data.\nA performance comparison of the various models is provided in Figure 3. Surprisingly, the more complex machine learning models showed only slightly superior performance compared to the baseline scorecard using the HELOC\ndata. The best results on both training and test data were obtained for logistic regression using spline transformations.\nElastic models are known to be sensitive to overfitting. Usually, overfitting is assessed as the difference in model performance on the training and test dataset.\noverfitting(\u03b8) = L(f\u03b8, Xtrain, ytrain)\u2212 L(f\u03b8, Xtest, ytest),\nFigure 4 shows a scatterplot with model performance on the train and test data sets. Note the different scale of both axes. The graph nicely shows the common performance gap between training and test data for random forests (cf. e.g. Szepannek 2017b). For further analysis we selected four models based on a comparison of their predictive power on the training and test data to account for potential overfitting (cf. Figure 4): the traditional scorecard, the SVM, the GBM10000 as well as the best model."
+    },
+    {
+      "heading": "4.1.2 Variable importance",
+      "text": "The next step, according to the introduced framework, consists in assessing the importance of each variable. Model agnostic variable importance (Fisher et al. 2018) measures how much the model\u2019s loss function (or performance function) will change if a selected variable is randomly permuted.\nIt may be simply introduced as\nFI(\u03b8, i,X, y) = L(f\u03b8, X, y)\u2212 L(f\u03b8, X\u2217,j , y),\nwhere X\u2217,j is a dataset X with jth column being permuted. Figure 6 shows the importance FI for the GBM 10000 model in terms of a decrease in 1-AUC, which takes into account the explicit performance measure under investigation. As an example, the most important feature is the ExternalRiskEstimate: After permutation of this variable the 1-AUC increases from 0.25 to over 0.28.\nNoValid_MSinceMostRecentInqexcl7days\nVariable importance for Score Card model\n0.25 0.26 0.27 0.28\nNetFractionInstallBurden NumTrades60Ever2DerogPubRec NoValid_NetFractionInstallBurden\nNoValid_NumInstallTradesWBalance MaxDelqEver\nNoValid_NumRevolvingTradesWBalance RiskPerformance\nNoValid_NetFractionRevolvingBurden NumInstallTradesWBalance\nMSinceMostRecentTradeOpen NoValid_MSinceOldestTradeOpen NumTrades90Ever2DerogPubRec\nPercentTradesWBalance NoValid_NumBank2NatlTradesWHighUtilization\nNoValid_MSinceMostRecentDelq No_MSinceMostRecentDelq\nNumTotalTrades NoBureau\nNumInqLast6Mexcl7days NumBank2NatlTradesWHighUtilization\nNumTradesOpeninLast12M NoValid_MSinceMostRecentInqexcl7days\nNo_MSinceMostRecentInqexcl7days MSinceMostRecentDelq\nMaxDelq2PublicRecLast12M PercentInstallTrades\nMSinceOldestTradeOpen NumRevolvingTradesWBalance\nMSinceMostRecentInqexcl7days AverageMInFile\nNumSatisfactoryTrades NumInqLast6M\nPercentTradesNeverDelq NetFractionRevolvingBurden\nExternalRiskEstimate\n1 \u2212 AUC\nVariable importance for GBM 10000 model\nFigure 6: Drop-out loss of AUC as measure of variable importance for the Machine Learning models.\nNote that variable importance corresponds to the effect of a variable if all other variables are part of the model (similar to a backward variable selection from a full model) which should be taken into account during the analysis (Szepannek and Aschenbruck 2019)."
+    },
+    {
+      "heading": "4.1.3 Variable effects",
+      "text": "Once the most important features are selected, the next layer of model exploration is the assessment of marginal effects. Partial Dependency Profiles are useful plots that show how an average model response changes along changes in a selected feature.\nPD profiles can be calculated as\nPD(\u03b8, i, z) = E[f\u03b8(x|i = z)]\nwhere x|i = z is an observation x with ith coordinate replaced by value z. The E stands for expected value over the marginal distribution of all variable except i.\nFor the scorecard model (Figure 7) the effect of a variable is directly given by the scorecard points (cf. Appendix), which are often a linear transformation of a variable\u2019s effect on the logit of the default probabilities. For the Scorecard, the variables\u2019 effects are given by step functions, which result from the preliminary coarse classing step in model development.\nFigure 9 compares all four models using PDPs for the variable ExternalRiskEstimate. This suggests that more complex models typically show smoother responses. Three of the presented models, SVM, scorecard and RMS, have monotonic responses while the GBM model exhibits some non-monotonic behavior on the edges.\nNote that the Partial Dependency Profile is an average of individual model responses. A sample of such individual responses is presented in Figure 8. If these individual profiles are parallel to each other, then an average correctly describes individual behavior of the model. In the presence of interactions, model responses may not be parallel.\nWhenever PDPs are used it has to be kept in mind that the value of a true model prediction typically differs from the PDP depending on the explicit values in all other variables. In (Szepannek 2019) a measure is proposed to quantify how well the visualisation as given by a partial dependence function matches the predictions of the model of interest."
+    },
+    {
+      "heading": "4.2 Instance level exploration and explanation",
+      "text": "For model level exploration, as presented in the previous section, the average behavior of the whole model has been examined. For additive and linear models, the average behavior is often similar to a local behavior for particular instances. However, it is not necessarily the case for more complex and elastic models. Interaction effects for particular instances may be different than the average.\nFor this reason in the proposed framework, the subsequent step consists of instant level explanations.\nThere are two primary use cases for instance level explanations. Either the target is to explain the prediction for a new observation when the model is applied (in this case we want to identify factors that contribute strongly the model prediction) or a second possibility is that some interesting points in the training data have been identified. The latter case represents a useful tool for model debugging during the development process: For the observations with largest residuals, one may look for factors that fool the model predictions."
+    },
+    {
+      "heading": "4.2.1 Model prediction",
+      "text": "The first step of instance level explanations and exploration of a model is to look at the accuracy of the prediction for a single observation.\nThe prediction is denoted as y\u0302i = f\u03b8(xi), where xi stands for ith observation."
+    },
+    {
+      "heading": "4.2.2 Local variable attribution",
+      "text": "The second layer in the local part of the TAX4CS framework is given by the attribution of particular features to the final model response for a selected observation which allows to identify an applicant\u2019s most adverse characteristics that were negatively contributing to a credit rejection by a given model. For the traditional scorecard model, these effects can be directly assessed by comparing scorecard points for a single observation x in variable i to the average score of the entire training sample in this variable. Figure 10 shows an example where these differences are compared for all variables and a single observation.\nThere are various model-agnostic methods which can be used to assign local contributions to a single prediction, e.g. LIME, SHAP or iBreakDown as introduced in the previous section. A desired property for such methods is the completeness of the explanation, i.e. the sum of variable attributions shall sum up to model response\nf\u03b8(x) = \u2211 i \u03b4i(\u03b8, x),\nwhere \u03b4i(\u03b8, x) is the attribution of the i th variable. Both SHAP and iBreakDown do possess this property. Figure 11 shows the iBreakDown result for instance level attributions of the GBM 10000 model. The three most influential variables are presented in the first three segments of the waterfall plot. For non-additive models, feature attribution depends on the order in which features are added to the iBreakDown Plot. Figure 12 shows an average contribution from different paths. Such averages are approximations of Shapley Additive exPlanations (SHAP values).\nThe main goal of these attributions is to identify key factors that influence model prediction."
+    },
+    {
+      "heading": "4.2.3 Local variable effects",
+      "text": "The third layer of the local part of TAX4CS is also related to effects of particular features on model response for a single observation. These effects can be captured with Ceteris Paribus (CP) profiles. Figure 8 shows responses for the ExternalRiskEstimate for 10 example observations.\nCP profiles for an observation x and a variable i are defined in the following way:\nCP (\u03b8, x, i, z) = f\u03b8(x|i = z),\ni.e. it corresponds to a model response profile for an observation in which variable ith is changed to z.\nPlease note that the partial dependency profile is a pointwise average of individual Ceteris Paribus profiles. For additive relations, individual Ceteris Paribus profiles are parallel and have the same shape as the Partial Dependency profile. However, for non-additive models, individual profiles can bring additional information about instance-specific model behavior."
+    },
+    {
+      "heading": "4.3 Conclusions",
+      "text": "In this section, we saw a minor advantage of complex machine learning models over the the traditional scorecard baseline model. Similar results were also described by participants in the Explainable Machine Learning Challenge. For example, the second-place winners have shown that an SVM model with a linear kernel achieved higher accuracy than more complex models, such as random forest (Holter et al.). Also when comparing multiple measures, such as balanced\nNumSatisfactoryTrades PercentTradesNeverDelq\nNetFractionRevolvingBurden NumInqLast6M\nExternalRiskEstimate NoValid_MSinceMostRecentInqexcl7days\nAverageMInFile MSinceOldestTradeOpen\nPercentInstallTrades MaxDelq2PublicRecLast12M\nMSinceMostRecentDelq NumBank2NatlTradesWHighUtilization\nNumRevolvingTradesWBalance MSinceMostRecentInqexcl7days\n\u2212 10 0 10\nScore Card points\nIndividual variable importance for Score Card model\nFigure 10: ScorecardPoints for a single prediction as individual explanation of variable importance\n0.471\n+0.066 \u22120.061\n+0.053 \u22120.024\n\u22120.014\n+0.019\n+0.015 \u22120.015 +0.014\n+0.019\n+0.024 0.569\n0.4 0.5 0.6 0.7\nintercept\nMSinceMostRecentInqexcl7days = 3\nNumSatisfactoryTrades = 10\nMSinceMostRecentDelq = 54 NetFractionRevolvingBurden = 57\nPercentTradesNeverDelq = 91 NumRevolvingTradesWBalance = 3 No_MSinceMostRecentInqexcl7days = 0\nMSinceOldestTradeOpen = 200\nNumBank2NatlTradesWHighUtilization = 0\nExternalRiskEstimate = 71\n+ all other factors\nprediction\nBreak Down profile for GBM model\nFigure 11: Additive breakdown for a single prediction as individual model agnostic explanation of variable importance for Machine Leaning models (here: Gradient Boosting)\n\u22120.05 0.00 0.05 NoValid_MSinceOldestTradeOpen = 0NoValid_NetFractionInstallBurden = 1\nNoValid_NetFractionRevolvingBurden = 0NoValid_NumRevolvingTradesWBalance = 0 RiskPerformance = GoodNumTrades60Ever2DerogPubRec = 2\nNumTrades90Ever2DerogPubRec = 1No_MSinceMostRecentDelq = 0 NoBureau = 0NoValid_NumInstallTradesWBalance = 0\nNumInstallTradesWBalance = 3NoValid_MSinceMostRecentDelq = 0 NoValid_NumBank2NatlTradesWHighUtilization = 0NumTradesOpeninLast12M = 1\nNumInqLast6M = 2MSinceMostRecentTradeOpen = 8 PercentTradesWBalance = 86NumTotalTrades = 11\nNoValid_MSinceMostRecentInqexcl7days = 0NetFractionInstallBurden = 69 NumInqLast6Mexcl7days = 2MaxDelqEver = 5\nAverageMInFile = 76NumBank2NatlTradesWHighUtilization = 0 MSinceOldestTradeOpen = 200MaxDelq2PublicRecLast12M = 6\nExternalRiskEstimate = 71PercentInstallTrades = 36 No_MSinceMostRecentInqexcl7days = 0PercentTradesNeverDelq = 91\nNumRevolvingTradesWBalance = 3NetFractionRevolvingBurden = 57 MSinceMostRecentDelq = 54NumSatisfactoryTrades = 10\nMSinceMostRecentInqexcl7days = 3\ncontribution\nSHAP contributions for GBM model\nFigure 12: Average additive breakdown aka SHAP values for a single prediction as individual model agnostic explanation of variable importance for Machine Leaning models (here: Gradient Boosting)\nand unbalanced accuracy, AUC, and Kolmogorov Smirnov statistic complex models have achieved little or no advantage over simple models (Ariza-Garzo\u0301n et al. 2020). As a first conclusion we want to note that a blind belief in the superior performance of modern ML algorithms should always be challenged and a proper benchmark analysis of its benefits from the stakeholder\u2019s perspective should be undertaken for each separate scorecard model development (see also Szepannek 2017b; Rudin 2019).\nMany participants have developed new explainable classification algorithms: The winning team proposed the column generation (CG) algorithm to efficiently search the best possible rule set (Dash et al. 2018), while the Recognition Award winning team used 10 small regression models combined into a globally interpretable model (Chen et al.).\nThe teams that took high spots in the competition used existing interpretable models or developed their own one. The suggested framework for Transparency, Auditability and eXplainability for Credit Scoring (TAX4CS) provides a structured set of steps required for explanatory analysis of any complex model, which makes it possible to place greater emphasis on the suitability of the model instead of interpretability only. It allows to not only explore a single model but also provides tools for comparison of several models. Once the algorithms of interest are chosen, the similarity of them might be assessed by variable importance. Models driven by similar factors would have an overlap between the most important variables. In the next step, comparing PD profiles of important variables between models can be used to determine whether the type of relationships between variables and predictions are the same or different for different models, for example, linear vs squared relationships. In the HELOC dataset example, SVM, scorecard, and RMS models had similar monotonic responses while the GBM model was non-monotonic at the edges. With this insight, it might be desired to further check of suitability of GBM, whether it caught a relationship undiscovered by other models or overfitted due to the small number of observations with extreme values. In addition, PD profiles can\nbe used to assess the model\u2019s appropriateness. If the dependency between variable and model predictions is inconsistent with the domain knowledge it can be considered as a signal that the model might be poorly suited.\nAn important aspect to be considered within scorecard developments is bias. As an example consider a binary variable denoting whether one or several debtors are liable. From historical data it might turn out that additional debtors were added often if the creditworthiness of the applicant alone was not sufficient for granting the credit (i.e. more likely to occur in situations of a higher probability of default). This kind of sampling bias will erroneously lead to an increased score if a potential additional debtor will be removed from an application which is of course not desirable from the business point of view. In contrast, it is desirable to avoid such kind of wrong conclusions from correlations in data which are the topic of causal inference (cf. also Luebke et al. 2020). A similar sampling bias can be implied through reject inference (Banasik and Crook 2007; Bu\u0308cker et al. 2013). Scho\u0308lkopf (2019) reviews the impact on causal inference on machine learning. The connection between partial dependence plots and the back-door adjustment for causal effects is shown in Zhao and Hastie (2019): PDPs can be used for causal inference if corresponding assumptions are met. Gomez et al. (2020) suggests to use Visual Counterfactual Explanations (ViCE).\nThe analysis of a single observation can be performed with instance level methods. The local variable attributions assess the influence of the variables on the prediction for the selected observation. The iBreakDown method was used for explaining GBM model in the HELOC data set example because in contrast to LIME or SHAP, iBreakDown might be supported by the analysis of the stability, presented in Figure 12. Once the contribution of variables is established, the Ceteris Paribus (CP) profiles for the most impactful variables can be used for what-if analysis of the model\u2019s predictions. The results might be then confronted with domain experts to assess the suitability of predictions.\nThe methods presented in this chapter with the example on the HELOC dataset form a structured framework for explanation analysis of machine learning models. The proposed framework provides tools to not only assess the suitability of models but also to compare them. This is a strongly increasing field of research in AI. The framework shows how this can be added to the process for developing score cards. Future research could look into how to include more and newly developed methods into the framework."
+    },
+    {
+      "heading": "5 Summary",
+      "text": "We have demonstrated that interpretations comparable to those of traditional logistic regression models are also possible for modern complex machine learning techniques. We propose a structured framework (TAX4CS) for model-level and instance-level exploration, starting with general measures of model performance (or accuracy of single predictions respectively) and drill down into detailed descriptions of model behavior through variable importance and effects (attribution and response profiles for instance level explanations respectively).\nFor every single step in the process we provide an introduction to model agnostic measures and approaches that can be used for arbitrary predictive models such as black-box Machine Learning algorithms used for classification or regression. This framework can be used in fields of application such as credit scoring as a guideline to ensure that the required degree of explanability can be achieved.\nIn an empirical study on a publicly available credit bureau data set, the available methodology for model transparency is compared to the interpretability given by the traditional scorecard modelling approach. Notably, the basic scorecard shows suprisingly good performance in comparison with advanced Machine Learning techniques such as Gradient Boosting or Support Vector Machines. As a consequence, we find that in practice, it is advisable to run different models of different complexity and carefully evaluate up to which degree a higher model complexity is beneficial for each specific situation (cf. also Szepannek 2017b)\nThe comparable performance of the scorecard model in our study can be explained by the simple tabular structure of the data set as well as the thorough manual data preparation that enables the Logistic Regression model to capture the relevant information in a similar fashion as more complex and non-linear models. Given that the use of transaction data and additional external data sources (e.g. in social scoring) is going to increase significantly in the future, the data used for credit scoring will become more complex and feature engineering will become more important. Since manual data preparation for using logistic regression with a large number of variables will become more and more extensive and costly, machine learning will be able to leverage its strengths (Tobback and Martens 2019; Financial Stability Board 2017). In this case, the presented model exploration process will be inevitable in order to meet regulatory requirements."
+    },
+    {
+      "heading": "6 Appendix: Scorecard Model",
+      "text": ""
+    },
+    {
+      "heading": "7 Appendix: Challenger Models",
+      "text": "The reproducible R and Python code for model tuning can be found in the GitHub repository: https://github.com/agosiewska/fico-experiments."
+    }
+  ],
+  "title": "Transparency, Auditability and eXplainability of Machine Learning Models in Credit Scoring",
+  "year": 2020
+}

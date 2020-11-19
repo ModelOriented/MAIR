@@ -1,1 +1,393 @@
-{"abstractText": "Local Interpretable Model-Agnostic Explanations (LIME) is a popular technique used to increase the interpretability and explainability of black box Machine Learning (ML) algorithms. LIME typically generates an explanation for a single prediction by anyMLmodel by learning a simpler interpretable model (e.g. linear classifier) around the prediction through generating simulated data around the instance by random perturbation, and obtaining feature importance through applying some form of feature selection. While LIME and similar local algorithms have gained popularity due to their simplicity, the random perturbation and feature selection methods result in instability in the generated explanations, where for the same prediction, different explanations can be generated. This is a critical issue that can prevent deployment of LIME in a Computer-Aided Diagnosis (CAD) system, where stability is of utmost importance to earn the trust of medical professionals. In this paper, we propose a deterministic version of LIME. Instead of random perturbation, we utilize agglomerative Hierarchical Clustering (HC) to group the training data together and K-Nearest Neighbour (KNN) to select the relevant cluster of the new instance that is being explained. After finding the relevant cluster, a linear model is trained over the selected cluster to generate the explanations. Experimental results on three different medical datasets show the superiority for Deterministic Local Interpretable Model-Agnostic Explanations (DLIME), where we quantitatively determine the stability of DLIME compared to LIME utilizing the Jaccard similarity among multiple generated explanations.", "authors": [{"affiliations": [], "name": "Muhammad Rehman Zafar"}, {"affiliations": [], "name": "Naimul Mefraz Khan"}], "id": "SP:e5c703aba8af983c36fedf08c32a6978eadd91b9", "references": [{"authors": ["David Baehrens", "Timon Schroeter", "Stefan Harmeling", "Motoaki Kawanabe", "Katja Hansen", "Klaus-Robert"], "title": "How to explain individual classification decisions", "venue": "MA\u0303z\u030cller", "year": 2010}, {"authors": ["G\u00e9rard Biau", "Erwan Scornet"], "title": "A random forest guided tour", "venue": "Test 25,", "year": 2016}, {"authors": ["T. Cover", "P. Hart"], "title": "1967", "venue": "Nearest neighbor pattern classification. IEEE Transactions on Information Theory 13, 1 ", "year": 1967}, {"authors": ["Piotr Dabkowski", "Yarin Gal"], "title": "Real Time Image Saliency for Black Box Classifiers", "venue": "In Advances in Neural Information Processing Systems 30,", "year": 2017}, {"authors": ["Persi Diaconis", "Bradley Efron"], "title": "Computer-intensive methods in statistics", "venue": "Scientific American 248,", "year": 1983}, {"authors": ["Richard O Duda", "Peter E Hart"], "title": "Pattern classification and scene analysis", "year": 1973}, {"authors": ["Ruth C. Fong", "Andrea Vedaldi"], "title": "Interpretable Explanations of Black Boxes by Meaningful Perturbation", "venue": "In The IEEE International Conference on Computer Vision (ICCV)", "year": 2017}, {"authors": ["Alicja Gosiewska", "Przemyslaw Biecek"], "title": "iBreakDown: Uncertainty of Model Explanations for Non-additive Predictive Models", "venue": "arXiv preprint arXiv:1903.11420", "year": 2019}, {"authors": ["Riccardo Guidotti", "Salvatore Ruggieri"], "title": "Assessing the Stability of Interpretable Models", "venue": "arXiv preprint arXiv:1810.09352", "year": 2018}, {"authors": ["Patrick Hall", "Navdeep Gill", "Megan Kurka", "andWen Phan"], "title": "Machine Learning Interpretability with H2O Driverless AI", "year": 2017}, {"authors": ["Katherine A Heller", "Zoubin Ghahramani"], "title": "Bayesian hierarchical clustering", "venue": "In Proceedings of the 22nd international conference on Machine learning", "year": 2005}, {"authors": ["Linwei Hu", "Jie Chen", "Vijayan N Nair", "Agus Sudjianto"], "title": "Locally interpretable models and effects based on supervised partitioning (LIME-SUP)", "year": 2018}, {"authors": ["Alexandros Kalousis", "Julien Prados", "andMelanie Hilario"], "title": "Stability of Feature Selection Algorithms: A Study on High-dimensional Spaces", "venue": "Knowl. Inf. Syst. 12,", "year": 2007}, {"authors": ["Gajendra Jung Katuwal", "Robert Chen"], "title": "Machine learning model interpretability for precision medicine", "venue": "arXiv preprint arXiv:1610.09045", "year": 2016}, {"authors": ["Jing Lei", "Max G\u00e2\u0102\u0179Sell", "Alessandro Rinaldo", "Ryan J Tibshirani", "LarryWasserman"], "title": "Distribution-free predictive inference for regression", "venue": "J. Amer. Statist. Assoc. 113,", "year": 2018}, {"authors": ["Scott M Lundberg", "Su-In Lee"], "title": "A Unified Approach to Interpreting Model Predictions", "venue": "In Advances in Neural Information Processing Systems 30,", "year": 2017}, {"authors": ["Olvi L Mangasarian", "W Nick Street", "William H Wolberg"], "title": "Breast cancer diagnosis and prognosis via linear programming", "venue": "Operations Research 43,", "year": 1995}, {"authors": ["Christopher D. Manning", "Prabhakar Raghavan", "Hinrich Sch\u00fctze"], "title": "Introduction to Information Retrieval", "year": 2008}, {"authors": ["Christoph Molnar"], "title": "Interpretable Machine Learning. Online. https:// christophm.github.io/interpretable-ml-book", "year": 2019}, {"authors": ["Sarah Nogueira", "Gavin Brown"], "title": "Measuring the Stability of Feature Selection", "venue": "In \"European Conference Proceedings, Part I, ECML PKDD 2016, Riva del Garda, Italy, September", "year": 2016}, {"authors": ["F. Pedregosa", "G. Varoquaux", "A. Gramfort", "V. Michel", "B. Thirion", "O. Grisel", "M. Blondel", "P. Prettenhofer", "R. Weiss", "V. Dubourg", "J. Vanderplas", "A. Passos", "D. Cournapeau", "M. Brucher", "M. Perrot", "E. Duchesnay"], "title": "2011", "venue": "Scikit-learn: Machine Learning in Python . Journal of Machine Learning Research 12 ", "year": 2011}, {"authors": ["Gregory Plumb", "Denali Molitor", "Ameet S Talwalkar"], "title": "2018. Model Agnostic Supervised Local Explanations", "venue": "In Advances in Neural Information Processing Systems", "year": 2018}, {"authors": ["Bendi Venkata Ramana", "M Surendra Prasad Babu", "NB Venkateswarlu"], "title": "A critical study of selected classification algorithms for liver disease diagnosis", "venue": "International Journal of Database Management Systems 3,", "year": 2011}, {"authors": ["Marco Tulio Ribeiro", "Sameer Singh", "Carlos Guestrin"], "title": "Why should i trust you?: Explaining the predictions of any classifier", "venue": "In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining", "year": 2016}, {"authors": ["Marco Tulio Ribeiro", "Sameer Singh", "Carlos Guestrin"], "title": "Anchors: Highprecision model-agnostic explanations", "venue": "In Thirty-Second AAAI Conference on Artificial Intelligence", "year": 2018}, {"authors": ["M. Robnik-\u00c5\u0103ikonja", "I. Kononenko"], "title": "2008", "venue": "Explaining Classifications For Individual Instances. IEEE Transactions on Knowledge and Data Engineering 20, 5 ", "year": 2008}, {"authors": ["Andrew Slavin Ross", "Michael C. Hughes", "Finale Doshi-Velez"], "title": "Right for the Right Reasons: Training Differentiable Models by Constraining their Explanations", "venue": "In Proceedings of the Twenty-Sixth International Joint Conference on Artificial Intelligence,", "year": 2017}, {"authors": ["Karen Simonyan", "Andrea Vedaldi", "Andrew Zisserman"], "title": "Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps", "year": 2013}, {"authors": ["Mukund Sundararajan", "Ankur Taly", "Qiqi Yan"], "title": "Axiomatic Attribution for Deep Networks", "venue": "In Proceedings of the 34th International Conference on Machine Learning - Volume", "year": 2017}, {"authors": ["Matthew D. Zeiler", "Rob Fergus"], "title": "Visualizing and Understanding Convolutional Networks", "venue": "In Computer Vision \u2013 ECCV 2014,", "year": 2014}, {"authors": ["Bolei Zhou", "Aditya Khosla", "Agata Lapedriza", "Aude Oliva", "Antonio Torralba"], "title": "Learning Deep Features for Discriminative Localization", "venue": "In The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)", "year": 2016}], "sections": [{"text": "KEYWORDS Explainable AI (XAI), Interpretable Machine Learning, Explanation, Model Agnostic, LIME, Healthcare, Deterministic ACM Reference Format: Muhammad Rehman Zafar and Naimul Mefraz Khan. 2019. DLIME: A Deterministic Local Interpretable Model-Agnostic Explanations Approach for Computer-Aided Diagnosis Systems. In Proceedings of Anchorage \u201919: ACM SIGKDD Workshop on Explainable AI/ML (XAI) for Accountability, Fairness, and Transparency (Anchorage \u201919). ACM, New York, NY, USA, 6 pages."}, {"heading": "1 INTRODUCTION", "text": "AI and ML has has become a key element in medical imaging and precisionmedicine over the past few decades. However, most widely\nAnchorage \u201919, August 04\u201308, 2019, Anchorage, AK \u00a9 2019 Copyright held by the owner/author(s). Publication rights licensed to ACM. This is the author\u2019s version of the work. It is posted here for your personal use. Not for redistribution. The definitive Version of Record was published in Proceedings of Anchorage \u201919: ACM SIGKDD Workshop on Explainable AI/ML (XAI) for Accountability, Fairness, and Transparency (Anchorage \u201919), .\nused ML models are opaque. In the health sector, sometimes the binary \u201cyes\u201d or \u201cno\u201d answer is not sufficient and questions like \u201chow\u201d or \u201cwhere\u201d something occurred is more significant. To achieve transparency, quite a few interpretable and explainable models have been proposed in recent literature. These approaches can be grouped based on different criterion [10, 20, 23] such as i) Model agnostic or model specific ii) Local, global or example based iii) Intrinsic or post-hoc iv) Perturbation or saliency based.\nAmong them, model agnostic approaches are quite popular in practice, where the target is to design a separate algorithm that can explain the decision making process of any ML model. LIME [25] is a well-known model agnostic algorithm. LIME is an instancebased explainer, which generates simulated data points around an instance through random perturbation, and provides explanations by fitting a sparse linear model over predicted responses from the perturbed points. The explanations of LIME are locally faithful to an instance regardless of classifier type. The process of perturbing the points randomly makes LIME a non-deterministic approach, lacking \u201cstability\u201d, a desirable property for an interpretable model, especially in CAD systems.\nIn this paper, a Deterministic Local Interpretable Model-Agnostic Explanations (DLIME) framework is proposed. DLIME uses Hierarchical Clustering (HC) to partition the dataset into different groups instead of randomly perturbing the data points around the instance. The adoption of HC is based on its deterministic characteristic and simplicity of implementation. Also, HC does not require prior knowledge of clusters and its output is a hierarchy, which is more useful than the unstructured set of clusters returned by flat clustering such as K-means [19]. Once the cluster membership of each training data point is determined, for a new test instance, KNN classifier is used to find the closest similar data points. After that, all the data points belonging to the predominant cluster is used to train a linear regression model to generate the explanations. Utilizing HC and KNN to generate the explanations instead of random perturbation results in consistent explanations for the same instance, which is not the case for LIME. We demonstrate this behavior through experiments on three benchmark datasets from the UCI repository, where we show both qualitatively and quantitatively how the explanations generated by DLIME are consistent and stable, as opposed to LIME."}, {"heading": "2 RELATEDWORK", "text": "For brevity, we restrict our literature review to locally interpretable models, which encourage understanding of learned relationship between input variable and target variable over small regions. Local interpretability is usually applied to justify the individual predictions made by a classifier for an instance by generating explanations.\nar X\niv :1\n90 6.\n10 26\n3v 1\n[ cs\n.L G\n] 2\n4 Ju\nn 20\n19\nLIME [25] is one of the first locally interpretable models, which generates simulated data points around an instance through random perturbation, and provides explanations by fitting a sparse linear model over predicted responses from the perturbed points. In [26], LIME was extended using decision rules. In the same vein, leave-one covariate-out (LOCO) [16] is another popular technique for generating local explanation models that offer local variable importance measures. In [11], authors proposed an approach to partition the dataset using K-means instead of perturbing the data points around an instance being explained. Authors in [13] proposed an approach to partition the dataset using a supervised tree based approach. Authors in [15] used LIME in precision medicine and discussed the importance of interpretablility to understand the contribution of important features in decision making.\nAuthors in [27] proposed a method to decompose the predictions of a classifier on individual contribution of each feature. This methodology is based on computing the difference between original predictions and predictions made by eliminating a set of features. In [17], authors have demonstrated the equivalence among various local interpretable models [4, 8, 28] and also introduced a game theory based approach to explain the model named SHAP (SHapley Additive exPlanations). Baehrens et al. [1] proposed an approach to yield local explanations using the local gradients that depict the movement of data points to change its expected label. A similar approach was used in [29\u201332] to explain and understand the behaviour of image classification models.\nOne of the issues of the existing locally interpretable models is lack of \u201cstability\u201d. In [9], this is defined as \u201cexplanation level uncertainty\u201d, where the authors show that explanations generated by different locally interpretable models have an amount of uncertainty associated with it due to the simplification of the black box model. In this paper, we address this issue at a more granular level. The basic question that we want to answer is: can explanations generated by a locally interpretable model provide consistent results for the same instance? As we will see in the experimental results section, due to the random nature of perturbation in LIME, for the same instance, the generated explanations can be different, with different selected features and feature weights. This can reduce the healthcare practitioner\u2019s trust in the ML model. Hence, our target is to increase the stability of the interpretable model. Stability in our work specifically refers to intensional stability of feature selection method, which can be measured by the variability in the set of features selected [14, 21]. Measures of stability include average Jaccard similarity and Pearson\u2019s correlation among all pairs of feature subsets selected from different training sets generated using cross validation, jacknife or bootstrap."}, {"heading": "3 METHODOLOGY", "text": "Before explaining DLIME, we briefly describe the LIME framework. LIME is a surrogate model that is used to explain the predictions of an opaque model individually. The objective of LIME is to train surrogate models locally and explain individual prediction. Figure 1 shows a high level block diagram of LIME. It generates a synthetic dataset by randomly permuting the samples around an instance from a normal distribution, and gathers corresponding predictions using the opaque model to be explained. Then, on this perturbed\ndataset, LIME trains an interpretable model e.g. linear regression. Linear regression maintains relationships amongst variables which are dependent such as Y and multiple independent attributes such asX by utilizing a regression lineY = a+bX , where \u201ca\u201d is intercept, \u201cb\u201d is slope of the line. This equation can be used to predict the value of target variable from given predictor variables. In addition to that, LIME takes as an input the number of important features to be used to generate the explanation, denoted by K . The lower the value of K , the easier it is to understand the model. There are several approaches to select the K important features such as i) backward or forward selection of features and ii) highest weights of linear regression coefficients. LIME uses the forward feature selection method for small datasets which have less than 6 attributes, and highest weights approach for higher dimensional datasets.\nAs discussed before, a big problem with LIME is the \u201cinstability\u201d of generated explanations due to the random sampling process. Because of the randomness, the outcome of LIME is different when the sampling process is repeated multiple times, as shown in experiments. The process of perturbing the points randomly makes LIME a non-deterministic approach, lacking \u201cstability\u201d, a desirable property for an interpretable model, especially in CAD systems."}, {"heading": "3.1 DLIME", "text": "In this section, we present Deterministic Local Interpretable ModelAgnostic Explanations (DLIME), where the target is to generate consistent explanations for a test instance. Figure 2 shows the block diagram of DLIME.\nThe key idea behind DLIME is to utilize HC to partition the training dataset into different clusters. Then to generate a set of samples and corresponding predictions (similar to LIME), instead of random perturbation, KNN is first used to find the closest neighbors\nto the test instance. The samples with the majority cluster label among the closest neighbors are used as the set of samples to train the linear regression model that can generate the explanations. The different components of the proposed method are explained further below.\n3.1.1 Hierarchical Clustering (HC). HC is the most widely used unsupervised ML approach, which generates a binary tree with cluster memberships from a set of data points. The leaves of the tree represents data points and nodes represents nested clusters of different sizes. There are two main approaches to hierarchical clustering: divisive and agglomerative clustering. Agglomerative clustering follows the bottom-up approach and divisive clustering uses the top-down approach to merge the similar clusters. This study uses the traditional agglomerative approach for HC as discussed in [7]. Initially it considers every data point as a cluster i.e. it starts with N clusters and merge the most similar groups iteratively until all groups belong to one cluster. HC uses euclidean distance between closest data points or clusters mean to compute the similarity or dissimilarity of neighbouring clusters [12].\nOne important step to use HC for DLIME is determining the appropriate number of clusters C . HC is in general visualized as a dendrogram. In dendrogram each horizontal line represents a merge and the y-coordinate of it is the similarity of the two merged clusters. A vertical line shows the gap between two successive clusters. By cutting the dendrogram where the gap is the largest between two successive groups, we can determine the value of C . As we can see in Figure 3 the largest gap between two clusters is at level 2 for the breast cancer dataset. Since all the datasets we have used for the experiments are binary, C = 2 was always the choice from the dendrogram. For multi-class problems, the value ofC may change.\n3.1.2 K-Nearest Neighbor (KNN). Similar to other clustering approaches, HC does not assign labels to new instances. Therefore, KNN is trained over the training dataset to find the indices of the neighbours and predict the label of new instance. KNN is a simple classification model based on Euclidean distance [3]. It computes the distance between training and test sets. Let xi be an instance that belongs to a training datasetDtrain of size n where, i in range of 1, 2, ...,n. Each instance xi has m features (xi1,xi2, ...,xim ). In KNN, the Euclidean distance between new instance x and a training\ninstance xi is computed. After computing the distance, indices of the k smallest distances are called k -nearest neighbors. Finally, the cluster label for the test instance is assigned the majority label among the k-nearest neighbors. After that, all the data points belonging to the predominant class is used to train a linear regression model to generate the explanations. In our experiments, k = 1 was used, as higher values of k did not make a difference in the results.\nUtilizing the notations introduced above, Algorithm 1 formally presents the proposed DLIME framework.\nAlgorithm 1: Deterministic Local Interpretable ModelAgnostic Explanations Input: Dataset Dtrain , Instance x , length of explanation K 1 Initialize Y \u2190 {} 2 Initialize clusters for i in 1 . . . N do 3 Ci \u2190 {i} 4 end 5 Initialize clusters to merge S \u2190 for i in 1 . . . N 6 while no more clusters are available for merging do 7 Pick two most similar clusters with minimum distance d : (j,k) \u2190 ar\u0434mind (j,k) \u2208 S 8 Create new cluster Cl \u2190 Cj \u222aCk 9 Mark j and k unavailable to merge"}, {"heading": "10 if Cl , i in 1 . . .N then", "text": "11 Mark l as available, S \u2190 S \u222a {l}"}, {"heading": "12 end", "text": ""}, {"heading": "13 foreach i \u2208 S do", "text": "14 Update similarity matrix by computing distance d(i, l)"}, {"heading": "15 end", "text": ""}, {"heading": "16 end", "text": "17 while i in 1, ... , n do 18 d(xi ,x) = \u221a (xi1 \u2212 x1)2 + \u00b7 \u00b7 \u00b7 + (xim \u2212 xm )2 19 end 20 ind \u2190 Find indices for the k smallest distance d(xi ,x) 21 y\u0302 \u2190 Get majority label for x \u2208 ind 22 ns \u2190 Filter Dtrain based on y\u0302 23 foreach i in 1,... ,n do 24 Y \u2190 Pairwise distance of each instance in cluster ns with the original instance x 25 end 26 \u03c9 \u2190 LinearRegression(ns ,Y,K)"}, {"heading": "27 return \u03c9", "text": ""}, {"heading": "4 EXPERIMENTS", "text": ""}, {"heading": "4.1 Dataset", "text": "To conduct the experimentswe have used the following three healthcare datasets from the UCI repository [6].\n4.1.1 Breast Cancer. The first case study is demonstrated by using the widely adopted Breast CancerWisconsin (Original) dataset. The dataset consists of 699 observations and 11 features [18].\n4.1.2 Liver Patients. The second case study is demonstrated by using an Indian liver patient dataset. The dataset consists of 583 observations and 11 features [24].\n4.1.3 Hepatitis Patients. The third case study is demonstrated by using hepatitis patients dataset. The dataset consists of 20 features and 155 observations out of which only 80 were used to conduct the experiment after removing the missing values [5]."}, {"heading": "4.2 Opaque Models", "text": "We trained two opaque models from the scikit-learn package [22] over the three datasets: Random Forest (RF) and Neural Networks (NN), which are difficult to interpret without an explainable model.\n4.2.1 Random Forest. Random Forest (RF) is a supervised machine learning algorithm that can be used for both regression and classification [2]. RF constructs many decision trees and selects the one which best fits on the input data. The performance of RF is based on the correlation and strength of each tree. If the correlation between two trees is high the error will also be high. The tree with the lowest error rate is the strength of the classifier.\n4.2.2 Neural Network. Neural Network (NN) is a biologically inspired model, which is composed of a large number of highly interconnected neurons working concurrently to resolve particular problems. There are different types of NNs, among which we picked the popular feed forward artificial NN. It typically has multiple layers and is trained with the backpropagation. The particular NN we utilized has two hidden layers. The first hidden layer has 5 hidden units and the second hidden layer has 2 hidden units.\nFor both opaque models, 80% data is used for training and the remaining 20% data is used for evaluation. Here, it is worth mentioning that, both NN and RF models scored over 90% accuracy on each dataset which is reasonable. Their performance can be improved by hyper parameter tuning. However, our aim is to produce deterministic explanations, therefore we have not spent additional effort to further tune these models.\nAfter training these opaque models, both LIME (default python implementation) and DLIME were used to generate explanations for a randomly selected test instance. For the same instance, 10 iterations of both algorithms were executed to determine stability."}, {"heading": "4.3 Results", "text": "Fig. 4 shows the results for two iterations of explanations generated by DLIME and LIME for a randomly selected test instance with the trained NN on the breast cancer dataset. On the left hand side in Fig. 4 (a) and Fig. 4 (c) are the explanations generated by DLIME, and on the right hand side Fig. 4 (b) and Fig. 4 (d) are the explanations generated by LIME. The red bars in Fig. 4 (a), shows the negative coefficients and green bars shows the positive coefficients of the linear regression model. The positive coefficients shows the positive correlation among the dependent and independent attributes. On the other hand negative coefficients shows the negative correlation among the dependent and independent attributes.\nAs we can see, LIME is producing different explanations for the same test instance. The yellow highlighted attributes in Fig. 4 (b) are different from those in Fig. 4 (d). On the other hand, explanations which are generated with DLIME are deterministic and stable as\nshown in Fig. 4 (a) and Fig. 4 (b). Here, it is worth mentioning that, both DLIME and LIME frameworks may generate different explanations. LIME is using 5000 randomly perturbed data points around an instance to generate the explanations. On the other hand, DLIME is using only clusters from the original dataset. For DLIME linear regression, the dataset has less number of data points since it is limited by the size of the cluster. Therefore, the explanations generated with LIME and DLIME can be different. However, DLIME explanations are stable, while those generated by LIME are not.\nTo further quantify the stability of the explanations, we have used the Jaccard coefficient. The Jaccard coefficient is a similarity and diversity measure among finite sets. It computes the similarity between two sets of data points by computing the number of elements in intersection divided by the number of elements in union. The mathematical notation is given in equation 1.\nJ (S1, S2) = |S1 \u2229 S2 | |S1 \u222a S2 |\n(1)\nWhere, S1 and S2 are the two sets of explanations. The result of J (S1, S2) = 1 means S1 and S2 are highly similar sets. J (S1, S2) = 0 when |S1 \u2229 S2 | = 0, implying that S1 and S2 are highly dissimilar sets.\nBased on the Jaccard coefficient, Jaccard distance is defined in equation 2.\nJdistance = 1 \u2212 J (S1, S2) (2) To quantify the stability of DLIME and LIME, after 10 iterations, Jdistance is computed among the generated explanations. Fig. 4 (e) and Fig. 4 (f) shows the Jdistance . It is a 10 \u00d7 10 matrix. The diagonal of this matrix is 0 that shows the Jdistance of the explanation with itself and lower and upper diagonal shows the Jdistance of explanations from each other. Lower and upper diagonal are representing the same information. It can be observed that, the Jdistance in Fig. 4 (e) is 0 which means the generated explanations with DLIME are deterministic and stable on each iteration. However, for LIME, as we can see, the Jdistance contain significant values, further proving the instability of LIME.\nFinally, Table 1 lists the average Jdistance obtained for DLIME and LIME utilizing the two opaque models on the three datasets (10 iterations for one randomly selected test instance). As we can see, in every scenario, the Jdistance for DLIME is zero, while for LIME it contains significant values, demonstration the stability of DLIME when compared with LIME."}, {"heading": "5 CONCLUSION", "text": "In this paper, we propose a deterministic approach to explain the decisions of black box models. Instead of random perturbation,\nDLIME uses HC to group the similar data in local regions, and utilizes KNN to find cluster of data points that are similar to a test instance. Therefore, it can produce deterministic explanations for a single instance. On the other hand, LIME and other similar model agnostic approaches based on random perturbing may keep changing their explanation on each iteration, creating distrust particularly in medical domain where consistency is highly required. We have evaluated DLIME on three healthcare datasets. The experiments clearly demonstrate that the explanations generated with DLIME are stable on each iteration, while LIME generates unstable explanations.\nSince DLIME depends on hierarchical clustering to find similar data points, the number of samples in a dataset may affect the quality of clusters, and consequently, the accuracy of the local predictions. In future, we plan to investigate how to solve this\nissue while keeping the model explanations stable. We also plan to experiment with other data types, such as images and text.\nKeeping up with the sipirit of reproducible research, all datasets and source code can be accessed through the Github repository https://github.com/rehmanzafar/dlime_experiments.git."}], "title": "DLIME: A Deterministic Local Interpretable Model-Agnostic Explanations Approach for Computer-Aided Diagnosis Systems", "year": 2019}
+{
+  "abstractText": "Local Interpretable Model-Agnostic Explanations (LIME) is a popular technique used to increase the interpretability and explainability of black box Machine Learning (ML) algorithms. LIME typically generates an explanation for a single prediction by anyMLmodel by learning a simpler interpretable model (e.g. linear classifier) around the prediction through generating simulated data around the instance by random perturbation, and obtaining feature importance through applying some form of feature selection. While LIME and similar local algorithms have gained popularity due to their simplicity, the random perturbation and feature selection methods result in instability in the generated explanations, where for the same prediction, different explanations can be generated. This is a critical issue that can prevent deployment of LIME in a Computer-Aided Diagnosis (CAD) system, where stability is of utmost importance to earn the trust of medical professionals. In this paper, we propose a deterministic version of LIME. Instead of random perturbation, we utilize agglomerative Hierarchical Clustering (HC) to group the training data together and K-Nearest Neighbour (KNN) to select the relevant cluster of the new instance that is being explained. After finding the relevant cluster, a linear model is trained over the selected cluster to generate the explanations. Experimental results on three different medical datasets show the superiority for Deterministic Local Interpretable Model-Agnostic Explanations (DLIME), where we quantitatively determine the stability of DLIME compared to LIME utilizing the Jaccard similarity among multiple generated explanations.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Muhammad Rehman Zafar"
+    },
+    {
+      "affiliations": [],
+      "name": "Naimul Mefraz Khan"
+    }
+  ],
+  "id": "SP:e5c703aba8af983c36fedf08c32a6978eadd91b9",
+  "references": [
+    {
+      "authors": [
+        "David Baehrens",
+        "Timon Schroeter",
+        "Stefan Harmeling",
+        "Motoaki Kawanabe",
+        "Katja Hansen",
+        "Klaus-Robert"
+      ],
+      "title": "How to explain individual classification decisions",
+      "venue": "MA\u0303z\u030cller",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "G\u00e9rard Biau",
+        "Erwan Scornet"
+      ],
+      "title": "A random forest guided tour",
+      "venue": "Test 25,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T. Cover",
+        "P. Hart"
+      ],
+      "title": "1967",
+      "venue": "Nearest neighbor pattern classification. IEEE Transactions on Information Theory 13, 1 ",
+      "year": 1967
+    },
+    {
+      "authors": [
+        "Piotr Dabkowski",
+        "Yarin Gal"
+      ],
+      "title": "Real Time Image Saliency for Black Box Classifiers",
+      "venue": "In Advances in Neural Information Processing Systems 30,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Persi Diaconis",
+        "Bradley Efron"
+      ],
+      "title": "Computer-intensive methods in statistics",
+      "venue": "Scientific American 248,",
+      "year": 1983
+    },
+    {
+      "authors": [
+        "Richard O Duda",
+        "Peter E Hart"
+      ],
+      "title": "Pattern classification and scene analysis",
+      "year": 1973
+    },
+    {
+      "authors": [
+        "Ruth C. Fong",
+        "Andrea Vedaldi"
+      ],
+      "title": "Interpretable Explanations of Black Boxes by Meaningful Perturbation",
+      "venue": "In The IEEE International Conference on Computer Vision (ICCV)",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Alicja Gosiewska",
+        "Przemyslaw Biecek"
+      ],
+      "title": "iBreakDown: Uncertainty of Model Explanations for Non-additive Predictive Models",
+      "venue": "arXiv preprint arXiv:1903.11420",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Riccardo Guidotti",
+        "Salvatore Ruggieri"
+      ],
+      "title": "Assessing the Stability of Interpretable Models",
+      "venue": "arXiv preprint arXiv:1810.09352",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Patrick Hall",
+        "Navdeep Gill",
+        "Megan Kurka",
+        "andWen Phan"
+      ],
+      "title": "Machine Learning Interpretability with H2O Driverless AI",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Katherine A Heller",
+        "Zoubin Ghahramani"
+      ],
+      "title": "Bayesian hierarchical clustering",
+      "venue": "In Proceedings of the 22nd international conference on Machine learning",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "Linwei Hu",
+        "Jie Chen",
+        "Vijayan N Nair",
+        "Agus Sudjianto"
+      ],
+      "title": "Locally interpretable models and effects based on supervised partitioning (LIME-SUP)",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Alexandros Kalousis",
+        "Julien Prados",
+        "andMelanie Hilario"
+      ],
+      "title": "Stability of Feature Selection Algorithms: A Study on High-dimensional Spaces",
+      "venue": "Knowl. Inf. Syst. 12,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Gajendra Jung Katuwal",
+        "Robert Chen"
+      ],
+      "title": "Machine learning model interpretability for precision medicine",
+      "venue": "arXiv preprint arXiv:1610.09045",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Jing Lei",
+        "Max G\u00e2\u0102\u0179Sell",
+        "Alessandro Rinaldo",
+        "Ryan J Tibshirani",
+        "LarryWasserman"
+      ],
+      "title": "Distribution-free predictive inference for regression",
+      "venue": "J. Amer. Statist. Assoc. 113,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Scott M Lundberg",
+        "Su-In Lee"
+      ],
+      "title": "A Unified Approach to Interpreting Model Predictions",
+      "venue": "In Advances in Neural Information Processing Systems 30,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Olvi L Mangasarian",
+        "W Nick Street",
+        "William H Wolberg"
+      ],
+      "title": "Breast cancer diagnosis and prognosis via linear programming",
+      "venue": "Operations Research 43,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Christopher D. Manning",
+        "Prabhakar Raghavan",
+        "Hinrich Sch\u00fctze"
+      ],
+      "title": "Introduction to Information Retrieval",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Christoph Molnar"
+      ],
+      "title": "Interpretable Machine Learning. Online. https:// christophm.github.io/interpretable-ml-book",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Sarah Nogueira",
+        "Gavin Brown"
+      ],
+      "title": "Measuring the Stability of Feature Selection",
+      "venue": "In \"European Conference Proceedings, Part I, ECML PKDD 2016, Riva del Garda, Italy, September",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "F. Pedregosa",
+        "G. Varoquaux",
+        "A. Gramfort",
+        "V. Michel",
+        "B. Thirion",
+        "O. Grisel",
+        "M. Blondel",
+        "P. Prettenhofer",
+        "R. Weiss",
+        "V. Dubourg",
+        "J. Vanderplas",
+        "A. Passos",
+        "D. Cournapeau",
+        "M. Brucher",
+        "M. Perrot",
+        "E. Duchesnay"
+      ],
+      "title": "2011",
+      "venue": "Scikit-learn: Machine Learning in Python . Journal of Machine Learning Research 12 ",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Gregory Plumb",
+        "Denali Molitor",
+        "Ameet S Talwalkar"
+      ],
+      "title": "2018. Model Agnostic Supervised Local Explanations",
+      "venue": "In Advances in Neural Information Processing Systems",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Bendi Venkata Ramana",
+        "M Surendra Prasad Babu",
+        "NB Venkateswarlu"
+      ],
+      "title": "A critical study of selected classification algorithms for liver disease diagnosis",
+      "venue": "International Journal of Database Management Systems 3,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why should i trust you?: Explaining the predictions of any classifier",
+      "venue": "In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Anchors: Highprecision model-agnostic explanations",
+      "venue": "In Thirty-Second AAAI Conference on Artificial Intelligence",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Robnik-\u00c5\u0103ikonja",
+        "I. Kononenko"
+      ],
+      "title": "2008",
+      "venue": "Explaining Classifications For Individual Instances. IEEE Transactions on Knowledge and Data Engineering 20, 5 ",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Andrew Slavin Ross",
+        "Michael C. Hughes",
+        "Finale Doshi-Velez"
+      ],
+      "title": "Right for the Right Reasons: Training Differentiable Models by Constraining their Explanations",
+      "venue": "In Proceedings of the Twenty-Sixth International Joint Conference on Artificial Intelligence,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Karen Simonyan",
+        "Andrea Vedaldi",
+        "Andrew Zisserman"
+      ],
+      "title": "Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Mukund Sundararajan",
+        "Ankur Taly",
+        "Qiqi Yan"
+      ],
+      "title": "Axiomatic Attribution for Deep Networks",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning - Volume",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Matthew D. Zeiler",
+        "Rob Fergus"
+      ],
+      "title": "Visualizing and Understanding Convolutional Networks",
+      "venue": "In Computer Vision \u2013 ECCV 2014,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Bolei Zhou",
+        "Aditya Khosla",
+        "Agata Lapedriza",
+        "Aude Oliva",
+        "Antonio Torralba"
+      ],
+      "title": "Learning Deep Features for Discriminative Localization",
+      "venue": "In The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "text": "KEYWORDS Explainable AI (XAI), Interpretable Machine Learning, Explanation, Model Agnostic, LIME, Healthcare, Deterministic ACM Reference Format: Muhammad Rehman Zafar and Naimul Mefraz Khan. 2019. DLIME: A Deterministic Local Interpretable Model-Agnostic Explanations Approach for Computer-Aided Diagnosis Systems. In Proceedings of Anchorage \u201919: ACM SIGKDD Workshop on Explainable AI/ML (XAI) for Accountability, Fairness, and Transparency (Anchorage \u201919). ACM, New York, NY, USA, 6 pages."
+    },
+    {
+      "heading": "1 INTRODUCTION",
+      "text": "AI and ML has has become a key element in medical imaging and precisionmedicine over the past few decades. However, most widely\nAnchorage \u201919, August 04\u201308, 2019, Anchorage, AK \u00a9 2019 Copyright held by the owner/author(s). Publication rights licensed to ACM. This is the author\u2019s version of the work. It is posted here for your personal use. Not for redistribution. The definitive Version of Record was published in Proceedings of Anchorage \u201919: ACM SIGKDD Workshop on Explainable AI/ML (XAI) for Accountability, Fairness, and Transparency (Anchorage \u201919), .\nused ML models are opaque. In the health sector, sometimes the binary \u201cyes\u201d or \u201cno\u201d answer is not sufficient and questions like \u201chow\u201d or \u201cwhere\u201d something occurred is more significant. To achieve transparency, quite a few interpretable and explainable models have been proposed in recent literature. These approaches can be grouped based on different criterion [10, 20, 23] such as i) Model agnostic or model specific ii) Local, global or example based iii) Intrinsic or post-hoc iv) Perturbation or saliency based.\nAmong them, model agnostic approaches are quite popular in practice, where the target is to design a separate algorithm that can explain the decision making process of any ML model. LIME [25] is a well-known model agnostic algorithm. LIME is an instancebased explainer, which generates simulated data points around an instance through random perturbation, and provides explanations by fitting a sparse linear model over predicted responses from the perturbed points. The explanations of LIME are locally faithful to an instance regardless of classifier type. The process of perturbing the points randomly makes LIME a non-deterministic approach, lacking \u201cstability\u201d, a desirable property for an interpretable model, especially in CAD systems.\nIn this paper, a Deterministic Local Interpretable Model-Agnostic Explanations (DLIME) framework is proposed. DLIME uses Hierarchical Clustering (HC) to partition the dataset into different groups instead of randomly perturbing the data points around the instance. The adoption of HC is based on its deterministic characteristic and simplicity of implementation. Also, HC does not require prior knowledge of clusters and its output is a hierarchy, which is more useful than the unstructured set of clusters returned by flat clustering such as K-means [19]. Once the cluster membership of each training data point is determined, for a new test instance, KNN classifier is used to find the closest similar data points. After that, all the data points belonging to the predominant cluster is used to train a linear regression model to generate the explanations. Utilizing HC and KNN to generate the explanations instead of random perturbation results in consistent explanations for the same instance, which is not the case for LIME. We demonstrate this behavior through experiments on three benchmark datasets from the UCI repository, where we show both qualitatively and quantitatively how the explanations generated by DLIME are consistent and stable, as opposed to LIME."
+    },
+    {
+      "heading": "2 RELATEDWORK",
+      "text": "For brevity, we restrict our literature review to locally interpretable models, which encourage understanding of learned relationship between input variable and target variable over small regions. Local interpretability is usually applied to justify the individual predictions made by a classifier for an instance by generating explanations.\nar X\niv :1\n90 6.\n10 26\n3v 1\n[ cs\n.L G\n] 2\n4 Ju\nn 20\n19\nLIME [25] is one of the first locally interpretable models, which generates simulated data points around an instance through random perturbation, and provides explanations by fitting a sparse linear model over predicted responses from the perturbed points. In [26], LIME was extended using decision rules. In the same vein, leave-one covariate-out (LOCO) [16] is another popular technique for generating local explanation models that offer local variable importance measures. In [11], authors proposed an approach to partition the dataset using K-means instead of perturbing the data points around an instance being explained. Authors in [13] proposed an approach to partition the dataset using a supervised tree based approach. Authors in [15] used LIME in precision medicine and discussed the importance of interpretablility to understand the contribution of important features in decision making.\nAuthors in [27] proposed a method to decompose the predictions of a classifier on individual contribution of each feature. This methodology is based on computing the difference between original predictions and predictions made by eliminating a set of features. In [17], authors have demonstrated the equivalence among various local interpretable models [4, 8, 28] and also introduced a game theory based approach to explain the model named SHAP (SHapley Additive exPlanations). Baehrens et al. [1] proposed an approach to yield local explanations using the local gradients that depict the movement of data points to change its expected label. A similar approach was used in [29\u201332] to explain and understand the behaviour of image classification models.\nOne of the issues of the existing locally interpretable models is lack of \u201cstability\u201d. In [9], this is defined as \u201cexplanation level uncertainty\u201d, where the authors show that explanations generated by different locally interpretable models have an amount of uncertainty associated with it due to the simplification of the black box model. In this paper, we address this issue at a more granular level. The basic question that we want to answer is: can explanations generated by a locally interpretable model provide consistent results for the same instance? As we will see in the experimental results section, due to the random nature of perturbation in LIME, for the same instance, the generated explanations can be different, with different selected features and feature weights. This can reduce the healthcare practitioner\u2019s trust in the ML model. Hence, our target is to increase the stability of the interpretable model. Stability in our work specifically refers to intensional stability of feature selection method, which can be measured by the variability in the set of features selected [14, 21]. Measures of stability include average Jaccard similarity and Pearson\u2019s correlation among all pairs of feature subsets selected from different training sets generated using cross validation, jacknife or bootstrap."
+    },
+    {
+      "heading": "3 METHODOLOGY",
+      "text": "Before explaining DLIME, we briefly describe the LIME framework. LIME is a surrogate model that is used to explain the predictions of an opaque model individually. The objective of LIME is to train surrogate models locally and explain individual prediction. Figure 1 shows a high level block diagram of LIME. It generates a synthetic dataset by randomly permuting the samples around an instance from a normal distribution, and gathers corresponding predictions using the opaque model to be explained. Then, on this perturbed\ndataset, LIME trains an interpretable model e.g. linear regression. Linear regression maintains relationships amongst variables which are dependent such as Y and multiple independent attributes such asX by utilizing a regression lineY = a+bX , where \u201ca\u201d is intercept, \u201cb\u201d is slope of the line. This equation can be used to predict the value of target variable from given predictor variables. In addition to that, LIME takes as an input the number of important features to be used to generate the explanation, denoted by K . The lower the value of K , the easier it is to understand the model. There are several approaches to select the K important features such as i) backward or forward selection of features and ii) highest weights of linear regression coefficients. LIME uses the forward feature selection method for small datasets which have less than 6 attributes, and highest weights approach for higher dimensional datasets.\nAs discussed before, a big problem with LIME is the \u201cinstability\u201d of generated explanations due to the random sampling process. Because of the randomness, the outcome of LIME is different when the sampling process is repeated multiple times, as shown in experiments. The process of perturbing the points randomly makes LIME a non-deterministic approach, lacking \u201cstability\u201d, a desirable property for an interpretable model, especially in CAD systems."
+    },
+    {
+      "heading": "3.1 DLIME",
+      "text": "In this section, we present Deterministic Local Interpretable ModelAgnostic Explanations (DLIME), where the target is to generate consistent explanations for a test instance. Figure 2 shows the block diagram of DLIME.\nThe key idea behind DLIME is to utilize HC to partition the training dataset into different clusters. Then to generate a set of samples and corresponding predictions (similar to LIME), instead of random perturbation, KNN is first used to find the closest neighbors\nto the test instance. The samples with the majority cluster label among the closest neighbors are used as the set of samples to train the linear regression model that can generate the explanations. The different components of the proposed method are explained further below.\n3.1.1 Hierarchical Clustering (HC). HC is the most widely used unsupervised ML approach, which generates a binary tree with cluster memberships from a set of data points. The leaves of the tree represents data points and nodes represents nested clusters of different sizes. There are two main approaches to hierarchical clustering: divisive and agglomerative clustering. Agglomerative clustering follows the bottom-up approach and divisive clustering uses the top-down approach to merge the similar clusters. This study uses the traditional agglomerative approach for HC as discussed in [7]. Initially it considers every data point as a cluster i.e. it starts with N clusters and merge the most similar groups iteratively until all groups belong to one cluster. HC uses euclidean distance between closest data points or clusters mean to compute the similarity or dissimilarity of neighbouring clusters [12].\nOne important step to use HC for DLIME is determining the appropriate number of clusters C . HC is in general visualized as a dendrogram. In dendrogram each horizontal line represents a merge and the y-coordinate of it is the similarity of the two merged clusters. A vertical line shows the gap between two successive clusters. By cutting the dendrogram where the gap is the largest between two successive groups, we can determine the value of C . As we can see in Figure 3 the largest gap between two clusters is at level 2 for the breast cancer dataset. Since all the datasets we have used for the experiments are binary, C = 2 was always the choice from the dendrogram. For multi-class problems, the value ofC may change.\n3.1.2 K-Nearest Neighbor (KNN). Similar to other clustering approaches, HC does not assign labels to new instances. Therefore, KNN is trained over the training dataset to find the indices of the neighbours and predict the label of new instance. KNN is a simple classification model based on Euclidean distance [3]. It computes the distance between training and test sets. Let xi be an instance that belongs to a training datasetDtrain of size n where, i in range of 1, 2, ...,n. Each instance xi has m features (xi1,xi2, ...,xim ). In KNN, the Euclidean distance between new instance x and a training\ninstance xi is computed. After computing the distance, indices of the k smallest distances are called k -nearest neighbors. Finally, the cluster label for the test instance is assigned the majority label among the k-nearest neighbors. After that, all the data points belonging to the predominant class is used to train a linear regression model to generate the explanations. In our experiments, k = 1 was used, as higher values of k did not make a difference in the results.\nUtilizing the notations introduced above, Algorithm 1 formally presents the proposed DLIME framework.\nAlgorithm 1: Deterministic Local Interpretable ModelAgnostic Explanations Input: Dataset Dtrain , Instance x , length of explanation K 1 Initialize Y \u2190 {} 2 Initialize clusters for i in 1 . . . N do 3 Ci \u2190 {i} 4 end 5 Initialize clusters to merge S \u2190 for i in 1 . . . N 6 while no more clusters are available for merging do 7 Pick two most similar clusters with minimum distance d : (j,k) \u2190 ar\u0434mind (j,k) \u2208 S 8 Create new cluster Cl \u2190 Cj \u222aCk 9 Mark j and k unavailable to merge"
+    },
+    {
+      "heading": "10 if Cl , i in 1 . . .N then",
+      "text": "11 Mark l as available, S \u2190 S \u222a {l}"
+    },
+    {
+      "heading": "12 end",
+      "text": ""
+    },
+    {
+      "heading": "13 foreach i \u2208 S do",
+      "text": "14 Update similarity matrix by computing distance d(i, l)"
+    },
+    {
+      "heading": "15 end",
+      "text": ""
+    },
+    {
+      "heading": "16 end",
+      "text": "17 while i in 1, ... , n do 18 d(xi ,x) = \u221a (xi1 \u2212 x1)2 + \u00b7 \u00b7 \u00b7 + (xim \u2212 xm )2 19 end 20 ind \u2190 Find indices for the k smallest distance d(xi ,x) 21 y\u0302 \u2190 Get majority label for x \u2208 ind 22 ns \u2190 Filter Dtrain based on y\u0302 23 foreach i in 1,... ,n do 24 Y \u2190 Pairwise distance of each instance in cluster ns with the original instance x 25 end 26 \u03c9 \u2190 LinearRegression(ns ,Y,K)"
+    },
+    {
+      "heading": "27 return \u03c9",
+      "text": ""
+    },
+    {
+      "heading": "4 EXPERIMENTS",
+      "text": ""
+    },
+    {
+      "heading": "4.1 Dataset",
+      "text": "To conduct the experimentswe have used the following three healthcare datasets from the UCI repository [6].\n4.1.1 Breast Cancer. The first case study is demonstrated by using the widely adopted Breast CancerWisconsin (Original) dataset. The dataset consists of 699 observations and 11 features [18].\n4.1.2 Liver Patients. The second case study is demonstrated by using an Indian liver patient dataset. The dataset consists of 583 observations and 11 features [24].\n4.1.3 Hepatitis Patients. The third case study is demonstrated by using hepatitis patients dataset. The dataset consists of 20 features and 155 observations out of which only 80 were used to conduct the experiment after removing the missing values [5]."
+    },
+    {
+      "heading": "4.2 Opaque Models",
+      "text": "We trained two opaque models from the scikit-learn package [22] over the three datasets: Random Forest (RF) and Neural Networks (NN), which are difficult to interpret without an explainable model.\n4.2.1 Random Forest. Random Forest (RF) is a supervised machine learning algorithm that can be used for both regression and classification [2]. RF constructs many decision trees and selects the one which best fits on the input data. The performance of RF is based on the correlation and strength of each tree. If the correlation between two trees is high the error will also be high. The tree with the lowest error rate is the strength of the classifier.\n4.2.2 Neural Network. Neural Network (NN) is a biologically inspired model, which is composed of a large number of highly interconnected neurons working concurrently to resolve particular problems. There are different types of NNs, among which we picked the popular feed forward artificial NN. It typically has multiple layers and is trained with the backpropagation. The particular NN we utilized has two hidden layers. The first hidden layer has 5 hidden units and the second hidden layer has 2 hidden units.\nFor both opaque models, 80% data is used for training and the remaining 20% data is used for evaluation. Here, it is worth mentioning that, both NN and RF models scored over 90% accuracy on each dataset which is reasonable. Their performance can be improved by hyper parameter tuning. However, our aim is to produce deterministic explanations, therefore we have not spent additional effort to further tune these models.\nAfter training these opaque models, both LIME (default python implementation) and DLIME were used to generate explanations for a randomly selected test instance. For the same instance, 10 iterations of both algorithms were executed to determine stability."
+    },
+    {
+      "heading": "4.3 Results",
+      "text": "Fig. 4 shows the results for two iterations of explanations generated by DLIME and LIME for a randomly selected test instance with the trained NN on the breast cancer dataset. On the left hand side in Fig. 4 (a) and Fig. 4 (c) are the explanations generated by DLIME, and on the right hand side Fig. 4 (b) and Fig. 4 (d) are the explanations generated by LIME. The red bars in Fig. 4 (a), shows the negative coefficients and green bars shows the positive coefficients of the linear regression model. The positive coefficients shows the positive correlation among the dependent and independent attributes. On the other hand negative coefficients shows the negative correlation among the dependent and independent attributes.\nAs we can see, LIME is producing different explanations for the same test instance. The yellow highlighted attributes in Fig. 4 (b) are different from those in Fig. 4 (d). On the other hand, explanations which are generated with DLIME are deterministic and stable as\nshown in Fig. 4 (a) and Fig. 4 (b). Here, it is worth mentioning that, both DLIME and LIME frameworks may generate different explanations. LIME is using 5000 randomly perturbed data points around an instance to generate the explanations. On the other hand, DLIME is using only clusters from the original dataset. For DLIME linear regression, the dataset has less number of data points since it is limited by the size of the cluster. Therefore, the explanations generated with LIME and DLIME can be different. However, DLIME explanations are stable, while those generated by LIME are not.\nTo further quantify the stability of the explanations, we have used the Jaccard coefficient. The Jaccard coefficient is a similarity and diversity measure among finite sets. It computes the similarity between two sets of data points by computing the number of elements in intersection divided by the number of elements in union. The mathematical notation is given in equation 1.\nJ (S1, S2) = |S1 \u2229 S2 | |S1 \u222a S2 |\n(1)\nWhere, S1 and S2 are the two sets of explanations. The result of J (S1, S2) = 1 means S1 and S2 are highly similar sets. J (S1, S2) = 0 when |S1 \u2229 S2 | = 0, implying that S1 and S2 are highly dissimilar sets.\nBased on the Jaccard coefficient, Jaccard distance is defined in equation 2.\nJdistance = 1 \u2212 J (S1, S2) (2) To quantify the stability of DLIME and LIME, after 10 iterations, Jdistance is computed among the generated explanations. Fig. 4 (e) and Fig. 4 (f) shows the Jdistance . It is a 10 \u00d7 10 matrix. The diagonal of this matrix is 0 that shows the Jdistance of the explanation with itself and lower and upper diagonal shows the Jdistance of explanations from each other. Lower and upper diagonal are representing the same information. It can be observed that, the Jdistance in Fig. 4 (e) is 0 which means the generated explanations with DLIME are deterministic and stable on each iteration. However, for LIME, as we can see, the Jdistance contain significant values, further proving the instability of LIME.\nFinally, Table 1 lists the average Jdistance obtained for DLIME and LIME utilizing the two opaque models on the three datasets (10 iterations for one randomly selected test instance). As we can see, in every scenario, the Jdistance for DLIME is zero, while for LIME it contains significant values, demonstration the stability of DLIME when compared with LIME."
+    },
+    {
+      "heading": "5 CONCLUSION",
+      "text": "In this paper, we propose a deterministic approach to explain the decisions of black box models. Instead of random perturbation,\nDLIME uses HC to group the similar data in local regions, and utilizes KNN to find cluster of data points that are similar to a test instance. Therefore, it can produce deterministic explanations for a single instance. On the other hand, LIME and other similar model agnostic approaches based on random perturbing may keep changing their explanation on each iteration, creating distrust particularly in medical domain where consistency is highly required. We have evaluated DLIME on three healthcare datasets. The experiments clearly demonstrate that the explanations generated with DLIME are stable on each iteration, while LIME generates unstable explanations.\nSince DLIME depends on hierarchical clustering to find similar data points, the number of samples in a dataset may affect the quality of clusters, and consequently, the accuracy of the local predictions. In future, we plan to investigate how to solve this\nissue while keeping the model explanations stable. We also plan to experiment with other data types, such as images and text.\nKeeping up with the sipirit of reproducible research, all datasets and source code can be accessed through the Github repository https://github.com/rehmanzafar/dlime_experiments.git."
+    }
+  ],
+  "title": "DLIME: A Deterministic Local Interpretable Model-Agnostic Explanations Approach for Computer-Aided Diagnosis Systems",
+  "year": 2019
+}

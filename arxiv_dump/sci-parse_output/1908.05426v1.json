@@ -1,1 +1,322 @@
-{"abstractText": "In this paper, we proposed a deep learning-based end-toend method on domain specified automatic term extraction (ATE), it considers possible term spans within a fixed length in the sentence and predicts them whether they can be conceptual terms. In comparison with current ATE methods, the model supports nested term extraction and does not crucially need extra (extracted) features. Results show that it can achieve a high recall and a comparable precision on term extraction task with inputting segmented raw text.", "authors": [{"affiliations": [], "name": "Yuze Gao"}, {"affiliations": [], "name": "Yu Yuan"}], "id": "SP:d1f89c99971193378a7e6449937ee04cd2364aea", "references": [{"authors": ["Stankovi Ranka", "Krstev Cvetana", "Obradovi Ivan", "Lazi Biljana", "Trtovac Aleksandra"], "title": "Rule-based automatic multi-word term extraction and lemmatization.", "venue": "Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC", "year": 2016}, {"authors": ["Katerina Frantzi", "Sophia Ananiadou", "Hideki"], "title": "Mima: \u201dAutomatic recognition of multi-word terms: the c-value/nc-value method.", "venue": "International Journal on Digital Libraries,", "year": 2000}, {"authors": ["Ziqi Zhang", "Jie Gao", "Fabio Ciravegna"], "title": "Jate 2.0: Java automatic term extraction with apache solr.", "venue": "Proceedings of the Tenth International Conference on Language Resources and Evaluation", "year": 2016}, {"authors": ["Lishuang Li", "Yanzhong Dang", "Jing Zhang", "Dan Li"], "title": "Domain term extraction based on conditional random fields combined with active learning strategy.", "venue": "Journal of Information & Computational Science,", "year": 2012}, {"authors": ["Yu Yuan", "Jie Gao", "Yue Zhang"], "title": "Supervised learning for robust term extraction.", "venue": "International Conference on Asian Language Processing (IALP)", "year": 2017}, {"authors": ["GuoDong Zhou", "Jian Su"], "title": "Exploring deep knowledge resources in biomedical name recognition.", "venue": "Proceedings of the International Joint Workshop on Natural Language Processing in Biomedicine and its Applications. Association for Computational Linguistics,", "year": 2004}, {"authors": ["Rogelio Nazar", "Maria Teresa Cabre"], "title": "Supervised learning algorithms applied to terminology extraction.", "venue": "In Proceedings of the 10th Terminology and Knowledge Engineering Conference,", "year": 2012}, {"authors": ["Merley da Silva Conrado", "Thiago A. Salgueiro Pardo", "Solange Oliveira Rezende"], "title": "A machine learning approach to automatic term extraction using a rich feature set.", "venue": "Proceedings of the NAACL HLT 2013 Student Research Workshop,", "year": 2013}, {"authors": ["Maren Kucza", "Jan Niehues", "Sebastian"], "title": "Stker: \u201dTerm Extraction via Neural Sequence Labeling a Comparative Evaluation of Strategies Using Recurrent Neural Networks.", "venue": "Proceedings pf Interspeech", "year": 2018}, {"authors": ["Rui Wang", "Wei Liu", "Chris McDonald"], "title": "Featureless domain-specific term extraction with minimal labelled data.", "venue": "Proceedings of the Australasian Language Technology Association Workshop", "year": 2016}, {"authors": ["Nigam", "Kamal", "Rayid Ghani"], "title": "Analyzing the effectiveness and applicability of co-training.", "venue": "Cikm. Vol", "year": 2000}, {"authors": ["Kenton Lee", "Luheng He", "Mike Lewis", "Luke Zettlemoyer"], "title": "End-to-end neural coreference resolution.", "venue": "arXiv preprint arXiv:1707.07045 (2017)", "year": 2017}, {"authors": ["Jie Yang", "Yue Zhang"], "title": "NCRF++: An Open-source Neural Sequence Labeling Toolkit.", "venue": "Proceedings of Association for Computational Linguistics ACL (2018),", "year": 2018}, {"authors": ["Krizhevsky", "Alex", "Ilya Sutskever", "Geoffrey E. Hinton"], "title": "Imagenet classification with deep convolutional neural networks.", "venue": "Advances in neural information processing systems", "year": 2012}, {"authors": ["Yuze Gao", "Tong Xiao"], "title": "A Comparison of Pruning Methods for CYK-based Decoding in Machine Translation.", "venue": "Proceedings of China Workshop on Machine Translation (CWMT)", "year": 2015}, {"authors": ["Hochreiter Sepp", "Jrgen Schmidhuber"], "title": "Long short-term memory.", "venue": "Neural computation", "year": 1997}, {"authors": ["Jiangming Liu", "Yue Zhang"], "title": "Attention modeling for targeted sentiment.", "venue": "Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics: Volume", "year": 2017}, {"authors": ["Yuze Gao", "Yue Zhang", "Tong Xiao"], "title": "Implicit Syntactic Features for Targeted Sentiment Analysis.", "venue": "Proceedings of IJCNLP (2017),", "year": 2017}, {"authors": ["Matthew E. Peters", "Mark Neumann", "Mohit Iyyer", "Matt Gardner", "Christopher Clark", "Kenton Lee", "Luke Zettlemoyer"], "title": "Deep contextualized word representations.", "year": 2018}, {"authors": ["Kingma Diederik P", "Jimmy Ba"], "title": "Adam: A method for stochastic optimization.", "venue": "arXiv preprint arXiv:1412.6980", "year": 2014}, {"authors": ["Jin-Dong Kim", "Tomoko Ohta", "Yuka Teteisi", "Junichi Tsujii"], "title": "Genia corpusa semantically annotated corpus for bio-textmining.", "venue": "Bioinformatics (Oxford, England),", "year": 2003}, {"authors": ["Nitish Srivastava", "Geoffrey Hinton", "Alex Krizhevsky", "Ilya Sutskever", "Ruslan Salakhutdinov"], "title": "Dropout: a simple way to prevent neural networks from overfitting.", "venue": "The journal of machine learning research,", "year": 1929}, {"authors": ["Jacob Devlin", "Ming-Wei Chang", "Kenton Lee", "Kristina Toutanova"], "title": "Bert: Pre-training of deep bidirectional transformers for language understanding.", "year": 2018}, {"authors": ["Radford Alec", "Jeffrey Wu", "Rewon Child", "David Luan", "Dario Amodei", "Ilya Sutskever"], "title": "Language models are unsupervised multitask learners.", "venue": "OpenAI Blog 1,", "year": 2019}], "sections": [{"text": "Keywords: Term Extraction \u00b7 Span Extraction \u00b7 Term Span."}, {"heading": "1 Introduction", "text": "Automatic Term Extraction (ATE) or terminology extraction, which is to automatically extract domain specified phrases from a given corpus of a certain academic or technical domain, is widely used in text analytic like topic modelling, data mining and information retrieval from unstructured text. To specify, Table 1 shows a simple example of the tasks, the numbers in the brackets (for example [0, 4]) indicate the start and end index of the term in the sentence separately. Given a sentence, the task is to extract the [0, 4], [0, 5], [1, 1] terms which are specific terms in a domain.\nTypically, ACE approaches make use of linguistic information (part of speech tagging, phrase chunking and constituent parsing), extracted features or defined\nar X\niv :1\n90 8.\n05 42\n6v 1\n[ cs\n.C L\n] 1\n5 A\nrules to extract terminological candidates, i.e. syntactically plausible terminological noun phrases (NPs). Furthermore, in some approaches, potential terminological entries are then filtered from the candidate list using statistical, machine learning or deep learning methods. Once filtered, with low ambiguity and high specificity, these terms are particularly useful for conceptualizing a knowledge domain or for supporting the creation of a domain ontology or a terminology base."}, {"heading": "2 Related Works", "text": "Current methods can mainly be divided into five kinds: rule-based method, statistical method, predominant hybrid-based, machine learning-based and deep learning-based.\nRule-based approaches [1,2] heavily rely on the syntax information. The portability and extensibility is also low. Error propagation from the syntax information would hamper the accuracy of models. For example, the POS-tag rulebased system [3] suffer from low recall due to erroneous POS-tagging. Moreover, complex structure using modifier always pose parsing challenges for most simple POS-tag rule-based algorithms.\nStatistical ATE system [4] calls for large quality and quantity dataset to make a reasonable statistic of frequency, distribution and etc.. When predicting, the low frequency or new-occur term may be easily neglected.\nPredominant hybrid ATE tries to combine the advantages of both rule-based and statistical approach. Generally, statistical methods are employed to trim the search space of candidates terms that identified by various linguistic heuristic and rules. However, combining the linguistic filters and statistical distribution ranking would lead to a degenerated precision with the increase of recall.\nMachine-learning based ATE [5,6,7,8] is to design and learn different features in the raw text or from syntax information, and then integrate these features into a machine learning method (such as conditional random field, supporting vector classifier). However, different domain, especially language shares different feature patterns, making this method specified to one language or domain.\nDeep learning-based ATE like sequence labelling methods [9] are also proposed recent years, but they do not support nested term extraction. [10] also proposed a co-training method using CNN and LSTM, and expand its training data by adding high confidence predicted results, but this method easily leads to error propagation [11].\nTo overcome some disadvantages of current ATE methods, we proposed another end-to-end method that based on deep learning, it supports nested term extraction and can achieve comparable experiment results without using extra features and syntax information.\nTo summarize, there are following contributions in this paper: 1. A novel term extraction method builds on span classification and ranking is proposed.\n2. The proposed model supports nested term extraction, making it easier to do nested term extraction to form different conceptual meaning(For example, the terms nested in span [0, 5] in Tab. 2 contains different conceptual aspect).\n3. The model is a feature-free system. Apart from the segmented raw text, other various features is not a must.\n4. Sentence level information are leveraged into term candidates via targeted attention mechanism, making the model more precise and interpretable. The code and data is shared on github3."}, {"heading": "3 Model", "text": "In our model, we formulate the term extraction task as a progress of classifications and filtering, which consider all possible spans or segmentation in the sentence and distinguish them whether they can be domain specified terms in the sentence (see Fig. 1 for more details about our model architecture). In the following sections, we will illustrate our classification and ranking-based term extraction system in details."}, {"heading": "3.1 Term Spans", "text": "First, we would introduce the span or token segment ( [12] also used in coreference resolution) used in our model.\nTo specify, given a sentence S=w1, w2, ..., wi, ..., wn with n words, supposing every token sequence fragment [wi, wj ](1 \u2264 i \u2264 j \u2264 n) is a span candidate, then there will be T = n(n+1)2 term span candidates in a sentence with n words.\nIn our model, we suppose that the term maximum length is k(1 \u2264k \u2264 n) and only consider the span candidates whose lengths are less than or equal to k in the sentences. So, for each sentence with length n , there finally would be n*k - k(k-1)2 term span candidates. Our task is to find the potential term spans that carry conceptual knowledge in these candidates. Refer to Tab. 2 for more details about term span."}, {"heading": "3.2 Model Architecture", "text": "Briefly, our model can be divided into three parts (see Fig. 1 for more details): First is the feature preparation part (in red rectangle) that builds span representation vectors. Second is the classification part that classifies the span candidates to collect \u2019true positive spans\u2019 (TPS, that are potential to be terms). Finally is the ranking part that ranks the collected TPS based on ranking scores and sift the n-best span candidates.\nWe will elaborate in next two parts (Sentence Features and Span Representation) for how to build the span representation in details.\nSentence Features This part describes how the sentence sequence features are built from the raw segmented sentence (Refer to the red rectangle part in Fig. 1 for more details). In this step, both char level and word level information are used to build the sequence features, we use the framework of [13] to build the hidden features. Especially, we use the Conventional Neural Network (CNN) [14] on character level feature building, and Long Short Term Memory Neural Network (LSTM) [16] on word level feature building, which is the best combination described in the [13].\nMoreover, before using the hidden features, we apply an attention mechanism layer over the sequence features to refine and condense the sequence hidden features. To specify, we use a pre-defined vector vs as target vector over the sequence hidden features H = [h1, h2, ..., hn] with dot products. Then, we make a reduce sum operation on the hidden dimension axis and compute a soft-max\ncontribution weight on every token in the sentence. Here, pi is the probability (contribution weight) to the pre-defined vector vs.\npi = hi \u00b7 vs\u2211n\nk=1 hk \u00b7 vs (1 \u2264 i \u2264 n) (1)\nThe probability (contribution weight) of each token in the sentence is applied on its corresponding token.\nhsi = hi \u2217 pi (1 \u2264 i \u2264 n) (2)\nHere the hsi can be seen as the refined feature on terminology. We use the Hs = [hs1, hs2, ..., hsi..., hsn] as the sentence sequence features for span representation.\nSpan Representation Once we get the initial candidate spans in Section 3.1 and the hidden features of the sentences in Eq. 2, we can design feature patterns and build the span representations from Hs (Eq. 2).\nTo specify, given a sentence S = w1, w2, ..., wi, ..., wn, its final feature layer is Hs = [hs1, hs2, ..., hsi..., hsn]. Suppose a candidate span Spanm = [i, j], (0 \u2264 i \u2264 j \u2264 n and j \u2212 i \u2264 k), k is the maximum length of the terms in the term candidate set T .\nFor Each Span , we construct four kind features from Hs:\nI). Span Node is designed to contain the continuous information of the candidate term span for our model. For example the POS-tag sequence of the candidate.\nFor a Span , suppose its continuous hidden feature vectors in Hs are Hm = [hi, hi+1, ..., hj ], we first flatted hidden vectors and concatenate them, then we use a Multi-Layer Perceptron (MLP) to refine the the flatten vector to a vector Vn with the same dimension on hidden features. We use the Vn as the span node vector.\nVn = MLP ([hi : hi+1 : ... : hj ]) (3)\nII). Span Head is designed to contain the head word information if any and whether all the words in span can form a complete Noun Phrase.\nWe use a pre-defined vector vt which has the same dimension with hidden features as term target vector, and apply a term attention over its hidden feature sequence Hm to get its head feature vector Vh of the span.\nFirst the vector vt is applied on Hm with multiply products to reduce the hidden feature of each word to a logit.\nP [x] h = hx \u2217 vTt\u2211j x=i hk \u2217 vTt\n(hx, hk \u2208 Hm) (4)\nThen the soft-max score from the logits is applied on their corresponding tokens.\nVh = j\u2211 x=i hx \u2217 P [x]h (hx \u2208 Hm) (5)\nHere the x means the token in the span token sequence.\nIII). Start and End Words is designed to contain the feature information of begin and end word to the model. For example, generally, the term cannot start with a PREP word.\nGiven the span hidden feature sequence Hm, we choose the hidden feature of its start word and end word separately and concatenated them into a vector Vbe.\nVbe = [hi : hj ] (6)\nIV). Sentence Targeted Attention Node is designed to embed some feature information like whether the candidate span can express a concept to the complete sentence and leverage the information from the sentence level into term spans.\nWe use the mean vector of a span hidden features as a target vector and apply dot-wise attention over the sentence hidden features. This kind of attention mechanism is widely used in targeted sentiment analysis [17,18].\nTo specify, given a span with hidden feature sequence Hm, suppose its mean vector is h\u0302m. Here \u2211 means \u2019average sum\u2019 on token axis.\nh\u0302m = j\u2211 x=i hx (hx \u2208 Hm) (7)\nWe use h\u0302m as a target vector and apply its transposed on sentence level hidden feature sequence Hs with multiply products to reduce the hidden feature of each token to a logit h\u0302s. The logits will be softmaxed on the token axis in the sentence.\nP [x]s = hs[x] \u2217 h\u0302m T\u2211n k=1 hs[k] \u2217 h\u0302m T (hs[x], hs[k] \u2208 Hs) (8)\nThe computed probability above is applied to its corresponding token in the sentence hiddens Hs, and the weighted sum product Vs is the span targeted attention node.\nVs = n\u2211 i=1 hs[x] \u2217 P [x]s (9)\nHere the \u2211\noperations are applied on the token sequence axis. Hs is the results in Eq. 2.\nApart from these four features, we also give each span a length feature vector Vl to indicate the length of the span. So, given a candidate span Span\nM , it has a span representation SM , which has a five times dimension in comparison with the hidden feature.\nSM = [Vn, Vh, Vbe, Vs, Vl] (10)\nHere the concatenate operation over the feature dimension axis.\nAdditional Features* Other kind source features such as ELMO [19]4, PartOf-Speech (POS-Tags) Embedding also can be added into the span representation. To extract as much information as possible, apart the span length feature, we will do all the four kind processing (I, II, III, IV) on every feature source."}, {"heading": "3.3 Classification and Ranking", "text": "After obtaining the span representations, we use these representations do the classification and ranking steps.\nFirst, based on the span representations SM , we do a binary classification (CLFFC) to classify these span candidates into true and false groups (TFG).\nTFG = CLFFC(SM ) (11)\nAfter classification, a scoring step will be applied over the \u2019true\u2019 span group (TG, TG \u2208 TFG). Here, we obtain the scores (Rscores) from a regression function(REG) which use the span representation SM as inputs. S TG M is the span representation of true group TG. The regression function(REG) is designed to give each span candidate a score between 0 and 1.\nRscores = {REG(STiM ), S Ti M \u2208 S TG M } (12)\nThe scores of the TG span group are then handed to a ranker as ranking (or confidence) scores. The top-K span results from the ranking step would be thought as the final output (TMS) of our SCR model, which are with higher ranking scores (or confidence).\nTMS = RANKER|Kn=1(Rscores) (13)\nHere K is a threshold value, we compute K = \u03b1 \u00b7 |TotalWords|. |TotalWords| is the total words currently processed. \u03b1 is a ratio indicate that how much terms are in a certain number of words."}, {"heading": "3.4 Training Loss", "text": "In our model, there are two loss source: one is the classification loss and one is the ranking step loss. We use a two-stage optimization strategy to minimizing the model loss. First, the cross-entropy loss of the classification step is computed and optimized.\nLoss(classifier) = \u2212(y \u2217 log(p) + (1\u2212 y) \u2217 log(1\u2212 p)) (14)\nAfter getting a best result on the classifier, the parameters in the classifier are freezed, and the sigmoid-likelihood loss from the ranking step is computed and optimized. These two stage will be separately trained. We use early-stop\n4 For ELMO feature, we use the pre-trained model presented by the nlp toklit allennlp: https://github.com/allenai/allennlp/blob/master/tutorials/how to/elmo.md\nmethod to select a classifier with high recall, and apply ranking on pruned space from the classifier. Moreover, the loss of the ranker is design to make the scores of true instances approach to 1 while the false\u2019s decrease to 0.\nLoss(ranker) = \u2211\ny\u2208Y{gold}\n(1\u2212 Sigmoid(y)) + \u2211\ny\u2032\u2208Y{K\u2212gold}\nSigmoid(y\u2032) (15)\nHere, the Y{gold} are the logic regression results of the gold term instances in the restricted search space and Y{K\u2212gold} are the results from the instances in filtered search space which does not contain gold term instances. Both Y{gold} and Y{K\u2212gold} will be computed to a mean value over all their corresponding instances before add-up.\nAll the loss is optimized via the Adam optimizer with a learning rate lr = 0.01. There two optimizer that correspond to the parameter set from the classifier and ranker respectively."}, {"heading": "4 Experiments and Analysis", "text": ""}, {"heading": "4.1 Data", "text": "In our experiments, we use the GENIA3.02 [21]5, a human annotated, and biology corpus for information extraction and text mining systems.\nAn example is given in the Table 1 in Section 1, it contains nested terms. We also make a statistic on term lengths and their percentage, it is listed below in Line Figure 2.\nThere are total 99,111 terms (distribution indicated in the red line) in 18,539 sentences (total 490,766 words). In these terms, 22675 terms are nested in or overlapped with other terms. 76436 terms are independent.\nThe max length of the terms is 22, with most terms (97.2%) have a length range from 1 to 5. The term ratio is 99111/490766 \u2248 0.202. However, the term 5 http://www.geniaproject.org/genia-corpus\nratio (\u03b1) in our experiments is set to 0.23, a little bigger than true distribution to cover and recall more instances, which in turn decreases the our model precision.\nWe split the total corpus by sentence into Train/Dev/Test parts with a ratio 0.9 : 0.05 : 0.05 and shuffle the Train when training model. (Hyper) Parameters we used for our experiments are listed in the Table 3 below. The dropout [22] is only applied in the training progress to avoid overfitting. We would stop the training processing after the evaluating loss has no increasing for a threshold times in EarlyStop."}, {"heading": "4.2 Results and Analysis", "text": "Baselines Currently, most ATE system are not designed to support nested term extraction. As there exists few systems supporting nested term extraction, resulting the weakness in lateral contrast. Here, we list some state-of-the-art ATE systems and their performance on the GENIA corpus. 1. Wang et al. [10], a co-training method that uses minimal training data and achieve a comparable results with the state-of-the-art on GENIA corpus. 2. Yuan et al. [5], a feature-based machine learning method using n-grams as term candidates and 10 kinds features is pre-processed for each candidate. Our best models for testing are chosen with the loss of development dataset\nTable 3. Hyper-parameters\nDIMWord Embedding 150\nDIMPOS\u2212tag Embedding 30\nDIMWord LSTM 150\nDIMSpan Length 30\nWord LSTM Layers 2\nPOS-tag LSTM Layers 1 (optional)\nLearning Rate 0.01\nBatch Size 100\nRandom Seed 626\nDropout 0.6\nTerm Ratio 0.23\nEarly Stop 26\nTable 4. Results on Test Set\nPrecision Recall F1 Wang et al. [10] 0.647 0.780 0.707 Yuan et al. [5] 0.7466 0.6847 0.7143\nRandom Embedding 0.5044 0.9639 0.6622\nOur Model GloVe 0.5093 0.9557 0.6575 (Classifier) + POS-tag 0.5198 0.9632 0.6753\n+ ELMo 0.5220 0.9541 0.6748 + ALL 0.5163 0.9698 0.6738\nRandom Embedding 0.7237 0.8343 0.7751\nOur Model GloVe 0.7244 0.8356 0.7760 (Ranker) + POS-tag 0.7265 0.8375 0.7780\n+ ELMo 0.7252 0.8386 0.7778 + ALL 0.7316 0.8327 0.7789\nNoted that: Decreasing the term ratio \u03b1 will increase the precision but degenerate the recall (Fig. 5). All the results in Tab. 4 are under the the settings in Tab. 3.\nand their performance is list in Tab. 4. In the table, [5] achieves a satisfying result with Random Forest method in their paper, but the feature preparation is complex and time-consuming. The training data is also re-balanced on the positive and negative instances.\nFor our classifier model, it has a high recall on the extracting terms, however the precision is not satisfying. The pre-trained word embedding [+GloVe] has little contribution, one reason is that there exists nearly 40% of the words in dataset is out of vocabulary. With extra features like POS-tags [+POS-tag], both precision and recall increase, which indirectly gives some evidences that span representations are not precise and concrete as the external POS-tags features on the POS-tag aspect. However, the ELMO features [+ELMO], which we thought should work better than the POS-tag features, do not bring much improvement as it raises pretty little in precision and falls in recall. When we utilize the POS-tag, ELMO feature and GloVe pre-trained embedding together [+ALL], we get a further improvement on recall of the classifier. But also cause a sharp increase in the resource consuming. The effect of ELMO feature weakens when we decrease the dimension of ELMO feature.\nFor the ranker model, it is expected to filter the pruned span candidates, and it gains a better precision score than the classifier, but a low recall score problem due to some loss of true positive terms. The POS-tag features [+POS-tag] bring improvement in both precision and recall but not significant than the classifier. The effect of pre-trained emdedding vector [+GloVe] also vanishes, which can be seen as a fluctuation in error margin. The ELMO features [+ELMO] do increase the recall, but not obviously. Compared with using all the features [+ALL], the ranker model uses POS-tag [+POS-tag] is slight poor in precision.\nThe ELMO feature does not help much to improve both our classifier and ranker model. It makes us doubt that if the \u2019hard\u2019 features work better than the \u2019soft\u2019 features in the ATE task."}, {"heading": "4.3 Other Experiments", "text": "Span Length: We compare the model performance under different maximum span length (from 1 to 15), and list them on Test set in the Figures (Fig. 3, Fig. 4) on our classifier model and ranker model below.\nFor the classifier, as we increase the maximum term length, the recall increase to a stable value (approximate 0.96) without dropping, which means the saturation of its recall ability. It is reasonable that the precision decreases to a fluctuated point as the candidates space increases several times when increasing the maximum term length.\nFor the ranker, the precision and recall increase to a stable state. However, when the length is less than 2, the ranker model has low precision. But, shorter maximum length means lower span candidates space, which means the model should obtain a higher precision. We will explain why in the next part.\nOverall, it can be noticed that the final result (from the ranker) has not been influenced too much when increasing max-length, which indicating that the model will maintain stable and can distinguish the true positive instances. Term Ratio: As our final model output number is controlled by a threshold\n0 2 4 6 8 10 12 14 16\n0.4\n0.6\n0.8\n1\nPrecision\nRecall\nF1\nFig. 3. Classifier on lengths(Testset) 0 2 4 6 8 10 12 14 16\n0.4\n0.6\n0.8\nPrecision\nRecall\nF1\nFig. 4. Ranker on lengths(Testset)\nK which is computed by K = \u03b1 \u00b7 |TotalWords| (the total words number is changeless), we test the ranker model performance on different term ratio \u03b1 to see how the factor influence the final result on test set (Please refer Fig. 5 for more details, we test the term ratio from 0.08 to 0.30).\nIn the figure, the first y axis represents the Precision/Recall/F1, the second y axis represents the term span number.\n0.1 0.15 0.2 0.25 0.3 0\n0.2\n0.4\n0.6\n0.8\n1\nPrecision\nRecall\nF1\n2,000\n4,000\n6,000\n8,000\nK-num\nTrue-Term-num\nTrue Positive\nFig. 5. Ranker on Term Ratios(Testset) 0.1 0.15 0.2 0.25 0.3\n0\n100\n200\nFig. 6. True Positive Terms Distribution\nThe recall [Red Line] increases gradually with the increasing term ratio, and also the precision [Blue Line] decreases due to the increasing of candidates space [Purple Line, K-num]. When the ratio approach 0.2 (the actual term distribution ratio in the dataset, the True-Term-num [Cyan Line] and K-num crossing point), the F1 value also achieve the best. The True Positive [Green Line] means the true positive instance number recalled by the ranker model.\nSo, in the Span Length, the ranker model achieve a low score when the span length equal 1 or 2 due to the large K-num, we set the ratio threshold (0.23, about 5700 candidates in test set) to run all experiments, while the actual term number (ratio) at length equal 1 and 2 in test set is 2254(0.09) and 3995(0.16), increasing 3450 and 1700 unsure. This is a disadvantage of the threshold-based ranking method. But the precision of the ranker model can be increased by decreasing the term ratio.\nWe also analyze the predicted true positive term distribution when we set the term ratio as 0.3, Fig. 6 shows the distribution from 0.09 to 0.30, the figure indicates the term number (axis y) at ratio (axis x) in the (term ratio=0.3) outputs. The ranking scores concentrate the candidates and move them forward in the whole searching space.\nSamples: We list two examples on Test-set and put them in Fig. 7 (the ranker results are in score decreasing order). Some predicted spans are potential to convey a term concept. In the figure, [6, 7] in the first sample and [2, 3] in the second sample are not in the gold, but they have some conceptual meanings."}, {"heading": "5 Conclusion and Future Work", "text": "We proposed a deep learning-based end-to-end term extraction method in this paper. It employs classification and ranking on the span (n-grams) candidates in the sentences. Compared with current methods, it supports the nested term extraction and can achieve a comparable result with merely the segmented raw text as input.\nBased on the sentence and term span hidden features, four kinds reasonable feature patterns are designed to convey different information. Experimental results show that these features indeed can embed some information. Though the model achieve a satisfying results, the ranker still loss many true positive instances, which decrease the recall score from 0.95 to 0.83. Moreover, thresholdbased output is not so applicable on unknown or unfamiliar domain or data as we do not know the term distribution and ratio.\nFuture works may focus on is to immigrate the architecture on a better feature extracting model (such as BERT [23] or GPT2.0 [24]). The ranking step\nshould be degisned more reasonable to pick up the outputs. More reasonable feature patterns can be designed to convey useful information."}, {"heading": "Acknowledgement", "text": "Thanks for the detailed comments and suggestions on an earlier draft from three anonymous reviewers."}], "title": "Feature-Less End-to-End Nested Term Extraction", "year": 2019}
+{
+  "abstractText": "In this paper, we proposed a deep learning-based end-toend method on domain specified automatic term extraction (ATE), it considers possible term spans within a fixed length in the sentence and predicts them whether they can be conceptual terms. In comparison with current ATE methods, the model supports nested term extraction and does not crucially need extra (extracted) features. Results show that it can achieve a high recall and a comparable precision on term extraction task with inputting segmented raw text.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Yuze Gao"
+    },
+    {
+      "affiliations": [],
+      "name": "Yu Yuan"
+    }
+  ],
+  "id": "SP:d1f89c99971193378a7e6449937ee04cd2364aea",
+  "references": [
+    {
+      "authors": [
+        "Stankovi Ranka",
+        "Krstev Cvetana",
+        "Obradovi Ivan",
+        "Lazi Biljana",
+        "Trtovac Aleksandra"
+      ],
+      "title": "Rule-based automatic multi-word term extraction and lemmatization.",
+      "venue": "Proceedings of the Tenth International Conference on Language Resources and Evaluation (LREC",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Katerina Frantzi",
+        "Sophia Ananiadou",
+        "Hideki"
+      ],
+      "title": "Mima: \u201dAutomatic recognition of multi-word terms: the c-value/nc-value method.",
+      "venue": "International Journal on Digital Libraries,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Ziqi Zhang",
+        "Jie Gao",
+        "Fabio Ciravegna"
+      ],
+      "title": "Jate 2.0: Java automatic term extraction with apache solr.",
+      "venue": "Proceedings of the Tenth International Conference on Language Resources and Evaluation",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Lishuang Li",
+        "Yanzhong Dang",
+        "Jing Zhang",
+        "Dan Li"
+      ],
+      "title": "Domain term extraction based on conditional random fields combined with active learning strategy.",
+      "venue": "Journal of Information & Computational Science,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Yu Yuan",
+        "Jie Gao",
+        "Yue Zhang"
+      ],
+      "title": "Supervised learning for robust term extraction.",
+      "venue": "International Conference on Asian Language Processing (IALP)",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "GuoDong Zhou",
+        "Jian Su"
+      ],
+      "title": "Exploring deep knowledge resources in biomedical name recognition.",
+      "venue": "Proceedings of the International Joint Workshop on Natural Language Processing in Biomedicine and its Applications. Association for Computational Linguistics,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Rogelio Nazar",
+        "Maria Teresa Cabre"
+      ],
+      "title": "Supervised learning algorithms applied to terminology extraction.",
+      "venue": "In Proceedings of the 10th Terminology and Knowledge Engineering Conference,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Merley da Silva Conrado",
+        "Thiago A. Salgueiro Pardo",
+        "Solange Oliveira Rezende"
+      ],
+      "title": "A machine learning approach to automatic term extraction using a rich feature set.",
+      "venue": "Proceedings of the NAACL HLT 2013 Student Research Workshop,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Maren Kucza",
+        "Jan Niehues",
+        "Sebastian"
+      ],
+      "title": "Stker: \u201dTerm Extraction via Neural Sequence Labeling a Comparative Evaluation of Strategies Using Recurrent Neural Networks.",
+      "venue": "Proceedings pf Interspeech",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Rui Wang",
+        "Wei Liu",
+        "Chris McDonald"
+      ],
+      "title": "Featureless domain-specific term extraction with minimal labelled data.",
+      "venue": "Proceedings of the Australasian Language Technology Association Workshop",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Nigam",
+        "Kamal",
+        "Rayid Ghani"
+      ],
+      "title": "Analyzing the effectiveness and applicability of co-training.",
+      "venue": "Cikm. Vol",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Kenton Lee",
+        "Luheng He",
+        "Mike Lewis",
+        "Luke Zettlemoyer"
+      ],
+      "title": "End-to-end neural coreference resolution.",
+      "venue": "arXiv preprint arXiv:1707.07045 (2017)",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jie Yang",
+        "Yue Zhang"
+      ],
+      "title": "NCRF++: An Open-source Neural Sequence Labeling Toolkit.",
+      "venue": "Proceedings of Association for Computational Linguistics ACL (2018),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Krizhevsky",
+        "Alex",
+        "Ilya Sutskever",
+        "Geoffrey E. Hinton"
+      ],
+      "title": "Imagenet classification with deep convolutional neural networks.",
+      "venue": "Advances in neural information processing systems",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Yuze Gao",
+        "Tong Xiao"
+      ],
+      "title": "A Comparison of Pruning Methods for CYK-based Decoding in Machine Translation.",
+      "venue": "Proceedings of China Workshop on Machine Translation (CWMT)",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Hochreiter Sepp",
+        "Jrgen Schmidhuber"
+      ],
+      "title": "Long short-term memory.",
+      "venue": "Neural computation",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "Jiangming Liu",
+        "Yue Zhang"
+      ],
+      "title": "Attention modeling for targeted sentiment.",
+      "venue": "Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics: Volume",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Yuze Gao",
+        "Yue Zhang",
+        "Tong Xiao"
+      ],
+      "title": "Implicit Syntactic Features for Targeted Sentiment Analysis.",
+      "venue": "Proceedings of IJCNLP (2017),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Matthew E. Peters",
+        "Mark Neumann",
+        "Mohit Iyyer",
+        "Matt Gardner",
+        "Christopher Clark",
+        "Kenton Lee",
+        "Luke Zettlemoyer"
+      ],
+      "title": "Deep contextualized word representations.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Kingma Diederik P",
+        "Jimmy Ba"
+      ],
+      "title": "Adam: A method for stochastic optimization.",
+      "venue": "arXiv preprint arXiv:1412.6980",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Jin-Dong Kim",
+        "Tomoko Ohta",
+        "Yuka Teteisi",
+        "Junichi Tsujii"
+      ],
+      "title": "Genia corpusa semantically annotated corpus for bio-textmining.",
+      "venue": "Bioinformatics (Oxford, England),",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "Nitish Srivastava",
+        "Geoffrey Hinton",
+        "Alex Krizhevsky",
+        "Ilya Sutskever",
+        "Ruslan Salakhutdinov"
+      ],
+      "title": "Dropout: a simple way to prevent neural networks from overfitting.",
+      "venue": "The journal of machine learning research,",
+      "year": 1929
+    },
+    {
+      "authors": [
+        "Jacob Devlin",
+        "Ming-Wei Chang",
+        "Kenton Lee",
+        "Kristina Toutanova"
+      ],
+      "title": "Bert: Pre-training of deep bidirectional transformers for language understanding.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Radford Alec",
+        "Jeffrey Wu",
+        "Rewon Child",
+        "David Luan",
+        "Dario Amodei",
+        "Ilya Sutskever"
+      ],
+      "title": "Language models are unsupervised multitask learners.",
+      "venue": "OpenAI Blog 1,",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords: Term Extraction \u00b7 Span Extraction \u00b7 Term Span."
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Automatic Term Extraction (ATE) or terminology extraction, which is to automatically extract domain specified phrases from a given corpus of a certain academic or technical domain, is widely used in text analytic like topic modelling, data mining and information retrieval from unstructured text. To specify, Table 1 shows a simple example of the tasks, the numbers in the brackets (for example [0, 4]) indicate the start and end index of the term in the sentence separately. Given a sentence, the task is to extract the [0, 4], [0, 5], [1, 1] terms which are specific terms in a domain.\nTypically, ACE approaches make use of linguistic information (part of speech tagging, phrase chunking and constituent parsing), extracted features or defined\nar X\niv :1\n90 8.\n05 42\n6v 1\n[ cs\n.C L\n] 1\n5 A\nrules to extract terminological candidates, i.e. syntactically plausible terminological noun phrases (NPs). Furthermore, in some approaches, potential terminological entries are then filtered from the candidate list using statistical, machine learning or deep learning methods. Once filtered, with low ambiguity and high specificity, these terms are particularly useful for conceptualizing a knowledge domain or for supporting the creation of a domain ontology or a terminology base."
+    },
+    {
+      "heading": "2 Related Works",
+      "text": "Current methods can mainly be divided into five kinds: rule-based method, statistical method, predominant hybrid-based, machine learning-based and deep learning-based.\nRule-based approaches [1,2] heavily rely on the syntax information. The portability and extensibility is also low. Error propagation from the syntax information would hamper the accuracy of models. For example, the POS-tag rulebased system [3] suffer from low recall due to erroneous POS-tagging. Moreover, complex structure using modifier always pose parsing challenges for most simple POS-tag rule-based algorithms.\nStatistical ATE system [4] calls for large quality and quantity dataset to make a reasonable statistic of frequency, distribution and etc.. When predicting, the low frequency or new-occur term may be easily neglected.\nPredominant hybrid ATE tries to combine the advantages of both rule-based and statistical approach. Generally, statistical methods are employed to trim the search space of candidates terms that identified by various linguistic heuristic and rules. However, combining the linguistic filters and statistical distribution ranking would lead to a degenerated precision with the increase of recall.\nMachine-learning based ATE [5,6,7,8] is to design and learn different features in the raw text or from syntax information, and then integrate these features into a machine learning method (such as conditional random field, supporting vector classifier). However, different domain, especially language shares different feature patterns, making this method specified to one language or domain.\nDeep learning-based ATE like sequence labelling methods [9] are also proposed recent years, but they do not support nested term extraction. [10] also proposed a co-training method using CNN and LSTM, and expand its training data by adding high confidence predicted results, but this method easily leads to error propagation [11].\nTo overcome some disadvantages of current ATE methods, we proposed another end-to-end method that based on deep learning, it supports nested term extraction and can achieve comparable experiment results without using extra features and syntax information.\nTo summarize, there are following contributions in this paper: 1. A novel term extraction method builds on span classification and ranking is proposed.\n2. The proposed model supports nested term extraction, making it easier to do nested term extraction to form different conceptual meaning(For example, the terms nested in span [0, 5] in Tab. 2 contains different conceptual aspect).\n3. The model is a feature-free system. Apart from the segmented raw text, other various features is not a must.\n4. Sentence level information are leveraged into term candidates via targeted attention mechanism, making the model more precise and interpretable. The code and data is shared on github3."
+    },
+    {
+      "heading": "3 Model",
+      "text": "In our model, we formulate the term extraction task as a progress of classifications and filtering, which consider all possible spans or segmentation in the sentence and distinguish them whether they can be domain specified terms in the sentence (see Fig. 1 for more details about our model architecture). In the following sections, we will illustrate our classification and ranking-based term extraction system in details."
+    },
+    {
+      "heading": "3.1 Term Spans",
+      "text": "First, we would introduce the span or token segment ( [12] also used in coreference resolution) used in our model.\nTo specify, given a sentence S=w1, w2, ..., wi, ..., wn with n words, supposing every token sequence fragment [wi, wj ](1 \u2264 i \u2264 j \u2264 n) is a span candidate, then there will be T = n(n+1)2 term span candidates in a sentence with n words.\nIn our model, we suppose that the term maximum length is k(1 \u2264k \u2264 n) and only consider the span candidates whose lengths are less than or equal to k in the sentences. So, for each sentence with length n , there finally would be n*k - k(k-1)2 term span candidates. Our task is to find the potential term spans that carry conceptual knowledge in these candidates. Refer to Tab. 2 for more details about term span."
+    },
+    {
+      "heading": "3.2 Model Architecture",
+      "text": "Briefly, our model can be divided into three parts (see Fig. 1 for more details): First is the feature preparation part (in red rectangle) that builds span representation vectors. Second is the classification part that classifies the span candidates to collect \u2019true positive spans\u2019 (TPS, that are potential to be terms). Finally is the ranking part that ranks the collected TPS based on ranking scores and sift the n-best span candidates.\nWe will elaborate in next two parts (Sentence Features and Span Representation) for how to build the span representation in details.\nSentence Features This part describes how the sentence sequence features are built from the raw segmented sentence (Refer to the red rectangle part in Fig. 1 for more details). In this step, both char level and word level information are used to build the sequence features, we use the framework of [13] to build the hidden features. Especially, we use the Conventional Neural Network (CNN) [14] on character level feature building, and Long Short Term Memory Neural Network (LSTM) [16] on word level feature building, which is the best combination described in the [13].\nMoreover, before using the hidden features, we apply an attention mechanism layer over the sequence features to refine and condense the sequence hidden features. To specify, we use a pre-defined vector vs as target vector over the sequence hidden features H = [h1, h2, ..., hn] with dot products. Then, we make a reduce sum operation on the hidden dimension axis and compute a soft-max\ncontribution weight on every token in the sentence. Here, pi is the probability (contribution weight) to the pre-defined vector vs.\npi = hi \u00b7 vs\u2211n\nk=1 hk \u00b7 vs (1 \u2264 i \u2264 n) (1)\nThe probability (contribution weight) of each token in the sentence is applied on its corresponding token.\nhsi = hi \u2217 pi (1 \u2264 i \u2264 n) (2)\nHere the hsi can be seen as the refined feature on terminology. We use the Hs = [hs1, hs2, ..., hsi..., hsn] as the sentence sequence features for span representation.\nSpan Representation Once we get the initial candidate spans in Section 3.1 and the hidden features of the sentences in Eq. 2, we can design feature patterns and build the span representations from Hs (Eq. 2).\nTo specify, given a sentence S = w1, w2, ..., wi, ..., wn, its final feature layer is Hs = [hs1, hs2, ..., hsi..., hsn]. Suppose a candidate span Spanm = [i, j], (0 \u2264 i \u2264 j \u2264 n and j \u2212 i \u2264 k), k is the maximum length of the terms in the term candidate set T .\nFor Each Span , we construct four kind features from Hs:\nI). Span Node is designed to contain the continuous information of the candidate term span for our model. For example the POS-tag sequence of the candidate.\nFor a Span , suppose its continuous hidden feature vectors in Hs are Hm = [hi, hi+1, ..., hj ], we first flatted hidden vectors and concatenate them, then we use a Multi-Layer Perceptron (MLP) to refine the the flatten vector to a vector Vn with the same dimension on hidden features. We use the Vn as the span node vector.\nVn = MLP ([hi : hi+1 : ... : hj ]) (3)\nII). Span Head is designed to contain the head word information if any and whether all the words in span can form a complete Noun Phrase.\nWe use a pre-defined vector vt which has the same dimension with hidden features as term target vector, and apply a term attention over its hidden feature sequence Hm to get its head feature vector Vh of the span.\nFirst the vector vt is applied on Hm with multiply products to reduce the hidden feature of each word to a logit.\nP [x] h = hx \u2217 vTt\u2211j x=i hk \u2217 vTt\n(hx, hk \u2208 Hm) (4)\nThen the soft-max score from the logits is applied on their corresponding tokens.\nVh = j\u2211 x=i hx \u2217 P [x]h (hx \u2208 Hm) (5)\nHere the x means the token in the span token sequence.\nIII). Start and End Words is designed to contain the feature information of begin and end word to the model. For example, generally, the term cannot start with a PREP word.\nGiven the span hidden feature sequence Hm, we choose the hidden feature of its start word and end word separately and concatenated them into a vector Vbe.\nVbe = [hi : hj ] (6)\nIV). Sentence Targeted Attention Node is designed to embed some feature information like whether the candidate span can express a concept to the complete sentence and leverage the information from the sentence level into term spans.\nWe use the mean vector of a span hidden features as a target vector and apply dot-wise attention over the sentence hidden features. This kind of attention mechanism is widely used in targeted sentiment analysis [17,18].\nTo specify, given a span with hidden feature sequence Hm, suppose its mean vector is h\u0302m. Here \u2211 means \u2019average sum\u2019 on token axis.\nh\u0302m = j\u2211 x=i hx (hx \u2208 Hm) (7)\nWe use h\u0302m as a target vector and apply its transposed on sentence level hidden feature sequence Hs with multiply products to reduce the hidden feature of each token to a logit h\u0302s. The logits will be softmaxed on the token axis in the sentence.\nP [x]s = hs[x] \u2217 h\u0302m T\u2211n k=1 hs[k] \u2217 h\u0302m T (hs[x], hs[k] \u2208 Hs) (8)\nThe computed probability above is applied to its corresponding token in the sentence hiddens Hs, and the weighted sum product Vs is the span targeted attention node.\nVs = n\u2211 i=1 hs[x] \u2217 P [x]s (9)\nHere the \u2211\noperations are applied on the token sequence axis. Hs is the results in Eq. 2.\nApart from these four features, we also give each span a length feature vector Vl to indicate the length of the span. So, given a candidate span Span\nM , it has a span representation SM , which has a five times dimension in comparison with the hidden feature.\nSM = [Vn, Vh, Vbe, Vs, Vl] (10)\nHere the concatenate operation over the feature dimension axis.\nAdditional Features* Other kind source features such as ELMO [19]4, PartOf-Speech (POS-Tags) Embedding also can be added into the span representation. To extract as much information as possible, apart the span length feature, we will do all the four kind processing (I, II, III, IV) on every feature source."
+    },
+    {
+      "heading": "3.3 Classification and Ranking",
+      "text": "After obtaining the span representations, we use these representations do the classification and ranking steps.\nFirst, based on the span representations SM , we do a binary classification (CLFFC) to classify these span candidates into true and false groups (TFG).\nTFG = CLFFC(SM ) (11)\nAfter classification, a scoring step will be applied over the \u2019true\u2019 span group (TG, TG \u2208 TFG). Here, we obtain the scores (Rscores) from a regression function(REG) which use the span representation SM as inputs. S TG M is the span representation of true group TG. The regression function(REG) is designed to give each span candidate a score between 0 and 1.\nRscores = {REG(STiM ), S Ti M \u2208 S TG M } (12)\nThe scores of the TG span group are then handed to a ranker as ranking (or confidence) scores. The top-K span results from the ranking step would be thought as the final output (TMS) of our SCR model, which are with higher ranking scores (or confidence).\nTMS = RANKER|Kn=1(Rscores) (13)\nHere K is a threshold value, we compute K = \u03b1 \u00b7 |TotalWords|. |TotalWords| is the total words currently processed. \u03b1 is a ratio indicate that how much terms are in a certain number of words."
+    },
+    {
+      "heading": "3.4 Training Loss",
+      "text": "In our model, there are two loss source: one is the classification loss and one is the ranking step loss. We use a two-stage optimization strategy to minimizing the model loss. First, the cross-entropy loss of the classification step is computed and optimized.\nLoss(classifier) = \u2212(y \u2217 log(p) + (1\u2212 y) \u2217 log(1\u2212 p)) (14)\nAfter getting a best result on the classifier, the parameters in the classifier are freezed, and the sigmoid-likelihood loss from the ranking step is computed and optimized. These two stage will be separately trained. We use early-stop\n4 For ELMO feature, we use the pre-trained model presented by the nlp toklit allennlp: https://github.com/allenai/allennlp/blob/master/tutorials/how to/elmo.md\nmethod to select a classifier with high recall, and apply ranking on pruned space from the classifier. Moreover, the loss of the ranker is design to make the scores of true instances approach to 1 while the false\u2019s decrease to 0.\nLoss(ranker) = \u2211\ny\u2208Y{gold}\n(1\u2212 Sigmoid(y)) + \u2211\ny\u2032\u2208Y{K\u2212gold}\nSigmoid(y\u2032) (15)\nHere, the Y{gold} are the logic regression results of the gold term instances in the restricted search space and Y{K\u2212gold} are the results from the instances in filtered search space which does not contain gold term instances. Both Y{gold} and Y{K\u2212gold} will be computed to a mean value over all their corresponding instances before add-up.\nAll the loss is optimized via the Adam optimizer with a learning rate lr = 0.01. There two optimizer that correspond to the parameter set from the classifier and ranker respectively."
+    },
+    {
+      "heading": "4 Experiments and Analysis",
+      "text": ""
+    },
+    {
+      "heading": "4.1 Data",
+      "text": "In our experiments, we use the GENIA3.02 [21]5, a human annotated, and biology corpus for information extraction and text mining systems.\nAn example is given in the Table 1 in Section 1, it contains nested terms. We also make a statistic on term lengths and their percentage, it is listed below in Line Figure 2.\nThere are total 99,111 terms (distribution indicated in the red line) in 18,539 sentences (total 490,766 words). In these terms, 22675 terms are nested in or overlapped with other terms. 76436 terms are independent.\nThe max length of the terms is 22, with most terms (97.2%) have a length range from 1 to 5. The term ratio is 99111/490766 \u2248 0.202. However, the term 5 http://www.geniaproject.org/genia-corpus\nratio (\u03b1) in our experiments is set to 0.23, a little bigger than true distribution to cover and recall more instances, which in turn decreases the our model precision.\nWe split the total corpus by sentence into Train/Dev/Test parts with a ratio 0.9 : 0.05 : 0.05 and shuffle the Train when training model. (Hyper) Parameters we used for our experiments are listed in the Table 3 below. The dropout [22] is only applied in the training progress to avoid overfitting. We would stop the training processing after the evaluating loss has no increasing for a threshold times in EarlyStop."
+    },
+    {
+      "heading": "4.2 Results and Analysis",
+      "text": "Baselines Currently, most ATE system are not designed to support nested term extraction. As there exists few systems supporting nested term extraction, resulting the weakness in lateral contrast. Here, we list some state-of-the-art ATE systems and their performance on the GENIA corpus. 1. Wang et al. [10], a co-training method that uses minimal training data and achieve a comparable results with the state-of-the-art on GENIA corpus. 2. Yuan et al. [5], a feature-based machine learning method using n-grams as term candidates and 10 kinds features is pre-processed for each candidate. Our best models for testing are chosen with the loss of development dataset\nTable 3. Hyper-parameters\nDIMWord Embedding 150\nDIMPOS\u2212tag Embedding 30\nDIMWord LSTM 150\nDIMSpan Length 30\nWord LSTM Layers 2\nPOS-tag LSTM Layers 1 (optional)\nLearning Rate 0.01\nBatch Size 100\nRandom Seed 626\nDropout 0.6\nTerm Ratio 0.23\nEarly Stop 26\nTable 4. Results on Test Set\nPrecision Recall F1 Wang et al. [10] 0.647 0.780 0.707 Yuan et al. [5] 0.7466 0.6847 0.7143\nRandom Embedding 0.5044 0.9639 0.6622\nOur Model GloVe 0.5093 0.9557 0.6575 (Classifier) + POS-tag 0.5198 0.9632 0.6753\n+ ELMo 0.5220 0.9541 0.6748 + ALL 0.5163 0.9698 0.6738\nRandom Embedding 0.7237 0.8343 0.7751\nOur Model GloVe 0.7244 0.8356 0.7760 (Ranker) + POS-tag 0.7265 0.8375 0.7780\n+ ELMo 0.7252 0.8386 0.7778 + ALL 0.7316 0.8327 0.7789\nNoted that: Decreasing the term ratio \u03b1 will increase the precision but degenerate the recall (Fig. 5). All the results in Tab. 4 are under the the settings in Tab. 3.\nand their performance is list in Tab. 4. In the table, [5] achieves a satisfying result with Random Forest method in their paper, but the feature preparation is complex and time-consuming. The training data is also re-balanced on the positive and negative instances.\nFor our classifier model, it has a high recall on the extracting terms, however the precision is not satisfying. The pre-trained word embedding [+GloVe] has little contribution, one reason is that there exists nearly 40% of the words in dataset is out of vocabulary. With extra features like POS-tags [+POS-tag], both precision and recall increase, which indirectly gives some evidences that span representations are not precise and concrete as the external POS-tags features on the POS-tag aspect. However, the ELMO features [+ELMO], which we thought should work better than the POS-tag features, do not bring much improvement as it raises pretty little in precision and falls in recall. When we utilize the POS-tag, ELMO feature and GloVe pre-trained embedding together [+ALL], we get a further improvement on recall of the classifier. But also cause a sharp increase in the resource consuming. The effect of ELMO feature weakens when we decrease the dimension of ELMO feature.\nFor the ranker model, it is expected to filter the pruned span candidates, and it gains a better precision score than the classifier, but a low recall score problem due to some loss of true positive terms. The POS-tag features [+POS-tag] bring improvement in both precision and recall but not significant than the classifier. The effect of pre-trained emdedding vector [+GloVe] also vanishes, which can be seen as a fluctuation in error margin. The ELMO features [+ELMO] do increase the recall, but not obviously. Compared with using all the features [+ALL], the ranker model uses POS-tag [+POS-tag] is slight poor in precision.\nThe ELMO feature does not help much to improve both our classifier and ranker model. It makes us doubt that if the \u2019hard\u2019 features work better than the \u2019soft\u2019 features in the ATE task."
+    },
+    {
+      "heading": "4.3 Other Experiments",
+      "text": "Span Length: We compare the model performance under different maximum span length (from 1 to 15), and list them on Test set in the Figures (Fig. 3, Fig. 4) on our classifier model and ranker model below.\nFor the classifier, as we increase the maximum term length, the recall increase to a stable value (approximate 0.96) without dropping, which means the saturation of its recall ability. It is reasonable that the precision decreases to a fluctuated point as the candidates space increases several times when increasing the maximum term length.\nFor the ranker, the precision and recall increase to a stable state. However, when the length is less than 2, the ranker model has low precision. But, shorter maximum length means lower span candidates space, which means the model should obtain a higher precision. We will explain why in the next part.\nOverall, it can be noticed that the final result (from the ranker) has not been influenced too much when increasing max-length, which indicating that the model will maintain stable and can distinguish the true positive instances. Term Ratio: As our final model output number is controlled by a threshold\n0 2 4 6 8 10 12 14 16\n0.4\n0.6\n0.8\n1\nPrecision\nRecall\nF1\nFig. 3. Classifier on lengths(Testset) 0 2 4 6 8 10 12 14 16\n0.4\n0.6\n0.8\nPrecision\nRecall\nF1\nFig. 4. Ranker on lengths(Testset)\nK which is computed by K = \u03b1 \u00b7 |TotalWords| (the total words number is changeless), we test the ranker model performance on different term ratio \u03b1 to see how the factor influence the final result on test set (Please refer Fig. 5 for more details, we test the term ratio from 0.08 to 0.30).\nIn the figure, the first y axis represents the Precision/Recall/F1, the second y axis represents the term span number.\n0.1 0.15 0.2 0.25 0.3 0\n0.2\n0.4\n0.6\n0.8\n1\nPrecision\nRecall\nF1\n2,000\n4,000\n6,000\n8,000\nK-num\nTrue-Term-num\nTrue Positive\nFig. 5. Ranker on Term Ratios(Testset) 0.1 0.15 0.2 0.25 0.3\n0\n100\n200\nFig. 6. True Positive Terms Distribution\nThe recall [Red Line] increases gradually with the increasing term ratio, and also the precision [Blue Line] decreases due to the increasing of candidates space [Purple Line, K-num]. When the ratio approach 0.2 (the actual term distribution ratio in the dataset, the True-Term-num [Cyan Line] and K-num crossing point), the F1 value also achieve the best. The True Positive [Green Line] means the true positive instance number recalled by the ranker model.\nSo, in the Span Length, the ranker model achieve a low score when the span length equal 1 or 2 due to the large K-num, we set the ratio threshold (0.23, about 5700 candidates in test set) to run all experiments, while the actual term number (ratio) at length equal 1 and 2 in test set is 2254(0.09) and 3995(0.16), increasing 3450 and 1700 unsure. This is a disadvantage of the threshold-based ranking method. But the precision of the ranker model can be increased by decreasing the term ratio.\nWe also analyze the predicted true positive term distribution when we set the term ratio as 0.3, Fig. 6 shows the distribution from 0.09 to 0.30, the figure indicates the term number (axis y) at ratio (axis x) in the (term ratio=0.3) outputs. The ranking scores concentrate the candidates and move them forward in the whole searching space.\nSamples: We list two examples on Test-set and put them in Fig. 7 (the ranker results are in score decreasing order). Some predicted spans are potential to convey a term concept. In the figure, [6, 7] in the first sample and [2, 3] in the second sample are not in the gold, but they have some conceptual meanings."
+    },
+    {
+      "heading": "5 Conclusion and Future Work",
+      "text": "We proposed a deep learning-based end-to-end term extraction method in this paper. It employs classification and ranking on the span (n-grams) candidates in the sentences. Compared with current methods, it supports the nested term extraction and can achieve a comparable result with merely the segmented raw text as input.\nBased on the sentence and term span hidden features, four kinds reasonable feature patterns are designed to convey different information. Experimental results show that these features indeed can embed some information. Though the model achieve a satisfying results, the ranker still loss many true positive instances, which decrease the recall score from 0.95 to 0.83. Moreover, thresholdbased output is not so applicable on unknown or unfamiliar domain or data as we do not know the term distribution and ratio.\nFuture works may focus on is to immigrate the architecture on a better feature extracting model (such as BERT [23] or GPT2.0 [24]). The ranking step\nshould be degisned more reasonable to pick up the outputs. More reasonable feature patterns can be designed to convey useful information."
+    },
+    {
+      "heading": "Acknowledgement",
+      "text": "Thanks for the detailed comments and suggestions on an earlier draft from three anonymous reviewers."
+    }
+  ],
+  "title": "Feature-Less End-to-End Nested Term Extraction",
+  "year": 2019
+}

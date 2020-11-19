@@ -1,1 +1,793 @@
-{"abstractText": "Decision trees (DTs) epitomize what have become to be known as interpretable machine learning (ML) models. This is informally motivated by paths in DTs being often much smaller than the total number of features. This paper shows that in some settings DTs can hardly be deemed interpretable, with paths in a DT being arbitrarily larger than a PI-explanation, i.e. a subset-minimal set of feature values that entails the prediction. As a result, the paper proposes a novel model for computing PI-explanations of DTs, which enables computing one PI-explanation in polynomial time. Moreover, it is shown that enumeration of PI-explanations can be reduced to the enumeration of minimal hitting sets. Experimental results were obtained on a wide range of publicly available datasets with well-known DT-learning tools, and confirm that in most cases DTs have paths that are proper supersets of PI-explanations.", "authors": [{"affiliations": [], "name": "Yacine Izza"}, {"affiliations": [], "name": "Alexey Ignatiev"}, {"affiliations": [], "name": "Joao Marques-Silva"}], "id": "SP:31d37dbf700bc8c0471b235cddd62d21457d4356", "references": [{"authors": ["G. Aglin", "S. Nijssen", "P. Schaus"], "title": "Learning optimal decision trees using caching branchand-bound search", "venue": "In AAAI,", "year": 2020}, {"authors": ["G. Aglin", "S. Nijssen", "P. Schaus"], "title": "PyDL8.5: a library for learning optimal decision trees", "venue": "In IJCAI,", "year": 2020}, {"authors": ["E. Alpaydin"], "title": "Machine Learning: The New AI", "year": 2016}, {"authors": ["E. Angelino", "N. Larus-Stone", "D. Alabi", "M. Seltzer", "C. Rudin"], "title": "Learning certifiably optimal rule lists", "venue": "In KDD,", "year": 2017}, {"authors": ["E. Angelino", "N. Larus-Stone", "D. Alabi", "M. Seltzer", "C. Rudin"], "title": "Learning certifiably optimal rule lists for categorical data", "venue": "J. Mach. Learn. Res.,", "year": 2017}, {"authors": ["R. Appuswamy", "M. Franceschetti", "N. Karamchandani", "K. Zeger"], "title": "Network coding for computing: Cut-set bounds", "venue": "IEEE Trans. Inf. Theory,", "year": 2011}, {"authors": ["F. Avellaneda"], "title": "Efficient inference of optimal decision trees", "venue": "In AAAI,", "year": 2020}, {"authors": ["O. Bastani", "C. Kim", "H. Bastani"], "title": "Interpretability via model extraction", "year": 2017}, {"authors": ["O. Bastani", "C. Kim", "H. Bastani"], "title": "Interpreting blackbox models via model extraction", "year": 2017}, {"authors": ["D. Bertsimas", "J. Dunn"], "title": "Optimal classification trees", "venue": "Mach. Learn.,", "year": 2017}, {"authors": ["C. Bessiere", "E. Hebrard", "B. O\u2019Sullivan"], "title": "Minimising decision tree size as combinatorial optimisation", "venue": "In CP,", "year": 2009}, {"authors": ["M. Bramer"], "title": "Principles of Data Mining, Third Edition", "year": 2016}, {"authors": ["L. Breiman"], "title": "Statistical modeling: The two cultures", "venue": "Statistical science,", "year": 2001}, {"authors": ["L. Breiman", "J.H. Friedman", "R.A. Olshen", "C.J. Stone"], "title": "Classification and Regression Trees", "year": 1984}, {"authors": ["L.A. Breslow", "D.W. Aha"], "title": "Simplifying decision trees: A survey", "venue": "Knowledge Eng. Review,", "year": 1997}, {"authors": ["C.E. Brodley", "P.E. Utgoff"], "title": "Multivariate decision trees", "venue": "Mach. Learn.,", "year": 1995}, {"authors": ["C. Chen", "C. Rudin"], "title": "An optimization approach to learning falling rule lists", "venue": "In AISTATS,", "year": 2018}, {"authors": ["A. Choi", "A. Shih", "A. Goyanka", "A. Darwiche"], "title": "On symbolically encoding the behavior of random forests", "year": 2007}, {"authors": ["P.A. Flach"], "title": "Machine Learning - The Art and Science of Algorithms that Make Sense of Data", "year": 2012}, {"authors": ["A.A. Freitas"], "title": "Comprehensible classification models: a position paper", "venue": "SIGKDD Explorations,", "year": 2013}, {"authors": ["N. Frosst", "G.E. Hinton"], "title": "Distilling a neural network into a soft decision tree", "venue": "In CExAIIA,", "year": 2017}, {"authors": ["M.R. Garey"], "title": "Optimal binary identification procedures", "venue": "SIAM Journal on Applied Mathematics,", "year": 1972}, {"authors": ["R. Guidotti", "A. Monreale", "S. Ruggieri", "F. Turini", "F. Giannotti", "D. Pedreschi"], "title": "A survey of methods for explaining black box models", "venue": "ACM Comput. Surv.,", "year": 2019}, {"authors": ["A. Holzinger", "G. Langs", "H. Denk", "K. Zatloukal", "H. M\u00fcller"], "title": "Causability and explainability of artificial intelligence in medicine", "venue": "WIRE Data Min. Knowl. Discov.,", "year": 2019}, {"authors": ["H. Hu", "M. Siala", "E. Hebrard", "M. Huguet"], "title": "Learning optimal decision trees with MaxSAT and its integration in adaboost", "venue": "In IJCAI,", "year": 2020}, {"authors": ["X. Hu", "C. Rudin", "M. Seltzer"], "title": "Optimal sparse decision trees", "venue": "In NeurIPS,", "year": 2019}, {"authors": ["L. Hyafil", "R.L. Rivest"], "title": "Constructing optimal binary decision trees is np-complete", "venue": "Inf. Process. Lett.,", "year": 1976}, {"authors": ["A. Ignatiev", "N. Narodytska", "J. Marques-Silva"], "title": "Abduction-based explanations for machine learning models", "venue": "In AAAI,", "year": 2019}, {"authors": ["A. Ignatiev", "F. Pereira", "N. Narodytska", "J. Marques-Silva"], "title": "A SAT-based approach to learn explainable decision sets", "venue": "In IJCAR,", "year": 2018}, {"authors": ["M. Janota", "A. Morgado"], "title": "SAT-based encodings for optimal decision trees with explicit paths", "venue": "In SAT, pages 501\u2013518,", "year": 2020}, {"authors": ["S.B. Kotsiantis"], "title": "Decision trees: a recent overview", "venue": "Artif. Intell. Rev.,", "year": 2013}, {"authors": ["H. Lakkaraju", "S.H. Bach", "J. Leskovec"], "title": "Interpretable decision sets: A joint framework for description and prediction", "venue": "In KDD,", "year": 2016}, {"authors": ["H. Lakkaraju", "E. Kamar", "R. Caruana", "J. Leskovec"], "title": "Interpretable & explorable approximations of black box models", "year": 2017}, {"authors": ["B. Letham", "C. Rudin", "T.H. McCormick", "D. Madigan"], "title": "An interpretable stroke prediction model using rules and bayesian analysis", "venue": "In AAAI,", "year": 2013}, {"authors": ["Z.C. Lipton"], "title": "The mythos of model interpretability", "venue": "Commun. ACM,", "year": 2018}, {"authors": ["S.M. Lundberg", "G. Erion", "H. Chen", "A. DeGrave", "J.M. Prutkin", "B. Nair", "R. Katz", "J. Himmelfarb", "N. Bansal", "S.-I. Lee"], "title": "From local explanations to global understanding with explainable AI for trees", "venue": "Nature machine intelligence,", "year": 2020}, {"authors": ["T. Miller"], "title": "Explanation in artificial intelligence: Insights from the social sciences", "venue": "Artif. Intell.,", "year": 2019}, {"authors": ["C. Molnar"], "title": "Interpretable Machine Learning", "venue": "https://christophm.github.io/interpretable-ml-book/", "year": 2019}, {"authors": ["G. Montavon", "W. Samek", "K. M\u00fcller"], "title": "Methods for interpreting and understanding deep neural networks", "venue": "Digit. Signal Process.,", "year": 2018}, {"authors": ["B.M.E. Moret"], "title": "Decision trees and diagrams", "venue": "ACM Comput. Surv.,", "year": 1982}, {"authors": ["N. Narodytska", "A. Ignatiev", "F. Pereira", "J. Marques-Silva"], "title": "Learning optimal decision trees with SAT", "venue": "In IJCAI,", "year": 2018}, {"authors": ["S. Nijssen", "\u00c9. Fromont"], "title": "Mining optimal decision trees from itemset lattices", "venue": "In KDD,", "year": 2007}, {"authors": ["S. Nijssen", "\u00c9. Fromont"], "title": "Optimal constraint-based decision tree induction from itemset lattices", "venue": "Data Min. Knowl. Discov.,", "year": 2010}, {"authors": ["F. Pedregosa", "G. Varoquaux", "A. Gramfort", "V. Michel", "B. Thirion", "O. Grisel", "M. Blondel", "P. Prettenhofer", "R. Weiss", "V. Dubourg", "J. VanderPlas", "A. Passos", "D. Cournapeau", "M. Brucher", "M. Perrot", "E. Duchesnay"], "title": "Scikit-learn: Machine learning in python", "venue": "J. Mach. Learn. Res.,", "year": 2011}, {"authors": ["D. Poole", "A.K. Mackworth"], "title": "Artificial Intelligence - Foundations of Computational Agents", "year": 2017}, {"authors": ["J.R. Quinlan"], "title": "Induction of decision trees", "venue": "Mach. Learn.,", "year": 1986}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "Model-agnostic interpretability of machine", "venue": "learning. CoRR,", "year": 2016}, {"authors": ["R.L. Rivest"], "title": "Learning decision lists", "venue": "Mach. Learn.,", "year": 1987}, {"authors": ["L. Rokach", "O. Maimon"], "title": "Top-down induction of decision trees classifiers - a survey", "venue": "IEEE Trans. Syst. Man Cybern. Part C,", "year": 2005}, {"authors": ["L. Rokach", "O. Maimon"], "title": "Data Mining with Decision Trees - Theory and Applications", "venue": "WorldScientific,", "year": 2007}, {"authors": ["A.M. Roth", "N. Topin", "P. Jamshidi", "M. Veloso"], "title": "Conservative Q-improvement: Reinforcement learning for an interpretable decision-tree policy", "year": 1907}, {"authors": ["C. Rudin"], "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead", "venue": "Nature Machine Intelligence,", "year": 2019}, {"authors": ["C. Rudin", "S. Ertekin"], "title": "Learning customized and optimized lists of rules with mathematical programming", "venue": "Math. Program. Comput.,", "year": 2018}, {"authors": ["S.J. Russell", "P. Norvig"], "title": "Artificial Intelligence - A Modern Approach", "venue": "Pearson Education,", "year": 2010}, {"authors": ["W. Samek", "G. Montavon", "A. Vedaldi", "L.K. Hansen", "K. M\u00fcller", "editors"], "title": "Explainable AI: Interpreting", "venue": "Explaining and Visualizing Deep Learning", "year": 2019}, {"authors": ["A. Shih", "A. Choi", "A. Darwiche"], "title": "A symbolic approach to explaining bayesian network classifiers", "venue": "In IJCAI,", "year": 2018}, {"authors": ["A. Silva", "M.C. Gombolay", "T.W. Killian", "I.D.J. Jimenez", "S. Son"], "title": "Optimization methods for interpretable differentiable decision trees applied to reinforcement learning", "venue": "In AISTATS,", "year": 2020}, {"authors": ["K. Sokol", "P.A. Flach"], "title": "Desiderata for interpretability: Explaining decision tree predictions with counterfactuals", "venue": "In AAAI,", "year": 2019}, {"authors": ["P.E. Utgoff", "N.C. Berkman", "J.A. Clouse"], "title": "Decision tree induction based on efficient tree restructuring", "venue": "Mach. Learn.,", "year": 1997}, {"authors": ["G. Valdes", "J.M. Luna", "E. Eaton", "C.B. Simone II", "L.H. Ungar", "T.D. Solberg"], "title": "Mediboost: a patient stratification tool for interpretable decision making in the era of precision medicine", "venue": "Nature Scientific reports,", "year": 2016}, {"authors": ["H. Verhaeghe", "S. Nijssen", "G. Pesant", "C. Quimper", "P. Schaus"], "title": "Learning optimal decision trees using constraint programming", "venue": "In BNAIC,", "year": 2019}, {"authors": ["H. Verhaeghe", "S. Nijssen", "G. Pesant", "C. Quimper", "P. Schaus"], "title": "Learning optimal decision trees using constraint programming", "venue": "In IJCAI,", "year": 2020}, {"authors": ["S. Verwer", "Y. Zhang"], "title": "Learning decision trees with flexible constraints and objectives using integer optimization", "venue": "In CPAIOR,", "year": 2017}, {"authors": ["S. Verwer", "Y. Zhang"], "title": "Learning optimal classification trees using a binary linear program formulation", "venue": "In AAAI,", "year": 2019}, {"authors": ["F. Wang", "C. Rudin"], "title": "Falling rule lists", "venue": "In AISTATS,", "year": 2015}, {"authors": ["T. Wang", "C. Rudin", "F. Doshi-Velez", "Y. Liu", "E. Klampfl", "P. MacNeille"], "title": "Bayesian rule sets for interpretable classification", "venue": "In ICDM,", "year": 2016}, {"authors": ["T. Wang", "C. Rudin", "F. Doshi-Velez", "Y. Liu", "E. Klampfl", "P. MacNeille"], "title": "A bayesian framework for learning rule sets for interpretable classification", "venue": "J. Mach. Learn. Res.,", "year": 2017}, {"authors": ["M. Wu", "M.C. Hughes", "S. Parbhoo", "M. Zazzi", "V. Roth", "F. Doshi-Velez"], "title": "Beyond sparsity: Tree regularization of deep models for interpretability", "venue": "In AAAI,", "year": 2018}, {"authors": ["M. Wu", "S. Parbhoo", "M.C. Hughes", "R. Kindle", "L.A. Celi", "M. Zazzi", "V. Roth", "F. DoshiVelez"], "title": "Regional tree regularization for interpretability in deep neural networks", "venue": "In AAAI,", "year": 2020}, {"authors": ["M. Wu", "S. Parbhoo", "M.C. Hughes", "V. Roth", "F. Doshi-Velez"], "title": "Optimizing for interpretability in deep neural networks with tree regularization", "year": 1908}, {"authors": ["F. Xu", "H. Uszkoreit", "Y. Du", "W. Fan", "D. Zhao", "J. Zhu"], "title": "Explainable AI: A brief survey on history, research areas, approaches and challenges", "venue": "In NLPCC,", "year": 2019}, {"authors": ["H. Yang", "C. Rudin", "M. Seltzer"], "title": "Scalable bayesian rule lists", "venue": "In ICML,", "year": 2017}], "sections": [{"text": "ar X\niv :2\n01 0.\n11 03\n4v 1\n[ cs\n.L G\n] 2\n1 O\nct 2\nterpretable machine learning (ML) models. This is informally motivated by paths in DTs being often much smaller than the total number of features. This paper shows that in some settings DTs can hardly be deemed interpretable, with paths in a DT being arbitrarily larger than a PI-explanation, i.e. a subset-minimal set of feature values that entails the prediction. As a result, the paper proposes a novel model for computing PI-explanations of DTs, which enables computing one PI-explanation in polynomial time. Moreover, it is shown that enumeration of PI-explanations can be reduced to the enumeration of minimal hitting sets. Experimental results were obtained on a wide range of publicly available datasets with well-known DT-learning tools, and confirm that in most cases DTs have paths that are proper supersets of PI-explanations."}, {"heading": "1 Introduction", "text": "Decision trees (DTs) are well known machine learning (ML) models, studied since at\nleast the 1970s [22,27,14,51,53]. DTs embody what is widely regarded as an interpretable ML model [20,52,42,60,41,39,23,77,62]1. Motivated by this perception, there\nhas been extensive work on learning DTs (and related logic ML models) with properties\ndeemed important for interpretability, e.g. number of nodes, maximum/average depth, etc. [2,68,25,32,1,7,57,24,26,70,67,58,44,30,17,5,73,35,4,78,69,10,34,72,71,36,46,11,45]2.\nMoreover, there has been work on distilling or approximating complex ML models with\n(soft) decision trees [21,9,8,74,76,56,75]. Nevertheless, recent work highlights that in-\nterpretability should correlate with how shallow DTs are [37,42].\nIn contrast with earlier work, this paper investigates the limits of interpretability of\nDTs. Concretely, the paper proposes Boolean functions for which a minimal DT con-\ntains paths with a number of literals that is arbitrarily larger (growing with the number\n1 Interpretability is generally accepted to be a subjective concept, without a rigorous defini-\ntion [37]. In this paper we measure interpretability in terms of the overall succinctness of the information provided by a model to explain a given prediction. The association of DTs with interpretability can be traced at least to Breiman [13], who summarizes the interpretability of\nDTs as follows: \u201cOn interpretability, trees rate an A+\u201d. 2 The association of DTs with interpretability is also illustrated by Interpretable AI\n(https://www.interpretable.ai/), which offers interpretability solutions based on optimal decision trees.\nof features) than a PI-explanation3 of constant size. Experimental results demonstrate\nthat for widely used tools for constructing DT classifiers, the resulting DTs often con-\ntain paths that are proper supersets of PI-explanations (which we refer as explanation-\nredundant paths, in possibly irredundant DTs). Perhaps more importantly, for a signifi-\ncant number of datasets, and for the obtained DTs, most of their paths are explanation-\nredundant. The results also indicate that for some DTs, as much as 98% of feature space\nwill be explained by some path that is explanation-redundant. Motivated by these nega-\ntive results, we propose a hitting set formulation for computing PI-explanations of DTs,\ndistinguishing explanations restricted to literals in a tree path, and explanations unre-\nstricted to literals in a tree path. In addition, we propose a polynomial time algorithm\nfor computing a single PI-explanation for any given instance. Finally, the paper reduces\nenumeration of PI-explanations of DTs to the problem of enumerating minimal hitting\nsets (MHSes), and proposes a solution based on iterative calls to an NP oracle (e.g. SAT\nor a 0-1 ILP) oracle.\nThe paper is structured as follows. Section 2 introduces the notation and definitions\nused in the remainder of the paper. Section 3 studies functions that elicit poor DT in-\nterpretability. Section 4 proposes a polynomial-time algorithm for computing a single\nPI-explanation for a DT. Section 5 proposes a solution for enumerating PI-explanations\nof DTs, by reducing the problem to the computation of MHSes. Section 6 studies the\nDTs obtained with two state-of-the-art tools, on publicly available datasets, and shows\nthat paths in learned decision trees are often proper supersets of PI-explanations. More-\nover, the experimental results confirm that run times for extracting PI-explanations are\nnegligible. Finally, Section 7 concludes the paper."}, {"heading": "2 Preliminaries", "text": "Classification problems. We consider a classification problem defined on a set of features F = {1, . . . ,n}, where each feature i takes values from a (categorical) domain Di\n4, and n denotes the number of features. Feature space is defined by F= D1\u00d7D2\u00d7 . . .\u00d7Dn, each defining the range of (categorical) values of each feature xi. To refer to an arbitrary point in feature space we use the notation x = (x1, . . . ,xn), whereas to refer to a concrete point in feature space we use the notation v = (v1, . . . ,vn), with vi \u2208 Di, i= 1, . . . ,n. We consider a binary classification problem, with two classesK= {\u2296,\u2295} 5. (For simplicity, we will often use 0 for\u2296 and 1 for\u2295.) An instance (or example) denotes a pair (v,\u03c0), where v \u2208 F and \u03c0 \u2208 K. A machine learning model computes a function \u00b5 that maps the feature space into the set of classes: \u00b5 : F\u2192K. To train an ML model (in our case we are interested in DTs), we start from a set of examples E = {e1, . . . ,em}, where each e j = (v j,\u03c0 j), such that v j \u2208 F and \u03c0 j \u2208K, and m is the number of examples.\nDecision trees. A decision tree T is a directed acyclic graph having at most one path between every pair of nodes. T has a root node, characterized by having no incoming\n3 A PI-explanation is a subset-minimal set of feature-value pairs that entails the prediction [61]. 4 For simplicity, most of the examples in the paper consider Di , {0,1} (i.e. binary features). 5 The results in the paper are readily applicable to multiple classes; the case |K|= 2 is considered\nsolely for simplicity.\nedges. All other nodes have one incoming edge. We consider univariate decision trees\n(as opposed to multivariate decision trees [16]); hence, a non-terminal node is associ-\nated with a single feature xi, and each outgoing edge is associated with one (or more) values from Di. Each terminal node is associated with a value of K. An example of a decision tree is shown in Figure 2. The number of nodes in a DT is r. When |K| = 2, a tree is characterized by two sets of paths, where each path starts at the root and ends at a terminal node. The set P = {P1, . . . ,Pk1} denotes the paths ending in a \u2295 prediction. The setQ= {Q1, . . . ,Qk2} denotes the paths ending in a \u2296 prediction. We will also use R = P \u222aQ. A literal is of the form xi \u2736 vi, where \u2736\u2208 {=, 6=} 6. xi is a variable that denotes the value taken by feature i, whereas vi \u2208 Di is a constant. To model the operation of some DT learning tools [65], we allow generalized literals of the form xi \u2208 Si, with Si ( Di, such that the literal is consistent if the feature is assigned a value in Si. Given this generalization, DTs correspond to multi-edge decision trees [6]. Moreover,\ntwo literals are inconsistent if they cause the feature to take values that are inconsistent. For example, the literals (x1 = 0) and (x1 = 1) are inconsistent.\nEach path in T is associated with a consistent conjunction of literals, denoting the values assigned to the features so as to reach the terminal node in the path. We will represent the set of literals of some tree path by L(Rk), where Rk is either a path in P or Q. Each path in the tree entails the prediction represented by path\u2019s terminal node. Let \u03c0 denote the prediction associated with path Rk. Then,\n\u2200(x \u2208 F). [ \u2227\n(xi\u2736vi)\u2208L(Rk) (xi \u2736 vi)\n]\n\u2192(\u00b5(x) = \u03c0) (1)\nwhere x = (x1, . . . ,xi, . . . ,xn) and \u03c0 \u2208 {\u2296,\u2295}. Any pair of paths inRmust have at least one pair of inconsistent literals.\nInterpretability & DTs. Interpretability is generally regarded as a subjective con-\ncept, without a rigorous definition [37], albeit different authors have proposed differ-\nent requirements for interpretability [37,63]. Throughout this paper, we associate in-\nterpretability with irreducible sets of feature-value pairs that are sufficient for the prediction7. Moreover, as argued in Section 1, it is generally accepted that DTs epitomize\ninterpretability. Nevertheless, there is recent work that relates DT interpretability with\nDTs being shallow [37,42], but also work that proposes counterfactual explanations for\nmeeting interpretability desiderata for DTs [63].\nPI-explanations. The paper uses the definition of PI-explanation [61], based on prime\nimplicants of some decision function. Let us consider some ML model, computing a classification function \u00b5 on feature space F, a point v \u2208 F, with prediction \u03c0 = \u00b5(v), and let E denote a set of literals consistent with v (and defined on features variables x).\n6 The ideas described in the paper generalize to univariate DTs where features are either\ncategorical or real- or integer-valued ordinal, and literals are of the form xi \u2736 vi, where \u2736\u2208 {<,\u2264,=, 6=,\u2265,>}. The paper\u2019s main results can be extended to more general settings, but that these are beyond the scope of the paper. 7 Clearly, these subsets should be succinct, as it is generally accepted that human decision mak-\ners are only able to understand explanations with a reasonably small number of features.\nWe say that E is a PI-explanation for \u03c0 given v, if the set of literals E entails the pre-\ndiction, and any proper subset of literals of E does not entail the prediction. Formally,\nthe following conditions hold:\n\u2200(x \u2208 F). [ \u2227\nli\u2208E (li)\n]\n\u2192(\u00b5(x) = \u03c0) (2a)\n\u2200(E \u2032 ( E)\u2203(x \u2208 F). [ \u2227\nli\u2208E \u2032 (li)\n]\n\u2227 (\u00b5(x) 6= \u03c0) (2b)\nGiven a DT T and some path Rk, associated with some prediction \u03c0 , we say that path Rk is explanation-redundant (or simply redundant) if Rk is not a PI-explanation of \u03c0 given the ML model T . If we associate DT paths with instance explanations, then path explanation-redundancy will manifest itself in instance explanations. The concept\nof explanation-redundancy is illustrated in Example 1.\nExample 1. Consider the DT in Figure 1a, for function f (x1,x2) = x1 \u2228 x2, and instance (0,1). The path corresponds to the explanation {(x1,0),(x2,1)} for prediction f (0,1) = 1. Clearly, this path is explanation-redundant, as a PI-explanation for prediction 1 is (x2,1) (as is readily concluded from the function definition). As a less abstract example, we observe that the tree in Figure 1a also models the example DT used in [79, Ch. 01,page 5]8, with x1 denoting \u201cis y > 0.73?\u201d, x2 denoting \u201cis x > 0.64?\u201d, class 1 denoting cross, and class 0 denoting circle. Hence, a PI-explanation for the instance (no,yes) with prediction \u201ccross\u201d is yes to question \u201cis x > 0.64?\u201d, independently of the answer to question \u201cis y > 0.73?\u201d. Section 3 investigates explanationredundancy in greater detail.\nRelated work. As referenced in Section 1, there exists a growing body of work on ex-\nploiting DTs for interpretability. To our best knowledge, the assessment of paths in DTs\nwhen compared to PI-explanations has not been investigated. Recent work [18] outlines\nlogical encodings of decision trees, but that is orthogonal to the work reported in this\n8 This DT is shown in the supplementary material.\npaper. In addition, there has been work on applying explainable AI (XAI) to decision\ntrees [38], but with the focus of improving the quality of local (heuristic) explanations,\nwhere the goal is to relate a local approximate model against a reference model; hence\nthere is no immediate relationship with PI-explanations."}, {"heading": "3 Decision Trees May Not be Interpretable", "text": "This section shows that there exist Boolean functions for which a learned decision tree\nwill exhibit paths containing all features, and for which a PI-explanation has a con-\nstant size. Thus, if we associate explanations with DT paths, there will be explana-\ntions that are arbitraly larger (on n) than the actual (constant-size) PI-explanation. As\nthe experimental results demonstrate, and as discussed later in this section, it is fairly\nfrequent in practice for DT paths to include more literals that those in the associated\nPI-explanations.\nProposition 1. There exist functions for which an irreducible DT contains paths which\nare a proper superset of a PI-explanation. Furthermore, the difference in the number of literals is n\u2212 k, where n is the number of features and k is the (constant) size of a PI-explanation.\nProof. Let us consider the following Boolean function f : {0,1}n\u2192 {0,1} (with even n):\nf (x1,x2, . . . ,xn\u22121,xn) = \u2228n/2\ni=1 x2i\u22121\u2227 x2i (3)\nFor the case n= 4, different off-the-self DT learners will obtain the DT shown in Figure 1b. (To obtain the decision tree, we considered a dataset composed of all possible instances, and used ITI [65]9.) Furthermore, it is immediate to conclude that the decision tree\nshown is irreducible (i.e. no nodes can be removed while keeping accuracy). Moreover, let the target instance be (v,\u03c0) = ((1,0,1,1),1). In this case, the explanation (i.e. the path) extracted from the DT is (x1 = 1)\u2227 (x2 = 0)\u2227 (x3 = 1)\u2227 (x4 = 1), which guarantees that the prediction is 1. However, it is immediate from the function definition (3), that (x3 = 1)\u2227 (x4 = 1) entails f (x1,x2,x3,x4) = 1, independently of the value assigned to x1 and x2, i.e. in this case the PI-explanation is (x3 = 1)\u2227 (x4 = 1). The same analysis generalizes to an arbitrary number of variables. For an instance of the form ((1,0,1,0, . . . ,1,0,1,1),1), the DT would indicate an explanation with n literals, whereas the PI-explanation has size 2, namely (xn\u22121 = 1)\u2227 (xn = 1).\nIt should be noted that the issue above does not depend on whether the DT is\nredundant (e.g. in the cases shown, the DTs are not redundant); the reported issues\nresult solely from a fundamental limitation of DTs for succinctly representing certain classes of functions10. Figure 2 exemplifies that redundancy may occur even in\n9 ITI is available from https://www-lrn.cs.umass.edu/iti/. We considered a number of publicly\navailable DT learners, and reached the same conclusions (in terms of path length) in all cases. 10 Indeed, it is well-known that DTs are not as succinct as decision lists (DLs) [53] (and so not\nas succinct as decision sets (DSs)). This means that there exist functions that have succint DLs or DSs, but not DTs. Although not the focus of the paper, we conjecture that similar results can be obtained for DLs and for restricted cases of DSs, among those where DSs compute functions.\nvery simple DTs. The DT was obtained with the optimal decision tree package from Interpretable AI [10,28]11, where the \u2296 and the leftmost \u2295 are predicted with 75% and 83.3% confidence, respectively. (The branch annotated with 1,2 denotes that x1 \u2208 {1,2}.) Let the instance be (Humidity,Outlook,Wind) = (high,overcast,weak). As an explanation we could use the literals in the tree path, i.e. {(Humidity= high),(Outlook= overcast)}. However, careful analysis allows us to conclude that {(Outlook= overcast)} suffices to entail the prediction \u2295, i.e. as long as \u2018Outlook\u2019 is \u2018overcast\u2019, the prediction will be \u2295 independently of the value of \u2018Humidity\u2019."}, {"heading": "4 Extracting PI-Explanations from DTs", "text": "Deciding explanation-redundancy with NP oracles. Let us consider a decision tree T , with sets of paths P and Q, denoting respectively the paths with prediction \u2295 and \u2296. Let us also consider an instance (v,\u2295), with v \u2208 F and \u2295\u2208K (the case for\u2296 would be similar), and let Pk denote that path consistent with v. To decide whether Pk exhibits explanation-redundancy, one possible solution is to use an NP oracle.\nFor an instance consistent with Pk, we can model the prediction of the decision tree\n(for prediction \u2295) as follows:\n\u2227\nl j\u2208L(Pk) (l j)\n\u2228\nPi\u2208P\n\u2227\nls\u2208L(Pi) (ls) (4)\nHence, we require the unsatisfiability of,\n\u2227\nl j\u2208L(Pk) (l j)\u2227\n\u2227\nPi\u2208P\n\u2228\nls\u2208L(Pi) (\u00acls) (5)\nNow, if there exists a literal l j that can be dropped from Pk such that unsatisfiability is preserved, then Pk exhibits explanation-redundancy. Hence, we need at most m calls to an NP oracle to decide explanation-redundancy, where m is the number of features.\n(This high-level procedure was proposed in earlier work in more general terms [29].)\nHowever, the special structure of a DT, makes the problem far simpler, and can be\nsolved in polynomial time, as shown next.\n11 We used the well-known PlayTennis dataset [40].\nDeciding explanation-redundancy in linear time. Observe that (4) is preserved iff\nat least one of the features with a literal in Pk has another literal that is false along any path that yields prediction \u2296. Thus, there is explanation-redundancy if there exists a literal from Pk that can be dropped while the remaining literals in Pk still guarantee that at least one literal is false along any path in Q. Before detailing a polynomial time algorithm for deciding explanation-redundancy, let us consider a concrete example.\nExample 2. For the DT from Figure 1b we have,\nP = {P1,P2,P3} L(P1) = {(x1 = 0),(x3 = 1),(x4 = 1)} L(P2) = {(x1 = 1),(x2 = 0),(x3 = 1),(x4 = 1)} L(P3) = {(x1 = 1),(x2 = 1)}\nQ= {Q1,Q2,Q3,Q4} L(Q1) = {(x1 = 0),(x3 = 0)} L(Q2) = {(x1 = 0),(x3 = 1),(x4 = 0)} L(Q3) = {(x1 = 1),(x2 = 0),(x3 = 0)} L(Q4) = {(x1 = 1),(x2 = 0),(x3 = 1),(x4 = 0)}\nWe consider path P2 (and so any feature space point consistent with P2). We can readily conclude that if literal (x1 = 1) is removed from the literals of P2, all the paths in Q remain inconsistent. This is true for example because (x3 = 1) and (x4 = 1). Similarly, we could drop literal (x2 = 0).\nThe example above naturally suggests a quadratic time (on the size n of the de-\ncision tree) algorithm to decide whether a tree path exhibits explanation-redundancy. Concretely, for each literal in Pk, we analyze each path in Q whether it is still inconsistent. If all paths in Q remain inconsistent, then the literal can be dropped, and the path exhibits explanation-redundancy. Nevertheless, it is possible to devise a more efficient\nsolution, one that runs in linear time.\nThe proposed algorithm analyzes the features containing literals in Pi 12, in turn allowing each to be declared universal, i.e. the feature can take any value. For each\nfeature f j , the algorithm recursively analyzes paths with a different prediction, checking whether each such path is inconsistent, due to some other literal. If that is the case,\nthe path Pi is explanation-redundant, at least due to feature f j. The algorithm analyzes the internal nodes of Pi in reverse order, starting from deepest non-terminal node in the path. (For now, we assume that Pi has at most one literal on any given feature; this restriction will be lifted below.) For each non-terminal node p j \u2208 Pi, the associated feature f j is made universal, i.e. it can take any value. Starting at p j, all child nodes not in Pi are recursively visited, checking for a consistent sub-path (starting at p j) to a terminal node with prediction \u2296. If such path exists, then f j cannot be made universal, and so it cannot be discarded from a PI-explanation. Otherwise, all sub-paths to prediction \u2296 are inconsistent, and so the value of f j is irrelevant for the prediction. A path is declared redundant iff at least one feature is declared redundant. With filtering (i.e. rec = 0), each tree node is analyzed at most once, and so the amortized\n12 As before, we assume a path Pi with prediction \u2295.\nAlgorithm 1: Deciding path redundancy\nFunction DECIDEPATHREDUNDANCY(T) 1 foreach Rk \u2208 T do 2 A\u2190 AggrFeatureNodes(T ,Rk) ; 3 N \u2190 PathNodes(T ,Rk) ; 4 isPathRed\u2190 false ; 5 foreach f \u2208 PathFeatures(T ,Rk) do 6 isFeatRed\u2190 true ; 7 SetUniversal(T , f ) ; 8 foreach n \u2208 A( f ) do 9 if not CHKDOWN(T ,N ,Rk,n,0) then\n10 isFeatRed\u2190 false ; 11 break;\n12 UnsetUniversal(T , f ) ; 13 if isFeatRed then 14 isPathRed\u2190 true ; 15 break;\n16 ReportPath(Rk, isPathRed) ;\nrun time of the algorithm over all features is O(|T |). If a feature is tested more than once along Pi, the algorithm requires minor modifications. In this case, a decision about whether feature fi can take any value, can only be made once all nodes involving fi have been analyzed and, for all such nodes, the feature fi has been declared redundant. Algorithms 1 and 2 summarize the two main steps of the proposed algorithm. The aux-\niliar functions serve to test/set whether a feature is universal (i.e. whether it can take any\nvalue of its domain) (resp. Universal/SetUniversal), aggregate the nodes asso-\nciated with a given feature along some path (AggrFeatureNodes), list the nodes\nin a given path (PathNodes), get the prediction of some path (Prediction), list\nthe child nodes of some node in the tree (ChildNodes), get the feature associated\nwith a node (Feature), check whether some node is terminal (IsTerminal) and,\nfinally, whether the sub-paths starting at some node can reach a prediction other than\nthe one associated with the target path Rk (HasPaths). Finally, the argument rec of CHKDOWN is a flag that serves to avoid re-visiting already visited paths. For removing\nredundant features this filtering does not apply, as clarified below.\nExample 3. We consider again the DT from Figure 1b and path P2, where L(P2) = {(x1 = 1),(x2 = 0),(x3 = 1),(x4 = 1)}, and prediction 1. The nodes of P2 are analyzed in the order \u3008x4,x3,x2,x1\u3009. Clearly, the sub-path consistent with (x4 = 0) yields prediction 0. Hence, feature x4 (associated with literal x4 = 1) is not redundant. For x3, we consider (only) the sub-path corresponding to (x3 = 0). Again, the prediction is 0, and so the feature x3 is not redundant. For feature x2, the only sub-path corresponds to (x2 = 1), for which the prediction remains unchanged. Hence, x2 can take any value, and so it is declared redundant. As a result, P2 is also declared redundant. It is helpful to analyze the execution of the algorithm for x1. The sub-paths consistent with (x1 = 1)\nAlgorithm 2: Inconsistent sub-path lookup\nFunction CHKDOWN(T ,N ,Rk,n,rec) 1 \u03c0 \u2190 Prediction(T ,Rk) ; 2 C \u2190 ChildNodes(T ,n) ; 3 foreach c \u2208 C do 4 if c \u2208N and rec= 0 then continue; 5 if not HasPaths(T ,c,\u03c0) then continue; 6 if IsTerminal(T ,c) then 7 return false ;\n8 g\u2190 Feature(T ,c) ; 9 if not Universal(T ,g) then continue;\n10 if not CHKDOWN(T ,N ,Rk,c,rec) then 11 return false ;\n12 return true;\ncorrespond to P1, Q1 and Q2. Hence, due to Q1 and Q2, it might seem that x1 might be irredundant. However, both Q1 and Q2 are inconsistent with other non-redundant literals of P2, concretely x3 = 1 and x4 = 1. Hence, x1 is declared redundant.\nExtracting one PI-explanation. One approach to find a PI-explanation is to use re-\ncent work based on compilation [61] or iterative entailment checks with an NP ora-\ncle [29]. However, a computationally simpler solution is based on the ideas described\nabove.\nFeatures are analyzed as proposed in Algorithms 1 and 2. However, a feature already\ndeclared as redundant signifies that it can take any value from its domain. This may allow inconsistent paths with prediction \u2296 to become consistent, thus preventing some other feature from being declared redundant. One consequence is that the filtering of\npaths exploited in Algorithms 1 and 2 is not longer applicable. Concretely, the analysis\nof each feature requires visiting all of the sub-paths starting in any of the path nodes\ntesting the feature. Algorithm 2 can still be used, in this case by setting rec to 1, i.e.\nall sub-paths will be analyzed. The worst-case complexity of the resulting algorithm is O(|T |) for each feature, thus yieldingO(|T |2) for the complete algorithm. Finally, we can conclude that an algorithm for finding one PI-explanation for each path in T runs in O(|T |3).\nExample 4. We consider the DT from Figure 1b and analyze path P2 (and so any instance consistent with P2). Literals are analyzed in reverse path order. (In this case, aggregation of nodes by feature is optional, as long as a decision with respect to a feature\nis delayed until all nodes associated with the feature have been analyzed, and keeping track whether non-irredundancy applies to all nodes.) As before, the literal (x4 = 1) is not redundant; otherwise Q4 would be consistent. Similarly, the literal (x3 = 1) is not redundant; otherwise Q3 would be consistent. In contrast, the feature x2 can be made universal, as this does not change the prediction, i.e. P2 is consistent with the prediction, and the other literals (x3 = 1) and (x4 = 1) block the paths in Q. A similar\nanalysis applies in the case of feature x1. In this case, the algorithm analyzes all paths (since Algorithm 2 is invoked with rec= 1). Due to the literals (x3 = 1) and (x4 = 1), all paths in Q are inconsistent. As a result, feature x1 can be declared redundant, and a PI-explanation for P2 is thus {(x3 = 1),(x4 = 1)}.\nPath-restricted vs. path-unrestricted explanations. For the algorithms described\nearlier we also need to decide the set of literals to consider. One option is the set of\nliterals specified by the instance. Another option is the set of literals specific to the tree\npath consistent with the instance. If we are interested in finding PI-explanations for the\nprediction, given the instance, then we should consider the literals specified by the in-\nstance. However, if we want to report explanations that relate with the tree path consis-\ntent with the instance, then we should consider only the literals in the tree path. Clearly,\npath-restricted PI-explanations are a subset of path-unrestricted PI-explanations. The\nfollowing example illustrates the differences between the two approaches.\nExample 5. We consider the example DT shown in Figure 3. Given the point (x1,x2,x3, x4) = (1,1,1,1), the consistent path in the DT consists of the literals {(x1 = 1),(x3 = 1)}. The only PI-explanation that is restricted to this path is the path itself: {(x1 = 1),(x3 = 1)}. However, if we enable path-unrestricted explanations, we will also obtain the PI-explanation {(x2 = 1),(x3 = 1),(x4 = 1)}, which is not even shown as (part of) a path in the decision tree."}, {"heading": "5 Enumeration of PI-Explanations", "text": "The enumeration of multiple (or all) PI-explanations can help human decision mak-\ners to develop a better understanding of some prediction, but also of the underlying\nML model. Recent work [61] compiles a decision function into a Sentential Decision\nDiagram (SDD), from which the enumeration of PI-explanations can be instrumented.\nMoreover, from a compiled representation of the PI-explanations, each PI-explanation\ncan be reported in polynomial time. The downside is that these representation are worst-\ncase exponential in the size of the original ML model. Another line of work for com-\nputing PI-explanations is based on iterative entailment checks using an NP-oracle [29].\nHowever, this recent work does not address the enumeration of PI-explanations. This\nsection develops a solution for the enumeration of PI-explanations in the case of DTs,\nby reduction to the enumeration of minimal hitting sets (MHSes).\nWe consider the situation where the prediction is \u2295 for some point v in feature space, which is consistent with some tree path Pk \u2208 P . As a result, each path in Q is inconsistent with at least one literal, among those either associated with v or with Pk. Let the set of literals considered be R. For each path Qs \u2208 Q, let Ls denote the set of literals in R that are inconsistent with Qs. For a subset S of R to entail the prediction, it must hit each set of literals Ls. Among the possible sets S, each subset-minimal set is a PI-explanation. Thus, we can list the PI-explanations (starting from the literals taken\nfrom v or from Pk) by enumerating minimal hitting sets.\nExample 6. For P2 in the DT of Figure 1, the sets to hit are:\nQ1 : {(x1 = 1),(x3 = 1)} Q2 : {(x1 = 1),(x4 = 1)} Q3 : {(x3 = 1)} Q4 : {(x4 = 1)}\nIn this case, the only MHS is {(x3 = 1),(x4 = 1)}, representing a single PI-explanation {(x3 = 1),(x4 = 1)}.\nExample 7. For the DT in Figure 3, and by considering the literals from the point v = (1,1,1,1), the sets to hit are then:\nQ1 : {(x1 = 1),(x2 = 1)} Q2 : {(x1 = 1),(x4 = 1)} Q3 : {(x3 = 1)}\nThe MHSes are {(x1 = 1),(x3 = 1)} and {(x2 = 1),(x4 = 1),(x3 = 1)}, each denoting a path-unrestricted PI-explanation."}, {"heading": "6 Experimental Results", "text": "This section presents a summary of experimental evaluation of the explanation-redundancy\nof two state-of-the-art heuristic DT classifiers. Concretely, we use the well-known DT\ntraining tools ITI (Incremental Tree Induction) [65,31] and IAI (Interpretable AI) [10,28].\nITI is run with the pruning option enabled, which helps avoiding overfitting and aims at\nconstructing shallow DTs. To enforce IAI to produce shallow DTs and achieve high accuracy, it is set to use the optimal tree classifier method with the maximal depth of 613.\nThe experiments consider datasets with categorical (non-binarized) data, which both ITI and IAI can handle14. The assessment is performed on a selection of 80 publicly\navailable datasets, which originate from UCI Machine Learning Repository [64], Penn\nMachine Learning Benchmarks [49], and OpenML repository [47]. (Due to space re-\nstrictions, we report the results only for 30 datasets but the results shown extend to the\n13 Our results confirm that larger maximal depths would in most cases increase the percentage of\nredundant paths. A smaller maximal depth would not improve accuracy. 14 Other known DT learning tools, including scikit-learn [48] and DL8.5 [1,2] can only handle\nnumerical and binary features, respectively, and so could not be included in the experiments.\ncomplete benchmark set, and are included in the supplementary materials.) The num-\nber of features (data instances, resp.) in the benchmark suite vary from 2 to 118 (106 to\n58000, resp.) with the average being 31.2 (6045.3, resp.).\nThe experiments are performed on a MacBook Pro with a Dual-Core Intel Core i5\n2.3GHz CPU with 8GByte RAM running macOS Catalina. The polynomial-time explanation-\nredundancy check and a single PI-explanation extraction proposed in Section 4 are im-\nplemented in Perl. (An implementation using the Glucose SAT solver was instrumental\nin validating the results, but for the DTs considered, it was in general slower by at least\none order of magnitude.) Performance-wise, training DTs with IAI takes from 4sec to\n2310sec with the average run time per dataset being 70sec. In contrast, the time spent\non eliminating explanation-redundancy is negligible, taking from 0.026sec to 0.4sec\nper tree, with an average time of 0.06sec. ITI runs much faster that IAI and takes from\n0.1sec to 2sec with 0.1sec on average; the elimination of explanation redundancy is\nslightly more time consuming than for IAI, taking from 0.025sec to 5.4sec with 0.29sec\non average. This slowdown results from DTs learned with ITI being deeper on average,\nand features being tested multiple times.\nThe summary of results is detailed in Table 1. For each dataset, the table reports the\nnumber of features and also instances as #F and #S, respectively. Thereafter, it shows\ntree statistics for IAI and ITI, namely, tree depth D, number of nodes #N, test accuracy\n%A and number of paths #P. The percentage of explanation-redundant paths is given\nas %R while the percentage of data instances (measured for the entire feature space)\ncovered by redundant paths is %C. Focusing solely on the explanation-redundant paths,\na single PI-explanation is extracted and the average (min. or max., resp.) percentage\nof redundant literals per path is denoted by %avg (%m and %M, resp.). Observe that\ndespite the shallowness of the trees produced by IAI and ITI, for the majority of datasets\nand with a few exceptions, the paths in trees trained by both tools exhibit significant\nexplanation-redundancy. In particular, on average, 32.1% (46.9%, resp.) of paths are\nexplanation-redundant for the trees obtained by IAI (ITI, resp.). For some DTs, obtained\nwith either IAI and ITI, more than 85% of tree paths are redundant. Also, redundant\npaths of the trees of IAI (ITI, resp.) cover on average 20.1% (37.7%, resp.) of feature\nspace. Moreover, in some cases, up to 89% and 98% of the entire feature space is\ncovered by the redundant paths for IAI and ITI, respectively. This means that DTs\nproduced by IAI and ITI are unable to provide a user with a succinct explanation for\nthe vast majority of data instances. In addition, the average number of redundant literals\nin redundant paths for both IAI and ITI varies from 16% to 65%, but for some DTs it\nexceeds 80%.\nTo summarize, the numbers shown for the selected datasets and for the state-of-\nthe-art DT training tools contrast the common belief in the inherent interpretability of\ndecision tree classifiers. Perhaps as importantly, the performance figures confirm that\nthe elimination of explanation-redundancy in the DTs produced with available tools has\nnegligible computational cost."}, {"heading": "7 Conclusions", "text": "Decision trees are most often associated with interpretability. This paper shows that in\nsome situations, paths in a decision tree may include many literals that are irrelevant for\nan explanation, and that this holds true even for irreducible decision trees. Moreover,\nthe paper proposes a linear time test to decide whether a decision tree path contains ir-\nrelevant literals, and uses such test to devise a polynomial time algorithm for computing\none PI-explanation of a decision tree. Furthermore, the paper shows the connection be-\ntween enumerating the PI-explanations of DTs and the enumeration of minimal hitting\nsets. Experimental results obtained on publicly available datasets, using state-of-the-\nart decision tree learners, show that in practice induced paths in decision trees may\ncontain irrelevant literals, even when the decision tree is irreducible. For the decision\ntrees considered in the experiments, the run times of the proposed algorithms are either\nnegligible or comparable to tree learning times."}, {"heading": "A Case Studies", "text": "A.1 Analysis of DT from Russel&Norvig\u2019s Book\nDecision Tree This case study considers the decision tree (DT) shown in Figure 4,\ntaken from [59, Ch. 18,page 702]. The example consists in deciding whether to wait for\na table at a restaurant. Six features are used in the DT, namely:\n\u2013 Alternate: whether there is a suitable alternative restaurant nearby.\n\u2013 Bar: whether the restaurant has a comfortable bar area to wait in.\n\u2013 Fri/Sat: true on Fridays and Saturdays.\n\u2013 Hungry: whether the people are hungry.\n\u2013 Patrons: how many people are in the restaurant (values are None, Some, and Full).\n\u2013 Type: the kind of restaurant (French, Italian, Thai, or burger).\nRedundancy Analysis Results Analysis of the paths in the DT shown in Figure 4\nyields the following results.\n\u2013 path (Patrons=None) is explanation-irredundant.\n\u2013 path (Patrons=Ful and Hungry=No) is explanation-irredundant.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Italian) is explanation-redundant. If\nthe values of Patrons and Type are fixed, then the value of Hungry is irrelevant for\nthe prediction.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Thai and Fri/Sat=No) is explanation-\nredundant. If the values of Patrons, Type and Fri/Sat are fixed, then the value of\nHungry is irrelevant for the prediction.\n\u2013 path (Patrons=Some) is explanation-irredundant.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Frencg) is explanation-irredundant.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Thai and Fri/Sat=Yes) is explanation-\nirredundant.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Burger) is explanation-irredundant.\nAs result, 2 out of 8 paths exhibit explanation-redundancy. Thus, we conclude that\nthe DT exhibits 25% of explanation-redundancy.\nA.2 Analysis of DT from Poole&Mackworth\u2019s Book\nDecision Tree This case study considers the decision tree shown in Figure 5, taken from\n[50, Ch. 07,page 298]. The example consists in predicting whether a person reads an\narticle posted to a bulletin board given properties of the article. There are three features\nin the decision tree:\n\u2013 Author: whether the author is known or not.\n\u2013 Thread: whether the article started a new thread or was a follow-up.\n\u2013 Length: the length of the article (short or long).\nRedundancy Analysis Results Analysis of the paths in the DT shown in Figure 5\nyields the following results.\n\u2013 path (Length=long) is explanation-irredundant.\n\u2013 path (Length=short and Thread=follow-up and Author=unknown) is explanation-\nredundant. If values of Thread and Author are fixed, then the value of Length is\nirrelevant for the prediction.\n\u2013 path (Length=short and Thread=new) is explanation-irredundant.\n\u2013 path (Length=short and Thread=follow-up and Author=known) is explanation-redundant.\nIf the values of Length and Author are fixed, then the value of Thread is irrelevant\nfor the prediction.\nAccordingly, 2 out of 4 paths exhibit explanation-redundancy. Therefore, we say\nthat the DT exhibit 50% of explanation-redundancy.\nA.3 Analysis of DT from Z.-H. Zhou\u2019s book\nDecision Tree This case study considers the decision tree shown in Figure 6, taken\nfrom [79, Ch. 01,page 5]. The example consists in predicting the type of a drawing, to\nbe chosen among the classes cross and circle. Two features are used, namely:\n\u2013 x > 0.64 \u2208 {Y,N}. \u2013 y > 0.73 \u2208 {Y,N}.\nRedundancy Analysis Results Analysis of the paths in the DT shown in Figure 6\nyields the following results.\n\u2013 path (y > 0.73) is explanation-irredundant. \u2013 path (y \u2264 0.73 and x > 0.64) is explanation-redundant. If the value of y is fixed,\nthen the value of x is irrelevant for the prediction.\n\u2013 path (y\u2264 0.73 and x\u2264 0.64) is explanation-irredundant. As a result, 1 out of 3 paths exhibit explanation-redundancy. Thus, we say that the\nDT exhibits 33.33% of explanation-redundancy.\nA.4 Additional Examples\nIt is interesting to note that the DTs used in a number of books and surveys exhibit\nexplanation-redundancy.A non-exhaustive list of references includes [43,15,54,55,59,19,33,3,12,66,50]."}, {"heading": "B Full Table of Results", "text": "Table 2 presents the experimental results obtained on an extended set of datasets."}], "title": "On Explaining Decision Trees", "year": 2020}
+{
+  "abstractText": "Decision trees (DTs) epitomize what have become to be known as interpretable machine learning (ML) models. This is informally motivated by paths in DTs being often much smaller than the total number of features. This paper shows that in some settings DTs can hardly be deemed interpretable, with paths in a DT being arbitrarily larger than a PI-explanation, i.e. a subset-minimal set of feature values that entails the prediction. As a result, the paper proposes a novel model for computing PI-explanations of DTs, which enables computing one PI-explanation in polynomial time. Moreover, it is shown that enumeration of PI-explanations can be reduced to the enumeration of minimal hitting sets. Experimental results were obtained on a wide range of publicly available datasets with well-known DT-learning tools, and confirm that in most cases DTs have paths that are proper supersets of PI-explanations.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Yacine Izza"
+    },
+    {
+      "affiliations": [],
+      "name": "Alexey Ignatiev"
+    },
+    {
+      "affiliations": [],
+      "name": "Joao Marques-Silva"
+    }
+  ],
+  "id": "SP:31d37dbf700bc8c0471b235cddd62d21457d4356",
+  "references": [
+    {
+      "authors": [
+        "G. Aglin",
+        "S. Nijssen",
+        "P. Schaus"
+      ],
+      "title": "Learning optimal decision trees using caching branchand-bound search",
+      "venue": "In AAAI,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "G. Aglin",
+        "S. Nijssen",
+        "P. Schaus"
+      ],
+      "title": "PyDL8.5: a library for learning optimal decision trees",
+      "venue": "In IJCAI,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "E. Alpaydin"
+      ],
+      "title": "Machine Learning: The New AI",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "E. Angelino",
+        "N. Larus-Stone",
+        "D. Alabi",
+        "M. Seltzer",
+        "C. Rudin"
+      ],
+      "title": "Learning certifiably optimal rule lists",
+      "venue": "In KDD,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "E. Angelino",
+        "N. Larus-Stone",
+        "D. Alabi",
+        "M. Seltzer",
+        "C. Rudin"
+      ],
+      "title": "Learning certifiably optimal rule lists for categorical data",
+      "venue": "J. Mach. Learn. Res.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "R. Appuswamy",
+        "M. Franceschetti",
+        "N. Karamchandani",
+        "K. Zeger"
+      ],
+      "title": "Network coding for computing: Cut-set bounds",
+      "venue": "IEEE Trans. Inf. Theory,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "F. Avellaneda"
+      ],
+      "title": "Efficient inference of optimal decision trees",
+      "venue": "In AAAI,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "O. Bastani",
+        "C. Kim",
+        "H. Bastani"
+      ],
+      "title": "Interpretability via model extraction",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "O. Bastani",
+        "C. Kim",
+        "H. Bastani"
+      ],
+      "title": "Interpreting blackbox models via model extraction",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Bertsimas",
+        "J. Dunn"
+      ],
+      "title": "Optimal classification trees",
+      "venue": "Mach. Learn.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Bessiere",
+        "E. Hebrard",
+        "B. O\u2019Sullivan"
+      ],
+      "title": "Minimising decision tree size as combinatorial optimisation",
+      "venue": "In CP,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "M. Bramer"
+      ],
+      "title": "Principles of Data Mining, Third Edition",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Breiman"
+      ],
+      "title": "Statistical modeling: The two cultures",
+      "venue": "Statistical science,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "L. Breiman",
+        "J.H. Friedman",
+        "R.A. Olshen",
+        "C.J. Stone"
+      ],
+      "title": "Classification and Regression Trees",
+      "year": 1984
+    },
+    {
+      "authors": [
+        "L.A. Breslow",
+        "D.W. Aha"
+      ],
+      "title": "Simplifying decision trees: A survey",
+      "venue": "Knowledge Eng. Review,",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "C.E. Brodley",
+        "P.E. Utgoff"
+      ],
+      "title": "Multivariate decision trees",
+      "venue": "Mach. Learn.,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "C. Chen",
+        "C. Rudin"
+      ],
+      "title": "An optimization approach to learning falling rule lists",
+      "venue": "In AISTATS,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Choi",
+        "A. Shih",
+        "A. Goyanka",
+        "A. Darwiche"
+      ],
+      "title": "On symbolically encoding the behavior of random forests",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "P.A. Flach"
+      ],
+      "title": "Machine Learning - The Art and Science of Algorithms that Make Sense of Data",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "A.A. Freitas"
+      ],
+      "title": "Comprehensible classification models: a position paper",
+      "venue": "SIGKDD Explorations,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "N. Frosst",
+        "G.E. Hinton"
+      ],
+      "title": "Distilling a neural network into a soft decision tree",
+      "venue": "In CExAIIA,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M.R. Garey"
+      ],
+      "title": "Optimal binary identification procedures",
+      "venue": "SIAM Journal on Applied Mathematics,",
+      "year": 1972
+    },
+    {
+      "authors": [
+        "R. Guidotti",
+        "A. Monreale",
+        "S. Ruggieri",
+        "F. Turini",
+        "F. Giannotti",
+        "D. Pedreschi"
+      ],
+      "title": "A survey of methods for explaining black box models",
+      "venue": "ACM Comput. Surv.,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Holzinger",
+        "G. Langs",
+        "H. Denk",
+        "K. Zatloukal",
+        "H. M\u00fcller"
+      ],
+      "title": "Causability and explainability of artificial intelligence in medicine",
+      "venue": "WIRE Data Min. Knowl. Discov.,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "H. Hu",
+        "M. Siala",
+        "E. Hebrard",
+        "M. Huguet"
+      ],
+      "title": "Learning optimal decision trees with MaxSAT and its integration in adaboost",
+      "venue": "In IJCAI,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "X. Hu",
+        "C. Rudin",
+        "M. Seltzer"
+      ],
+      "title": "Optimal sparse decision trees",
+      "venue": "In NeurIPS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L. Hyafil",
+        "R.L. Rivest"
+      ],
+      "title": "Constructing optimal binary decision trees is np-complete",
+      "venue": "Inf. Process. Lett.,",
+      "year": 1976
+    },
+    {
+      "authors": [
+        "A. Ignatiev",
+        "N. Narodytska",
+        "J. Marques-Silva"
+      ],
+      "title": "Abduction-based explanations for machine learning models",
+      "venue": "In AAAI,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Ignatiev",
+        "F. Pereira",
+        "N. Narodytska",
+        "J. Marques-Silva"
+      ],
+      "title": "A SAT-based approach to learn explainable decision sets",
+      "venue": "In IJCAR,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Janota",
+        "A. Morgado"
+      ],
+      "title": "SAT-based encodings for optimal decision trees with explicit paths",
+      "venue": "In SAT, pages 501\u2013518,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "S.B. Kotsiantis"
+      ],
+      "title": "Decision trees: a recent overview",
+      "venue": "Artif. Intell. Rev.,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "H. Lakkaraju",
+        "S.H. Bach",
+        "J. Leskovec"
+      ],
+      "title": "Interpretable decision sets: A joint framework for description and prediction",
+      "venue": "In KDD,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "H. Lakkaraju",
+        "E. Kamar",
+        "R. Caruana",
+        "J. Leskovec"
+      ],
+      "title": "Interpretable & explorable approximations of black box models",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B. Letham",
+        "C. Rudin",
+        "T.H. McCormick",
+        "D. Madigan"
+      ],
+      "title": "An interpretable stroke prediction model using rules and bayesian analysis",
+      "venue": "In AAAI,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Z.C. Lipton"
+      ],
+      "title": "The mythos of model interpretability",
+      "venue": "Commun. ACM,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "G. Erion",
+        "H. Chen",
+        "A. DeGrave",
+        "J.M. Prutkin",
+        "B. Nair",
+        "R. Katz",
+        "J. Himmelfarb",
+        "N. Bansal",
+        "S.-I. Lee"
+      ],
+      "title": "From local explanations to global understanding with explainable AI for trees",
+      "venue": "Nature machine intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "T. Miller"
+      ],
+      "title": "Explanation in artificial intelligence: Insights from the social sciences",
+      "venue": "Artif. Intell.,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Molnar"
+      ],
+      "title": "Interpretable Machine Learning",
+      "venue": "https://christophm.github.io/interpretable-ml-book/",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "G. Montavon",
+        "W. Samek",
+        "K. M\u00fcller"
+      ],
+      "title": "Methods for interpreting and understanding deep neural networks",
+      "venue": "Digit. Signal Process.,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "B.M.E. Moret"
+      ],
+      "title": "Decision trees and diagrams",
+      "venue": "ACM Comput. Surv.,",
+      "year": 1982
+    },
+    {
+      "authors": [
+        "N. Narodytska",
+        "A. Ignatiev",
+        "F. Pereira",
+        "J. Marques-Silva"
+      ],
+      "title": "Learning optimal decision trees with SAT",
+      "venue": "In IJCAI,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Nijssen",
+        "\u00c9. Fromont"
+      ],
+      "title": "Mining optimal decision trees from itemset lattices",
+      "venue": "In KDD,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "S. Nijssen",
+        "\u00c9. Fromont"
+      ],
+      "title": "Optimal constraint-based decision tree induction from itemset lattices",
+      "venue": "Data Min. Knowl. Discov.,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "F. Pedregosa",
+        "G. Varoquaux",
+        "A. Gramfort",
+        "V. Michel",
+        "B. Thirion",
+        "O. Grisel",
+        "M. Blondel",
+        "P. Prettenhofer",
+        "R. Weiss",
+        "V. Dubourg",
+        "J. VanderPlas",
+        "A. Passos",
+        "D. Cournapeau",
+        "M. Brucher",
+        "M. Perrot",
+        "E. Duchesnay"
+      ],
+      "title": "Scikit-learn: Machine learning in python",
+      "venue": "J. Mach. Learn. Res.,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "D. Poole",
+        "A.K. Mackworth"
+      ],
+      "title": "Artificial Intelligence - Foundations of Computational Agents",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J.R. Quinlan"
+      ],
+      "title": "Induction of decision trees",
+      "venue": "Mach. Learn.,",
+      "year": 1986
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Model-agnostic interpretability of machine",
+      "venue": "learning. CoRR,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "R.L. Rivest"
+      ],
+      "title": "Learning decision lists",
+      "venue": "Mach. Learn.,",
+      "year": 1987
+    },
+    {
+      "authors": [
+        "L. Rokach",
+        "O. Maimon"
+      ],
+      "title": "Top-down induction of decision trees classifiers - a survey",
+      "venue": "IEEE Trans. Syst. Man Cybern. Part C,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "L. Rokach",
+        "O. Maimon"
+      ],
+      "title": "Data Mining with Decision Trees - Theory and Applications",
+      "venue": "WorldScientific,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "A.M. Roth",
+        "N. Topin",
+        "P. Jamshidi",
+        "M. Veloso"
+      ],
+      "title": "Conservative Q-improvement: Reinforcement learning for an interpretable decision-tree policy",
+      "year": 1907
+    },
+    {
+      "authors": [
+        "C. Rudin"
+      ],
+      "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+      "venue": "Nature Machine Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Rudin",
+        "S. Ertekin"
+      ],
+      "title": "Learning customized and optimized lists of rules with mathematical programming",
+      "venue": "Math. Program. Comput.,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S.J. Russell",
+        "P. Norvig"
+      ],
+      "title": "Artificial Intelligence - A Modern Approach",
+      "venue": "Pearson Education,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "W. Samek",
+        "G. Montavon",
+        "A. Vedaldi",
+        "L.K. Hansen",
+        "K. M\u00fcller",
+        "editors"
+      ],
+      "title": "Explainable AI: Interpreting",
+      "venue": "Explaining and Visualizing Deep Learning",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Shih",
+        "A. Choi",
+        "A. Darwiche"
+      ],
+      "title": "A symbolic approach to explaining bayesian network classifiers",
+      "venue": "In IJCAI,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Silva",
+        "M.C. Gombolay",
+        "T.W. Killian",
+        "I.D.J. Jimenez",
+        "S. Son"
+      ],
+      "title": "Optimization methods for interpretable differentiable decision trees applied to reinforcement learning",
+      "venue": "In AISTATS,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "K. Sokol",
+        "P.A. Flach"
+      ],
+      "title": "Desiderata for interpretability: Explaining decision tree predictions with counterfactuals",
+      "venue": "In AAAI,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P.E. Utgoff",
+        "N.C. Berkman",
+        "J.A. Clouse"
+      ],
+      "title": "Decision tree induction based on efficient tree restructuring",
+      "venue": "Mach. Learn.,",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "G. Valdes",
+        "J.M. Luna",
+        "E. Eaton",
+        "C.B. Simone II",
+        "L.H. Ungar",
+        "T.D. Solberg"
+      ],
+      "title": "Mediboost: a patient stratification tool for interpretable decision making in the era of precision medicine",
+      "venue": "Nature Scientific reports,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "H. Verhaeghe",
+        "S. Nijssen",
+        "G. Pesant",
+        "C. Quimper",
+        "P. Schaus"
+      ],
+      "title": "Learning optimal decision trees using constraint programming",
+      "venue": "In BNAIC,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "H. Verhaeghe",
+        "S. Nijssen",
+        "G. Pesant",
+        "C. Quimper",
+        "P. Schaus"
+      ],
+      "title": "Learning optimal decision trees using constraint programming",
+      "venue": "In IJCAI,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "S. Verwer",
+        "Y. Zhang"
+      ],
+      "title": "Learning decision trees with flexible constraints and objectives using integer optimization",
+      "venue": "In CPAIOR,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Verwer",
+        "Y. Zhang"
+      ],
+      "title": "Learning optimal classification trees using a binary linear program formulation",
+      "venue": "In AAAI,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "F. Wang",
+        "C. Rudin"
+      ],
+      "title": "Falling rule lists",
+      "venue": "In AISTATS,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "T. Wang",
+        "C. Rudin",
+        "F. Doshi-Velez",
+        "Y. Liu",
+        "E. Klampfl",
+        "P. MacNeille"
+      ],
+      "title": "Bayesian rule sets for interpretable classification",
+      "venue": "In ICDM,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T. Wang",
+        "C. Rudin",
+        "F. Doshi-Velez",
+        "Y. Liu",
+        "E. Klampfl",
+        "P. MacNeille"
+      ],
+      "title": "A bayesian framework for learning rule sets for interpretable classification",
+      "venue": "J. Mach. Learn. Res.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Wu",
+        "M.C. Hughes",
+        "S. Parbhoo",
+        "M. Zazzi",
+        "V. Roth",
+        "F. Doshi-Velez"
+      ],
+      "title": "Beyond sparsity: Tree regularization of deep models for interpretability",
+      "venue": "In AAAI,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Wu",
+        "S. Parbhoo",
+        "M.C. Hughes",
+        "R. Kindle",
+        "L.A. Celi",
+        "M. Zazzi",
+        "V. Roth",
+        "F. DoshiVelez"
+      ],
+      "title": "Regional tree regularization for interpretability in deep neural networks",
+      "venue": "In AAAI,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M. Wu",
+        "S. Parbhoo",
+        "M.C. Hughes",
+        "V. Roth",
+        "F. Doshi-Velez"
+      ],
+      "title": "Optimizing for interpretability in deep neural networks with tree regularization",
+      "year": 1908
+    },
+    {
+      "authors": [
+        "F. Xu",
+        "H. Uszkoreit",
+        "Y. Du",
+        "W. Fan",
+        "D. Zhao",
+        "J. Zhu"
+      ],
+      "title": "Explainable AI: A brief survey on history, research areas, approaches and challenges",
+      "venue": "In NLPCC,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "H. Yang",
+        "C. Rudin",
+        "M. Seltzer"
+      ],
+      "title": "Scalable bayesian rule lists",
+      "venue": "In ICML,",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "text": "ar X\niv :2\n01 0.\n11 03\n4v 1\n[ cs\n.L G\n] 2\n1 O\nct 2\nterpretable machine learning (ML) models. This is informally motivated by paths in DTs being often much smaller than the total number of features. This paper shows that in some settings DTs can hardly be deemed interpretable, with paths in a DT being arbitrarily larger than a PI-explanation, i.e. a subset-minimal set of feature values that entails the prediction. As a result, the paper proposes a novel model for computing PI-explanations of DTs, which enables computing one PI-explanation in polynomial time. Moreover, it is shown that enumeration of PI-explanations can be reduced to the enumeration of minimal hitting sets. Experimental results were obtained on a wide range of publicly available datasets with well-known DT-learning tools, and confirm that in most cases DTs have paths that are proper supersets of PI-explanations."
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Decision trees (DTs) are well known machine learning (ML) models, studied since at\nleast the 1970s [22,27,14,51,53]. DTs embody what is widely regarded as an interpretable ML model [20,52,42,60,41,39,23,77,62]1. Motivated by this perception, there\nhas been extensive work on learning DTs (and related logic ML models) with properties\ndeemed important for interpretability, e.g. number of nodes, maximum/average depth, etc. [2,68,25,32,1,7,57,24,26,70,67,58,44,30,17,5,73,35,4,78,69,10,34,72,71,36,46,11,45]2.\nMoreover, there has been work on distilling or approximating complex ML models with\n(soft) decision trees [21,9,8,74,76,56,75]. Nevertheless, recent work highlights that in-\nterpretability should correlate with how shallow DTs are [37,42].\nIn contrast with earlier work, this paper investigates the limits of interpretability of\nDTs. Concretely, the paper proposes Boolean functions for which a minimal DT con-\ntains paths with a number of literals that is arbitrarily larger (growing with the number\n1 Interpretability is generally accepted to be a subjective concept, without a rigorous defini-\ntion [37]. In this paper we measure interpretability in terms of the overall succinctness of the information provided by a model to explain a given prediction. The association of DTs with interpretability can be traced at least to Breiman [13], who summarizes the interpretability of\nDTs as follows: \u201cOn interpretability, trees rate an A+\u201d. 2 The association of DTs with interpretability is also illustrated by Interpretable AI\n(https://www.interpretable.ai/), which offers interpretability solutions based on optimal decision trees.\nof features) than a PI-explanation3 of constant size. Experimental results demonstrate\nthat for widely used tools for constructing DT classifiers, the resulting DTs often con-\ntain paths that are proper supersets of PI-explanations (which we refer as explanation-\nredundant paths, in possibly irredundant DTs). Perhaps more importantly, for a signifi-\ncant number of datasets, and for the obtained DTs, most of their paths are explanation-\nredundant. The results also indicate that for some DTs, as much as 98% of feature space\nwill be explained by some path that is explanation-redundant. Motivated by these nega-\ntive results, we propose a hitting set formulation for computing PI-explanations of DTs,\ndistinguishing explanations restricted to literals in a tree path, and explanations unre-\nstricted to literals in a tree path. In addition, we propose a polynomial time algorithm\nfor computing a single PI-explanation for any given instance. Finally, the paper reduces\nenumeration of PI-explanations of DTs to the problem of enumerating minimal hitting\nsets (MHSes), and proposes a solution based on iterative calls to an NP oracle (e.g. SAT\nor a 0-1 ILP) oracle.\nThe paper is structured as follows. Section 2 introduces the notation and definitions\nused in the remainder of the paper. Section 3 studies functions that elicit poor DT in-\nterpretability. Section 4 proposes a polynomial-time algorithm for computing a single\nPI-explanation for a DT. Section 5 proposes a solution for enumerating PI-explanations\nof DTs, by reducing the problem to the computation of MHSes. Section 6 studies the\nDTs obtained with two state-of-the-art tools, on publicly available datasets, and shows\nthat paths in learned decision trees are often proper supersets of PI-explanations. More-\nover, the experimental results confirm that run times for extracting PI-explanations are\nnegligible. Finally, Section 7 concludes the paper."
+    },
+    {
+      "heading": "2 Preliminaries",
+      "text": "Classification problems. We consider a classification problem defined on a set of features F = {1, . . . ,n}, where each feature i takes values from a (categorical) domain Di\n4, and n denotes the number of features. Feature space is defined by F= D1\u00d7D2\u00d7 . . .\u00d7Dn, each defining the range of (categorical) values of each feature xi. To refer to an arbitrary point in feature space we use the notation x = (x1, . . . ,xn), whereas to refer to a concrete point in feature space we use the notation v = (v1, . . . ,vn), with vi \u2208 Di, i= 1, . . . ,n. We consider a binary classification problem, with two classesK= {\u2296,\u2295} 5. (For simplicity, we will often use 0 for\u2296 and 1 for\u2295.) An instance (or example) denotes a pair (v,\u03c0), where v \u2208 F and \u03c0 \u2208 K. A machine learning model computes a function \u00b5 that maps the feature space into the set of classes: \u00b5 : F\u2192K. To train an ML model (in our case we are interested in DTs), we start from a set of examples E = {e1, . . . ,em}, where each e j = (v j,\u03c0 j), such that v j \u2208 F and \u03c0 j \u2208K, and m is the number of examples.\nDecision trees. A decision tree T is a directed acyclic graph having at most one path between every pair of nodes. T has a root node, characterized by having no incoming\n3 A PI-explanation is a subset-minimal set of feature-value pairs that entails the prediction [61]. 4 For simplicity, most of the examples in the paper consider Di , {0,1} (i.e. binary features). 5 The results in the paper are readily applicable to multiple classes; the case |K|= 2 is considered\nsolely for simplicity.\nedges. All other nodes have one incoming edge. We consider univariate decision trees\n(as opposed to multivariate decision trees [16]); hence, a non-terminal node is associ-\nated with a single feature xi, and each outgoing edge is associated with one (or more) values from Di. Each terminal node is associated with a value of K. An example of a decision tree is shown in Figure 2. The number of nodes in a DT is r. When |K| = 2, a tree is characterized by two sets of paths, where each path starts at the root and ends at a terminal node. The set P = {P1, . . . ,Pk1} denotes the paths ending in a \u2295 prediction. The setQ= {Q1, . . . ,Qk2} denotes the paths ending in a \u2296 prediction. We will also use R = P \u222aQ. A literal is of the form xi \u2736 vi, where \u2736\u2208 {=, 6=} 6. xi is a variable that denotes the value taken by feature i, whereas vi \u2208 Di is a constant. To model the operation of some DT learning tools [65], we allow generalized literals of the form xi \u2208 Si, with Si ( Di, such that the literal is consistent if the feature is assigned a value in Si. Given this generalization, DTs correspond to multi-edge decision trees [6]. Moreover,\ntwo literals are inconsistent if they cause the feature to take values that are inconsistent. For example, the literals (x1 = 0) and (x1 = 1) are inconsistent.\nEach path in T is associated with a consistent conjunction of literals, denoting the values assigned to the features so as to reach the terminal node in the path. We will represent the set of literals of some tree path by L(Rk), where Rk is either a path in P or Q. Each path in the tree entails the prediction represented by path\u2019s terminal node. Let \u03c0 denote the prediction associated with path Rk. Then,\n\u2200(x \u2208 F). [ \u2227\n(xi\u2736vi)\u2208L(Rk) (xi \u2736 vi)\n]\n\u2192(\u00b5(x) = \u03c0) (1)\nwhere x = (x1, . . . ,xi, . . . ,xn) and \u03c0 \u2208 {\u2296,\u2295}. Any pair of paths inRmust have at least one pair of inconsistent literals.\nInterpretability & DTs. Interpretability is generally regarded as a subjective con-\ncept, without a rigorous definition [37], albeit different authors have proposed differ-\nent requirements for interpretability [37,63]. Throughout this paper, we associate in-\nterpretability with irreducible sets of feature-value pairs that are sufficient for the prediction7. Moreover, as argued in Section 1, it is generally accepted that DTs epitomize\ninterpretability. Nevertheless, there is recent work that relates DT interpretability with\nDTs being shallow [37,42], but also work that proposes counterfactual explanations for\nmeeting interpretability desiderata for DTs [63].\nPI-explanations. The paper uses the definition of PI-explanation [61], based on prime\nimplicants of some decision function. Let us consider some ML model, computing a classification function \u00b5 on feature space F, a point v \u2208 F, with prediction \u03c0 = \u00b5(v), and let E denote a set of literals consistent with v (and defined on features variables x).\n6 The ideas described in the paper generalize to univariate DTs where features are either\ncategorical or real- or integer-valued ordinal, and literals are of the form xi \u2736 vi, where \u2736\u2208 {<,\u2264,=, 6=,\u2265,>}. The paper\u2019s main results can be extended to more general settings, but that these are beyond the scope of the paper. 7 Clearly, these subsets should be succinct, as it is generally accepted that human decision mak-\ners are only able to understand explanations with a reasonably small number of features.\nWe say that E is a PI-explanation for \u03c0 given v, if the set of literals E entails the pre-\ndiction, and any proper subset of literals of E does not entail the prediction. Formally,\nthe following conditions hold:\n\u2200(x \u2208 F). [ \u2227\nli\u2208E (li)\n]\n\u2192(\u00b5(x) = \u03c0) (2a)\n\u2200(E \u2032 ( E)\u2203(x \u2208 F). [ \u2227\nli\u2208E \u2032 (li)\n]\n\u2227 (\u00b5(x) 6= \u03c0) (2b)\nGiven a DT T and some path Rk, associated with some prediction \u03c0 , we say that path Rk is explanation-redundant (or simply redundant) if Rk is not a PI-explanation of \u03c0 given the ML model T . If we associate DT paths with instance explanations, then path explanation-redundancy will manifest itself in instance explanations. The concept\nof explanation-redundancy is illustrated in Example 1.\nExample 1. Consider the DT in Figure 1a, for function f (x1,x2) = x1 \u2228 x2, and instance (0,1). The path corresponds to the explanation {(x1,0),(x2,1)} for prediction f (0,1) = 1. Clearly, this path is explanation-redundant, as a PI-explanation for prediction 1 is (x2,1) (as is readily concluded from the function definition). As a less abstract example, we observe that the tree in Figure 1a also models the example DT used in [79, Ch. 01,page 5]8, with x1 denoting \u201cis y > 0.73?\u201d, x2 denoting \u201cis x > 0.64?\u201d, class 1 denoting cross, and class 0 denoting circle. Hence, a PI-explanation for the instance (no,yes) with prediction \u201ccross\u201d is yes to question \u201cis x > 0.64?\u201d, independently of the answer to question \u201cis y > 0.73?\u201d. Section 3 investigates explanationredundancy in greater detail.\nRelated work. As referenced in Section 1, there exists a growing body of work on ex-\nploiting DTs for interpretability. To our best knowledge, the assessment of paths in DTs\nwhen compared to PI-explanations has not been investigated. Recent work [18] outlines\nlogical encodings of decision trees, but that is orthogonal to the work reported in this\n8 This DT is shown in the supplementary material.\npaper. In addition, there has been work on applying explainable AI (XAI) to decision\ntrees [38], but with the focus of improving the quality of local (heuristic) explanations,\nwhere the goal is to relate a local approximate model against a reference model; hence\nthere is no immediate relationship with PI-explanations."
+    },
+    {
+      "heading": "3 Decision Trees May Not be Interpretable",
+      "text": "This section shows that there exist Boolean functions for which a learned decision tree\nwill exhibit paths containing all features, and for which a PI-explanation has a con-\nstant size. Thus, if we associate explanations with DT paths, there will be explana-\ntions that are arbitraly larger (on n) than the actual (constant-size) PI-explanation. As\nthe experimental results demonstrate, and as discussed later in this section, it is fairly\nfrequent in practice for DT paths to include more literals that those in the associated\nPI-explanations.\nProposition 1. There exist functions for which an irreducible DT contains paths which\nare a proper superset of a PI-explanation. Furthermore, the difference in the number of literals is n\u2212 k, where n is the number of features and k is the (constant) size of a PI-explanation.\nProof. Let us consider the following Boolean function f : {0,1}n\u2192 {0,1} (with even n):\nf (x1,x2, . . . ,xn\u22121,xn) = \u2228n/2\ni=1 x2i\u22121\u2227 x2i (3)\nFor the case n= 4, different off-the-self DT learners will obtain the DT shown in Figure 1b. (To obtain the decision tree, we considered a dataset composed of all possible instances, and used ITI [65]9.) Furthermore, it is immediate to conclude that the decision tree\nshown is irreducible (i.e. no nodes can be removed while keeping accuracy). Moreover, let the target instance be (v,\u03c0) = ((1,0,1,1),1). In this case, the explanation (i.e. the path) extracted from the DT is (x1 = 1)\u2227 (x2 = 0)\u2227 (x3 = 1)\u2227 (x4 = 1), which guarantees that the prediction is 1. However, it is immediate from the function definition (3), that (x3 = 1)\u2227 (x4 = 1) entails f (x1,x2,x3,x4) = 1, independently of the value assigned to x1 and x2, i.e. in this case the PI-explanation is (x3 = 1)\u2227 (x4 = 1). The same analysis generalizes to an arbitrary number of variables. For an instance of the form ((1,0,1,0, . . . ,1,0,1,1),1), the DT would indicate an explanation with n literals, whereas the PI-explanation has size 2, namely (xn\u22121 = 1)\u2227 (xn = 1).\nIt should be noted that the issue above does not depend on whether the DT is\nredundant (e.g. in the cases shown, the DTs are not redundant); the reported issues\nresult solely from a fundamental limitation of DTs for succinctly representing certain classes of functions10. Figure 2 exemplifies that redundancy may occur even in\n9 ITI is available from https://www-lrn.cs.umass.edu/iti/. We considered a number of publicly\navailable DT learners, and reached the same conclusions (in terms of path length) in all cases. 10 Indeed, it is well-known that DTs are not as succinct as decision lists (DLs) [53] (and so not\nas succinct as decision sets (DSs)). This means that there exist functions that have succint DLs or DSs, but not DTs. Although not the focus of the paper, we conjecture that similar results can be obtained for DLs and for restricted cases of DSs, among those where DSs compute functions.\nvery simple DTs. The DT was obtained with the optimal decision tree package from Interpretable AI [10,28]11, where the \u2296 and the leftmost \u2295 are predicted with 75% and 83.3% confidence, respectively. (The branch annotated with 1,2 denotes that x1 \u2208 {1,2}.) Let the instance be (Humidity,Outlook,Wind) = (high,overcast,weak). As an explanation we could use the literals in the tree path, i.e. {(Humidity= high),(Outlook= overcast)}. However, careful analysis allows us to conclude that {(Outlook= overcast)} suffices to entail the prediction \u2295, i.e. as long as \u2018Outlook\u2019 is \u2018overcast\u2019, the prediction will be \u2295 independently of the value of \u2018Humidity\u2019."
+    },
+    {
+      "heading": "4 Extracting PI-Explanations from DTs",
+      "text": "Deciding explanation-redundancy with NP oracles. Let us consider a decision tree T , with sets of paths P and Q, denoting respectively the paths with prediction \u2295 and \u2296. Let us also consider an instance (v,\u2295), with v \u2208 F and \u2295\u2208K (the case for\u2296 would be similar), and let Pk denote that path consistent with v. To decide whether Pk exhibits explanation-redundancy, one possible solution is to use an NP oracle.\nFor an instance consistent with Pk, we can model the prediction of the decision tree\n(for prediction \u2295) as follows:\n\u2227\nl j\u2208L(Pk) (l j)\n\u2228\nPi\u2208P\n\u2227\nls\u2208L(Pi) (ls) (4)\nHence, we require the unsatisfiability of,\n\u2227\nl j\u2208L(Pk) (l j)\u2227\n\u2227\nPi\u2208P\n\u2228\nls\u2208L(Pi) (\u00acls) (5)\nNow, if there exists a literal l j that can be dropped from Pk such that unsatisfiability is preserved, then Pk exhibits explanation-redundancy. Hence, we need at most m calls to an NP oracle to decide explanation-redundancy, where m is the number of features.\n(This high-level procedure was proposed in earlier work in more general terms [29].)\nHowever, the special structure of a DT, makes the problem far simpler, and can be\nsolved in polynomial time, as shown next.\n11 We used the well-known PlayTennis dataset [40].\nDeciding explanation-redundancy in linear time. Observe that (4) is preserved iff\nat least one of the features with a literal in Pk has another literal that is false along any path that yields prediction \u2296. Thus, there is explanation-redundancy if there exists a literal from Pk that can be dropped while the remaining literals in Pk still guarantee that at least one literal is false along any path in Q. Before detailing a polynomial time algorithm for deciding explanation-redundancy, let us consider a concrete example.\nExample 2. For the DT from Figure 1b we have,\nP = {P1,P2,P3} L(P1) = {(x1 = 0),(x3 = 1),(x4 = 1)} L(P2) = {(x1 = 1),(x2 = 0),(x3 = 1),(x4 = 1)} L(P3) = {(x1 = 1),(x2 = 1)}\nQ= {Q1,Q2,Q3,Q4} L(Q1) = {(x1 = 0),(x3 = 0)} L(Q2) = {(x1 = 0),(x3 = 1),(x4 = 0)} L(Q3) = {(x1 = 1),(x2 = 0),(x3 = 0)} L(Q4) = {(x1 = 1),(x2 = 0),(x3 = 1),(x4 = 0)}\nWe consider path P2 (and so any feature space point consistent with P2). We can readily conclude that if literal (x1 = 1) is removed from the literals of P2, all the paths in Q remain inconsistent. This is true for example because (x3 = 1) and (x4 = 1). Similarly, we could drop literal (x2 = 0).\nThe example above naturally suggests a quadratic time (on the size n of the de-\ncision tree) algorithm to decide whether a tree path exhibits explanation-redundancy. Concretely, for each literal in Pk, we analyze each path in Q whether it is still inconsistent. If all paths in Q remain inconsistent, then the literal can be dropped, and the path exhibits explanation-redundancy. Nevertheless, it is possible to devise a more efficient\nsolution, one that runs in linear time.\nThe proposed algorithm analyzes the features containing literals in Pi 12, in turn allowing each to be declared universal, i.e. the feature can take any value. For each\nfeature f j , the algorithm recursively analyzes paths with a different prediction, checking whether each such path is inconsistent, due to some other literal. If that is the case,\nthe path Pi is explanation-redundant, at least due to feature f j. The algorithm analyzes the internal nodes of Pi in reverse order, starting from deepest non-terminal node in the path. (For now, we assume that Pi has at most one literal on any given feature; this restriction will be lifted below.) For each non-terminal node p j \u2208 Pi, the associated feature f j is made universal, i.e. it can take any value. Starting at p j, all child nodes not in Pi are recursively visited, checking for a consistent sub-path (starting at p j) to a terminal node with prediction \u2296. If such path exists, then f j cannot be made universal, and so it cannot be discarded from a PI-explanation. Otherwise, all sub-paths to prediction \u2296 are inconsistent, and so the value of f j is irrelevant for the prediction. A path is declared redundant iff at least one feature is declared redundant. With filtering (i.e. rec = 0), each tree node is analyzed at most once, and so the amortized\n12 As before, we assume a path Pi with prediction \u2295.\nAlgorithm 1: Deciding path redundancy\nFunction DECIDEPATHREDUNDANCY(T) 1 foreach Rk \u2208 T do 2 A\u2190 AggrFeatureNodes(T ,Rk) ; 3 N \u2190 PathNodes(T ,Rk) ; 4 isPathRed\u2190 false ; 5 foreach f \u2208 PathFeatures(T ,Rk) do 6 isFeatRed\u2190 true ; 7 SetUniversal(T , f ) ; 8 foreach n \u2208 A( f ) do 9 if not CHKDOWN(T ,N ,Rk,n,0) then\n10 isFeatRed\u2190 false ; 11 break;\n12 UnsetUniversal(T , f ) ; 13 if isFeatRed then 14 isPathRed\u2190 true ; 15 break;\n16 ReportPath(Rk, isPathRed) ;\nrun time of the algorithm over all features is O(|T |). If a feature is tested more than once along Pi, the algorithm requires minor modifications. In this case, a decision about whether feature fi can take any value, can only be made once all nodes involving fi have been analyzed and, for all such nodes, the feature fi has been declared redundant. Algorithms 1 and 2 summarize the two main steps of the proposed algorithm. The aux-\niliar functions serve to test/set whether a feature is universal (i.e. whether it can take any\nvalue of its domain) (resp. Universal/SetUniversal), aggregate the nodes asso-\nciated with a given feature along some path (AggrFeatureNodes), list the nodes\nin a given path (PathNodes), get the prediction of some path (Prediction), list\nthe child nodes of some node in the tree (ChildNodes), get the feature associated\nwith a node (Feature), check whether some node is terminal (IsTerminal) and,\nfinally, whether the sub-paths starting at some node can reach a prediction other than\nthe one associated with the target path Rk (HasPaths). Finally, the argument rec of CHKDOWN is a flag that serves to avoid re-visiting already visited paths. For removing\nredundant features this filtering does not apply, as clarified below.\nExample 3. We consider again the DT from Figure 1b and path P2, where L(P2) = {(x1 = 1),(x2 = 0),(x3 = 1),(x4 = 1)}, and prediction 1. The nodes of P2 are analyzed in the order \u3008x4,x3,x2,x1\u3009. Clearly, the sub-path consistent with (x4 = 0) yields prediction 0. Hence, feature x4 (associated with literal x4 = 1) is not redundant. For x3, we consider (only) the sub-path corresponding to (x3 = 0). Again, the prediction is 0, and so the feature x3 is not redundant. For feature x2, the only sub-path corresponds to (x2 = 1), for which the prediction remains unchanged. Hence, x2 can take any value, and so it is declared redundant. As a result, P2 is also declared redundant. It is helpful to analyze the execution of the algorithm for x1. The sub-paths consistent with (x1 = 1)\nAlgorithm 2: Inconsistent sub-path lookup\nFunction CHKDOWN(T ,N ,Rk,n,rec) 1 \u03c0 \u2190 Prediction(T ,Rk) ; 2 C \u2190 ChildNodes(T ,n) ; 3 foreach c \u2208 C do 4 if c \u2208N and rec= 0 then continue; 5 if not HasPaths(T ,c,\u03c0) then continue; 6 if IsTerminal(T ,c) then 7 return false ;\n8 g\u2190 Feature(T ,c) ; 9 if not Universal(T ,g) then continue;\n10 if not CHKDOWN(T ,N ,Rk,c,rec) then 11 return false ;\n12 return true;\ncorrespond to P1, Q1 and Q2. Hence, due to Q1 and Q2, it might seem that x1 might be irredundant. However, both Q1 and Q2 are inconsistent with other non-redundant literals of P2, concretely x3 = 1 and x4 = 1. Hence, x1 is declared redundant.\nExtracting one PI-explanation. One approach to find a PI-explanation is to use re-\ncent work based on compilation [61] or iterative entailment checks with an NP ora-\ncle [29]. However, a computationally simpler solution is based on the ideas described\nabove.\nFeatures are analyzed as proposed in Algorithms 1 and 2. However, a feature already\ndeclared as redundant signifies that it can take any value from its domain. This may allow inconsistent paths with prediction \u2296 to become consistent, thus preventing some other feature from being declared redundant. One consequence is that the filtering of\npaths exploited in Algorithms 1 and 2 is not longer applicable. Concretely, the analysis\nof each feature requires visiting all of the sub-paths starting in any of the path nodes\ntesting the feature. Algorithm 2 can still be used, in this case by setting rec to 1, i.e.\nall sub-paths will be analyzed. The worst-case complexity of the resulting algorithm is O(|T |) for each feature, thus yieldingO(|T |2) for the complete algorithm. Finally, we can conclude that an algorithm for finding one PI-explanation for each path in T runs in O(|T |3).\nExample 4. We consider the DT from Figure 1b and analyze path P2 (and so any instance consistent with P2). Literals are analyzed in reverse path order. (In this case, aggregation of nodes by feature is optional, as long as a decision with respect to a feature\nis delayed until all nodes associated with the feature have been analyzed, and keeping track whether non-irredundancy applies to all nodes.) As before, the literal (x4 = 1) is not redundant; otherwise Q4 would be consistent. Similarly, the literal (x3 = 1) is not redundant; otherwise Q3 would be consistent. In contrast, the feature x2 can be made universal, as this does not change the prediction, i.e. P2 is consistent with the prediction, and the other literals (x3 = 1) and (x4 = 1) block the paths in Q. A similar\nanalysis applies in the case of feature x1. In this case, the algorithm analyzes all paths (since Algorithm 2 is invoked with rec= 1). Due to the literals (x3 = 1) and (x4 = 1), all paths in Q are inconsistent. As a result, feature x1 can be declared redundant, and a PI-explanation for P2 is thus {(x3 = 1),(x4 = 1)}.\nPath-restricted vs. path-unrestricted explanations. For the algorithms described\nearlier we also need to decide the set of literals to consider. One option is the set of\nliterals specified by the instance. Another option is the set of literals specific to the tree\npath consistent with the instance. If we are interested in finding PI-explanations for the\nprediction, given the instance, then we should consider the literals specified by the in-\nstance. However, if we want to report explanations that relate with the tree path consis-\ntent with the instance, then we should consider only the literals in the tree path. Clearly,\npath-restricted PI-explanations are a subset of path-unrestricted PI-explanations. The\nfollowing example illustrates the differences between the two approaches.\nExample 5. We consider the example DT shown in Figure 3. Given the point (x1,x2,x3, x4) = (1,1,1,1), the consistent path in the DT consists of the literals {(x1 = 1),(x3 = 1)}. The only PI-explanation that is restricted to this path is the path itself: {(x1 = 1),(x3 = 1)}. However, if we enable path-unrestricted explanations, we will also obtain the PI-explanation {(x2 = 1),(x3 = 1),(x4 = 1)}, which is not even shown as (part of) a path in the decision tree."
+    },
+    {
+      "heading": "5 Enumeration of PI-Explanations",
+      "text": "The enumeration of multiple (or all) PI-explanations can help human decision mak-\ners to develop a better understanding of some prediction, but also of the underlying\nML model. Recent work [61] compiles a decision function into a Sentential Decision\nDiagram (SDD), from which the enumeration of PI-explanations can be instrumented.\nMoreover, from a compiled representation of the PI-explanations, each PI-explanation\ncan be reported in polynomial time. The downside is that these representation are worst-\ncase exponential in the size of the original ML model. Another line of work for com-\nputing PI-explanations is based on iterative entailment checks using an NP-oracle [29].\nHowever, this recent work does not address the enumeration of PI-explanations. This\nsection develops a solution for the enumeration of PI-explanations in the case of DTs,\nby reduction to the enumeration of minimal hitting sets (MHSes).\nWe consider the situation where the prediction is \u2295 for some point v in feature space, which is consistent with some tree path Pk \u2208 P . As a result, each path in Q is inconsistent with at least one literal, among those either associated with v or with Pk. Let the set of literals considered be R. For each path Qs \u2208 Q, let Ls denote the set of literals in R that are inconsistent with Qs. For a subset S of R to entail the prediction, it must hit each set of literals Ls. Among the possible sets S, each subset-minimal set is a PI-explanation. Thus, we can list the PI-explanations (starting from the literals taken\nfrom v or from Pk) by enumerating minimal hitting sets.\nExample 6. For P2 in the DT of Figure 1, the sets to hit are:\nQ1 : {(x1 = 1),(x3 = 1)} Q2 : {(x1 = 1),(x4 = 1)} Q3 : {(x3 = 1)} Q4 : {(x4 = 1)}\nIn this case, the only MHS is {(x3 = 1),(x4 = 1)}, representing a single PI-explanation {(x3 = 1),(x4 = 1)}.\nExample 7. For the DT in Figure 3, and by considering the literals from the point v = (1,1,1,1), the sets to hit are then:\nQ1 : {(x1 = 1),(x2 = 1)} Q2 : {(x1 = 1),(x4 = 1)} Q3 : {(x3 = 1)}\nThe MHSes are {(x1 = 1),(x3 = 1)} and {(x2 = 1),(x4 = 1),(x3 = 1)}, each denoting a path-unrestricted PI-explanation."
+    },
+    {
+      "heading": "6 Experimental Results",
+      "text": "This section presents a summary of experimental evaluation of the explanation-redundancy\nof two state-of-the-art heuristic DT classifiers. Concretely, we use the well-known DT\ntraining tools ITI (Incremental Tree Induction) [65,31] and IAI (Interpretable AI) [10,28].\nITI is run with the pruning option enabled, which helps avoiding overfitting and aims at\nconstructing shallow DTs. To enforce IAI to produce shallow DTs and achieve high accuracy, it is set to use the optimal tree classifier method with the maximal depth of 613.\nThe experiments consider datasets with categorical (non-binarized) data, which both ITI and IAI can handle14. The assessment is performed on a selection of 80 publicly\navailable datasets, which originate from UCI Machine Learning Repository [64], Penn\nMachine Learning Benchmarks [49], and OpenML repository [47]. (Due to space re-\nstrictions, we report the results only for 30 datasets but the results shown extend to the\n13 Our results confirm that larger maximal depths would in most cases increase the percentage of\nredundant paths. A smaller maximal depth would not improve accuracy. 14 Other known DT learning tools, including scikit-learn [48] and DL8.5 [1,2] can only handle\nnumerical and binary features, respectively, and so could not be included in the experiments.\ncomplete benchmark set, and are included in the supplementary materials.) The num-\nber of features (data instances, resp.) in the benchmark suite vary from 2 to 118 (106 to\n58000, resp.) with the average being 31.2 (6045.3, resp.).\nThe experiments are performed on a MacBook Pro with a Dual-Core Intel Core i5\n2.3GHz CPU with 8GByte RAM running macOS Catalina. The polynomial-time explanation-\nredundancy check and a single PI-explanation extraction proposed in Section 4 are im-\nplemented in Perl. (An implementation using the Glucose SAT solver was instrumental\nin validating the results, but for the DTs considered, it was in general slower by at least\none order of magnitude.) Performance-wise, training DTs with IAI takes from 4sec to\n2310sec with the average run time per dataset being 70sec. In contrast, the time spent\non eliminating explanation-redundancy is negligible, taking from 0.026sec to 0.4sec\nper tree, with an average time of 0.06sec. ITI runs much faster that IAI and takes from\n0.1sec to 2sec with 0.1sec on average; the elimination of explanation redundancy is\nslightly more time consuming than for IAI, taking from 0.025sec to 5.4sec with 0.29sec\non average. This slowdown results from DTs learned with ITI being deeper on average,\nand features being tested multiple times.\nThe summary of results is detailed in Table 1. For each dataset, the table reports the\nnumber of features and also instances as #F and #S, respectively. Thereafter, it shows\ntree statistics for IAI and ITI, namely, tree depth D, number of nodes #N, test accuracy\n%A and number of paths #P. The percentage of explanation-redundant paths is given\nas %R while the percentage of data instances (measured for the entire feature space)\ncovered by redundant paths is %C. Focusing solely on the explanation-redundant paths,\na single PI-explanation is extracted and the average (min. or max., resp.) percentage\nof redundant literals per path is denoted by %avg (%m and %M, resp.). Observe that\ndespite the shallowness of the trees produced by IAI and ITI, for the majority of datasets\nand with a few exceptions, the paths in trees trained by both tools exhibit significant\nexplanation-redundancy. In particular, on average, 32.1% (46.9%, resp.) of paths are\nexplanation-redundant for the trees obtained by IAI (ITI, resp.). For some DTs, obtained\nwith either IAI and ITI, more than 85% of tree paths are redundant. Also, redundant\npaths of the trees of IAI (ITI, resp.) cover on average 20.1% (37.7%, resp.) of feature\nspace. Moreover, in some cases, up to 89% and 98% of the entire feature space is\ncovered by the redundant paths for IAI and ITI, respectively. This means that DTs\nproduced by IAI and ITI are unable to provide a user with a succinct explanation for\nthe vast majority of data instances. In addition, the average number of redundant literals\nin redundant paths for both IAI and ITI varies from 16% to 65%, but for some DTs it\nexceeds 80%.\nTo summarize, the numbers shown for the selected datasets and for the state-of-\nthe-art DT training tools contrast the common belief in the inherent interpretability of\ndecision tree classifiers. Perhaps as importantly, the performance figures confirm that\nthe elimination of explanation-redundancy in the DTs produced with available tools has\nnegligible computational cost."
+    },
+    {
+      "heading": "7 Conclusions",
+      "text": "Decision trees are most often associated with interpretability. This paper shows that in\nsome situations, paths in a decision tree may include many literals that are irrelevant for\nan explanation, and that this holds true even for irreducible decision trees. Moreover,\nthe paper proposes a linear time test to decide whether a decision tree path contains ir-\nrelevant literals, and uses such test to devise a polynomial time algorithm for computing\none PI-explanation of a decision tree. Furthermore, the paper shows the connection be-\ntween enumerating the PI-explanations of DTs and the enumeration of minimal hitting\nsets. Experimental results obtained on publicly available datasets, using state-of-the-\nart decision tree learners, show that in practice induced paths in decision trees may\ncontain irrelevant literals, even when the decision tree is irreducible. For the decision\ntrees considered in the experiments, the run times of the proposed algorithms are either\nnegligible or comparable to tree learning times."
+    },
+    {
+      "heading": "A Case Studies",
+      "text": "A.1 Analysis of DT from Russel&Norvig\u2019s Book\nDecision Tree This case study considers the decision tree (DT) shown in Figure 4,\ntaken from [59, Ch. 18,page 702]. The example consists in deciding whether to wait for\na table at a restaurant. Six features are used in the DT, namely:\n\u2013 Alternate: whether there is a suitable alternative restaurant nearby.\n\u2013 Bar: whether the restaurant has a comfortable bar area to wait in.\n\u2013 Fri/Sat: true on Fridays and Saturdays.\n\u2013 Hungry: whether the people are hungry.\n\u2013 Patrons: how many people are in the restaurant (values are None, Some, and Full).\n\u2013 Type: the kind of restaurant (French, Italian, Thai, or burger).\nRedundancy Analysis Results Analysis of the paths in the DT shown in Figure 4\nyields the following results.\n\u2013 path (Patrons=None) is explanation-irredundant.\n\u2013 path (Patrons=Ful and Hungry=No) is explanation-irredundant.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Italian) is explanation-redundant. If\nthe values of Patrons and Type are fixed, then the value of Hungry is irrelevant for\nthe prediction.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Thai and Fri/Sat=No) is explanation-\nredundant. If the values of Patrons, Type and Fri/Sat are fixed, then the value of\nHungry is irrelevant for the prediction.\n\u2013 path (Patrons=Some) is explanation-irredundant.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Frencg) is explanation-irredundant.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Thai and Fri/Sat=Yes) is explanation-\nirredundant.\n\u2013 path (Patrons=Ful and Hungry=Yes and Type=Burger) is explanation-irredundant.\nAs result, 2 out of 8 paths exhibit explanation-redundancy. Thus, we conclude that\nthe DT exhibits 25% of explanation-redundancy.\nA.2 Analysis of DT from Poole&Mackworth\u2019s Book\nDecision Tree This case study considers the decision tree shown in Figure 5, taken from\n[50, Ch. 07,page 298]. The example consists in predicting whether a person reads an\narticle posted to a bulletin board given properties of the article. There are three features\nin the decision tree:\n\u2013 Author: whether the author is known or not.\n\u2013 Thread: whether the article started a new thread or was a follow-up.\n\u2013 Length: the length of the article (short or long).\nRedundancy Analysis Results Analysis of the paths in the DT shown in Figure 5\nyields the following results.\n\u2013 path (Length=long) is explanation-irredundant.\n\u2013 path (Length=short and Thread=follow-up and Author=unknown) is explanation-\nredundant. If values of Thread and Author are fixed, then the value of Length is\nirrelevant for the prediction.\n\u2013 path (Length=short and Thread=new) is explanation-irredundant.\n\u2013 path (Length=short and Thread=follow-up and Author=known) is explanation-redundant.\nIf the values of Length and Author are fixed, then the value of Thread is irrelevant\nfor the prediction.\nAccordingly, 2 out of 4 paths exhibit explanation-redundancy. Therefore, we say\nthat the DT exhibit 50% of explanation-redundancy.\nA.3 Analysis of DT from Z.-H. Zhou\u2019s book\nDecision Tree This case study considers the decision tree shown in Figure 6, taken\nfrom [79, Ch. 01,page 5]. The example consists in predicting the type of a drawing, to\nbe chosen among the classes cross and circle. Two features are used, namely:\n\u2013 x > 0.64 \u2208 {Y,N}. \u2013 y > 0.73 \u2208 {Y,N}.\nRedundancy Analysis Results Analysis of the paths in the DT shown in Figure 6\nyields the following results.\n\u2013 path (y > 0.73) is explanation-irredundant. \u2013 path (y \u2264 0.73 and x > 0.64) is explanation-redundant. If the value of y is fixed,\nthen the value of x is irrelevant for the prediction.\n\u2013 path (y\u2264 0.73 and x\u2264 0.64) is explanation-irredundant. As a result, 1 out of 3 paths exhibit explanation-redundancy. Thus, we say that the\nDT exhibits 33.33% of explanation-redundancy.\nA.4 Additional Examples\nIt is interesting to note that the DTs used in a number of books and surveys exhibit\nexplanation-redundancy.A non-exhaustive list of references includes [43,15,54,55,59,19,33,3,12,66,50]."
+    },
+    {
+      "heading": "B Full Table of Results",
+      "text": "Table 2 presents the experimental results obtained on an extended set of datasets."
+    }
+  ],
+  "title": "On Explaining Decision Trees",
+  "year": 2020
+}

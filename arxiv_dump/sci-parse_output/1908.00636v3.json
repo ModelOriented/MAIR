@@ -1,1 +1,516 @@
-{"abstractText": "Takagi-Sugeno-Kang (TSK) fuzzy systems are flexible and interpretable machine learning models; however, they may not be easily optimized when the data size is large, and/or the data dimensionality is high. This paper proposes a minibatch gradient descent (MBGD) based algorithm to efficiently and effectively train TSK fuzzy classifiers. It integrates two novel techniques: 1) uniform regularization (UR), which forces the rules to have similar average contributions to the output, and hence to increase the generalization performance of the TSK classifier; and, 2) batch normalization (BN), which extends BN from deep neural networks to TSK fuzzy classifiers to expedite the convergence and improve the generalization performance. Experiments on 12 UCI datasets from various application domains, with varying size and dimensionality, demonstrated that UR and BN are effective individually, and integrating them can further improve the classification performance.", "authors": [{"affiliations": [], "name": "Yuqi Cui"}, {"affiliations": [], "name": "Dongrui Wu"}, {"affiliations": [], "name": "Jian Huang"}], "id": "SP:578207beacc8c724ae8e4825d0928a96a6affa47", "references": [{"authors": ["A.-T. Nguyen", "T. Taniguchi", "L. Eciolaza", "V. Campos", "R. Palhares", "M. Sugeno"], "title": "Fuzzy control systems: Past, present and future", "venue": "IEEE Computational Intelligence Magazine, vol. 14, no. 1, pp. 56\u201368, 2019.", "year": 2019}, {"authors": ["Y. Shi", "R. Eberhart", "Y. Chen"], "title": "Implementation of evolutionary fuzzy systems", "venue": "IEEE Trans. on Fuzzy Systems, vol. 7, no. 2, pp. 109\u2013119, 1999.", "year": 1999}, {"authors": ["D. Wu", "W.W. Tan"], "title": "Genetic learning and performance evaluation of interval type-2 fuzzy logic controllers", "venue": "Engineering Applications of Artificial Intelligence, vol. 19, no. 8, pp. 829\u2013841, 2006.", "year": 2006}, {"authors": ["L.-X. Wang", "J.M. Mendel"], "title": "Back-propagation of fuzzy systems as nonlinear dynamic system identifiers", "venue": "Proc. IEEE Int\u2019l Conf. on Fuzzy Systems, San Diego, CA, Sep. 1992, pp. 1409\u20131418.", "year": 1992}, {"authors": ["J.S.R. Jang"], "title": "ANFIS: Adaptive-network-based fuzzy inference system", "venue": "IEEE Trans. on Systems, Man, and Cybernetics, vol. 23, no. 3, pp. 665\u2013 685, 1993.", "year": 1993}, {"authors": ["D. Wu", "Y. Yuan", "J. Huang", "Y. Tan"], "title": "Optimize TSK fuzzy systems for big data regression problems: Mini-batch gradient descent with regularization, DropRule and AdaBound (MBGD-RDA)", "venue": "IEEE Trans. on Fuzzy Systems, 2020, in press. [Online]. Available: https://arxiv.org/abs/1903.10951 10", "year": 2020}, {"authors": ["Y. Jin"], "title": "Fuzzy modeling of high-dimensional systems: complexity reduction and interpretability improvement", "venue": "IEEE Trans. on Fuzzy Systems, vol. 8, no. 2, pp. 212\u2013221, 2000.", "year": 2000}, {"authors": ["Y. Deng", "Z. Ren", "Y. Kong", "F. Bao", "Q. Dai"], "title": "A hierarchical fused fuzzy deep neural network for data classification", "venue": "IEEE Trans. on Fuzzy Systems, vol. 25, no. 4, pp. 1006\u20131012, 2016.", "year": 2016}, {"authors": ["F.-L. Chung", "Z. Deng", "S. Wang"], "title": "From minimum enclosing ball to fast fuzzy inference system training on large datasets", "venue": "IEEE Trans. on Fuzzy Systems, vol. 17, no. 1, pp. 173\u2013184, 2008.", "year": 2008}, {"authors": ["M. Nilashi", "O. Bin Ibrahim", "N. Ithnin", "N.H. Sarmin"], "title": "A multicriteria collaborative filtering recommender system for the tourism domain using Expectation Maximization (EM) and PCA\u2013ANFIS", "venue": "Electronic Commerce Research and Applications, vol. 14, no. 6, pp. 542\u2013562, 2015.", "year": 2015}, {"authors": ["C.K. Lau", "K. Ghosh", "M.A. Hussain", "C.R.C. Hassan"], "title": "Fault diagnosis of Tennessee Eastman process with multi-scale PCA and ANFIS", "venue": "Chemometrics and Intelligent Laboratory Systems, vol. 120, pp. 1\u201314, 2013.", "year": 2013}, {"authors": ["Z. Deng", "K.-S. Choi", "Y. Jiang", "J. Wang", "S. Wang"], "title": "A survey on soft subspace clustering", "venue": "Information Sciences, vol. 348, pp. 84\u2013106, 2016.", "year": 2016}, {"authors": ["Z. Deng", "K.-S. Choi", "F.-L. Chung", "S. Wang"], "title": "Enhanced soft subspace clustering integrating within-cluster and between-cluster information", "venue": "Pattern Recognition, vol. 43, no. 3, pp. 767\u2013781, 2010.", "year": 2010}, {"authors": ["M.J. Gacto", "M. Galende", "R. Alcal\u00e1", "F. Herrera"], "title": "METSK-HDe: A multiobjective evolutionary algorithm to learn accurate TSK-fuzzy systems in high-dimensional and large-scale regression problems", "venue": "Information Sciences, vol. 276, pp. 63\u201379, 2014.", "year": 2014}, {"authors": ["S. Ruder"], "title": "An overview of gradient descent optimization algorithms", "venue": "arXiv preprint arXiv:1609.04747, 2016.", "year": 2016}, {"authors": ["L. Bottou"], "title": "Large-scale machine learning with stochastic gradient descent", "venue": "Proc. Int\u2019l Conf. on Computational Statistics. Paris, France: Springer, Aug. 2010, pp. 177\u2013186.", "year": 2010}, {"authors": ["I. Sutskever", "J. Martens", "G. Dahl", "G. Hinton"], "title": "On the importance of initialization and momentum in deep learning", "venue": "Proc. Int\u2019l Conf. on Machine Learning, Atlanta, GA, Jun. 2013, pp. 1139\u20131147.", "year": 2013}, {"authors": ["D.P. Kingma", "J. Ba"], "title": "Adam: A method for stochastic optimization", "venue": "Proc. Int\u2019l Conf. on Learning Representations, San Diego, CA, May 2015.", "year": 2015}, {"authors": ["A.C. Wilson", "R. Roelofs", "M. Stern", "N. Srebro", "B. Recht"], "title": "The marginal value of adaptive gradient methods in machine learning", "venue": "Proc. Advances in Neural Information Processing Systems, Long Beach, CA, Dec. 2017, pp. 4148\u20134158.", "year": 2017}, {"authors": ["N.S. Keskar", "R. Socher"], "title": "Improving generalization performance by switching from Adam to SGD", "venue": "arXiv preprint arXiv:1712.07628, 2017.", "year": 2017}, {"authors": ["L. Luo", "Y. Xiong", "Y. Liu", "X. Sun"], "title": "Adaptive gradient methods with dynamic bound of learning rate", "venue": "Proc. Int\u2019l Conf. on Learning Representations, New Orleans, LA, May 2019.", "year": 2019}, {"authors": ["S. Ioffe", "C. Szegedy"], "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift", "venue": "Proc. Int\u2019l Conf. on Machine Learning, Lille, France, Jul. 2015.", "year": 2015}, {"authors": ["S. Santurkar", "D. Tsipras", "A. Ilyas", "A. Madry"], "title": "How does batch normalization help optimization?", "venue": "in Proc. Advances in Neural Information Processing Systems,", "year": 2018}, {"authors": ["J.L. Ba", "J.R. Kiros", "G.E. Hinton"], "title": "Layer normalization", "venue": "arXiv preprint arXiv:1607.06450, 2016.", "year": 2016}, {"authors": ["L. Fan"], "title": "Revisit fuzzy neural network: Demystifying batch normalization and ReLU with generalized hamming network", "venue": "Proc. Advances in Neural Information Processing Systems, Long Beach, CA, Dec. 2017, pp. 1923\u20131932.", "year": 2017}, {"authors": ["D.-A. Clevert", "T. Unterthiner", "S. Hochreiter"], "title": "Fast and accurate deep network learning by exponential linear units (ELUs)", "venue": "arXiv preprint arXiv:1511.07289, 2015.", "year": 2015}, {"authors": ["Y. Wu", "K. He"], "title": "Group normalization", "venue": "Proc. European Conf. on Computer Vision, Munich, Germany, Sep. 2018, pp. 3\u201319.", "year": 2018}, {"authors": ["R.A. Jacobs", "M.I. Jordan", "S.J. Nowlan", "G.E. Hinton"], "title": "Adaptive mixtures of local experts", "venue": "Neural Computation, vol. 3, no. 1, pp. 79\u201387, 1991.", "year": 1991}, {"authors": ["H. Bersini", "G. Bontempi"], "title": "Now comes the time to defuzzify neurofuzzy models", "venue": "Fuzzy Sets and Systems, vol. 90, no. 2, pp. 161\u2013169, 1997.", "year": 1997}, {"authors": ["H. Andersen", "A. Lotfi", "L. Westphal"], "title": "Comments on \u2018functional equivalence between radial basis function networks and fuzzy inference systems\u2019 [and author\u2019s reply", "venue": "IEEE Trans. on Neural Networks, vol. 9, no. 6, pp. 1529\u20131532, 1998.", "year": 1998}, {"authors": ["D. Wu", "C.-T. Lin", "J. Huang", "Z. Zeng"], "title": "On the functional equivalence of TSK fuzzy systems to neural networks, mixture of experts, CART, and stacking ensemble regression", "venue": "IEEE Trans. on Fuzzy Systems, 2020, in press. [Online]. Available: https://arxiv.org/abs/1903.10572", "year": 2020}, {"authors": ["T. Shen", "M. Ott", "M. Auli", "M. Ranzato"], "title": "Mixture models for diverse machine translation: Tricks of the trade", "venue": "arXiv preprint arXiv:1902.07816, 2019.", "year": 1902}, {"authors": ["N. Shazeer", "A. Mirhoseini", "K. Maziarz", "A. Davis", "Q. Le", "G. Hinton", "J. Dean"], "title": "Outrageously large neural networks: The sparsely-gated mixture-of-experts layer", "venue": "arXiv preprint arXiv:1701.06538, 2017.", "year": 2017}, {"authors": ["K. He", "X. Zhang", "S. Ren", "J. Sun"], "title": "Deep residual learning for image recognition", "venue": "Proc. IEEE Conf. on Computer Vision and Pattern Recognition, Las Vegas, NV, Jun. 2016, pp. 770\u2013778.", "year": 2016}, {"authors": ["S. Zagoruyko", "N. Komodakis"], "title": "Wide residual networks", "venue": "arXiv preprint arXiv:1605.07146, 2016.", "year": 2016}, {"authors": ["G. Huang", "Z. Liu", "L. Van Der Maaten", "K.Q. Weinberger"], "title": "Densely connected convolutional networks", "venue": "Proc. IEEE Conf. on Computer Vision and Pattern Recognition, Honolulu, HI, Jul. 2017, pp. 4700\u20134708.", "year": 2017}, {"authors": ["E. Frank", "I.H. Witten"], "title": "Generating accurate rule sets without global optimization", "venue": "Proc. Int\u2019l Conf. on Machine Learning, San Francisco, CA, Jul. 1998.", "year": 1998}, {"authors": ["W.W. Cohen"], "title": "Repeated incremental pruning to produce error reduction", "venue": "Proc. Int\u2019l Conf. on Machine Learning, Tahoe City, CA, Jun. 1995.", "year": 1995}, {"authors": ["J.-S.R. Jang", "C.-T. Sun", "E. Mizutani"], "title": "Neuro-fuzzy and soft computing-a computational approach to learning and machine intelligence", "venue": "IEEE Trans. on Automatic Control, vol. 42, no. 10, pp. 1482\u2013 1484, 1997.", "year": 1997}, {"authors": ["O.J. Dunn"], "title": "Multiple comparisons using rank sums", "venue": "Technometrics, vol. 6, no. 3, pp. 241\u2013252, 1964.", "year": 1964}, {"authors": ["Y. Benjamini", "Y. Hochberg"], "title": "Controlling the false discovery rate: A practical and powerful approach to multiple testing", "venue": "Journal of the Royal Statistical Society: Series B, vol. 57, no. 1, pp. 289\u2013300, 1995.", "year": 1995}, {"authors": ["N.S. Keskar", "D. Mudigere", "J. Nocedal", "M. Smelyanskiy", "P.T.P. Tang"], "title": "On large-batch training for deep learning: Generalization gap and sharp minima", "venue": "Proc. Int\u2019l Conf. on Learning Representations, Toulon, France, Apr. 2017.", "year": 2017}, {"authors": ["D. Masters", "C. Luschi"], "title": "Revisiting small batch training for deep neural networks", "venue": "arXiv preprint arXiv:1804.07612, 2018.", "year": 1804}], "sections": [{"text": "ar X\niv :1\n90 8.\n00 63\n6v 3\n[ cs\n.L G\n] 9\nJ an\n2 02\n0 1 Optimize TSK Fuzzy Systems for Classification Problems: Mini-Batch Gradient Descent with Uniform Regularization and Batch Normalization Yuqi Cui, Dongrui Wu and Jian Huang\nAbstract\u2014Takagi-Sugeno-Kang (TSK) fuzzy systems are flexible and interpretable machine learning models; however, they may not be easily optimized when the data size is large, and/or the data dimensionality is high. This paper proposes a minibatch gradient descent (MBGD) based algorithm to efficiently and effectively train TSK fuzzy classifiers. It integrates two novel techniques: 1) uniform regularization (UR), which forces the rules to have similar average contributions to the output, and hence to increase the generalization performance of the TSK classifier; and, 2) batch normalization (BN), which extends BN from deep neural networks to TSK fuzzy classifiers to expedite the convergence and improve the generalization performance. Experiments on 12 UCI datasets from various application domains, with varying size and dimensionality, demonstrated that UR and BN are effective individually, and integrating them can further improve the classification performance.\nIndex Terms\u2014Batch normalization, mini-batch gradient descent, TSK fuzzy classifier, uniform regularization\nI. INTRODUCTION\nTakagi-Sugeno-Kang (TSK) fuzzy systems [1] have achieved great success in numerous applications, including both classification and regression problems. Many optimization approaches have been proposed for them.\nThere are generally three strategies for fine-tuning the TSK fuzzy system parameters after initialization: 1) evolutionary algorithms [2], [3]; 2) gradient descent (GD) based algorithms [4]; and, 3) GD plus least squares estimation (LSE), represented by the popular adaptive-network-based fuzzy inference system (ANFIS) [5]. However, these approaches may have challenges when the size and/or the dimensionality of the data increase. Evolutionary algorithms need to keep a large population of candidate solutions, and evaluate the fitness of each, which result in high computational cost and heavy memory requirement for big data. Traditional GD needs to compute the gradients from the entire dataset to iteratively update the model parameters, which may be very slow, or even impossible, when the data size is very large. The memory requirement and computational cost of LSE also increase rapidly when the data size and/or dimensionality increase. Additionally, as shown in [6], ANFIS may result in significant overfitting in regression problems.\nY. Cui, D. Wu and J. Huang are with the Key Laboratory of the Ministry of Education for Image Processing and Intelligent Control, School of Artificial Intelligence and Automation, Huazhong University of Science and Technology, Wuhan 430074, China. Email: yqcui@hust.edu.cn, drwu@hust.edu.cn, huang jan@hust.edu.cn.\nD. Wu and J. Huang are the corresponding authors.\nMany efforts have been spent to tackling the difficulty in optimizing the TSK fuzzy systems on big and/or highdimensional data [7]\u2013[9]. Dimensionality reduction and/or feature selection are usually used to reduce the number of fuzzy partitions (rules). Traditional dimensionality reduction techniques such as principal component analysis (PCA) has been used for TSK fuzzy system optimization [10], [11]. There are also methods focusing on learning a sparse subspace of the original feature space to reduce the number of antecedents in each rule [12], [13]. Once the number of antecedents is determined, different optimization approaches can be used to tune the TSK fuzzy system on large datasets. For example, Chung et al. [9] utilized the equivalence between minimum enclosing ball and the Mamdani-Larsen fuzzy inference system to train the latter using the former. Gacto et al. [14] proposed a multi-objective evolutionary algorithm to optimize TSK fuzzy systems for high-dimensional large-scale regression problems.\nMini-batch gradient descent (MBGD) [15], [16] based optimization, which is particularly popular in deep learning, can also be a solution to training TSK fuzzy systems on large and high-dimensional datasets. In each iteration, MBGD computes the gradients from a randomly selected small batch of data, instead of the entire dataset [17]. Different batch sizes can be used, according to the trade-off among the available memory, the training speed, and the expected generalization performance. The original MBGD used a constant learning rate to update the model\u2019s parameters [17]. Later, Sutskever et al. [18] found that adding a momentum to MBGD can improve the final training performance. However, it still needs to manually select a learning rate, and the convergence may be very slow at the beginning. Kingma and Ba [19] proposed the well-known Adam algorithm to automatically rescale the gradients to achieve adaptive and individualized learning rate for each parameter, which leads to faster convergence. However, the generalization performance of Adam may not be as good as the momentum [20]; so, Keskar and Socher [21] also tried to combine the advantages of momentum and Adam to achieve both fast convergence and good generalization. Recently, Luo et al. [22] also proposed AdaBound to improve Adam. AdaBound uses an adaptive bound for the learning rate of each parameter to force the optimizer to behave like Adam at the beginning and like stochastic GD at the end. Our very recent research [6] has found that TSK fuzzy systems can achieve better performance with AdaBound than Adam for regression problems.\nAlthough MBGD-based optimization has many advantages,\n2 it may be easily trapped into a local-minimum, and may face the gradient vanishing problem. Many other techniques have been proposed to complement MBGD for better performance. In 2015, Ioffe and Szegedy [23] proposed the well-known batch normalization (BN) approach to accelerate the training of deep neural networks by reducing the internal covariate shift1. BN normalizes the input distribution of each layer, so it also alleviates the gradient vanishing problem. It has been used almost ubiquitously in deep learning, and many variants [25]\u2013[28] have also been proposed.\nThis paper, following our previous research [6] on MBGDbased optimization of TSK fuzzy systems for regression problems, considers classification problems. We use AdaBound, as in [6], to adjust the learning rates. Additionally, we propose two novel techniques for training TSK fuzzy systems for classification problems, namely, uniform regularization (UR) and BN. Our main contributions are:\n1) We introduce a novel UR term to the cross-entropy loss\nfunction in training TSK fuzzy classifiers, which forces all rules to have similar average firing levels on the entire dataset. Experiments show that UR can improve the generalization performance of TSK fuzzy classifiers. 2) We extend BN from the training of deep neural networks\nto the training of TSK fuzzy classifiers, and show that it can speed up the convergence in training and improve the generalization performance in testing. 3) We further integrate UR and BN, and show that the\ncombined approach outperforms each individual ones.\nThe remainder of this paper is organized as follows: Section II introduces the proposed UR and BN approaches. Section III presents the experimental results to validate the performances of UR and BN. Section IV draws conclusions and points out some future research directions."}, {"heading": "II. UR AND BN", "text": "This section introduces the details of the TSK fuzzy classifier under consideration, our proposed UR for regularizing the loss function, and BN for more efficient and effective training of the TSK fuzzy classifier. Python implementation of our algorithm can be downloaded at https://github.com/YuqiCui/TSK BN UR."}, {"heading": "A. The TSK Fuzzy Classifier", "text": "Let the training dataset be D = {xn, yn}Nn=1, in which xn = [xn,1, ..., xn,D]\nT \u2208 RD\u00d71 is a D-dimensional feature vector, and yn \u2208 {1, 2, ..., C} the corresponding class label for a C-class classification problem.\n1Recently some researchers had different opinions on why BN works. For example, Santurkar et al. [24] argued that BN may not reduce the internal covariate shift; instead, it helps improve the Lipschitzness of both the loss and the gradients, and also reduces the dependency on the training hyperparameters, such as the learning rate and the regularization weights.\nSuppose the TSK fuzzy classifier has R rules, in the following form:\nRuler : IF x1 is Xr,1 and \u00b7 \u00b7 \u00b7 and xD is Xr,D,\nTHEN y1r(x) = b 1 r,0 +\nD \u2211\nd=1\nb1r,d \u00b7 xd and \u00b7 \u00b7 \u00b7\nand yCr (x) = b C r,0 +\nD \u2211\nd=1\nbCr,d \u00b7 xd\n(1)\nwhere Xr,d (r = 1, ..., R; d = 1, ..., D) is the membership function (MF) for the d-th antecedent in the r-th rule, and bcr,0 and b c r,d (c = 1, ..., C) are the consequent parameters for the c-th class. Different types of MFs can be used in our algorithm, as long as they are differentiable. For simplicity, Gaussian MFs are considered in this paper, and the membership grade of xd on Xr,d is:\n\u00b5Xr,d(xd) = exp\n(\n\u2212 (xd \u2212mr,d)\n2\n2\u03c32r,d\n)\n, (2)\nwhere mr,d and \u03c3r,d are the center and the standard deviation of the Gaussian MF, respectively.\nThe output of the TSK fuzzy classifier for the c-th class is:\nyc(x) =\n\u2211R\nr=1 fr(x)y c r(x) \u2211R\nr=1 fr(x) , (3)\nwhere\nfr(x) =\nD \u220f\nd=1\n\u00b5Xr,d(xd) = exp\n(\n\u2212 D \u2211\nd=1\n(xd \u2212mr,d) 2\n2\u03c32r,d\n)\n(4)\nis the firing level of Rule r. We can also re-write (3) as:\nyc(x) =\nR \u2211\nr=1\nfr(x)y c r(x), (5)\nwhere\nf r(x) = fr(x)\n\u2211R i=1 fi(x) (6)\nis the normalized firing level of Rule r. Once the output vector y(x) = [y1(x), ..., yC(x)]T is obtained, the input x is assigned to the class with the largest yc(x). To optimize the TSK fuzzy classifier, we need to finetune the antecedent MF parameters mr,d and \u03c3r,d, and the consequent parameters bcr,0 and b c r,d, where r = 1, ..., R, d = 1, ..., D, and c = 1, ..., C."}, {"heading": "B. Uniform Regularization (UR)", "text": "Mixture of experts (MoE) [29], which is functionally equivalent to TSK fuzzy systems [30]\u2013[32], is a popular machine learning algorithm. Its model is shown in Fig. 1. It trains multiple local experts, each taking care of only a small local region of the input space. For a new input, the gating network determines the activations (weights) of the local experts, and the final output is a weighted average of the local expert outputs.\n3\nAlthough MoE has been used successfully in many applications, it may suffer from the \u201crich get richer\u201d effect [33], [34]: once an expert is slightly better than others, it is always picked by the gating network, whereas other experts starve and are rarely used. This is bad for the generalization performance of the overall model.\nSince MoE and TSK fuzzy systems are functionally equivalent [32], TSK fuzzy systems may also suffer from the \u201crich get richer\u201d effect, i.e., only a few rules are always activated with large firing levels, whereas others have very small firing levels, and hence not adequately tuned in training. A remedy to the \u201crich get richer\u201d effect in TSK fuzzy systems is to force the rules to be fired at similar degrees in the input space, so that each rule contributes about equally to the output.\nNext, we propose UR to achieve this goal. UR forces the rules to have similar average firing levels, by\nminimizing the following loss:\n\u2113UR =\nR \u2211\nr=1\n(\n1\nN\nN \u2211\nn=1\nfr(xn)\u2212 \u03c4\n)2\n, (7)\nwhere N is the number of training examples, and \u03c4 the expected firing level of each rule, which is set to 1/C in this paper (recall that C is the number of classes). \u2113UR can then be added to the original loss function in MBGD-based training of TSK fuzzy classifiers, i.e., for each mini-batch with N training samples,\nL = \u2113+ \u03b1\u21132 + \u03bb R \u2211\nr=1\n(\n1\nN\nN \u2211\nn=1\nfr(xn)\u2212 1\nR\n)2\n, (8)\nwhere \u2113 is the cross-entropy loss between the estimated class probabilities [obtained by applying softmax to y(x)] and the true class probabilities, \u21132 the L2 regularization of the rule consequent parameters, and \u03b1 and \u03bb the trade-off parameters."}, {"heading": "C. Batch Normalization (BN)", "text": "BN [23] is a very powerful technique in optimizing deep neural networks [35]\u2013[37]. It normalizes the data distribution in each mini-batch to accelerate the training. For a mini-batch B = {xn}Nn=1, the output of BN is [23]:\nx \u2032 n = BN(xn) = \u03b3 xn \u2212mB \u221a\n\u03c3 2 B + \u01eb\n+ \u03b2, (9)\nwhere mB and \u03c3B are the mean and the standard deviation of the samples in the mini-batch, respectively, \u03b3 and \u03b2 are parameters to be learned during training, and \u01eb is usually set to 1e \u2212 8 to avoid being divided by zero. During training, exponential weighted averages of mB and \u03c3B are recorded so that they can be used in the test phase.\nSince TSK fuzzy systems and neural networks share lots of similarity [32], we can extend BN to the optimization of TSK fuzzy classifiers, as shown in Fig. 2. In the training phase, we first compute the firing level of each rule using the unmodified inputs, as in traditional TSK fuzzy systems. Then, we use BN to normalize the inputs, according to their mean and standard deviation in the current mini-batch. The normalized inputs are then used to compute the rule consequents. The final output is a weighted average of the rule consequents, the weights being the corresponding rule firing levels.\nAt the testing phase, the BN operation can be merged into the consequent layer. Assume that after training, we obtain a BN layer with learned m = (m1, ...,mD) T , \u03c3 = (\u03c31, ..., \u03c3D) T , \u03b3 and \u03b2. Then, the output yr of the r-th rule with BN is:\nyr(BN(xn)) = br,0 + \u03b3\nD \u2211\nd=1\nbr,d xn,d \u2212md \u221a\n\u03c32d + \u01eb + \u03b2D, (10)\nwhich can be re-written as:\nyr(BN(xn)) = b \u2032 r,0 +\nD \u2211\nd=1\nb\u2032r,dxn,d, (11)\nwhere\nb\u2032r,0 = br,0 + \u03b2D \u2212 \u03b3 D \u2211\nd=1\nmdbr,d \u221a\n\u03c32d + \u01eb , (12)\nb\u2032r,d = \u03b3 br,d \u221a\n\u03c32d + \u01eb . (13)\nBy doing this, the original architecture of the TSK fuzzy classifier is kept unchanged.\nWe also tested two variants of BN, as shown in Fig. 3. The TSK with global BN (TSK-MBGD-UR-GBN) approach in Fig. 3(a) uses the BN normalized inputs in both antecedents\n4 and consequents to compute the final output. In this case, the output of TSK-MBGD-UR-GBN for Class c is:\nyc(x) = R \u2211\nr=1\nfr(BN(x))y c r(BN(x)). (14)\nThe TSK with rule-specific BN (TSK-MBGD-UR-RBN) approach in Fig. 3(b) uses the raw inputs to compute the antecedents, and rule-specific BN to compute each consequent individually. The output of TSK-MBGD-UR-RBN for Class c is:\nyc(x) = R \u2211\nr=1\nf r(x)y c r(BNr(x)), (15)\nwhere BNr represents the BN operation for the r-th rule.\nTSK-MBGD-UR-GBN has the same computational cost as TSK-MBGD-UR-BN, but TSK-MBGD-UR-RBN has R times more BN parameters, and hence higher computational cost. Both of them can be re-expressed in the original TSK architecture. We also evaluate their performances in Section III-G."}, {"heading": "III. EXPERIMENTS AND RESULTS", "text": "This section validates the performances of our proposed UR and BN on multiple datasets from various application domains, with varying size and feature dimensionality."}, {"heading": "A. Datasets", "text": "We evaluated our proposed algorithms on 12 classification datasets from the UCI Machine Learning Repository2. Their characteristics are summarized in Table I. For each dataset, we randomly selected 70% samples as the training set and the remaining 30% as the test set for 30 times to get 30 different data splits. We ran each algorithm on these 30 data splits and report the average performance.\nSome datasets contain both numerical features and categorical features. The categorical features were converted into numerical ones by one-hot coding. We z-normalized each feature using the mean and standard deviation computed from the training set."}, {"heading": "B. Algorithms", "text": "We compared nine algorithms to validate our proposed approaches. Among them, four were tree based approaches (DT, RF, PART, and JRip), one was a TSK fuzzy system optimized by a traditional approach (TSK-FCM-LSE), and the remaining four were TSK fuzzy systems optimized by MBGD based approaches (TSK-MBGD, TSK-MBGD-BN, TSK-MBGD-UR, TSK-MBGD-UR-BN).\nThe details of these nine algorithms are as follows: 1) DT: Decision tree implemented in scikit-learn3 in\nPython. We used 5-fold cross-validation to select the maximum depth of the tree from {3, 4, 5, 6, 7} on the training set. Other parameters were set by default.\n2http://archive.ics.uci.edu/ml/index.php 3https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTree\nClassifier.html\n5 2) RF: Random forest implemented in scikit-learn4 in\nPython. We set the number of trees to 20 and used 5- fold cross-validation to select the maximum depth of the trees from {3, 4, 5, 6, 7} on the training set. Other parameters were set by default. 3) PART [38]: The PART (partial decision tree) classifier\nimplemented in RWeka5. All parameters were set by default. 4) JRip [39]: The RIPPER (Repeated Incremental Pruning\nto Produce Error Reduction) classifier implemented in RWeka. All parameters were set by default. 5) TSK-FCM-LSE [40]: We used fuzzy c-means (FCM) clustering to estimate the antecedent parameters, and\nLSE with L2 regularization to estimate the consequent parameters. 6) TSK-MBGD: We used MBGD and AdaBound [22] to\noptimize both the antecedent and the consequent parameters. 7) TSK-MBGD-UR: We used MBGD, AdaBound and UR\n(Section II-B) to optimize both the antecedent and the consequent parameters. The UR weight \u03bb in (8) was selected from {0.1, 1, 10, 20, 50} by cross-validation on the training set. 8) TSK-MBGD-BN: We used MBGD, AdaBound and BN\n(Section II-C) to optimize both the antecedent and the consequent parameters. 9) TSK-MBGD-UR-BN: We used MBGD, AdaBound, BN\nand UR to optimize both the antecedent and the consequent parameters. The UR weight \u03bb in (8) was selected from {0.1, 1, 10, 20, 50} by cross-validation on the training set.\nFor TSK-FCM-LSE, TSK-MBGD, TSK-MBGD-BN, TSK-MBGD-UR and TSK-MBGD-UR-BN, we set the L2 regularization weight \u03b1 = 0.05, and the number of rules R = 20. For TSK-MBGD, TSK-MBGD-BN, TSK-MBGD-UR and TSK-MBGD-UR-BN, we set the learning rate of AdaBound to 0.01, following our previous work [6]. In order to make use of all data in the training set and to reduce overfitting simultaneously, we randomly sampled 20% data from the training set and trained the TSK model with early stopping five times. The maximum epoch number was 2,000, and the patience of early stopping 40. We recorded the number of epochs at stopping in each run, and trained the final model with the average stopping epoch number on the entire training set.\nk-mean clustering was used in the MBGD-based algorithms (TSK-MBGD, TSK-MBGD-BN, TSK-MBGD-UR, and TSK-MBGD-UR-BN) to initialize the antecedent parameters. We performed k-means clustering on the training set, where k equaled R, the number of rules. We then initialized the rule centers to the cluster centers, and randomly initialized the standard deviation \u03c3r,d from a Gaussian distribution N (1, 0.2). For the consequent parameters, we set the initial bias of each rule to zero, and the attribute weight br,d (r = 1, ..., R;\n4https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.Random ForestClassifier.html\n5https://cran.r-project.org/web/packages/RWeka/index.html\nd = 1, ..., D) randomly from a uniform distribution U(\u22121, 1)."}, {"heading": "C. Performance Measures", "text": "The raw classification accuracy (RCA), which is the total number of correctly classified test samples divided by the total number of test samples, was used as our primary performance measure.\nSince some datasets have significant class imbalance, in addition to the RCA, we also computed the balanced classification accuracy (BCA), which is the mean of the per-class RCAs, as our second performance measure."}, {"heading": "D. Experimental Results", "text": "The average test RCAs and BCAs are shown in Tables II and III, respectively. The largest value (best performance) on each dataset is marked in bold. To facilitate the comparison, we also show the ranks of the RCAs and BCAs in Tables IV and V, respectively.\nThe following observations can be made from the above\nfour tables:\n1) Generally, UR improved both RCA and BCA. Comparing\nTSK-MBGD with TSK-MBGD-UR, and TSK-MBGD-BN with TSK-MBGD-UR-BN, we can conclude that generally UR improved the classification performance, regardless of whether BN was used or not. The average ranks in the last row of Tables IV and V demonstrate this more clearly: the average rank of TSK-MBGD-UR (TSK-MBGD-UR-BN) was smaller than that of TSK-MBGD (TSK-MBGD-BN). 2) Generally, BN improved both RCA and BCA. Comparing\nTSK-MBGD with TSK-MBGD-BN, and TSK-MBGD-UR with TSK-MBGD-UR-BN, we can conclude that generally BN improved the classification performance, regardless of whether UR was used or not. The average ranks in the last row of Tables IV and V demonstrate this more clearly: the average rank of TSK-MBGD-BN (TSK-MBGD-UR-BN) was smaller than that of TSK-MBGD (TSK-MBGD-UR). 3) Generally, integrating BN and UR achieved\nfurther RCA and BCA improvements. Comparing TSK-MBGD-UR-BN with TSK-MBGD, TSK-MBGD-UR and TSK-MBGD-BN, we can conclude that TSK-MBGD-UR-BN almost always performed the best on both RCA and BCA, as shown in Fig. 4. This indicated that BN and UR are somehow complementary, and hence integrating them may achieve better performance than using each one alone. 4) Overall, TSK-MBGD-UR-BN achieved the best perfor-\nmance among the nine algorithms. The last row of Table V shows that TSK-MBGD-UR-BN achieved the best average BCA performance, and the last row of Table IV shows that TSK-MBGD-UR-BN achieved the second best average RCA performance. Interestingly, RF had the best average rank on RCA, but only ranked the fifth on BCA, suggesting that RF may tend to overlook the minority classes. On the contrary, TSK-MBGD-UR-BN performed well on both RCA and BCA.\n6\n7\nTABLE VI p-VALUES OF NON-PARAMETRIC MULTIPLE COMPARISONS ON THE RCAS AND BCAS.\nMetric CART RF JRip PART TSK-FCM-LSE TSK-MBGD TSK-MBGD-BN TSK-MBGD-UR\nTSK-MBGD-BN RCA 0.0097 0.0628 0.1368 0.3239 0.2723 0.0000 - - BCA 0.1547 0.1627 0.4508 0.0981 0.4518 0.0000 - - TSK-MBGD-UR RCA 0.0001 0.3740 0.0090 0.0460 0.2452 0.0000 0.1146 - BCA 0.0036 0.2900 0.0912 0.4420 0.0921 0.0000 0.0731 -\nTSK-MBGD-UR-BN RCA 0.0000 0.2113 0.0002 0.0025 0.0404 0.0000 0.0094 0.1409 BCA 0.0000 0.0291 0.0021 0.0730 0.0022 0.0000 0.0013 0.0986"}, {"heading": "E. Statistical Analysis", "text": "To further evaluate the performance improvement of our proposed TSK-MBGD-UR-BN over others, we also performed non-parametric multiple comparison tests on the RCAs and BCAs using Dunn\u2019s procedure [41], with a p-value correction using the False Discovery Rate method [42]. The results are shown in Table VI, where the statistically significant ones are marked in bold.\nTable VI demonstrates that our proposed BN and UR can significantly improve the generalization performance of the traditional MBGD optimization for TSK fuzzy classifiers. TSK-MBGD-UR-BN statistically significantly outperformed CART, JRip, PART, TSK-MBGD and TSK-MBGD-BN on RCA, and also statistically significantly outperformed CART, JRip, TSK-FCM-LSE, TSK-MBGD and TSK-MBGD-BN on BCA. Although the performance improvement of TSK-MBGD-UR-BN over RF and TSK-MBGD-UR were not statistically significant, they were quite close to the threshold, especially for the BCA."}, {"heading": "F. Effect of UR", "text": "As mentioned in Section II-B, using MBGD to optimize the TSK fuzzy system may face the \u201crich get richer\u201d problem. To demonstrate this, Fig. 5 shows the average normalized firing levels of the rules on the entire dataset after the four\nMBGD-based TSK models were trained, on three representative datasets. For TSK-MBGD, a few \u201crichest\u201d rules had much larger average firing levels than others, and hence the rules contributed significantly differently to the output. BN may help alleviate this problem a little bit, as the average normalized rule firing levels in TSK-MBGD-BN were more uniform than those in TSK-MBGD, which also resulted in better classification performances, as demonstrated in the previous subsection. However, UR had the most direct effect on alleviating the \u201crich get richer\u201d problem, as TSK-MBGD-UR (TSK-MBGD-UR-BN) had much more uniform average normalized rule firing levels than TSK-MBGD (TSK-MBGD-BN), and hence also better classification performance.\nNote that we set \u03c4 = 1/C in (8), where C = 6 for Satellite, C = 4 for Vehicle, and C = 2 for Biodeg. However, the actual average normalized rule firing levels were not exactly \u03c4 on these datasets. Our experiments showed that although UR cannot guarantee the average normalized rule firing levels to be around \u03c4 , it can indeed make the rules fired more uniformly. Why may making the rules fired more uniformly help improve the generalization performance? In [32] we pointed out that a TSK fuzzy system may be functionally equivalent to an adaptive stacking ensemble model, in which each rule can be viewed as a base learner, and the aggregation weights equal the corresponding rule firing levels. When the rule firing levels are more uniform, generally more rules are utilized in computing the output, i.e., more base learners are used in the stacking ensemble model, which may help improve the generalization performance.\nTo demonstrate this, we computed the entropy of the nor-\nmalized rule firing levels for each input example:\nE = \u2212 R \u2211\nr\nf r log fr, (16)\nwhere fr is the normalized firing level of the r-th rule. Generally, a larger entropy means more rules were fired.\nFig. 6 shows the histogram of the entropy distributions on the Satellite dataset. When training TSK fuzzy systems without UR, many samples had close to zero E, i.e., all except one rule had firing levels close to zero. When UR was added, the number of examples with close to zero E decreased significantly, i.e., more rules with larger firing levels were used in computing the output."}, {"heading": "G. Effect of BN", "text": "We also used the Satellite dataset to analyze the effect of\nBN.\n8 1 2 4 6 8 10 12 14 16 18 20 Sorted Rule Index 0 0.05 0.1 0.15 0.2 A vg N or m . R ul e Fi ri ng L ev el TSK-MBGD TSK-MBGD-BN TSK-MBGD-UR TSK-MBGD-UR-BN\n(a)\n1 2 4 6 8 10 12 14 16 18 20 Sorted Rule Index\n0\n0.05\n0.1\n0.15\n0.2\n0.25\nA vg\nN or\nm . R\nul e\nFi ri\nng L\nev el\nTSK-MBGD TSK-MBGD-BN\nTSK-MBGD-UR TSK-MBGD-UR-BN\n(b)\n1 2 4 6 8 10 12 14 16 18 20 Sorted Rule Index\n0\n0.1\n0.2\n0.3\n0.4\nA vg\nN or\nm . R\nul e\nFi ri\nng L\nev el\nTSK-MBGD TSK-MBGD-BN\nTSK-MBGD-UR TSK-MBGD-UR-BN\n(c)\nWe set the UR weight \u03bb = 1 and recorded the training loss and test BCA in the first 20 training epochs. This process was repeated 10 times, and the average results are shown in Figs. 7(a) and 7(b), respectively. BN resulted in smaller training losses and better generalization performances in testing.\nThere is still no agreement on theoretically why BN is helpful in optimizing deep neural networks [24]; thus, it is also challenging to analyze theoretically why BN can help the optimization of TSK fuzzy systems. Nevertheless, we performed an empirical study to peek into this, by recording the L1 norm of the antecedent parameters\u2019 gradients and the L1 norm of the consequent parameters\u2019 gradients in the first 20 training epochs on the Satellite dataset. The results are shown in Figs. 7(c) and 7(d), respectively. BN significantly increased the gradients of both antecedent and consequent parameters. With the same learning rate, this can expedite the convergence.\nWe also evaluated the performances of the\n9 two BN variants introduced in Section II-C. The BCAs of TSK-MBGD-UR, TSK-MBGD-UR-BN, TSK-MBGD-UR-GBN and TSK-MBGD-UR-RBN are shown in Table VII. TSK-MBGD-UR-BN performed the best, and TSK-MBGD-UR-GBN the worst. Since TSK-MBGD-UR-RBN had more parameters to optimize, its training was not as stable as TSK-MBGD-UR-BN and TSK-MBGD-UR-GBN. Therefore, TSK-MBGD-UR-BN is the best choice."}, {"heading": "H. Effect of the Batch Size", "text": "The batch size is an important hyper-parameter in MBGDbased optimization. It determines the memory requirement and the convergence speed in training. A larger batch size leads to faster convergence but also requires more memory. In [43], the authors analyzed the effect of the batch size on the generalization performance. Their results showed that using a larger batch size causes degradation in the model generalization performance, because it tends to converge to a shaper minimum, which makes the model sensitive to noise. A similar finding was presented in [44] that a smaller batch size leads to more stable and reliable training. However, since we used the mean, standard deviation and mean firing level of each batch to compute the losses, too small batch size may also lead to poor performance.\nWe validated our model on the Satellite dataset with batch size varying from 16 to 2,048. The test RCAs and BCAs averaged over 30 runs are shown in Fig. 8. The test performance decreased with too small or too large batch sizes. For TSK-MBGD-UR-BN, it seems that a batch size within [64, 256] is a good choice."}, {"heading": "IV. CONCLUSIONS AND FUTURE RESEARCH", "text": "TSK fuzzy systems are powerful and frequently used machine learning models, for both regression and classification. However, they may not be easily applicable to large and/or high-dimensional datasets. Our very recent research [6] proposed an MBGD-based efficient and effective training algorithm (MBGD-RDA) for TSK fuzzy systems for regression problems. This paper has proposed an MBGD-based algorithm, TSK-MBGD-UR-BN, to train TSK fuzzy systems for classification problems. It can deal with both small and big data with different dimensionalities, and may be the only algorithm that can train a TSK fuzzy classifier on big and high-dimensional datasets. TSK-MBGD-UR-BN integrates two novel techniques, which are also first proposed in this paper:\n1) UR, which is a regularization term in the loss function\nto ensure that all rules are fired similarly on average, and hence to improve the generalization performance. 2) BN, which normalizes the inputs in computing the rule\nconsequents to speedup the convergence and to improve the generalization.\nExperiments on 12 UCI datasets from various domains, with varying size and feature dimensionality, demonstrated that each of UR and BN has its own unique advantages, and integrating them can achieve the best classification performance. TSK-MBGD-UR-BN, together with MBGD-RDA proposed in [6], shall greatly promote the applications of TSK fuzzy systems in both classification and regression, especially for big data problems.\nThe proposed TSK-MBGD-UR-BN also has some limitations, which will be addressed in our future research. First, for very high dimensional data, fuzzy partitions of the input space become very complicated, and numeric underflow may happen when the product t-norm is used. Further research shall consider rules that automatically select the most relevant attributes as the antecedents. Second, we shall investigate how to improve the interpretability of data-driven TSK fuzzy systems. This is also partially linked to the first problem, as reducing the number of antecedents can improve the interpretability of the rules."}], "title": "Optimize TSK Fuzzy Systems for Classification Problems: Mini-Batch Gradient Descent with Uniform Regularization and Batch Normalization", "year": 2020}
+{
+  "abstractText": "Takagi-Sugeno-Kang (TSK) fuzzy systems are flexible and interpretable machine learning models; however, they may not be easily optimized when the data size is large, and/or the data dimensionality is high. This paper proposes a minibatch gradient descent (MBGD) based algorithm to efficiently and effectively train TSK fuzzy classifiers. It integrates two novel techniques: 1) uniform regularization (UR), which forces the rules to have similar average contributions to the output, and hence to increase the generalization performance of the TSK classifier; and, 2) batch normalization (BN), which extends BN from deep neural networks to TSK fuzzy classifiers to expedite the convergence and improve the generalization performance. Experiments on 12 UCI datasets from various application domains, with varying size and dimensionality, demonstrated that UR and BN are effective individually, and integrating them can further improve the classification performance.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Yuqi Cui"
+    },
+    {
+      "affiliations": [],
+      "name": "Dongrui Wu"
+    },
+    {
+      "affiliations": [],
+      "name": "Jian Huang"
+    }
+  ],
+  "id": "SP:578207beacc8c724ae8e4825d0928a96a6affa47",
+  "references": [
+    {
+      "authors": [
+        "A.-T. Nguyen",
+        "T. Taniguchi",
+        "L. Eciolaza",
+        "V. Campos",
+        "R. Palhares",
+        "M. Sugeno"
+      ],
+      "title": "Fuzzy control systems: Past, present and future",
+      "venue": "IEEE Computational Intelligence Magazine, vol. 14, no. 1, pp. 56\u201368, 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Y. Shi",
+        "R. Eberhart",
+        "Y. Chen"
+      ],
+      "title": "Implementation of evolutionary fuzzy systems",
+      "venue": "IEEE Trans. on Fuzzy Systems, vol. 7, no. 2, pp. 109\u2013119, 1999.",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "D. Wu",
+        "W.W. Tan"
+      ],
+      "title": "Genetic learning and performance evaluation of interval type-2 fuzzy logic controllers",
+      "venue": "Engineering Applications of Artificial Intelligence, vol. 19, no. 8, pp. 829\u2013841, 2006.",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "L.-X. Wang",
+        "J.M. Mendel"
+      ],
+      "title": "Back-propagation of fuzzy systems as nonlinear dynamic system identifiers",
+      "venue": "Proc. IEEE Int\u2019l Conf. on Fuzzy Systems, San Diego, CA, Sep. 1992, pp. 1409\u20131418.",
+      "year": 1992
+    },
+    {
+      "authors": [
+        "J.S.R. Jang"
+      ],
+      "title": "ANFIS: Adaptive-network-based fuzzy inference system",
+      "venue": "IEEE Trans. on Systems, Man, and Cybernetics, vol. 23, no. 3, pp. 665\u2013 685, 1993.",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "D. Wu",
+        "Y. Yuan",
+        "J. Huang",
+        "Y. Tan"
+      ],
+      "title": "Optimize TSK fuzzy systems for big data regression problems: Mini-batch gradient descent with regularization, DropRule and AdaBound (MBGD-RDA)",
+      "venue": "IEEE Trans. on Fuzzy Systems, 2020, in press. [Online]. Available: https://arxiv.org/abs/1903.10951 10",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Y. Jin"
+      ],
+      "title": "Fuzzy modeling of high-dimensional systems: complexity reduction and interpretability improvement",
+      "venue": "IEEE Trans. on Fuzzy Systems, vol. 8, no. 2, pp. 212\u2013221, 2000.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Y. Deng",
+        "Z. Ren",
+        "Y. Kong",
+        "F. Bao",
+        "Q. Dai"
+      ],
+      "title": "A hierarchical fused fuzzy deep neural network for data classification",
+      "venue": "IEEE Trans. on Fuzzy Systems, vol. 25, no. 4, pp. 1006\u20131012, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "F.-L. Chung",
+        "Z. Deng",
+        "S. Wang"
+      ],
+      "title": "From minimum enclosing ball to fast fuzzy inference system training on large datasets",
+      "venue": "IEEE Trans. on Fuzzy Systems, vol. 17, no. 1, pp. 173\u2013184, 2008.",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "M. Nilashi",
+        "O. Bin Ibrahim",
+        "N. Ithnin",
+        "N.H. Sarmin"
+      ],
+      "title": "A multicriteria collaborative filtering recommender system for the tourism domain using Expectation Maximization (EM) and PCA\u2013ANFIS",
+      "venue": "Electronic Commerce Research and Applications, vol. 14, no. 6, pp. 542\u2013562, 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "C.K. Lau",
+        "K. Ghosh",
+        "M.A. Hussain",
+        "C.R.C. Hassan"
+      ],
+      "title": "Fault diagnosis of Tennessee Eastman process with multi-scale PCA and ANFIS",
+      "venue": "Chemometrics and Intelligent Laboratory Systems, vol. 120, pp. 1\u201314, 2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Z. Deng",
+        "K.-S. Choi",
+        "Y. Jiang",
+        "J. Wang",
+        "S. Wang"
+      ],
+      "title": "A survey on soft subspace clustering",
+      "venue": "Information Sciences, vol. 348, pp. 84\u2013106, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Z. Deng",
+        "K.-S. Choi",
+        "F.-L. Chung",
+        "S. Wang"
+      ],
+      "title": "Enhanced soft subspace clustering integrating within-cluster and between-cluster information",
+      "venue": "Pattern Recognition, vol. 43, no. 3, pp. 767\u2013781, 2010.",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "M.J. Gacto",
+        "M. Galende",
+        "R. Alcal\u00e1",
+        "F. Herrera"
+      ],
+      "title": "METSK-HDe: A multiobjective evolutionary algorithm to learn accurate TSK-fuzzy systems in high-dimensional and large-scale regression problems",
+      "venue": "Information Sciences, vol. 276, pp. 63\u201379, 2014.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "S. Ruder"
+      ],
+      "title": "An overview of gradient descent optimization algorithms",
+      "venue": "arXiv preprint arXiv:1609.04747, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Bottou"
+      ],
+      "title": "Large-scale machine learning with stochastic gradient descent",
+      "venue": "Proc. Int\u2019l Conf. on Computational Statistics. Paris, France: Springer, Aug. 2010, pp. 177\u2013186.",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "I. Sutskever",
+        "J. Martens",
+        "G. Dahl",
+        "G. Hinton"
+      ],
+      "title": "On the importance of initialization and momentum in deep learning",
+      "venue": "Proc. Int\u2019l Conf. on Machine Learning, Atlanta, GA, Jun. 2013, pp. 1139\u20131147.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "D.P. Kingma",
+        "J. Ba"
+      ],
+      "title": "Adam: A method for stochastic optimization",
+      "venue": "Proc. Int\u2019l Conf. on Learning Representations, San Diego, CA, May 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "A.C. Wilson",
+        "R. Roelofs",
+        "M. Stern",
+        "N. Srebro",
+        "B. Recht"
+      ],
+      "title": "The marginal value of adaptive gradient methods in machine learning",
+      "venue": "Proc. Advances in Neural Information Processing Systems, Long Beach, CA, Dec. 2017, pp. 4148\u20134158.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "N.S. Keskar",
+        "R. Socher"
+      ],
+      "title": "Improving generalization performance by switching from Adam to SGD",
+      "venue": "arXiv preprint arXiv:1712.07628, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "L. Luo",
+        "Y. Xiong",
+        "Y. Liu",
+        "X. Sun"
+      ],
+      "title": "Adaptive gradient methods with dynamic bound of learning rate",
+      "venue": "Proc. Int\u2019l Conf. on Learning Representations, New Orleans, LA, May 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Ioffe",
+        "C. Szegedy"
+      ],
+      "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift",
+      "venue": "Proc. Int\u2019l Conf. on Machine Learning, Lille, France, Jul. 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S. Santurkar",
+        "D. Tsipras",
+        "A. Ilyas",
+        "A. Madry"
+      ],
+      "title": "How does batch normalization help optimization?",
+      "venue": "in Proc. Advances in Neural Information Processing Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J.L. Ba",
+        "J.R. Kiros",
+        "G.E. Hinton"
+      ],
+      "title": "Layer normalization",
+      "venue": "arXiv preprint arXiv:1607.06450, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Fan"
+      ],
+      "title": "Revisit fuzzy neural network: Demystifying batch normalization and ReLU with generalized hamming network",
+      "venue": "Proc. Advances in Neural Information Processing Systems, Long Beach, CA, Dec. 2017, pp. 1923\u20131932.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D.-A. Clevert",
+        "T. Unterthiner",
+        "S. Hochreiter"
+      ],
+      "title": "Fast and accurate deep network learning by exponential linear units (ELUs)",
+      "venue": "arXiv preprint arXiv:1511.07289, 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Y. Wu",
+        "K. He"
+      ],
+      "title": "Group normalization",
+      "venue": "Proc. European Conf. on Computer Vision, Munich, Germany, Sep. 2018, pp. 3\u201319.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R.A. Jacobs",
+        "M.I. Jordan",
+        "S.J. Nowlan",
+        "G.E. Hinton"
+      ],
+      "title": "Adaptive mixtures of local experts",
+      "venue": "Neural Computation, vol. 3, no. 1, pp. 79\u201387, 1991.",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "H. Bersini",
+        "G. Bontempi"
+      ],
+      "title": "Now comes the time to defuzzify neurofuzzy models",
+      "venue": "Fuzzy Sets and Systems, vol. 90, no. 2, pp. 161\u2013169, 1997.",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "H. Andersen",
+        "A. Lotfi",
+        "L. Westphal"
+      ],
+      "title": "Comments on \u2018functional equivalence between radial basis function networks and fuzzy inference systems\u2019 [and author\u2019s reply",
+      "venue": "IEEE Trans. on Neural Networks, vol. 9, no. 6, pp. 1529\u20131532, 1998.",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "D. Wu",
+        "C.-T. Lin",
+        "J. Huang",
+        "Z. Zeng"
+      ],
+      "title": "On the functional equivalence of TSK fuzzy systems to neural networks, mixture of experts, CART, and stacking ensemble regression",
+      "venue": "IEEE Trans. on Fuzzy Systems, 2020, in press. [Online]. Available: https://arxiv.org/abs/1903.10572",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "T. Shen",
+        "M. Ott",
+        "M. Auli",
+        "M. Ranzato"
+      ],
+      "title": "Mixture models for diverse machine translation: Tricks of the trade",
+      "venue": "arXiv preprint arXiv:1902.07816, 2019.",
+      "year": 1902
+    },
+    {
+      "authors": [
+        "N. Shazeer",
+        "A. Mirhoseini",
+        "K. Maziarz",
+        "A. Davis",
+        "Q. Le",
+        "G. Hinton",
+        "J. Dean"
+      ],
+      "title": "Outrageously large neural networks: The sparsely-gated mixture-of-experts layer",
+      "venue": "arXiv preprint arXiv:1701.06538, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "K. He",
+        "X. Zhang",
+        "S. Ren",
+        "J. Sun"
+      ],
+      "title": "Deep residual learning for image recognition",
+      "venue": "Proc. IEEE Conf. on Computer Vision and Pattern Recognition, Las Vegas, NV, Jun. 2016, pp. 770\u2013778.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "S. Zagoruyko",
+        "N. Komodakis"
+      ],
+      "title": "Wide residual networks",
+      "venue": "arXiv preprint arXiv:1605.07146, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "G. Huang",
+        "Z. Liu",
+        "L. Van Der Maaten",
+        "K.Q. Weinberger"
+      ],
+      "title": "Densely connected convolutional networks",
+      "venue": "Proc. IEEE Conf. on Computer Vision and Pattern Recognition, Honolulu, HI, Jul. 2017, pp. 4700\u20134708.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "E. Frank",
+        "I.H. Witten"
+      ],
+      "title": "Generating accurate rule sets without global optimization",
+      "venue": "Proc. Int\u2019l Conf. on Machine Learning, San Francisco, CA, Jul. 1998.",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "W.W. Cohen"
+      ],
+      "title": "Repeated incremental pruning to produce error reduction",
+      "venue": "Proc. Int\u2019l Conf. on Machine Learning, Tahoe City, CA, Jun. 1995.",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "J.-S.R. Jang",
+        "C.-T. Sun",
+        "E. Mizutani"
+      ],
+      "title": "Neuro-fuzzy and soft computing-a computational approach to learning and machine intelligence",
+      "venue": "IEEE Trans. on Automatic Control, vol. 42, no. 10, pp. 1482\u2013 1484, 1997.",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "O.J. Dunn"
+      ],
+      "title": "Multiple comparisons using rank sums",
+      "venue": "Technometrics, vol. 6, no. 3, pp. 241\u2013252, 1964.",
+      "year": 1964
+    },
+    {
+      "authors": [
+        "Y. Benjamini",
+        "Y. Hochberg"
+      ],
+      "title": "Controlling the false discovery rate: A practical and powerful approach to multiple testing",
+      "venue": "Journal of the Royal Statistical Society: Series B, vol. 57, no. 1, pp. 289\u2013300, 1995.",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "N.S. Keskar",
+        "D. Mudigere",
+        "J. Nocedal",
+        "M. Smelyanskiy",
+        "P.T.P. Tang"
+      ],
+      "title": "On large-batch training for deep learning: Generalization gap and sharp minima",
+      "venue": "Proc. Int\u2019l Conf. on Learning Representations, Toulon, France, Apr. 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Masters",
+        "C. Luschi"
+      ],
+      "title": "Revisiting small batch training for deep neural networks",
+      "venue": "arXiv preprint arXiv:1804.07612, 2018.",
+      "year": 1804
+    }
+  ],
+  "sections": [
+    {
+      "text": "ar X\niv :1\n90 8.\n00 63\n6v 3\n[ cs\n.L G\n] 9\nJ an\n2 02\n0 1 Optimize TSK Fuzzy Systems for Classification Problems: Mini-Batch Gradient Descent with Uniform Regularization and Batch Normalization Yuqi Cui, Dongrui Wu and Jian Huang\nAbstract\u2014Takagi-Sugeno-Kang (TSK) fuzzy systems are flexible and interpretable machine learning models; however, they may not be easily optimized when the data size is large, and/or the data dimensionality is high. This paper proposes a minibatch gradient descent (MBGD) based algorithm to efficiently and effectively train TSK fuzzy classifiers. It integrates two novel techniques: 1) uniform regularization (UR), which forces the rules to have similar average contributions to the output, and hence to increase the generalization performance of the TSK classifier; and, 2) batch normalization (BN), which extends BN from deep neural networks to TSK fuzzy classifiers to expedite the convergence and improve the generalization performance. Experiments on 12 UCI datasets from various application domains, with varying size and dimensionality, demonstrated that UR and BN are effective individually, and integrating them can further improve the classification performance.\nIndex Terms\u2014Batch normalization, mini-batch gradient descent, TSK fuzzy classifier, uniform regularization\nI. INTRODUCTION\nTakagi-Sugeno-Kang (TSK) fuzzy systems [1] have achieved great success in numerous applications, including both classification and regression problems. Many optimization approaches have been proposed for them.\nThere are generally three strategies for fine-tuning the TSK fuzzy system parameters after initialization: 1) evolutionary algorithms [2], [3]; 2) gradient descent (GD) based algorithms [4]; and, 3) GD plus least squares estimation (LSE), represented by the popular adaptive-network-based fuzzy inference system (ANFIS) [5]. However, these approaches may have challenges when the size and/or the dimensionality of the data increase. Evolutionary algorithms need to keep a large population of candidate solutions, and evaluate the fitness of each, which result in high computational cost and heavy memory requirement for big data. Traditional GD needs to compute the gradients from the entire dataset to iteratively update the model parameters, which may be very slow, or even impossible, when the data size is very large. The memory requirement and computational cost of LSE also increase rapidly when the data size and/or dimensionality increase. Additionally, as shown in [6], ANFIS may result in significant overfitting in regression problems.\nY. Cui, D. Wu and J. Huang are with the Key Laboratory of the Ministry of Education for Image Processing and Intelligent Control, School of Artificial Intelligence and Automation, Huazhong University of Science and Technology, Wuhan 430074, China. Email: yqcui@hust.edu.cn, drwu@hust.edu.cn, huang jan@hust.edu.cn.\nD. Wu and J. Huang are the corresponding authors.\nMany efforts have been spent to tackling the difficulty in optimizing the TSK fuzzy systems on big and/or highdimensional data [7]\u2013[9]. Dimensionality reduction and/or feature selection are usually used to reduce the number of fuzzy partitions (rules). Traditional dimensionality reduction techniques such as principal component analysis (PCA) has been used for TSK fuzzy system optimization [10], [11]. There are also methods focusing on learning a sparse subspace of the original feature space to reduce the number of antecedents in each rule [12], [13]. Once the number of antecedents is determined, different optimization approaches can be used to tune the TSK fuzzy system on large datasets. For example, Chung et al. [9] utilized the equivalence between minimum enclosing ball and the Mamdani-Larsen fuzzy inference system to train the latter using the former. Gacto et al. [14] proposed a multi-objective evolutionary algorithm to optimize TSK fuzzy systems for high-dimensional large-scale regression problems.\nMini-batch gradient descent (MBGD) [15], [16] based optimization, which is particularly popular in deep learning, can also be a solution to training TSK fuzzy systems on large and high-dimensional datasets. In each iteration, MBGD computes the gradients from a randomly selected small batch of data, instead of the entire dataset [17]. Different batch sizes can be used, according to the trade-off among the available memory, the training speed, and the expected generalization performance. The original MBGD used a constant learning rate to update the model\u2019s parameters [17]. Later, Sutskever et al. [18] found that adding a momentum to MBGD can improve the final training performance. However, it still needs to manually select a learning rate, and the convergence may be very slow at the beginning. Kingma and Ba [19] proposed the well-known Adam algorithm to automatically rescale the gradients to achieve adaptive and individualized learning rate for each parameter, which leads to faster convergence. However, the generalization performance of Adam may not be as good as the momentum [20]; so, Keskar and Socher [21] also tried to combine the advantages of momentum and Adam to achieve both fast convergence and good generalization. Recently, Luo et al. [22] also proposed AdaBound to improve Adam. AdaBound uses an adaptive bound for the learning rate of each parameter to force the optimizer to behave like Adam at the beginning and like stochastic GD at the end. Our very recent research [6] has found that TSK fuzzy systems can achieve better performance with AdaBound than Adam for regression problems.\nAlthough MBGD-based optimization has many advantages,\n2 it may be easily trapped into a local-minimum, and may face the gradient vanishing problem. Many other techniques have been proposed to complement MBGD for better performance. In 2015, Ioffe and Szegedy [23] proposed the well-known batch normalization (BN) approach to accelerate the training of deep neural networks by reducing the internal covariate shift1. BN normalizes the input distribution of each layer, so it also alleviates the gradient vanishing problem. It has been used almost ubiquitously in deep learning, and many variants [25]\u2013[28] have also been proposed.\nThis paper, following our previous research [6] on MBGDbased optimization of TSK fuzzy systems for regression problems, considers classification problems. We use AdaBound, as in [6], to adjust the learning rates. Additionally, we propose two novel techniques for training TSK fuzzy systems for classification problems, namely, uniform regularization (UR) and BN. Our main contributions are:\n1) We introduce a novel UR term to the cross-entropy loss\nfunction in training TSK fuzzy classifiers, which forces all rules to have similar average firing levels on the entire dataset. Experiments show that UR can improve the generalization performance of TSK fuzzy classifiers. 2) We extend BN from the training of deep neural networks\nto the training of TSK fuzzy classifiers, and show that it can speed up the convergence in training and improve the generalization performance in testing. 3) We further integrate UR and BN, and show that the\ncombined approach outperforms each individual ones.\nThe remainder of this paper is organized as follows: Section II introduces the proposed UR and BN approaches. Section III presents the experimental results to validate the performances of UR and BN. Section IV draws conclusions and points out some future research directions."
+    },
+    {
+      "heading": "II. UR AND BN",
+      "text": "This section introduces the details of the TSK fuzzy classifier under consideration, our proposed UR for regularizing the loss function, and BN for more efficient and effective training of the TSK fuzzy classifier. Python implementation of our algorithm can be downloaded at https://github.com/YuqiCui/TSK BN UR."
+    },
+    {
+      "heading": "A. The TSK Fuzzy Classifier",
+      "text": "Let the training dataset be D = {xn, yn}Nn=1, in which xn = [xn,1, ..., xn,D]\nT \u2208 RD\u00d71 is a D-dimensional feature vector, and yn \u2208 {1, 2, ..., C} the corresponding class label for a C-class classification problem.\n1Recently some researchers had different opinions on why BN works. For example, Santurkar et al. [24] argued that BN may not reduce the internal covariate shift; instead, it helps improve the Lipschitzness of both the loss and the gradients, and also reduces the dependency on the training hyperparameters, such as the learning rate and the regularization weights.\nSuppose the TSK fuzzy classifier has R rules, in the following form:\nRuler : IF x1 is Xr,1 and \u00b7 \u00b7 \u00b7 and xD is Xr,D,\nTHEN y1r(x) = b 1 r,0 +\nD \u2211\nd=1\nb1r,d \u00b7 xd and \u00b7 \u00b7 \u00b7\nand yCr (x) = b C r,0 +\nD \u2211\nd=1\nbCr,d \u00b7 xd\n(1)\nwhere Xr,d (r = 1, ..., R; d = 1, ..., D) is the membership function (MF) for the d-th antecedent in the r-th rule, and bcr,0 and b c r,d (c = 1, ..., C) are the consequent parameters for the c-th class. Different types of MFs can be used in our algorithm, as long as they are differentiable. For simplicity, Gaussian MFs are considered in this paper, and the membership grade of xd on Xr,d is:\n\u00b5Xr,d(xd) = exp\n(\n\u2212 (xd \u2212mr,d)\n2\n2\u03c32r,d\n)\n, (2)\nwhere mr,d and \u03c3r,d are the center and the standard deviation of the Gaussian MF, respectively.\nThe output of the TSK fuzzy classifier for the c-th class is:\nyc(x) =\n\u2211R\nr=1 fr(x)y c r(x) \u2211R\nr=1 fr(x) , (3)\nwhere\nfr(x) =\nD \u220f\nd=1\n\u00b5Xr,d(xd) = exp\n(\n\u2212 D \u2211\nd=1\n(xd \u2212mr,d) 2\n2\u03c32r,d\n)\n(4)\nis the firing level of Rule r. We can also re-write (3) as:\nyc(x) =\nR \u2211\nr=1\nfr(x)y c r(x), (5)\nwhere\nf r(x) = fr(x)\n\u2211R i=1 fi(x) (6)\nis the normalized firing level of Rule r. Once the output vector y(x) = [y1(x), ..., yC(x)]T is obtained, the input x is assigned to the class with the largest yc(x). To optimize the TSK fuzzy classifier, we need to finetune the antecedent MF parameters mr,d and \u03c3r,d, and the consequent parameters bcr,0 and b c r,d, where r = 1, ..., R, d = 1, ..., D, and c = 1, ..., C."
+    },
+    {
+      "heading": "B. Uniform Regularization (UR)",
+      "text": "Mixture of experts (MoE) [29], which is functionally equivalent to TSK fuzzy systems [30]\u2013[32], is a popular machine learning algorithm. Its model is shown in Fig. 1. It trains multiple local experts, each taking care of only a small local region of the input space. For a new input, the gating network determines the activations (weights) of the local experts, and the final output is a weighted average of the local expert outputs.\n3\nAlthough MoE has been used successfully in many applications, it may suffer from the \u201crich get richer\u201d effect [33], [34]: once an expert is slightly better than others, it is always picked by the gating network, whereas other experts starve and are rarely used. This is bad for the generalization performance of the overall model.\nSince MoE and TSK fuzzy systems are functionally equivalent [32], TSK fuzzy systems may also suffer from the \u201crich get richer\u201d effect, i.e., only a few rules are always activated with large firing levels, whereas others have very small firing levels, and hence not adequately tuned in training. A remedy to the \u201crich get richer\u201d effect in TSK fuzzy systems is to force the rules to be fired at similar degrees in the input space, so that each rule contributes about equally to the output.\nNext, we propose UR to achieve this goal. UR forces the rules to have similar average firing levels, by\nminimizing the following loss:\n\u2113UR =\nR \u2211\nr=1\n(\n1\nN\nN \u2211\nn=1\nfr(xn)\u2212 \u03c4\n)2\n, (7)\nwhere N is the number of training examples, and \u03c4 the expected firing level of each rule, which is set to 1/C in this paper (recall that C is the number of classes). \u2113UR can then be added to the original loss function in MBGD-based training of TSK fuzzy classifiers, i.e., for each mini-batch with N training samples,\nL = \u2113+ \u03b1\u21132 + \u03bb R \u2211\nr=1\n(\n1\nN\nN \u2211\nn=1\nfr(xn)\u2212 1\nR\n)2\n, (8)\nwhere \u2113 is the cross-entropy loss between the estimated class probabilities [obtained by applying softmax to y(x)] and the true class probabilities, \u21132 the L2 regularization of the rule consequent parameters, and \u03b1 and \u03bb the trade-off parameters."
+    },
+    {
+      "heading": "C. Batch Normalization (BN)",
+      "text": "BN [23] is a very powerful technique in optimizing deep neural networks [35]\u2013[37]. It normalizes the data distribution in each mini-batch to accelerate the training. For a mini-batch B = {xn}Nn=1, the output of BN is [23]:\nx \u2032 n = BN(xn) = \u03b3 xn \u2212mB \u221a\n\u03c3 2 B + \u01eb\n+ \u03b2, (9)\nwhere mB and \u03c3B are the mean and the standard deviation of the samples in the mini-batch, respectively, \u03b3 and \u03b2 are parameters to be learned during training, and \u01eb is usually set to 1e \u2212 8 to avoid being divided by zero. During training, exponential weighted averages of mB and \u03c3B are recorded so that they can be used in the test phase.\nSince TSK fuzzy systems and neural networks share lots of similarity [32], we can extend BN to the optimization of TSK fuzzy classifiers, as shown in Fig. 2. In the training phase, we first compute the firing level of each rule using the unmodified inputs, as in traditional TSK fuzzy systems. Then, we use BN to normalize the inputs, according to their mean and standard deviation in the current mini-batch. The normalized inputs are then used to compute the rule consequents. The final output is a weighted average of the rule consequents, the weights being the corresponding rule firing levels.\nAt the testing phase, the BN operation can be merged into the consequent layer. Assume that after training, we obtain a BN layer with learned m = (m1, ...,mD) T , \u03c3 = (\u03c31, ..., \u03c3D) T , \u03b3 and \u03b2. Then, the output yr of the r-th rule with BN is:\nyr(BN(xn)) = br,0 + \u03b3\nD \u2211\nd=1\nbr,d xn,d \u2212md \u221a\n\u03c32d + \u01eb + \u03b2D, (10)\nwhich can be re-written as:\nyr(BN(xn)) = b \u2032 r,0 +\nD \u2211\nd=1\nb\u2032r,dxn,d, (11)\nwhere\nb\u2032r,0 = br,0 + \u03b2D \u2212 \u03b3 D \u2211\nd=1\nmdbr,d \u221a\n\u03c32d + \u01eb , (12)\nb\u2032r,d = \u03b3 br,d \u221a\n\u03c32d + \u01eb . (13)\nBy doing this, the original architecture of the TSK fuzzy classifier is kept unchanged.\nWe also tested two variants of BN, as shown in Fig. 3. The TSK with global BN (TSK-MBGD-UR-GBN) approach in Fig. 3(a) uses the BN normalized inputs in both antecedents\n4 and consequents to compute the final output. In this case, the output of TSK-MBGD-UR-GBN for Class c is:\nyc(x) = R \u2211\nr=1\nfr(BN(x))y c r(BN(x)). (14)\nThe TSK with rule-specific BN (TSK-MBGD-UR-RBN) approach in Fig. 3(b) uses the raw inputs to compute the antecedents, and rule-specific BN to compute each consequent individually. The output of TSK-MBGD-UR-RBN for Class c is:\nyc(x) = R \u2211\nr=1\nf r(x)y c r(BNr(x)), (15)\nwhere BNr represents the BN operation for the r-th rule.\nTSK-MBGD-UR-GBN has the same computational cost as TSK-MBGD-UR-BN, but TSK-MBGD-UR-RBN has R times more BN parameters, and hence higher computational cost. Both of them can be re-expressed in the original TSK architecture. We also evaluate their performances in Section III-G."
+    },
+    {
+      "heading": "III. EXPERIMENTS AND RESULTS",
+      "text": "This section validates the performances of our proposed UR and BN on multiple datasets from various application domains, with varying size and feature dimensionality."
+    },
+    {
+      "heading": "A. Datasets",
+      "text": "We evaluated our proposed algorithms on 12 classification datasets from the UCI Machine Learning Repository2. Their characteristics are summarized in Table I. For each dataset, we randomly selected 70% samples as the training set and the remaining 30% as the test set for 30 times to get 30 different data splits. We ran each algorithm on these 30 data splits and report the average performance.\nSome datasets contain both numerical features and categorical features. The categorical features were converted into numerical ones by one-hot coding. We z-normalized each feature using the mean and standard deviation computed from the training set."
+    },
+    {
+      "heading": "B. Algorithms",
+      "text": "We compared nine algorithms to validate our proposed approaches. Among them, four were tree based approaches (DT, RF, PART, and JRip), one was a TSK fuzzy system optimized by a traditional approach (TSK-FCM-LSE), and the remaining four were TSK fuzzy systems optimized by MBGD based approaches (TSK-MBGD, TSK-MBGD-BN, TSK-MBGD-UR, TSK-MBGD-UR-BN).\nThe details of these nine algorithms are as follows: 1) DT: Decision tree implemented in scikit-learn3 in\nPython. We used 5-fold cross-validation to select the maximum depth of the tree from {3, 4, 5, 6, 7} on the training set. Other parameters were set by default.\n2http://archive.ics.uci.edu/ml/index.php 3https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTree\nClassifier.html\n5 2) RF: Random forest implemented in scikit-learn4 in\nPython. We set the number of trees to 20 and used 5- fold cross-validation to select the maximum depth of the trees from {3, 4, 5, 6, 7} on the training set. Other parameters were set by default. 3) PART [38]: The PART (partial decision tree) classifier\nimplemented in RWeka5. All parameters were set by default. 4) JRip [39]: The RIPPER (Repeated Incremental Pruning\nto Produce Error Reduction) classifier implemented in RWeka. All parameters were set by default. 5) TSK-FCM-LSE [40]: We used fuzzy c-means (FCM) clustering to estimate the antecedent parameters, and\nLSE with L2 regularization to estimate the consequent parameters. 6) TSK-MBGD: We used MBGD and AdaBound [22] to\noptimize both the antecedent and the consequent parameters. 7) TSK-MBGD-UR: We used MBGD, AdaBound and UR\n(Section II-B) to optimize both the antecedent and the consequent parameters. The UR weight \u03bb in (8) was selected from {0.1, 1, 10, 20, 50} by cross-validation on the training set. 8) TSK-MBGD-BN: We used MBGD, AdaBound and BN\n(Section II-C) to optimize both the antecedent and the consequent parameters. 9) TSK-MBGD-UR-BN: We used MBGD, AdaBound, BN\nand UR to optimize both the antecedent and the consequent parameters. The UR weight \u03bb in (8) was selected from {0.1, 1, 10, 20, 50} by cross-validation on the training set.\nFor TSK-FCM-LSE, TSK-MBGD, TSK-MBGD-BN, TSK-MBGD-UR and TSK-MBGD-UR-BN, we set the L2 regularization weight \u03b1 = 0.05, and the number of rules R = 20. For TSK-MBGD, TSK-MBGD-BN, TSK-MBGD-UR and TSK-MBGD-UR-BN, we set the learning rate of AdaBound to 0.01, following our previous work [6]. In order to make use of all data in the training set and to reduce overfitting simultaneously, we randomly sampled 20% data from the training set and trained the TSK model with early stopping five times. The maximum epoch number was 2,000, and the patience of early stopping 40. We recorded the number of epochs at stopping in each run, and trained the final model with the average stopping epoch number on the entire training set.\nk-mean clustering was used in the MBGD-based algorithms (TSK-MBGD, TSK-MBGD-BN, TSK-MBGD-UR, and TSK-MBGD-UR-BN) to initialize the antecedent parameters. We performed k-means clustering on the training set, where k equaled R, the number of rules. We then initialized the rule centers to the cluster centers, and randomly initialized the standard deviation \u03c3r,d from a Gaussian distribution N (1, 0.2). For the consequent parameters, we set the initial bias of each rule to zero, and the attribute weight br,d (r = 1, ..., R;\n4https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.Random ForestClassifier.html\n5https://cran.r-project.org/web/packages/RWeka/index.html\nd = 1, ..., D) randomly from a uniform distribution U(\u22121, 1)."
+    },
+    {
+      "heading": "C. Performance Measures",
+      "text": "The raw classification accuracy (RCA), which is the total number of correctly classified test samples divided by the total number of test samples, was used as our primary performance measure.\nSince some datasets have significant class imbalance, in addition to the RCA, we also computed the balanced classification accuracy (BCA), which is the mean of the per-class RCAs, as our second performance measure."
+    },
+    {
+      "heading": "D. Experimental Results",
+      "text": "The average test RCAs and BCAs are shown in Tables II and III, respectively. The largest value (best performance) on each dataset is marked in bold. To facilitate the comparison, we also show the ranks of the RCAs and BCAs in Tables IV and V, respectively.\nThe following observations can be made from the above\nfour tables:\n1) Generally, UR improved both RCA and BCA. Comparing\nTSK-MBGD with TSK-MBGD-UR, and TSK-MBGD-BN with TSK-MBGD-UR-BN, we can conclude that generally UR improved the classification performance, regardless of whether BN was used or not. The average ranks in the last row of Tables IV and V demonstrate this more clearly: the average rank of TSK-MBGD-UR (TSK-MBGD-UR-BN) was smaller than that of TSK-MBGD (TSK-MBGD-BN). 2) Generally, BN improved both RCA and BCA. Comparing\nTSK-MBGD with TSK-MBGD-BN, and TSK-MBGD-UR with TSK-MBGD-UR-BN, we can conclude that generally BN improved the classification performance, regardless of whether UR was used or not. The average ranks in the last row of Tables IV and V demonstrate this more clearly: the average rank of TSK-MBGD-BN (TSK-MBGD-UR-BN) was smaller than that of TSK-MBGD (TSK-MBGD-UR). 3) Generally, integrating BN and UR achieved\nfurther RCA and BCA improvements. Comparing TSK-MBGD-UR-BN with TSK-MBGD, TSK-MBGD-UR and TSK-MBGD-BN, we can conclude that TSK-MBGD-UR-BN almost always performed the best on both RCA and BCA, as shown in Fig. 4. This indicated that BN and UR are somehow complementary, and hence integrating them may achieve better performance than using each one alone. 4) Overall, TSK-MBGD-UR-BN achieved the best perfor-\nmance among the nine algorithms. The last row of Table V shows that TSK-MBGD-UR-BN achieved the best average BCA performance, and the last row of Table IV shows that TSK-MBGD-UR-BN achieved the second best average RCA performance. Interestingly, RF had the best average rank on RCA, but only ranked the fifth on BCA, suggesting that RF may tend to overlook the minority classes. On the contrary, TSK-MBGD-UR-BN performed well on both RCA and BCA.\n6\n7\nTABLE VI p-VALUES OF NON-PARAMETRIC MULTIPLE COMPARISONS ON THE RCAS AND BCAS.\nMetric CART RF JRip PART TSK-FCM-LSE TSK-MBGD TSK-MBGD-BN TSK-MBGD-UR\nTSK-MBGD-BN RCA 0.0097 0.0628 0.1368 0.3239 0.2723 0.0000 - - BCA 0.1547 0.1627 0.4508 0.0981 0.4518 0.0000 - - TSK-MBGD-UR RCA 0.0001 0.3740 0.0090 0.0460 0.2452 0.0000 0.1146 - BCA 0.0036 0.2900 0.0912 0.4420 0.0921 0.0000 0.0731 -\nTSK-MBGD-UR-BN RCA 0.0000 0.2113 0.0002 0.0025 0.0404 0.0000 0.0094 0.1409 BCA 0.0000 0.0291 0.0021 0.0730 0.0022 0.0000 0.0013 0.0986"
+    },
+    {
+      "heading": "E. Statistical Analysis",
+      "text": "To further evaluate the performance improvement of our proposed TSK-MBGD-UR-BN over others, we also performed non-parametric multiple comparison tests on the RCAs and BCAs using Dunn\u2019s procedure [41], with a p-value correction using the False Discovery Rate method [42]. The results are shown in Table VI, where the statistically significant ones are marked in bold.\nTable VI demonstrates that our proposed BN and UR can significantly improve the generalization performance of the traditional MBGD optimization for TSK fuzzy classifiers. TSK-MBGD-UR-BN statistically significantly outperformed CART, JRip, PART, TSK-MBGD and TSK-MBGD-BN on RCA, and also statistically significantly outperformed CART, JRip, TSK-FCM-LSE, TSK-MBGD and TSK-MBGD-BN on BCA. Although the performance improvement of TSK-MBGD-UR-BN over RF and TSK-MBGD-UR were not statistically significant, they were quite close to the threshold, especially for the BCA."
+    },
+    {
+      "heading": "F. Effect of UR",
+      "text": "As mentioned in Section II-B, using MBGD to optimize the TSK fuzzy system may face the \u201crich get richer\u201d problem. To demonstrate this, Fig. 5 shows the average normalized firing levels of the rules on the entire dataset after the four\nMBGD-based TSK models were trained, on three representative datasets. For TSK-MBGD, a few \u201crichest\u201d rules had much larger average firing levels than others, and hence the rules contributed significantly differently to the output. BN may help alleviate this problem a little bit, as the average normalized rule firing levels in TSK-MBGD-BN were more uniform than those in TSK-MBGD, which also resulted in better classification performances, as demonstrated in the previous subsection. However, UR had the most direct effect on alleviating the \u201crich get richer\u201d problem, as TSK-MBGD-UR (TSK-MBGD-UR-BN) had much more uniform average normalized rule firing levels than TSK-MBGD (TSK-MBGD-BN), and hence also better classification performance.\nNote that we set \u03c4 = 1/C in (8), where C = 6 for Satellite, C = 4 for Vehicle, and C = 2 for Biodeg. However, the actual average normalized rule firing levels were not exactly \u03c4 on these datasets. Our experiments showed that although UR cannot guarantee the average normalized rule firing levels to be around \u03c4 , it can indeed make the rules fired more uniformly. Why may making the rules fired more uniformly help improve the generalization performance? In [32] we pointed out that a TSK fuzzy system may be functionally equivalent to an adaptive stacking ensemble model, in which each rule can be viewed as a base learner, and the aggregation weights equal the corresponding rule firing levels. When the rule firing levels are more uniform, generally more rules are utilized in computing the output, i.e., more base learners are used in the stacking ensemble model, which may help improve the generalization performance.\nTo demonstrate this, we computed the entropy of the nor-\nmalized rule firing levels for each input example:\nE = \u2212 R \u2211\nr\nf r log fr, (16)\nwhere fr is the normalized firing level of the r-th rule. Generally, a larger entropy means more rules were fired.\nFig. 6 shows the histogram of the entropy distributions on the Satellite dataset. When training TSK fuzzy systems without UR, many samples had close to zero E, i.e., all except one rule had firing levels close to zero. When UR was added, the number of examples with close to zero E decreased significantly, i.e., more rules with larger firing levels were used in computing the output."
+    },
+    {
+      "heading": "G. Effect of BN",
+      "text": "We also used the Satellite dataset to analyze the effect of\nBN.\n8 1 2 4 6 8 10 12 14 16 18 20 Sorted Rule Index 0 0.05 0.1 0.15 0.2 A vg N or m . R ul e Fi ri ng L ev el TSK-MBGD TSK-MBGD-BN TSK-MBGD-UR TSK-MBGD-UR-BN\n(a)\n1 2 4 6 8 10 12 14 16 18 20 Sorted Rule Index\n0\n0.05\n0.1\n0.15\n0.2\n0.25\nA vg\nN or\nm . R\nul e\nFi ri\nng L\nev el\nTSK-MBGD TSK-MBGD-BN\nTSK-MBGD-UR TSK-MBGD-UR-BN\n(b)\n1 2 4 6 8 10 12 14 16 18 20 Sorted Rule Index\n0\n0.1\n0.2\n0.3\n0.4\nA vg\nN or\nm . R\nul e\nFi ri\nng L\nev el\nTSK-MBGD TSK-MBGD-BN\nTSK-MBGD-UR TSK-MBGD-UR-BN\n(c)\nWe set the UR weight \u03bb = 1 and recorded the training loss and test BCA in the first 20 training epochs. This process was repeated 10 times, and the average results are shown in Figs. 7(a) and 7(b), respectively. BN resulted in smaller training losses and better generalization performances in testing.\nThere is still no agreement on theoretically why BN is helpful in optimizing deep neural networks [24]; thus, it is also challenging to analyze theoretically why BN can help the optimization of TSK fuzzy systems. Nevertheless, we performed an empirical study to peek into this, by recording the L1 norm of the antecedent parameters\u2019 gradients and the L1 norm of the consequent parameters\u2019 gradients in the first 20 training epochs on the Satellite dataset. The results are shown in Figs. 7(c) and 7(d), respectively. BN significantly increased the gradients of both antecedent and consequent parameters. With the same learning rate, this can expedite the convergence.\nWe also evaluated the performances of the\n9 two BN variants introduced in Section II-C. The BCAs of TSK-MBGD-UR, TSK-MBGD-UR-BN, TSK-MBGD-UR-GBN and TSK-MBGD-UR-RBN are shown in Table VII. TSK-MBGD-UR-BN performed the best, and TSK-MBGD-UR-GBN the worst. Since TSK-MBGD-UR-RBN had more parameters to optimize, its training was not as stable as TSK-MBGD-UR-BN and TSK-MBGD-UR-GBN. Therefore, TSK-MBGD-UR-BN is the best choice."
+    },
+    {
+      "heading": "H. Effect of the Batch Size",
+      "text": "The batch size is an important hyper-parameter in MBGDbased optimization. It determines the memory requirement and the convergence speed in training. A larger batch size leads to faster convergence but also requires more memory. In [43], the authors analyzed the effect of the batch size on the generalization performance. Their results showed that using a larger batch size causes degradation in the model generalization performance, because it tends to converge to a shaper minimum, which makes the model sensitive to noise. A similar finding was presented in [44] that a smaller batch size leads to more stable and reliable training. However, since we used the mean, standard deviation and mean firing level of each batch to compute the losses, too small batch size may also lead to poor performance.\nWe validated our model on the Satellite dataset with batch size varying from 16 to 2,048. The test RCAs and BCAs averaged over 30 runs are shown in Fig. 8. The test performance decreased with too small or too large batch sizes. For TSK-MBGD-UR-BN, it seems that a batch size within [64, 256] is a good choice."
+    },
+    {
+      "heading": "IV. CONCLUSIONS AND FUTURE RESEARCH",
+      "text": "TSK fuzzy systems are powerful and frequently used machine learning models, for both regression and classification. However, they may not be easily applicable to large and/or high-dimensional datasets. Our very recent research [6] proposed an MBGD-based efficient and effective training algorithm (MBGD-RDA) for TSK fuzzy systems for regression problems. This paper has proposed an MBGD-based algorithm, TSK-MBGD-UR-BN, to train TSK fuzzy systems for classification problems. It can deal with both small and big data with different dimensionalities, and may be the only algorithm that can train a TSK fuzzy classifier on big and high-dimensional datasets. TSK-MBGD-UR-BN integrates two novel techniques, which are also first proposed in this paper:\n1) UR, which is a regularization term in the loss function\nto ensure that all rules are fired similarly on average, and hence to improve the generalization performance. 2) BN, which normalizes the inputs in computing the rule\nconsequents to speedup the convergence and to improve the generalization.\nExperiments on 12 UCI datasets from various domains, with varying size and feature dimensionality, demonstrated that each of UR and BN has its own unique advantages, and integrating them can achieve the best classification performance. TSK-MBGD-UR-BN, together with MBGD-RDA proposed in [6], shall greatly promote the applications of TSK fuzzy systems in both classification and regression, especially for big data problems.\nThe proposed TSK-MBGD-UR-BN also has some limitations, which will be addressed in our future research. First, for very high dimensional data, fuzzy partitions of the input space become very complicated, and numeric underflow may happen when the product t-norm is used. Further research shall consider rules that automatically select the most relevant attributes as the antecedents. Second, we shall investigate how to improve the interpretability of data-driven TSK fuzzy systems. This is also partially linked to the first problem, as reducing the number of antecedents can improve the interpretability of the rules."
+    }
+  ],
+  "title": "Optimize TSK Fuzzy Systems for Classification Problems: Mini-Batch Gradient Descent with Uniform Regularization and Batch Normalization",
+  "year": 2020
+}

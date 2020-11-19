@@ -1,1 +1,806 @@
-{"abstractText": "Glioblastoma multiforme (GBM) is a fast-growing and highly invasive brain tumour, it tends to occur in adults between the ages of 45 and 70 and it accounts for 52 percent of all primary brain tumours. Usually, GBMs are detected by magnetic resonance images (MRI). Among MRI, Fluid-attenuated inversion recovery (FLAIR) sequence produces high quality digital tumour representation. Fast detection and segmentation techniques are needed for overcoming subjective medical doctors (MDs) judgment. In the present investigation, we intend to demonstrate by means of numerical experiments that topological features combined with textural features can be enrolled for GBM analysis and morphological characterization on FLAIR. To this extent, we have performed three numerical experiments. In the first experiment, Topological Data Analysis (TDA) of a simplified 2D tumour growth mathematical model had allowed to understand the bio-chemical conditions that facilitate tumour growth: the higher the concentration of chemical nutrients the more virulent the process. In the second experiment topological data analysis was used for evaluating GBM temporal progression on FLAIR recorded within 90 days following treatment (e.g., chemo-radiation therapy CRT) completion and at progression. The experiment had confirmed that persistent entropy is a viable statistics for monitoring GBM evolution during the follow-up period. In the third experiment we had developed a novel methodology based on topological and textural features and automatic interpretable machine learning for automatic GBM classification on FLAIR. The algorithm reached a classification accuracy up to the 97%.", "authors": [{"affiliations": [], "name": "Matteo Rucco"}, {"affiliations": [], "name": "Giovanna Viticchi"}, {"affiliations": [], "name": "Lorenzo Falsetti"}], "id": "SP:4406c22c24268f14c60d1eaf585683d01bb77af5", "references": [{"authors": ["R. Batash", "N. Asna", "P. Schaffer", "N. Francis", "M. Schaffer"], "title": "Glioblastoma multiforme, diagnosis and treatment; recent literature review", "venue": "Current medicinal chemistry 2017,", "year": 2017}, {"authors": ["M. Weller", "M. Van den Bent", "K. Hopkins", "J. Tonn", "R. Stupp", "A. Falini", "E. Cohen-Jonathan-Moyal", "D. Frappaz", "R. Henriksson", "C. Balana", "others"], "title": "European Association for Neuro-Oncology (EANO) Task Force on Malignant Glioma. EANO guideline for the diagnosis and treatment of anaplastic gliomas and glioblastoma", "venue": "Lancet Oncol 2014,", "year": 2014}, {"authors": ["D. Kuhnt", "A. Becker", "O. Ganslandt", "M. Bauer", "M. Buchfelder", "C. Nimsky"], "title": "Correlation of the extent of tumor volume resection and patient survival in surgery of glioblastoma multiforme with high-field intraoperative MRI guidance", "venue": "Neuro-oncology 2011,", "year": 2011}, {"authors": ["Schijns"], "title": "Intraoperative MRI-guided resection of glioblastoma multiforme: a systematic review", "venue": "Lancet Oncol 2011,", "year": 2011}, {"authors": ["C. Maj\u00f3s", "M. Cos", "S. Casta\u00f1er", "M. Gil", "G. Plans", "A. Lucas", "J. Bruna", "C. Aguilera"], "title": "Early post-operative magnetic resonance imaging in glioblastoma: correlation among radiological findings and overall survival in 60 patients", "venue": "European radiology 2016,", "year": 2016}, {"authors": ["A. Castellano", "M. Donativi", "R. Rud\u00e0", "G. De Nunzio", "M. Riva", "A. Iadanza", "L. Bertero", "M. Rucco", "L. Bello", "R. Soffietti", "others"], "title": "Evaluation of low-grade glioma structural changes after chemotherapy using DTI-based histogram analysis and functional diffusion maps", "venue": "European radiology 2016,", "year": 2016}, {"authors": ["G. Castellano", "L. Bonilha", "L. Li", "F. Cendes"], "title": "Texture analysis of medical images", "venue": "Clinical radiology 2004,", "year": 2004}, {"authors": ["F. Remondino", "S. El-Hakim"], "title": "Image-based 3D modelling: a review", "venue": "The photogrammetric record 2006,", "year": 2006}, {"authors": ["L.R. Schad", "S. Bl\u00fcml", "I. IX. Zuna"], "title": "MR tissue characterization of intracranial tumors by means of texture analysis. Magnetic resonance imaging", "year": 1993}, {"authors": ["Z. Zhao", "G. Yang", "Y. Lin", "H. Pang", "M. Wang"], "title": "Automated glioma detection and segmentation using graphical models", "venue": "PloS one 2018,", "year": 2018}, {"authors": ["Y. Wu", "Z. Zhao", "W. Wu", "Y. Lin", "M. Wang"], "title": "Automatic glioma segmentation based on adaptive superpixel", "venue": "BMC medical imaging 2019,", "year": 2019}, {"authors": ["S.N. Shivhare", "N. Kumar"], "title": "Brain tumor detection using manifold ranking in flair mri", "venue": "In Proceedings of ICETIT 2019; Springer,", "year": 2020}, {"authors": ["M. Soltaninejad", "G. Yang", "T. Lambrou", "N. Allinson", "T.L. Jones", "T.R. Barrick", "F.A. Howe", "X. Ye"], "title": "Automated brain tumour detection and segmentation using superpixel-based extremely randomized trees in FLAIR MRI. International journal of computer assisted radiology and surgery", "year": 2017}, {"authors": ["P. Korfiatis", "T.L. Kline", "B.J. Erickson"], "title": "Automated segmentation of hyperintense regions in FLAIR MRI using deep learning", "venue": "Tomography 2016,", "year": 2016}, {"authors": ["P.R. Lorenzo", "J. Nalepa", "B. Bobek-Billewicz", "P. Wawrzyniak", "G. Mrukwa", "M. Kawulok", "P. Ulrych", "M.P. Hayball"], "title": "Segmenting brain tumors from FLAIR MRI using fully convolutional neural networks. Computer methods and programs in biomedicine", "year": 2019}, {"authors": ["J. Kleesiek", "G. Urban", "A. Hubert", "D. Schwarz", "K. Maier-Hein", "M. Bendszus", "A. Biller"], "title": "Deep MRI brain extraction: a 3D convolutional neural network for skull stripping", "year": 2016}, {"authors": ["F.J. Galdames", "F. Jaillet", "C.A. Perez"], "title": "An accurate skull stripping method based on simplex meshes and histogram analysis for magnetic resonance images", "venue": "Journal of neuroscience methods", "year": 2012}, {"authors": ["A. Chaddad", "M.J. Kucharczyk", "P. Daniel", "S. Sabri", "B.J. Jean-Claude", "T. Niazi", "B. Abdulkarim"], "title": "Radiomics in glioblastoma: current status and challenges facing clinical implementation", "venue": "Frontiers in oncology 2019,", "year": 2019}, {"authors": ["N. Bellomo", "L. Preziosi"], "title": "Modelling and mathematical problems related to tumor evolution and its interaction with the immune system", "venue": "Mathematical and Computer Modelling", "year": 2000}, {"authors": ["T. Michel", "J. Fehrenbach", "V. Lobjois", "J. Laurent", "A. Gomes", "T. Colin", "C. Poignard"], "title": "Mathematical modeling of the proliferation gradient in multicellular tumor spheroids", "venue": "Journal of theoretical biology 2018,", "year": 2018}, {"authors": ["S. Unsal", "A. Acar", "M. Itik", "A. Kabatas", "O. Gedikli", "F. Ozdemir", "K. Turhan"], "title": "Personalized Tumor Growth Prediction with Multiscale Tumor Modeling 2019", "year": 2019}, {"authors": ["A. Hatcher"], "title": "Algebraic Topology", "year": 2002}, {"authors": ["J.R. Munkres"], "title": "Elements of algebraic topology", "year": 1984}, {"authors": ["G. Carlsson"], "title": "Topology and data", "venue": "Bulletin of the American Mathematical Society 2009,", "year": 2009}, {"authors": ["A. Zomorodian"], "title": "Topological data analysis", "venue": "Advances in Applied and Computational Topology. Proceedings of Symposia in Applied Mathematics,", "year": 2007}, {"authors": ["H. Edelsbrunner", "J. Harer"], "title": "Persistent Homology \u2013 a Survey", "venue": "Contemporary mathematics 2008,", "year": 2008}, {"authors": ["M. Rucco", "A.L. Mamuye", "M. Piangerelli", "M. Quadrini", "L. Tesei", "E. Merelli"], "title": "Survey of TOPDRIM applications of topological data analysis", "venue": "CEUR Workshop Proceedings, 2016,", "year": 2016}, {"authors": ["N. Atienza", "R. Gonzalez-Diaz", "M. Rucco"], "title": "Persistent entropy for separating topological features from noise in vietoris-rips complexes", "venue": "Journal of Intelligent Information Systems 2019,", "year": 2019}, {"authors": ["M.J. Jimenez", "M. Rucco", "P. Vicente-Munuera", "P. G\u00f3mez-G\u00e1lvez", "L.M. Escudero"], "title": "Topological data analysis for self-organization of biological tissues", "venue": "International Workshop on Combinatorial Image Analysis. Springer,", "year": 2017}, {"authors": ["M. Piangerelli", "M. Rucco", "L. Tesei", "E. Merelli"], "title": "Topological classifier for detecting the emergence of epileptic seizures", "venue": "BMC research notes 2018,", "year": 2018}, {"authors": ["A. Oyama", "Y. Hiraoka", "I. Obayashi", "Y. Saikawa", "S. Furui", "K. Shiraishi", "S. Kumagai", "T. Hayashi", "J. Kotoku"], "title": "Hepatic tumor classification using texture and topology analysis of non-contrast-enhanced three-dimensional T1-weighted MR images with a radiomics approach", "venue": "Scientific Reports 2019,", "year": 2019}, {"authors": ["S. Gholizadeh", "W. Zadrozny"], "title": "A Short Survey of Topological Data Analysis in Time Series and Systems Analysis", "venue": "arXiv preprint", "year": 2018}, {"authors": ["A. Myers", "E. Munch", "F.A. Khasawneh"], "title": "Persistent homology of complex networks for dynamic state detection", "venue": "Physical Review E 2019,", "year": 2019}, {"authors": ["P.G. C\u00e1mara"], "title": "Topological methods for genomics: present and future directions", "venue": "Current opinion in systems biology 2017,", "year": 2017}, {"authors": ["J.A. Sherratt", "M.A. Chaplain"], "title": "A new mathematical model for avascular tumour growth", "venue": "Journal of mathematical biology 2001,", "year": 2001}, {"authors": ["K. B\u00f6ttger", "H. Hatzikirou", "A. Chauviere", "A. Deutsch"], "title": "Investigation of the migration/proliferation dichotomy and its impact on avascular glioma invasion", "venue": "Mathematical Modelling of Natural Phenomena 2012,", "year": 2012}, {"authors": ["A.M. Stein", "T. Demuth", "D. Mobley", "M. Berens", "L.M. Sander"], "title": "A mathematical model of glioblastoma tumor spheroid invasion in a three-dimensional in vitro experiment", "venue": "Biophysical journal 2007,", "year": 2007}, {"authors": ["K.C. Ang"], "title": "Analysis of a tumour growth model with MATLAB", "year": 2009}, {"authors": ["K. Clark", "B. Vendt", "K. Smith", "J. Freymann", "J. Kirby", "P. Koppel", "S. Moore", "S. Phillips", "D. Maffitt", "M. Pringle"], "title": "The Cancer Imaging Archive (TCIA): maintaining and operating a public information repository", "venue": "Journal of digital imaging 2013,", "year": 2013}, {"authors": ["K. Schmainda", "M. Prah"], "title": "Data from Brain Tumor Progression", "venue": "The Cancer Imaging Archive.,", "year": 2018}, {"authors": ["B. Ellingson", "M. Malkin", "S. Rand", "D. Bedekar", "K. Schmainda"], "title": "Functional diffusion maps applied to FLAIR abnormal areas are valuable for the clinical monitoring of recurrent brain tumors", "venue": "Proc Intl Soc Mag Reson Med,", "year": 2009}, {"authors": ["K.M. Schmainda", "M.A. Prah", "S.D. Rand", "Y. Liu", "B. Logan", "M. Muzi", "S.D. Rane", "X. Da", "Y.F. Yen", "J. Kalpathy-Cramer", "others"], "title": "Multi-site Concordance of DSC-MRI Analysis for Brain tumors: Results of a NCI Quantitative Imaging network collaborative project", "venue": "AJNR. American journal of neuroradiology 2018,", "year": 2018}, {"authors": ["J. Lipkov\u00e1", "P. Angelikopoulos", "S. Wu", "E. Alberts", "B. Wiestler", "C. Diehl", "C. Preibisch", "T. Pyka", "S.E. Combs", "P. Hadjidoukas", "others"], "title": "Personalized Radiotherapy Design for Glioblastoma: Integrating Mathematical Tumor Models, Multimodal Scans, and Bayesian Inference", "venue": "IEEE transactions on medical imaging 2019,", "year": 2019}, {"authors": ["H. Edelsbrunner", "J. Harer"], "title": "Computational topology: an introduction", "venue": "American Mathematical Soc.,", "year": 2010}, {"authors": ["N. Otter", "M.A. Porter", "U. Tillmann", "P. Grindrod", "H.A. Harrington"], "title": "A roadmap for the computation of persistent homology", "venue": "EPJ Data Science 2017,", "year": 2017}, {"authors": ["H. Chintakunta", "T. Gentimis", "R. Gonzalez-Diaz", "M.J. Jimenez", "H. Krim"], "title": "An entropy-based persistence barcode", "venue": "Pattern Recognition 2015,", "year": 2015}, {"authors": ["M. Rucco", "F. Castiglione", "E. Merelli", "M. Pettini"], "title": "Characterisation of the idiotypic immune network through persistent entropy", "venue": "In Proceedings of ECCS 2014; Springer,", "year": 2016}, {"authors": ["M. Rucco", "R. Gonzalez-Diaz", "M.J. Jimenez", "N. Atienza", "C. Cristalli", "E. Concettoni", "A. Ferrante", "E. Merelli"], "title": "A new topological entropy-based approach for measuring similarities among piecewise linear functions", "venue": "Signal Processing 2017,", "year": 2017}, {"authors": ["R. Ghrist"], "title": "Barcodes: the persistent topology of data", "venue": "Bulletin of the American Mathematical Society 2008,", "year": 2008}, {"authors": ["I. Obayashi"], "title": "Volume-optimal cycle: Tightest representative cycle of a generator in persistent homology", "venue": "SIAM Journal on Applied Algebra and Geometry 2018,", "year": 2018}, {"authors": ["A. Chaddad", "P.O. Zinn", "R.R. Colen"], "title": "Radiomics texture feature extraction for characterizing GBM phenotypes using GLCM", "venue": "IEEE 12th International Symposium on Biomedical Imaging (ISBI). IEEE,", "year": 2015}, {"authors": ["R.M. Haralick", "K. Shanmugam", "I.H. Dinstein"], "title": "Textural features for image classification", "venue": "IEEE Transactions on systems,", "year": 1973}, {"authors": ["C. Tralie", "N. Saul", "R. Bar-On"], "title": "Ripser.py: A Lean Persistent Homology Library for Python", "venue": "The Journal of Open Source Software 2018,", "year": 2018}, {"authors": ["S. Van der Walt", "J.L. Sch\u00f6nberger", "J. Nunez-Iglesias", "F. Boulogne", "J.D. Warner", "N. Yager", "E. Gouillart", "T. Yu"], "title": "scikit-image: image processing in Python", "venue": "PeerJ 2014,", "year": 2014}, {"authors": ["T.T. Wong"], "title": "Performance evaluation of classification algorithms by k-fold and leave-one-out cross validation", "venue": "Pattern Recognition 2015,", "year": 2015}, {"authors": ["P. Wei", "Z. Lu", "J. Song"], "title": "Variable importance analysis: a comprehensive review", "venue": "Reliability Engineering & System Safety 2015,", "year": 2015}, {"authors": ["M. Feurer", "A. Klein", "K. Eggensperger", "J. Springenberg", "M. Blum", "F. Hutter"], "title": "Efficient and Robust Automated Machine Learning", "venue": "In Advances in Neural Information Processing Systems", "year": 2015}, {"authors": ["R.S. Olson", "J.H. Moore"], "title": "TPOT: A tree-based pipeline optimization tool for automating machine learning", "venue": "In Automated Machine Learning; Springer,", "year": 2019}, {"authors": ["D. Zhao", "D. Zhu", "J. Lu", "Y. Luo", "G. Zhang"], "title": "Synthetic medical images using F&BGAN for improved lung nodules classification by multi-scale VGG16", "venue": "Symmetry 2018,", "year": 2018}, {"authors": ["F. Ahlgren", "M. Thern"], "title": "Auto Machine Learning for predicting Ship Fuel Consumption", "venue": "ECOS 2018-the 31st International Conference on Efficiency, Cost, Optimization, Simulation and Environmental Impact of Energy Systems,", "year": 2018}, {"authors": ["W. Stummer", "U. Pichlmeier", "T. Meinel", "O.D. Wiestler", "F. Zanella", "H.J. Reulen", "A.G.S. Group", "others"], "title": "Fluorescence-guided surgery with 5-aminolevulinic acid for resection of malignant glioma: a randomised controlled multicentre phase III trial", "venue": "The lancet oncology 2006,", "year": 2006}, {"authors": ["M.G. Hart", "R. Grant", "R. Garside", "G. Rogers", "M. Somerville", "K. Stein"], "title": "Chemotherapeutic wafers for high grade glioma", "venue": "Cochrane Database of Systematic Reviews", "year": 2008}, {"authors": ["T. Roose", "S.J. Chapman", "P.K. Maini"], "title": "Mathematical models of avascular tumor growth", "venue": "SIAM review 2007,", "year": 2007}, {"authors": ["C.M. Bender", "A. Ghatak", "M. Gianfreda"], "title": "PT-symmetric model of immune response", "venue": "JOURNAL OF PHYSICS A-MATHEMATICAL AND THEORETICAL 2017,", "year": 2017}], "sections": [{"text": "Keywords: Glioblastoma; Fluid-attenuated inversion recovery; Brain; tumour; Topological Data Analysis; Persistent Homology; Persistent Entropy; Interpretable Machine Learning; Explainable Machine Learning; Automatic Machine Learning; Co-occurrence matrix; Textural features; The Cancer Imaging Archive"}, {"heading": "1. Introduction", "text": "Gliomas are the most common primary brain tumours, originating from glial cells. We can differentiate between benign tumours, with in some cases a lifelong expectancy, and malignant forms. In this second group, glioblastoma multiforme (GBM) is the most frequent malignant cancer with the worst prognosis, with less than 5% of affected patients with a 5-year survival rate and with the highest relapse rate [1]. GBM are characterized by a diffuse and infiltrative growth pattern, as invasive glioma cells often migrate along myelinated white matter (WM) fiber tracts. This is a major cause of their appalling prognosis:\nar X\niv :1\n91 2.\n08 16\n7v 6\n[ ee\nss .I\nV ]\n1 8\ntumour cells invade, displace, and possibly destroy WM. For these reasons, surgical, radiotherapic and chemotherapic approaches, also early performed, rarely resulted effective for a significant number of months [2]. Moreover, large surgical resections could cause unacceptable effects on motor or speech functions. In largely infiltrative GBM the real objective of surgical approach is to leave less possible cancer cells in situ to give more chances to adjuvant therapy. The non-invasive detection of microscopic infiltration, as well as the identification of aggressive tumour components within spatially heterogeneous lesions, are of outstanding importance for surgical and radiation therapy planning or to assess response to chemotherapy. Moreover, the critical importance of an accurate detection of local infiltration is underlined by the results of intraoperative MR: this technique seems to be able to contribute significantly to optimal resection [3] and to improve post-operative outcomes [4].Magnetic resonance (MR) imaging plays an important role in the detection and evaluation of brain tumours. The evaluation of post-surgical residual cancer by MR should be performed in all patients after 48-72 hours after surgery, because this factor has a relevant prognostic value both for survival and for the subsequent therapeutic response [5]. For more than 30 years [? ] conventional MR imaging, typically T1w images before and after paramagnetic contrast administration, T2w images and FLAIR images have been largely used to evaluate brain neoplasms. MR allows to localize the lesions, helps to distinguish tumours from other pathological processes, and depicts basic signs of response to therapy, such as changes in size and degree of contrast enhancement. Manual tumour detection and segmentation on MR images is time-consuming and can have a great inter-observer variability; automatic segmentation is more reproducible and efficient when robustness is particularly desirable, such as in monitoring disease progression or in the longitudinal evaluation of emerging therapies [6]. This is a very relevant element because often in clinical practice the decisions regarding therapy continuation or discontinuation are taken on the basis of disease recovery [2]. Radiomics is a set of techniques for extracting a vectorial representation that provides a quantitative description of tumour radiographic data. In general, radiomics extracts quantitative description of signals and images intensity, texture description and geometric characteristics. Texture analysis, an image-analysis technique that quantifies grey-level patterns by describing the statistical relationships between the intensity of pixels, has demonstrated considerable potential for cerebral lesion characterization and segmentation [7\u20139]. For automatic glioma detection and segmentation in MRI, several algorithms have been already proposed. The most recent works can be grouped into superpixel based segmentation and deep learning based segmentation. In [10], the authors presented an interesting bottom-up approach that aims to combine graphical probabilistic model (i. e, Conditional Random Fields - CRF -) for capturing the spatial interactions among image superpixel regions and their measurements. A number of features including statistics features, the combined features from the local binary pattern as well as grey level run length, curve features, and fractal features were extracted from each superpixel. The features were used for teaching machine learning models to discriminate between healthy and pathological brain tissues. In [11], the authors used the concept of superpixels based segmentation for instrumenting a machine learning algorithm (i.e., support vector machine - SVM) that uses both textural and statistical features. The authors reported excellent average Dice coefficient, Hausdorff distance, sensitivity, and specificity scores when applying their method on T2w sequences from the Multimodal Brain tumour Image Segmentation Benchmark 2017 (BraTS2017) dataset. In [12], the authors exploited a new method for brain tumour detection by combining features computed from Fluid-Attenuated Inversion Recovery (flair) MRI in association with the graph-based manifold ranking algorithm. The algorithm counts three mains steps: in the first phase, superpixel method is used to convert the homogeneous pixels in the form of superpixels. Rank of each superpixel or node is computed based on the affinity against certain selected nodes as the background prior in the second phase. The relevance of each node with the background prior is then computed and represented in the form of tumour map. In [13] the authors have reported on an approach that computes for each superpixel a number of novel image features including intensity-based, Gabor textons, fractal analysis\nand curvatures within the entire brain area in FLAIR MRI to ensure a robust classification. The authors compared Extremely randomized trees (ERT) classifier with support vector machine (SVM) to classify each superpixel into tumour and non-tumour. Deep learning based solutions are becoming the new tools for brain segmentation. In [14],the authors used autoencoders for instrumenting an automatic segmentation of increased signal regions in fluid-attenuated inversion recovery magnetic resonance imaging images. In [15], the authors have provided a solution for dealing to the limited amount of available data from ill brains. They have trained a one-class classifier algorithm based on deep learning for segmenting brain tumours from fluid attenuation inversion recovery MRI. The technique exploits fully convolutional neural networks, and it is equipped with a battery of augmentation techniques that make the algorithm robust against low data quality, and heterogeneity of small training sets. Beside segmentation, deep-learning based solutions have been exploited for skull-stripping, and tissues identification (white matter, grey matter, etc. . ) [16,17], At the best of our knowledge, latest radiomics approaches are reported in [18]. Another approach for the analysis of cancer development is based on dynamical system theory [19]. The models differ each other for different degrees of abstraction of the environment in which the tumour growth. Usually, the environment is modeled by the parameters in the equations, and they describe both the chemical nutrients and the spatial constraints. We notice that most of the models approximate tumour cells shape with spheres. Discrete models such as agent-based models reproduce the evolution of single spheroids. Partial Differential equation such as reaction-diffusion equation are used for predicting the temporal and spatial evolution of tumour cells. They can account for numerous biological phenomenon, but they are very sensitive to model parameters, making them hardly fittable with quantitative biological data in simple experimental set-up [20]. Recent works have combined radiomics with dynamical system for providing personalized model. A complete and exhaustive mathematical modelling of tumour growth is quite impossible since it involves too many subsystems which have an effect in the growth of a tumour. In [21], the authors have defined a novel approach for identifying the fundamental components involved in cancer development. They have proposed a novel probability functions to obtain a personalized model and estimate the individual importance of each subsystem by means of simulated annealing for parameter optimization. The authors have validated the prediction of tumour growth with in-vitro tumour growth data.\nTopological data analysis for radiomics and tumour growth analysis\nTopological space is a powerful mathematical concept for describing the connectivity of a space. Informally, a topological space is a set of points, each of which equipped with the notion of neighboring [22,23]. In the last decade a new suite of tools, based on algebraic topology, for data exploration and modelling haven been invented [24\u201326]. The data science community refers to these tools as Topological Data Analysis (TDA). TDA has been used in different domains: biology, manufacturing, medicine and others [27]. Topological entropy, namely Persistent Entropy, is equipped with suitable mathematical properties, that permits to describe complex systems [28] and it has been applied in different experiments, e.g. the analysis of biological images [29] and the analysis of medical signals [30]. At the best of our knowledge, the extraction of topological features for radiomics from topological data analysis is still at its infancy. In [31], the authors have compared the accuracy of machine learning models for the classification of hepatic tumours. From T1-weighted magnetic resonance (MR) images, the authors have computed both texture analysis and topological data analysis using persistent homology. The textural features or the topological features were used as input for machine learning models, the best accuracy (92%) for hepatocellular carcinomas was obtained with textural features, while TDA based machine learning model obtained the 85% of accuracy for metastatic tumours. Recent papers have demonstrated that topological data analysis algorithms are suitable for the analysis of dynamical systems [32]. A common approach is to embed the\ntime series of a dynamical system into a point cloud data and to study its shape by means of persistent homology. In [33], the authors have demonstrated that Persistent Entropy, a topological feature, is able to distinguish between periodical and chaotic systems. An alternative approach is represented by the analysis of the phase space of the system by means of TDA [34]. In particular, we are interested to detect and to study topological loops (1D, 2D, etc...) that would surround brain regions of interest. We have introduced a novel entropy, the so-called generator entropy, that is a function of the number of 0-simplices (vertices) in the loops. Our intuition is that a pathological brain is characterized by the presence of a mass with a different grey gradient that would correspond to a topological loop. If the mass structure is heterogeneous or if the brain is affected by multiple tumours the number of loops will be higher. An advantage of using persistent homology as radiomics features on FLAIR is that one can detect the differences between the shapes associated to pathological and healthy brain tissues.\nPaper outline\nIn the present investigation, we intend to demonstrate by means of numerical experiments that topological features combined with GLCM features can be enrolled for GBM analysis and morphological characterization on FLAIR. To this extent, we have performed the following numerical experiments:\n1. Analysis 1 - Topological Data Analysis of a simplified 2D tumour Growth Mathematical Model: identification how tumour growth over time is affected by the initial amount of available chemical nutrient 2. Analysis 2 - Topological analysis of Glioblastoma temporal progression on FLAIR: evaluation of GBM temporal evolution after treatment 3. Analysis 3 - Automatic GBM classification on FLAIR: the aims of this experiment is to evaluate the accuracy for classification GBM by characterization of 2D patches extracted from FLAIR by combining textural and topological data analysis with machine learning.\nIn the first experiment, we have integrated a discrete time mathematical model to study the evolution of three different type of tumour cells: proliferative, quiescent and necrosis. At each time step, we associated a point cloud data (PCD) to each cell set. The spatial evolution of the PCD is analysed by topological statistics, i.e. persistent entropy. The plot of persistent entropy over time reveals interesting system\u2019s evolution. The results encouraged us to analyse if topological features can detect also GBM temporal evolution. To this extent, we have analysed a publicly available dataset that contains 2 sequences of FLAIR for 20 patients. The sequences were recorded within 90 days following chemo-radiation therapy (CRT) completion and at progression. The complete description of the dataset is in Sec.: ??. For the sake of completeness, we decided to use FLAIR since they reveal a wide range of lesions, including cortical, periventricular, and meningeal diseases that were difficult to see on conventional images. In the third experiment we have used the same dataset but for evaluating the possibility of discriminating healthy and pathological tissue on FLAIR, by the use of Statistical Texture Analysis and Topological Data Analysis. The discriminating power of statistical texture and of topological features was then exploited for the development of a supervised tumour detection methodology by means of automatic machine learning algorithms. We have adopted novel computational tools for debugging and understanding Machine Learning decision. The paper is organized as follows: in Section 3 we introduce the relevant background, namely the fundamental concepts of textural features and topological features. Section 4 introduces the methodology for GBM characterization. In Section ?? we report on the implementation and application of the methodologies on slices extracted from public domain FLAIR. Final thoughts about the results and next steps are discussed in the last Section 6."}, {"heading": "2. Materials", "text": "Analysis 1: Topological Data Analysis of a simplified 2D tumour Growth Mathematical Model\nIn order to investigate the topological properties of tumour growth dynamics, we have used a well documented tumour growth model, the so-called Sherratt-Chaplain model [35]. The model is also valid for GBM like tumour [36]. The model describes the temporal evolution of cell densities of profilerating, quiescent and necrotic cells [37]. Cells movements (diffusion) is modeled by a competitive approach. The model has been updated and compared with in-vitro analysis for a fine-tuning of its parameters [38]. The motion equation for the profilerating p, quiescent q and necrotic cells n is:\ndp dt = \u2202 \u2202x ( p p + q \u2202(p + q) \u2202x ) + g(c)p(1\u2212 p\u2212 q\u2212 n)\u2212 f (c) (1)\ndq dt = \u2202 \u2202x ( q p + q \u2202(p + q) \u2202x ) + f (c)p\u2212 h(c)q (2)\n\u2202n \u2202t = h(c)q (3)\nWhere c is the concentration of some nutrients that can be represented by:\nc = c0\u03b3\n\u03b3 + p (1\u2212 \u03b1(p + q + n)) (4)\nThe functions f , g and h are defined:\nf (c) = 1\u2212 tanh(4c\u2212 2)\n2 (5)\ng(c) = \u03b2e\u03b2c (6)\nh(c) = f (c)\n2 (7)\nThe model can be solved with numerical methods by translating them into finite differences [38]. Under the assumption of radial symmetry the displacement of the cells can be seen 2-dimensional. We remark that we do not intend to deep dive in mathematical modelling of GBM growth, but we want to investigate topological properties of GBM like tumour.\nAnalysis 2 & 3: Dataset\nIn order to make our results comparable, the analysis 2 and 3 were executed by using a public freely available dataset accessible via The Cancer Imaging Archive (TCIA) [39]. In details, the dataset includes DICOM files of 20 subjects from different sites with primary newly diagnosed glioblastoma who were treated with surgery and standard concomitant chemo-radiation therapy (CRT) followed by adjuvant chemotherapy. The sequences are T1-weighted (pre and post-contrast agent), FLAIR, T2-weighted, ADC, normalized cerebral blood flow, normalized relative cerebral blood volume, standardized relative cerebral blood volume, and tumour masks (i.e., ROIs) [40,41]. Fig. 1 shows two among the 2D slices contained in the dataset and extracted from FLAIR. Each patient is described by two MRI exams: within 90 days following CRT completion and at progression. At the best of our knowledge, in this paper the dataset is used for the first time for ML experiments [42]. The following preprocessing steps were performed before running the analysis:\nFLAIR preprocessing\nThe following preprocessing steps attempt to enhance and correct FLAIR for posterior analysis. We propose the following scheme for the dataset under analysis:\n\u2022 DICOMs were transformed into NII files for enabling preprocessing steps1. \u2022 FLAIRs were optimized by removing fat tissues and by performing skull stripping. The preprocessing\nsteps, namely the removal of fat tissues and skull stripping, were performed by using the deep-learning algorithm described in [43]2."}, {"heading": "3. Background", "text": "Topological Data Analysis: persistent homology\nHomology is an algebraic machinery used for describing a topological space C. Informally, for a fixed natural number k, the k\u2212Betti number \u03b2k counts the number of k\u2212dimensional holes characterizing C: \u03b20 is the number of connected components, \u03b21 counts the number of holes in 2D or tunnels in 3D3, \u03b22 can be thought as the number of voids in geometric solids, and so on. Persistent homology is a method for computing the k\u2212dimensional holes at different spatial resolutions. Persistent holes are more likely to represent true features of the underlying space, rather than artifacts of sampling (noise), or due to particular choices of parameters. For a more formal description we refer the reader to [44]. In order to compute persistent homology, we need a distance function on the underlying space. This can be obtained constructing a filtration on a simplicial complex, which is a nested sequence of increasing subcomplexes. More formally, a filtered simplicial complex K is a collection of subcomplexes {K(t) : t \u2208 R} of K such that K(t) \u2282 K(s) for t < s and there exists tmax \u2208 R such that Ktmax = K. The filtration time (or filter value) of a simplex \u03c3 \u2208 K is the smallest t such that \u03c3 \u2208 K(t). A k\u2212dimensional Betti interval, with endpoints [tstart, tend), corresponds to a k\u2212dimensional hole that appears at filtration time tstart and remains until time tend. We refer to the holes that are still present at t = tmax as persistent topological features, otherwise they are considered topological noise [45]. Figure ?? depicts the computation of persistent homology on a FLAIR slice. The methodology for transforming the image into a weighted graph is described in the text. The set of intervals representing birth and death times of homology classes is called the persistence barcode associated to the corresponding filtration. Instead of bars, we sometimes draw points in the plane such that a point (x, y) \u2208 R2 (with x < y) corresponds to a bar [x, y) in the barcode. This set of points is called persistence diagram. There are several algorithms for\n1 https://pypi.org/project/dicom2nifti/ 2 https://github.com/JanaLipkova/s3 3 Here nD refers to the n\u2212dimensional space Rn.\ncomputing persistent homology and their analysis and for a complete overview of the available tools we refer to [46].\nTopological Features for Radiomics\nIn order to use persistent barcodes in any computer applications (e.g. machine learning), it is needed to derive a set of numerical descriptors which encapsulate the information contained in the barcode. In the following we recall how to compute the statistics we use in this research. Two or more topological objects, e.g. simplicial complexes, are homologically equivalent if they have the same sequence of Betti numbers. In other words by using persistent homology, they are characterized by the same number of persistent homological holes at each dimensioms. To facilitate the comparison of two or more simplicial complexes, one can calculate and compare the Euler Characteristics for each simplicial complex:\nDefinition 1 (Euler Characteristic).\n\u03c7 = i=n\n\u2211 i=0\n(\u22121)i\u03b2i\nWhere \u03b2i is the Betti numbers at the i-th homological group (e.g., \u03b20 is the Betti number at H0 for counting the number of connected components, \u03b21 for counting the number of 2D holes, \u03b22 for counting the number of 3D empty volumes etc. . . ).\nSince Euler Characteristics is computed on the persistent homological holes and it discards completely the noisy topological features (i.e., not persistent) we suggest to complement it compute also the so-called Persistent Entropy. Persistent Entropy is a Shannon like entropy computed over the persistent barcodes and it is calculated by using both noisy and persistent topological features.. It was defined initially in [47] and further studies of its mathematical properties were published in [48,49]. We recall its definition.\nDefinition 2 (Persistent Entropy). Given a persistence barcode B = {ai = [xi, yi) : i \u2208 I}, the Persistent Entropy (PE) H of the filtered simplicial complex is defined as follows:\nH = \u2212\u2211 i\u2208I pilog10(pi)\nwhere pi = `i L , `i = yi \u2212 xi, and L = \u2211i\u2208I `i.\nIn the case of an interval with no death time, [xi,+\u221e), we truncate infinite intervals and replace [xi,+\u221e) by [xi , m) in the persistence barcode, where m = tmax + 1. Note that the maximum PE corresponds to the situation in which all the intervals in the barcode are of equal length. In that case, H = log n if n is the number of elements of I. Conversely, the value of the PE decreases as more intervals of different length are present. A topological n-dimensional hole is generated by the so-called homological generator [50,51]. For example, a 1D hole is generated by a set of 0-simplices (vertices) linked by 1-simplices (edges). Given our interest to nD topological holes, we propose a new seminal statistics that is computed on the number of 0D simplices (vertices) in each topological features.\nDefinition 3 (Generator Entropy). Given a filtered simplicial complex {K(t) : t \u2208 F}, and the collection of corresponding persistence barcode B = {ai = [xi, yi) : i \u2208 I} for the Homological Groups Hj with j \u2265 1.\nGH = \u2212\u03a3i=Ni=1 (pilog10(pi))\nwhere N is the total number of homological lines in the barcode, ni is the number of 0-simplices in the i-th line and L = \u03a3i=Ni=1 ni and pi = ni L . For the sake of preciseness, in a topological loop there exist a 0-simplices that appears twice. In this setting we count each 0-simplices only once.\nWe envision that this new topological statistics could be used as measure of number of different objects surrounded by topological loops and their diameter.\nTextural features : grey-Level Co-occurrence matrix\nIn this study we used one selected feature set (grey-Level Co-occurrence matrix, GLCM) for the texture analysis in accordance with some previous reports of radiomics for GBM detection [52]. GLCM is a statistical method on examining image texture by taking into account the spatial relationship of pixels. The GLCM counts how often pairs of pixel with specific values and in a specified spatial relationship occur in an image. From GLCM we have extracted the following textural information [53]:\n1. Contrast - it measures the local variability in the grey level. 2. Correlation - it measures the joint probability that a given pair of pixels is found. 3. Homogeneity - it measures the distance between the GCLM diagonal and element distribution. 4. Energy\nIn this paper we have used the open-source software Ripser [54]4 for TDA. Ripser allows to compute persistent homology of both point cloud data and 2D images. For the computation of persistent homology we have used a slightlhy modified version of the lower star filtration 5. In our version, the algorithm computes the homology up to the first homological group and it returns for each topological loop a set of representative generators. While for GLCM computation we have used Scikit-Image [55]."}, {"heading": "4. Methods", "text": ""}, {"heading": "4.1. Analysis 1: Topological Data Analysis of a simplified 2D tumour Growth Mathematical Model", "text": "We have integrated the model introduced in Sec.2 by using the code provided in the paper [38] but rewritten in Python. The dimensionless parameters \u03b1, \u03b3 and \u03b2 are extracted from in-vitro experiments. We remark that \u03b1 and \u03b3 represent concurr to the definition of the initial concentration of chemical nutrient. We have analysed how the system is affected by different values of \u03b1 by keeping \u03b3 = 10.0 and \u03b2 = 0.5. For each value of \u03b1, and throughout the integration, the 2D coordinates of each cell were extracted. The coordinates were used as input for TDA. Fig.:9 depicts both the spatial distribution of the cells and the corresponding topological features computed throughout the system\u2019s integration.\n4 https://ripser.scikit-tda.org/ 5 https://ripser.scikit-tda.org/notebooks/LowerStarImageFiltrations.html"}, {"heading": "4.2. Analysis 2: Topological Data Analysis of tumour Progression", "text": "The dataset contains for each patient two MRI exams: the exams were recorded within 90 days following CRT completion and at progression, for now on \u201dpre\" and \u201dpost\". For each patient the topological features (i.e. Euler characteristics, persistent entropy at H0 and H1 and generator entropy) were computed on the 2D slices of FLAIR. Welch\u2019s t-test is used for comparing the mean of the topological descriptor computed over the \u201dpre\" and \u201dpost\" set of images. Fig.:3 depicts of two FLAIR slices extracted for the same patients within 90 days following chemo-radiation therapy (CRT) completion and at progression."}, {"heading": "4.3. Analysis 3: GBM classification", "text": "In this work we have implemented and tested the following GBM classification methodology using texture and topological data analiysis. The input for the methodology are the FLAIR and the corresponding ROI files. For each 2D slice we have executed the following process that is also depicted in Fig.:4:\n1. 2D GLCM features and topological features were calculated with a sliding patch approach in the segmented ROI. The size of the patch is 30\u00d7 30. 2. In order to identify discriminating features, the same feature calculations were also performed in the contralateral (healthy) ROIs. 3. Each sliding patch was labeled as healthy or pathologic according to the class of its ROI. Each patch was also stored for future analysis. 4. Features selection. 5. The dataset is randomly divided in training and testing subsets that contain the 70% and 30% of\nsamples respectively. 6. The training set is used for training a machine learning classifier. For the sake of completeness,\nduring training we have adopted a k-fold cross validation standard procedure [56]6 with k = 5. 7. Splitting, training and testing procedure were executed multiple times by using different set of\nfeatures: only topological features or only GLCM features or topological plus GLCM features. 8. Classifier behavior is debugged by tools from information theory. This allows to understand feature\nrelevance and to understand what are the numerical input characteristics related to the classification verdict. Specifically, we have used Skater and Lime algorithms [57]7.\n4.3.1. Feature selection\nFeature extraction comprises the process of extracting new features from the FLAIR. For each patch eight features (four topological plus four texture features) were computed. Features were standardized by removing the mean and scaling to unit variance8. Spearman\u2019s rank-order correlation combined with backward elimination was used to calculate the correlations between features and outcome variables. Features with highest correlation and p-value\u2264 0.05 become more expressive of GBM characteristics. Fig.5 depicts the correlation among the features. Topological features are quite correlated among them. We observe that \u201dgenerator entropy\" (HGen) shows a positive correlation with \u201dhomogeneity\". This is in line with the idea that HGen is affected by how much the image is homogeneous both in terms of structure and of grey distribution. Eventually, the correlation analysis has selected seven out eight features. For the\n6 https://machinelearningmastery.com/difference-test-validation-datasets/ 7 https://www.oreilly.com/ideas/interpreting-predictive-models-with-skater-unboxing-model-opacity 8 https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html\nsake of completeness, all the topological features were selected while, the textural features correlation was discarded. Fig.6 depicts the density distribution of the features that were selected. The topological features \u201dpersistent entropy\" for H0 and for H1 groups and the textural feature \u201dhomogeneity\" show a quite good separation between ill (red) and healthy (green) group. The other features show different peaks but their distribution are overlapped.\n4.3.2. Machine Learning algorithm selection\nThe selection of ML algorithm was performed by using Automatic Machine Learning tool, i.e. Auto-Sklearn [58] and TPOT [59]. Auto-sklearn uses Bayesian optimization approaches for the automatic selection of machine learning classifier based on an ensemble of scikit-learn algorithms. Auto-sklearn compares and ranks different solutions and returns the solution tha maximizes the accuracy. TPOT is a framework that uses genetic algorithm for comparing different machine learning solutions and it finds automatically the best pipeline that maximizes the accuracy. Both Auto-Sklearn and TPOT produce a pipeline containing both preprocessing steps - if needed - and the selected Machine Learning architecture.\n4.3.3. Deep Learning approach on numerical features\nFor the sake of completeness, we have also trained deep learning classifiers on the selected features. In particular, we have trained multiple models with an architecture based on sequential dense layers with rectified linear unit (relu) activation function, followed by a dropout layer for preventing over-fitting and eventually by another dense layer as output layer. The difference among the models is the number of dense layers before the dropout and number of neurons per layers.\n4.3.4. GBM classification - Deep learning approach on patches\nDeep-learning based solutions are opening new doors in the field of GBM detection and segmentation, we have compared the performance of the machine learning solution with two different Deep Neural networks on the patches extracted in the methodology defined in Sec.:4. Fig.:7 contains 8 out of 1612 patches used for training and testing the algorithms. The first network contains 4 alternating convolutional and max-pooling layers, followed by a dropout after every other convolutional-pooling pair. After the last pooling layer, the network contains a fully-connected layer with 256 neurons, another dropout layer, then finally a softmax classification layer for two classes (i.e., pathological and healthy). The loss function is the categorical cross-entropy loss, and the learning algorithm is the AdaDelta. The network contains about 1\nmillion parameters. In the second setup, we have executed the transfer learning of a pre-trained VGG16 model. Transfer learning means the adaption of a pre-trained and optimized deep learning architecture for dealing with our dataset. The model consists of several convolutional layers, followed by some\nfully-connected / dense layers and then a softmax output layer for the classification. The dense layers are responsible for combining features from the convolutional layers. In this experiment, another dense-layer and a dropout-layer were added to avoid over-fitting. VGG16 contains 13 convolutional layers and two fully connected layers at the end, and it counts more than 138 million parameters. VGG16 was made to solve ImageNet, and achieves a 8.8% top-5 error rate, which means that 91.2% of test samples were classified correctly within the top 5 predictions for each image. The network was adapted to the two classes classification by removing the original final classification layer, which corresponds to ImageNet, that was replaced by a new softmax layer which contains 2 neurons. Keras implementation of VGG16 facilitates to handle a such huge network and it optimizes memory issues[60]. Both networks were trained for 100 epochs with a batch size of 128. For both networks Keras API for TensorFlow and Google Colab environment9 were used for the training."}, {"heading": "5. Results", "text": ""}, {"heading": "5.1. Analysis 1: Topological Data Analysis of a simplified 2D tumour Growth Mathematical Model", "text": "Fig.:9 (top) depicts cells spatial displacement for \u03b1 = [0.0, 0.5, 1.0] and the corresponding topological statistics (bottom) computed throughout system integration. At first look, with low \u03b1 the quiescent and necrotic cells (in blue and black respectively) are quite confined in the central region, while for high \u03b1 they are more scattered. We have further investigated this aspect by plotting for different \u03b1 the amount of time steps that were needed to find topological features greater than zero. Since proliferative cells are always present and thus the corresponding topological features are immediately greater than zero, we have focused our analysis only on quiescent and necrotic cells. The outcome of the analysis is represented in Fig.:8. At high concentration of nutrients \u03b1 \u2265 0.4 the phenomenon is more virulent and therefore it takes less time for proliferating both quiescent and necrotic cells.\n9 https://colab.research.google.com/github/kylemath/ml4a-guides/blob/master/notebooks/transfer-learning.ipynb"}, {"heading": "5.2. Analysis 2: Topological Data Analysis of tumour Progression", "text": "Topological features detect the change of brain shape between the \u201dpre\" and \u201dpost\" CRT treatment. Fig.:9 describes the density estimation for the topological features (Euler Characteristics, Persistent Entropy for Ho and H1 and Generator Entropy). It is well evident that the two distributions of persistent entropy for the connected components (H0) are quite different: the distribution for the \u201dpre\" set (red) is bimodal with a local maximum at 0.0 and a global maximum \u2248 at 0.6. The distribution for the \u201dpost\" set (blue) contains two local maxima and a global maximum \u2248 at 0.7. Welch\u2019s t-test was computed for testing the null hypothesis that the means of the distribution are equal. The outcome of the analysis is capture in Tab.:1. Only the distributions for the peristent entropy at H0 are statistically different. This result would suggest to use persistent entropy as a new measure for monitoring the follow-up of chemo-radiation therapy (CRT) treatment for GBM."}, {"heading": "5.3. Analysis 3: GBM classification on FLAIR", "text": "Tables 2, 3 and 4 show the results obtained in the training and test sets respectively, grouped by the algorithms testes in this study. The corresponding ROC curves are depicted in Fig.:10, 11 and 12. In general, TPOT produces the best algorithms in combination with the proposed preprocessing steps. The worse performances are obtained by using only the textural features. The combination of topological and textural features rise the best performances. In both cases, namely only topological and topological plus textural, the accuracy are quite good. We argue that TPOT shows better performance because it optimizes over more parameters increase the separation of the features with respect the two classes [61].\n5.3.1. Machine Learning classification interpretation\nSkater and Lime algorithms were used for computing features relevance with respect to the TPOT machine learning algorithms trained on topological and textural features [57]. The output of Skater is depicted in Fig.:13. For TPOT classifier, the textural features homogeneity has the same relevance of the topological entropy persistent entropy at H0 - PE0 that is followed by generator entropy - HGEN. This confirms\nthat the combination of topological and textural features allowed to reach high accuracy. The less relevant features is contrast, however since its importance is greater than 0 it cannot be discarded. The output of Lime is represented in Fig.:14. Lime algorithm has allowed to understand what are the numerical characteristic for a patch to be classified healthy or ill. Negative (blue) indicate healthy tissues, while positive (orange) indicate ill tissue. The way to interpret the weights by applying them to the prediction probabilities is straightforward. The bars indicate the weight for each feature and the corresponding value for the slice under test. The subtraction of the weights from the prediction\nprobabilities (1 in both cases as indicated in the left part of the picture) will alter the probability of a sample to be classified ill or healthy. This highlights that even if some features might appear globally less relevance, they are locally fundamental for avoiding \u201dflipping coin\" predictions."}, {"heading": "5.4. GBM classification with Deep Learning", "text": "Table 5 shows the results obtained in the training and test sets respectively, grouped by the deep learning algorithms tested in this study. The corresponding ROC curves are depicted in Fig.:15. The fine-tuning of VGG16 with the transfer-learning approach has allowed to reach the best performances. By comparing the metrics (e.g., accuracy, precision-recall, misclassification rate and F1) it is evident that VGG16 outperforms TPOT. Only the AUC of TPOT (96%) is quite closed to the AUC reached by VGG16 (97%). Finally, examples of patches classification achieved by applying the fine-tuned VGG16 on an entire 2D FLAIR is showed in Fig.:16."}, {"heading": "6. Discussion", "text": "Topological data analysis is a reliable approach to shed light on GBM characteristics, as it has demonstrated by the three numerical experiments described in this paper. Fast and reliable assessment of GBM presence is critical for an accurate surgical and radiotherapy planning as well as to evaluate and\nquantify treatment-related effects and progression In the recent period, surgical approaches are strongly changed, with a progressive shift from classical neurosurgical techniques towards newer approaches with surgical navigation systems fluorescence-guided and MR-guided surgery [2,3,62]. Also, chemotherapy employed techniques with wafer drugs positioning in situ to minimize systemic collateral effects [63]. Consequently, radiological techniques able to localize and evidence every minimum GBM localization are essential to enforce new therapeutic possibilities able to improve the extent of tumour resection, prolong survival and increase the quality of life. Topological descriptor such as Euler Characteristics, Persistent Entropy and Persistent Generator were used to identify the physiological conditions that facilitate tumour growth. We notice that Generator entropy was introduced in this paper as a novel topological statistic that summarizes the number of homological generators of nD homological loops. In particular, topological statistics were able to identify the change of proliferation rate of quiescent and necrotic cells as a consequence of nutrient concentration: the higher the concentration of chemical nutrients the more virulent the process. We would to remark once again that in this paper we had analysed a simplified 2D tumour growth model, in order to develop a more reliable personalized tumour growth analysis we envision the need to combine topological dynamical system analysis with imaging analysis [64,65]. In the other two experiments we have demonstrated by using a publicly available dataset that topological features can be used as new radiomics features for GBM characterization. The analysis of FLAIR sequences recorded within 90 days following chemo-radiation therapy (CRT) completion and at progression by means of topological descriptors has confirmed by statistical test that persistent entropy computed at the homological group H0 of the connected component is a viable alternative for monitoring treatment effects. Based on these results we had proposed a new method for GBM detection and segmentation. The supervised method for automatic classification of 2D patches extracted from FLAIR sequences is a viable alternative for GBM identification and segmentation. The proposed method comprises the following main stages: image preprocessing, sliding patches extraction, topological and textural features computation and selection, supervised classification via automatic machine learning, interpretation of classifier prediction. Preprocessing steps, i.e. skull stripping, were obtained by employing the latest deep learning technology. Several supervised classification algorithms were evaluated to ensure the highest classification accuracy. To this extent, two different automatic machine learning selection frameworks were evaluated, which are\nTPOT and Auto-SkLearn. The algorithms were trained using topological features or textural features or the combination of the two sets. The selected machine learning approaches were used as baseline in the comparison with deep learning based approaches. For the sake of completeness, deep learning approaches were trained on the same features set or directly on the patches (sub-images) extracted from the 2D FLAIR. The quality of classification was assessed by several metrics and ROC curves. The highest accuracy using the features was reached by TPOT trained on the two sets (e.g., topological and textural) with an accuracy of 89% and AUC = 96%. Finally, the trained systems were investigated with tools from information theory. Skater and Lime algorithms allowed computing features relevance and for understanding what are the numerical characteristics of a patch to be classified ill or healthy. The interpretation has confirmed the importance of topological features. The transfer learning of a pre-trained VGG16 network allowed for patches classification had allowed to reach an accuracy of 97% and AUC = 97%. However, we would like to remark that in general Deep Learning based methods require ad-hoc hardware for their training, in fact we have used Google Colab platform that allows to access to both GPU and TPU units. The adoption of deep learning solution would be straightforward, but we remark that machine learning classification verdicts can be easily interpreted by enrolling tools like Skater and Lime while, the interpretation of the feature space extracted by a deep learning solution might be unfeasible, since the convolutional features might not correspond to any physical information. In the future, we envision several efforts: we intend to investigate mathematical properties (minimum set of generators, stability theorem, etc. . . ) of the new topological entropy [51]. We intend also to extend and make more precise our study by extending the cohort, for example by including FLAIR from other datasets (e.g., BRATS), and by challenging U-Net algorithm and to equip it with tools for outcome interpretation. Our end will be to develop a novel Computer-Aided Detection tool compliant with the EU-GDPR 22nd article (\u201dAutomated individual decision-making, including profiling\") for the \u201dright to be informed\"10.\nAuthor Contributions: M.R. has conceptualized the methodology and executed the experiment. G.V. and L.F. have contributed to paper writing.\nFunding: \u201cThis research received no external funding\u201d\nAcknowledgments: The author would like to thank Prof. Rocio Diaz-Gonzalez and Prof. Matthias Zeppelzauer for fruitful discussions on topological statistics for imaging; Dr. Giorgio De Nunzio, Dr. Marina Donativi and MD Antonella Castellano for long-standing conversations on GBM segmentation. Andrea De Antoni for the discussions on how to improve the presentation of the main findings.\nConflicts of Interest: The authors declare no conflict of interest.\nAbbreviations\nThe following abbreviations are used in this manuscript:\nGBM Glioblastomas multiforme GLCM grey Level Co-occurrence Matrix TDA Topological Data Analysis MRI Magnetic Resonance Image FLAIR Fluid-attenuated inversion recovery MD Medical Doctor\n10 http://www.privacy-regulation.eu/it/22.htm"}], "title": "Towards personalized diagnosis of Glioblastoma in Fluid-attenuated inversion recovery (FLAIR) by topological interpretable machine learning", "year": 2020}
+{
+  "abstractText": "Glioblastoma multiforme (GBM) is a fast-growing and highly invasive brain tumour, it tends to occur in adults between the ages of 45 and 70 and it accounts for 52 percent of all primary brain tumours. Usually, GBMs are detected by magnetic resonance images (MRI). Among MRI, Fluid-attenuated inversion recovery (FLAIR) sequence produces high quality digital tumour representation. Fast detection and segmentation techniques are needed for overcoming subjective medical doctors (MDs) judgment. In the present investigation, we intend to demonstrate by means of numerical experiments that topological features combined with textural features can be enrolled for GBM analysis and morphological characterization on FLAIR. To this extent, we have performed three numerical experiments. In the first experiment, Topological Data Analysis (TDA) of a simplified 2D tumour growth mathematical model had allowed to understand the bio-chemical conditions that facilitate tumour growth: the higher the concentration of chemical nutrients the more virulent the process. In the second experiment topological data analysis was used for evaluating GBM temporal progression on FLAIR recorded within 90 days following treatment (e.g., chemo-radiation therapy CRT) completion and at progression. The experiment had confirmed that persistent entropy is a viable statistics for monitoring GBM evolution during the follow-up period. In the third experiment we had developed a novel methodology based on topological and textural features and automatic interpretable machine learning for automatic GBM classification on FLAIR. The algorithm reached a classification accuracy up to the 97%.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Matteo Rucco"
+    },
+    {
+      "affiliations": [],
+      "name": "Giovanna Viticchi"
+    },
+    {
+      "affiliations": [],
+      "name": "Lorenzo Falsetti"
+    }
+  ],
+  "id": "SP:4406c22c24268f14c60d1eaf585683d01bb77af5",
+  "references": [
+    {
+      "authors": [
+        "R. Batash",
+        "N. Asna",
+        "P. Schaffer",
+        "N. Francis",
+        "M. Schaffer"
+      ],
+      "title": "Glioblastoma multiforme, diagnosis and treatment; recent literature review",
+      "venue": "Current medicinal chemistry 2017,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Weller",
+        "M. Van den Bent",
+        "K. Hopkins",
+        "J. Tonn",
+        "R. Stupp",
+        "A. Falini",
+        "E. Cohen-Jonathan-Moyal",
+        "D. Frappaz",
+        "R. Henriksson",
+        "C. Balana",
+        "others"
+      ],
+      "title": "European Association for Neuro-Oncology (EANO) Task Force on Malignant Glioma. EANO guideline for the diagnosis and treatment of anaplastic gliomas and glioblastoma",
+      "venue": "Lancet Oncol 2014,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "D. Kuhnt",
+        "A. Becker",
+        "O. Ganslandt",
+        "M. Bauer",
+        "M. Buchfelder",
+        "C. Nimsky"
+      ],
+      "title": "Correlation of the extent of tumor volume resection and patient survival in surgery of glioblastoma multiforme with high-field intraoperative MRI guidance",
+      "venue": "Neuro-oncology 2011,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Schijns"
+      ],
+      "title": "Intraoperative MRI-guided resection of glioblastoma multiforme: a systematic review",
+      "venue": "Lancet Oncol 2011,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "C. Maj\u00f3s",
+        "M. Cos",
+        "S. Casta\u00f1er",
+        "M. Gil",
+        "G. Plans",
+        "A. Lucas",
+        "J. Bruna",
+        "C. Aguilera"
+      ],
+      "title": "Early post-operative magnetic resonance imaging in glioblastoma: correlation among radiological findings and overall survival in 60 patients",
+      "venue": "European radiology 2016,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Castellano",
+        "M. Donativi",
+        "R. Rud\u00e0",
+        "G. De Nunzio",
+        "M. Riva",
+        "A. Iadanza",
+        "L. Bertero",
+        "M. Rucco",
+        "L. Bello",
+        "R. Soffietti",
+        "others"
+      ],
+      "title": "Evaluation of low-grade glioma structural changes after chemotherapy using DTI-based histogram analysis and functional diffusion maps",
+      "venue": "European radiology 2016,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "G. Castellano",
+        "L. Bonilha",
+        "L. Li",
+        "F. Cendes"
+      ],
+      "title": "Texture analysis of medical images",
+      "venue": "Clinical radiology 2004,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "F. Remondino",
+        "S. El-Hakim"
+      ],
+      "title": "Image-based 3D modelling: a review",
+      "venue": "The photogrammetric record 2006,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "L.R. Schad",
+        "S. Bl\u00fcml",
+        "I. IX. Zuna"
+      ],
+      "title": "MR tissue characterization of intracranial tumors by means of texture analysis. Magnetic resonance imaging",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "Z. Zhao",
+        "G. Yang",
+        "Y. Lin",
+        "H. Pang",
+        "M. Wang"
+      ],
+      "title": "Automated glioma detection and segmentation using graphical models",
+      "venue": "PloS one 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Y. Wu",
+        "Z. Zhao",
+        "W. Wu",
+        "Y. Lin",
+        "M. Wang"
+      ],
+      "title": "Automatic glioma segmentation based on adaptive superpixel",
+      "venue": "BMC medical imaging 2019,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S.N. Shivhare",
+        "N. Kumar"
+      ],
+      "title": "Brain tumor detection using manifold ranking in flair mri",
+      "venue": "In Proceedings of ICETIT 2019; Springer,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M. Soltaninejad",
+        "G. Yang",
+        "T. Lambrou",
+        "N. Allinson",
+        "T.L. Jones",
+        "T.R. Barrick",
+        "F.A. Howe",
+        "X. Ye"
+      ],
+      "title": "Automated brain tumour detection and segmentation using superpixel-based extremely randomized trees in FLAIR MRI. International journal of computer assisted radiology and surgery",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "P. Korfiatis",
+        "T.L. Kline",
+        "B.J. Erickson"
+      ],
+      "title": "Automated segmentation of hyperintense regions in FLAIR MRI using deep learning",
+      "venue": "Tomography 2016,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "P.R. Lorenzo",
+        "J. Nalepa",
+        "B. Bobek-Billewicz",
+        "P. Wawrzyniak",
+        "G. Mrukwa",
+        "M. Kawulok",
+        "P. Ulrych",
+        "M.P. Hayball"
+      ],
+      "title": "Segmenting brain tumors from FLAIR MRI using fully convolutional neural networks. Computer methods and programs in biomedicine",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J. Kleesiek",
+        "G. Urban",
+        "A. Hubert",
+        "D. Schwarz",
+        "K. Maier-Hein",
+        "M. Bendszus",
+        "A. Biller"
+      ],
+      "title": "Deep MRI brain extraction: a 3D convolutional neural network for skull stripping",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "F.J. Galdames",
+        "F. Jaillet",
+        "C.A. Perez"
+      ],
+      "title": "An accurate skull stripping method based on simplex meshes and histogram analysis for magnetic resonance images",
+      "venue": "Journal of neuroscience methods",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "A. Chaddad",
+        "M.J. Kucharczyk",
+        "P. Daniel",
+        "S. Sabri",
+        "B.J. Jean-Claude",
+        "T. Niazi",
+        "B. Abdulkarim"
+      ],
+      "title": "Radiomics in glioblastoma: current status and challenges facing clinical implementation",
+      "venue": "Frontiers in oncology 2019,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "N. Bellomo",
+        "L. Preziosi"
+      ],
+      "title": "Modelling and mathematical problems related to tumor evolution and its interaction with the immune system",
+      "venue": "Mathematical and Computer Modelling",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "T. Michel",
+        "J. Fehrenbach",
+        "V. Lobjois",
+        "J. Laurent",
+        "A. Gomes",
+        "T. Colin",
+        "C. Poignard"
+      ],
+      "title": "Mathematical modeling of the proliferation gradient in multicellular tumor spheroids",
+      "venue": "Journal of theoretical biology 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Unsal",
+        "A. Acar",
+        "M. Itik",
+        "A. Kabatas",
+        "O. Gedikli",
+        "F. Ozdemir",
+        "K. Turhan"
+      ],
+      "title": "Personalized Tumor Growth Prediction with Multiscale Tumor Modeling 2019",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Hatcher"
+      ],
+      "title": "Algebraic Topology",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "J.R. Munkres"
+      ],
+      "title": "Elements of algebraic topology",
+      "year": 1984
+    },
+    {
+      "authors": [
+        "G. Carlsson"
+      ],
+      "title": "Topology and data",
+      "venue": "Bulletin of the American Mathematical Society 2009,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "A. Zomorodian"
+      ],
+      "title": "Topological data analysis",
+      "venue": "Advances in Applied and Computational Topology. Proceedings of Symposia in Applied Mathematics,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "H. Edelsbrunner",
+        "J. Harer"
+      ],
+      "title": "Persistent Homology \u2013 a Survey",
+      "venue": "Contemporary mathematics 2008,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "M. Rucco",
+        "A.L. Mamuye",
+        "M. Piangerelli",
+        "M. Quadrini",
+        "L. Tesei",
+        "E. Merelli"
+      ],
+      "title": "Survey of TOPDRIM applications of topological data analysis",
+      "venue": "CEUR Workshop Proceedings, 2016,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "N. Atienza",
+        "R. Gonzalez-Diaz",
+        "M. Rucco"
+      ],
+      "title": "Persistent entropy for separating topological features from noise in vietoris-rips complexes",
+      "venue": "Journal of Intelligent Information Systems 2019,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M.J. Jimenez",
+        "M. Rucco",
+        "P. Vicente-Munuera",
+        "P. G\u00f3mez-G\u00e1lvez",
+        "L.M. Escudero"
+      ],
+      "title": "Topological data analysis for self-organization of biological tissues",
+      "venue": "International Workshop on Combinatorial Image Analysis. Springer,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Piangerelli",
+        "M. Rucco",
+        "L. Tesei",
+        "E. Merelli"
+      ],
+      "title": "Topological classifier for detecting the emergence of epileptic seizures",
+      "venue": "BMC research notes 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Oyama",
+        "Y. Hiraoka",
+        "I. Obayashi",
+        "Y. Saikawa",
+        "S. Furui",
+        "K. Shiraishi",
+        "S. Kumagai",
+        "T. Hayashi",
+        "J. Kotoku"
+      ],
+      "title": "Hepatic tumor classification using texture and topology analysis of non-contrast-enhanced three-dimensional T1-weighted MR images with a radiomics approach",
+      "venue": "Scientific Reports 2019,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Gholizadeh",
+        "W. Zadrozny"
+      ],
+      "title": "A Short Survey of Topological Data Analysis in Time Series and Systems Analysis",
+      "venue": "arXiv preprint",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Myers",
+        "E. Munch",
+        "F.A. Khasawneh"
+      ],
+      "title": "Persistent homology of complex networks for dynamic state detection",
+      "venue": "Physical Review E 2019,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P.G. C\u00e1mara"
+      ],
+      "title": "Topological methods for genomics: present and future directions",
+      "venue": "Current opinion in systems biology 2017,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J.A. Sherratt",
+        "M.A. Chaplain"
+      ],
+      "title": "A new mathematical model for avascular tumour growth",
+      "venue": "Journal of mathematical biology 2001,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "K. B\u00f6ttger",
+        "H. Hatzikirou",
+        "A. Chauviere",
+        "A. Deutsch"
+      ],
+      "title": "Investigation of the migration/proliferation dichotomy and its impact on avascular glioma invasion",
+      "venue": "Mathematical Modelling of Natural Phenomena 2012,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "A.M. Stein",
+        "T. Demuth",
+        "D. Mobley",
+        "M. Berens",
+        "L.M. Sander"
+      ],
+      "title": "A mathematical model of glioblastoma tumor spheroid invasion in a three-dimensional in vitro experiment",
+      "venue": "Biophysical journal 2007,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "K.C. Ang"
+      ],
+      "title": "Analysis of a tumour growth model with MATLAB",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "K. Clark",
+        "B. Vendt",
+        "K. Smith",
+        "J. Freymann",
+        "J. Kirby",
+        "P. Koppel",
+        "S. Moore",
+        "S. Phillips",
+        "D. Maffitt",
+        "M. Pringle"
+      ],
+      "title": "The Cancer Imaging Archive (TCIA): maintaining and operating a public information repository",
+      "venue": "Journal of digital imaging 2013,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "K. Schmainda",
+        "M. Prah"
+      ],
+      "title": "Data from Brain Tumor Progression",
+      "venue": "The Cancer Imaging Archive.,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "B. Ellingson",
+        "M. Malkin",
+        "S. Rand",
+        "D. Bedekar",
+        "K. Schmainda"
+      ],
+      "title": "Functional diffusion maps applied to FLAIR abnormal areas are valuable for the clinical monitoring of recurrent brain tumors",
+      "venue": "Proc Intl Soc Mag Reson Med,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "K.M. Schmainda",
+        "M.A. Prah",
+        "S.D. Rand",
+        "Y. Liu",
+        "B. Logan",
+        "M. Muzi",
+        "S.D. Rane",
+        "X. Da",
+        "Y.F. Yen",
+        "J. Kalpathy-Cramer",
+        "others"
+      ],
+      "title": "Multi-site Concordance of DSC-MRI Analysis for Brain tumors: Results of a NCI Quantitative Imaging network collaborative project",
+      "venue": "AJNR. American journal of neuroradiology 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Lipkov\u00e1",
+        "P. Angelikopoulos",
+        "S. Wu",
+        "E. Alberts",
+        "B. Wiestler",
+        "C. Diehl",
+        "C. Preibisch",
+        "T. Pyka",
+        "S.E. Combs",
+        "P. Hadjidoukas",
+        "others"
+      ],
+      "title": "Personalized Radiotherapy Design for Glioblastoma: Integrating Mathematical Tumor Models, Multimodal Scans, and Bayesian Inference",
+      "venue": "IEEE transactions on medical imaging 2019,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "H. Edelsbrunner",
+        "J. Harer"
+      ],
+      "title": "Computational topology: an introduction",
+      "venue": "American Mathematical Soc.,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "N. Otter",
+        "M.A. Porter",
+        "U. Tillmann",
+        "P. Grindrod",
+        "H.A. Harrington"
+      ],
+      "title": "A roadmap for the computation of persistent homology",
+      "venue": "EPJ Data Science 2017,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "H. Chintakunta",
+        "T. Gentimis",
+        "R. Gonzalez-Diaz",
+        "M.J. Jimenez",
+        "H. Krim"
+      ],
+      "title": "An entropy-based persistence barcode",
+      "venue": "Pattern Recognition 2015,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M. Rucco",
+        "F. Castiglione",
+        "E. Merelli",
+        "M. Pettini"
+      ],
+      "title": "Characterisation of the idiotypic immune network through persistent entropy",
+      "venue": "In Proceedings of ECCS 2014; Springer,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Rucco",
+        "R. Gonzalez-Diaz",
+        "M.J. Jimenez",
+        "N. Atienza",
+        "C. Cristalli",
+        "E. Concettoni",
+        "A. Ferrante",
+        "E. Merelli"
+      ],
+      "title": "A new topological entropy-based approach for measuring similarities among piecewise linear functions",
+      "venue": "Signal Processing 2017,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "R. Ghrist"
+      ],
+      "title": "Barcodes: the persistent topology of data",
+      "venue": "Bulletin of the American Mathematical Society 2008,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "I. Obayashi"
+      ],
+      "title": "Volume-optimal cycle: Tightest representative cycle of a generator in persistent homology",
+      "venue": "SIAM Journal on Applied Algebra and Geometry 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Chaddad",
+        "P.O. Zinn",
+        "R.R. Colen"
+      ],
+      "title": "Radiomics texture feature extraction for characterizing GBM phenotypes using GLCM",
+      "venue": "IEEE 12th International Symposium on Biomedical Imaging (ISBI). IEEE,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "R.M. Haralick",
+        "K. Shanmugam",
+        "I.H. Dinstein"
+      ],
+      "title": "Textural features for image classification",
+      "venue": "IEEE Transactions on systems,",
+      "year": 1973
+    },
+    {
+      "authors": [
+        "C. Tralie",
+        "N. Saul",
+        "R. Bar-On"
+      ],
+      "title": "Ripser.py: A Lean Persistent Homology Library for Python",
+      "venue": "The Journal of Open Source Software 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Van der Walt",
+        "J.L. Sch\u00f6nberger",
+        "J. Nunez-Iglesias",
+        "F. Boulogne",
+        "J.D. Warner",
+        "N. Yager",
+        "E. Gouillart",
+        "T. Yu"
+      ],
+      "title": "scikit-image: image processing in Python",
+      "venue": "PeerJ 2014,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "T.T. Wong"
+      ],
+      "title": "Performance evaluation of classification algorithms by k-fold and leave-one-out cross validation",
+      "venue": "Pattern Recognition 2015,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "P. Wei",
+        "Z. Lu",
+        "J. Song"
+      ],
+      "title": "Variable importance analysis: a comprehensive review",
+      "venue": "Reliability Engineering & System Safety 2015,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M. Feurer",
+        "A. Klein",
+        "K. Eggensperger",
+        "J. Springenberg",
+        "M. Blum",
+        "F. Hutter"
+      ],
+      "title": "Efficient and Robust Automated Machine Learning",
+      "venue": "In Advances in Neural Information Processing Systems",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "R.S. Olson",
+        "J.H. Moore"
+      ],
+      "title": "TPOT: A tree-based pipeline optimization tool for automating machine learning",
+      "venue": "In Automated Machine Learning; Springer,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Zhao",
+        "D. Zhu",
+        "J. Lu",
+        "Y. Luo",
+        "G. Zhang"
+      ],
+      "title": "Synthetic medical images using F&BGAN for improved lung nodules classification by multi-scale VGG16",
+      "venue": "Symmetry 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "F. Ahlgren",
+        "M. Thern"
+      ],
+      "title": "Auto Machine Learning for predicting Ship Fuel Consumption",
+      "venue": "ECOS 2018-the 31st International Conference on Efficiency, Cost, Optimization, Simulation and Environmental Impact of Energy Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "W. Stummer",
+        "U. Pichlmeier",
+        "T. Meinel",
+        "O.D. Wiestler",
+        "F. Zanella",
+        "H.J. Reulen",
+        "A.G.S. Group",
+        "others"
+      ],
+      "title": "Fluorescence-guided surgery with 5-aminolevulinic acid for resection of malignant glioma: a randomised controlled multicentre phase III trial",
+      "venue": "The lancet oncology 2006,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "M.G. Hart",
+        "R. Grant",
+        "R. Garside",
+        "G. Rogers",
+        "M. Somerville",
+        "K. Stein"
+      ],
+      "title": "Chemotherapeutic wafers for high grade glioma",
+      "venue": "Cochrane Database of Systematic Reviews",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "T. Roose",
+        "S.J. Chapman",
+        "P.K. Maini"
+      ],
+      "title": "Mathematical models of avascular tumor growth",
+      "venue": "SIAM review 2007,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "C.M. Bender",
+        "A. Ghatak",
+        "M. Gianfreda"
+      ],
+      "title": "PT-symmetric model of immune response",
+      "venue": "JOURNAL OF PHYSICS A-MATHEMATICAL AND THEORETICAL 2017,",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords: Glioblastoma; Fluid-attenuated inversion recovery; Brain; tumour; Topological Data Analysis; Persistent Homology; Persistent Entropy; Interpretable Machine Learning; Explainable Machine Learning; Automatic Machine Learning; Co-occurrence matrix; Textural features; The Cancer Imaging Archive"
+    },
+    {
+      "heading": "1. Introduction",
+      "text": "Gliomas are the most common primary brain tumours, originating from glial cells. We can differentiate between benign tumours, with in some cases a lifelong expectancy, and malignant forms. In this second group, glioblastoma multiforme (GBM) is the most frequent malignant cancer with the worst prognosis, with less than 5% of affected patients with a 5-year survival rate and with the highest relapse rate [1]. GBM are characterized by a diffuse and infiltrative growth pattern, as invasive glioma cells often migrate along myelinated white matter (WM) fiber tracts. This is a major cause of their appalling prognosis:\nar X\niv :1\n91 2.\n08 16\n7v 6\n[ ee\nss .I\nV ]\n1 8\ntumour cells invade, displace, and possibly destroy WM. For these reasons, surgical, radiotherapic and chemotherapic approaches, also early performed, rarely resulted effective for a significant number of months [2]. Moreover, large surgical resections could cause unacceptable effects on motor or speech functions. In largely infiltrative GBM the real objective of surgical approach is to leave less possible cancer cells in situ to give more chances to adjuvant therapy. The non-invasive detection of microscopic infiltration, as well as the identification of aggressive tumour components within spatially heterogeneous lesions, are of outstanding importance for surgical and radiation therapy planning or to assess response to chemotherapy. Moreover, the critical importance of an accurate detection of local infiltration is underlined by the results of intraoperative MR: this technique seems to be able to contribute significantly to optimal resection [3] and to improve post-operative outcomes [4].Magnetic resonance (MR) imaging plays an important role in the detection and evaluation of brain tumours. The evaluation of post-surgical residual cancer by MR should be performed in all patients after 48-72 hours after surgery, because this factor has a relevant prognostic value both for survival and for the subsequent therapeutic response [5]. For more than 30 years [? ] conventional MR imaging, typically T1w images before and after paramagnetic contrast administration, T2w images and FLAIR images have been largely used to evaluate brain neoplasms. MR allows to localize the lesions, helps to distinguish tumours from other pathological processes, and depicts basic signs of response to therapy, such as changes in size and degree of contrast enhancement. Manual tumour detection and segmentation on MR images is time-consuming and can have a great inter-observer variability; automatic segmentation is more reproducible and efficient when robustness is particularly desirable, such as in monitoring disease progression or in the longitudinal evaluation of emerging therapies [6]. This is a very relevant element because often in clinical practice the decisions regarding therapy continuation or discontinuation are taken on the basis of disease recovery [2]. Radiomics is a set of techniques for extracting a vectorial representation that provides a quantitative description of tumour radiographic data. In general, radiomics extracts quantitative description of signals and images intensity, texture description and geometric characteristics. Texture analysis, an image-analysis technique that quantifies grey-level patterns by describing the statistical relationships between the intensity of pixels, has demonstrated considerable potential for cerebral lesion characterization and segmentation [7\u20139]. For automatic glioma detection and segmentation in MRI, several algorithms have been already proposed. The most recent works can be grouped into superpixel based segmentation and deep learning based segmentation. In [10], the authors presented an interesting bottom-up approach that aims to combine graphical probabilistic model (i. e, Conditional Random Fields - CRF -) for capturing the spatial interactions among image superpixel regions and their measurements. A number of features including statistics features, the combined features from the local binary pattern as well as grey level run length, curve features, and fractal features were extracted from each superpixel. The features were used for teaching machine learning models to discriminate between healthy and pathological brain tissues. In [11], the authors used the concept of superpixels based segmentation for instrumenting a machine learning algorithm (i.e., support vector machine - SVM) that uses both textural and statistical features. The authors reported excellent average Dice coefficient, Hausdorff distance, sensitivity, and specificity scores when applying their method on T2w sequences from the Multimodal Brain tumour Image Segmentation Benchmark 2017 (BraTS2017) dataset. In [12], the authors exploited a new method for brain tumour detection by combining features computed from Fluid-Attenuated Inversion Recovery (flair) MRI in association with the graph-based manifold ranking algorithm. The algorithm counts three mains steps: in the first phase, superpixel method is used to convert the homogeneous pixels in the form of superpixels. Rank of each superpixel or node is computed based on the affinity against certain selected nodes as the background prior in the second phase. The relevance of each node with the background prior is then computed and represented in the form of tumour map. In [13] the authors have reported on an approach that computes for each superpixel a number of novel image features including intensity-based, Gabor textons, fractal analysis\nand curvatures within the entire brain area in FLAIR MRI to ensure a robust classification. The authors compared Extremely randomized trees (ERT) classifier with support vector machine (SVM) to classify each superpixel into tumour and non-tumour. Deep learning based solutions are becoming the new tools for brain segmentation. In [14],the authors used autoencoders for instrumenting an automatic segmentation of increased signal regions in fluid-attenuated inversion recovery magnetic resonance imaging images. In [15], the authors have provided a solution for dealing to the limited amount of available data from ill brains. They have trained a one-class classifier algorithm based on deep learning for segmenting brain tumours from fluid attenuation inversion recovery MRI. The technique exploits fully convolutional neural networks, and it is equipped with a battery of augmentation techniques that make the algorithm robust against low data quality, and heterogeneity of small training sets. Beside segmentation, deep-learning based solutions have been exploited for skull-stripping, and tissues identification (white matter, grey matter, etc. . ) [16,17], At the best of our knowledge, latest radiomics approaches are reported in [18]. Another approach for the analysis of cancer development is based on dynamical system theory [19]. The models differ each other for different degrees of abstraction of the environment in which the tumour growth. Usually, the environment is modeled by the parameters in the equations, and they describe both the chemical nutrients and the spatial constraints. We notice that most of the models approximate tumour cells shape with spheres. Discrete models such as agent-based models reproduce the evolution of single spheroids. Partial Differential equation such as reaction-diffusion equation are used for predicting the temporal and spatial evolution of tumour cells. They can account for numerous biological phenomenon, but they are very sensitive to model parameters, making them hardly fittable with quantitative biological data in simple experimental set-up [20]. Recent works have combined radiomics with dynamical system for providing personalized model. A complete and exhaustive mathematical modelling of tumour growth is quite impossible since it involves too many subsystems which have an effect in the growth of a tumour. In [21], the authors have defined a novel approach for identifying the fundamental components involved in cancer development. They have proposed a novel probability functions to obtain a personalized model and estimate the individual importance of each subsystem by means of simulated annealing for parameter optimization. The authors have validated the prediction of tumour growth with in-vitro tumour growth data.\nTopological data analysis for radiomics and tumour growth analysis\nTopological space is a powerful mathematical concept for describing the connectivity of a space. Informally, a topological space is a set of points, each of which equipped with the notion of neighboring [22,23]. In the last decade a new suite of tools, based on algebraic topology, for data exploration and modelling haven been invented [24\u201326]. The data science community refers to these tools as Topological Data Analysis (TDA). TDA has been used in different domains: biology, manufacturing, medicine and others [27]. Topological entropy, namely Persistent Entropy, is equipped with suitable mathematical properties, that permits to describe complex systems [28] and it has been applied in different experiments, e.g. the analysis of biological images [29] and the analysis of medical signals [30]. At the best of our knowledge, the extraction of topological features for radiomics from topological data analysis is still at its infancy. In [31], the authors have compared the accuracy of machine learning models for the classification of hepatic tumours. From T1-weighted magnetic resonance (MR) images, the authors have computed both texture analysis and topological data analysis using persistent homology. The textural features or the topological features were used as input for machine learning models, the best accuracy (92%) for hepatocellular carcinomas was obtained with textural features, while TDA based machine learning model obtained the 85% of accuracy for metastatic tumours. Recent papers have demonstrated that topological data analysis algorithms are suitable for the analysis of dynamical systems [32]. A common approach is to embed the\ntime series of a dynamical system into a point cloud data and to study its shape by means of persistent homology. In [33], the authors have demonstrated that Persistent Entropy, a topological feature, is able to distinguish between periodical and chaotic systems. An alternative approach is represented by the analysis of the phase space of the system by means of TDA [34]. In particular, we are interested to detect and to study topological loops (1D, 2D, etc...) that would surround brain regions of interest. We have introduced a novel entropy, the so-called generator entropy, that is a function of the number of 0-simplices (vertices) in the loops. Our intuition is that a pathological brain is characterized by the presence of a mass with a different grey gradient that would correspond to a topological loop. If the mass structure is heterogeneous or if the brain is affected by multiple tumours the number of loops will be higher. An advantage of using persistent homology as radiomics features on FLAIR is that one can detect the differences between the shapes associated to pathological and healthy brain tissues.\nPaper outline\nIn the present investigation, we intend to demonstrate by means of numerical experiments that topological features combined with GLCM features can be enrolled for GBM analysis and morphological characterization on FLAIR. To this extent, we have performed the following numerical experiments:\n1. Analysis 1 - Topological Data Analysis of a simplified 2D tumour Growth Mathematical Model: identification how tumour growth over time is affected by the initial amount of available chemical nutrient 2. Analysis 2 - Topological analysis of Glioblastoma temporal progression on FLAIR: evaluation of GBM temporal evolution after treatment 3. Analysis 3 - Automatic GBM classification on FLAIR: the aims of this experiment is to evaluate the accuracy for classification GBM by characterization of 2D patches extracted from FLAIR by combining textural and topological data analysis with machine learning.\nIn the first experiment, we have integrated a discrete time mathematical model to study the evolution of three different type of tumour cells: proliferative, quiescent and necrosis. At each time step, we associated a point cloud data (PCD) to each cell set. The spatial evolution of the PCD is analysed by topological statistics, i.e. persistent entropy. The plot of persistent entropy over time reveals interesting system\u2019s evolution. The results encouraged us to analyse if topological features can detect also GBM temporal evolution. To this extent, we have analysed a publicly available dataset that contains 2 sequences of FLAIR for 20 patients. The sequences were recorded within 90 days following chemo-radiation therapy (CRT) completion and at progression. The complete description of the dataset is in Sec.: ??. For the sake of completeness, we decided to use FLAIR since they reveal a wide range of lesions, including cortical, periventricular, and meningeal diseases that were difficult to see on conventional images. In the third experiment we have used the same dataset but for evaluating the possibility of discriminating healthy and pathological tissue on FLAIR, by the use of Statistical Texture Analysis and Topological Data Analysis. The discriminating power of statistical texture and of topological features was then exploited for the development of a supervised tumour detection methodology by means of automatic machine learning algorithms. We have adopted novel computational tools for debugging and understanding Machine Learning decision. The paper is organized as follows: in Section 3 we introduce the relevant background, namely the fundamental concepts of textural features and topological features. Section 4 introduces the methodology for GBM characterization. In Section ?? we report on the implementation and application of the methodologies on slices extracted from public domain FLAIR. Final thoughts about the results and next steps are discussed in the last Section 6."
+    },
+    {
+      "heading": "2. Materials",
+      "text": "Analysis 1: Topological Data Analysis of a simplified 2D tumour Growth Mathematical Model\nIn order to investigate the topological properties of tumour growth dynamics, we have used a well documented tumour growth model, the so-called Sherratt-Chaplain model [35]. The model is also valid for GBM like tumour [36]. The model describes the temporal evolution of cell densities of profilerating, quiescent and necrotic cells [37]. Cells movements (diffusion) is modeled by a competitive approach. The model has been updated and compared with in-vitro analysis for a fine-tuning of its parameters [38]. The motion equation for the profilerating p, quiescent q and necrotic cells n is:\ndp dt = \u2202 \u2202x ( p p + q \u2202(p + q) \u2202x ) + g(c)p(1\u2212 p\u2212 q\u2212 n)\u2212 f (c) (1)\ndq dt = \u2202 \u2202x ( q p + q \u2202(p + q) \u2202x ) + f (c)p\u2212 h(c)q (2)\n\u2202n \u2202t = h(c)q (3)\nWhere c is the concentration of some nutrients that can be represented by:\nc = c0\u03b3\n\u03b3 + p (1\u2212 \u03b1(p + q + n)) (4)\nThe functions f , g and h are defined:\nf (c) = 1\u2212 tanh(4c\u2212 2)\n2 (5)\ng(c) = \u03b2e\u03b2c (6)\nh(c) = f (c)\n2 (7)\nThe model can be solved with numerical methods by translating them into finite differences [38]. Under the assumption of radial symmetry the displacement of the cells can be seen 2-dimensional. We remark that we do not intend to deep dive in mathematical modelling of GBM growth, but we want to investigate topological properties of GBM like tumour.\nAnalysis 2 & 3: Dataset\nIn order to make our results comparable, the analysis 2 and 3 were executed by using a public freely available dataset accessible via The Cancer Imaging Archive (TCIA) [39]. In details, the dataset includes DICOM files of 20 subjects from different sites with primary newly diagnosed glioblastoma who were treated with surgery and standard concomitant chemo-radiation therapy (CRT) followed by adjuvant chemotherapy. The sequences are T1-weighted (pre and post-contrast agent), FLAIR, T2-weighted, ADC, normalized cerebral blood flow, normalized relative cerebral blood volume, standardized relative cerebral blood volume, and tumour masks (i.e., ROIs) [40,41]. Fig. 1 shows two among the 2D slices contained in the dataset and extracted from FLAIR. Each patient is described by two MRI exams: within 90 days following CRT completion and at progression. At the best of our knowledge, in this paper the dataset is used for the first time for ML experiments [42]. The following preprocessing steps were performed before running the analysis:\nFLAIR preprocessing\nThe following preprocessing steps attempt to enhance and correct FLAIR for posterior analysis. We propose the following scheme for the dataset under analysis:\n\u2022 DICOMs were transformed into NII files for enabling preprocessing steps1. \u2022 FLAIRs were optimized by removing fat tissues and by performing skull stripping. The preprocessing\nsteps, namely the removal of fat tissues and skull stripping, were performed by using the deep-learning algorithm described in [43]2."
+    },
+    {
+      "heading": "3. Background",
+      "text": "Topological Data Analysis: persistent homology\nHomology is an algebraic machinery used for describing a topological space C. Informally, for a fixed natural number k, the k\u2212Betti number \u03b2k counts the number of k\u2212dimensional holes characterizing C: \u03b20 is the number of connected components, \u03b21 counts the number of holes in 2D or tunnels in 3D3, \u03b22 can be thought as the number of voids in geometric solids, and so on. Persistent homology is a method for computing the k\u2212dimensional holes at different spatial resolutions. Persistent holes are more likely to represent true features of the underlying space, rather than artifacts of sampling (noise), or due to particular choices of parameters. For a more formal description we refer the reader to [44]. In order to compute persistent homology, we need a distance function on the underlying space. This can be obtained constructing a filtration on a simplicial complex, which is a nested sequence of increasing subcomplexes. More formally, a filtered simplicial complex K is a collection of subcomplexes {K(t) : t \u2208 R} of K such that K(t) \u2282 K(s) for t < s and there exists tmax \u2208 R such that Ktmax = K. The filtration time (or filter value) of a simplex \u03c3 \u2208 K is the smallest t such that \u03c3 \u2208 K(t). A k\u2212dimensional Betti interval, with endpoints [tstart, tend), corresponds to a k\u2212dimensional hole that appears at filtration time tstart and remains until time tend. We refer to the holes that are still present at t = tmax as persistent topological features, otherwise they are considered topological noise [45]. Figure ?? depicts the computation of persistent homology on a FLAIR slice. The methodology for transforming the image into a weighted graph is described in the text. The set of intervals representing birth and death times of homology classes is called the persistence barcode associated to the corresponding filtration. Instead of bars, we sometimes draw points in the plane such that a point (x, y) \u2208 R2 (with x < y) corresponds to a bar [x, y) in the barcode. This set of points is called persistence diagram. There are several algorithms for\n1 https://pypi.org/project/dicom2nifti/ 2 https://github.com/JanaLipkova/s3 3 Here nD refers to the n\u2212dimensional space Rn.\ncomputing persistent homology and their analysis and for a complete overview of the available tools we refer to [46].\nTopological Features for Radiomics\nIn order to use persistent barcodes in any computer applications (e.g. machine learning), it is needed to derive a set of numerical descriptors which encapsulate the information contained in the barcode. In the following we recall how to compute the statistics we use in this research. Two or more topological objects, e.g. simplicial complexes, are homologically equivalent if they have the same sequence of Betti numbers. In other words by using persistent homology, they are characterized by the same number of persistent homological holes at each dimensioms. To facilitate the comparison of two or more simplicial complexes, one can calculate and compare the Euler Characteristics for each simplicial complex:\nDefinition 1 (Euler Characteristic).\n\u03c7 = i=n\n\u2211 i=0\n(\u22121)i\u03b2i\nWhere \u03b2i is the Betti numbers at the i-th homological group (e.g., \u03b20 is the Betti number at H0 for counting the number of connected components, \u03b21 for counting the number of 2D holes, \u03b22 for counting the number of 3D empty volumes etc. . . ).\nSince Euler Characteristics is computed on the persistent homological holes and it discards completely the noisy topological features (i.e., not persistent) we suggest to complement it compute also the so-called Persistent Entropy. Persistent Entropy is a Shannon like entropy computed over the persistent barcodes and it is calculated by using both noisy and persistent topological features.. It was defined initially in [47] and further studies of its mathematical properties were published in [48,49]. We recall its definition.\nDefinition 2 (Persistent Entropy). Given a persistence barcode B = {ai = [xi, yi) : i \u2208 I}, the Persistent Entropy (PE) H of the filtered simplicial complex is defined as follows:\nH = \u2212\u2211 i\u2208I pilog10(pi)\nwhere pi = `i L , `i = yi \u2212 xi, and L = \u2211i\u2208I `i.\nIn the case of an interval with no death time, [xi,+\u221e), we truncate infinite intervals and replace [xi,+\u221e) by [xi , m) in the persistence barcode, where m = tmax + 1. Note that the maximum PE corresponds to the situation in which all the intervals in the barcode are of equal length. In that case, H = log n if n is the number of elements of I. Conversely, the value of the PE decreases as more intervals of different length are present. A topological n-dimensional hole is generated by the so-called homological generator [50,51]. For example, a 1D hole is generated by a set of 0-simplices (vertices) linked by 1-simplices (edges). Given our interest to nD topological holes, we propose a new seminal statistics that is computed on the number of 0D simplices (vertices) in each topological features.\nDefinition 3 (Generator Entropy). Given a filtered simplicial complex {K(t) : t \u2208 F}, and the collection of corresponding persistence barcode B = {ai = [xi, yi) : i \u2208 I} for the Homological Groups Hj with j \u2265 1.\nGH = \u2212\u03a3i=Ni=1 (pilog10(pi))\nwhere N is the total number of homological lines in the barcode, ni is the number of 0-simplices in the i-th line and L = \u03a3i=Ni=1 ni and pi = ni L . For the sake of preciseness, in a topological loop there exist a 0-simplices that appears twice. In this setting we count each 0-simplices only once.\nWe envision that this new topological statistics could be used as measure of number of different objects surrounded by topological loops and their diameter.\nTextural features : grey-Level Co-occurrence matrix\nIn this study we used one selected feature set (grey-Level Co-occurrence matrix, GLCM) for the texture analysis in accordance with some previous reports of radiomics for GBM detection [52]. GLCM is a statistical method on examining image texture by taking into account the spatial relationship of pixels. The GLCM counts how often pairs of pixel with specific values and in a specified spatial relationship occur in an image. From GLCM we have extracted the following textural information [53]:\n1. Contrast - it measures the local variability in the grey level. 2. Correlation - it measures the joint probability that a given pair of pixels is found. 3. Homogeneity - it measures the distance between the GCLM diagonal and element distribution. 4. Energy\nIn this paper we have used the open-source software Ripser [54]4 for TDA. Ripser allows to compute persistent homology of both point cloud data and 2D images. For the computation of persistent homology we have used a slightlhy modified version of the lower star filtration 5. In our version, the algorithm computes the homology up to the first homological group and it returns for each topological loop a set of representative generators. While for GLCM computation we have used Scikit-Image [55]."
+    },
+    {
+      "heading": "4. Methods",
+      "text": ""
+    },
+    {
+      "heading": "4.1. Analysis 1: Topological Data Analysis of a simplified 2D tumour Growth Mathematical Model",
+      "text": "We have integrated the model introduced in Sec.2 by using the code provided in the paper [38] but rewritten in Python. The dimensionless parameters \u03b1, \u03b3 and \u03b2 are extracted from in-vitro experiments. We remark that \u03b1 and \u03b3 represent concurr to the definition of the initial concentration of chemical nutrient. We have analysed how the system is affected by different values of \u03b1 by keeping \u03b3 = 10.0 and \u03b2 = 0.5. For each value of \u03b1, and throughout the integration, the 2D coordinates of each cell were extracted. The coordinates were used as input for TDA. Fig.:9 depicts both the spatial distribution of the cells and the corresponding topological features computed throughout the system\u2019s integration.\n4 https://ripser.scikit-tda.org/ 5 https://ripser.scikit-tda.org/notebooks/LowerStarImageFiltrations.html"
+    },
+    {
+      "heading": "4.2. Analysis 2: Topological Data Analysis of tumour Progression",
+      "text": "The dataset contains for each patient two MRI exams: the exams were recorded within 90 days following CRT completion and at progression, for now on \u201dpre\" and \u201dpost\". For each patient the topological features (i.e. Euler characteristics, persistent entropy at H0 and H1 and generator entropy) were computed on the 2D slices of FLAIR. Welch\u2019s t-test is used for comparing the mean of the topological descriptor computed over the \u201dpre\" and \u201dpost\" set of images. Fig.:3 depicts of two FLAIR slices extracted for the same patients within 90 days following chemo-radiation therapy (CRT) completion and at progression."
+    },
+    {
+      "heading": "4.3. Analysis 3: GBM classification",
+      "text": "In this work we have implemented and tested the following GBM classification methodology using texture and topological data analiysis. The input for the methodology are the FLAIR and the corresponding ROI files. For each 2D slice we have executed the following process that is also depicted in Fig.:4:\n1. 2D GLCM features and topological features were calculated with a sliding patch approach in the segmented ROI. The size of the patch is 30\u00d7 30. 2. In order to identify discriminating features, the same feature calculations were also performed in the contralateral (healthy) ROIs. 3. Each sliding patch was labeled as healthy or pathologic according to the class of its ROI. Each patch was also stored for future analysis. 4. Features selection. 5. The dataset is randomly divided in training and testing subsets that contain the 70% and 30% of\nsamples respectively. 6. The training set is used for training a machine learning classifier. For the sake of completeness,\nduring training we have adopted a k-fold cross validation standard procedure [56]6 with k = 5. 7. Splitting, training and testing procedure were executed multiple times by using different set of\nfeatures: only topological features or only GLCM features or topological plus GLCM features. 8. Classifier behavior is debugged by tools from information theory. This allows to understand feature\nrelevance and to understand what are the numerical input characteristics related to the classification verdict. Specifically, we have used Skater and Lime algorithms [57]7.\n4.3.1. Feature selection\nFeature extraction comprises the process of extracting new features from the FLAIR. For each patch eight features (four topological plus four texture features) were computed. Features were standardized by removing the mean and scaling to unit variance8. Spearman\u2019s rank-order correlation combined with backward elimination was used to calculate the correlations between features and outcome variables. Features with highest correlation and p-value\u2264 0.05 become more expressive of GBM characteristics. Fig.5 depicts the correlation among the features. Topological features are quite correlated among them. We observe that \u201dgenerator entropy\" (HGen) shows a positive correlation with \u201dhomogeneity\". This is in line with the idea that HGen is affected by how much the image is homogeneous both in terms of structure and of grey distribution. Eventually, the correlation analysis has selected seven out eight features. For the\n6 https://machinelearningmastery.com/difference-test-validation-datasets/ 7 https://www.oreilly.com/ideas/interpreting-predictive-models-with-skater-unboxing-model-opacity 8 https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html\nsake of completeness, all the topological features were selected while, the textural features correlation was discarded. Fig.6 depicts the density distribution of the features that were selected. The topological features \u201dpersistent entropy\" for H0 and for H1 groups and the textural feature \u201dhomogeneity\" show a quite good separation between ill (red) and healthy (green) group. The other features show different peaks but their distribution are overlapped.\n4.3.2. Machine Learning algorithm selection\nThe selection of ML algorithm was performed by using Automatic Machine Learning tool, i.e. Auto-Sklearn [58] and TPOT [59]. Auto-sklearn uses Bayesian optimization approaches for the automatic selection of machine learning classifier based on an ensemble of scikit-learn algorithms. Auto-sklearn compares and ranks different solutions and returns the solution tha maximizes the accuracy. TPOT is a framework that uses genetic algorithm for comparing different machine learning solutions and it finds automatically the best pipeline that maximizes the accuracy. Both Auto-Sklearn and TPOT produce a pipeline containing both preprocessing steps - if needed - and the selected Machine Learning architecture.\n4.3.3. Deep Learning approach on numerical features\nFor the sake of completeness, we have also trained deep learning classifiers on the selected features. In particular, we have trained multiple models with an architecture based on sequential dense layers with rectified linear unit (relu) activation function, followed by a dropout layer for preventing over-fitting and eventually by another dense layer as output layer. The difference among the models is the number of dense layers before the dropout and number of neurons per layers.\n4.3.4. GBM classification - Deep learning approach on patches\nDeep-learning based solutions are opening new doors in the field of GBM detection and segmentation, we have compared the performance of the machine learning solution with two different Deep Neural networks on the patches extracted in the methodology defined in Sec.:4. Fig.:7 contains 8 out of 1612 patches used for training and testing the algorithms. The first network contains 4 alternating convolutional and max-pooling layers, followed by a dropout after every other convolutional-pooling pair. After the last pooling layer, the network contains a fully-connected layer with 256 neurons, another dropout layer, then finally a softmax classification layer for two classes (i.e., pathological and healthy). The loss function is the categorical cross-entropy loss, and the learning algorithm is the AdaDelta. The network contains about 1\nmillion parameters. In the second setup, we have executed the transfer learning of a pre-trained VGG16 model. Transfer learning means the adaption of a pre-trained and optimized deep learning architecture for dealing with our dataset. The model consists of several convolutional layers, followed by some\nfully-connected / dense layers and then a softmax output layer for the classification. The dense layers are responsible for combining features from the convolutional layers. In this experiment, another dense-layer and a dropout-layer were added to avoid over-fitting. VGG16 contains 13 convolutional layers and two fully connected layers at the end, and it counts more than 138 million parameters. VGG16 was made to solve ImageNet, and achieves a 8.8% top-5 error rate, which means that 91.2% of test samples were classified correctly within the top 5 predictions for each image. The network was adapted to the two classes classification by removing the original final classification layer, which corresponds to ImageNet, that was replaced by a new softmax layer which contains 2 neurons. Keras implementation of VGG16 facilitates to handle a such huge network and it optimizes memory issues[60]. Both networks were trained for 100 epochs with a batch size of 128. For both networks Keras API for TensorFlow and Google Colab environment9 were used for the training."
+    },
+    {
+      "heading": "5. Results",
+      "text": ""
+    },
+    {
+      "heading": "5.1. Analysis 1: Topological Data Analysis of a simplified 2D tumour Growth Mathematical Model",
+      "text": "Fig.:9 (top) depicts cells spatial displacement for \u03b1 = [0.0, 0.5, 1.0] and the corresponding topological statistics (bottom) computed throughout system integration. At first look, with low \u03b1 the quiescent and necrotic cells (in blue and black respectively) are quite confined in the central region, while for high \u03b1 they are more scattered. We have further investigated this aspect by plotting for different \u03b1 the amount of time steps that were needed to find topological features greater than zero. Since proliferative cells are always present and thus the corresponding topological features are immediately greater than zero, we have focused our analysis only on quiescent and necrotic cells. The outcome of the analysis is represented in Fig.:8. At high concentration of nutrients \u03b1 \u2265 0.4 the phenomenon is more virulent and therefore it takes less time for proliferating both quiescent and necrotic cells.\n9 https://colab.research.google.com/github/kylemath/ml4a-guides/blob/master/notebooks/transfer-learning.ipynb"
+    },
+    {
+      "heading": "5.2. Analysis 2: Topological Data Analysis of tumour Progression",
+      "text": "Topological features detect the change of brain shape between the \u201dpre\" and \u201dpost\" CRT treatment. Fig.:9 describes the density estimation for the topological features (Euler Characteristics, Persistent Entropy for Ho and H1 and Generator Entropy). It is well evident that the two distributions of persistent entropy for the connected components (H0) are quite different: the distribution for the \u201dpre\" set (red) is bimodal with a local maximum at 0.0 and a global maximum \u2248 at 0.6. The distribution for the \u201dpost\" set (blue) contains two local maxima and a global maximum \u2248 at 0.7. Welch\u2019s t-test was computed for testing the null hypothesis that the means of the distribution are equal. The outcome of the analysis is capture in Tab.:1. Only the distributions for the peristent entropy at H0 are statistically different. This result would suggest to use persistent entropy as a new measure for monitoring the follow-up of chemo-radiation therapy (CRT) treatment for GBM."
+    },
+    {
+      "heading": "5.3. Analysis 3: GBM classification on FLAIR",
+      "text": "Tables 2, 3 and 4 show the results obtained in the training and test sets respectively, grouped by the algorithms testes in this study. The corresponding ROC curves are depicted in Fig.:10, 11 and 12. In general, TPOT produces the best algorithms in combination with the proposed preprocessing steps. The worse performances are obtained by using only the textural features. The combination of topological and textural features rise the best performances. In both cases, namely only topological and topological plus textural, the accuracy are quite good. We argue that TPOT shows better performance because it optimizes over more parameters increase the separation of the features with respect the two classes [61].\n5.3.1. Machine Learning classification interpretation\nSkater and Lime algorithms were used for computing features relevance with respect to the TPOT machine learning algorithms trained on topological and textural features [57]. The output of Skater is depicted in Fig.:13. For TPOT classifier, the textural features homogeneity has the same relevance of the topological entropy persistent entropy at H0 - PE0 that is followed by generator entropy - HGEN. This confirms\nthat the combination of topological and textural features allowed to reach high accuracy. The less relevant features is contrast, however since its importance is greater than 0 it cannot be discarded. The output of Lime is represented in Fig.:14. Lime algorithm has allowed to understand what are the numerical characteristic for a patch to be classified healthy or ill. Negative (blue) indicate healthy tissues, while positive (orange) indicate ill tissue. The way to interpret the weights by applying them to the prediction probabilities is straightforward. The bars indicate the weight for each feature and the corresponding value for the slice under test. The subtraction of the weights from the prediction\nprobabilities (1 in both cases as indicated in the left part of the picture) will alter the probability of a sample to be classified ill or healthy. This highlights that even if some features might appear globally less relevance, they are locally fundamental for avoiding \u201dflipping coin\" predictions."
+    },
+    {
+      "heading": "5.4. GBM classification with Deep Learning",
+      "text": "Table 5 shows the results obtained in the training and test sets respectively, grouped by the deep learning algorithms tested in this study. The corresponding ROC curves are depicted in Fig.:15. The fine-tuning of VGG16 with the transfer-learning approach has allowed to reach the best performances. By comparing the metrics (e.g., accuracy, precision-recall, misclassification rate and F1) it is evident that VGG16 outperforms TPOT. Only the AUC of TPOT (96%) is quite closed to the AUC reached by VGG16 (97%). Finally, examples of patches classification achieved by applying the fine-tuned VGG16 on an entire 2D FLAIR is showed in Fig.:16."
+    },
+    {
+      "heading": "6. Discussion",
+      "text": "Topological data analysis is a reliable approach to shed light on GBM characteristics, as it has demonstrated by the three numerical experiments described in this paper. Fast and reliable assessment of GBM presence is critical for an accurate surgical and radiotherapy planning as well as to evaluate and\nquantify treatment-related effects and progression In the recent period, surgical approaches are strongly changed, with a progressive shift from classical neurosurgical techniques towards newer approaches with surgical navigation systems fluorescence-guided and MR-guided surgery [2,3,62]. Also, chemotherapy employed techniques with wafer drugs positioning in situ to minimize systemic collateral effects [63]. Consequently, radiological techniques able to localize and evidence every minimum GBM localization are essential to enforce new therapeutic possibilities able to improve the extent of tumour resection, prolong survival and increase the quality of life. Topological descriptor such as Euler Characteristics, Persistent Entropy and Persistent Generator were used to identify the physiological conditions that facilitate tumour growth. We notice that Generator entropy was introduced in this paper as a novel topological statistic that summarizes the number of homological generators of nD homological loops. In particular, topological statistics were able to identify the change of proliferation rate of quiescent and necrotic cells as a consequence of nutrient concentration: the higher the concentration of chemical nutrients the more virulent the process. We would to remark once again that in this paper we had analysed a simplified 2D tumour growth model, in order to develop a more reliable personalized tumour growth analysis we envision the need to combine topological dynamical system analysis with imaging analysis [64,65]. In the other two experiments we have demonstrated by using a publicly available dataset that topological features can be used as new radiomics features for GBM characterization. The analysis of FLAIR sequences recorded within 90 days following chemo-radiation therapy (CRT) completion and at progression by means of topological descriptors has confirmed by statistical test that persistent entropy computed at the homological group H0 of the connected component is a viable alternative for monitoring treatment effects. Based on these results we had proposed a new method for GBM detection and segmentation. The supervised method for automatic classification of 2D patches extracted from FLAIR sequences is a viable alternative for GBM identification and segmentation. The proposed method comprises the following main stages: image preprocessing, sliding patches extraction, topological and textural features computation and selection, supervised classification via automatic machine learning, interpretation of classifier prediction. Preprocessing steps, i.e. skull stripping, were obtained by employing the latest deep learning technology. Several supervised classification algorithms were evaluated to ensure the highest classification accuracy. To this extent, two different automatic machine learning selection frameworks were evaluated, which are\nTPOT and Auto-SkLearn. The algorithms were trained using topological features or textural features or the combination of the two sets. The selected machine learning approaches were used as baseline in the comparison with deep learning based approaches. For the sake of completeness, deep learning approaches were trained on the same features set or directly on the patches (sub-images) extracted from the 2D FLAIR. The quality of classification was assessed by several metrics and ROC curves. The highest accuracy using the features was reached by TPOT trained on the two sets (e.g., topological and textural) with an accuracy of 89% and AUC = 96%. Finally, the trained systems were investigated with tools from information theory. Skater and Lime algorithms allowed computing features relevance and for understanding what are the numerical characteristics of a patch to be classified ill or healthy. The interpretation has confirmed the importance of topological features. The transfer learning of a pre-trained VGG16 network allowed for patches classification had allowed to reach an accuracy of 97% and AUC = 97%. However, we would like to remark that in general Deep Learning based methods require ad-hoc hardware for their training, in fact we have used Google Colab platform that allows to access to both GPU and TPU units. The adoption of deep learning solution would be straightforward, but we remark that machine learning classification verdicts can be easily interpreted by enrolling tools like Skater and Lime while, the interpretation of the feature space extracted by a deep learning solution might be unfeasible, since the convolutional features might not correspond to any physical information. In the future, we envision several efforts: we intend to investigate mathematical properties (minimum set of generators, stability theorem, etc. . . ) of the new topological entropy [51]. We intend also to extend and make more precise our study by extending the cohort, for example by including FLAIR from other datasets (e.g., BRATS), and by challenging U-Net algorithm and to equip it with tools for outcome interpretation. Our end will be to develop a novel Computer-Aided Detection tool compliant with the EU-GDPR 22nd article (\u201dAutomated individual decision-making, including profiling\") for the \u201dright to be informed\"10.\nAuthor Contributions: M.R. has conceptualized the methodology and executed the experiment. G.V. and L.F. have contributed to paper writing.\nFunding: \u201cThis research received no external funding\u201d\nAcknowledgments: The author would like to thank Prof. Rocio Diaz-Gonzalez and Prof. Matthias Zeppelzauer for fruitful discussions on topological statistics for imaging; Dr. Giorgio De Nunzio, Dr. Marina Donativi and MD Antonella Castellano for long-standing conversations on GBM segmentation. Andrea De Antoni for the discussions on how to improve the presentation of the main findings.\nConflicts of Interest: The authors declare no conflict of interest.\nAbbreviations\nThe following abbreviations are used in this manuscript:\nGBM Glioblastomas multiforme GLCM grey Level Co-occurrence Matrix TDA Topological Data Analysis MRI Magnetic Resonance Image FLAIR Fluid-attenuated inversion recovery MD Medical Doctor\n10 http://www.privacy-regulation.eu/it/22.htm"
+    }
+  ],
+  "title": "Towards personalized diagnosis of Glioblastoma in Fluid-attenuated inversion recovery (FLAIR) by topological interpretable machine learning",
+  "year": 2020
+}

@@ -1,1 +1,445 @@
-{"abstractText": "Interpretability has emerged as a crucial aspect of machine learning, aimed at providing insights into the working of complex neural networks. However, existing solutions vary vastly based on the nature of the interpretability task, with each use case requiring substantial time and effort. This paper introduces MARGIN, a simple yet general approach to address a large set of interpretability tasks ranging from identifying prototypes to explaining image predictions. MARGIN exploits ideas rooted in graph signal analysis to determine influential nodes in a graph, which are defined as those nodes that maximally describe a function defined on the graph. By carefully defining taskspecific graphs and functions, we demonstrate that MARGIN outperforms existing approaches in a number of disparate interpretability challenges.", "authors": [{"affiliations": [], "name": "Rushil Anirudh"}, {"affiliations": [], "name": "Jayaraman J. Thiagarajan"}, {"affiliations": [], "name": "Rahul Sridhar"}, {"affiliations": [], "name": "Peer-Timo Bremer"}], "id": "SP:a5d3ac19de5335dbf950992fc33f9469982fe44b", "references": [{"authors": ["Achanta", "Radhakrishna", "Shaji", "Appu", "Smith", "Kevin", "Lucchi", "Aurelien", "Pascal", "Fua", "Susstrunk", "Sabine"], "title": "Slic superpixels compared to state-of-the-art superpixel methods", "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence,", "year": 2012}, {"authors": ["Carlini", "Nicholas", "Wagner", "David"], "title": "Adversarial examples are not easily detected: Bypassing ten detection methods", "venue": "In Proceedings of the 10th ACM Workshop on Artificial Intelligence and Security,", "year": 2017}, {"authors": ["Carlini", "Nicholas", "Wagner", "David"], "title": "Towards evaluating the robustness of neural networks", "venue": "In Security and Privacy (SP),", "year": 2017}, {"authors": ["Kova\u010devi\u0107", "Jelena"], "title": "Discrete signal processing on graphs: Sampling theory", "venue": "IEEE transactions on signal processing,", "year": 2015}, {"authors": ["Chen", "Siheng", "Tian", "Dong", "Feng", "Vetro", "Anthony", "Kova\u010devi\u0107", "Jelena"], "title": "Fast resampling of 3d point clouds via graphs", "venue": "arXiv preprint arXiv:1702.06397,", "year": 2017}, {"authors": ["Doshi-Velez", "Finale", "Kim", "Been"], "title": "A roadmap for a rigorous science of interpretability", "venue": "arXiv preprint arXiv:1702.08608,", "year": 2017}, {"authors": ["Elson", "Jeremy", "Douceur", "John R", "Howell", "Jon", "Saul", "Jared"], "title": "Asirra: a captcha that exploits interest-aligned manual image categorization", "year": 2007}, {"authors": ["Feinman", "Reuben", "Curtin", "Ryan R", "Shintre", "Saurabh", "Gardner", "Andrew B"], "title": "Detecting adversarial samples from artifacts", "venue": "arXiv preprint arXiv:1703.00410,", "year": 2017}, {"authors": ["Fong", "Ruth", "Vedaldi", "Andrea"], "title": "Interpretable explanations of black boxes by meaningful perturbation", "venue": "arXiv preprint arXiv:1704.03296,", "year": 2017}, {"authors": ["Gadde", "Akshay", "Anis", "Aamir", "Ortega", "Antonio"], "title": "Active semi-supervised learning using sampling theory for graph signals", "venue": "In Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining,", "year": 2014}, {"authors": ["Goodfellow", "Ian J", "Shlens", "Jonathon", "Szegedy", "Christian"], "title": "Explaining and harnessing adversarial examples", "venue": "arXiv preprint arXiv:1412.6572,", "year": 2014}, {"authors": ["Grosse", "Kathrin", "Manoharan", "Praveen", "Papernot", "Nicolas", "Backes", "Michael", "McDaniel", "Patrick"], "title": "On the (statistical) detection of adversarial examples", "venue": "arXiv preprint arXiv:1702.06280,", "year": 2017}, {"authors": ["Kim", "Been", "Khanna", "Rajiv", "Koyejo", "Oluwasanmi O"], "title": "Examples are not enough, learn to criticize! criticism for interpretability", "venue": "In Advances in Neural Information Processing Systems(NIPS).,", "year": 2016}, {"authors": ["Kipf", "Thomas N", "Welling", "Max"], "title": "Variational graph autoencoders", "venue": "arXiv preprint arXiv:1611.07308,", "year": 2016}, {"authors": ["Kipf", "Thomas N", "Welling", "Max"], "title": "Semi-supervised classification with graph convolutional networks", "venue": "In International Conference on Learning Representations (ICLR,", "year": 2017}, {"authors": ["Koh", "Pang Wei", "Liang", "Percy"], "title": "Understanding blackbox predictions via influence functions", "venue": "International Conference on Machine Learning (ICML).,", "year": 2017}, {"authors": ["Krizhevsky", "Alex", "Sutskever", "Ilya", "Hinton", "Geoffrey E"], "title": "Imagenet classification with deep convolutional neural networks. In Advances in neural information processing", "year": 2012}, {"authors": ["LeCun", "Yann"], "title": "The mnist database of handwritten digits. http://yann", "venue": "lecun. com/exdb/mnist/,", "year": 1998}, {"authors": ["Lipton", "Zachary C"], "title": "The mythos of model interpretability", "venue": "arXiv preprint arXiv:1606.03490,", "year": 2016}, {"authors": ["Metsis", "Vangelis", "Androutsopoulos", "Ion", "Paliouras", "Georgios"], "title": "Spam filtering with naive bayes-which naive bayes", "venue": "In CEAS,", "year": 2006}, {"authors": ["Pesenson", "Isaac"], "title": "Sampling in paley-wiener spaces on combinatorial graphs", "venue": "Transactions of the American Mathematical Society,", "year": 2008}, {"authors": ["Ribeiro", "Marco Tulio", "Singh", "Sameer", "Guestrin", "Carlos"], "title": "Why should i trust you?: Explaining the predictions of any classifier", "venue": "In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,", "year": 2016}, {"authors": ["Sandryhaila", "Aliaksei", "Moura", "Jos\u00e9 MF"], "title": "Discrete signal processing on graphs", "venue": "IEEE transactions on signal processing,", "year": 2013}, {"authors": ["Selvaraju", "Ramprasaath", "Cogswell", "Michael", "Das", "Abhishek", "Vedantam", "Ramakrishna", "Parikh", "Devi", "Batra", "Dhruv"], "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization", "venue": "IEEE International Conference on Computer Vision (ICCV),", "year": 2017}, {"authors": ["Sen", "Prithviraj", "Namata", "Galileo", "Bilgic", "Mustafa", "Getoor", "Lise", "Galligher", "Brian", "Eliassi-Rad", "Tina"], "title": "Collective classification in network data", "venue": "AI magazine,", "year": 2008}, {"authors": ["Szegedy", "Christian", "Zaremba", "Wojciech", "Sutskever", "Ilya", "Bruna", "Joan", "Erhan", "Dumitru", "Goodfellow", "Ian", "Fergus", "Rob"], "title": "Intriguing properties of neural networks", "venue": "arXiv preprint arXiv:1312.6199,", "year": 2013}, {"authors": ["Zeiler", "Matthew D", "Fergus", "Rob"], "title": "Visualizing and understanding convolutional networks", "venue": "In European conference on computer vision,", "year": 2014}, {"authors": ["Zhou", "Bolei", "Khosla", "Aditya", "Lapedriza", "Agata", "Oliva", "Aude", "Torralba", "Antonio"], "title": "Object detectors emerge in deep scene cnns", "venue": "arXiv preprint arXiv:1412.6856,", "year": 2014}], "sections": [{"heading": "1. Introduction", "text": "With widespread adoption of deep learning solutions in science and engineering, obtaining a posteriori interpretations of the learned models has emerged as a crucial research direction. This is driven by a community-wide effort to develop a new set of meta-techniques able to provide insights into complex neural network systems, and explain their training or predictions. Despite being identified as a key research direction, there exists no well-accepted definition for interpretability. Instead, in different contexts, it may refer to a variety of tasks ranging from debugging models (Ribeiro et al., 2016), to determining anomalies in the training data (Koh & Liang, 2017). While some recent efforts (Lipton, 2016; Doshi-Velez & Kim, 2017) provide a more formal definition for interpretability as generating interpretable rules, these focus on instance-level explanations, i.e. understanding how a network arrived at a particular decision for a single instance.\nIn practice, interpretability covers a wider range of challenges, such as characterizing data distributions and sep-\n*Equal contribution 1Lawrence Livermore National Laboratory, USA. 2University of California Irvine, USA..\narating hyperplanes of classifiers, combating noisy labels during training, detecting adversarial attacks, or generating saliency maps for image classification. As discussed below, solutions to all such problems have been proposed each using custom tailored, task-specific approaches. For example, a variety of tools aim to explain which parts of an image are the most responsible for a prediction. However, these cannot be easily repurposed to identify which samples in a dataset were most helpful or harmful to train a classifier.\nInstead, we introduce the MARGIN (Model Analysis and Reasoning using Graph-based Interpretability) framework, which directly applies to a wide variety of interpretability tasks. MARGIN poses each task as an hypothesis test and derives a measure of influence that indicates which parts of the data/model maximally support (or contradict) the hypothesis. More specifically, for each task we construct a graph whose nodes represent entities of interest, and define a function on this graph that encodes a hypothesis. For example, if the task is to determine which labels need to be corrected in a dataset with corrupted labels, the domain is the set of samples, while the function can be local label agreement that measures how many neighbors have the same label as the current node. Using graph signal processing (Shuman et al., 2013; Sandryhaila & Moura, 2013) we then identify which samples are most important to describe the label agreement function, which turn out to be those with faulty labels as they introduce significant local variations in the function. Similarly, we can define other graphs and functions to address a number different tasks using the same procedure. This generic formulation, while extremely simple in its implementation, provides a powerful protocol to realize several meta-learning techniques, by allowing the user to incorporate rich semantic information, in a straightforward manner. In a nutshell, the proposed protocol is comprised of the following steps: (i) identifying the domain for interpretability (for e.g. intra-sample vs inter sample), (ii) constructing a neighborhood graph to model the domain, (for e.g. pixel space vs. latent space) (iii) defining an explanation function at the nodes of the graph, (iv) performing graph signal analysis to estimate the influence structure in the domain, and (v) creating interpretations based on the estimated influence structure. Figure 1 illustrates the steps involved in MARGIN for a posteriori interpretability.\nOverview: Using different choices for graph construction\nar X\niv :1\n71 1.\n05 40\n7v 3\n[ st\nat .M\nL ]\n4 D\nec 2\n01 8\nand the explanation function design, we present five case studies to demonstrate the broad applicability of MARGIN for a posteriori interpretability. First, in section 5.1 we study a unsupervised problem of identifying samples which well characterize the underlying data distribution, referred to as prototypes and criticisms respectively (Kim et al., 2016). We show that the MARGIN is better at identifying these candidates than state-of-the-art techniques. In section 5.2, we obtain localized image saliency at a pixel level using MARGIN, clearly explaining predictions from a black-box pre-trained model, and show that these strongly agree with techniques that even have access to the entire model. In section 5.3, we identify label corruptions in the training data, and show that MARGIN is able to identify these samples more effectively than recently proposed approaches, while also being able to explain the results intuitively. In section 5.4, we analyze decision surfaces of pre-trained classifiers by determining samples that are the most confusing to the model. Finally, in section 5.5 we extend two recently proposed statistical techniques to detect adversarial examples from harmless examples, and demonstrate that incorporating them inside MARGIN improves their discriminative power significantly."}, {"heading": "2. Related Work", "text": "We outline recent works that are closely related to the central framework, and themes around MARGIN. Papers pertinent to individual case studies are identified in their respective sections.\nOur goal in this paper is to identify a core framework that is capable of being repurposed to several interpretability tasks. This is related to two recent works \u2013 Fong et al. (Fong & Vedaldi, 2017) propose to perturb images in a way that they can be repurposed to several other tasks, of which interpretability is one. In (Koh & Liang, 2017), the authors proposed a strategy to select influential samples by extending ideas from robust statistics, which was shown to be applicable to a variety of scenarios. While these approaches\nare reasonably general, the proposed framework leverages the generality of graph structures, along with the ability to include arbitrary, semantically rich functions defined at each node. To the best of our knowledge, our work is the first to propose such a formulation.\nThe central idea of MARGIN is to use graph signal processing (GSP), to identify high frequency regions on graph signals. GSP itself is a relatively recent area, where there are two broad classes of approaches \u2013 one that builds on spectral graph theory using the graph Laplacian matrix (Shuman et al., 2013), and the other based on algebraic signal processing that builds upon the graph shift operator (Sandryhaila & Moura, 2013). While both are applicable to our framework, we adopt the latter formulation. Our approach relies on defining a measure of influence at each node, which is related to sampling of graph signals. This is an active research area, with several works generalizing ideas of sampling and interpolation to the domain of graphs, such as (Chen et al., 2015; Pesenson, 2008; Gadde et al., 2014). In many of these cases, the signal (or function) is assumed to be known, while one of our contributions is to identify the right function for a given interpretability task. In addition, our hypothesis on analyzing the high frequency content of the function is conceptually similar to (Chen et al., 2017) in being efficient, without requiring the need to solve any sophisticated optimization."}, {"heading": "3. A Generic Protocol for Interpretability", "text": "In this section, we provide an overview of the different steps of MARGIN and describe the proposed influence estimation technique in the next section.\nDomain Design and Graph Construction: The domain definition step is crucial for the generalization of MARGIN across different scenarios. In order to enable instance-level interpretations (e.g. creating saliency maps), a single instance of data, possibly along with its perturbed variants, will form the domain; whereas a more holistic understanding of the model can be obtained (e.g. extracting prototypes/crit-\nicisms) by defining the entire dataset as the domain. Regardless of the choice of domain, we propose to model it using neighborhood graphs, as it enables a concise representation of the relationships between the samples.\nMore specifically, given the set of samples {xi}, we construct a k-nearest neighbor domain graph that captures local geometry of the data samples. The metric for graph construction (that determines neighborhoods/edges) can arise from prior knowledge about the domain or designed based on latent representations from pre-trained models. For example, if we use the latent features from AlexNet (Krizhevsky et al., 2012), the resulting graph respects the distance metric inferred by AlexNet for image classification. Though the difficulty in choosing an appropriate k for designing robust graphs is well known, designing better graphs is beyond the scope of this paper. In our experiments, we find that our results are not very sensitive to the choice of k.\nFormally, an undirected weighted graph is represented by the triplet G = (V, E ,W), where V denotes the set of nodes, E denotes the set of edges and W is an adjacency matrix that specifies the weights on the edges, where Wn,m corresponds to the edge weight between nodes vn and vm. Let Nn = {m|Wn,m 6= 0} define the neighborhood of node vn, i.e. the set of nodes connected to it. The normalized graph Laplacian, L, is then constructed as I \u2212D\u22121/2WD\u22121/2, where Dnn = \u2211 m Wn,m is the degree matrix and I denotes the identity matrix.\nExplanation Function Definition: A key component of MARGIN is to construct an explanation function that measures how well each node in the graph supports the presented hypothesis. Let us illustrate this process with an example \u2013 in order to create saliency maps for image classification, one can build a graph where each node corresponds to a potential explanation (i.e. a subset of pixels), while the edges can measure how likely can two explanations produce similar predictions. In such a scenario, one can hypothesize that an ideal explanation will be sparse, in terms of the number of pixels, since that is more interpretable. Consequently, the size of an explanation can be used as the function. Table 1 shows the domain design, graph construction, and function definition choices made for different use cases. Section 5 will present a more detailed discussion.\nInfluence Estimation: This is the central analysis step in\nMARGIN for obtaining influence estimates at the nodes of G, that can reveal which nodes can maximally describe the variations in the chosen explanation function. Implicitly, this step can be viewed as a soft-sample selection strategy with respect to the structure induced by the domain graph. We propose to perform this estimation using tools from graph signal analysis. Section 4 describes the proposed algorithm for influence estimation.\nFrom Influence to Interpretation: Depending on the hypothesis chosen for a posteriori analysis, this step requires the design of an appropriate strategy for transferring the estimated influences into an interpretable explanation."}, {"heading": "4. Proposed Influence Estimation", "text": "Given a neighborhood graph G along with an explanation function f , we propose to employ graph signal analysis to estimate node influence scores. Before we describe the algorithm, we will present a brief overview of the preliminaries.\nDefinitions: We use the notation and terminology from (Sandryhaila & Moura, 2013) in defining an operator analogous to the time-shift or delay operator in classical signal processing. During a graph shift operation, the function f(n) at node vn is replaced by a weighted linear combination of its neighbors: f\u0302 = Af , where A is the graph shift operator, which is the simplest, non-trivial graph filter. Commonly used choices for A include the adjacency matrix W, transition matrix D\u22121W and the graph Laplacian L.\nThe set of eigenvectors of the graph shift operator is referred to as the graph Fourier basis, A = U\u039bUT , where U \u2208 RN\u00d7N , and the Fourier transform of a signal f \u2208 RN is defined as UT f . The ordered eigenvalues corresponding to these eigenvectors represent frequencies of the signal, with \u03bb1 to \u03bbN representing the smallest to largest frequencies. The notion of frequency on the graph corresponds to the rate of change of the function across nodes in a neighborhood. A higher change corresponds to a high frequency, while a smooth variation corresponds to a low frequency. In this context, the graph filtering using a graph shift operator corresponds to a low-pass filter that dispenses high frequency components in the function. Similarly, a simple high-pass filter can be easily designed as f\u0302h = f \u2212 f\u0302 .\nAlgorithm: The overall procedure to obtain influence\nAlgorithm 1 Influence Estimation Input: Domain \u2013 X, Graph \u2013 G = (V, E) and the explanation function f defined at the nodes of G\nOutput: Influence estimate at each node, I(i),\u2200i \u2208 V\nConstruct graph shift operator A from X f\u0302 = f \u2212 Af foreach i \u2208 V do\ncompute I(i) = ||f\u0302(i)||22 \u2200i \u2208 V . end\nscores at the nodes of G can be found in Algorithm 1. Intuitively, we design a high-pass filter that eliminates the low frequency content and retains the signal energy only at those nodes that characterize the extreme variations of the function. Following the high-pass filtering step, the influence score at a node is estimated as the magnitude of the filtered function value at that node:\nI(i) = ||f\u0302h(i)||22 \u2200i \u2208 V, (1)\nwhere f\u0302h corresponds to the high-pass filtered version of f . Interestingly, we find that analyzing the high frequency components of the explanation function often leads to a sparse influence structure, indicating the presence of multiple local optima that corroborate the hypothesis. Conversely, the influence structure obtained from low frequency components is typically dense and hence requires additional processing to qualify regions of disagreement."}, {"heading": "5. Case Studies", "text": ""}, {"heading": "5.1. Case Study I - Prototypes and Criticisms", "text": "A commonly encountered problem in interpretability is to identify samples that are prototypical of a dataset, and those that are statistically different from the prototypes (called criticisms). Together, they can provide a holistic understanding about the underlying data distribution. Even in cases where we do not have access to the label information, we seek a hypothesis that can pick samples which are representatives of their local neighborhood, while emphasizing statistically anomalous samples. One such function was recently utilized in (Kim et al., 2016) to define prototypes and criticisms, and it was based on Maximum Mean Discrepancy (MMD).\nFormulation: Following the general protocol in Figure 1, the domain is defined as the complete dataset, along with labels if available. Since this analysis does not rely on pretrained models, we construct the neighborhood graph based on conventional metrics, e.g. Euclidean distance. Inspired by (Kim et al., 2016), we define the following explanation function: For each sample xi, we remove the chosen sample and all its connected neighbors from the graph to construct the set X\u0304 = {xj , j /\u2208 (i\u222aNi)}, and estimate the function at the ith node as f(i) = MMD(X\u0304 ,X\u0304 \u222axi). In cases of labeled\ndatasets, the kernel density estimates for the MMD computation are obtained using only samples belonging to the same class. We refer to these two cases as global (unlabeled case) and local (labeled case) respectively. The hypothesis is that the regions of criticisms will tend to produce highly varying MMD scores, thereby producing high frequency content, and hence will be associated with high MARGIN scores. Conversely, we find that the samples with low MARGIN scores correspond to prototypes since they lie in regions of strong agreement of MMD scores. More specifically, we consider all samples with low MARGIN scores (within a threshold) as prototypes, and rank them by their actual function values. In contrast to the greedy inference approach in (Kim et al., 2016) that estimates prototypes and criticisms separately, they are inferred jointly in our case.\nExperiment Setup and Results: We evaluate the effectiveness of the chosen samples through predictive modeling experiments. We use the USPS handwritten digits data for this experiment, which consists of 9,298 images belonging to 10 classes. We use a standard train/test split for this dataset, with 7,291 training samples and the rest for testing. For fair comparisons with (Kim et al., 2016), we use a simple 1-nearest neighbor classifier. As described earlier, we consider both unsupervised (global) and supervised (local) variants of our explanation function for sample selection.\nWe expect the prototypical samples to be the most helpful in predictive modeling, i.e., good generalization. In Figure 2(a), we observe that the prototypes from MARGIN perform competitively in comparison to the baseline technique. More importantly, MARGIN is particularly superior in the global case, with no access to label information. On the other hand, criticisms are expected to be the least helpful for generalization, since they often comprise boundary cases, outliers and under-sampled regions in space. Hence, we evaluate the test error using the criticisms as training data. Interestingly, as shown in Figure 2(b), the criticisms from MARGIN achieve significantly higher test errors in comparison to samples identified using MMD-critic based optimization in (Kim et al., 2016). Furthermore, examples of the selected prototypes and criticisms from MARGIN are included in Figure 2(c)."}, {"heading": "5.2. Case Study II - Explanations for Image Classification", "text": "Generating explanations for predictions is crucial to debugging black-box models and eventually building trust. Given a model, such as a deep neural network, that is designed to classify an image into one of r classes, a plausible explanation for a test prediction is to quantify the importance of different image regions to the overall prediction, i.e. produce a saliency map. We posit that perturbing the salient regions should result in maximal changes to the prediction.\nIn addition, we expect sparse explanations to be more interpretable. In this section, we describe how MARGIN can be applied to achieve both these objectives.\nFormulation: Since we are interested in producing explanations for instance-level predictions using MARGIN, the domain corresponds to a possible set of explanations for an image. Note that, the space of explanations can be combinatorially large, and hence we adopt the following greedy approach to construct the domain. We run the SLIC algorithm (Achanta et al., 2012) with varying number of superpixels, say {50, 100, 150, 200, 250, 300}, and define the domain as the union of superpixels from all the independent runs. In our setup, each of these superpixels is a plausible explanation and they become the nodes of G.\nAssuming that a test image I is assigned the class j with softmax probability p(j), for each of the explanations i, we mask those pixels in the image and use the pre-trained model to obtain the softmax probability p\u0302i(j) and measure its saliency as |p(j) \u2212 p\u0302i(j)|. Using these estimates, we obtain pixel-level saliency, S, as a weighted combination of their saliency from different superpixels (inversely weighted by the superpixel size). This dense saliency is similar to previous approaches such as (Zeiler & Fergus, 2014; Zhou et al., 2014).\nNote that, this saliency estimation process did not impose the sparsity requirement. Hence, we use MARGIN to obtain influence scores based on their sparseness. To this end, we construct neighborhoods for explanations based on their impact on the predictions, i.e. edges are computed based on their |p(j)\u2212 p\u0302i(j)| values. The explanation function at each node is defined as the ratio of the size of the superpixel corresponding to that node and the size of the largest superpixel in the graph. Intuitively, MARGIN finds the sparsest explanation for different level sets of the saliency function, |p(j)\u2212 p\u0302i(j)|. Subsequently, we compute pixellevel influence scores, I , as a weighted combination of their influences from different superpixels. The overall saliency map is obtained as Sfinal = S I , where refers to the Hadamard product.\nExperiment Setup and Results: Using images from the ImageNet database (Russakovsky et al., 2015), and the AlexNet (Krizhevsky et al., 2012) model, we demonstrate that MARGIN can effectively produce explanations for the classification. Figure 3 illustrates the process of obtaining the final saliency map for an image from the Tabby Cat class. Interestingly, we see that the mouth and whiskers are highlighted as the most salient regions for its prediction. Figure 4 shows the saliency maps from MARGIN for several other cases. For comparison, we show results from Grad-CAM (Selvaraju et al., 2017), which is a white-box approach that accesses the gradients in the network. We find that, using only a black-box approach, MARGIN produces explanations that strongly corroborate with Grad-CAM and in some cases produces more interpretable explanations. For example, in the case of an Ice Cream image, MARGIN identifies the ice cream, and the spoon, as salient regions, while Grad-CAM highlights only the ice cream and quite a few background regions as salient. Similarly, in the case of a fountain image, MARGIN highlights the fountain, and the sky, while Grad-CAM highlights the background (trees) slightly more than the fountain itself, which is not readily interpretible."}, {"heading": "5.3. Case Study III - Detecting Incorrectly Labeled Samples", "text": "An increasingly important problem in real-world applications is concerned with the quality of labels in supervisory tasks. Since the presence of noisy labels can impact model learning, recent approaches attempt to compensate by perturbing the labels of samples that are determined to be highrisk of being corrupted, or when possible have annotators check the labels of those high-risk samples. In this section, we propose to employ MARGIN to recover incorrectly labeled samples. In particular, we consider a binary classification task, where we assume \u03b2% of the labels are randomly flipped in each class. In order to identify samples which were incorrectly labeled, we select samples with the highest MARGIN score, followed by simulating a human user correcting the labels for the top K samples. Ideally, we would\nlike K, the number of samples checked by the user, to be as small as possible.\nFormulation: Similar to Case Study I, the entire dataset is used to define the domain and a user-defined metric is used to construct the graph. Since we expect the flips to be random, we hypothesize that they will occur in regions where the labels of corrupted samples are different from their neighbors. Instead of directly using the label at each node as the explanation function, we believe a more smoothly varying function will allow us to extract regions of high frequency changes more robustly. As a result, we propose to measure the level of distrust at a given node, by measuring how many of its neighbors disagree with its label:\nf(i) = 1\u2212 \u2211 j\u2208Ni L(j, i)\n|Ni| , (2)\nwhere L(j, i) is 1 only if nodes j and i share the same label; |.| denotes the cardinality of a set.\nExperiment Setup and Results: We perform our exper-\niments on the Enron Spam Classification dataset (Metsis et al., 2006), containing 4138 training examples, with an imbalanced class split of around 70:30 (non-spam:spam). Following standard practice, we randomly corrupt the labels of 10% of the samples. For the Enron Spam dataset, we extracted bag-of-words features of 500 dimensions corresponding to the most frequently occurring words. These features are then used to construct a k-NN graph with the number of neighbors k fixed at 20, and we report average results from 10 repetitions of the experiment. We compare our approach with three baselines: (i) Influence Functions: We obtain the most influential samples using Influence Functions (Koh & Liang, 2017). (ii) Random Sampling (iii) Oracle: The best case scenario, where the number of labels corrected is equal to the number of samples observed. Following (Koh & Liang, 2017), we vary the percentage of influential samples chosen, and compute the recall measure, which corresponds to the fraction of label flips recovered in the chosen subset of samples.\nAs seen in Figure 5(a), we see that our method is nearly 10\npercentage points better than the state-of-the-art Influence Functions, achieving a recall of nearly 0.95 by observing just 30% of the samples. In Figure 5(b), we study how MARGIN scores the incorrectly labeled samples. On the y-axis, we show the percentage of the neighbors that agree with the original label (if there was no corruption) \u2013 this is a proxy measure to identify which samples lie closer to the classification boundary vs the ones that are farther away. The x-axis shows the MARGIN score, and we see a clear trend, which indicates a strong preference for samples that lie farther away from the classification boundary. In other words, this corresponds strongly to correcting the least number of samples which can lead to the most gain in validation performance when using a trained model."}, {"heading": "5.4. Case Study IV - Interpreting Decision Boundaries", "text": "While studying black-box models, it is crucial to obtain a holistic understanding of their strengths, and more importantly, their weaknesses. Conventionally, this has been carried out by characterizing the decision surfaces of the resulting classifiers. In this experiment, we demonstrate how MARGIN can be utilized to identify samples that are the most confusing to a model.\nFormulation: In order to adopt MARGIN for analyzing a specific model, we construct the graph using latent representations inferred from the model. Since decision surface characterization is similar to Case Study III, we use the local label agreement measure in (2) as the explanation function.\nExperiment Setup and Results: We perform an experiment on 2-class datasets extracted from ImageNet and MNIST. More specifically, in the case of ImageNet, we perform decision surface characterization on the classes Tabby Cat and Great Dane. We used the features from a pretrained AlexNet\u2019s penultimate layer to construct the graph. For the MNIST dataset, we considered data samples from digits \u20180\u2019 and \u20186\u2019, and we used the latent space produced using a convolutional neural network for the analysis. A\nselected subset of samples characterizing the decision surfaces of both datasets are shown in Figure 6. For ImageNet, it is clear that the model gets confused whenever the animal\u2019s face is not visible, or if it is in a contorted position, or occluded. Similarly, in the MNIST dataset, the examples shown depict atypical ways in which the digits \u20180\u2019 and \u20186\u2019 can be written."}, {"heading": "5.5. Case Study V - Characterizing Statistics of Adversarial Examples", "text": "In this application, we examine the problem of quantifying the statistical properties of adversarial examples using MARGIN. Adversarial samples (Biggio et al., 2013; Szegedy et al., 2013) refer to examples that have been specially crafted, such that a particular trained model is \u2018tricked\u2019 into misclassifying them. This is done typically by perturbing a sample, sometimes in ways imperceptible to humans, while maximizing misclassification rates. In order to better understand the behaviour of such adversarial examples, there have been studies in the past to show that adversarial examples are statistically different from normal test examples. For example, an MMD score between distributions is proposed in (Grosse et al., 2017), and a kernel density estimator (KDE) in (Feinman et al., 2017). However, these measures are global, and provide little insight into individual samples. We propose to use MARGIN to develop these statistical measures at a sample level, and study how individual adversarial samples differ from regular samples.\nFormulation: As in other case studies, MARGIN constructs a graph, where each node corresponds to an example that is either adversarial or harmless, and the edges are constructed using neighbors in the latent space of the model, against which the adversarial examples have been designed. We consider two kinds of functions in this experiment: i) MMD Global: Similar to 5.1, we use the MMD score between the whole set, and the set without a particular sample and its neighbors. This provides a way to capture statistically rarer samples in the dataset; ii) KDE: We also use the\nKDE of each sample, as proposed in (Feinman et al., 2017), where we measure the discrepancy of each sample against the training samples from its predicted class. While these measures on their own may not be very illustrative, they are useful functions to determine influences within MARGIN.\nExperiment Setup and Results: We perform experiments on 2000 randomly sampled test images from the MNIST dataset (LeCun, 1998), of which we adversarially perturb 1000 images. We measure MARGIN scores using both MMD Global, and KDE, against two popular attacks \u2013 the Fast Gradient Sign Method (FGSM) attack (Goodfellow et al., 2014), and the L2-attack (Carlini & Wagner, 2017b). We use the same setup as in (Carlini & Wagner, 2017a), including the network architecture for MNIST. The resulting MARGIN score determined using algorithm 1 is more discriminative, as seen in Figure 7. As noted in (Carlini & Wagner, 2017a), the MMD and KDE measures were not very effective against stronger attacks such as the L2-attack. This is reflected to a much lower degree even in our approach, where there is a small overlap in the distributions.\nWe also find that the overlapping regions correspond to samples from the training set that are extremely rare to begin with (like criticisms from section 5.1)."}, {"heading": "6. Conclusions", "text": "We proposed a generic framework called MARGIN that is able to provide explanations to popular interpretability tasks in machine learning. These range from identifying prototypical samples in a dataset that might be most helpful for training, to explaining salient regions in an image for classification. In this regard, MARGIN exploits ideas rooted in graph signal processing to identify the most influential nodes in a graph, which are nodes that maximally affect the graph function. While the framework is extremely simple, it is highly general in that it allows a practitioner to include rich semantic information easily in three crucial ways \u2013 defining the domain (intra-sample vs inter-sample), edges (pre-defined/native/model latent space), and finally a function defined at each node. The graph based analysis easily scales to very sparse graphs with tens of thousands of\nnodes, and opens up several opportunities to study problems in interpretable machine learning."}, {"heading": "Acknowledgement", "text": "This work was performed under the auspices of the U.S. Dept. of Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.\nDisclaimer This document was prepared as an account of work sponsored by an agency of the United States government. Neither the United States government nor Lawrence Livermore National Security, LLC, nor any of their employees makes any warranty, expressed or implied, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness of any information, apparatus, product, or process disclosed, or represents that its use would not infringe privately owned rights. Reference herein to any specific commercial product, process, or service by trade name, trademark, manufacturer, or otherwise does not necessarily constitute or imply its endorsement, recommendation, or favoring by the United States government or Lawrence Livermore National Security, LLC. The views and opinions of authors expressed herein do not necessarily state or reflect those of the United States government or Lawrence Livermore National Security, LLC, and shall not be used for advertising or product endorsement purposes."}], "title": "MARGIN: Uncovering Deep Neural Networks using Graph Signal Analysis", "year": 2018}
+{
+  "abstractText": "Interpretability has emerged as a crucial aspect of machine learning, aimed at providing insights into the working of complex neural networks. However, existing solutions vary vastly based on the nature of the interpretability task, with each use case requiring substantial time and effort. This paper introduces MARGIN, a simple yet general approach to address a large set of interpretability tasks ranging from identifying prototypes to explaining image predictions. MARGIN exploits ideas rooted in graph signal analysis to determine influential nodes in a graph, which are defined as those nodes that maximally describe a function defined on the graph. By carefully defining taskspecific graphs and functions, we demonstrate that MARGIN outperforms existing approaches in a number of disparate interpretability challenges.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Rushil Anirudh"
+    },
+    {
+      "affiliations": [],
+      "name": "Jayaraman J. Thiagarajan"
+    },
+    {
+      "affiliations": [],
+      "name": "Rahul Sridhar"
+    },
+    {
+      "affiliations": [],
+      "name": "Peer-Timo Bremer"
+    }
+  ],
+  "id": "SP:a5d3ac19de5335dbf950992fc33f9469982fe44b",
+  "references": [
+    {
+      "authors": [
+        "Achanta",
+        "Radhakrishna",
+        "Shaji",
+        "Appu",
+        "Smith",
+        "Kevin",
+        "Lucchi",
+        "Aurelien",
+        "Pascal",
+        "Fua",
+        "Susstrunk",
+        "Sabine"
+      ],
+      "title": "Slic superpixels compared to state-of-the-art superpixel methods",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Carlini",
+        "Nicholas",
+        "Wagner",
+        "David"
+      ],
+      "title": "Adversarial examples are not easily detected: Bypassing ten detection methods",
+      "venue": "In Proceedings of the 10th ACM Workshop on Artificial Intelligence and Security,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Carlini",
+        "Nicholas",
+        "Wagner",
+        "David"
+      ],
+      "title": "Towards evaluating the robustness of neural networks",
+      "venue": "In Security and Privacy (SP),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Kova\u010devi\u0107",
+        "Jelena"
+      ],
+      "title": "Discrete signal processing on graphs: Sampling theory",
+      "venue": "IEEE transactions on signal processing,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Chen",
+        "Siheng",
+        "Tian",
+        "Dong",
+        "Feng",
+        "Vetro",
+        "Anthony",
+        "Kova\u010devi\u0107",
+        "Jelena"
+      ],
+      "title": "Fast resampling of 3d point clouds via graphs",
+      "venue": "arXiv preprint arXiv:1702.06397,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Doshi-Velez",
+        "Finale",
+        "Kim",
+        "Been"
+      ],
+      "title": "A roadmap for a rigorous science of interpretability",
+      "venue": "arXiv preprint arXiv:1702.08608,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Elson",
+        "Jeremy",
+        "Douceur",
+        "John R",
+        "Howell",
+        "Jon",
+        "Saul",
+        "Jared"
+      ],
+      "title": "Asirra: a captcha that exploits interest-aligned manual image categorization",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Feinman",
+        "Reuben",
+        "Curtin",
+        "Ryan R",
+        "Shintre",
+        "Saurabh",
+        "Gardner",
+        "Andrew B"
+      ],
+      "title": "Detecting adversarial samples from artifacts",
+      "venue": "arXiv preprint arXiv:1703.00410,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Fong",
+        "Ruth",
+        "Vedaldi",
+        "Andrea"
+      ],
+      "title": "Interpretable explanations of black boxes by meaningful perturbation",
+      "venue": "arXiv preprint arXiv:1704.03296,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Gadde",
+        "Akshay",
+        "Anis",
+        "Aamir",
+        "Ortega",
+        "Antonio"
+      ],
+      "title": "Active semi-supervised learning using sampling theory for graph signals",
+      "venue": "In Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Goodfellow",
+        "Ian J",
+        "Shlens",
+        "Jonathon",
+        "Szegedy",
+        "Christian"
+      ],
+      "title": "Explaining and harnessing adversarial examples",
+      "venue": "arXiv preprint arXiv:1412.6572,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Grosse",
+        "Kathrin",
+        "Manoharan",
+        "Praveen",
+        "Papernot",
+        "Nicolas",
+        "Backes",
+        "Michael",
+        "McDaniel",
+        "Patrick"
+      ],
+      "title": "On the (statistical) detection of adversarial examples",
+      "venue": "arXiv preprint arXiv:1702.06280,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Kim",
+        "Been",
+        "Khanna",
+        "Rajiv",
+        "Koyejo",
+        "Oluwasanmi O"
+      ],
+      "title": "Examples are not enough, learn to criticize! criticism for interpretability",
+      "venue": "In Advances in Neural Information Processing Systems(NIPS).,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Kipf",
+        "Thomas N",
+        "Welling",
+        "Max"
+      ],
+      "title": "Variational graph autoencoders",
+      "venue": "arXiv preprint arXiv:1611.07308,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Kipf",
+        "Thomas N",
+        "Welling",
+        "Max"
+      ],
+      "title": "Semi-supervised classification with graph convolutional networks",
+      "venue": "In International Conference on Learning Representations (ICLR,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Koh",
+        "Pang Wei",
+        "Liang",
+        "Percy"
+      ],
+      "title": "Understanding blackbox predictions via influence functions",
+      "venue": "International Conference on Machine Learning (ICML).,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Krizhevsky",
+        "Alex",
+        "Sutskever",
+        "Ilya",
+        "Hinton",
+        "Geoffrey E"
+      ],
+      "title": "Imagenet classification with deep convolutional neural networks. In Advances in neural information processing",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "LeCun",
+        "Yann"
+      ],
+      "title": "The mnist database of handwritten digits. http://yann",
+      "venue": "lecun. com/exdb/mnist/,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "Lipton",
+        "Zachary C"
+      ],
+      "title": "The mythos of model interpretability",
+      "venue": "arXiv preprint arXiv:1606.03490,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Metsis",
+        "Vangelis",
+        "Androutsopoulos",
+        "Ion",
+        "Paliouras",
+        "Georgios"
+      ],
+      "title": "Spam filtering with naive bayes-which naive bayes",
+      "venue": "In CEAS,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Pesenson",
+        "Isaac"
+      ],
+      "title": "Sampling in paley-wiener spaces on combinatorial graphs",
+      "venue": "Transactions of the American Mathematical Society,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Ribeiro",
+        "Marco Tulio",
+        "Singh",
+        "Sameer",
+        "Guestrin",
+        "Carlos"
+      ],
+      "title": "Why should i trust you?: Explaining the predictions of any classifier",
+      "venue": "In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Sandryhaila",
+        "Aliaksei",
+        "Moura",
+        "Jos\u00e9 MF"
+      ],
+      "title": "Discrete signal processing on graphs",
+      "venue": "IEEE transactions on signal processing,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Selvaraju",
+        "Ramprasaath",
+        "Cogswell",
+        "Michael",
+        "Das",
+        "Abhishek",
+        "Vedantam",
+        "Ramakrishna",
+        "Parikh",
+        "Devi",
+        "Batra",
+        "Dhruv"
+      ],
+      "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization",
+      "venue": "IEEE International Conference on Computer Vision (ICCV),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Sen",
+        "Prithviraj",
+        "Namata",
+        "Galileo",
+        "Bilgic",
+        "Mustafa",
+        "Getoor",
+        "Lise",
+        "Galligher",
+        "Brian",
+        "Eliassi-Rad",
+        "Tina"
+      ],
+      "title": "Collective classification in network data",
+      "venue": "AI magazine,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Szegedy",
+        "Christian",
+        "Zaremba",
+        "Wojciech",
+        "Sutskever",
+        "Ilya",
+        "Bruna",
+        "Joan",
+        "Erhan",
+        "Dumitru",
+        "Goodfellow",
+        "Ian",
+        "Fergus",
+        "Rob"
+      ],
+      "title": "Intriguing properties of neural networks",
+      "venue": "arXiv preprint arXiv:1312.6199,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Zeiler",
+        "Matthew D",
+        "Fergus",
+        "Rob"
+      ],
+      "title": "Visualizing and understanding convolutional networks",
+      "venue": "In European conference on computer vision,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Zhou",
+        "Bolei",
+        "Khosla",
+        "Aditya",
+        "Lapedriza",
+        "Agata",
+        "Oliva",
+        "Aude",
+        "Torralba",
+        "Antonio"
+      ],
+      "title": "Object detectors emerge in deep scene cnns",
+      "venue": "arXiv preprint arXiv:1412.6856,",
+      "year": 2014
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Introduction",
+      "text": "With widespread adoption of deep learning solutions in science and engineering, obtaining a posteriori interpretations of the learned models has emerged as a crucial research direction. This is driven by a community-wide effort to develop a new set of meta-techniques able to provide insights into complex neural network systems, and explain their training or predictions. Despite being identified as a key research direction, there exists no well-accepted definition for interpretability. Instead, in different contexts, it may refer to a variety of tasks ranging from debugging models (Ribeiro et al., 2016), to determining anomalies in the training data (Koh & Liang, 2017). While some recent efforts (Lipton, 2016; Doshi-Velez & Kim, 2017) provide a more formal definition for interpretability as generating interpretable rules, these focus on instance-level explanations, i.e. understanding how a network arrived at a particular decision for a single instance.\nIn practice, interpretability covers a wider range of challenges, such as characterizing data distributions and sep-\n*Equal contribution 1Lawrence Livermore National Laboratory, USA. 2University of California Irvine, USA..\narating hyperplanes of classifiers, combating noisy labels during training, detecting adversarial attacks, or generating saliency maps for image classification. As discussed below, solutions to all such problems have been proposed each using custom tailored, task-specific approaches. For example, a variety of tools aim to explain which parts of an image are the most responsible for a prediction. However, these cannot be easily repurposed to identify which samples in a dataset were most helpful or harmful to train a classifier.\nInstead, we introduce the MARGIN (Model Analysis and Reasoning using Graph-based Interpretability) framework, which directly applies to a wide variety of interpretability tasks. MARGIN poses each task as an hypothesis test and derives a measure of influence that indicates which parts of the data/model maximally support (or contradict) the hypothesis. More specifically, for each task we construct a graph whose nodes represent entities of interest, and define a function on this graph that encodes a hypothesis. For example, if the task is to determine which labels need to be corrected in a dataset with corrupted labels, the domain is the set of samples, while the function can be local label agreement that measures how many neighbors have the same label as the current node. Using graph signal processing (Shuman et al., 2013; Sandryhaila & Moura, 2013) we then identify which samples are most important to describe the label agreement function, which turn out to be those with faulty labels as they introduce significant local variations in the function. Similarly, we can define other graphs and functions to address a number different tasks using the same procedure. This generic formulation, while extremely simple in its implementation, provides a powerful protocol to realize several meta-learning techniques, by allowing the user to incorporate rich semantic information, in a straightforward manner. In a nutshell, the proposed protocol is comprised of the following steps: (i) identifying the domain for interpretability (for e.g. intra-sample vs inter sample), (ii) constructing a neighborhood graph to model the domain, (for e.g. pixel space vs. latent space) (iii) defining an explanation function at the nodes of the graph, (iv) performing graph signal analysis to estimate the influence structure in the domain, and (v) creating interpretations based on the estimated influence structure. Figure 1 illustrates the steps involved in MARGIN for a posteriori interpretability.\nOverview: Using different choices for graph construction\nar X\niv :1\n71 1.\n05 40\n7v 3\n[ st\nat .M\nL ]\n4 D\nec 2\n01 8\nand the explanation function design, we present five case studies to demonstrate the broad applicability of MARGIN for a posteriori interpretability. First, in section 5.1 we study a unsupervised problem of identifying samples which well characterize the underlying data distribution, referred to as prototypes and criticisms respectively (Kim et al., 2016). We show that the MARGIN is better at identifying these candidates than state-of-the-art techniques. In section 5.2, we obtain localized image saliency at a pixel level using MARGIN, clearly explaining predictions from a black-box pre-trained model, and show that these strongly agree with techniques that even have access to the entire model. In section 5.3, we identify label corruptions in the training data, and show that MARGIN is able to identify these samples more effectively than recently proposed approaches, while also being able to explain the results intuitively. In section 5.4, we analyze decision surfaces of pre-trained classifiers by determining samples that are the most confusing to the model. Finally, in section 5.5 we extend two recently proposed statistical techniques to detect adversarial examples from harmless examples, and demonstrate that incorporating them inside MARGIN improves their discriminative power significantly."
+    },
+    {
+      "heading": "2. Related Work",
+      "text": "We outline recent works that are closely related to the central framework, and themes around MARGIN. Papers pertinent to individual case studies are identified in their respective sections.\nOur goal in this paper is to identify a core framework that is capable of being repurposed to several interpretability tasks. This is related to two recent works \u2013 Fong et al. (Fong & Vedaldi, 2017) propose to perturb images in a way that they can be repurposed to several other tasks, of which interpretability is one. In (Koh & Liang, 2017), the authors proposed a strategy to select influential samples by extending ideas from robust statistics, which was shown to be applicable to a variety of scenarios. While these approaches\nare reasonably general, the proposed framework leverages the generality of graph structures, along with the ability to include arbitrary, semantically rich functions defined at each node. To the best of our knowledge, our work is the first to propose such a formulation.\nThe central idea of MARGIN is to use graph signal processing (GSP), to identify high frequency regions on graph signals. GSP itself is a relatively recent area, where there are two broad classes of approaches \u2013 one that builds on spectral graph theory using the graph Laplacian matrix (Shuman et al., 2013), and the other based on algebraic signal processing that builds upon the graph shift operator (Sandryhaila & Moura, 2013). While both are applicable to our framework, we adopt the latter formulation. Our approach relies on defining a measure of influence at each node, which is related to sampling of graph signals. This is an active research area, with several works generalizing ideas of sampling and interpolation to the domain of graphs, such as (Chen et al., 2015; Pesenson, 2008; Gadde et al., 2014). In many of these cases, the signal (or function) is assumed to be known, while one of our contributions is to identify the right function for a given interpretability task. In addition, our hypothesis on analyzing the high frequency content of the function is conceptually similar to (Chen et al., 2017) in being efficient, without requiring the need to solve any sophisticated optimization."
+    },
+    {
+      "heading": "3. A Generic Protocol for Interpretability",
+      "text": "In this section, we provide an overview of the different steps of MARGIN and describe the proposed influence estimation technique in the next section.\nDomain Design and Graph Construction: The domain definition step is crucial for the generalization of MARGIN across different scenarios. In order to enable instance-level interpretations (e.g. creating saliency maps), a single instance of data, possibly along with its perturbed variants, will form the domain; whereas a more holistic understanding of the model can be obtained (e.g. extracting prototypes/crit-\nicisms) by defining the entire dataset as the domain. Regardless of the choice of domain, we propose to model it using neighborhood graphs, as it enables a concise representation of the relationships between the samples.\nMore specifically, given the set of samples {xi}, we construct a k-nearest neighbor domain graph that captures local geometry of the data samples. The metric for graph construction (that determines neighborhoods/edges) can arise from prior knowledge about the domain or designed based on latent representations from pre-trained models. For example, if we use the latent features from AlexNet (Krizhevsky et al., 2012), the resulting graph respects the distance metric inferred by AlexNet for image classification. Though the difficulty in choosing an appropriate k for designing robust graphs is well known, designing better graphs is beyond the scope of this paper. In our experiments, we find that our results are not very sensitive to the choice of k.\nFormally, an undirected weighted graph is represented by the triplet G = (V, E ,W), where V denotes the set of nodes, E denotes the set of edges and W is an adjacency matrix that specifies the weights on the edges, where Wn,m corresponds to the edge weight between nodes vn and vm. Let Nn = {m|Wn,m 6= 0} define the neighborhood of node vn, i.e. the set of nodes connected to it. The normalized graph Laplacian, L, is then constructed as I \u2212D\u22121/2WD\u22121/2, where Dnn = \u2211 m Wn,m is the degree matrix and I denotes the identity matrix.\nExplanation Function Definition: A key component of MARGIN is to construct an explanation function that measures how well each node in the graph supports the presented hypothesis. Let us illustrate this process with an example \u2013 in order to create saliency maps for image classification, one can build a graph where each node corresponds to a potential explanation (i.e. a subset of pixels), while the edges can measure how likely can two explanations produce similar predictions. In such a scenario, one can hypothesize that an ideal explanation will be sparse, in terms of the number of pixels, since that is more interpretable. Consequently, the size of an explanation can be used as the function. Table 1 shows the domain design, graph construction, and function definition choices made for different use cases. Section 5 will present a more detailed discussion.\nInfluence Estimation: This is the central analysis step in\nMARGIN for obtaining influence estimates at the nodes of G, that can reveal which nodes can maximally describe the variations in the chosen explanation function. Implicitly, this step can be viewed as a soft-sample selection strategy with respect to the structure induced by the domain graph. We propose to perform this estimation using tools from graph signal analysis. Section 4 describes the proposed algorithm for influence estimation.\nFrom Influence to Interpretation: Depending on the hypothesis chosen for a posteriori analysis, this step requires the design of an appropriate strategy for transferring the estimated influences into an interpretable explanation."
+    },
+    {
+      "heading": "4. Proposed Influence Estimation",
+      "text": "Given a neighborhood graph G along with an explanation function f , we propose to employ graph signal analysis to estimate node influence scores. Before we describe the algorithm, we will present a brief overview of the preliminaries.\nDefinitions: We use the notation and terminology from (Sandryhaila & Moura, 2013) in defining an operator analogous to the time-shift or delay operator in classical signal processing. During a graph shift operation, the function f(n) at node vn is replaced by a weighted linear combination of its neighbors: f\u0302 = Af , where A is the graph shift operator, which is the simplest, non-trivial graph filter. Commonly used choices for A include the adjacency matrix W, transition matrix D\u22121W and the graph Laplacian L.\nThe set of eigenvectors of the graph shift operator is referred to as the graph Fourier basis, A = U\u039bUT , where U \u2208 RN\u00d7N , and the Fourier transform of a signal f \u2208 RN is defined as UT f . The ordered eigenvalues corresponding to these eigenvectors represent frequencies of the signal, with \u03bb1 to \u03bbN representing the smallest to largest frequencies. The notion of frequency on the graph corresponds to the rate of change of the function across nodes in a neighborhood. A higher change corresponds to a high frequency, while a smooth variation corresponds to a low frequency. In this context, the graph filtering using a graph shift operator corresponds to a low-pass filter that dispenses high frequency components in the function. Similarly, a simple high-pass filter can be easily designed as f\u0302h = f \u2212 f\u0302 .\nAlgorithm: The overall procedure to obtain influence\nAlgorithm 1 Influence Estimation Input: Domain \u2013 X, Graph \u2013 G = (V, E) and the explanation function f defined at the nodes of G\nOutput: Influence estimate at each node, I(i),\u2200i \u2208 V\nConstruct graph shift operator A from X f\u0302 = f \u2212 Af foreach i \u2208 V do\ncompute I(i) = ||f\u0302(i)||22 \u2200i \u2208 V . end\nscores at the nodes of G can be found in Algorithm 1. Intuitively, we design a high-pass filter that eliminates the low frequency content and retains the signal energy only at those nodes that characterize the extreme variations of the function. Following the high-pass filtering step, the influence score at a node is estimated as the magnitude of the filtered function value at that node:\nI(i) = ||f\u0302h(i)||22 \u2200i \u2208 V, (1)\nwhere f\u0302h corresponds to the high-pass filtered version of f . Interestingly, we find that analyzing the high frequency components of the explanation function often leads to a sparse influence structure, indicating the presence of multiple local optima that corroborate the hypothesis. Conversely, the influence structure obtained from low frequency components is typically dense and hence requires additional processing to qualify regions of disagreement."
+    },
+    {
+      "heading": "5. Case Studies",
+      "text": ""
+    },
+    {
+      "heading": "5.1. Case Study I - Prototypes and Criticisms",
+      "text": "A commonly encountered problem in interpretability is to identify samples that are prototypical of a dataset, and those that are statistically different from the prototypes (called criticisms). Together, they can provide a holistic understanding about the underlying data distribution. Even in cases where we do not have access to the label information, we seek a hypothesis that can pick samples which are representatives of their local neighborhood, while emphasizing statistically anomalous samples. One such function was recently utilized in (Kim et al., 2016) to define prototypes and criticisms, and it was based on Maximum Mean Discrepancy (MMD).\nFormulation: Following the general protocol in Figure 1, the domain is defined as the complete dataset, along with labels if available. Since this analysis does not rely on pretrained models, we construct the neighborhood graph based on conventional metrics, e.g. Euclidean distance. Inspired by (Kim et al., 2016), we define the following explanation function: For each sample xi, we remove the chosen sample and all its connected neighbors from the graph to construct the set X\u0304 = {xj , j /\u2208 (i\u222aNi)}, and estimate the function at the ith node as f(i) = MMD(X\u0304 ,X\u0304 \u222axi). In cases of labeled\ndatasets, the kernel density estimates for the MMD computation are obtained using only samples belonging to the same class. We refer to these two cases as global (unlabeled case) and local (labeled case) respectively. The hypothesis is that the regions of criticisms will tend to produce highly varying MMD scores, thereby producing high frequency content, and hence will be associated with high MARGIN scores. Conversely, we find that the samples with low MARGIN scores correspond to prototypes since they lie in regions of strong agreement of MMD scores. More specifically, we consider all samples with low MARGIN scores (within a threshold) as prototypes, and rank them by their actual function values. In contrast to the greedy inference approach in (Kim et al., 2016) that estimates prototypes and criticisms separately, they are inferred jointly in our case.\nExperiment Setup and Results: We evaluate the effectiveness of the chosen samples through predictive modeling experiments. We use the USPS handwritten digits data for this experiment, which consists of 9,298 images belonging to 10 classes. We use a standard train/test split for this dataset, with 7,291 training samples and the rest for testing. For fair comparisons with (Kim et al., 2016), we use a simple 1-nearest neighbor classifier. As described earlier, we consider both unsupervised (global) and supervised (local) variants of our explanation function for sample selection.\nWe expect the prototypical samples to be the most helpful in predictive modeling, i.e., good generalization. In Figure 2(a), we observe that the prototypes from MARGIN perform competitively in comparison to the baseline technique. More importantly, MARGIN is particularly superior in the global case, with no access to label information. On the other hand, criticisms are expected to be the least helpful for generalization, since they often comprise boundary cases, outliers and under-sampled regions in space. Hence, we evaluate the test error using the criticisms as training data. Interestingly, as shown in Figure 2(b), the criticisms from MARGIN achieve significantly higher test errors in comparison to samples identified using MMD-critic based optimization in (Kim et al., 2016). Furthermore, examples of the selected prototypes and criticisms from MARGIN are included in Figure 2(c)."
+    },
+    {
+      "heading": "5.2. Case Study II - Explanations for Image Classification",
+      "text": "Generating explanations for predictions is crucial to debugging black-box models and eventually building trust. Given a model, such as a deep neural network, that is designed to classify an image into one of r classes, a plausible explanation for a test prediction is to quantify the importance of different image regions to the overall prediction, i.e. produce a saliency map. We posit that perturbing the salient regions should result in maximal changes to the prediction.\nIn addition, we expect sparse explanations to be more interpretable. In this section, we describe how MARGIN can be applied to achieve both these objectives.\nFormulation: Since we are interested in producing explanations for instance-level predictions using MARGIN, the domain corresponds to a possible set of explanations for an image. Note that, the space of explanations can be combinatorially large, and hence we adopt the following greedy approach to construct the domain. We run the SLIC algorithm (Achanta et al., 2012) with varying number of superpixels, say {50, 100, 150, 200, 250, 300}, and define the domain as the union of superpixels from all the independent runs. In our setup, each of these superpixels is a plausible explanation and they become the nodes of G.\nAssuming that a test image I is assigned the class j with softmax probability p(j), for each of the explanations i, we mask those pixels in the image and use the pre-trained model to obtain the softmax probability p\u0302i(j) and measure its saliency as |p(j) \u2212 p\u0302i(j)|. Using these estimates, we obtain pixel-level saliency, S, as a weighted combination of their saliency from different superpixels (inversely weighted by the superpixel size). This dense saliency is similar to previous approaches such as (Zeiler & Fergus, 2014; Zhou et al., 2014).\nNote that, this saliency estimation process did not impose the sparsity requirement. Hence, we use MARGIN to obtain influence scores based on their sparseness. To this end, we construct neighborhoods for explanations based on their impact on the predictions, i.e. edges are computed based on their |p(j)\u2212 p\u0302i(j)| values. The explanation function at each node is defined as the ratio of the size of the superpixel corresponding to that node and the size of the largest superpixel in the graph. Intuitively, MARGIN finds the sparsest explanation for different level sets of the saliency function, |p(j)\u2212 p\u0302i(j)|. Subsequently, we compute pixellevel influence scores, I , as a weighted combination of their influences from different superpixels. The overall saliency map is obtained as Sfinal = S I , where refers to the Hadamard product.\nExperiment Setup and Results: Using images from the ImageNet database (Russakovsky et al., 2015), and the AlexNet (Krizhevsky et al., 2012) model, we demonstrate that MARGIN can effectively produce explanations for the classification. Figure 3 illustrates the process of obtaining the final saliency map for an image from the Tabby Cat class. Interestingly, we see that the mouth and whiskers are highlighted as the most salient regions for its prediction. Figure 4 shows the saliency maps from MARGIN for several other cases. For comparison, we show results from Grad-CAM (Selvaraju et al., 2017), which is a white-box approach that accesses the gradients in the network. We find that, using only a black-box approach, MARGIN produces explanations that strongly corroborate with Grad-CAM and in some cases produces more interpretable explanations. For example, in the case of an Ice Cream image, MARGIN identifies the ice cream, and the spoon, as salient regions, while Grad-CAM highlights only the ice cream and quite a few background regions as salient. Similarly, in the case of a fountain image, MARGIN highlights the fountain, and the sky, while Grad-CAM highlights the background (trees) slightly more than the fountain itself, which is not readily interpretible."
+    },
+    {
+      "heading": "5.3. Case Study III - Detecting Incorrectly Labeled Samples",
+      "text": "An increasingly important problem in real-world applications is concerned with the quality of labels in supervisory tasks. Since the presence of noisy labels can impact model learning, recent approaches attempt to compensate by perturbing the labels of samples that are determined to be highrisk of being corrupted, or when possible have annotators check the labels of those high-risk samples. In this section, we propose to employ MARGIN to recover incorrectly labeled samples. In particular, we consider a binary classification task, where we assume \u03b2% of the labels are randomly flipped in each class. In order to identify samples which were incorrectly labeled, we select samples with the highest MARGIN score, followed by simulating a human user correcting the labels for the top K samples. Ideally, we would\nlike K, the number of samples checked by the user, to be as small as possible.\nFormulation: Similar to Case Study I, the entire dataset is used to define the domain and a user-defined metric is used to construct the graph. Since we expect the flips to be random, we hypothesize that they will occur in regions where the labels of corrupted samples are different from their neighbors. Instead of directly using the label at each node as the explanation function, we believe a more smoothly varying function will allow us to extract regions of high frequency changes more robustly. As a result, we propose to measure the level of distrust at a given node, by measuring how many of its neighbors disagree with its label:\nf(i) = 1\u2212 \u2211 j\u2208Ni L(j, i)\n|Ni| , (2)\nwhere L(j, i) is 1 only if nodes j and i share the same label; |.| denotes the cardinality of a set.\nExperiment Setup and Results: We perform our exper-\niments on the Enron Spam Classification dataset (Metsis et al., 2006), containing 4138 training examples, with an imbalanced class split of around 70:30 (non-spam:spam). Following standard practice, we randomly corrupt the labels of 10% of the samples. For the Enron Spam dataset, we extracted bag-of-words features of 500 dimensions corresponding to the most frequently occurring words. These features are then used to construct a k-NN graph with the number of neighbors k fixed at 20, and we report average results from 10 repetitions of the experiment. We compare our approach with three baselines: (i) Influence Functions: We obtain the most influential samples using Influence Functions (Koh & Liang, 2017). (ii) Random Sampling (iii) Oracle: The best case scenario, where the number of labels corrected is equal to the number of samples observed. Following (Koh & Liang, 2017), we vary the percentage of influential samples chosen, and compute the recall measure, which corresponds to the fraction of label flips recovered in the chosen subset of samples.\nAs seen in Figure 5(a), we see that our method is nearly 10\npercentage points better than the state-of-the-art Influence Functions, achieving a recall of nearly 0.95 by observing just 30% of the samples. In Figure 5(b), we study how MARGIN scores the incorrectly labeled samples. On the y-axis, we show the percentage of the neighbors that agree with the original label (if there was no corruption) \u2013 this is a proxy measure to identify which samples lie closer to the classification boundary vs the ones that are farther away. The x-axis shows the MARGIN score, and we see a clear trend, which indicates a strong preference for samples that lie farther away from the classification boundary. In other words, this corresponds strongly to correcting the least number of samples which can lead to the most gain in validation performance when using a trained model."
+    },
+    {
+      "heading": "5.4. Case Study IV - Interpreting Decision Boundaries",
+      "text": "While studying black-box models, it is crucial to obtain a holistic understanding of their strengths, and more importantly, their weaknesses. Conventionally, this has been carried out by characterizing the decision surfaces of the resulting classifiers. In this experiment, we demonstrate how MARGIN can be utilized to identify samples that are the most confusing to a model.\nFormulation: In order to adopt MARGIN for analyzing a specific model, we construct the graph using latent representations inferred from the model. Since decision surface characterization is similar to Case Study III, we use the local label agreement measure in (2) as the explanation function.\nExperiment Setup and Results: We perform an experiment on 2-class datasets extracted from ImageNet and MNIST. More specifically, in the case of ImageNet, we perform decision surface characterization on the classes Tabby Cat and Great Dane. We used the features from a pretrained AlexNet\u2019s penultimate layer to construct the graph. For the MNIST dataset, we considered data samples from digits \u20180\u2019 and \u20186\u2019, and we used the latent space produced using a convolutional neural network for the analysis. A\nselected subset of samples characterizing the decision surfaces of both datasets are shown in Figure 6. For ImageNet, it is clear that the model gets confused whenever the animal\u2019s face is not visible, or if it is in a contorted position, or occluded. Similarly, in the MNIST dataset, the examples shown depict atypical ways in which the digits \u20180\u2019 and \u20186\u2019 can be written."
+    },
+    {
+      "heading": "5.5. Case Study V - Characterizing Statistics of Adversarial Examples",
+      "text": "In this application, we examine the problem of quantifying the statistical properties of adversarial examples using MARGIN. Adversarial samples (Biggio et al., 2013; Szegedy et al., 2013) refer to examples that have been specially crafted, such that a particular trained model is \u2018tricked\u2019 into misclassifying them. This is done typically by perturbing a sample, sometimes in ways imperceptible to humans, while maximizing misclassification rates. In order to better understand the behaviour of such adversarial examples, there have been studies in the past to show that adversarial examples are statistically different from normal test examples. For example, an MMD score between distributions is proposed in (Grosse et al., 2017), and a kernel density estimator (KDE) in (Feinman et al., 2017). However, these measures are global, and provide little insight into individual samples. We propose to use MARGIN to develop these statistical measures at a sample level, and study how individual adversarial samples differ from regular samples.\nFormulation: As in other case studies, MARGIN constructs a graph, where each node corresponds to an example that is either adversarial or harmless, and the edges are constructed using neighbors in the latent space of the model, against which the adversarial examples have been designed. We consider two kinds of functions in this experiment: i) MMD Global: Similar to 5.1, we use the MMD score between the whole set, and the set without a particular sample and its neighbors. This provides a way to capture statistically rarer samples in the dataset; ii) KDE: We also use the\nKDE of each sample, as proposed in (Feinman et al., 2017), where we measure the discrepancy of each sample against the training samples from its predicted class. While these measures on their own may not be very illustrative, they are useful functions to determine influences within MARGIN.\nExperiment Setup and Results: We perform experiments on 2000 randomly sampled test images from the MNIST dataset (LeCun, 1998), of which we adversarially perturb 1000 images. We measure MARGIN scores using both MMD Global, and KDE, against two popular attacks \u2013 the Fast Gradient Sign Method (FGSM) attack (Goodfellow et al., 2014), and the L2-attack (Carlini & Wagner, 2017b). We use the same setup as in (Carlini & Wagner, 2017a), including the network architecture for MNIST. The resulting MARGIN score determined using algorithm 1 is more discriminative, as seen in Figure 7. As noted in (Carlini & Wagner, 2017a), the MMD and KDE measures were not very effective against stronger attacks such as the L2-attack. This is reflected to a much lower degree even in our approach, where there is a small overlap in the distributions.\nWe also find that the overlapping regions correspond to samples from the training set that are extremely rare to begin with (like criticisms from section 5.1)."
+    },
+    {
+      "heading": "6. Conclusions",
+      "text": "We proposed a generic framework called MARGIN that is able to provide explanations to popular interpretability tasks in machine learning. These range from identifying prototypical samples in a dataset that might be most helpful for training, to explaining salient regions in an image for classification. In this regard, MARGIN exploits ideas rooted in graph signal processing to identify the most influential nodes in a graph, which are nodes that maximally affect the graph function. While the framework is extremely simple, it is highly general in that it allows a practitioner to include rich semantic information easily in three crucial ways \u2013 defining the domain (intra-sample vs inter-sample), edges (pre-defined/native/model latent space), and finally a function defined at each node. The graph based analysis easily scales to very sparse graphs with tens of thousands of\nnodes, and opens up several opportunities to study problems in interpretable machine learning."
+    },
+    {
+      "heading": "Acknowledgement",
+      "text": "This work was performed under the auspices of the U.S. Dept. of Energy by Lawrence Livermore National Laboratory under Contract DE-AC52-07NA27344.\nDisclaimer This document was prepared as an account of work sponsored by an agency of the United States government. Neither the United States government nor Lawrence Livermore National Security, LLC, nor any of their employees makes any warranty, expressed or implied, or assumes any legal liability or responsibility for the accuracy, completeness, or usefulness of any information, apparatus, product, or process disclosed, or represents that its use would not infringe privately owned rights. Reference herein to any specific commercial product, process, or service by trade name, trademark, manufacturer, or otherwise does not necessarily constitute or imply its endorsement, recommendation, or favoring by the United States government or Lawrence Livermore National Security, LLC. The views and opinions of authors expressed herein do not necessarily state or reflect those of the United States government or Lawrence Livermore National Security, LLC, and shall not be used for advertising or product endorsement purposes."
+    }
+  ],
+  "title": "MARGIN: Uncovering Deep Neural Networks using Graph Signal Analysis",
+  "year": 2018
+}

@@ -1,1 +1,712 @@
-{"abstractText": "Computer Vision, and hence Artificial Intelligence-based extraction of information from images, has increasingly received attention over the last years, for instance in medical diagnostics. While the algorithms\u2019 complexity is a reason for their increased performance, it also leads to the \u2018black box\u2019 problem, consequently decreasing trust towards AI. In this regard, \u201cExplainable Artificial Intelligence\u201d (XAI) allows to open that black box and to improve the degree of AI transparency. In this paper, we first discuss the theoretical impact of explainability on trust towards AI, followed by showcasing how the usage of XAI in a health-related setting can look like. More specifically, we show how XAI can be applied to understand why Computer Vision, based on deep learning, did or did not detect a disease (malaria) on image data (thin blood smear slide images). Furthermore, we investigate, how XAI can be used to compare the detection strategy of two different deep learning models often used for Computer Vision: Convolutional Neural Network and Multi-Layer Perceptron. Our empirical results show that i) the AI sometimes used questionable or irrelevant data features of an image to detect malaria (even if correctly predicted), and ii) that there may be significant discrepancies in how different deep learning models explain the same prediction. Our theoretical discussion highlights that XAI can support trust in Computer Vision systems, and AI systems in general, especially through an increased understandability and predictability.", "authors": [{"affiliations": [], "name": "Christian Meske"}, {"affiliations": [], "name": "Enrico Bunde[0000-0002-3063-275X"}], "id": "SP:f633c4f37e878d0c130c6d65379bfb7b30e55121", "references": [{"authors": ["K. Grace", "J. Salvatier", "A. Dafoe", "B. Zhang", "O. Evans"], "title": "Viewpoint: When Will AI Exceed Human Performance? Evidence from AI Experts", "venue": "Journal of Artificial Intelligence Research 62, pp. 729-754", "year": 2018}, {"authors": ["A. Maedche", "C. Legner", "A. Benlian", "B. Berger", "H. Gimpel", "T. Hess", "O. Hinz", "S. Morana", "M. S\u00f6llner"], "title": "AI-Based Digital Assistants", "venue": "Business & Information Systems Engineering 61(4), pp. 535-544", "year": 2019}, {"authors": ["D. Ciresan", "U. Meier", "J. Masci", "J. Schmidhuber"], "title": "Multi-column deep neural network for traffic sign classification", "venue": "Neural Networks 32, pp. 333-338", "year": 2012}, {"authors": ["Y. Lu"], "title": "Artificial intelligence: a survey on evolution, models, applications and future trends", "venue": "Journal of Management Analytics 6(1), pp. 1-29", "year": 2019}, {"authors": ["S. Kulkarni", "N. Seneviratne", "M.S. Baig", "Khan A.H.H."], "title": "Artificial Intelligence in Medicine: Where Are We Now? Academic Radiology 27(1), pp", "venue": "62-70", "year": 2020}, {"authors": ["S. Rajaraman", "S.K. Antani", "M. Poostchi", "K. Silamut", "A. Hossai", "R.J. Maude", "S. Jaeger", "G.R. Thoma"], "title": "Pre-trained convolutional neural networks as feature extractors toward improved malaria parasite detection in thin blood smear images", "venue": "PeerJ, pp. 1-17", "year": 2018}, {"authors": ["S. Rajaraman", "S. Jaeger", "S.K. Antani"], "title": "Performance evaluation of deep neural ensembles toward malaria parasite detection in thin-blood smear images", "venue": "PeerJ, pp. 1-16", "year": 2019}, {"authors": ["S. Teso", "K. Kersting"], "title": "Explanatory Interactive Machine Learning", "venue": "Conitzer, V., Hadfield, G., Vallor, S. (eds.) AIES\u201919: AAAI/ACM Conference on AI, Ethics, and Society, pp. 239-245. Association for Computing Machinery, New York", "year": 2019}, {"authors": ["R. Schwartz-Ziv", "N. Tishby"], "title": "Opening the blackbox of Deep Neural Networks via Information, (2017), https://arxiv.org/abs/1703.00810, last accessed 2020/01/09", "year": 2020}, {"authors": ["C. Zednik"], "title": "Solving the Black Box Problem: A Normative Framework for Explainable Artificial Intelligence, Philosophy & Technology, pp", "venue": "1-24", "year": 2019}, {"authors": ["D. Gunning", "D.W. Aha"], "title": "DARPA\u2019s Explainable Artificial Intelligence (XAI) Program", "venue": "AI Magazine 40(2), pp. 44-58", "year": 2019}, {"authors": ["C.L. Corritore", "B. Kracher", "S. Wiedenbeck"], "title": "On-line trust: concepts, evolving themes, a model", "venue": "International Journal of Human-Computer Studies 58(6), pp. 737-758", "year": 2003}, {"authors": ["M. S\u00f6llner", "A. Hoffmann", "H. Hoffmann", "A. Wacker", "J.M. Leimeister"], "title": "Understanding the Formation of Trust in IT Artifacts", "venue": "George J. F. (eds) In: Proceedings of the 33rd International Conference on Information Systems, ICIS 2012, pp. 1-18", "year": 2012}, {"authors": ["P.P. Jayaraman", "A.R.M. Forkan", "A. Morshed", "P.D. Haghighi", "Kang", "Y.-B"], "title": "Healthcare 4.0: A review of frontiers in digital health", "venue": "Wiley Interdisciplinary Reviews-Data Mining and Knowledge Discovery,", "year": 2019}, {"authors": ["F.J. Gilbert", "S.W. Smye", "Sch\u00f6nlieb", "C.-B."], "title": "Artificial intelligence in clinical imaging: a health system approach", "venue": "Clinical Radiology 75(1), pp. 3-6", "year": 2020}, {"authors": ["C. Meske", "I. Amojo"], "title": "Social Bots as Initiators for Human Interaction in Enterprise Social Networks", "venue": "Proceedings of the 29th Australasian Conference on Information Systems (ACIS), paper 35, pp. 1-22", "year": 2018}, {"authors": ["L. Kemppainen", "M. Pikkarainen", "P. Hurmelinna-Laukkanen", "J. Reponen"], "title": "Connected Health Innovation: Data Access Challenges in the Interface of AI Companies and Hospitals", "venue": "Technology Innovation Management Review 9(12), pp. 43-55", "year": 2019}, {"authors": ["Poncette", "A.-S.", "C. Meske", "L. Mosch", "F. Balzer"], "title": "How to Overcome Barriers for the Implementation of New Information Technologies in Intensive Care Medicine", "venue": "Proceedings of the 21st Human-Computer Interaction International, LNCS vol. 11570, pp. 534-546. Springer, Heidelberg", "year": 2019}, {"authors": ["S. Stieglitz", "C. Meske", "B. Ro\u00df", "M. Mirbabaie"], "title": "Going Back in Time to Predict the Future \u2013 The Complex Role of the Data Collection Period in Social Media Analytics", "venue": "Information Systems Frontiers (IFD), pp. 1-15", "year": 2018}, {"authors": ["S. Walsh", "E.E.C. de Jong", "J.E. van Timmeren", "A. Ibrahim", "I. Compter", "J. Peerlings", "S. Sanduleanu", "T. Refaee", "S. Keek", "Larue", "R.T.H.M.", "Y. van Wijk", "A.J.G. Even", "A. Jochems", "M.S. Barakat", "R.T.H. Leijenaar", "P. Lambin"], "title": "Decision Support Systems in Oncology", "venue": "JCO Clinical Cancer Informatics 3, pp. 1-9", "year": 2019}, {"authors": ["P. Ferroni", "F.M. Zanzotto", "S. Riondino", "N. Scarpato", "F. Guadagni", "M. Roselli"], "title": "Breast Cancer Prognosis using a Machine Learning Approach", "venue": "Cancers 11(3), pp. 328:1-9", "year": 2019}, {"authors": ["Song", "D.-Y.", "S.Y. Kim", "G. Bong", "J.M. Kim", "H.J. Yoo"], "title": "The Use of Artificial intelligence in Screening and Diagnosis of Autism Spectrum Disorder: A Literature Review", "venue": "Journal of the Korean Academy of Child and Adolescent Psychiatry 30(4), pp. 145-152", "year": 2019}, {"authors": ["A.Z. Woldaregay", "E. Arsand", "S. Walderhaug", "D. Albers", "L. Mamykina", "T. Botsis", "G. Hartvigsen"], "title": "Data-driven modeling and prediction of blood glucose dynamics: Machine learning applications in type 1 diabetes", "venue": "Artificial Intelligence in Medicine, 98, pp. 109-134", "year": 2019}, {"authors": ["M. Gil-Martin", "J.M. Montero", "R. San-Segundo"], "title": "Parkinson\u2019s Disease Detection from Drawing Movements Using Convolutional Neural Networks", "venue": "Electronics 8(8), pp. 907:1-10", "year": 2019}, {"authors": ["D. Spathis", "P. Vlamos"], "title": "Diagnosing asthma and chronic obstructive pulmonary disease with machine learning", "venue": "Health informatics Journal 25(3), pp. 811-827", "year": 2019}, {"authors": ["A. Eggerth", "D. Hayn", "G. Schreier"], "title": "Medication management needs information and communications technology-based approaches, including telehealth and artificial intelligence", "venue": "British journal of Clinical Pharmacology, pp. 1-8", "year": 2019}, {"authors": ["S. Khanna"], "title": "Artificial intelligence: contemporary applications and future compass", "venue": "International Dental Journal 60(4), pp. 269-272", "year": 2010}, {"authors": ["A. Esteva", "A. Robicquet", "B. Ramsundar", "V. Kuleshov", "M. DePrisot", "K. Chou", "C. Cui", "G. Corrado", "S. Thrun", "J. Dean"], "title": "A guide to deep learning in healthcare", "venue": "Nature Medicine 25(1), pp. 24-29", "year": 2019}, {"authors": ["S.J. Lewis", "Z. Gandomkar", "P.C. Brennan"], "title": "Artificial Intelligence in medical imaging practice: looking to the future", "venue": "Journal of Medical Radiation Sciences 66, pp. 292-295", "year": 2019}, {"authors": ["F. Jiang", "Y. Jiang", "H. Zhi", "Y. Dong", "H. Li", "S.F. Ma", "Y. Wang", "Q. Dong", "H.P. Shen", "Y. Wang"], "title": "Artificial intelligence in healthcare: past, present and future 2(4), pp", "venue": "230-243", "year": 2017}, {"authors": ["J. Son", "J.Y. Shin", "H.D. Kim", "Jung", "K.-H.", "K.H. Park", "S.J. Park"], "title": "Development and Validation of Deep learning models for Screening Multiple Abnormal Findings in Retinal Fundus Images", "venue": "Ophthalmology 127(1), pp. 85-94", "year": 2019}, {"authors": ["M. Chen", "P. Zhou", "D. Wu", "Hu", "L. Hassan", "A.M.M. Alamri"], "title": "AI-Skin: Skin disease recognition based on self-learning and wide data collection through a closed-loop framework", "venue": "Information Fusion 54, pp. 1-9", "year": 2020}, {"authors": ["A.A. Valliani", "D. ranti", "E.K. Oermann"], "title": "Deep Learning in Neurology: A Systematic Review", "venue": "Neurology and Therapy 8(2), pp. 351-365", "year": 2019}, {"authors": ["F. Rosenblatt"], "title": "The Perceptron: A Probabilistic Model For Information Storage and Organization in the Brain", "venue": "Psychological Review 65(6), pp. 386-408", "year": 1958}, {"authors": ["Jang", "D.-H.", "J. Kim", "Y.H. Jo", "J.H. Lee", "J.E. Hwang", "S.M. Park", "D.K. Lee", "I. Park", "D. Kim", "H. Chang"], "title": "Developing neural network models for early detection of cardiac arrest in emergency department", "venue": "American Journal of Emergency Medicine 38(1), pp. 43-49", "year": 2020}, {"authors": ["M. Kim", "J. Yun", "Y. Cho", "K. Shin", "R. Jang", "Bae", "H-J.", "N. Kim"], "title": "Deep Learning in Medical Imaging", "venue": "Neurospine16(4), pp. 657-668", "year": 2019}, {"authors": ["L. Saba", "M. Biswas", "V. Kuppili", "Godia", "H.S.E.C. Suri", "D.R. Edla", "T. Omerzu", "J.R. Laird", "N.N. Khanna", "S. Mavrogeni", "A. Protogerou", "P.P. Sfikakis", "V. Viswanathan", "G.D. Kitas", "A. Nicolaides", "A. Gupta", "J.S. Suri"], "title": "The present and future of deep learning in radiology", "venue": "European journal of Radiology 114, pp. 14-24", "year": 2019}, {"authors": ["A. Adadi", "M. Berrada"], "title": "Peeking Inside the Black-Box: A Survey on Explainable Artificial Intelligence (XAI)", "venue": "IEEE Access 6, pp. 52138-52160", "year": 2018}, {"authors": ["D. Gunning", "M. Stefik", "J. Choi", "T. Miller", "S. Stumpf", "Yang", "G.-Z."], "title": "XAI \u2013 Explainable artificial intelligence", "venue": "Robotics 4(37), pp. eaay7120:1-2", "year": 2019}, {"authors": ["F.K. Dosilovic", "M. Brcic", "N. Hlupic"], "title": "Explainable Artificial Intelligence: A Survey", "venue": "41st International Convention on Information and Communication Technology, pp. 210-215, Electronics and Microelectronics, Opatija Croatia", "year": 2018}, {"authors": ["N. K\u00fchl", "J. Lobana", "C. Meske"], "title": "Do you comply with AI? Personalized explanations of learning algorithms and their impact on employees\u2019 compliance behavior", "venue": "40th International Conference on Information Systems (forthcoming), pp. 1-6", "year": 2019}, {"authors": ["R. Guidotti", "A. Monreale", "S. Ruggieri", "F. Turini", "F. Giannotti", "D. Pedreschi"], "title": "A Survey of Methods for Explaining Black Box Models", "venue": "ACM Computing Surveys (CSUR) 51(5), pp. 93:1-42", "year": 2018}, {"authors": ["G. Ras", "M. van Gerven", "P. Haselager"], "title": "Explanation Methods in Deep Learning: Users, values, Concerns and Challenges", "venue": "ArXiv https://arxiv.org/abs/1803.07517,", "year": 2018}, {"authors": ["C. Meske"], "title": "Digital Workplace Transformation \u2013 On The Role of Self-Determination in the Context of Transforming Work Environments", "venue": "Proceedings of the 27th European Conference on Information Systems (ECIS), pp. 1-18", "year": 2019}, {"authors": ["Z. Yan", "R. Kantola", "P. Zhang"], "title": "A Research model for Human-Computer Trust Interaction", "venue": "Proceedings of the 2011 IEEE 10th International Conference on Trust, Security and Privacy in Computing and Communications, pp. 274-281", "year": 2011}, {"authors": ["K. M\u00fchl", "C. Strauch", "C. Grabmaier", "S. Reithinger", "A. Huckauf", "M. Baumann"], "title": "Get Ready for Being Chauffeured: Passenger\u2019s Preferences and Trust While Being Driven by Human Automation", "venue": "Human Factors, pp. 1-17", "year": 2019}, {"authors": ["A.F. Qasim", "F. Meziane", "R. Aspin"], "title": "Digital watermarking: Applicability for developing trust in medical imaging workflows state of the art review", "venue": "Computer Science Review 27, pp. 45-60", "year": 2018}, {"authors": ["S. Gulati", "S. Sousa", "D. Lamas"], "title": "Design, development and evaluation of a human-computer trust scale", "venue": "Behaviour & Technology 38(10), pp. 1004-1015", "year": 2019}, {"authors": ["D.H. McKnight", "M. Carter", "J.B. Thatcher", "P.F. Clay"], "title": "Trust in Specific Technology: An Investigation of Its Components and Measures", "venue": "ACM Transactions on Management Information Systems (TMIS) 2(2), pp. 12-32", "year": 2011}, {"authors": ["R.C. Mayer", "J.H. Davis", "F.D. Schoorman"], "title": "An Integrative Model of Organizational Trust", "venue": "Academy of Management Review 20(3), pp. 709-734", "year": 1995}, {"authors": ["B.M. Muir", "N. Moray"], "title": "Trust in Automation", "venue": "Part II. Experimental Studies of Trust and Human Intervention in a Process Control Simulation. Ergonomics 39(3), pp. 429-460", "year": 1996}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "Why Should I Trust You?\u201d Explaining the Predictions of Any Classifier", "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pp. 1135-1144", "year": 2016}, {"authors": ["I.P. de Sousa", "Vellasco", "M.M.B.R.", "E.C. da Silva"], "title": "Local Interpretable Model-Agnostic Explanations for Classification of Lymph Node Metastases", "venue": "Sensors 19(13), pp. 2969:1-18", "year": 2019}, {"authors": ["K. Weitz", "T. Hassan", "U. Schmid", "Garbas", "J.-U."], "title": "Deep-learned faces of pain and emotions: Elucidating the differences of facial expressions with the help of explainable AI methods", "venue": "TM-Technisches Messen 86(7-8), pp. 404-412", "year": 2019}], "sections": [{"text": "Keywords: Explainability, Artificial Intelligence, Deep Learning, Computer Vision, Trust, Healthcare"}, {"heading": "1 Introduction", "text": "The progress in the field of Artificial Intelligence (AI) has led to its wide-spread application in different areas, like the finance or health sector [1-2]. In this context, especially Computer Vision, which refers to machine learning models to extract information from images (e.g., to detect objects), is one of the many research areas in which AIbased systems have achieved high performance or even outperform humans. Already in 2012, a neural network was able to surpass the accuracy of humans when classifying traffic signs [3]. The basis of many breakthroughs in this field was built on the development of deep learning methods. This is a popular branch of machine learning, which\nsimulates structures of the human cerebral cortex and uses large datasets for training and application of multi-layer neural networks [4].\nDeep learning is increasingly being examined in the healthcare domain. For example, it can be applied for medical imaging in areas such as radiology (chest radiography), pathology (whole-slide imaging), ophthalmology (diabetic-retinopathy) and dermatology (e.g. skin condition) [5] or parasite detection (malaria) [6-7]. Despite the breakthroughs and progress in this context, one challenge regarding deep learning approaches is its \u2018black box\u2019 characteristic [8]. Due to the high degree of complexity of deep learning-based approaches such as neural networks, there is no inherently comprehensive understanding of the internal processes [9]. AI systems that suffer from this problem are often referred to as opaque [10]. In consequence, there is the trade-off between performance and explainability: while the performance of models increases, the explainability of these approaches decreases [11]. In order to create more transparency, to open the black box and to generate explanations regarding the decisions of AI systems, methods of Explainable Artificial Intelligence (XAI) have been developed. XAI aims to \u201cproduce explainable models, while maintaining a high level of learning performance (prediction accuracy); and enable human users to understand, appropriately, trust, and effectively manage the emerging generation of artificially intelligent partners\u201d [12].\nIn this paper we will focus on XAI and its potential influence on trust. The multidisciplinary research on trust is conducted, for instance, in philosophy, psychology, sociology, marketing, information systems (IS) or human-computer interaction (HCI) [13-14]. Due to the fact that AI becomes more powerful and is increasingly used in critical situations with potentially severe consequences for humans (e.g., autonomous driving, medical diagnostics), trust towards such systems is an important factor. In the different streams of trust research, there are varying concepts and definitions [13]. We use a concept established by S\u00f6llner et al. [14] and thus handle trust as a formative second-order construct.\nOur goal is to implement two different neural networks as the basis of a Computer Vision system to detect a disease (malaria) in images (thin blood smear slide images): A Convolutional Neural Network (CNN) and a Multi-Layer Perceptron (MLP). The dataset was obtained from Kaggle and originally stems from the official National Institute of Health. It contains 27,558 images for two classes with 13,779 images for each of the classes \u2018parasitized\u2019 and \u2018uninfected\u2019. We then aim to generate explanations with the XAI method Local Interpretable Model-Agnostic Explanations (LIME) and use those for the comparison of both neural networks. Overall, we propose the following two research questions. RQ1: How can XAI increase trust in AI-based Computer Vision systems? RQ2: How can XAI methods be used to validate and compare the decision strategy of different AI-based Computer Vision systems?\nThe paper is structured as follows: First, relevant literature on AI, deep learning and trust is presented. Afterwards, we describe our research design, including the implemented MLP and CNN as well as LIME. This is followed by the results for our implemented neural networks and the generated explanations, and a discussion on the relevance of XAI with respect to trust as well as implications for research and practice. The Paper ends with a conclusion."}, {"heading": "2 Relevant Literature and Theoretical Background", "text": ""}, {"heading": "2.1 Artificial Intelligence and Decision Support Systems in Health-Care", "text": "AI techniques, especially deep learning models, are increasingly applied in the health sector and fulfil different purposes such as analyzing, interpreting, categorizing, or annotating clinical images [15-16]. Because of the advancements of such AI systems, innovations such as AI-based decision support systems (DSS) for all organizations in general, and especially for health care providers or even as apps for private individuals, are increasingly developed [17-18]. Therefore, it can be stated, that the role of technological decision support in health-care increased [19]. Especially the role of AI is gaining importance, as it is able to integrate various datatypes, which will be used to produce predictive models. Yet, the data collection is a complex process [20-21]. Another reason for the growing interest in AI is based on its performance for different applications. AI was examined in the context of healthcare and DSS with different focuses. For example, machine learning approaches were investigated for predicting the outcome of individual cancer patients, and can help to improve personalized medicine [22]. Another case, where AI has been investigated, is the detection of autism spectrum disorder, which is usually based on behavioral observations, yet there are different approaches to use AI algorithms for detection in data [23]. Moreover, AI-based approaches are investigated for the detection of diabetes and prediction of blood glucose [24]. AI is also being applied for the detection and supervision of illnesses like Parkinson\u2019s disease [25] or the diagnosis of asthma [26]. Additionally, such advanced analytics can be implemented to assess whether patients have taken the medications as prescribed or to improve the adherence [27]. Possible benefits from AI for DSS in the healthcare context could include disburden professionals from repetitive tasks, enable timely reaction to critical situations, and to reduce costs, time as well as medical error [27-28]. Decision support systems in general can hence be described as \u201c[\u2026] one of the greatest potential benefits of a digital health care ecosystem.\u201d ([21], p. 1)."}, {"heading": "2.2 Computer Vision and Artificial Neural Networks", "text": "Computer Vision is a discipline, where deep learning models have helped to significantly increase accuracy [29]. For instance, in the health-care sector, AI-based image interpretation is a well-researched task within medical imaging. There are further areas of application such as image denoising, auto segmentation or image reconstruction [30]. Within the health context there are different image types that are being investigated, whereby diagnostic images are by far the most used health data type [31]. Further concrete application examples of deep learning and computer vision in the health context are the examination of abnormal findings in retinal fundus images [32], recognition of skin conditions such as skin cancer [33] or in the context of neuroscience, the detection of Alzheimer\u2019s disease through medical image classification [34]. In our work, we focus on two specific types of neural networks in a Computer Vision system: MLP and CNN. Both neural networks can be categorized as deep learning approaches, whereby\ndeep learning itself is a sub-category of machine learning [34]. Artificial neural networks are inspired by the biological neural network of mammalians. The functional unit of this network is the perceptron, which partitions the input data in separate categories [34-35]. The perceptron is an important element for modern neural networks, which today are composed hierarchically into a network [34].\nMLP can also be described as the quintessential example for a deep learning model [36]. Today MLPs are often still applied, e.g., for a comparison between neural networks [37]. CNNs present an approach of state-of-the-art neural networks and are frequently applied for image-level diagnostics, which can be justified with the fact that for many tasks they achieve human-level performance [29]. CNNs are generally composed of different layers, i.e. convolutional, pooling and fully connected layers, whereby the convolutional layer is relevant for the identification of patterns, lines or edges [38]. Pooling layers reduce the number of features, which is done through the aggregation of similar or even redundant features [34]. In general, the CNN gathers different representations across the layers, where they learn individual features of the image [39]."}, {"heading": "2.3 Explainable Artificial Intelligence", "text": "The high accuracy of AI has not only been achieved due to an increased performance of hardware but also because of increasingly complex algorithms as used in deep learning approaches. There is hence a trade-off between performance and explainability [11]. Consequently, one of the major issues with AI for DSSs lies in the problem, that they are perceived as black boxes, even by developers. This problematic circumstance hinders the adoption of AI by different stakeholders, for instance due to concerns regarding ethical and responsible clinical implementation of DSSs [21]. For instance, decision trees achieve a rather low performance, yet a high degree of explainability, in contrast to more sophisticated approaches such as neural networks, which can reach a high performance, yet they show a rather low degree of explainability [12]. To solve these problems and to allow for more transparency, methods of \u201cExplainable Artificial Intelligence\u201d (XAI) are developed. The aim of XAI research can be described as to make AI systems more intelligible and human-understandable, which hence become more transparent without decreasing their performance [40-41]. The reasons and motivations for the implementation of XAI methods can be manifold. They can help to increase trust of the user, to better understand and validate the AI systems, to comply with regulations such as the General Data Protection Regulation, and also have an impact on the compliance behavior of employees [42-43]. XAI as a research area has hence a lot of potential to increase trust in AI-based decisions and the underlying algorithms, yet brings new challenges with it, such as what a trustworthy explanation should look like [40]. In literature (e.g., [40]) there are different overarching objectives for XAI: explain to justify (or as we would call it, explain to \u2018comply\u2019), explain to control, explain to improve and explain to discover (which we would call explain to \u2018learn\u2019 about and from the system). In addition, so we argue, the goal to comply and to control AI are interconnected, as are the goals to learn and to improve. Eventually, so we argue, the four goals allow individuals and organizations to achieve the overriding objective of managing AI. A summary of XAI objectives is depicted in the following Figure 1.\nThere are numerous overview papers, which establish different categories for the various XAI methods (e.g. [40, 44-45]). For our study, we decided to apply the XAI method Local Interpretable Model-Agnostic Explanations (LIME) as described in more detail in section 4.2 of the research design."}, {"heading": "3 Theoretical Background: Trust and Human-Computer Interaction", "text": "Currently, we can observe a digital transformation of workplaces [46]. In this context, trust is an important component and influences if or how, for instance, AI-based systems will be adopted [47, 44-45]. Especially with regard to critical applications of AI such as for autonomous driving or medical diagnostics, trust plays a major role [48-49]. There are additioan reasons why it is necessary to investigate trust [50]. For example, the risk or the uncertainty associated with a technological interaction can be reduced [14] or the experience with a technology can be created more positive and meaningful [51]. Trust is defined as \u201c[\u2026] the willingness of a party [trustor] to be vulnerable to the actions of another party [trustee] based on the expectation that the other will perform a particular action important to the trustor, irrespective of the ability to monitor or control that other party.\u201d ([52], p. 712, cited in [14]). We adapt two possible roles of IT artifacts [14] and apply them to the relationship between a human user and an explanation interface (IT artifact): the explanation interface has the role of the trustee, whereas the human is the trustor. Another role for the explanation interface is the mediator role between human users, who are again the trustors, and the AI system as the trustee (visualized in Figure 2).\nWe are particularly interested how trust towards an explanation or explanation interface can be increased. For the assessment of trust from human users towards an explanation interface, we have adapted the model for trust in IT artifacts, hereinafter referred to as the trust framework [14]. We find this framework suitable for our study, since it is designed for the conceptualization of trust in IT artifacts, which can also represent AIbased Computer Vision systems or explanation interfaces. According to this framework, trust is constituted by the performance, process and purpose of the IT artifact. We are especially interested in the subdimensions of the Process of the IT artifact, on which XAI and explanation interfaces can have an influence: user authenticity, understandability, predictability, confidentiality, authorized data usage and data integrity (see Figure 3).\nWe argue, that the explanation interface of an AI system will affect these five formative indicators and hence, influence the trust in the IT artifact. User authenticity can be understood as the user\u2019s perception that no other user can act unauthorized, in his own name [14]. This is important, for example, when physicians work with an AI-based DSS only themselves or other specific and authorized users should have access to view the prediction or explanation in an interface, access sensible data or even take changes. Understandability refers to the fact, that a user understands how the system works, for example, how a (malaria) detection was generated. This point is of high relevance as users want to understand the technology and therefore build more trust [14, 12]. Predictability can answer the question how good a user can predict the next actions of the IT artifact [14, 53]. Confidentiality refers to the perception of the user that he can control who else is able to access his data, which is related to the indicator understanding [14]. Data integrity focuses on the personal data and that they cannot be changed without being noticed, which can be important as users in general want to be in control of their data [14]."}, {"heading": "4 Research Design", "text": ""}, {"heading": "4.1 Implementing the Multi-Layer Perceptron and Convolutional Neural Networks", "text": "Our goal is to train two AI-based Computer Vision models, an MLP and a CNN, to detect malaria in cell images. We then want to use XAI to understand and compare the detection (or \u2018decision\u2019) strategy of each model to increase trust. We have implemented both models with keras and computed the metrics (i.e. accuracy, recall, f1-score) through the scikit-learn classification report. Table 1 provides an overview of the architectures of both deep learning models. As it can be seen, the MLP is a simple multilayered neural network, while the CNN is inspired by the VGG-16 architecture, whereby we have created a slimmer version here, due to limitations of the computing infrastructure. Furthermore, we have used a batch size of 32, Rectified Linear Unit (ReLu) as activation function, Dropout for regularization, Stochastic gradient descent as optimizer, binary cross entropy as loss function, and a Sigmoid function as last layer activation. The training process would operate for 150 epochs, though we have used early stopping to monitor the validation loss, if it stopped decreasing for 10 epochs, the training was cancelled, and the best weights of the model restored and saved.\nConvolutional Layer (256, 3x3, 1, ReLu) Global Average Pooling (2x2) Convolutional Layer (512, 3x3, 1, ReLu) Global Average Pooling (2) Dense Layer (1024, ReLu) Dense Layer (1024, ReLu) Dropout (0.5) Dense Layer (1, Sigmoid)"}, {"heading": "4.2 Local Interpretable Model-Agnostic Explanations and the Investigated Data Set", "text": "The decision to use Local Interpretable Model-Agnostic Explanations (LIME) was made because an XAI method was required, which can be implemented for both models (CNN and MLP). LIME was introduced in 2016 [54] and is also offered as a python library, which simplifies integration into the development environment. In addition, LIME has already been investigated and examined in various tasks such as the classification and explanation of lymph node metastases [55] or recognition of facial expressions [56]. After a few tests, we decided to visualize the two most relevant regions on an explanation for malaria detection. When we had more regions visualized, the problem arose that in part the meaningfulness of the explanation was lost, due to an overload of highlighted regions in the image. Regions that represent the predicted class are highlighted in green (for instance the class: malaria) and regions that stand against the predicted class are highlighted in red (for the class: no malaria).\nThe dataset was obtained from Kaggle [57] and originally stems from the official National Institute of Health (NIH), which hosts a repository for this dataset [58]. The dataset contains 27,558 images: 13,779 of the class \u2018parasitized\u2019 cell images and 13,779 of the class \u2018uninfected\u2019 cell images. Figure 4 visualizes five randomly selected, exemplary images for both classes. The images of the dataset where of different sizes, so they had to be resized (128x128 pixels). The data was investigated by Rajaraman et al. [6-7] with a focus on the performance of different neural networks. This gives us some comparative metrics, regarding the performance of our own neural networks. Although the focus was not on presenting new benchmarks, it can be argued that performance can also influence the quality of the explanation."}, {"heading": "5 Results", "text": ""}, {"heading": "5.1 Performance of the Computer Vision-Based Malaria-Detection", "text": "In the following section we present the performance-related metrics of the artificial neural networks. We will compare the results of the two approaches using the conventional metrics accuracy, recall and f1-score. Rajaraman et al. [6-7] presented benchmark results for different state-of-the-art architectures, such as VGG-16 (accuracy: 95.59%) or VGG-19 (accuracy: 99.09%). Our overall goal was not to exceed these values, yet they can serve as a benchmark. With our own CNN model, we were able to achieve comparable results. Moreover, the CNN has been shown to be a much more powerful and efficient model compared to the MLP. Table 2 gives an overview of the results of the two neural networks, as well as the results achieved for accuracy, recall and the f1score. Furthermore, the values achieved are shown per class and as a weighted average. The results verify the assumption, that the CNN would outperform the MLP for all metrics."}, {"heading": "5.2 Results of the Application of Explainable Artificial Intelligence", "text": "In the exemplary LIMEs, the two most relevant regions are highlighted. If only one region can be seen in an image, it means that the two most relevant regions were next to each other. These can be regions which support the decision for its predicted class (green) or which oppose the predicted class (red). In Figure 5, four different examples for the parasitized class are depicted. In the first row we see, for example, that the original image contains relevant regions in the lower half of the image. The CNN\u2019s explanations are relatively intuitive. For example, (1) a region is highlighted which clearly marks a conspicuous region and a second region, which highlights a mix of conspicuous and inconspicuous areas at the same time. This contrasts with the LIME of the MLP, in which two adjacent regions with two regions lying side by side are marked, which for the most part only include completely irrelevant regions (e.g. (2) and (3))\nFigure 6 shows some LIMEs for the \u2018uninfected\u2019 class. It can be seen again that the CNN correctly highlights regions that stand for the uninfected class, whereby the MLP\nagain highlights regions that may speak for and against the uninfected class. It is interesting that small irregularities in the image are often included in the explanations. For example, this could indicate that the CNN can distinguish the relevant regions from parasitized and uninfected examples, using this ability for classification. Another observation is that in many LIMEs it can be seen that the black borders of the images are often included in the explanation and highlighted as a relevant area, even though this data feature should not play a role for the classification."}, {"heading": "6 Discussion", "text": "The evaluation based on the metrics showed that the CNN exceeded the MLP. The CNN was able to achieve more than 96% for all metrics (accuracy, recall, f1-score). These results illustrate how powerful deep learning-based computer vision approaches have become. The results also show that AI-based decision support can be a great support for humans. The better performance of the CNN is also reflected in the LIMEs.\nFor the most part, the CNN has applied comprehensible decision strategies, detecting relevant features in the cell images, while the MLP often marked irrelevant areas of the cell image, even if correctly classified. An interesting observation was that not all conspicuous regions were highlighted in the LIMEs. In fact, it was more often a mix of relevant and irrelevant regions, which contradicts human expectations and can influence the human-computer trust relationship. Another behavior that can be classified as undesirable behavior is the following. Very often, the black borders of the images were marked as relevant regions in the LIMEs of both models. Yet, they should be unimportant for the classification task.\nBased on these findings, in the following we will conceptually discuss and reflect on the adapted trust framework, especially regarding aspects of the Process of the IT artifact. To make this discussion more comprehensible, we refer to the following fictitious scenario: a physician implemented a DSS and receives an explanation for a certain prediction, which are presented in an explanation interface.\nUser authenticity plays an important role for the assessment and development of trust. A user (e.g. physician) should be able to be sure that no other user can carry out actions on their behalf, e.g., prescribing medication. This indicator can be transferred to the explanation interface, as it can help to prevent unauthorized persons from accessing it through a personalized login or lock screen. In addition, metadata can be sent for actions that are triggered based on the results in the explanation interface, for example the person who edited data, the time and the device from which an action was initiated, so that user authenticity could be implemented and evaluated in the explanation interface.\nUnderstandability is an indicator, which focus directly on the explanation as the goal of XAI: making the results of an AI system more understandable to humans [40]. However, the application scenario, target group and the implemented AI models such as CNN or MLP play a major role here. For complex approaches such as neural networks, there are a variety of XAI methods to open the black box and generate explanations (e.g. LIME) [44-45]. The explanations of certain predictions, also called local explanations in contrast to global explanations regarding the whole AI model, highlight the relevant data features and hence make the decision strategy comprehensible.\nPredictability is also a relevant indicator, which in our case, is intended to indicate how well a user can use the current explanations to evaluate how the system will handle, for example, new and unknown data. Therefore, the questions \u2018Why did you do that\u2019 or \u2018Why not something else? should not come up for the user; rather the user should be able to answer these questions himself through the explanation or explanation interface [12].\nConfidentiality is also linked to the indicator understandability [14]: the user wishes to understand how the system works and wants to be in control. In this context, confidentiality refers to questions regarding who else has access to the data or the system. For example, a personalized interface could be created, which is only intended for a specific user and therefore lead to a high degree of confidentiality.\nData integrity is similar to the indicator user authenticity since this aspect also addresses the explanation interface rather than the sole explanation. It is about the extent to which personal data is processed and that changes to this data should be traceable.\nHere, for example, the relevant data could also be displayed in the explanation interface, which was used for the prediction so that the user can see and examine it or even experiment with different data."}, {"heading": "7 Conclusion", "text": "In this study, we investigated how explanations can help to increase trust in AI. Moreover, we were able to demonstrate how to implement XAI to better understand AI in a critical area such as disease detection based on deep learning-based approaches. In doing so, we were able to achieve a certain degree of explainability, which, in addition to the conventional metrics, enabled us to use a further instrument for the comparison of two neural networks. It was also possible for us to increase the explainability without sacrificing performance. We can use the explanations in the form of LIMEs to control the AI\u2019s prediction. Based on the visual explanations, we can quickly identify the relevant areas of a predicted class and compare them with our own interpretation of the data and critically reflect on the prediction or decision recommendation. It was also possible to identify a certain level of undesirable behavior, as sometimes areas from the black, irrelevant borders of an image was used to classify malaria. Moreover, a relevant realization was that the mere presentation of an explanation is not be enough for an enduser to evaluate the trustworthiness of an AI. Here, it would be necessary to set up an explanation interface and to augment it with further relevant elements (e.g. the predicted class or confidence).\nThere are various ways how future research can build on our work. One possibility would be to examine how the quality and performance of the deep learning models can be increased with the help of AI explanations. This could be achieved, for example, by data augmentation (i.e. additional data being generated from the existing data). Moreover, it is still unsolved, how to generate knowledge from AI explanations, or in other words, to learn from what the machine has learned. In addition, it could be examined how the explanations of a CNN differ from those of a Recurrent Neural Network for Computer Vision. Future research should also deal with the evaluation of the adapted trust framework. Another option would be to establish design principles for personalized explanation interface of DSSs, and evaluate those in empirical settings of humanAI interactions."}], "title": "Transparency and Trust in Human-AI-Interaction: The Role of Model-Agnostic Explanations in Computer Vision-Based Decision Support", "year": 2020}
+{
+  "abstractText": "Computer Vision, and hence Artificial Intelligence-based extraction of information from images, has increasingly received attention over the last years, for instance in medical diagnostics. While the algorithms\u2019 complexity is a reason for their increased performance, it also leads to the \u2018black box\u2019 problem, consequently decreasing trust towards AI. In this regard, \u201cExplainable Artificial Intelligence\u201d (XAI) allows to open that black box and to improve the degree of AI transparency. In this paper, we first discuss the theoretical impact of explainability on trust towards AI, followed by showcasing how the usage of XAI in a health-related setting can look like. More specifically, we show how XAI can be applied to understand why Computer Vision, based on deep learning, did or did not detect a disease (malaria) on image data (thin blood smear slide images). Furthermore, we investigate, how XAI can be used to compare the detection strategy of two different deep learning models often used for Computer Vision: Convolutional Neural Network and Multi-Layer Perceptron. Our empirical results show that i) the AI sometimes used questionable or irrelevant data features of an image to detect malaria (even if correctly predicted), and ii) that there may be significant discrepancies in how different deep learning models explain the same prediction. Our theoretical discussion highlights that XAI can support trust in Computer Vision systems, and AI systems in general, especially through an increased understandability and predictability.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Christian Meske"
+    },
+    {
+      "affiliations": [],
+      "name": "Enrico Bunde[0000-0002-3063-275X"
+    }
+  ],
+  "id": "SP:f633c4f37e878d0c130c6d65379bfb7b30e55121",
+  "references": [
+    {
+      "authors": [
+        "K. Grace",
+        "J. Salvatier",
+        "A. Dafoe",
+        "B. Zhang",
+        "O. Evans"
+      ],
+      "title": "Viewpoint: When Will AI Exceed Human Performance? Evidence from AI Experts",
+      "venue": "Journal of Artificial Intelligence Research 62, pp. 729-754",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Maedche",
+        "C. Legner",
+        "A. Benlian",
+        "B. Berger",
+        "H. Gimpel",
+        "T. Hess",
+        "O. Hinz",
+        "S. Morana",
+        "M. S\u00f6llner"
+      ],
+      "title": "AI-Based Digital Assistants",
+      "venue": "Business & Information Systems Engineering 61(4), pp. 535-544",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Ciresan",
+        "U. Meier",
+        "J. Masci",
+        "J. Schmidhuber"
+      ],
+      "title": "Multi-column deep neural network for traffic sign classification",
+      "venue": "Neural Networks 32, pp. 333-338",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Y. Lu"
+      ],
+      "title": "Artificial intelligence: a survey on evolution, models, applications and future trends",
+      "venue": "Journal of Management Analytics 6(1), pp. 1-29",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Kulkarni",
+        "N. Seneviratne",
+        "M.S. Baig",
+        "Khan A.H.H."
+      ],
+      "title": "Artificial Intelligence in Medicine: Where Are We Now? Academic Radiology 27(1), pp",
+      "venue": "62-70",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "S. Rajaraman",
+        "S.K. Antani",
+        "M. Poostchi",
+        "K. Silamut",
+        "A. Hossai",
+        "R.J. Maude",
+        "S. Jaeger",
+        "G.R. Thoma"
+      ],
+      "title": "Pre-trained convolutional neural networks as feature extractors toward improved malaria parasite detection in thin blood smear images",
+      "venue": "PeerJ, pp. 1-17",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Rajaraman",
+        "S. Jaeger",
+        "S.K. Antani"
+      ],
+      "title": "Performance evaluation of deep neural ensembles toward malaria parasite detection in thin-blood smear images",
+      "venue": "PeerJ, pp. 1-16",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Teso",
+        "K. Kersting"
+      ],
+      "title": "Explanatory Interactive Machine Learning",
+      "venue": "Conitzer, V., Hadfield, G., Vallor, S. (eds.) AIES\u201919: AAAI/ACM Conference on AI, Ethics, and Society, pp. 239-245. Association for Computing Machinery, New York",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R. Schwartz-Ziv",
+        "N. Tishby"
+      ],
+      "title": "Opening the blackbox of Deep Neural Networks via Information, (2017), https://arxiv.org/abs/1703.00810, last accessed 2020/01/09",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "C. Zednik"
+      ],
+      "title": "Solving the Black Box Problem: A Normative Framework for Explainable Artificial Intelligence, Philosophy & Technology, pp",
+      "venue": "1-24",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Gunning",
+        "D.W. Aha"
+      ],
+      "title": "DARPA\u2019s Explainable Artificial Intelligence (XAI) Program",
+      "venue": "AI Magazine 40(2), pp. 44-58",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C.L. Corritore",
+        "B. Kracher",
+        "S. Wiedenbeck"
+      ],
+      "title": "On-line trust: concepts, evolving themes, a model",
+      "venue": "International Journal of Human-Computer Studies 58(6), pp. 737-758",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "M. S\u00f6llner",
+        "A. Hoffmann",
+        "H. Hoffmann",
+        "A. Wacker",
+        "J.M. Leimeister"
+      ],
+      "title": "Understanding the Formation of Trust in IT Artifacts",
+      "venue": "George J. F. (eds) In: Proceedings of the 33rd International Conference on Information Systems, ICIS 2012, pp. 1-18",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "P.P. Jayaraman",
+        "A.R.M. Forkan",
+        "A. Morshed",
+        "P.D. Haghighi",
+        "Kang",
+        "Y.-B"
+      ],
+      "title": "Healthcare 4.0: A review of frontiers in digital health",
+      "venue": "Wiley Interdisciplinary Reviews-Data Mining and Knowledge Discovery,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "F.J. Gilbert",
+        "S.W. Smye",
+        "Sch\u00f6nlieb",
+        "C.-B."
+      ],
+      "title": "Artificial intelligence in clinical imaging: a health system approach",
+      "venue": "Clinical Radiology 75(1), pp. 3-6",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "C. Meske",
+        "I. Amojo"
+      ],
+      "title": "Social Bots as Initiators for Human Interaction in Enterprise Social Networks",
+      "venue": "Proceedings of the 29th Australasian Conference on Information Systems (ACIS), paper 35, pp. 1-22",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "L. Kemppainen",
+        "M. Pikkarainen",
+        "P. Hurmelinna-Laukkanen",
+        "J. Reponen"
+      ],
+      "title": "Connected Health Innovation: Data Access Challenges in the Interface of AI Companies and Hospitals",
+      "venue": "Technology Innovation Management Review 9(12), pp. 43-55",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Poncette",
+        "A.-S.",
+        "C. Meske",
+        "L. Mosch",
+        "F. Balzer"
+      ],
+      "title": "How to Overcome Barriers for the Implementation of New Information Technologies in Intensive Care Medicine",
+      "venue": "Proceedings of the 21st Human-Computer Interaction International, LNCS vol. 11570, pp. 534-546. Springer, Heidelberg",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Stieglitz",
+        "C. Meske",
+        "B. Ro\u00df",
+        "M. Mirbabaie"
+      ],
+      "title": "Going Back in Time to Predict the Future \u2013 The Complex Role of the Data Collection Period in Social Media Analytics",
+      "venue": "Information Systems Frontiers (IFD), pp. 1-15",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Walsh",
+        "E.E.C. de Jong",
+        "J.E. van Timmeren",
+        "A. Ibrahim",
+        "I. Compter",
+        "J. Peerlings",
+        "S. Sanduleanu",
+        "T. Refaee",
+        "S. Keek",
+        "Larue",
+        "R.T.H.M.",
+        "Y. van Wijk",
+        "A.J.G. Even",
+        "A. Jochems",
+        "M.S. Barakat",
+        "R.T.H. Leijenaar",
+        "P. Lambin"
+      ],
+      "title": "Decision Support Systems in Oncology",
+      "venue": "JCO Clinical Cancer Informatics 3, pp. 1-9",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P. Ferroni",
+        "F.M. Zanzotto",
+        "S. Riondino",
+        "N. Scarpato",
+        "F. Guadagni",
+        "M. Roselli"
+      ],
+      "title": "Breast Cancer Prognosis using a Machine Learning Approach",
+      "venue": "Cancers 11(3), pp. 328:1-9",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Song",
+        "D.-Y.",
+        "S.Y. Kim",
+        "G. Bong",
+        "J.M. Kim",
+        "H.J. Yoo"
+      ],
+      "title": "The Use of Artificial intelligence in Screening and Diagnosis of Autism Spectrum Disorder: A Literature Review",
+      "venue": "Journal of the Korean Academy of Child and Adolescent Psychiatry 30(4), pp. 145-152",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A.Z. Woldaregay",
+        "E. Arsand",
+        "S. Walderhaug",
+        "D. Albers",
+        "L. Mamykina",
+        "T. Botsis",
+        "G. Hartvigsen"
+      ],
+      "title": "Data-driven modeling and prediction of blood glucose dynamics: Machine learning applications in type 1 diabetes",
+      "venue": "Artificial Intelligence in Medicine, 98, pp. 109-134",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Gil-Martin",
+        "J.M. Montero",
+        "R. San-Segundo"
+      ],
+      "title": "Parkinson\u2019s Disease Detection from Drawing Movements Using Convolutional Neural Networks",
+      "venue": "Electronics 8(8), pp. 907:1-10",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Spathis",
+        "P. Vlamos"
+      ],
+      "title": "Diagnosing asthma and chronic obstructive pulmonary disease with machine learning",
+      "venue": "Health informatics Journal 25(3), pp. 811-827",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Eggerth",
+        "D. Hayn",
+        "G. Schreier"
+      ],
+      "title": "Medication management needs information and communications technology-based approaches, including telehealth and artificial intelligence",
+      "venue": "British journal of Clinical Pharmacology, pp. 1-8",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Khanna"
+      ],
+      "title": "Artificial intelligence: contemporary applications and future compass",
+      "venue": "International Dental Journal 60(4), pp. 269-272",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "A. Esteva",
+        "A. Robicquet",
+        "B. Ramsundar",
+        "V. Kuleshov",
+        "M. DePrisot",
+        "K. Chou",
+        "C. Cui",
+        "G. Corrado",
+        "S. Thrun",
+        "J. Dean"
+      ],
+      "title": "A guide to deep learning in healthcare",
+      "venue": "Nature Medicine 25(1), pp. 24-29",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S.J. Lewis",
+        "Z. Gandomkar",
+        "P.C. Brennan"
+      ],
+      "title": "Artificial Intelligence in medical imaging practice: looking to the future",
+      "venue": "Journal of Medical Radiation Sciences 66, pp. 292-295",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "F. Jiang",
+        "Y. Jiang",
+        "H. Zhi",
+        "Y. Dong",
+        "H. Li",
+        "S.F. Ma",
+        "Y. Wang",
+        "Q. Dong",
+        "H.P. Shen",
+        "Y. Wang"
+      ],
+      "title": "Artificial intelligence in healthcare: past, present and future 2(4), pp",
+      "venue": "230-243",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J. Son",
+        "J.Y. Shin",
+        "H.D. Kim",
+        "Jung",
+        "K.-H.",
+        "K.H. Park",
+        "S.J. Park"
+      ],
+      "title": "Development and Validation of Deep learning models for Screening Multiple Abnormal Findings in Retinal Fundus Images",
+      "venue": "Ophthalmology 127(1), pp. 85-94",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Chen",
+        "P. Zhou",
+        "D. Wu",
+        "Hu",
+        "L. Hassan",
+        "A.M.M. Alamri"
+      ],
+      "title": "AI-Skin: Skin disease recognition based on self-learning and wide data collection through a closed-loop framework",
+      "venue": "Information Fusion 54, pp. 1-9",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A.A. Valliani",
+        "D. ranti",
+        "E.K. Oermann"
+      ],
+      "title": "Deep Learning in Neurology: A Systematic Review",
+      "venue": "Neurology and Therapy 8(2), pp. 351-365",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "F. Rosenblatt"
+      ],
+      "title": "The Perceptron: A Probabilistic Model For Information Storage and Organization in the Brain",
+      "venue": "Psychological Review 65(6), pp. 386-408",
+      "year": 1958
+    },
+    {
+      "authors": [
+        "Jang",
+        "D.-H.",
+        "J. Kim",
+        "Y.H. Jo",
+        "J.H. Lee",
+        "J.E. Hwang",
+        "S.M. Park",
+        "D.K. Lee",
+        "I. Park",
+        "D. Kim",
+        "H. Chang"
+      ],
+      "title": "Developing neural network models for early detection of cardiac arrest in emergency department",
+      "venue": "American Journal of Emergency Medicine 38(1), pp. 43-49",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M. Kim",
+        "J. Yun",
+        "Y. Cho",
+        "K. Shin",
+        "R. Jang",
+        "Bae",
+        "H-J.",
+        "N. Kim"
+      ],
+      "title": "Deep Learning in Medical Imaging",
+      "venue": "Neurospine16(4), pp. 657-668",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L. Saba",
+        "M. Biswas",
+        "V. Kuppili",
+        "Godia",
+        "H.S.E.C. Suri",
+        "D.R. Edla",
+        "T. Omerzu",
+        "J.R. Laird",
+        "N.N. Khanna",
+        "S. Mavrogeni",
+        "A. Protogerou",
+        "P.P. Sfikakis",
+        "V. Viswanathan",
+        "G.D. Kitas",
+        "A. Nicolaides",
+        "A. Gupta",
+        "J.S. Suri"
+      ],
+      "title": "The present and future of deep learning in radiology",
+      "venue": "European journal of Radiology 114, pp. 14-24",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Adadi",
+        "M. Berrada"
+      ],
+      "title": "Peeking Inside the Black-Box: A Survey on Explainable Artificial Intelligence (XAI)",
+      "venue": "IEEE Access 6, pp. 52138-52160",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D. Gunning",
+        "M. Stefik",
+        "J. Choi",
+        "T. Miller",
+        "S. Stumpf",
+        "Yang",
+        "G.-Z."
+      ],
+      "title": "XAI \u2013 Explainable artificial intelligence",
+      "venue": "Robotics 4(37), pp. eaay7120:1-2",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "F.K. Dosilovic",
+        "M. Brcic",
+        "N. Hlupic"
+      ],
+      "title": "Explainable Artificial Intelligence: A Survey",
+      "venue": "41st International Convention on Information and Communication Technology, pp. 210-215, Electronics and Microelectronics, Opatija Croatia",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "N. K\u00fchl",
+        "J. Lobana",
+        "C. Meske"
+      ],
+      "title": "Do you comply with AI? Personalized explanations of learning algorithms and their impact on employees\u2019 compliance behavior",
+      "venue": "40th International Conference on Information Systems (forthcoming), pp. 1-6",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R. Guidotti",
+        "A. Monreale",
+        "S. Ruggieri",
+        "F. Turini",
+        "F. Giannotti",
+        "D. Pedreschi"
+      ],
+      "title": "A Survey of Methods for Explaining Black Box Models",
+      "venue": "ACM Computing Surveys (CSUR) 51(5), pp. 93:1-42",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "G. Ras",
+        "M. van Gerven",
+        "P. Haselager"
+      ],
+      "title": "Explanation Methods in Deep Learning: Users, values, Concerns and Challenges",
+      "venue": "ArXiv https://arxiv.org/abs/1803.07517,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C. Meske"
+      ],
+      "title": "Digital Workplace Transformation \u2013 On The Role of Self-Determination in the Context of Transforming Work Environments",
+      "venue": "Proceedings of the 27th European Conference on Information Systems (ECIS), pp. 1-18",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Z. Yan",
+        "R. Kantola",
+        "P. Zhang"
+      ],
+      "title": "A Research model for Human-Computer Trust Interaction",
+      "venue": "Proceedings of the 2011 IEEE 10th International Conference on Trust, Security and Privacy in Computing and Communications, pp. 274-281",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "K. M\u00fchl",
+        "C. Strauch",
+        "C. Grabmaier",
+        "S. Reithinger",
+        "A. Huckauf",
+        "M. Baumann"
+      ],
+      "title": "Get Ready for Being Chauffeured: Passenger\u2019s Preferences and Trust While Being Driven by Human Automation",
+      "venue": "Human Factors, pp. 1-17",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A.F. Qasim",
+        "F. Meziane",
+        "R. Aspin"
+      ],
+      "title": "Digital watermarking: Applicability for developing trust in medical imaging workflows state of the art review",
+      "venue": "Computer Science Review 27, pp. 45-60",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Gulati",
+        "S. Sousa",
+        "D. Lamas"
+      ],
+      "title": "Design, development and evaluation of a human-computer trust scale",
+      "venue": "Behaviour & Technology 38(10), pp. 1004-1015",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D.H. McKnight",
+        "M. Carter",
+        "J.B. Thatcher",
+        "P.F. Clay"
+      ],
+      "title": "Trust in Specific Technology: An Investigation of Its Components and Measures",
+      "venue": "ACM Transactions on Management Information Systems (TMIS) 2(2), pp. 12-32",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "R.C. Mayer",
+        "J.H. Davis",
+        "F.D. Schoorman"
+      ],
+      "title": "An Integrative Model of Organizational Trust",
+      "venue": "Academy of Management Review 20(3), pp. 709-734",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "B.M. Muir",
+        "N. Moray"
+      ],
+      "title": "Trust in Automation",
+      "venue": "Part II. Experimental Studies of Trust and Human Intervention in a Process Control Simulation. Ergonomics 39(3), pp. 429-460",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Why Should I Trust You?\u201d Explaining the Predictions of Any Classifier",
+      "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pp. 1135-1144",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "I.P. de Sousa",
+        "Vellasco",
+        "M.M.B.R.",
+        "E.C. da Silva"
+      ],
+      "title": "Local Interpretable Model-Agnostic Explanations for Classification of Lymph Node Metastases",
+      "venue": "Sensors 19(13), pp. 2969:1-18",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Weitz",
+        "T. Hassan",
+        "U. Schmid",
+        "Garbas",
+        "J.-U."
+      ],
+      "title": "Deep-learned faces of pain and emotions: Elucidating the differences of facial expressions with the help of explainable AI methods",
+      "venue": "TM-Technisches Messen 86(7-8), pp. 404-412",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords: Explainability, Artificial Intelligence, Deep Learning, Computer Vision, Trust, Healthcare"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "The progress in the field of Artificial Intelligence (AI) has led to its wide-spread application in different areas, like the finance or health sector [1-2]. In this context, especially Computer Vision, which refers to machine learning models to extract information from images (e.g., to detect objects), is one of the many research areas in which AIbased systems have achieved high performance or even outperform humans. Already in 2012, a neural network was able to surpass the accuracy of humans when classifying traffic signs [3]. The basis of many breakthroughs in this field was built on the development of deep learning methods. This is a popular branch of machine learning, which\nsimulates structures of the human cerebral cortex and uses large datasets for training and application of multi-layer neural networks [4].\nDeep learning is increasingly being examined in the healthcare domain. For example, it can be applied for medical imaging in areas such as radiology (chest radiography), pathology (whole-slide imaging), ophthalmology (diabetic-retinopathy) and dermatology (e.g. skin condition) [5] or parasite detection (malaria) [6-7]. Despite the breakthroughs and progress in this context, one challenge regarding deep learning approaches is its \u2018black box\u2019 characteristic [8]. Due to the high degree of complexity of deep learning-based approaches such as neural networks, there is no inherently comprehensive understanding of the internal processes [9]. AI systems that suffer from this problem are often referred to as opaque [10]. In consequence, there is the trade-off between performance and explainability: while the performance of models increases, the explainability of these approaches decreases [11]. In order to create more transparency, to open the black box and to generate explanations regarding the decisions of AI systems, methods of Explainable Artificial Intelligence (XAI) have been developed. XAI aims to \u201cproduce explainable models, while maintaining a high level of learning performance (prediction accuracy); and enable human users to understand, appropriately, trust, and effectively manage the emerging generation of artificially intelligent partners\u201d [12].\nIn this paper we will focus on XAI and its potential influence on trust. The multidisciplinary research on trust is conducted, for instance, in philosophy, psychology, sociology, marketing, information systems (IS) or human-computer interaction (HCI) [13-14]. Due to the fact that AI becomes more powerful and is increasingly used in critical situations with potentially severe consequences for humans (e.g., autonomous driving, medical diagnostics), trust towards such systems is an important factor. In the different streams of trust research, there are varying concepts and definitions [13]. We use a concept established by S\u00f6llner et al. [14] and thus handle trust as a formative second-order construct.\nOur goal is to implement two different neural networks as the basis of a Computer Vision system to detect a disease (malaria) in images (thin blood smear slide images): A Convolutional Neural Network (CNN) and a Multi-Layer Perceptron (MLP). The dataset was obtained from Kaggle and originally stems from the official National Institute of Health. It contains 27,558 images for two classes with 13,779 images for each of the classes \u2018parasitized\u2019 and \u2018uninfected\u2019. We then aim to generate explanations with the XAI method Local Interpretable Model-Agnostic Explanations (LIME) and use those for the comparison of both neural networks. Overall, we propose the following two research questions. RQ1: How can XAI increase trust in AI-based Computer Vision systems? RQ2: How can XAI methods be used to validate and compare the decision strategy of different AI-based Computer Vision systems?\nThe paper is structured as follows: First, relevant literature on AI, deep learning and trust is presented. Afterwards, we describe our research design, including the implemented MLP and CNN as well as LIME. This is followed by the results for our implemented neural networks and the generated explanations, and a discussion on the relevance of XAI with respect to trust as well as implications for research and practice. The Paper ends with a conclusion."
+    },
+    {
+      "heading": "2 Relevant Literature and Theoretical Background",
+      "text": ""
+    },
+    {
+      "heading": "2.1 Artificial Intelligence and Decision Support Systems in Health-Care",
+      "text": "AI techniques, especially deep learning models, are increasingly applied in the health sector and fulfil different purposes such as analyzing, interpreting, categorizing, or annotating clinical images [15-16]. Because of the advancements of such AI systems, innovations such as AI-based decision support systems (DSS) for all organizations in general, and especially for health care providers or even as apps for private individuals, are increasingly developed [17-18]. Therefore, it can be stated, that the role of technological decision support in health-care increased [19]. Especially the role of AI is gaining importance, as it is able to integrate various datatypes, which will be used to produce predictive models. Yet, the data collection is a complex process [20-21]. Another reason for the growing interest in AI is based on its performance for different applications. AI was examined in the context of healthcare and DSS with different focuses. For example, machine learning approaches were investigated for predicting the outcome of individual cancer patients, and can help to improve personalized medicine [22]. Another case, where AI has been investigated, is the detection of autism spectrum disorder, which is usually based on behavioral observations, yet there are different approaches to use AI algorithms for detection in data [23]. Moreover, AI-based approaches are investigated for the detection of diabetes and prediction of blood glucose [24]. AI is also being applied for the detection and supervision of illnesses like Parkinson\u2019s disease [25] or the diagnosis of asthma [26]. Additionally, such advanced analytics can be implemented to assess whether patients have taken the medications as prescribed or to improve the adherence [27]. Possible benefits from AI for DSS in the healthcare context could include disburden professionals from repetitive tasks, enable timely reaction to critical situations, and to reduce costs, time as well as medical error [27-28]. Decision support systems in general can hence be described as \u201c[\u2026] one of the greatest potential benefits of a digital health care ecosystem.\u201d ([21], p. 1)."
+    },
+    {
+      "heading": "2.2 Computer Vision and Artificial Neural Networks",
+      "text": "Computer Vision is a discipline, where deep learning models have helped to significantly increase accuracy [29]. For instance, in the health-care sector, AI-based image interpretation is a well-researched task within medical imaging. There are further areas of application such as image denoising, auto segmentation or image reconstruction [30]. Within the health context there are different image types that are being investigated, whereby diagnostic images are by far the most used health data type [31]. Further concrete application examples of deep learning and computer vision in the health context are the examination of abnormal findings in retinal fundus images [32], recognition of skin conditions such as skin cancer [33] or in the context of neuroscience, the detection of Alzheimer\u2019s disease through medical image classification [34]. In our work, we focus on two specific types of neural networks in a Computer Vision system: MLP and CNN. Both neural networks can be categorized as deep learning approaches, whereby\ndeep learning itself is a sub-category of machine learning [34]. Artificial neural networks are inspired by the biological neural network of mammalians. The functional unit of this network is the perceptron, which partitions the input data in separate categories [34-35]. The perceptron is an important element for modern neural networks, which today are composed hierarchically into a network [34].\nMLP can also be described as the quintessential example for a deep learning model [36]. Today MLPs are often still applied, e.g., for a comparison between neural networks [37]. CNNs present an approach of state-of-the-art neural networks and are frequently applied for image-level diagnostics, which can be justified with the fact that for many tasks they achieve human-level performance [29]. CNNs are generally composed of different layers, i.e. convolutional, pooling and fully connected layers, whereby the convolutional layer is relevant for the identification of patterns, lines or edges [38]. Pooling layers reduce the number of features, which is done through the aggregation of similar or even redundant features [34]. In general, the CNN gathers different representations across the layers, where they learn individual features of the image [39]."
+    },
+    {
+      "heading": "2.3 Explainable Artificial Intelligence",
+      "text": "The high accuracy of AI has not only been achieved due to an increased performance of hardware but also because of increasingly complex algorithms as used in deep learning approaches. There is hence a trade-off between performance and explainability [11]. Consequently, one of the major issues with AI for DSSs lies in the problem, that they are perceived as black boxes, even by developers. This problematic circumstance hinders the adoption of AI by different stakeholders, for instance due to concerns regarding ethical and responsible clinical implementation of DSSs [21]. For instance, decision trees achieve a rather low performance, yet a high degree of explainability, in contrast to more sophisticated approaches such as neural networks, which can reach a high performance, yet they show a rather low degree of explainability [12]. To solve these problems and to allow for more transparency, methods of \u201cExplainable Artificial Intelligence\u201d (XAI) are developed. The aim of XAI research can be described as to make AI systems more intelligible and human-understandable, which hence become more transparent without decreasing their performance [40-41]. The reasons and motivations for the implementation of XAI methods can be manifold. They can help to increase trust of the user, to better understand and validate the AI systems, to comply with regulations such as the General Data Protection Regulation, and also have an impact on the compliance behavior of employees [42-43]. XAI as a research area has hence a lot of potential to increase trust in AI-based decisions and the underlying algorithms, yet brings new challenges with it, such as what a trustworthy explanation should look like [40]. In literature (e.g., [40]) there are different overarching objectives for XAI: explain to justify (or as we would call it, explain to \u2018comply\u2019), explain to control, explain to improve and explain to discover (which we would call explain to \u2018learn\u2019 about and from the system). In addition, so we argue, the goal to comply and to control AI are interconnected, as are the goals to learn and to improve. Eventually, so we argue, the four goals allow individuals and organizations to achieve the overriding objective of managing AI. A summary of XAI objectives is depicted in the following Figure 1.\nThere are numerous overview papers, which establish different categories for the various XAI methods (e.g. [40, 44-45]). For our study, we decided to apply the XAI method Local Interpretable Model-Agnostic Explanations (LIME) as described in more detail in section 4.2 of the research design."
+    },
+    {
+      "heading": "3 Theoretical Background: Trust and Human-Computer Interaction",
+      "text": "Currently, we can observe a digital transformation of workplaces [46]. In this context, trust is an important component and influences if or how, for instance, AI-based systems will be adopted [47, 44-45]. Especially with regard to critical applications of AI such as for autonomous driving or medical diagnostics, trust plays a major role [48-49]. There are additioan reasons why it is necessary to investigate trust [50]. For example, the risk or the uncertainty associated with a technological interaction can be reduced [14] or the experience with a technology can be created more positive and meaningful [51]. Trust is defined as \u201c[\u2026] the willingness of a party [trustor] to be vulnerable to the actions of another party [trustee] based on the expectation that the other will perform a particular action important to the trustor, irrespective of the ability to monitor or control that other party.\u201d ([52], p. 712, cited in [14]). We adapt two possible roles of IT artifacts [14] and apply them to the relationship between a human user and an explanation interface (IT artifact): the explanation interface has the role of the trustee, whereas the human is the trustor. Another role for the explanation interface is the mediator role between human users, who are again the trustors, and the AI system as the trustee (visualized in Figure 2).\nWe are particularly interested how trust towards an explanation or explanation interface can be increased. For the assessment of trust from human users towards an explanation interface, we have adapted the model for trust in IT artifacts, hereinafter referred to as the trust framework [14]. We find this framework suitable for our study, since it is designed for the conceptualization of trust in IT artifacts, which can also represent AIbased Computer Vision systems or explanation interfaces. According to this framework, trust is constituted by the performance, process and purpose of the IT artifact. We are especially interested in the subdimensions of the Process of the IT artifact, on which XAI and explanation interfaces can have an influence: user authenticity, understandability, predictability, confidentiality, authorized data usage and data integrity (see Figure 3).\nWe argue, that the explanation interface of an AI system will affect these five formative indicators and hence, influence the trust in the IT artifact. User authenticity can be understood as the user\u2019s perception that no other user can act unauthorized, in his own name [14]. This is important, for example, when physicians work with an AI-based DSS only themselves or other specific and authorized users should have access to view the prediction or explanation in an interface, access sensible data or even take changes. Understandability refers to the fact, that a user understands how the system works, for example, how a (malaria) detection was generated. This point is of high relevance as users want to understand the technology and therefore build more trust [14, 12]. Predictability can answer the question how good a user can predict the next actions of the IT artifact [14, 53]. Confidentiality refers to the perception of the user that he can control who else is able to access his data, which is related to the indicator understanding [14]. Data integrity focuses on the personal data and that they cannot be changed without being noticed, which can be important as users in general want to be in control of their data [14]."
+    },
+    {
+      "heading": "4 Research Design",
+      "text": ""
+    },
+    {
+      "heading": "4.1 Implementing the Multi-Layer Perceptron and Convolutional Neural Networks",
+      "text": "Our goal is to train two AI-based Computer Vision models, an MLP and a CNN, to detect malaria in cell images. We then want to use XAI to understand and compare the detection (or \u2018decision\u2019) strategy of each model to increase trust. We have implemented both models with keras and computed the metrics (i.e. accuracy, recall, f1-score) through the scikit-learn classification report. Table 1 provides an overview of the architectures of both deep learning models. As it can be seen, the MLP is a simple multilayered neural network, while the CNN is inspired by the VGG-16 architecture, whereby we have created a slimmer version here, due to limitations of the computing infrastructure. Furthermore, we have used a batch size of 32, Rectified Linear Unit (ReLu) as activation function, Dropout for regularization, Stochastic gradient descent as optimizer, binary cross entropy as loss function, and a Sigmoid function as last layer activation. The training process would operate for 150 epochs, though we have used early stopping to monitor the validation loss, if it stopped decreasing for 10 epochs, the training was cancelled, and the best weights of the model restored and saved.\nConvolutional Layer (256, 3x3, 1, ReLu) Global Average Pooling (2x2) Convolutional Layer (512, 3x3, 1, ReLu) Global Average Pooling (2) Dense Layer (1024, ReLu) Dense Layer (1024, ReLu) Dropout (0.5) Dense Layer (1, Sigmoid)"
+    },
+    {
+      "heading": "4.2 Local Interpretable Model-Agnostic Explanations and the Investigated Data Set",
+      "text": "The decision to use Local Interpretable Model-Agnostic Explanations (LIME) was made because an XAI method was required, which can be implemented for both models (CNN and MLP). LIME was introduced in 2016 [54] and is also offered as a python library, which simplifies integration into the development environment. In addition, LIME has already been investigated and examined in various tasks such as the classification and explanation of lymph node metastases [55] or recognition of facial expressions [56]. After a few tests, we decided to visualize the two most relevant regions on an explanation for malaria detection. When we had more regions visualized, the problem arose that in part the meaningfulness of the explanation was lost, due to an overload of highlighted regions in the image. Regions that represent the predicted class are highlighted in green (for instance the class: malaria) and regions that stand against the predicted class are highlighted in red (for the class: no malaria).\nThe dataset was obtained from Kaggle [57] and originally stems from the official National Institute of Health (NIH), which hosts a repository for this dataset [58]. The dataset contains 27,558 images: 13,779 of the class \u2018parasitized\u2019 cell images and 13,779 of the class \u2018uninfected\u2019 cell images. Figure 4 visualizes five randomly selected, exemplary images for both classes. The images of the dataset where of different sizes, so they had to be resized (128x128 pixels). The data was investigated by Rajaraman et al. [6-7] with a focus on the performance of different neural networks. This gives us some comparative metrics, regarding the performance of our own neural networks. Although the focus was not on presenting new benchmarks, it can be argued that performance can also influence the quality of the explanation."
+    },
+    {
+      "heading": "5 Results",
+      "text": ""
+    },
+    {
+      "heading": "5.1 Performance of the Computer Vision-Based Malaria-Detection",
+      "text": "In the following section we present the performance-related metrics of the artificial neural networks. We will compare the results of the two approaches using the conventional metrics accuracy, recall and f1-score. Rajaraman et al. [6-7] presented benchmark results for different state-of-the-art architectures, such as VGG-16 (accuracy: 95.59%) or VGG-19 (accuracy: 99.09%). Our overall goal was not to exceed these values, yet they can serve as a benchmark. With our own CNN model, we were able to achieve comparable results. Moreover, the CNN has been shown to be a much more powerful and efficient model compared to the MLP. Table 2 gives an overview of the results of the two neural networks, as well as the results achieved for accuracy, recall and the f1score. Furthermore, the values achieved are shown per class and as a weighted average. The results verify the assumption, that the CNN would outperform the MLP for all metrics."
+    },
+    {
+      "heading": "5.2 Results of the Application of Explainable Artificial Intelligence",
+      "text": "In the exemplary LIMEs, the two most relevant regions are highlighted. If only one region can be seen in an image, it means that the two most relevant regions were next to each other. These can be regions which support the decision for its predicted class (green) or which oppose the predicted class (red). In Figure 5, four different examples for the parasitized class are depicted. In the first row we see, for example, that the original image contains relevant regions in the lower half of the image. The CNN\u2019s explanations are relatively intuitive. For example, (1) a region is highlighted which clearly marks a conspicuous region and a second region, which highlights a mix of conspicuous and inconspicuous areas at the same time. This contrasts with the LIME of the MLP, in which two adjacent regions with two regions lying side by side are marked, which for the most part only include completely irrelevant regions (e.g. (2) and (3))\nFigure 6 shows some LIMEs for the \u2018uninfected\u2019 class. It can be seen again that the CNN correctly highlights regions that stand for the uninfected class, whereby the MLP\nagain highlights regions that may speak for and against the uninfected class. It is interesting that small irregularities in the image are often included in the explanations. For example, this could indicate that the CNN can distinguish the relevant regions from parasitized and uninfected examples, using this ability for classification. Another observation is that in many LIMEs it can be seen that the black borders of the images are often included in the explanation and highlighted as a relevant area, even though this data feature should not play a role for the classification."
+    },
+    {
+      "heading": "6 Discussion",
+      "text": "The evaluation based on the metrics showed that the CNN exceeded the MLP. The CNN was able to achieve more than 96% for all metrics (accuracy, recall, f1-score). These results illustrate how powerful deep learning-based computer vision approaches have become. The results also show that AI-based decision support can be a great support for humans. The better performance of the CNN is also reflected in the LIMEs.\nFor the most part, the CNN has applied comprehensible decision strategies, detecting relevant features in the cell images, while the MLP often marked irrelevant areas of the cell image, even if correctly classified. An interesting observation was that not all conspicuous regions were highlighted in the LIMEs. In fact, it was more often a mix of relevant and irrelevant regions, which contradicts human expectations and can influence the human-computer trust relationship. Another behavior that can be classified as undesirable behavior is the following. Very often, the black borders of the images were marked as relevant regions in the LIMEs of both models. Yet, they should be unimportant for the classification task.\nBased on these findings, in the following we will conceptually discuss and reflect on the adapted trust framework, especially regarding aspects of the Process of the IT artifact. To make this discussion more comprehensible, we refer to the following fictitious scenario: a physician implemented a DSS and receives an explanation for a certain prediction, which are presented in an explanation interface.\nUser authenticity plays an important role for the assessment and development of trust. A user (e.g. physician) should be able to be sure that no other user can carry out actions on their behalf, e.g., prescribing medication. This indicator can be transferred to the explanation interface, as it can help to prevent unauthorized persons from accessing it through a personalized login or lock screen. In addition, metadata can be sent for actions that are triggered based on the results in the explanation interface, for example the person who edited data, the time and the device from which an action was initiated, so that user authenticity could be implemented and evaluated in the explanation interface.\nUnderstandability is an indicator, which focus directly on the explanation as the goal of XAI: making the results of an AI system more understandable to humans [40]. However, the application scenario, target group and the implemented AI models such as CNN or MLP play a major role here. For complex approaches such as neural networks, there are a variety of XAI methods to open the black box and generate explanations (e.g. LIME) [44-45]. The explanations of certain predictions, also called local explanations in contrast to global explanations regarding the whole AI model, highlight the relevant data features and hence make the decision strategy comprehensible.\nPredictability is also a relevant indicator, which in our case, is intended to indicate how well a user can use the current explanations to evaluate how the system will handle, for example, new and unknown data. Therefore, the questions \u2018Why did you do that\u2019 or \u2018Why not something else? should not come up for the user; rather the user should be able to answer these questions himself through the explanation or explanation interface [12].\nConfidentiality is also linked to the indicator understandability [14]: the user wishes to understand how the system works and wants to be in control. In this context, confidentiality refers to questions regarding who else has access to the data or the system. For example, a personalized interface could be created, which is only intended for a specific user and therefore lead to a high degree of confidentiality.\nData integrity is similar to the indicator user authenticity since this aspect also addresses the explanation interface rather than the sole explanation. It is about the extent to which personal data is processed and that changes to this data should be traceable.\nHere, for example, the relevant data could also be displayed in the explanation interface, which was used for the prediction so that the user can see and examine it or even experiment with different data."
+    },
+    {
+      "heading": "7 Conclusion",
+      "text": "In this study, we investigated how explanations can help to increase trust in AI. Moreover, we were able to demonstrate how to implement XAI to better understand AI in a critical area such as disease detection based on deep learning-based approaches. In doing so, we were able to achieve a certain degree of explainability, which, in addition to the conventional metrics, enabled us to use a further instrument for the comparison of two neural networks. It was also possible for us to increase the explainability without sacrificing performance. We can use the explanations in the form of LIMEs to control the AI\u2019s prediction. Based on the visual explanations, we can quickly identify the relevant areas of a predicted class and compare them with our own interpretation of the data and critically reflect on the prediction or decision recommendation. It was also possible to identify a certain level of undesirable behavior, as sometimes areas from the black, irrelevant borders of an image was used to classify malaria. Moreover, a relevant realization was that the mere presentation of an explanation is not be enough for an enduser to evaluate the trustworthiness of an AI. Here, it would be necessary to set up an explanation interface and to augment it with further relevant elements (e.g. the predicted class or confidence).\nThere are various ways how future research can build on our work. One possibility would be to examine how the quality and performance of the deep learning models can be increased with the help of AI explanations. This could be achieved, for example, by data augmentation (i.e. additional data being generated from the existing data). Moreover, it is still unsolved, how to generate knowledge from AI explanations, or in other words, to learn from what the machine has learned. In addition, it could be examined how the explanations of a CNN differ from those of a Recurrent Neural Network for Computer Vision. Future research should also deal with the evaluation of the adapted trust framework. Another option would be to establish design principles for personalized explanation interface of DSSs, and evaluate those in empirical settings of humanAI interactions."
+    }
+  ],
+  "title": "Transparency and Trust in Human-AI-Interaction: The Role of Model-Agnostic Explanations in Computer Vision-Based Decision Support",
+  "year": 2020
+}

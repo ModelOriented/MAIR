@@ -1,1 +1,540 @@
-{"abstractText": "We propose two face representations that are blind to facial expressions associated to emotional responses. This work is in part motivated by new international regulations for personal data protection, which enforce data controllers to protect any kind of sensitive information involved in automatic processes. The advances in Affective Computing have contributed to improve human-machine interfaces but, at the same time, the capacity to monitorize emotional responses triggers potential risks for humans, both in terms of fairness and privacy. We propose two different methods to learn these expression-blinded facial features. We show that it is possible to eliminate information related to emotion recognition tasks, while the performance of subject verification, gender recognition, and ethnicity classification are just slightly affected. We also present an application to train fairer classifiers in a case study of attractiveness classification with respect to a protected facial expression attribute. The results demonstrate that it is possible to reduce emotional information in the face representation while retaining competitive performance in other face-based artificial intelligence tasks.", "authors": [{"affiliations": [], "name": "Alejandro Pe\u00f1a"}, {"affiliations": [], "name": "Julian Fierrez"}, {"affiliations": [], "name": "Aythami Morales"}, {"affiliations": [], "name": "Agata Lapedriza"}], "id": "SP:1c72fdd3b0780941a0ddfcef2a9b2f706bd8c714", "references": [{"authors": ["M. Pantic", "L.J. Rothkrantz"], "title": "Expert system for automatic analysis of facial expressions", "venue": "Image and Vision Computing, vol. 18, no. 11, pp. 881\u2013905, 2000.", "year": 2000}, {"authors": ["S. Li", "W. Deng"], "title": "Deep facial expression recognition: A survey", "venue": "IEEE Transactions on Affective Computing, vol. 2010, 2020.", "year": 2010}, {"authors": ["F. Eyben", "M. Wllmer"], "title": "Emotion on the roadnecessity, acceptance, and feasibility of affective computing in the car", "venue": "Advances in Human-Computer Interaction, 10 2010.", "year": 2010}, {"authors": ["S.S. Guill\u00e9n", "L.L. Iacono", "C. Meder"], "title": "Affective robots: Evaluation of automatic emotion recognition approaches on a humanoid robot towards emotionally intelligent machines", "venue": "Energy, vol. 3643, 2018.", "year": 2018}, {"authors": ["R.E. Jack", "O.G. Garrod", "H. Yu", "R. Caldara", "P.G. Schyns"], "title": "Facial expressions of emotion are not culturally universal", "venue": "Proceedings of the National Academy of Sciences, vol. 109, no. 19, pp. 7241\u20137244, 2012.", "year": 2012}, {"authors": ["G. Bijlstra", "R.W. Holland", "R. Dotsch", "K. Hugenberg", "D.H. Wigboldus"], "title": "Stereotype associations and emotion recognition", "venue": "Personality and Social Psychology Bulletin, vol. 40, no. 5, pp. 567\u2013577, 2014.", "year": 2014}, {"authors": ["N. Quadrianto", "V. Sharmanska", "O. Thomas"], "title": "Discovering fair representations in the data domain", "venue": "IEEE Conference on Computer Vision and Pattern Recognition, June 2019.", "year": 2019}, {"authors": ["W. Chen", "R.W. Picard"], "title": "Eliminating physiological information from facial videos", "venue": "IEEE International Conference on Automatic Face & Gesture Recognition, 2017, pp. 48\u201355.", "year": 2017}, {"authors": ["S. Du", "Y. Tao", "A.M. Martinez"], "title": "Compound facial expressions of emotion", "venue": "Proceedings of the National Academy of Sciences, vol. 111, no. 15, pp. E1454\u2013E1462, 2014.", "year": 2014}, {"authors": ["S. Jia", "T. Lansdall-Welfare", "N. Cristianini"], "title": "Right for the right reason: Training agnostic networks", "venue": "Advances in Intelligent Data Analysis XVII, W. Duivesteijn, A. Siebes, and A. Ukkonen, Eds., 2018, pp. 164\u2013174.", "year": 2018}, {"authors": ["E. Raff", "J. Sylvester"], "title": "Gradient reversal against discrimination: A fair neural network learning approach", "venue": "IEEE International Conference on Data Science and Advanced Analytics, 2018, pp. 189\u2013198.", "year": 2018}, {"authors": ["R. Zemel", "Y. Wu", "K. Swersky", "T. Pitassi", "C. Dwork"], "title": "Learning fair representations", "venue": "International Conference on Machine Learning, 2013, p. 325333.", "year": 2013}, {"authors": ["I. Serna", "A. Morales", "J. Fierrez", "M. Cebrian", "N. Obradovich", "I. Rahwan"], "title": "Algorithmic discrimination: Formulation and exploration in deep learning-based face biometrics", "venue": "Proc. of AAAI Workshop on SafeAI, Feb. 2020.", "year": 2020}, {"authors": ["A. Torralba", "A.A. Efros"], "title": "Unbiased look at dataset bias", "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2011, pp. 1521\u20131528.", "year": 2011}, {"authors": ["B.F. Klare"], "title": "Face recognition performance: Role of demographic information", "venue": "IEEE Transactions on Information Forensics and Security, vol. 7, no. 6, pp. 1789\u2013 1801, 2012.", "year": 1801}, {"authors": ["P. Drozdowski", "C. Rathgeb", "A. Dantcheva", "N. Damer", "C. Busch"], "title": "Demographic Bias in Biometrics: A Survey on an Emerging Challenge", "venue": "IEEE Transactions on Technology and Society, vol. 1, no. 2, pp. 89\u2013103, 2020.", "year": 2020}, {"authors": ["M. Alvi", "A. Zisserman", "C. Nellaaker"], "title": "Turning a blind eye: Explicit removal of biases and variation from deep neural network embeddings", "venue": "European Conference on Computer Vision Workshops, 2018.", "year": 2018}, {"authors": ["S. Nagpal", "M. Singh", "R. Singh", "M. Vatsa", "N. Ratha"], "title": "Deep Learning for Face Recognition: Pride or Prejudiced?", "year": 1904}, {"authors": ["E. Tzeng", "J. Hoffman", "T. Darrell", "K. Saenko"], "title": "Simultaneous deep transfer across domains and tasks", "venue": "The IEEE International Conference on Computer Vision, December 2015.", "year": 2015}, {"authors": ["B. Kim", "H. Kim", "K. Kim", "S. Kim", "J. Kim"], "title": "Learning not to learn: Training deep neural networks with biased data", "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2019.", "year": 2019}, {"authors": ["I. Goodfellow", "J. Pouget-Abadie", "M. Mirza", "B. Xu", "D. Warde-Farley", "S. Ozair", "A. Courville", "Y. Bengio"], "title": "Generative adversarial nets", "venue": "Advances in Neural Information Processing Systems 27, 2014, pp. 2672\u2013 2680.", "year": 2014}, {"authors": ["Y. Ganin", "E. Ustinova"], "title": "Domain-adversarial training of neural networks", "venue": "Journal of Machine Learning Research, vol. 17, no. 1, p. 20962030, 2016.", "year": 2016}, {"authors": ["A. Morales", "J. Fierrez", "R. Vera-Rodriguez", "R. Tolosana"], "title": "SensitiveNets: Learning agnostic representations with application to face images", "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, 2020.", "year": 2020}, {"authors": ["A. Pea", "I. Serna", "A. Morales", "J. Fierrez"], "title": "Bias in multimodal AI: Testbed for fair automatic recruitment", "venue": "IEEE CVPR Workshop on Fair, Data Efficient and Trusted Computer Vision, 2020.", "year": 2020}, {"authors": ["Y. Qian", "W. Deng", "J. Hu"], "title": "Unsupervised face normalization with extreme pose and expression in the wild", "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2019.", "year": 2019}, {"authors": ["V. Mirjalili", "S. Raschka", "A. Namboodiri", "A. Ross"], "title": "Semi-adversarial networks: Convolutional autoencoders for imparting privacy to face images", "venue": "International Conference on Biometrics, 2018, pp. 82\u201389.", "year": 2018}, {"authors": ["E. Gonzalez-Sosa", "J. Fierrez", "R. Vera-Rodriguez", "F. Alonso-Fernandez"], "title": "Facial soft biometrics for recognition in the wild: Recent works, annotation and COTS evaluation", "venue": "IEEE Trans. on Information Forensics and Security, vol. 13, no. 8, pp. 2001\u20132014, August 2018.", "year": 2001}, {"authors": ["J. Kossaifi", "A. Toisoul", "A. Bulat", "Y. Panagakis", "T.M. Hospedales", "M. Pantic"], "title": "Factorized higher-order cnns with an application to spatio-temporal emotion estimation", "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2020, pp. 6060\u20136069.", "year": 2020}, {"authors": ["P. Ekman", "W.V. Friesen"], "title": "Facial action coding system: a technique for the measurement of facial movement", "year": 1978}, {"authors": ["C.F. Benitez-Quiroz", "R. Srinivasan", "A.M. Martinez"], "title": "Emotionet: An accurate, real-time algorithm for the automatic annotation of a million facial expressions in the wild", "venue": "IEEE International Conference on Computer Vision & Pattern Recognition, 2016.", "year": 2016}, {"authors": ["C.F. Benitez-Quiroz", "Y. Wang", "A.M. Martinez"], "title": "Recognition of action units in the wild with deep nets and a new global-local loss", "venue": "International Conference on Computer Vision, 2017, pp. 3990\u20133999.", "year": 2017}, {"authors": ["P. Ekman", "W.V. Friesen"], "title": "Constants across cultures in the face and emotion.", "venue": "Journal of Personality and Social Psychology,", "year": 1971}, {"authors": ["L.F. Barrett", "R. Adolphs", "S. Marsella", "A.M. Martinez", "S.D. Pollak"], "title": "Emotional expressions reconsidered: challenges to inferring emotion from human facial movements", "venue": "Psychological Science in the Public Interest, vol. 20, no. 1, pp. 1\u201368, 2019.", "year": 2019}, {"authors": ["C. Fabian Benitez-Quiroz", "R. Srinivasan", "A.M. Martinez"], "title": "Emotionet: An accurate, real-time algorithm for the automatic annotation of a million facial expressions in the wild", "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2016.", "year": 2016}, {"authors": ["Q. Cao", "L. Shen", "W. Xie", "O.M. Parkhi", "A. Zisserman"], "title": "VGGFace2: A dataset for recognising faces across pose and age", "venue": "International Conference on Automatic Face and Gesture Recognition, 2018.", "year": 2018}, {"authors": ["O.M. Parkhi", "A. Vedaldi", "A. Zisserman"], "title": "Deep face recognition", "venue": "British Machine Vision Conference, 2015.", "year": 2015}, {"authors": ["F. Schroff", "D. Kalenichenko", "J. Philbin"], "title": "FaceNet: A unified embedding for face recognition and clustering", "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2015, pp. 815\u2013823.", "year": 2015}, {"authors": ["J. Wang", "T. Zhang"], "title": "Towards a unified min-max framework for adversarial exploration and robustness", "venue": "arXiv:1906.03563, 2019.", "year": 1906}, {"authors": ["K. He", "X. Zhang", "S. Ren", "J. Sun"], "title": "Deep residual learning for image recognition", "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2016, pp. 770\u2013778.", "year": 2016}, {"authors": ["B.F. Klare"], "title": "Pushing the frontiers of unconstrained face detection and recognition: IARPA Janus Benchmark A", "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2015, pp. 1931\u20131939.", "year": 2015}, {"authors": ["G.B. Huang", "M. Ramesh", "T. Berg", "E. Learned- Miller"], "title": "Labeled faces in the wild: A database for studying face recognition in unconstrained environments", "venue": "University of Massachusetts, Amherst, Tech. Rep. 07-49, October 2007.", "year": 2007}, {"authors": ["G.B. Huang", "M. Mattar", "H. Lee", "E. Learned-Miller"], "title": "Learning to align from scratch", "venue": "Advances in Neural Information Processing Systems, 2012.", "year": 2012}, {"authors": ["Z. Liu", "P. Luo", "X. Wang", "X. Tang"], "title": "Deep learning face attributes in the wild", "venue": "International Conference on Computer Vision, 2015.", "year": 2015}, {"authors": ["M. Hardt", "E. Price", "E. Price", "N. Srebro"], "title": "Equality of opportunity in supervised learning", "venue": "Advances in Neural Information Processing Systems 29, 2016.", "year": 2016}], "sections": [{"text": "I. INTRODUCTION\nDuring the past 15 years there has been a lot of effort in creating technologies to extract emotional information from facial expressions [1, 2]. These facial analysis technologies can contribute to improve human-centric AI applications, like enhancing the user experience [3] or facilitating the humancomputer interaction [4].\nHowever, with the increase of image-capturing devices and available software for face image processing, face analysis technologies can also trigger potential risks for humans, both in terms of fairness and privacy. First, facial analysis software inherits human biases [5, 6], making them to perform poorly or unfairly on groups of population that are not well represented in the training data [7]. Second, humans might want to keep their emotions private or to make sure emotion recognition software is not used without their consent. Notice that privacy protection is deeply embedded in the normative framework that underlies various national and international regulations. For example, in April 2018 the European Parliament adopted a set of laws aimed to regularize the collection, storage and use of personal information [8]. In particular, these laws encourage to integrate privacy preserving methods in the technology when it is created.\nAs a possible solution for preserving the users privacy in the context of automatic face recognition, we propose to extract face features that are blind to facial expressions. As shown in Sec. V-A, generic face features learned for the task of subject recognition preserve information to perform tasks related to\nfacial expression classification. However, features extracted for the target task of subject recognition do not need to preserve this facial expression information. In this paper we show that we can effectively learn alternative face feature representations for the task of subject classification that are blind to facial expression. Notice that our work is in the direction of creating automatic emotion-suppression systems, i.e., algorithms to automatically remove emotional information from captured data, with the goal of preserving privacy. A similar idea was recently explored in [9], where the goal is to suppress physiological information from facial videos. Both facial expressions and physiological signals contain information related to emotional states.\nIn Sec. III-A we formally describe the problem of learning the emotional-blinded face representations. Then, we propose two different methods to learn these expression-blinded facial features, which are based on existing generic techniques for learning agnostic representations. The first one (SensitiveNets) consists of learning a discriminator for the target task and at the same time an adversarial regularizer to reduce facial expression information. The second one (Learning not to Learn) consists of using a regularized loss function during learning, which quantifies the amount of information on the sensitive task (facial expression recognition) by computing the mutual information between the feature space and a pre-trained facial expression classifier. The details of these two methods can be found in Sec. III-B.\nTo validate the proposed framework and methods we perform an extensive set of experiments (Sec. V). First, we show that face features learned for subject verification contain significant information to perform facial expression classification (sensitive information). Then, we show that both of the proposed methods can actually eliminate information related to facial expression. In particular, for the first method, we show how the facial expression recognition accuracy drops significantly when our proposed blinded face representations are applied, while the performance of subject verification, gender recognition, and ethnicity classification are just slightly affected. Finally, our last experiment shows how the proposed methods can be applied in another face analysis problem (Attractiveness Classification) to protect the emotional information. ar X iv :2 00 9.\n08 70\n4v 1\n[ cs\n.C V\n] 1\n8 Se\np 20\n20"}, {"heading": "II. RELATED WORKS", "text": "The study of new learned representations to improve the fairness of learning processes has attracted the attention of researchers [11\u201314]. In particular, [12, 13] proposed projection methods to preserve individual information while obfuscating membership to specific groups. The main drawback of these techniques was that discrimination was modelled as statistical imparity, which is not applicable when the classification task does not correlate with membership in a specific group.\nBias correction and sensitive information removal are related to each other but they are not necessarily the same thing. Bias is traditionally associated with unequal representation of classes in a dataset [15]. Dataset bias can produce unwanted results in the decision-making of algorithms, e.g., different face recognition accuracy depending of your ethnicity [16, 17]. Researchers have explored new learning processes capable to compensate this dataset bias [18, 19], but the correction of biased training processes does not necessarily serve to eliminate sensitive information from the trained representation. While the correction of biased models seeks to generate representations that perform similarly for different groups or classes, the removal of sensitive information seeks to eliminate this information from that representation. The proposal in [18] is based on a joint learning and unlearning algorithm inspired in domain and task adaptation methods [20]. The authors of [21] propose a new regularization loss based on mutual information between feature embeddings and bias, training the networks using adversarial [22] and gradient reversal [23] techniques. Finally, in [24] a privacy-preserving learning method is proposed to remove sensitive information in feature embeddings, without losing performance in the main task. These works reported encouraging results showing that it is possible to remove sensitive information (named as spurious variations in [18]) for age, gender, ancestral origin, and pose in face processing for different applications [25].\nOn the other hand, the normalization of face images directly in the raw image space according to specific face attributes such as pose [26] or gender [27, 28] is a challenging task. In [27] researchers proposed de-identification techniques that obfuscate gender attributes while preserving face verification\naccuracy. Similarly, the method was based on Generative Adversarial Networks trained to generate androgynous images capable of fooling gender detection systems. The method in [26] proposed 3D models to normalize the face expressions. Although these methods showed promising results to generate realistic images, the main drawback of these techniques is that sensitive information is not eliminated but distorted. In [24], researchers demonstrated that sensitive information can be easily detected in those images when supervised learning processes are trained in the distorted domain."}, {"heading": "A. How Emotions are Expressed in Face Images", "text": "Automatic emotion perception from facial expressions is an active area of research [29]. Some methods are based on the Facial Action Coding System [30], which encodes the facial expression using a set of specific localized face movements, called Action Units (AU). State-of-the-art systems for AU detection consist of deep learning models trained with large datasets [31]. These methods show impressive accuracies, even in uncontrolled environments [32]. However, while there are systems for AUs detection that are accurate enough to be used in practical applications, the prediction of emotions from these face movements is a more challenging problem. In that case, given a specific configuration of these face movements (that we call facial expression) the goal is to recognize the emotion category expressed by the face. There are several works on face analysis that attempt to recognize the 6 basic emotions proposed by Ekman and Friesen [33] [2] or emotional dimensions, such as valence, arousal, and dominance [29]. In general, all these methods are partially based on the assumption that each emotion is universally expressed with a specific face movement or, equivalently, with a specific combinations of AUs (see Fig. 1).\nOn the contrary, there are studies showing that there is no universal correspondence between AUs and emotions and, therefore, it is not always possible to recognize emotions just with the information provided by facial expressions [34]. Although this lack of agreement on whether it is possible or not, in certain circumstances, to recognize emotions just from facial expressions, the studies on psychology consistently show that facial movements and expressions communicate a lot of information, including information related to emotional states [34, 35]. Thus, learning face features that are blind to facial expressions, as proposed in this paper, can actually contribute to preserve emotion privacy.\nAdditionally, understanding how facial expressions are represented in feature embeddings of deep neural networks models is important to gain insights into the learning processes of these algorithms. Most face recognition algorithms are trained to be agnostic to this information (i.e. facial expressions may change and these changes should not affect the recognition tasks). However, the features used to recognize a face are also useful in general to recognize face gestures. Face expression databases traditionally include both AUs and emotion labels [36]. These databases are usually employed to model face gestures as well as affective interfaces."}, {"heading": "III. LEARNING EMOTIONAL-BLINDED REPRESENTATIONS", "text": ""}, {"heading": "A. Problem Formulation", "text": "We employ the privacy-preserving learning framework showed in Fig. 2 and detailed in [24]. The feature vector x \u2208 RN is a face representation (a.k.a face embedding) obtained as the output of one of the last layers of a face model defined by parameters w \u2208 RM . In our framework, the parameters of the model w were trained to reveal patterns associated to the identity of face images Ix (i.e. face verification). This pretrained model and the databases employed for training will be detailed in Sec. V-A.\nIn this framework, domain adaptation is used to transform the original representation trained for face verification f0(y) into a new representation fk(y) (k \u2265 1 in Fig. 2) trained for different tasks (k = 1: for Gender classification, k = 2: Ethnicity classification, k = 3: Emotion classification). This adaptation is performed leaving fixed w = w\u2217 as obtained in the pre-trained model. The domain adaptation process for a task k \u2265 1 results in a new learned model w\u2217k used to transform the original representation x for the specific task k. Given a face image, the final output of the learned model (i.e. pretrained plus domain adaptation) is a vector pk(Ix) containing Ck probabilities associated to each of the classes of task k.\nIn this work, we evaluate the face embeddings generated by the pre-trained model according to its performance in the original task (i.e. face verification) and 3 other different tasks: 1) Gender Classification; 2) Ethnicity Classification; and 3) Emotion Classification based on five of the six basic emotions proposed by Ekman plus the neutral expression (Neutral, Happy, Sad, Disgusted, Angry, Surprised).\nThe models {w\u2217,w\u2217k} are trained for a given task k represented by its target function Tk. The aim of the learning process is to minimize the error between the output Ok of the model and the target function Tk (e.g. T1 = 1 for male and T1 = 0 for female). The most popular approach for that is to train w and wk by minimizing a loss function L1 over a\nset of Pre-training samples P for which we have groundtruth targets:\nmin w,wk \u2211 Ix\u2208P L1[Ok( Ix|w,wk) , Tk(Ix|groundtruth) ] (1)\nThe parameters {w\u2217,w\u2217k}, trained using Eq. (1), generate a representation fk(y) that maximizes the performance of the model for the task k.\nIn this framework, the goal of emotional-blinded learning starting from pre-trained networks is to solve, including or not the Emotional Suppression module, the following problem:\nmin w,wE,wk \u2211 Ix\u2208S {L1[Ok(Ix|w,wE,wk), Tk(Ix|groundtruth)] +\n+ L2[O3(Ix|w,wE,w3), T3(Ix|groundtruth)]} (2)\nwhere L2 represents a loss function intended to minimize performance in the emotion recognition task T3 while L1 tries to maximize performance in a different task Tk. In our experiments we use T0 (Face Verification) as a task to maximize the performance. In the optimization problem (2) we may use a Suppression training dataset S different to P , and the optimization can take advantage of a previous solution {w\u2217,w\u2217k} to (1) in different ways. Let\u2019s denote the solution to (2) as {w\u2217\u2217,w\u2217\u2217E ,w\u2217\u2217k }.\nIn our experiments, we begin without Emotion Suppression (y = x in Fig. 2) generating w\u2217 in a face recognition task by pre-training using the VGGFace2 database (3 million images from more than 9,000 people [37]). We then fix w\u2217 and train the Emotion classifier w\u22173 with the CFEE database (1,380 images from 230 people, with 6 images per subject, corresponding each of these 6 images to a different emotion [10]). Finally, we solve Eq. (2) considering {w\u2217,w\u2217k} as a starting point for obtaining the solution {w\u2217\u2217,w\u2217\u2217E ,w\u2217\u2217k } taking various optimization shortcuts as detailed in the following."}, {"heading": "B. Suppressing Emotions from Face Representations", "text": "1) Method 1 - SensitiveNets: The work [24] recently proposed a general method to generate privacy-preserving representations starting from pre-trained networks. Here we adapt that approach to remove emotional information for the primary task k from 0 to 2 in Fig. 2.\nApplying SensitiveNets to the general methodology presented before leads to: 1) fixing w\u2217\u2217 = w\u2217, 2) activating the Emotion Suppression block \u03d5SN(x) (SN for SensitiveNets) in Fig. 2, and then 3) solving the following version of Eq. (2):\nmin wE,w3 \u2211 triplet\u2208SP {L1[Ok(triplet|wE,w3), Tk(triplet|groundtruth)]+\n+ \u2206A + \u2206P + \u2206N} s.t. max Performancek=3triplet\u2208SE(\u03d5SN(xtriplet|wE),w3) (3)\nwhere triplet = {IA, IP, IN}, IA and IP are face images of the same person, IN is a face image of a different person, L1 is the triplet loss function proposed for face recognition in [38][39], and the three \u2206 terms are adversarial regularizers used to measure the amount of emotion information in the learned model represented by wE:\n\u2206 = log{ 1 + |0.9\u2212 P3(Neutral |\u03d5SN(x|wE),w3 )| } (4)\nThe probability P3 of observing a Neutral expression in the face embedding after Emotion Suppression (\u03d5SN) is initially obtained with the pre-trained Emotion classifier w\u22173, and SensitiveNets then iterates to solve Eq. (3) in order to obtain w\u2217\u2217E (the Emotional Suppression projection) and w\u2217\u22173 (an adapted Emotion classifier). In Eq. (4) | \u00b7 | is the absolute value, and the \u2206 terms will tend to zero for larger P3. Therefore, by minimizing them in Eq. (3) we force the training to output Neutral expression in general, in this way eliminating the capacity to detect expressions other than Neutral from the face representation \u03d5SN(x). In other words, we unlearn the facial features necessary to differentiate between different expressions.\nOn the other hand, Eq. (3) includes a constraint that will be enforced in subsequent iterations of SensitiveNets in a kind of min-max adversarial formulation [40]. Eq. (3) thus minimizes the emotion information in \u03d5SN(x) with the \u2206 terms, trying to classify emotions based on \u03d5SN(x) in the iterative learning with the optimization constraint (with decreasing success as the learning progresses), and maintaining the performance in the primary task with the tiplet loss term L1.\nFor solving Eq. (3) we apply the iterative adversarial learning approach proposed in [24] using the CFEE database [10] as SE to retrain the emotion detector (i.e., enforcing the constraint), and the DiveFace database [24] as SP to maintain the recognition accuracy.\nThe network wE consists of three dense layers with 1024 units each layer (linear activation). After solving Eq. (3) the network w\u2217\u2217E generates the emotional blinded representation\n\u03d5SN(x), which removes sensitive information (emotions in the present paper) while maintaining recognition performances.\n2) Method 2 - Learning not to Learn: The second approach studied here to remove emotional features is based on [21]. Similar to SensitiveNets [24], this method uses a regularization algorithm to train deep neural networks, in order to prevent them from learning a known factor present in the training set irrelevant or undesired for a given primary task. Here we propose to unlearn emotional features for the primary task k from 0 to 2 in Fig. 2.\nIn this case the Emotion Suppression switch is off, therefore there is no wE, and we start from pre-trained {w\u2217,w\u2217k,w\u22173}.\nThe training algorithm uses a regularization loss that includes the mutual information between emotions and feature embeddings x. These embeddings are then fed into both the main classification task network (corresponding to k from 0 to 2), and the emotion classification network p3. The function to optimize for emotion removal is then:\nmin w,wk \u2211 Ix\u2208S {Lc[Ok(Ix|w,wk) , Tk(Ix|groundtruth) ] +\n+ \u03bbI[ p3(Ix) ; x ] } (5)\nwhere Lc denotes the cross-entropy loss, I represents the mutual information and \u03bb is an hyper-parameter.\nTo compute the mutual information in Eq. (5), we used the emotion classification network to approximate the a posteriori distribution of the emotional classifier p3(Ix). The training algorithm can be implemented in practice following an adversarial strategy [22], combined with the use of the gradient reversal technique [23]."}, {"heading": "IV. DATA AND EXPERIMENTAL SET UP", "text": "To obtain the face representation x we use a learning architecture with state-of-the-art performance in face recognition tasks: ResNet50, proposed in [41]. ResNet50 has around 41M parameters split in 34 residual layers. The pre-trained model used in this work was trained from scratch with VGGface2 dataset [37]. This ResNet50 model achieved 98.0% accuracy in face verification with the IJB-A dataset [42].\nUsing the base representation x generated by the pre-trained network ResNet50 we trained different classifiers as depicted in Fig. 2 according to the following labeled databases: \u2022 DiveFace [24]: The DiveFace database contains annota-\ntions equitably distributed among 6 demographic classes, related to gender and 3 ethnic groups (East Asian | Sub-Saharan and South Indian | Caucasian), with 24K different identities and a minimum of 3 images per identity. This database was used to train the emotionalblinded representation. Additionally, 12K subjects of this database were used to train and test the gender and ethnicity classification. \u2022 CFEE [10]: The Compound Facial Expressions of Emotion database includes facial images of 230 different users. For every user, we selected an image belonging to\neach of the 22 categories present in the dataset: 6 basic emotions, 15 compound emotions (i.e. a combination of two basic emotion), and neutral expression. All images represent a fully recognizable expression, being captured in a controlled environment of illumination and pose. We used the 6 basic emotion of this database to train the emotional-blinded representation. \u2022 LFW [43]: Labeled Faces in the Wild is a database for research on unconstrained face recognition. It contains more than 13K images of faces collected from the web. We employ the aligned images [44] from the test set provided with view 1 and its associated evaluation protocol. \u2022 CelebA [45]: The CelebA dataset has a total of 202K celebrity images from more than 10K identities. Each image is annotated with 40 binary attributes, including appearance features, gender, age, attractiveness and emotional state, and 5 landmark positions. The dataset is partitioned into 2 splits, with 8K identities retained as the training set, and the remaining 2K as the test set.\nIn order to measure how much emotional information is available in the face representation, we trained different emotion classifiers using either original embeddings x or emotional-blinded representations \u03d5(x). We measured the amount of emotional information as the performance achieved by these classification algorithms. We assume that emotional information is removed by our blinding transformation \u03d5(\u00b7) when a significantly drop of performance in emotion classification occurs in comparison to the original emotion classification accuracy before applying that transformation.\nThe face recognition accuracy is obtained according to the evaluation protocol of the popular benchmark of LFW [43]. For the rest of tasks, we used 80% of the samples for training and 20% for testing. Implementation details: 150 epochs, Adam optimizer (learning rate = 0.001, \u03b21 = 0.9, and \u03b22 = 0.999), and batch size of 128 samples."}, {"heading": "V. EXPERIMENTS", "text": ""}, {"heading": "A. Are Facial Expressions Encoded in Generic Face Representations?", "text": "To better understand how the emotional features are embedded in the deep face representations, we study how identity and emotional information are represented in x and f3(x).\nFig. 3 shows the two-dimensional t-SNE projection of the original face representation x and the learned representation f3(x) for emotion recognition using the CFEE database [10] (detailed in Sec. IV). This database is interesting for this study because of its controlled acquisition environment (covariates such as pose or illumination are not present) and the multiple face gestures available for 230 subjects. We ran t-SNE over x and f3(x) without using the emotion labels available, and then show in Fig. 3 the resulting t-SNE projections with emotion labels a posteriori for visualization purposes.\nAs we can see in Fig. 3 (top), the projection in the original representation ignores the emotional features. The representation learned for face verification deprecates emotional features\nin order to maximize accuracy in face recognition. Face expressions can be seen as distortions that should be removed from the decision-making of the representation. However, if we freeze the weights of the ResNet model that produced the representation x and we train the representation f3(x) for Emotion Classification, we can observe in Fig. 3 (bottom) how emotional features were available in x and a simple training procedure with hundreds of samples allows to extract that information and correctly classify the emotions for more than 90% of the face images. Note that as mentioned before, ResNet was trained originally for identity recognition and these emotional features were not intentionally included in the learning process. These results illustrate that emotional information is embedded in x even though that representation was trained for a different purpose (i.e. face verification).\nTo gain insight into how the emotional features are embedded in the original representation x, we have evaluated the performance of an emotion classifier when different amount of features from x are available to train f3(x). To do this, in each iteration we randomly suppress a percentage of features of the representation x and we re-train the emotion representation f3(x), always freezing the ResNet model. Fig. 4 shows the performance decay for Emotion Classification related to the\nnumber of features suppressed from the original representation x. It is remarkable how well the emotion representation is capable of classifying with 70% accuracy even if the number of features available is only 10% of the original size. The model is able to keep almost the same performance until 90% of features are suppressed. This demonstrates that emotional features are latent in almost all features of the original representation x."}, {"heading": "B. Emotional-Blinded Face Representations", "text": "The goal is to keep the recognition capability in other face classification tasks while removing the emotion information embedded in the face representation x using the methods described in Sec. III-B for generating \u03d5(x) (see Fig. 2). To analyze the effectiveness of those blinding methods, we conducted experiments on 3 datasets (see Sec. IV): DiveFace, CFEE, and LFW.\na) Objective 1 - Maintaining face representation information: the goal is to maintain the performance of the emotional-blinded face representation for other tasks different to emotion classification. We calculated the performance of 3 different face-based machine learning tasks using either original embeddings x or their projections \u03d5(x). The tasks are evaluated according to the classification accuracy obtained in the test set. Table I shows the classification accuracy of representations generated by the pre-trained model before and after the projections \u03d5SN(x) obtained by the Method 1 and \u03d5LnL(x) obtained using the Method 2 (see Sec. III-B). The results of the projection \u03d5SN(x) show a very small drop of performance when the projection is applied in the first domains (ID, Gender, and Ethnicity), which demonstrates the success of our method in preserving most of the discriminative information in the face representation. The drop of performance in the method based on the \u03d5LnL(x) projection is higher for the primary tasks (ID, Gender, Ethnicity) and the emotion classification. This decay may be caused because of the disentanglement of primary and secondary tasks managed by the mutual information regularizer in Eq. (5). The method proposed in [21] was originally evaluated for problems with limited number of classes and face recognition requires feature spaces capable of allocating large number of classes (one per identity).\nb) Objective 2 - Removing emotional information: to analyze the amount of emotional information available in the face representations we train different emotion classification algorithms (NN = Neural Networks, SVM = Support Vector Machines, and RF = Random Forests) either on original embeddings x or on their projections \u03d5(x). Table I shows the accuracies obtained by each algorithm before and after the projections. Results show a significant drop of performance in classification when both blinding representations are applied, which demonstrates the success in reducing the emotion information from the embeddings. However, the emotional information is deeply embedded in the representations, and to keep the performance of other tasks (first 3 rows of Table I) not all the emotion information was removed.\nThere are differences between the performances obtained by the two blinding methods. While \u03d5SN(x) maintains higher performance in the primary tasks (ID, Gender, and Ethnicity), the emotion suppression is higher in \u03d5LnL(x). This higher suppression obtained by \u03d5LnL(x) may be due to the weaker representations generated by this method which lead to worse performance in the primary tasks. However, the accuracy obtained for emotion classification using both methods (lower than 60% in all cases) may be low enough to prevent its unwanted exploitation. Emotion-related privacy is not fully granted, but clearly improved.\nFig. 5 shows the two-dimensional t-SNE projection similar to Fig. 3 (bottom) for the emotional blinded representation f3(\u03d5SN(x)). The results show how the domain adaptation training of w3 (see Fig. 2) was not able to find a representation capable of discriminating emotions in the learned representation \u03d5SN(x)."}, {"heading": "C. Blind Representations: Towards Equality of Opportunity", "text": "Inspired in the experiments performed in [7] for analyzing biases and achieving a specific fairness criterion, here we study how blind representations can improve the Equality of Opportunity [46]. For this purpose we introduce task k = 4: binary Attractiveness classification (Attractive | Not Attractive) based on an input face image Ix.\nIn this experiment, the outcome of an Attractiveness classifier with input x and parameters w4 given its positive class should be independent to the feature s we want to protect in terms of fairness. In our experiments, the protected attribute\nis a specific face gesture: smile. Therefore, in our case: s \u2208 {Smiling,Not Smiling}. Using the framework presented in Sec. III-A summarized in Fig. 2, the Equality of Opportunity results in: p4(Ix|w\u2217,w\u22174, T = 1, s) = p4(Ix|w\u2217,w\u22174, T = 1). This criterion implies equal True Positive Rates across the different face gestures defined by s and the Attractiveness classifier defined by the parameters w\u2217,w\u22174.\nWe used 40K images from CelebA dataset [45], previously introduced in Sec. IV, to train the Attractiveness classifier. Since some studies suggest that face expressions, such as smile, can affect the perception of attractiveness, we specifically train a biased classifier. In particular, we employed the smiling annotation available in CelebA as a face gesture commonly associated to a positive emotion that can therefore introduce undesired bias. We generated an emotionally biased training set where the proportion of attractive people smiling and not smiling was 70% and 30% respectively. We introduced the opposite bias for the unattractive group with 30% and 70% of smiling and not smiling respectively. In order to avoid the appearance of other biases, we balanced the dataset in terms of attractiveness and gender, compensating the gender bias of the dataset (i.e. the proportion of attractive females is 67%, while for males is 27%). We also generated an unbiased dataset with 50% smiling and not smiling samples (randomly chosen and balanced with respect to gender).\nThe results in Table II show higher True Positive Rates (TPR) for the privileged class (Smiling in our experiment) in comparison with the non-privileged class (Not Smiling). The face gesture Smiling was irrelevant to classify the attractiveness (i.e. there was no correlation between the attributes Smiling and Attractiveness). However, a classifier trained on face embeddings x generated by pre-trained models like ResNet50, tends to reproduce the bias introduced in the training datasets. Table II shows how the blind representations \u03d5SN(x) and \u03d5LnL(x) presented in Sec. III-B significantly reduce the gap between both classes by improving equality in 9% and 4% respectively. The blind representations avoid the network to exploit the latent variable related with the face gesture and reduce the impact of the biased training dataset.\nImplementation details: the classifiers were composed by one fully connected layer (1024 units and ReLu activation) and one output unit (sigmoid activation), which we feed with face embeddings generated with the methods mentioned above. We repeated the experiment five times, using different training sets with 36K images from CelebA, and evaluating the resulting classifiers on validation sets with 4K images, selected from the CelebA\u2019s evaluation split."}, {"heading": "VI. CONCLUSIONS", "text": "The growth of emotion recognition technologies has allowed great advances in fields related to human-machine interaction. At the same time, having automatic systems capable to read emotions without explicit consent triggers potential risks for humans, both in terms of fairness and privacy. In this work we have proposed two face representations that are blind to facial expressions associated to emotional responses.\nIn addition to a general formulation of the problem, we have adapted two existing methods for this purpose of generating emotional-blinded face representations: SensitiveNets [24] and Learning not to Learn [21]. The results show that it is possible to reduce dramatically the performance of emotion classifiers (more than 40%) while the performance in other face analysis tasks (verification, gender, and ethnicity recognition) is only slightly reduced (less than 2%).\nFinally, we included an experiment on facial attractiveness classification to show how to treat facial expression as protected information in face classification problems. The results show how blinded representations can improve a specific fairness criterion based on the principles and methods studied in the present paper."}, {"heading": "VII. ACKNOWLEDGMENTS", "text": "This work has been supported by projects: PRIMA (H2020MSCA-ITN-2019-860315), TRESPASS-ETN (H2020-MSCAITN-2019-860813), IDEA-FAST (IMI2-2018-15-853981), BIBECA (RTI2018-101248-B-I00 MINECO/FEDER), REAVIPERO (RED2018-102511-T), RTI2018-095232-B-C22 MINECO, and Accenture. A. Pea is supported by a research fellowship (PEJ2018-004094A) from the Spanish MINECO."}], "title": "Learning Emotional-Blinded Face Representations", "year": 2020}
+{
+  "abstractText": "We propose two face representations that are blind to facial expressions associated to emotional responses. This work is in part motivated by new international regulations for personal data protection, which enforce data controllers to protect any kind of sensitive information involved in automatic processes. The advances in Affective Computing have contributed to improve human-machine interfaces but, at the same time, the capacity to monitorize emotional responses triggers potential risks for humans, both in terms of fairness and privacy. We propose two different methods to learn these expression-blinded facial features. We show that it is possible to eliminate information related to emotion recognition tasks, while the performance of subject verification, gender recognition, and ethnicity classification are just slightly affected. We also present an application to train fairer classifiers in a case study of attractiveness classification with respect to a protected facial expression attribute. The results demonstrate that it is possible to reduce emotional information in the face representation while retaining competitive performance in other face-based artificial intelligence tasks.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Alejandro Pe\u00f1a"
+    },
+    {
+      "affiliations": [],
+      "name": "Julian Fierrez"
+    },
+    {
+      "affiliations": [],
+      "name": "Aythami Morales"
+    },
+    {
+      "affiliations": [],
+      "name": "Agata Lapedriza"
+    }
+  ],
+  "id": "SP:1c72fdd3b0780941a0ddfcef2a9b2f706bd8c714",
+  "references": [
+    {
+      "authors": [
+        "M. Pantic",
+        "L.J. Rothkrantz"
+      ],
+      "title": "Expert system for automatic analysis of facial expressions",
+      "venue": "Image and Vision Computing, vol. 18, no. 11, pp. 881\u2013905, 2000.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "S. Li",
+        "W. Deng"
+      ],
+      "title": "Deep facial expression recognition: A survey",
+      "venue": "IEEE Transactions on Affective Computing, vol. 2010, 2020.",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "F. Eyben",
+        "M. Wllmer"
+      ],
+      "title": "Emotion on the roadnecessity, acceptance, and feasibility of affective computing in the car",
+      "venue": "Advances in Human-Computer Interaction, 10 2010.",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "S.S. Guill\u00e9n",
+        "L.L. Iacono",
+        "C. Meder"
+      ],
+      "title": "Affective robots: Evaluation of automatic emotion recognition approaches on a humanoid robot towards emotionally intelligent machines",
+      "venue": "Energy, vol. 3643, 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R.E. Jack",
+        "O.G. Garrod",
+        "H. Yu",
+        "R. Caldara",
+        "P.G. Schyns"
+      ],
+      "title": "Facial expressions of emotion are not culturally universal",
+      "venue": "Proceedings of the National Academy of Sciences, vol. 109, no. 19, pp. 7241\u20137244, 2012.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "G. Bijlstra",
+        "R.W. Holland",
+        "R. Dotsch",
+        "K. Hugenberg",
+        "D.H. Wigboldus"
+      ],
+      "title": "Stereotype associations and emotion recognition",
+      "venue": "Personality and Social Psychology Bulletin, vol. 40, no. 5, pp. 567\u2013577, 2014.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "N. Quadrianto",
+        "V. Sharmanska",
+        "O. Thomas"
+      ],
+      "title": "Discovering fair representations in the data domain",
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition, June 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "W. Chen",
+        "R.W. Picard"
+      ],
+      "title": "Eliminating physiological information from facial videos",
+      "venue": "IEEE International Conference on Automatic Face & Gesture Recognition, 2017, pp. 48\u201355.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Du",
+        "Y. Tao",
+        "A.M. Martinez"
+      ],
+      "title": "Compound facial expressions of emotion",
+      "venue": "Proceedings of the National Academy of Sciences, vol. 111, no. 15, pp. E1454\u2013E1462, 2014.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "S. Jia",
+        "T. Lansdall-Welfare",
+        "N. Cristianini"
+      ],
+      "title": "Right for the right reason: Training agnostic networks",
+      "venue": "Advances in Intelligent Data Analysis XVII, W. Duivesteijn, A. Siebes, and A. Ukkonen, Eds., 2018, pp. 164\u2013174.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "E. Raff",
+        "J. Sylvester"
+      ],
+      "title": "Gradient reversal against discrimination: A fair neural network learning approach",
+      "venue": "IEEE International Conference on Data Science and Advanced Analytics, 2018, pp. 189\u2013198.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R. Zemel",
+        "Y. Wu",
+        "K. Swersky",
+        "T. Pitassi",
+        "C. Dwork"
+      ],
+      "title": "Learning fair representations",
+      "venue": "International Conference on Machine Learning, 2013, p. 325333.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "I. Serna",
+        "A. Morales",
+        "J. Fierrez",
+        "M. Cebrian",
+        "N. Obradovich",
+        "I. Rahwan"
+      ],
+      "title": "Algorithmic discrimination: Formulation and exploration in deep learning-based face biometrics",
+      "venue": "Proc. of AAAI Workshop on SafeAI, Feb. 2020.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Torralba",
+        "A.A. Efros"
+      ],
+      "title": "Unbiased look at dataset bias",
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2011, pp. 1521\u20131528.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "B.F. Klare"
+      ],
+      "title": "Face recognition performance: Role of demographic information",
+      "venue": "IEEE Transactions on Information Forensics and Security, vol. 7, no. 6, pp. 1789\u2013 1801, 2012.",
+      "year": 1801
+    },
+    {
+      "authors": [
+        "P. Drozdowski",
+        "C. Rathgeb",
+        "A. Dantcheva",
+        "N. Damer",
+        "C. Busch"
+      ],
+      "title": "Demographic Bias in Biometrics: A Survey on an Emerging Challenge",
+      "venue": "IEEE Transactions on Technology and Society, vol. 1, no. 2, pp. 89\u2013103, 2020.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M. Alvi",
+        "A. Zisserman",
+        "C. Nellaaker"
+      ],
+      "title": "Turning a blind eye: Explicit removal of biases and variation from deep neural network embeddings",
+      "venue": "European Conference on Computer Vision Workshops, 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Nagpal",
+        "M. Singh",
+        "R. Singh",
+        "M. Vatsa",
+        "N. Ratha"
+      ],
+      "title": "Deep Learning for Face Recognition: Pride or Prejudiced?",
+      "year": 1904
+    },
+    {
+      "authors": [
+        "E. Tzeng",
+        "J. Hoffman",
+        "T. Darrell",
+        "K. Saenko"
+      ],
+      "title": "Simultaneous deep transfer across domains and tasks",
+      "venue": "The IEEE International Conference on Computer Vision, December 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "B. Kim",
+        "H. Kim",
+        "K. Kim",
+        "S. Kim",
+        "J. Kim"
+      ],
+      "title": "Learning not to learn: Training deep neural networks with biased data",
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "I. Goodfellow",
+        "J. Pouget-Abadie",
+        "M. Mirza",
+        "B. Xu",
+        "D. Warde-Farley",
+        "S. Ozair",
+        "A. Courville",
+        "Y. Bengio"
+      ],
+      "title": "Generative adversarial nets",
+      "venue": "Advances in Neural Information Processing Systems 27, 2014, pp. 2672\u2013 2680.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Y. Ganin",
+        "E. Ustinova"
+      ],
+      "title": "Domain-adversarial training of neural networks",
+      "venue": "Journal of Machine Learning Research, vol. 17, no. 1, p. 20962030, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Morales",
+        "J. Fierrez",
+        "R. Vera-Rodriguez",
+        "R. Tolosana"
+      ],
+      "title": "SensitiveNets: Learning agnostic representations with application to face images",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, 2020.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Pea",
+        "I. Serna",
+        "A. Morales",
+        "J. Fierrez"
+      ],
+      "title": "Bias in multimodal AI: Testbed for fair automatic recruitment",
+      "venue": "IEEE CVPR Workshop on Fair, Data Efficient and Trusted Computer Vision, 2020.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Y. Qian",
+        "W. Deng",
+        "J. Hu"
+      ],
+      "title": "Unsupervised face normalization with extreme pose and expression in the wild",
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "V. Mirjalili",
+        "S. Raschka",
+        "A. Namboodiri",
+        "A. Ross"
+      ],
+      "title": "Semi-adversarial networks: Convolutional autoencoders for imparting privacy to face images",
+      "venue": "International Conference on Biometrics, 2018, pp. 82\u201389.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "E. Gonzalez-Sosa",
+        "J. Fierrez",
+        "R. Vera-Rodriguez",
+        "F. Alonso-Fernandez"
+      ],
+      "title": "Facial soft biometrics for recognition in the wild: Recent works, annotation and COTS evaluation",
+      "venue": "IEEE Trans. on Information Forensics and Security, vol. 13, no. 8, pp. 2001\u20132014, August 2018.",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "J. Kossaifi",
+        "A. Toisoul",
+        "A. Bulat",
+        "Y. Panagakis",
+        "T.M. Hospedales",
+        "M. Pantic"
+      ],
+      "title": "Factorized higher-order cnns with an application to spatio-temporal emotion estimation",
+      "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2020, pp. 6060\u20136069.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "P. Ekman",
+        "W.V. Friesen"
+      ],
+      "title": "Facial action coding system: a technique for the measurement of facial movement",
+      "year": 1978
+    },
+    {
+      "authors": [
+        "C.F. Benitez-Quiroz",
+        "R. Srinivasan",
+        "A.M. Martinez"
+      ],
+      "title": "Emotionet: An accurate, real-time algorithm for the automatic annotation of a million facial expressions in the wild",
+      "venue": "IEEE International Conference on Computer Vision & Pattern Recognition, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "C.F. Benitez-Quiroz",
+        "Y. Wang",
+        "A.M. Martinez"
+      ],
+      "title": "Recognition of action units in the wild with deep nets and a new global-local loss",
+      "venue": "International Conference on Computer Vision, 2017, pp. 3990\u20133999.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "P. Ekman",
+        "W.V. Friesen"
+      ],
+      "title": "Constants across cultures in the face and emotion.",
+      "venue": "Journal of Personality and Social Psychology,",
+      "year": 1971
+    },
+    {
+      "authors": [
+        "L.F. Barrett",
+        "R. Adolphs",
+        "S. Marsella",
+        "A.M. Martinez",
+        "S.D. Pollak"
+      ],
+      "title": "Emotional expressions reconsidered: challenges to inferring emotion from human facial movements",
+      "venue": "Psychological Science in the Public Interest, vol. 20, no. 1, pp. 1\u201368, 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Fabian Benitez-Quiroz",
+        "R. Srinivasan",
+        "A.M. Martinez"
+      ],
+      "title": "Emotionet: An accurate, real-time algorithm for the automatic annotation of a million facial expressions in the wild",
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Q. Cao",
+        "L. Shen",
+        "W. Xie",
+        "O.M. Parkhi",
+        "A. Zisserman"
+      ],
+      "title": "VGGFace2: A dataset for recognising faces across pose and age",
+      "venue": "International Conference on Automatic Face and Gesture Recognition, 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "O.M. Parkhi",
+        "A. Vedaldi",
+        "A. Zisserman"
+      ],
+      "title": "Deep face recognition",
+      "venue": "British Machine Vision Conference, 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "F. Schroff",
+        "D. Kalenichenko",
+        "J. Philbin"
+      ],
+      "title": "FaceNet: A unified embedding for face recognition and clustering",
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2015, pp. 815\u2013823.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "J. Wang",
+        "T. Zhang"
+      ],
+      "title": "Towards a unified min-max framework for adversarial exploration and robustness",
+      "venue": "arXiv:1906.03563, 2019.",
+      "year": 1906
+    },
+    {
+      "authors": [
+        "K. He",
+        "X. Zhang",
+        "S. Ren",
+        "J. Sun"
+      ],
+      "title": "Deep residual learning for image recognition",
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2016, pp. 770\u2013778.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "B.F. Klare"
+      ],
+      "title": "Pushing the frontiers of unconstrained face detection and recognition: IARPA Janus Benchmark A",
+      "venue": "IEEE Conference on Computer Vision and Pattern Recognition, 2015, pp. 1931\u20131939.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "G.B. Huang",
+        "M. Ramesh",
+        "T. Berg",
+        "E. Learned- Miller"
+      ],
+      "title": "Labeled faces in the wild: A database for studying face recognition in unconstrained environments",
+      "venue": "University of Massachusetts, Amherst, Tech. Rep. 07-49, October 2007.",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "G.B. Huang",
+        "M. Mattar",
+        "H. Lee",
+        "E. Learned-Miller"
+      ],
+      "title": "Learning to align from scratch",
+      "venue": "Advances in Neural Information Processing Systems, 2012.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Z. Liu",
+        "P. Luo",
+        "X. Wang",
+        "X. Tang"
+      ],
+      "title": "Deep learning face attributes in the wild",
+      "venue": "International Conference on Computer Vision, 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M. Hardt",
+        "E. Price",
+        "E. Price",
+        "N. Srebro"
+      ],
+      "title": "Equality of opportunity in supervised learning",
+      "venue": "Advances in Neural Information Processing Systems 29, 2016.",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "text": "I. INTRODUCTION\nDuring the past 15 years there has been a lot of effort in creating technologies to extract emotional information from facial expressions [1, 2]. These facial analysis technologies can contribute to improve human-centric AI applications, like enhancing the user experience [3] or facilitating the humancomputer interaction [4].\nHowever, with the increase of image-capturing devices and available software for face image processing, face analysis technologies can also trigger potential risks for humans, both in terms of fairness and privacy. First, facial analysis software inherits human biases [5, 6], making them to perform poorly or unfairly on groups of population that are not well represented in the training data [7]. Second, humans might want to keep their emotions private or to make sure emotion recognition software is not used without their consent. Notice that privacy protection is deeply embedded in the normative framework that underlies various national and international regulations. For example, in April 2018 the European Parliament adopted a set of laws aimed to regularize the collection, storage and use of personal information [8]. In particular, these laws encourage to integrate privacy preserving methods in the technology when it is created.\nAs a possible solution for preserving the users privacy in the context of automatic face recognition, we propose to extract face features that are blind to facial expressions. As shown in Sec. V-A, generic face features learned for the task of subject recognition preserve information to perform tasks related to\nfacial expression classification. However, features extracted for the target task of subject recognition do not need to preserve this facial expression information. In this paper we show that we can effectively learn alternative face feature representations for the task of subject classification that are blind to facial expression. Notice that our work is in the direction of creating automatic emotion-suppression systems, i.e., algorithms to automatically remove emotional information from captured data, with the goal of preserving privacy. A similar idea was recently explored in [9], where the goal is to suppress physiological information from facial videos. Both facial expressions and physiological signals contain information related to emotional states.\nIn Sec. III-A we formally describe the problem of learning the emotional-blinded face representations. Then, we propose two different methods to learn these expression-blinded facial features, which are based on existing generic techniques for learning agnostic representations. The first one (SensitiveNets) consists of learning a discriminator for the target task and at the same time an adversarial regularizer to reduce facial expression information. The second one (Learning not to Learn) consists of using a regularized loss function during learning, which quantifies the amount of information on the sensitive task (facial expression recognition) by computing the mutual information between the feature space and a pre-trained facial expression classifier. The details of these two methods can be found in Sec. III-B.\nTo validate the proposed framework and methods we perform an extensive set of experiments (Sec. V). First, we show that face features learned for subject verification contain significant information to perform facial expression classification (sensitive information). Then, we show that both of the proposed methods can actually eliminate information related to facial expression. In particular, for the first method, we show how the facial expression recognition accuracy drops significantly when our proposed blinded face representations are applied, while the performance of subject verification, gender recognition, and ethnicity classification are just slightly affected. Finally, our last experiment shows how the proposed methods can be applied in another face analysis problem (Attractiveness Classification) to protect the emotional information. ar X iv :2 00 9.\n08 70\n4v 1\n[ cs\n.C V\n] 1\n8 Se\np 20\n20"
+    },
+    {
+      "heading": "II. RELATED WORKS",
+      "text": "The study of new learned representations to improve the fairness of learning processes has attracted the attention of researchers [11\u201314]. In particular, [12, 13] proposed projection methods to preserve individual information while obfuscating membership to specific groups. The main drawback of these techniques was that discrimination was modelled as statistical imparity, which is not applicable when the classification task does not correlate with membership in a specific group.\nBias correction and sensitive information removal are related to each other but they are not necessarily the same thing. Bias is traditionally associated with unequal representation of classes in a dataset [15]. Dataset bias can produce unwanted results in the decision-making of algorithms, e.g., different face recognition accuracy depending of your ethnicity [16, 17]. Researchers have explored new learning processes capable to compensate this dataset bias [18, 19], but the correction of biased training processes does not necessarily serve to eliminate sensitive information from the trained representation. While the correction of biased models seeks to generate representations that perform similarly for different groups or classes, the removal of sensitive information seeks to eliminate this information from that representation. The proposal in [18] is based on a joint learning and unlearning algorithm inspired in domain and task adaptation methods [20]. The authors of [21] propose a new regularization loss based on mutual information between feature embeddings and bias, training the networks using adversarial [22] and gradient reversal [23] techniques. Finally, in [24] a privacy-preserving learning method is proposed to remove sensitive information in feature embeddings, without losing performance in the main task. These works reported encouraging results showing that it is possible to remove sensitive information (named as spurious variations in [18]) for age, gender, ancestral origin, and pose in face processing for different applications [25].\nOn the other hand, the normalization of face images directly in the raw image space according to specific face attributes such as pose [26] or gender [27, 28] is a challenging task. In [27] researchers proposed de-identification techniques that obfuscate gender attributes while preserving face verification\naccuracy. Similarly, the method was based on Generative Adversarial Networks trained to generate androgynous images capable of fooling gender detection systems. The method in [26] proposed 3D models to normalize the face expressions. Although these methods showed promising results to generate realistic images, the main drawback of these techniques is that sensitive information is not eliminated but distorted. In [24], researchers demonstrated that sensitive information can be easily detected in those images when supervised learning processes are trained in the distorted domain."
+    },
+    {
+      "heading": "A. How Emotions are Expressed in Face Images",
+      "text": "Automatic emotion perception from facial expressions is an active area of research [29]. Some methods are based on the Facial Action Coding System [30], which encodes the facial expression using a set of specific localized face movements, called Action Units (AU). State-of-the-art systems for AU detection consist of deep learning models trained with large datasets [31]. These methods show impressive accuracies, even in uncontrolled environments [32]. However, while there are systems for AUs detection that are accurate enough to be used in practical applications, the prediction of emotions from these face movements is a more challenging problem. In that case, given a specific configuration of these face movements (that we call facial expression) the goal is to recognize the emotion category expressed by the face. There are several works on face analysis that attempt to recognize the 6 basic emotions proposed by Ekman and Friesen [33] [2] or emotional dimensions, such as valence, arousal, and dominance [29]. In general, all these methods are partially based on the assumption that each emotion is universally expressed with a specific face movement or, equivalently, with a specific combinations of AUs (see Fig. 1).\nOn the contrary, there are studies showing that there is no universal correspondence between AUs and emotions and, therefore, it is not always possible to recognize emotions just with the information provided by facial expressions [34]. Although this lack of agreement on whether it is possible or not, in certain circumstances, to recognize emotions just from facial expressions, the studies on psychology consistently show that facial movements and expressions communicate a lot of information, including information related to emotional states [34, 35]. Thus, learning face features that are blind to facial expressions, as proposed in this paper, can actually contribute to preserve emotion privacy.\nAdditionally, understanding how facial expressions are represented in feature embeddings of deep neural networks models is important to gain insights into the learning processes of these algorithms. Most face recognition algorithms are trained to be agnostic to this information (i.e. facial expressions may change and these changes should not affect the recognition tasks). However, the features used to recognize a face are also useful in general to recognize face gestures. Face expression databases traditionally include both AUs and emotion labels [36]. These databases are usually employed to model face gestures as well as affective interfaces."
+    },
+    {
+      "heading": "III. LEARNING EMOTIONAL-BLINDED REPRESENTATIONS",
+      "text": ""
+    },
+    {
+      "heading": "A. Problem Formulation",
+      "text": "We employ the privacy-preserving learning framework showed in Fig. 2 and detailed in [24]. The feature vector x \u2208 RN is a face representation (a.k.a face embedding) obtained as the output of one of the last layers of a face model defined by parameters w \u2208 RM . In our framework, the parameters of the model w were trained to reveal patterns associated to the identity of face images Ix (i.e. face verification). This pretrained model and the databases employed for training will be detailed in Sec. V-A.\nIn this framework, domain adaptation is used to transform the original representation trained for face verification f0(y) into a new representation fk(y) (k \u2265 1 in Fig. 2) trained for different tasks (k = 1: for Gender classification, k = 2: Ethnicity classification, k = 3: Emotion classification). This adaptation is performed leaving fixed w = w\u2217 as obtained in the pre-trained model. The domain adaptation process for a task k \u2265 1 results in a new learned model w\u2217k used to transform the original representation x for the specific task k. Given a face image, the final output of the learned model (i.e. pretrained plus domain adaptation) is a vector pk(Ix) containing Ck probabilities associated to each of the classes of task k.\nIn this work, we evaluate the face embeddings generated by the pre-trained model according to its performance in the original task (i.e. face verification) and 3 other different tasks: 1) Gender Classification; 2) Ethnicity Classification; and 3) Emotion Classification based on five of the six basic emotions proposed by Ekman plus the neutral expression (Neutral, Happy, Sad, Disgusted, Angry, Surprised).\nThe models {w\u2217,w\u2217k} are trained for a given task k represented by its target function Tk. The aim of the learning process is to minimize the error between the output Ok of the model and the target function Tk (e.g. T1 = 1 for male and T1 = 0 for female). The most popular approach for that is to train w and wk by minimizing a loss function L1 over a\nset of Pre-training samples P for which we have groundtruth targets:\nmin w,wk \u2211 Ix\u2208P L1[Ok( Ix|w,wk) , Tk(Ix|groundtruth) ] (1)\nThe parameters {w\u2217,w\u2217k}, trained using Eq. (1), generate a representation fk(y) that maximizes the performance of the model for the task k.\nIn this framework, the goal of emotional-blinded learning starting from pre-trained networks is to solve, including or not the Emotional Suppression module, the following problem:\nmin w,wE,wk \u2211 Ix\u2208S {L1[Ok(Ix|w,wE,wk), Tk(Ix|groundtruth)] +\n+ L2[O3(Ix|w,wE,w3), T3(Ix|groundtruth)]} (2)\nwhere L2 represents a loss function intended to minimize performance in the emotion recognition task T3 while L1 tries to maximize performance in a different task Tk. In our experiments we use T0 (Face Verification) as a task to maximize the performance. In the optimization problem (2) we may use a Suppression training dataset S different to P , and the optimization can take advantage of a previous solution {w\u2217,w\u2217k} to (1) in different ways. Let\u2019s denote the solution to (2) as {w\u2217\u2217,w\u2217\u2217E ,w\u2217\u2217k }.\nIn our experiments, we begin without Emotion Suppression (y = x in Fig. 2) generating w\u2217 in a face recognition task by pre-training using the VGGFace2 database (3 million images from more than 9,000 people [37]). We then fix w\u2217 and train the Emotion classifier w\u22173 with the CFEE database (1,380 images from 230 people, with 6 images per subject, corresponding each of these 6 images to a different emotion [10]). Finally, we solve Eq. (2) considering {w\u2217,w\u2217k} as a starting point for obtaining the solution {w\u2217\u2217,w\u2217\u2217E ,w\u2217\u2217k } taking various optimization shortcuts as detailed in the following."
+    },
+    {
+      "heading": "B. Suppressing Emotions from Face Representations",
+      "text": "1) Method 1 - SensitiveNets: The work [24] recently proposed a general method to generate privacy-preserving representations starting from pre-trained networks. Here we adapt that approach to remove emotional information for the primary task k from 0 to 2 in Fig. 2.\nApplying SensitiveNets to the general methodology presented before leads to: 1) fixing w\u2217\u2217 = w\u2217, 2) activating the Emotion Suppression block \u03d5SN(x) (SN for SensitiveNets) in Fig. 2, and then 3) solving the following version of Eq. (2):\nmin wE,w3 \u2211 triplet\u2208SP {L1[Ok(triplet|wE,w3), Tk(triplet|groundtruth)]+\n+ \u2206A + \u2206P + \u2206N} s.t. max Performancek=3triplet\u2208SE(\u03d5SN(xtriplet|wE),w3) (3)\nwhere triplet = {IA, IP, IN}, IA and IP are face images of the same person, IN is a face image of a different person, L1 is the triplet loss function proposed for face recognition in [38][39], and the three \u2206 terms are adversarial regularizers used to measure the amount of emotion information in the learned model represented by wE:\n\u2206 = log{ 1 + |0.9\u2212 P3(Neutral |\u03d5SN(x|wE),w3 )| } (4)\nThe probability P3 of observing a Neutral expression in the face embedding after Emotion Suppression (\u03d5SN) is initially obtained with the pre-trained Emotion classifier w\u22173, and SensitiveNets then iterates to solve Eq. (3) in order to obtain w\u2217\u2217E (the Emotional Suppression projection) and w\u2217\u22173 (an adapted Emotion classifier). In Eq. (4) | \u00b7 | is the absolute value, and the \u2206 terms will tend to zero for larger P3. Therefore, by minimizing them in Eq. (3) we force the training to output Neutral expression in general, in this way eliminating the capacity to detect expressions other than Neutral from the face representation \u03d5SN(x). In other words, we unlearn the facial features necessary to differentiate between different expressions.\nOn the other hand, Eq. (3) includes a constraint that will be enforced in subsequent iterations of SensitiveNets in a kind of min-max adversarial formulation [40]. Eq. (3) thus minimizes the emotion information in \u03d5SN(x) with the \u2206 terms, trying to classify emotions based on \u03d5SN(x) in the iterative learning with the optimization constraint (with decreasing success as the learning progresses), and maintaining the performance in the primary task with the tiplet loss term L1.\nFor solving Eq. (3) we apply the iterative adversarial learning approach proposed in [24] using the CFEE database [10] as SE to retrain the emotion detector (i.e., enforcing the constraint), and the DiveFace database [24] as SP to maintain the recognition accuracy.\nThe network wE consists of three dense layers with 1024 units each layer (linear activation). After solving Eq. (3) the network w\u2217\u2217E generates the emotional blinded representation\n\u03d5SN(x), which removes sensitive information (emotions in the present paper) while maintaining recognition performances.\n2) Method 2 - Learning not to Learn: The second approach studied here to remove emotional features is based on [21]. Similar to SensitiveNets [24], this method uses a regularization algorithm to train deep neural networks, in order to prevent them from learning a known factor present in the training set irrelevant or undesired for a given primary task. Here we propose to unlearn emotional features for the primary task k from 0 to 2 in Fig. 2.\nIn this case the Emotion Suppression switch is off, therefore there is no wE, and we start from pre-trained {w\u2217,w\u2217k,w\u22173}.\nThe training algorithm uses a regularization loss that includes the mutual information between emotions and feature embeddings x. These embeddings are then fed into both the main classification task network (corresponding to k from 0 to 2), and the emotion classification network p3. The function to optimize for emotion removal is then:\nmin w,wk \u2211 Ix\u2208S {Lc[Ok(Ix|w,wk) , Tk(Ix|groundtruth) ] +\n+ \u03bbI[ p3(Ix) ; x ] } (5)\nwhere Lc denotes the cross-entropy loss, I represents the mutual information and \u03bb is an hyper-parameter.\nTo compute the mutual information in Eq. (5), we used the emotion classification network to approximate the a posteriori distribution of the emotional classifier p3(Ix). The training algorithm can be implemented in practice following an adversarial strategy [22], combined with the use of the gradient reversal technique [23]."
+    },
+    {
+      "heading": "IV. DATA AND EXPERIMENTAL SET UP",
+      "text": "To obtain the face representation x we use a learning architecture with state-of-the-art performance in face recognition tasks: ResNet50, proposed in [41]. ResNet50 has around 41M parameters split in 34 residual layers. The pre-trained model used in this work was trained from scratch with VGGface2 dataset [37]. This ResNet50 model achieved 98.0% accuracy in face verification with the IJB-A dataset [42].\nUsing the base representation x generated by the pre-trained network ResNet50 we trained different classifiers as depicted in Fig. 2 according to the following labeled databases: \u2022 DiveFace [24]: The DiveFace database contains annota-\ntions equitably distributed among 6 demographic classes, related to gender and 3 ethnic groups (East Asian | Sub-Saharan and South Indian | Caucasian), with 24K different identities and a minimum of 3 images per identity. This database was used to train the emotionalblinded representation. Additionally, 12K subjects of this database were used to train and test the gender and ethnicity classification. \u2022 CFEE [10]: The Compound Facial Expressions of Emotion database includes facial images of 230 different users. For every user, we selected an image belonging to\neach of the 22 categories present in the dataset: 6 basic emotions, 15 compound emotions (i.e. a combination of two basic emotion), and neutral expression. All images represent a fully recognizable expression, being captured in a controlled environment of illumination and pose. We used the 6 basic emotion of this database to train the emotional-blinded representation. \u2022 LFW [43]: Labeled Faces in the Wild is a database for research on unconstrained face recognition. It contains more than 13K images of faces collected from the web. We employ the aligned images [44] from the test set provided with view 1 and its associated evaluation protocol. \u2022 CelebA [45]: The CelebA dataset has a total of 202K celebrity images from more than 10K identities. Each image is annotated with 40 binary attributes, including appearance features, gender, age, attractiveness and emotional state, and 5 landmark positions. The dataset is partitioned into 2 splits, with 8K identities retained as the training set, and the remaining 2K as the test set.\nIn order to measure how much emotional information is available in the face representation, we trained different emotion classifiers using either original embeddings x or emotional-blinded representations \u03d5(x). We measured the amount of emotional information as the performance achieved by these classification algorithms. We assume that emotional information is removed by our blinding transformation \u03d5(\u00b7) when a significantly drop of performance in emotion classification occurs in comparison to the original emotion classification accuracy before applying that transformation.\nThe face recognition accuracy is obtained according to the evaluation protocol of the popular benchmark of LFW [43]. For the rest of tasks, we used 80% of the samples for training and 20% for testing. Implementation details: 150 epochs, Adam optimizer (learning rate = 0.001, \u03b21 = 0.9, and \u03b22 = 0.999), and batch size of 128 samples."
+    },
+    {
+      "heading": "V. EXPERIMENTS",
+      "text": ""
+    },
+    {
+      "heading": "A. Are Facial Expressions Encoded in Generic Face Representations?",
+      "text": "To better understand how the emotional features are embedded in the deep face representations, we study how identity and emotional information are represented in x and f3(x).\nFig. 3 shows the two-dimensional t-SNE projection of the original face representation x and the learned representation f3(x) for emotion recognition using the CFEE database [10] (detailed in Sec. IV). This database is interesting for this study because of its controlled acquisition environment (covariates such as pose or illumination are not present) and the multiple face gestures available for 230 subjects. We ran t-SNE over x and f3(x) without using the emotion labels available, and then show in Fig. 3 the resulting t-SNE projections with emotion labels a posteriori for visualization purposes.\nAs we can see in Fig. 3 (top), the projection in the original representation ignores the emotional features. The representation learned for face verification deprecates emotional features\nin order to maximize accuracy in face recognition. Face expressions can be seen as distortions that should be removed from the decision-making of the representation. However, if we freeze the weights of the ResNet model that produced the representation x and we train the representation f3(x) for Emotion Classification, we can observe in Fig. 3 (bottom) how emotional features were available in x and a simple training procedure with hundreds of samples allows to extract that information and correctly classify the emotions for more than 90% of the face images. Note that as mentioned before, ResNet was trained originally for identity recognition and these emotional features were not intentionally included in the learning process. These results illustrate that emotional information is embedded in x even though that representation was trained for a different purpose (i.e. face verification).\nTo gain insight into how the emotional features are embedded in the original representation x, we have evaluated the performance of an emotion classifier when different amount of features from x are available to train f3(x). To do this, in each iteration we randomly suppress a percentage of features of the representation x and we re-train the emotion representation f3(x), always freezing the ResNet model. Fig. 4 shows the performance decay for Emotion Classification related to the\nnumber of features suppressed from the original representation x. It is remarkable how well the emotion representation is capable of classifying with 70% accuracy even if the number of features available is only 10% of the original size. The model is able to keep almost the same performance until 90% of features are suppressed. This demonstrates that emotional features are latent in almost all features of the original representation x."
+    },
+    {
+      "heading": "B. Emotional-Blinded Face Representations",
+      "text": "The goal is to keep the recognition capability in other face classification tasks while removing the emotion information embedded in the face representation x using the methods described in Sec. III-B for generating \u03d5(x) (see Fig. 2). To analyze the effectiveness of those blinding methods, we conducted experiments on 3 datasets (see Sec. IV): DiveFace, CFEE, and LFW.\na) Objective 1 - Maintaining face representation information: the goal is to maintain the performance of the emotional-blinded face representation for other tasks different to emotion classification. We calculated the performance of 3 different face-based machine learning tasks using either original embeddings x or their projections \u03d5(x). The tasks are evaluated according to the classification accuracy obtained in the test set. Table I shows the classification accuracy of representations generated by the pre-trained model before and after the projections \u03d5SN(x) obtained by the Method 1 and \u03d5LnL(x) obtained using the Method 2 (see Sec. III-B). The results of the projection \u03d5SN(x) show a very small drop of performance when the projection is applied in the first domains (ID, Gender, and Ethnicity), which demonstrates the success of our method in preserving most of the discriminative information in the face representation. The drop of performance in the method based on the \u03d5LnL(x) projection is higher for the primary tasks (ID, Gender, Ethnicity) and the emotion classification. This decay may be caused because of the disentanglement of primary and secondary tasks managed by the mutual information regularizer in Eq. (5). The method proposed in [21] was originally evaluated for problems with limited number of classes and face recognition requires feature spaces capable of allocating large number of classes (one per identity).\nb) Objective 2 - Removing emotional information: to analyze the amount of emotional information available in the face representations we train different emotion classification algorithms (NN = Neural Networks, SVM = Support Vector Machines, and RF = Random Forests) either on original embeddings x or on their projections \u03d5(x). Table I shows the accuracies obtained by each algorithm before and after the projections. Results show a significant drop of performance in classification when both blinding representations are applied, which demonstrates the success in reducing the emotion information from the embeddings. However, the emotional information is deeply embedded in the representations, and to keep the performance of other tasks (first 3 rows of Table I) not all the emotion information was removed.\nThere are differences between the performances obtained by the two blinding methods. While \u03d5SN(x) maintains higher performance in the primary tasks (ID, Gender, and Ethnicity), the emotion suppression is higher in \u03d5LnL(x). This higher suppression obtained by \u03d5LnL(x) may be due to the weaker representations generated by this method which lead to worse performance in the primary tasks. However, the accuracy obtained for emotion classification using both methods (lower than 60% in all cases) may be low enough to prevent its unwanted exploitation. Emotion-related privacy is not fully granted, but clearly improved.\nFig. 5 shows the two-dimensional t-SNE projection similar to Fig. 3 (bottom) for the emotional blinded representation f3(\u03d5SN(x)). The results show how the domain adaptation training of w3 (see Fig. 2) was not able to find a representation capable of discriminating emotions in the learned representation \u03d5SN(x)."
+    },
+    {
+      "heading": "C. Blind Representations: Towards Equality of Opportunity",
+      "text": "Inspired in the experiments performed in [7] for analyzing biases and achieving a specific fairness criterion, here we study how blind representations can improve the Equality of Opportunity [46]. For this purpose we introduce task k = 4: binary Attractiveness classification (Attractive | Not Attractive) based on an input face image Ix.\nIn this experiment, the outcome of an Attractiveness classifier with input x and parameters w4 given its positive class should be independent to the feature s we want to protect in terms of fairness. In our experiments, the protected attribute\nis a specific face gesture: smile. Therefore, in our case: s \u2208 {Smiling,Not Smiling}. Using the framework presented in Sec. III-A summarized in Fig. 2, the Equality of Opportunity results in: p4(Ix|w\u2217,w\u22174, T = 1, s) = p4(Ix|w\u2217,w\u22174, T = 1). This criterion implies equal True Positive Rates across the different face gestures defined by s and the Attractiveness classifier defined by the parameters w\u2217,w\u22174.\nWe used 40K images from CelebA dataset [45], previously introduced in Sec. IV, to train the Attractiveness classifier. Since some studies suggest that face expressions, such as smile, can affect the perception of attractiveness, we specifically train a biased classifier. In particular, we employed the smiling annotation available in CelebA as a face gesture commonly associated to a positive emotion that can therefore introduce undesired bias. We generated an emotionally biased training set where the proportion of attractive people smiling and not smiling was 70% and 30% respectively. We introduced the opposite bias for the unattractive group with 30% and 70% of smiling and not smiling respectively. In order to avoid the appearance of other biases, we balanced the dataset in terms of attractiveness and gender, compensating the gender bias of the dataset (i.e. the proportion of attractive females is 67%, while for males is 27%). We also generated an unbiased dataset with 50% smiling and not smiling samples (randomly chosen and balanced with respect to gender).\nThe results in Table II show higher True Positive Rates (TPR) for the privileged class (Smiling in our experiment) in comparison with the non-privileged class (Not Smiling). The face gesture Smiling was irrelevant to classify the attractiveness (i.e. there was no correlation between the attributes Smiling and Attractiveness). However, a classifier trained on face embeddings x generated by pre-trained models like ResNet50, tends to reproduce the bias introduced in the training datasets. Table II shows how the blind representations \u03d5SN(x) and \u03d5LnL(x) presented in Sec. III-B significantly reduce the gap between both classes by improving equality in 9% and 4% respectively. The blind representations avoid the network to exploit the latent variable related with the face gesture and reduce the impact of the biased training dataset.\nImplementation details: the classifiers were composed by one fully connected layer (1024 units and ReLu activation) and one output unit (sigmoid activation), which we feed with face embeddings generated with the methods mentioned above. We repeated the experiment five times, using different training sets with 36K images from CelebA, and evaluating the resulting classifiers on validation sets with 4K images, selected from the CelebA\u2019s evaluation split."
+    },
+    {
+      "heading": "VI. CONCLUSIONS",
+      "text": "The growth of emotion recognition technologies has allowed great advances in fields related to human-machine interaction. At the same time, having automatic systems capable to read emotions without explicit consent triggers potential risks for humans, both in terms of fairness and privacy. In this work we have proposed two face representations that are blind to facial expressions associated to emotional responses.\nIn addition to a general formulation of the problem, we have adapted two existing methods for this purpose of generating emotional-blinded face representations: SensitiveNets [24] and Learning not to Learn [21]. The results show that it is possible to reduce dramatically the performance of emotion classifiers (more than 40%) while the performance in other face analysis tasks (verification, gender, and ethnicity recognition) is only slightly reduced (less than 2%).\nFinally, we included an experiment on facial attractiveness classification to show how to treat facial expression as protected information in face classification problems. The results show how blinded representations can improve a specific fairness criterion based on the principles and methods studied in the present paper."
+    },
+    {
+      "heading": "VII. ACKNOWLEDGMENTS",
+      "text": "This work has been supported by projects: PRIMA (H2020MSCA-ITN-2019-860315), TRESPASS-ETN (H2020-MSCAITN-2019-860813), IDEA-FAST (IMI2-2018-15-853981), BIBECA (RTI2018-101248-B-I00 MINECO/FEDER), REAVIPERO (RED2018-102511-T), RTI2018-095232-B-C22 MINECO, and Accenture. A. Pea is supported by a research fellowship (PEJ2018-004094A) from the Spanish MINECO."
+    }
+  ],
+  "title": "Learning Emotional-Blinded Face Representations",
+  "year": 2020
+}

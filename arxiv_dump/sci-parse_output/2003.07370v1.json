@@ -1,1 +1,178 @@
-{"abstractText": "Copyright held by the owner/author(s). CHI\u201920,, April 25\u201330, 2020, Honolulu, HI, USA ACM 978-1-4503-6819-3/20/04. https://doi.org/10.1145/3334480.XXXXXXX Abstract Machine learning models are increasingly integrated into societally critical applications such as recidivism prediction and medical diagnosis, thanks to their superior predictive power. In these applications, however, full automation is often not desired due to ethical and legal concerns. The research community has thus ventured into developing interpretable methods that explain machine predictions. While these explanations are meant to assist humans in understanding machine predictions and thereby allowing humans to make better decisions, this hypothesis is not supported in many recent studies. To improve human decision-making with AI assistance, we propose future directions for closing the gap between the efficacy of explanations and improvement in human performance.", "authors": [{"affiliations": [], "name": "Vivian Lai"}], "id": "SP:ab99a581252925fe70532ec0e765bd9f402619c2", "references": [{"authors": ["Diego Ardila", "Atilla P. Kiraly", "Sujeeth Bharadwaj", "Bokyung Choi", "Joshua J. Reicher", "Lily Peng", "Daniel Tse", "Mozziyar Etemadi", "Wenxing Ye", "Greg Corrado", "David P. Naidich", "Shravya Shetty"], "title": "End-to-end lung cancer screening with three-dimensional deep learning on low-dose chest computed tomography", "venue": "Nature Medicine", "year": 2019}, {"authors": ["Gagan Bansal", "Besmira Nushi", "Ece Kamar", "Walter S Lasecki", "Daniel S Weld", "Eric Horvitz"], "title": "Beyond Accuracy: The Role of Mental Models in Human-AI Team Performance", "year": 2019}, {"authors": ["Samuel Carton", "Qiaozhu Mei", "Paul Resnick"], "title": "Attention-Based Explanations Don\u00e2\u0102\u0179t Help Humans Detect Misclassifications of Online Toxicity", "year": 2020}, {"authors": ["Shi Feng", "Eric Wallace", "II Grissom", "Mohit Iyyer", "Pedro Rodriguez", "Jordan Boyd-Graber"], "title": "Pathologies of neural models make interpretations difficult", "year": 2018}, {"authors": ["Ben Green", "Yiling Chen"], "title": "The principles and limits of algorithm-in-the-loop decision making", "year": 2019}, {"authors": ["Divyansh Kaushik", "Eduard Hovy", "Zachary C. Lipton"], "title": "Learning the Difference that Makes a Difference with Counterfactually-Augmented Data. In ICLR", "year": 2020}, {"authors": ["Jon Kleinberg", "Himabindu Lakkaraju", "Jure Leskovec", "Jens Ludwig", "Sendhil Mullainathan"], "title": "Human decisions and machine predictions. The quarterly journal of economics (2017)", "year": 2017}, {"authors": ["Isaac Lage", "Emily Chen", "Jeffrey He", "Menaka Narayanan", "Been Kim", "Sam Gershman", "Finale Doshi-Velez"], "title": "An evaluation of the human-interpretability of explanation", "year": 2019}, {"authors": ["Vivian Lai", "Han Liu", "Chenhao Tan"], "title": "Why is \u2019Chicago\u2019 deceptive?\" Towards Building Model-Driven Tutorials for Humans", "year": 2020}, {"authors": ["Vivian Lai", "Chenhao Tan"], "title": "On Human Predictions with Explanations and Predictions of Machine Learning Models: A Case Study on Deception Detection", "venue": "In FAT*", "year": 2019}, {"authors": ["Tao Lei", "Regina Barzilay", "Tommi Jaakkola"], "title": "Rationalizing Neural Predictions", "venue": "In EMNLP", "year": 2016}, {"authors": ["Forough Poursabzi-Sangdeh", "Daniel G. Goldstein", "Jake M. Hofman", "Jennifer Wortman Vaughan", "Hanna Wallach"], "title": "Manipulating and Measuring Model Interpretability", "year": 2018}, {"authors": ["Marco Tulio Ribeiro", "Sameer Singh", "Carlos Guestrin"], "title": "Why should i trust you?: Explaining the predictions of any classifier", "year": 2016}, {"authors": ["Omar Zaidan", "Jason Eisner", "Christine Piatko"], "title": "Using \"Annotator Rationales\" to Improve Machine Learning for Text Categorization", "year": 2007}], "sections": [{"text": "arXiv:2003.07370v1 [cs.HC] 16 Mar 2020\nVivian Lai\nUniversity of Colorado Boulder\nBoulder, CO, USA\nvivian.lai@colorado.edu\nSamuel Carton\nUniversity of Colorado Boulder\nBoulder, CO, USA\nsamuel.carton@gmail.com\nChenhao Tan\nUniversity of Colorado Boulder\nBoulder, CO, USA\nchenhao@chenhaot.com\nPermission to make digital or hard copies of part or all of this work for personal or\nclassroom use is granted without fee provided that copies are not made or distributed\nfor profit or commercial advantage and that copies bear this notice and the full citation\non the first page. Copyrights for third-party components of this work must be honored.\nFor all other uses, contact the owner/author(s).\nCopyright held by the owner/author(s).\nCHI\u201920,, April 25\u201330, 2020, Honolulu, HI, USA\nACM 978-1-4503-6819-3/20/04.\nhttps://doi.org/10.1145/3334480.XXXXXXX\nsocietally critical applications such as recidivism prediction\nand medical diagnosis, thanks to their superior predictive\npower. In these applications, however, full automation is\noften not desired due to ethical and legal concerns. The re-\nsearch community has thus ventured into developing inter-\npretable methods that explain machine predictions. While\nthese explanations are meant to assist humans in under-\nstanding machine predictions and thereby allowing humans\nto make better decisions, this hypothesis is not supported\nin many recent studies. To improve human decision-making\nwith AI assistance, we propose future directions for closing\nthe gap between the efficacy of explanations and improve-\nment in human performance.\nWhy Do We Need Explanations? Recent trends in machine learning have led to models that\nare increasingly powerful, complex, opaque, and ubiquitous.\nModel performance has begun to meet or exceed expert\nhuman performance in numerous areas such as recidivism\nprediction [8] and medical diagnosis [1]. Concomitantly,\nAI models have begun to play a larger and larger role in\naspects of life such as government, business, and science,\nleading to ever-higher consequences for model mistakes."}, {"text": "Unfortunately, while average model performance has ap-\nproached human levels, models still lag behind humans in\nkey ways. AI models tend to absorb bias from their training\ndata, are vulnerable to adversarial inputs, and have diffi-\nculty generalizing beyond the specific distribution of that\ntraining data [6].\nA common suggestion to mitigate these issues is to view\nmodels as augmenting rather than replacing human ef-\nfort. In the ideal scenario, a human and a model could work\ntogether as a hybrid system whose performance would ex-\nceed that of either agent operating alone. AI explanations\nhave been proposed as a way to achieve this cooperation.\nThe hypothesis is that if a human can scrutinize the logic\nbehind a model prediction, they can recognize when that\nprediction is unfair, nonsensical, or otherwise unreliable [6].\nThe Current State of Explanations In order to achieve a balance between AI accuracy and\nhuman intuition, the research community has proposed a\nnumber of techniques for explaining the predictions of AI\nmodels. A common approach is feature attribution, which\nattempts to assign each feature (word, pixel, etc.) a score\nindicating its importance in the model\u2019s prediction. Such\nmethods range from retroactive perturbation-based analysis\nlike the popular LIME [14] to built-in attention mechanisms\nsuch as that proposed by Lei et al. (2016) [12].\nHowever, the community has struggled to demonstrate an\nimprovement in human decision quality as a result of these\nkinds of explanations. Typical experimental design involves\nhuman subjects making decisions in the presence of model\npredictions and evaluating whether explanations improve\ntheir accuracy in doing so. Some experiments in this vein\nhave included predicting apartment prices [13], detecting\ndeceptive online reviews [11], assessing social media toxic-\nity [3], performing various artificial tasks [9], and recidivism\nprediction [5]. We are not aware of any such experiment\nthat has reported a significant improvement in accuracy that\ncannot be explained by increased subject trust in a model\nwhose accuracy is higher than the human baseline (such as\nLai and Tan 2019 [11]).\nWhy have explanations failed to improve human perfor-\nmance? While this is a difficult question to answer, existing\nresults provide a few clues. First, Lai et al. (2020) point out\ntwo distinct types of AI learning problem: emulating human\nskill vs. discovering new knowledge [10]. They speculate\nthat in the latter case, humans may not have strong enough\ntask intuitions to make effective use of simple explanations,\nleading to a need for additional training [10]. Even in em-\nulation tasks, models may incidentally learn patterns that\nsimply do not correspond well with human intuition, as was\nobserved by Feng et al. (2018) in the case of LSTM mod-\nels for sentiment analysis [4]. Explanations may be better\nsuited for catching certain type of model errors over others:\nCarton et al. (2020) observe that they reduce false posi-\ntives while increasing false negatives, surmising that sub-\njects find it easier to overturn phrases incorrectly identified\nas toxic than to discover truly toxic phrases missed by the\nmodel [3].\nOverall, these results suggest a fundamental misalignment\nbetween AI explanations and human mental models, a sit-\nuation that Bansal et al. (2019) discuss as a general hurdle\nin human-AI collaboration [2]. As a solution, we suggest\ntwo basic directions for future work: 1) augmenting human\nmental models to cope with model explanations; and 2) ad-\njusting model explanations and behavior to match human\nmental models."}, {"text": "Direction I: Augmenting Human Mental Models Model-driven tutorials. Humans seem to not have strong\nintuition in making effective use of explanations in tasks that\ndiscover new knowledge [10]. To improve human mental\nmodels, we propose model-driven tutorials that elucidate\ncounter-intuitive and inconspicuous patterns embedded in\nmodels learned from the dataset. Model-driven tutorials\nare one possible way to align human mental models and\nAI, and we call for more study on how to effectively train\nhumans to work with AI explanations.\nInteractive explanations. The goal of interactive expla-\nnations is to allow humans to understand the model better\nthrough trial-and-error scenarios. As compared to static ex-\nplanations that only reveal what is important to the model,\ninteractive explanations allow humans to interact with mod-\nels and explanations, e.g., by editing input and examining\nthe differences in a model\u2019s prediction. Instead of simply\npresenting important patterns in the model, it is useful for\nhumans to identify patterns through active learning.\nEvaluating generalization. It is important to point out that\na typical setup in prior work employs a random split to ob-\ntain training and testing data, which is a standard assump-\ntion in supervised machine learning. While humans can\nideally improve generalization in this case, humans might\nbe more likely to correct generalization errors in machine\nlearning models when the testing distribution differs from\ntraining. In that case, understanding the embedded pat-\nterns, especially spotting spurious ones, can help humans\ngeneralize these data-driven insights and reduce model bi-\nases. A significant challenge lies in how we can properly\nevaluate such generalization, relating to a core issue in ma-\nchine learning.\nDirection II: Towards Human-Centered Explana-\ntions Understanding human explanations. Existing techniques\ntend to optimize explanations for numeric qualities like spar-\nsity or some notion of fidelity to the model. Ultimately, how-\never, we need to recognize that explanations serve as a\ncommunicative device to humans. Key to this idea is more\neffort to understand the rationales behind human decisions,\nthe qualities of those rationales associated with correct\nand incorrect decisions, and the effect of model-human\nrationale alignment on model-human agreement. Studies\nsuch as Kaushik et al. 2019 [7] which collect human ratio-\nnales/explanations are a good start, but we call for a be-\nhavioral and design perspective on such data rather than\nits use merely as additional training signal.\nExperimenting with alternative explanation types. Fea-\nture attribution may simply be inadequate for affording\nmeaningful human oversight of model predictions, espe-\ncially in discovery-type tasks where they don\u2019t have strong\nexisting intuitions. Example-based explanations and natural\nlanguage explanations may succeed where feature-based\nexplanations fail. Therefore, we call for more human subject\nexperimentation involving alternative explanation styles.\nExplanations as model criticism. Another focus area we\nsuggest is to break away from treating explanations as a\ndiagnostic signal for the reliability of a static model. Perhaps\ninstead we should treat them as a means for critiquing the\nunderlying logic of model decisions that are known to be\nincorrect. While the idea of \u201clearning from explanations\u201d has\na long history [15], we are not aware of work that employs\nthis idea in a dynamic way, in response to known model\nerrors, and which incorporates existing model explanations."}, {"text": "Conclusion AI explanations have generated great excitement as a way\nto provide added value in high-stakes decision-making.\nHowever, they have been failing in recent studies to live\nup to their promise. We suggest new research directions to\naddress this expectation gap, based on the idea of aligning\nAI and human mental models to enable the type of critical\nhuman scrutiny that is likely to lead to real improvements.\nREFERENCES [1] Diego Ardila, Atilla P. Kiraly, Sujeeth Bharadwaj,\nBokyung Choi, Joshua J. Reicher, Lily Peng, Daniel\nTse, Mozziyar Etemadi, Wenxing Ye, Greg Corrado,\nDavid P. Naidich, and Shravya Shetty. 2019.\nEnd-to-end lung cancer screening with\nthree-dimensional deep learning on low-dose chest\ncomputed tomography. Nature Medicine (2019).\n[2] Gagan Bansal, Besmira Nushi, Ece Kamar, Walter S\nLasecki, Daniel S Weld, and Eric Horvitz. 2019.\nBeyond Accuracy: The Role of Mental Models in\nHuman-AI Team Performance. In AAAI.\n[3] Samuel Carton, Qiaozhu Mei, and Paul Resnick. 2020.\nAttention-Based Explanations Don\u00e2A\u0306Z\u0301t Help Humans\nDetect Misclassifications of Online Toxicity. In ICWSM.\n[4] Shi Feng, Eric Wallace, II Grissom, Mohit Iyyer, Pedro\nRodriguez, and Jordan Boyd-Graber. 2018.\nPathologies of neural models make interpretations\ndifficult. In EMNLP.\n[5] Ben Green and Yiling Chen. 2019. The principles and\nlimits of algorithm-in-the-loop decision making. In\nCSCW.\n[6] Riccardo Guidotti, Anna Monreale, Franco Turini, and\nDino Pedreschi. 2018. A Survey Of Methods For Explaining Black Box Models. ACM Computing\nSurveys (2018).\n[7] Divyansh Kaushik, Eduard Hovy, and Zachary C.\nLipton. 2020. Learning the Difference that Makes a\nDifference with Counterfactually-Augmented Data. In\nICLR.\n[8] Jon Kleinberg, Himabindu Lakkaraju, Jure Leskovec,\nJens Ludwig, and Sendhil Mullainathan. 2017. Human\ndecisions and machine predictions. The quarterly\njournal of economics (2017).\n[9] Isaac Lage, Emily Chen, Jeffrey He, Menaka\nNarayanan, Been Kim, Sam Gershman, and Finale\nDoshi-Velez. 2019. An evaluation of the\nhuman-interpretability of explanation.\narXiv:1902.00006 (2019).\n[10] Vivian Lai, Han Liu, and Chenhao Tan. 2020. \"Why is\n\u2019Chicago\u2019 deceptive?\" Towards Building Model-Driven\nTutorials for Humans. In CHI.\n[11] Vivian Lai and Chenhao Tan. 2019. On Human\nPredictions with Explanations and Predictions of\nMachine Learning Models: A Case Study on\nDeception Detection. In FAT*.\n[12] Tao Lei, Regina Barzilay, and Tommi Jaakkola. 2016.\nRationalizing Neural Predictions. In EMNLP.\n[13] Forough Poursabzi-Sangdeh, Daniel G. Goldstein,\nJake M. Hofman, Jennifer Wortman Vaughan, and\nHanna Wallach. 2018. Manipulating and Measuring\nModel Interpretability. arXiv:1802.07810 [cs] (2018).\n[14] Marco Tulio Ribeiro, Sameer Singh, and Carlos\nGuestrin. 2016. Why should i trust you?: Explaining\nthe predictions of any classifier. In KDD.\n[15] Omar Zaidan, Jason Eisner, and Christine Piatko.\n2007. Using \"Annotator Rationales\" to Improve\nMachine Learning for Text Categorization. In NAACL."}], "title": "Harnessing Explanations to Bridge AI and Humans", "year": 2020}
+{
+  "abstractText": "Copyright held by the owner/author(s). CHI\u201920,, April 25\u201330, 2020, Honolulu, HI, USA ACM 978-1-4503-6819-3/20/04. https://doi.org/10.1145/3334480.XXXXXXX Abstract Machine learning models are increasingly integrated into societally critical applications such as recidivism prediction and medical diagnosis, thanks to their superior predictive power. In these applications, however, full automation is often not desired due to ethical and legal concerns. The research community has thus ventured into developing interpretable methods that explain machine predictions. While these explanations are meant to assist humans in understanding machine predictions and thereby allowing humans to make better decisions, this hypothesis is not supported in many recent studies. To improve human decision-making with AI assistance, we propose future directions for closing the gap between the efficacy of explanations and improvement in human performance.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Vivian Lai"
+    }
+  ],
+  "id": "SP:ab99a581252925fe70532ec0e765bd9f402619c2",
+  "references": [
+    {
+      "authors": [
+        "Diego Ardila",
+        "Atilla P. Kiraly",
+        "Sujeeth Bharadwaj",
+        "Bokyung Choi",
+        "Joshua J. Reicher",
+        "Lily Peng",
+        "Daniel Tse",
+        "Mozziyar Etemadi",
+        "Wenxing Ye",
+        "Greg Corrado",
+        "David P. Naidich",
+        "Shravya Shetty"
+      ],
+      "title": "End-to-end lung cancer screening with three-dimensional deep learning on low-dose chest computed tomography",
+      "venue": "Nature Medicine",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Gagan Bansal",
+        "Besmira Nushi",
+        "Ece Kamar",
+        "Walter S Lasecki",
+        "Daniel S Weld",
+        "Eric Horvitz"
+      ],
+      "title": "Beyond Accuracy: The Role of Mental Models in Human-AI Team Performance",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Samuel Carton",
+        "Qiaozhu Mei",
+        "Paul Resnick"
+      ],
+      "title": "Attention-Based Explanations Don\u00e2\u0102\u0179t Help Humans Detect Misclassifications of Online Toxicity",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Shi Feng",
+        "Eric Wallace",
+        "II Grissom",
+        "Mohit Iyyer",
+        "Pedro Rodriguez",
+        "Jordan Boyd-Graber"
+      ],
+      "title": "Pathologies of neural models make interpretations difficult",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ben Green",
+        "Yiling Chen"
+      ],
+      "title": "The principles and limits of algorithm-in-the-loop decision making",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Divyansh Kaushik",
+        "Eduard Hovy",
+        "Zachary C. Lipton"
+      ],
+      "title": "Learning the Difference that Makes a Difference with Counterfactually-Augmented Data. In ICLR",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Jon Kleinberg",
+        "Himabindu Lakkaraju",
+        "Jure Leskovec",
+        "Jens Ludwig",
+        "Sendhil Mullainathan"
+      ],
+      "title": "Human decisions and machine predictions. The quarterly journal of economics (2017)",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Isaac Lage",
+        "Emily Chen",
+        "Jeffrey He",
+        "Menaka Narayanan",
+        "Been Kim",
+        "Sam Gershman",
+        "Finale Doshi-Velez"
+      ],
+      "title": "An evaluation of the human-interpretability of explanation",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Vivian Lai",
+        "Han Liu",
+        "Chenhao Tan"
+      ],
+      "title": "Why is \u2019Chicago\u2019 deceptive?\" Towards Building Model-Driven Tutorials for Humans",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Vivian Lai",
+        "Chenhao Tan"
+      ],
+      "title": "On Human Predictions with Explanations and Predictions of Machine Learning Models: A Case Study on Deception Detection",
+      "venue": "In FAT*",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Tao Lei",
+        "Regina Barzilay",
+        "Tommi Jaakkola"
+      ],
+      "title": "Rationalizing Neural Predictions",
+      "venue": "In EMNLP",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Forough Poursabzi-Sangdeh",
+        "Daniel G. Goldstein",
+        "Jake M. Hofman",
+        "Jennifer Wortman Vaughan",
+        "Hanna Wallach"
+      ],
+      "title": "Manipulating and Measuring Model Interpretability",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why should i trust you?: Explaining the predictions of any classifier",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Omar Zaidan",
+        "Jason Eisner",
+        "Christine Piatko"
+      ],
+      "title": "Using \"Annotator Rationales\" to Improve Machine Learning for Text Categorization",
+      "year": 2007
+    }
+  ],
+  "sections": [
+    {
+      "text": "arXiv:2003.07370v1 [cs.HC] 16 Mar 2020\nVivian Lai\nUniversity of Colorado Boulder\nBoulder, CO, USA\nvivian.lai@colorado.edu\nSamuel Carton\nUniversity of Colorado Boulder\nBoulder, CO, USA\nsamuel.carton@gmail.com\nChenhao Tan\nUniversity of Colorado Boulder\nBoulder, CO, USA\nchenhao@chenhaot.com\nPermission to make digital or hard copies of part or all of this work for personal or\nclassroom use is granted without fee provided that copies are not made or distributed\nfor profit or commercial advantage and that copies bear this notice and the full citation\non the first page. Copyrights for third-party components of this work must be honored.\nFor all other uses, contact the owner/author(s).\nCopyright held by the owner/author(s).\nCHI\u201920,, April 25\u201330, 2020, Honolulu, HI, USA\nACM 978-1-4503-6819-3/20/04.\nhttps://doi.org/10.1145/3334480.XXXXXXX\nsocietally critical applications such as recidivism prediction\nand medical diagnosis, thanks to their superior predictive\npower. In these applications, however, full automation is\noften not desired due to ethical and legal concerns. The re-\nsearch community has thus ventured into developing inter-\npretable methods that explain machine predictions. While\nthese explanations are meant to assist humans in under-\nstanding machine predictions and thereby allowing humans\nto make better decisions, this hypothesis is not supported\nin many recent studies. To improve human decision-making\nwith AI assistance, we propose future directions for closing\nthe gap between the efficacy of explanations and improve-\nment in human performance.\nWhy Do We Need Explanations? Recent trends in machine learning have led to models that\nare increasingly powerful, complex, opaque, and ubiquitous.\nModel performance has begun to meet or exceed expert\nhuman performance in numerous areas such as recidivism\nprediction [8] and medical diagnosis [1]. Concomitantly,\nAI models have begun to play a larger and larger role in\naspects of life such as government, business, and science,\nleading to ever-higher consequences for model mistakes."
+    },
+    {
+      "text": "Unfortunately, while average model performance has ap-\nproached human levels, models still lag behind humans in\nkey ways. AI models tend to absorb bias from their training\ndata, are vulnerable to adversarial inputs, and have diffi-\nculty generalizing beyond the specific distribution of that\ntraining data [6].\nA common suggestion to mitigate these issues is to view\nmodels as augmenting rather than replacing human ef-\nfort. In the ideal scenario, a human and a model could work\ntogether as a hybrid system whose performance would ex-\nceed that of either agent operating alone. AI explanations\nhave been proposed as a way to achieve this cooperation.\nThe hypothesis is that if a human can scrutinize the logic\nbehind a model prediction, they can recognize when that\nprediction is unfair, nonsensical, or otherwise unreliable [6].\nThe Current State of Explanations In order to achieve a balance between AI accuracy and\nhuman intuition, the research community has proposed a\nnumber of techniques for explaining the predictions of AI\nmodels. A common approach is feature attribution, which\nattempts to assign each feature (word, pixel, etc.) a score\nindicating its importance in the model\u2019s prediction. Such\nmethods range from retroactive perturbation-based analysis\nlike the popular LIME [14] to built-in attention mechanisms\nsuch as that proposed by Lei et al. (2016) [12].\nHowever, the community has struggled to demonstrate an\nimprovement in human decision quality as a result of these\nkinds of explanations. Typical experimental design involves\nhuman subjects making decisions in the presence of model\npredictions and evaluating whether explanations improve\ntheir accuracy in doing so. Some experiments in this vein\nhave included predicting apartment prices [13], detecting\ndeceptive online reviews [11], assessing social media toxic-\nity [3], performing various artificial tasks [9], and recidivism\nprediction [5]. We are not aware of any such experiment\nthat has reported a significant improvement in accuracy that\ncannot be explained by increased subject trust in a model\nwhose accuracy is higher than the human baseline (such as\nLai and Tan 2019 [11]).\nWhy have explanations failed to improve human perfor-\nmance? While this is a difficult question to answer, existing\nresults provide a few clues. First, Lai et al. (2020) point out\ntwo distinct types of AI learning problem: emulating human\nskill vs. discovering new knowledge [10]. They speculate\nthat in the latter case, humans may not have strong enough\ntask intuitions to make effective use of simple explanations,\nleading to a need for additional training [10]. Even in em-\nulation tasks, models may incidentally learn patterns that\nsimply do not correspond well with human intuition, as was\nobserved by Feng et al. (2018) in the case of LSTM mod-\nels for sentiment analysis [4]. Explanations may be better\nsuited for catching certain type of model errors over others:\nCarton et al. (2020) observe that they reduce false posi-\ntives while increasing false negatives, surmising that sub-\njects find it easier to overturn phrases incorrectly identified\nas toxic than to discover truly toxic phrases missed by the\nmodel [3].\nOverall, these results suggest a fundamental misalignment\nbetween AI explanations and human mental models, a sit-\nuation that Bansal et al. (2019) discuss as a general hurdle\nin human-AI collaboration [2]. As a solution, we suggest\ntwo basic directions for future work: 1) augmenting human\nmental models to cope with model explanations; and 2) ad-\njusting model explanations and behavior to match human\nmental models."
+    },
+    {
+      "text": "Direction I: Augmenting Human Mental Models Model-driven tutorials. Humans seem to not have strong\nintuition in making effective use of explanations in tasks that\ndiscover new knowledge [10]. To improve human mental\nmodels, we propose model-driven tutorials that elucidate\ncounter-intuitive and inconspicuous patterns embedded in\nmodels learned from the dataset. Model-driven tutorials\nare one possible way to align human mental models and\nAI, and we call for more study on how to effectively train\nhumans to work with AI explanations.\nInteractive explanations. The goal of interactive expla-\nnations is to allow humans to understand the model better\nthrough trial-and-error scenarios. As compared to static ex-\nplanations that only reveal what is important to the model,\ninteractive explanations allow humans to interact with mod-\nels and explanations, e.g., by editing input and examining\nthe differences in a model\u2019s prediction. Instead of simply\npresenting important patterns in the model, it is useful for\nhumans to identify patterns through active learning.\nEvaluating generalization. It is important to point out that\na typical setup in prior work employs a random split to ob-\ntain training and testing data, which is a standard assump-\ntion in supervised machine learning. While humans can\nideally improve generalization in this case, humans might\nbe more likely to correct generalization errors in machine\nlearning models when the testing distribution differs from\ntraining. In that case, understanding the embedded pat-\nterns, especially spotting spurious ones, can help humans\ngeneralize these data-driven insights and reduce model bi-\nases. A significant challenge lies in how we can properly\nevaluate such generalization, relating to a core issue in ma-\nchine learning.\nDirection II: Towards Human-Centered Explana-\ntions Understanding human explanations. Existing techniques\ntend to optimize explanations for numeric qualities like spar-\nsity or some notion of fidelity to the model. Ultimately, how-\never, we need to recognize that explanations serve as a\ncommunicative device to humans. Key to this idea is more\neffort to understand the rationales behind human decisions,\nthe qualities of those rationales associated with correct\nand incorrect decisions, and the effect of model-human\nrationale alignment on model-human agreement. Studies\nsuch as Kaushik et al. 2019 [7] which collect human ratio-\nnales/explanations are a good start, but we call for a be-\nhavioral and design perspective on such data rather than\nits use merely as additional training signal.\nExperimenting with alternative explanation types. Fea-\nture attribution may simply be inadequate for affording\nmeaningful human oversight of model predictions, espe-\ncially in discovery-type tasks where they don\u2019t have strong\nexisting intuitions. Example-based explanations and natural\nlanguage explanations may succeed where feature-based\nexplanations fail. Therefore, we call for more human subject\nexperimentation involving alternative explanation styles.\nExplanations as model criticism. Another focus area we\nsuggest is to break away from treating explanations as a\ndiagnostic signal for the reliability of a static model. Perhaps\ninstead we should treat them as a means for critiquing the\nunderlying logic of model decisions that are known to be\nincorrect. While the idea of \u201clearning from explanations\u201d has\na long history [15], we are not aware of work that employs\nthis idea in a dynamic way, in response to known model\nerrors, and which incorporates existing model explanations."
+    },
+    {
+      "text": "Conclusion AI explanations have generated great excitement as a way\nto provide added value in high-stakes decision-making.\nHowever, they have been failing in recent studies to live\nup to their promise. We suggest new research directions to\naddress this expectation gap, based on the idea of aligning\nAI and human mental models to enable the type of critical\nhuman scrutiny that is likely to lead to real improvements.\nREFERENCES [1] Diego Ardila, Atilla P. Kiraly, Sujeeth Bharadwaj,\nBokyung Choi, Joshua J. Reicher, Lily Peng, Daniel\nTse, Mozziyar Etemadi, Wenxing Ye, Greg Corrado,\nDavid P. Naidich, and Shravya Shetty. 2019.\nEnd-to-end lung cancer screening with\nthree-dimensional deep learning on low-dose chest\ncomputed tomography. Nature Medicine (2019).\n[2] Gagan Bansal, Besmira Nushi, Ece Kamar, Walter S\nLasecki, Daniel S Weld, and Eric Horvitz. 2019.\nBeyond Accuracy: The Role of Mental Models in\nHuman-AI Team Performance. In AAAI.\n[3] Samuel Carton, Qiaozhu Mei, and Paul Resnick. 2020.\nAttention-Based Explanations Don\u00e2A\u0306Z\u0301t Help Humans\nDetect Misclassifications of Online Toxicity. In ICWSM.\n[4] Shi Feng, Eric Wallace, II Grissom, Mohit Iyyer, Pedro\nRodriguez, and Jordan Boyd-Graber. 2018.\nPathologies of neural models make interpretations\ndifficult. In EMNLP.\n[5] Ben Green and Yiling Chen. 2019. The principles and\nlimits of algorithm-in-the-loop decision making. In\nCSCW.\n[6] Riccardo Guidotti, Anna Monreale, Franco Turini, and\nDino Pedreschi. 2018. A Survey Of Methods For Explaining Black Box Models. ACM Computing\nSurveys (2018).\n[7] Divyansh Kaushik, Eduard Hovy, and Zachary C.\nLipton. 2020. Learning the Difference that Makes a\nDifference with Counterfactually-Augmented Data. In\nICLR.\n[8] Jon Kleinberg, Himabindu Lakkaraju, Jure Leskovec,\nJens Ludwig, and Sendhil Mullainathan. 2017. Human\ndecisions and machine predictions. The quarterly\njournal of economics (2017).\n[9] Isaac Lage, Emily Chen, Jeffrey He, Menaka\nNarayanan, Been Kim, Sam Gershman, and Finale\nDoshi-Velez. 2019. An evaluation of the\nhuman-interpretability of explanation.\narXiv:1902.00006 (2019).\n[10] Vivian Lai, Han Liu, and Chenhao Tan. 2020. \"Why is\n\u2019Chicago\u2019 deceptive?\" Towards Building Model-Driven\nTutorials for Humans. In CHI.\n[11] Vivian Lai and Chenhao Tan. 2019. On Human\nPredictions with Explanations and Predictions of\nMachine Learning Models: A Case Study on\nDeception Detection. In FAT*.\n[12] Tao Lei, Regina Barzilay, and Tommi Jaakkola. 2016.\nRationalizing Neural Predictions. In EMNLP.\n[13] Forough Poursabzi-Sangdeh, Daniel G. Goldstein,\nJake M. Hofman, Jennifer Wortman Vaughan, and\nHanna Wallach. 2018. Manipulating and Measuring\nModel Interpretability. arXiv:1802.07810 [cs] (2018).\n[14] Marco Tulio Ribeiro, Sameer Singh, and Carlos\nGuestrin. 2016. Why should i trust you?: Explaining\nthe predictions of any classifier. In KDD.\n[15] Omar Zaidan, Jason Eisner, and Christine Piatko.\n2007. Using \"Annotator Rationales\" to Improve\nMachine Learning for Text Categorization. In NAACL."
+    }
+  ],
+  "title": "Harnessing Explanations to Bridge AI and Humans",
+  "year": 2020
+}

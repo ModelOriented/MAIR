@@ -1,1 +1,282 @@
-{"abstractText": "Methods for explaining black-box machine learning models aim to increase the transparency of these model and provide insights into the reliability and fairness of such models. However, the explanations themselves could contain significant uncertainty that undermines users\u2019 trust in the predictions and raises concern about the model\u2019s robustness. Focusing on a particular local explanations method, Local Interpretable Model-Agnostic Explanations (LIME), we demonstrate the presence of three sources of uncertainty, namely randomness in the sampling procedure, variation with sampling proximity, and variation in explained model credibility across different data points. Such uncertainty is present even for black-box models with high test accuracy. We investigate the uncertainty in the LIME method on synthetic data and two public data sets, newsgroups text classification and recidivism risk-scoring.", "authors": [{"affiliations": [], "name": "Yujia Zhang"}, {"affiliations": [], "name": "Kuangyan Song"}, {"affiliations": [], "name": "Yiming Sun"}, {"affiliations": [], "name": "Sarah Tan"}, {"affiliations": [], "name": "Madeleine Udell"}], "id": "SP:13ae07c02c4679b77b11258cacb4501b38b1c989", "references": [{"authors": ["J. Adebayo", "J. Gilmer", "M. Muelly", "I. Goodfellow", "M. Hardt", "B. Kim"], "title": "Sanity checks for saliency maps", "venue": "In NeurIPS,", "year": 2018}, {"authors": ["D. Alvarez-Melis", "T.S. Jaakkola"], "title": "On the robustness of interpretability methods", "venue": "In ICML Workshop on Human Interpretability in Machine Learning,", "year": 2018}, {"authors": ["D. Baehrens", "T. Schroeter", "S. Harmeling", "M. Kawanabe", "K. Hansen", "Muller", "K.-R"], "title": "How to explain individual classification decisions", "year": 2010}, {"authors": ["F. Doshi-Velez", "B. Kim"], "title": "Towards a rigorous science of interpretable machine learning", "venue": "arXiv preprint arXiv:1702.08608,", "year": 2017}, {"authors": ["A. Ghorbani", "A. Abid", "J. Zou"], "title": "Interpretation of neural networks is fragile", "venue": "In AAAI,", "year": 2019}, {"authors": ["H. Lakkaraju", "S.H. Bach", "J. Leskovec"], "title": "Interpretable decision sets: A joint framework for description and prediction", "venue": "In KDD,", "year": 2016}, {"authors": ["E. Lee", "D. Braines", "M. Stiffler", "A. Hudler", "D. Harborne"], "title": "Developing the sensitivity of lime for better machine learning explanation", "venue": "In Proceedings of SPIE: Artificial Intelligence and Machine Learning for MultiDomain Operations Applications,", "year": 2019}, {"authors": ["B. Letham", "C. Rudin", "T.H. McCormick", "D. Madigan"], "title": "Interpretable classifiers using rules and bayesian analysis: Building a better stroke prediction model", "venue": "The Annals of Applied Statistics,", "year": 2015}, {"authors": ["Z.C. Lipton"], "title": "The mythos of model interpretability", "venue": "arXiv preprint arXiv:1606.03490,", "year": 2016}, {"authors": ["A. Rajkomar", "E. Oren", "K. Chen", "A.M. Dai", "N. Hajaj", "M. Hardt", "P.J. Liu", "X. Liu", "J. Marcus", "M Sun"], "title": "Scalable and accurate deep learning with electronic health records", "venue": "NPJ Digital Medicine,", "year": 2018}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "Why should i trust you?: Explaining the predictions of any classifier", "year": 2016}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "Anchors: Highprecision model-agnostic explanations", "venue": "In AAAI,", "year": 2018}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "Semantically equivalent adversarial rules for debugging nlp models", "venue": "In ACL,", "year": 2018}, {"authors": ["R.R. Selvaraju", "M. Cogswell", "A. Das", "R. Vedantam", "D. Parikh", "D. Batra"], "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization", "year": 2017}, {"authors": ["A. Shrikumar", "P. Greenside", "A. Kundaje"], "title": "Learning important features through propagating activation differences", "venue": "In ICML,", "year": 2017}, {"authors": ["M. Sundararajan", "A. Taly", "Q. Yan"], "title": "Axiomatic attribution for deep networks", "venue": "In ICML,", "year": 2017}, {"authors": ["S. Tan", "R. Caruana", "G. Hooker", "P. Koch", "A. Gordo"], "title": "Learning global additive explanations for neural nets using model distillation", "venue": "arXiv preprint arXiv:1801.08640,", "year": 2018}, {"authors": ["S. Tan", "R. Caruana", "G. Hooker", "Y. Lou"], "title": "Distill-andcompare: Auditing black-box models using transparent model distillation", "venue": "In AIES,", "year": 2018}, {"authors": ["J. Zeng", "B. Ustun", "C. Rudin"], "title": "Interpretable classification models for recidivism prediction", "venue": "Journal of the Royal Statistical Society (A),", "year": 2017}], "sections": [{"heading": "1. Introduction", "text": "While machine learning models have become increasingly important for decision making in many areas (Zeng et al., 2017; Rajkomar et al., 2018), many machine learning models are \u201cblack-box\u201d in that the process by which such models make predictions can be hard for humans to understand. Explanations of model predictions can help increase users\u2019 trust in the model (Lipton, 2016; Ribeiro et al., 2016), determine if the model achieves desirable properties such as fairness, privacy, etc. (Doshi-Velez & Kim, 2017), and debug possible errors in the model (Ribeiro et al., 2018b).\nIndeed, explanation methods aim to help users assess and establish trust in black-box models and their predictions. However, whether the explanations themselves are trust-\n*Equal contribution 1Cornell University 2Zshield Inc. Correspondence to: Yujia Zhang <yz685@cornell.edu>.\nAppearing at the International Conference on Machine Learning AI for Social Good Workshop, Long Beach, United States, 2019.\nworthy is not obvious. Uncertainty in explanations not only cast doubt on the understanding of a certain prediction, but also raises concerns about the reliability of the black-box model in the first place, hence diminishing the value of the explanation (Ghorbani et al., 2019).\nIn this paper, we address the question: when can we trust an explanation? In particular, we study the local explanation method Local Interpretable Model-Agnostic Explanations (LIME) (Ribeiro et al., 2016). Briefly, LIME explains the prediction of a desired input by sampling its neighboring inputs and learning a sparse linear model based on the predictions of these neighbors; features with large coefficients in the linear model are then considered to be important for that input\u2019s prediction. We demonstrate that training LIME explanations involve sources of uncertainty that should not be overlooked. More specifically, generating a local explanation for an input requires sampling around the input to generate an explanation for its prediction. In this paper, we show that this sampling can lead to statistical uncertainty in interpretation."}, {"heading": "2. Related Work", "text": "The study of interpretable methods can be roughly divided into two fields \u2013 designing accurate, yet still inherently interpretable models (Letham et al., 2015; Lakkaraju et al., 2016), and creating post-hoc methods to explain black-box models, either locally around a specific input (Baehrens et al., 2010; Ribeiro et al., 2016) or globally for the entire model (Ribeiro et al., 2018a; Tan et al., 2018a). In this paper, we study one particular local explanation method, LIME (Ribeiro et al., 2016).\nSeveral sensitivity-based explanation methods for neural networks (Shrikumar et al., 2017; Selvaraju et al., 2017; Sundararajan et al., 2017) have been shown to be fragile (Ghorbani et al., 2019; Adebayo et al., 2018). Ghorbani et al. demonstrated that it is possible to generate vastly different explanations for two perceptively indistinguishable inputs with the same predicted labels from the neural network. This paper focuses on the fragility of local post-hoc explanations of models.\nPotential issues with LIME\u2019s stability and robustness have\nar X\niv :1\n90 4.\n12 99\n1v 2\n[ cs\n.L G\n] 4\nJ un\n2 01\n9\nbeen pointed out by Alvarez-Melis & Jaakkola, who showed that while LIME explanations can be stable when explaining linear models, for nonlinear models this is not always the case (Alvarez-Melis & Jaakkola, 2018). Testing LIME on images, Lee et al. observed that LIME colored superpixels differently across different iterations and proposed an aggregated visualization to reduce the perception of different explanations over different iterations (Lee et al., 2019). However, they did not study the source of this instability of explanations \u2013 the focus of our paper."}, {"heading": "3. Approach", "text": ""}, {"heading": "3.1. Uncertainty in LIME Explanations", "text": "Given a black box model f , and a target point x to be explained, LIME samples neighbors of x and their black-box outcomes and chooses a model g from some interpretable functional space G by solving\nargming\u2208GL(f, g, \u03c0x) + \u2126(g) (1)\nwhere \u03c0x is some probability distribution around x and \u2126(g) is a penalty for model complexity. Ribeiro et al. (Ribeiro et al., 2016) suggests several methods to achieve sparse solution, including K-LASSO as the interpretable model. For K-LASSO, we let \u2126 = \u221e1[\u2016wg\u20160 > K], where w denotes the coefficients of the linear model, and sample points near x from \u03c0x to train K-LASSO. We observe that this procedure involves three sources of uncertainty:\n\u2022 Sampling variance in explaining a single data point;\n\u2022 Sensitivity to choice of parameters, such as sample size and sampling proximity;\n\u2022 Variation in explanation on model credibility across different data points."}, {"heading": "3.2. Methodology", "text": "We use one synthetic data example and two real datasets to demonstrate the three aforementioned sources of uncertainty. To show the sampling variance, we run LIME multiple times for a single data point, record the top few features selected by K-LASSO each time, and observe the cumulative selection probability for each selected feature. Whether features are consistently selected over different trials reflects LIME\u2019s instability in explaining the data point. Then, we tune the parameters of LIME to probe the sensitivity of the explanations to sample size and sampling proximity. Finally, we compare LIME explanations of different data points by assessing whether the selected features are informative in the real context. Variation in explanation on model credibility across different data points\nraises concern about the credibility of LIME as a global explanation for the model."}, {"heading": "4. Results", "text": "We first use synthetic tree-generated data to illustrate the first and second source of uncertainty mentioned above. Then we use examples in text classification to demonstrate the third source of uncertainty. Finally we apply LIME to the COMPAS dataset as a case where LIME explanations are considered trustworthy."}, {"heading": "4.1. Synthetic data generated by trees", "text": "Data: Given the number of features N , we generate training and test data from local sparse linear models on uniformly distributed input in [0, 1]N . To illustrate LIME\u2019s local behavior at different data points, we partition them with a known decision tree. Within each partition, we assign labels on each data point x based on a linear classifier with known coefficients \u03b2 as shown in Equation 2.\ny(x) = { 1 x>\u03b2 \u2265 0 0 x>\u03b2 < 0.\n(2)\nWe consider two cases where the number of features is 4 and 8 respectively. Figure 1 presents a way of splitting the data into six leaves for N = 8 with known coefficients, where three out of eight features have coefficients 1 in each leaf. The data splitting and coefficients for N = 4 are presented in Figure 4 in Appendix A.\nResults: We present results for the case where we apply LIME to interpret black-box models (random forest and gradient boosting tree) trained with eight-feature synthetic data. We run LIME on one data point in each of the six leaves. We first notice that different trials potentially select different features due to sampling variance. Figure 2 shows the cumulative selection frequency of top three fea-\ntures in each trial when LIME interprets a random forest model; the case with gradient boosting is shown in Figure 5 in Appendix A. LIME captures the signal of the first three features, which are used globally in the tree splitting of the data. Locally, however, different features are important for each individual leaf, which LIME fails to reflect. Thus, its explanation cannot be considered stable around each input data point in a tree structure. We further notice that LIME by default draws samples from a rescaled standard normal distributionN (0, \u03c32) near the test point, where \u03c32, the variance of the training data, determines the sampling proximity. The experiments show that LIME tends to capture locally important features better with a smaller sampling proximity and pick up global features with a larger sampling proximity. Since tuning this parameter allows LIME to explore both global and local structure in the data, we suggest users to think consciously about the choice of its value. As an example, we tune LIME\u2019s sampling proximity for a data point on leaf 5 in the eight-feature synthetic data, shown in Figure 2f. When a sample is drawn from N (0, \u03c32) near the test point, LIME captures the global features used for tree splitting; when a sample is drawn from N (0, (0.1\u03c3)2), LIME successfully picks up signal from the three local features 5-7. Results for running the same procedure on four-feature synthetic data are presented in Figures 6 and 7 in Appendix A."}, {"heading": "4.2. Text Classification", "text": "Data: The 20 Newsgroup dataset is a collection of ca. 20,000 news documents across 20 newsgroups. As noted in (Ribeiro et al., 2016), even for text classification models with high test accuracy, some feature words that LIME selects are quite arbitrary and uninformative. To examine this behavior further, we use Multinomial Naive Bayes classifier for two examples of document classification, namely \u201cAtheism vs. Christianity\u201d and \u201celectronics vs. crypt\u201d.\nResults: Multinomial Naive Bayes classifiers are trained for the aforementioned two classification examples, with test accuracy 0.9066 and 0.9214 respectively. However, as pointed out in (Ribeiro et al., 2016), we need to know the feature importance for each output in order to establish trust in the model. In particular, we find that LIME\u2019s local explanations are not always plausible for different test documents. As shown in Figure 3, the selected feature words for the first document (\u201ccrypto\u201d, \u201csternlight\u201d and \u201cnetcom\u201d) display no variation for different trials and are relevant in content, which makes the model seem very credible. However, the selected feature words for the second document are not informative at all. Thus, the model\u2019s credibility, as explained by LIME, varies across different input data. We also include results for \u201cChristianity vs. Atheism\u201d in Figure 8 in Appendix A, which also display a difference in model credibility for different documents."}, {"heading": "4.3. COMPAS Recidivism Risk Score Dataset", "text": "Data: The \u201cCorrectional Offender Management Profiling for Alternative Sanctions\u201d (COMPAS) is a risk-scoring algorithm developed by Northpointe to assess a criminal defendant\u2019s likelihood to recidivate. The risk is classified as \u201cHigh\u201d, \u201cMedium\u201d and \u201cLow\u201d based on crime history and category, jail time, age, demographics, etc. We study a subset of the COMPAS dataset collected and processed by ProPublica (Larson et al., 2016), with the goal of examining the presence of demographic bias in risk-scoring. As we do not have access to the true COMPAS model, we train a random forest classifier as a \u201cmimic model\u201d (Tan et al., 2018b), using selected features and risk assessment text labels from COMPAS. We examine salient features selected by LIME explanations on multiple COMPAS records.\nResults: We test and analyze LIME explanation of the random forest classifier with both numerical and categorical features. Unlike the uncertainty we observe in previous experiments on synthetic and 20 Newsgroup data, we see consistent explanation results on different test data points. LIME is applied to two data points that are classified as \u201chigh risk\u201d by COMPAS. The results are shown in Figure 9 in Appendix A. We consider these explanations to be trustworthy due to the following two observations: 1) there is little variation in the selection of important features in different trials on the same data point, and 2) explanation is consistent for different data points, since the same features are selected for the two different data points, including race and age. Further analysis using LIME suggests that the mimic model is using demographic properties as important features in predicting a risk score. This in turn shows it is probable that the COMPAS model makes use of demographic features for recidivism risk assessment, so further investigation would be meaningful to gauge the fairness of the algorithm."}, {"heading": "5. Conclusion", "text": "Explanation methods for black-box models may themselves contain uncertainty that calls into question the reliability of the black-box predictions and the models themselves. We demonstrate the presence of three sources of uncertainty in the explanation method \u201cLocal Interpretable Model-agnostic Explanations\u201d (LIME), namely the randomness in its sampling procedure, variation with sampling proximity, and variation in explained model credibility for different data points. The uncertainty in LIME is illustrated by numerical experiments on synthetic data, text classification examples in 20 Newsgroup data and recidivism riskscoring in COMPAS data."}, {"heading": "A. More Simulation Setting", "text": "A.1. Setting for four-feature synthetic data\nFor sample points with four features, we use the first two dimensions of features as their x and y coordinates. We assign each quadrant to different leaf, ignoring the sample points on the x or y axis. For each leaf, we assign different coefficients to their features, as shown in Figure 4. We fit and explain both random forest and gradient boosting classifier within this setting, see Figure 6 and Figure 7.\nA.2. More Numerical Results\nText Classification: We select two classes from 20 newsgroup dataset, then apply term frequency-inverse document freque (tf-idf) vectorizer with default settings. Stop words are not removed from resulting tokens as we would like to see if the model is using irrelevant features to predict the results. For the the classification between \u201cElectronics\u201d and \u201cCrypt\u201d, we analyze the explanation over two different test data points. We could see from the results that the explanation of test data document one contains several indicative words, such as \u201ccrypto\u201d, \u201cnetcom\u201d and \u201cSternlight\u201d in this case. However, the explanation results for test data point two contains only one indicative word \u201cinformation\u201d. We also include example for and the result is shown in Figure 8 in Appendix A.\nCOMPAS Recidivism Risk Score Data: The COMPAS dataset from ProPublica contains a lot irrelevant columns, as well as null values. We selected twelve relevant columns of the dataset, then drop the rows that contain null value. Specifically, we exclude the decile score columns as it is directly related to the text label. We then encode the categorical features, such as \u201csex\u201d and \u201crace\u201d, using one-hot encoder, and encode the label text using label encoder. After the simple data pre-process, we trained a random forest classifier on the processed dataset to mimic the COMPAS black-box model, which we do not have access to."}], "title": "\u201cWhy Should You Trust My Explanation?\u201d Understanding Uncertainty in LIME Explanations", "year": 2019}
+{
+  "abstractText": "Methods for explaining black-box machine learning models aim to increase the transparency of these model and provide insights into the reliability and fairness of such models. However, the explanations themselves could contain significant uncertainty that undermines users\u2019 trust in the predictions and raises concern about the model\u2019s robustness. Focusing on a particular local explanations method, Local Interpretable Model-Agnostic Explanations (LIME), we demonstrate the presence of three sources of uncertainty, namely randomness in the sampling procedure, variation with sampling proximity, and variation in explained model credibility across different data points. Such uncertainty is present even for black-box models with high test accuracy. We investigate the uncertainty in the LIME method on synthetic data and two public data sets, newsgroups text classification and recidivism risk-scoring.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Yujia Zhang"
+    },
+    {
+      "affiliations": [],
+      "name": "Kuangyan Song"
+    },
+    {
+      "affiliations": [],
+      "name": "Yiming Sun"
+    },
+    {
+      "affiliations": [],
+      "name": "Sarah Tan"
+    },
+    {
+      "affiliations": [],
+      "name": "Madeleine Udell"
+    }
+  ],
+  "id": "SP:13ae07c02c4679b77b11258cacb4501b38b1c989",
+  "references": [
+    {
+      "authors": [
+        "J. Adebayo",
+        "J. Gilmer",
+        "M. Muelly",
+        "I. Goodfellow",
+        "M. Hardt",
+        "B. Kim"
+      ],
+      "title": "Sanity checks for saliency maps",
+      "venue": "In NeurIPS,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D. Alvarez-Melis",
+        "T.S. Jaakkola"
+      ],
+      "title": "On the robustness of interpretability methods",
+      "venue": "In ICML Workshop on Human Interpretability in Machine Learning,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D. Baehrens",
+        "T. Schroeter",
+        "S. Harmeling",
+        "M. Kawanabe",
+        "K. Hansen",
+        "Muller",
+        "K.-R"
+      ],
+      "title": "How to explain individual classification decisions",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "F. Doshi-Velez",
+        "B. Kim"
+      ],
+      "title": "Towards a rigorous science of interpretable machine learning",
+      "venue": "arXiv preprint arXiv:1702.08608,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Ghorbani",
+        "A. Abid",
+        "J. Zou"
+      ],
+      "title": "Interpretation of neural networks is fragile",
+      "venue": "In AAAI,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "H. Lakkaraju",
+        "S.H. Bach",
+        "J. Leskovec"
+      ],
+      "title": "Interpretable decision sets: A joint framework for description and prediction",
+      "venue": "In KDD,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "E. Lee",
+        "D. Braines",
+        "M. Stiffler",
+        "A. Hudler",
+        "D. Harborne"
+      ],
+      "title": "Developing the sensitivity of lime for better machine learning explanation",
+      "venue": "In Proceedings of SPIE: Artificial Intelligence and Machine Learning for MultiDomain Operations Applications,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "B. Letham",
+        "C. Rudin",
+        "T.H. McCormick",
+        "D. Madigan"
+      ],
+      "title": "Interpretable classifiers using rules and bayesian analysis: Building a better stroke prediction model",
+      "venue": "The Annals of Applied Statistics,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Z.C. Lipton"
+      ],
+      "title": "The mythos of model interpretability",
+      "venue": "arXiv preprint arXiv:1606.03490,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Rajkomar",
+        "E. Oren",
+        "K. Chen",
+        "A.M. Dai",
+        "N. Hajaj",
+        "M. Hardt",
+        "P.J. Liu",
+        "X. Liu",
+        "J. Marcus",
+        "M Sun"
+      ],
+      "title": "Scalable and accurate deep learning with electronic health records",
+      "venue": "NPJ Digital Medicine,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Why should i trust you?: Explaining the predictions of any classifier",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Anchors: Highprecision model-agnostic explanations",
+      "venue": "In AAAI,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Semantically equivalent adversarial rules for debugging nlp models",
+      "venue": "In ACL,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R.R. Selvaraju",
+        "M. Cogswell",
+        "A. Das",
+        "R. Vedantam",
+        "D. Parikh",
+        "D. Batra"
+      ],
+      "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Shrikumar",
+        "P. Greenside",
+        "A. Kundaje"
+      ],
+      "title": "Learning important features through propagating activation differences",
+      "venue": "In ICML,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Sundararajan",
+        "A. Taly",
+        "Q. Yan"
+      ],
+      "title": "Axiomatic attribution for deep networks",
+      "venue": "In ICML,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Tan",
+        "R. Caruana",
+        "G. Hooker",
+        "P. Koch",
+        "A. Gordo"
+      ],
+      "title": "Learning global additive explanations for neural nets using model distillation",
+      "venue": "arXiv preprint arXiv:1801.08640,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Tan",
+        "R. Caruana",
+        "G. Hooker",
+        "Y. Lou"
+      ],
+      "title": "Distill-andcompare: Auditing black-box models using transparent model distillation",
+      "venue": "In AIES,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Zeng",
+        "B. Ustun",
+        "C. Rudin"
+      ],
+      "title": "Interpretable classification models for recidivism prediction",
+      "venue": "Journal of the Royal Statistical Society (A),",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Introduction",
+      "text": "While machine learning models have become increasingly important for decision making in many areas (Zeng et al., 2017; Rajkomar et al., 2018), many machine learning models are \u201cblack-box\u201d in that the process by which such models make predictions can be hard for humans to understand. Explanations of model predictions can help increase users\u2019 trust in the model (Lipton, 2016; Ribeiro et al., 2016), determine if the model achieves desirable properties such as fairness, privacy, etc. (Doshi-Velez & Kim, 2017), and debug possible errors in the model (Ribeiro et al., 2018b).\nIndeed, explanation methods aim to help users assess and establish trust in black-box models and their predictions. However, whether the explanations themselves are trust-\n*Equal contribution 1Cornell University 2Zshield Inc. Correspondence to: Yujia Zhang <yz685@cornell.edu>.\nAppearing at the International Conference on Machine Learning AI for Social Good Workshop, Long Beach, United States, 2019.\nworthy is not obvious. Uncertainty in explanations not only cast doubt on the understanding of a certain prediction, but also raises concerns about the reliability of the black-box model in the first place, hence diminishing the value of the explanation (Ghorbani et al., 2019).\nIn this paper, we address the question: when can we trust an explanation? In particular, we study the local explanation method Local Interpretable Model-Agnostic Explanations (LIME) (Ribeiro et al., 2016). Briefly, LIME explains the prediction of a desired input by sampling its neighboring inputs and learning a sparse linear model based on the predictions of these neighbors; features with large coefficients in the linear model are then considered to be important for that input\u2019s prediction. We demonstrate that training LIME explanations involve sources of uncertainty that should not be overlooked. More specifically, generating a local explanation for an input requires sampling around the input to generate an explanation for its prediction. In this paper, we show that this sampling can lead to statistical uncertainty in interpretation."
+    },
+    {
+      "heading": "2. Related Work",
+      "text": "The study of interpretable methods can be roughly divided into two fields \u2013 designing accurate, yet still inherently interpretable models (Letham et al., 2015; Lakkaraju et al., 2016), and creating post-hoc methods to explain black-box models, either locally around a specific input (Baehrens et al., 2010; Ribeiro et al., 2016) or globally for the entire model (Ribeiro et al., 2018a; Tan et al., 2018a). In this paper, we study one particular local explanation method, LIME (Ribeiro et al., 2016).\nSeveral sensitivity-based explanation methods for neural networks (Shrikumar et al., 2017; Selvaraju et al., 2017; Sundararajan et al., 2017) have been shown to be fragile (Ghorbani et al., 2019; Adebayo et al., 2018). Ghorbani et al. demonstrated that it is possible to generate vastly different explanations for two perceptively indistinguishable inputs with the same predicted labels from the neural network. This paper focuses on the fragility of local post-hoc explanations of models.\nPotential issues with LIME\u2019s stability and robustness have\nar X\niv :1\n90 4.\n12 99\n1v 2\n[ cs\n.L G\n] 4\nJ un\n2 01\n9\nbeen pointed out by Alvarez-Melis & Jaakkola, who showed that while LIME explanations can be stable when explaining linear models, for nonlinear models this is not always the case (Alvarez-Melis & Jaakkola, 2018). Testing LIME on images, Lee et al. observed that LIME colored superpixels differently across different iterations and proposed an aggregated visualization to reduce the perception of different explanations over different iterations (Lee et al., 2019). However, they did not study the source of this instability of explanations \u2013 the focus of our paper."
+    },
+    {
+      "heading": "3. Approach",
+      "text": ""
+    },
+    {
+      "heading": "3.1. Uncertainty in LIME Explanations",
+      "text": "Given a black box model f , and a target point x to be explained, LIME samples neighbors of x and their black-box outcomes and chooses a model g from some interpretable functional space G by solving\nargming\u2208GL(f, g, \u03c0x) + \u2126(g) (1)\nwhere \u03c0x is some probability distribution around x and \u2126(g) is a penalty for model complexity. Ribeiro et al. (Ribeiro et al., 2016) suggests several methods to achieve sparse solution, including K-LASSO as the interpretable model. For K-LASSO, we let \u2126 = \u221e1[\u2016wg\u20160 > K], where w denotes the coefficients of the linear model, and sample points near x from \u03c0x to train K-LASSO. We observe that this procedure involves three sources of uncertainty:\n\u2022 Sampling variance in explaining a single data point;\n\u2022 Sensitivity to choice of parameters, such as sample size and sampling proximity;\n\u2022 Variation in explanation on model credibility across different data points."
+    },
+    {
+      "heading": "3.2. Methodology",
+      "text": "We use one synthetic data example and two real datasets to demonstrate the three aforementioned sources of uncertainty. To show the sampling variance, we run LIME multiple times for a single data point, record the top few features selected by K-LASSO each time, and observe the cumulative selection probability for each selected feature. Whether features are consistently selected over different trials reflects LIME\u2019s instability in explaining the data point. Then, we tune the parameters of LIME to probe the sensitivity of the explanations to sample size and sampling proximity. Finally, we compare LIME explanations of different data points by assessing whether the selected features are informative in the real context. Variation in explanation on model credibility across different data points\nraises concern about the credibility of LIME as a global explanation for the model."
+    },
+    {
+      "heading": "4. Results",
+      "text": "We first use synthetic tree-generated data to illustrate the first and second source of uncertainty mentioned above. Then we use examples in text classification to demonstrate the third source of uncertainty. Finally we apply LIME to the COMPAS dataset as a case where LIME explanations are considered trustworthy."
+    },
+    {
+      "heading": "4.1. Synthetic data generated by trees",
+      "text": "Data: Given the number of features N , we generate training and test data from local sparse linear models on uniformly distributed input in [0, 1]N . To illustrate LIME\u2019s local behavior at different data points, we partition them with a known decision tree. Within each partition, we assign labels on each data point x based on a linear classifier with known coefficients \u03b2 as shown in Equation 2.\ny(x) = { 1 x>\u03b2 \u2265 0 0 x>\u03b2 < 0.\n(2)\nWe consider two cases where the number of features is 4 and 8 respectively. Figure 1 presents a way of splitting the data into six leaves for N = 8 with known coefficients, where three out of eight features have coefficients 1 in each leaf. The data splitting and coefficients for N = 4 are presented in Figure 4 in Appendix A.\nResults: We present results for the case where we apply LIME to interpret black-box models (random forest and gradient boosting tree) trained with eight-feature synthetic data. We run LIME on one data point in each of the six leaves. We first notice that different trials potentially select different features due to sampling variance. Figure 2 shows the cumulative selection frequency of top three fea-\ntures in each trial when LIME interprets a random forest model; the case with gradient boosting is shown in Figure 5 in Appendix A. LIME captures the signal of the first three features, which are used globally in the tree splitting of the data. Locally, however, different features are important for each individual leaf, which LIME fails to reflect. Thus, its explanation cannot be considered stable around each input data point in a tree structure. We further notice that LIME by default draws samples from a rescaled standard normal distributionN (0, \u03c32) near the test point, where \u03c32, the variance of the training data, determines the sampling proximity. The experiments show that LIME tends to capture locally important features better with a smaller sampling proximity and pick up global features with a larger sampling proximity. Since tuning this parameter allows LIME to explore both global and local structure in the data, we suggest users to think consciously about the choice of its value. As an example, we tune LIME\u2019s sampling proximity for a data point on leaf 5 in the eight-feature synthetic data, shown in Figure 2f. When a sample is drawn from N (0, \u03c32) near the test point, LIME captures the global features used for tree splitting; when a sample is drawn from N (0, (0.1\u03c3)2), LIME successfully picks up signal from the three local features 5-7. Results for running the same procedure on four-feature synthetic data are presented in Figures 6 and 7 in Appendix A."
+    },
+    {
+      "heading": "4.2. Text Classification",
+      "text": "Data: The 20 Newsgroup dataset is a collection of ca. 20,000 news documents across 20 newsgroups. As noted in (Ribeiro et al., 2016), even for text classification models with high test accuracy, some feature words that LIME selects are quite arbitrary and uninformative. To examine this behavior further, we use Multinomial Naive Bayes classifier for two examples of document classification, namely \u201cAtheism vs. Christianity\u201d and \u201celectronics vs. crypt\u201d.\nResults: Multinomial Naive Bayes classifiers are trained for the aforementioned two classification examples, with test accuracy 0.9066 and 0.9214 respectively. However, as pointed out in (Ribeiro et al., 2016), we need to know the feature importance for each output in order to establish trust in the model. In particular, we find that LIME\u2019s local explanations are not always plausible for different test documents. As shown in Figure 3, the selected feature words for the first document (\u201ccrypto\u201d, \u201csternlight\u201d and \u201cnetcom\u201d) display no variation for different trials and are relevant in content, which makes the model seem very credible. However, the selected feature words for the second document are not informative at all. Thus, the model\u2019s credibility, as explained by LIME, varies across different input data. We also include results for \u201cChristianity vs. Atheism\u201d in Figure 8 in Appendix A, which also display a difference in model credibility for different documents."
+    },
+    {
+      "heading": "4.3. COMPAS Recidivism Risk Score Dataset",
+      "text": "Data: The \u201cCorrectional Offender Management Profiling for Alternative Sanctions\u201d (COMPAS) is a risk-scoring algorithm developed by Northpointe to assess a criminal defendant\u2019s likelihood to recidivate. The risk is classified as \u201cHigh\u201d, \u201cMedium\u201d and \u201cLow\u201d based on crime history and category, jail time, age, demographics, etc. We study a subset of the COMPAS dataset collected and processed by ProPublica (Larson et al., 2016), with the goal of examining the presence of demographic bias in risk-scoring. As we do not have access to the true COMPAS model, we train a random forest classifier as a \u201cmimic model\u201d (Tan et al., 2018b), using selected features and risk assessment text labels from COMPAS. We examine salient features selected by LIME explanations on multiple COMPAS records.\nResults: We test and analyze LIME explanation of the random forest classifier with both numerical and categorical features. Unlike the uncertainty we observe in previous experiments on synthetic and 20 Newsgroup data, we see consistent explanation results on different test data points. LIME is applied to two data points that are classified as \u201chigh risk\u201d by COMPAS. The results are shown in Figure 9 in Appendix A. We consider these explanations to be trustworthy due to the following two observations: 1) there is little variation in the selection of important features in different trials on the same data point, and 2) explanation is consistent for different data points, since the same features are selected for the two different data points, including race and age. Further analysis using LIME suggests that the mimic model is using demographic properties as important features in predicting a risk score. This in turn shows it is probable that the COMPAS model makes use of demographic features for recidivism risk assessment, so further investigation would be meaningful to gauge the fairness of the algorithm."
+    },
+    {
+      "heading": "5. Conclusion",
+      "text": "Explanation methods for black-box models may themselves contain uncertainty that calls into question the reliability of the black-box predictions and the models themselves. We demonstrate the presence of three sources of uncertainty in the explanation method \u201cLocal Interpretable Model-agnostic Explanations\u201d (LIME), namely the randomness in its sampling procedure, variation with sampling proximity, and variation in explained model credibility for different data points. The uncertainty in LIME is illustrated by numerical experiments on synthetic data, text classification examples in 20 Newsgroup data and recidivism riskscoring in COMPAS data."
+    },
+    {
+      "heading": "A. More Simulation Setting",
+      "text": "A.1. Setting for four-feature synthetic data\nFor sample points with four features, we use the first two dimensions of features as their x and y coordinates. We assign each quadrant to different leaf, ignoring the sample points on the x or y axis. For each leaf, we assign different coefficients to their features, as shown in Figure 4. We fit and explain both random forest and gradient boosting classifier within this setting, see Figure 6 and Figure 7.\nA.2. More Numerical Results\nText Classification: We select two classes from 20 newsgroup dataset, then apply term frequency-inverse document freque (tf-idf) vectorizer with default settings. Stop words are not removed from resulting tokens as we would like to see if the model is using irrelevant features to predict the results. For the the classification between \u201cElectronics\u201d and \u201cCrypt\u201d, we analyze the explanation over two different test data points. We could see from the results that the explanation of test data document one contains several indicative words, such as \u201ccrypto\u201d, \u201cnetcom\u201d and \u201cSternlight\u201d in this case. However, the explanation results for test data point two contains only one indicative word \u201cinformation\u201d. We also include example for and the result is shown in Figure 8 in Appendix A.\nCOMPAS Recidivism Risk Score Data: The COMPAS dataset from ProPublica contains a lot irrelevant columns, as well as null values. We selected twelve relevant columns of the dataset, then drop the rows that contain null value. Specifically, we exclude the decile score columns as it is directly related to the text label. We then encode the categorical features, such as \u201csex\u201d and \u201crace\u201d, using one-hot encoder, and encode the label text using label encoder. After the simple data pre-process, we trained a random forest classifier on the processed dataset to mimic the COMPAS black-box model, which we do not have access to."
+    }
+  ],
+  "title": "\u201cWhy Should You Trust My Explanation?\u201d Understanding Uncertainty in LIME Explanations",
+  "year": 2019
+}

@@ -1,1 +1,364 @@
-{"abstractText": "Deep Neural Network based classifiers are known to be vulnerable to perturbations of inputs constructed by an adversarial attack to force misclassification. Most studies have focused on how to make vulnerable noise by gradient based attack methods or to defense model from adversarial attack. The use of the denoiser model is one of a wellknown solution to reduce the adversarial noise although classification performance had not significantly improved. In this study, we aim to analyze the propagation of adversarial attack as an explainable AI(XAI) point of view. Specifically, we examine the trend of adversarial perturbations through the CNN architectures. To analyze the propagated perturbation, we measured normalized Euclidean Distance and cosine distance in each CNN layer between the feature map of the perturbed image passed through denoiser and the non-perturbed original image. We used five well-known CNN based classifiers and three gradient-based adversarial attacks. From the experimental results, we observed that in most cases, Euclidean Distance explosively increases in the final fully connected layer while cosine distance fluctuated and disappeared at the last layer. This means that the use of denoiser can decrease the amount of noise. However, it failed to defense accuracy degradation.", "authors": [{"affiliations": [], "name": "Jihyeun Yoon"}, {"affiliations": [], "name": "Kyungyul Kim"}, {"affiliations": [], "name": "Jongseong Jang"}], "id": "SP:ce80dedb919b6eae8d025faf1befd72b83ea76fc", "references": [{"authors": ["M. Barreno", "B. Nelson", "A.D. Joseph", "J.D. Tygar"], "title": "The security of machine learning", "venue": "Machine Learning, 81(2):121\u2013 148", "year": 2010}, {"authors": ["Y. Dong", "F. Liao", "T. Pang", "H. Su", "J. Zhu", "X. Hu", "J. Li"], "title": "Boosting adversarial attacks with momentum", "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 9185\u20139193", "year": 2018}, {"authors": ["L. Gondara"], "title": "Medical image denoising using convolutional denoising autoencoders", "venue": "Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, pages 241\u2013246. IEEE", "year": 2016}, {"authors": ["I.J. Goodfellow", "J. Shlens", "C. Szegedy"], "title": "Explaining and harnessing adversarial examples", "venue": "arXiv preprint arXiv:1412.6572", "year": 2014}, {"authors": ["C. Guo", "G. Pleiss", "Y. Sun", "K.Q. Weinberger"], "title": "On calibration of modern neural networks", "venue": "Proceedings of the 34th International Conference on Machine Learning-Volume 70, pages 1321\u20131330. JMLR. org", "year": 2017}, {"authors": ["K. He", "X. Zhang", "S. Ren", "J. Sun"], "title": "Deep residual learning for image recognition", "venue": "CoRR, abs/1512.03385", "year": 2015}, {"authors": ["K. He", "X. Zhang", "S. Ren", "J. Sun"], "title": "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification", "venue": "CoRR, abs/1502.01852", "year": 2015}, {"authors": ["K. He", "X. Zhang", "S. Ren", "J. Sun"], "title": "Identity mappings in deep residual networks", "venue": "CoRR, abs/1603.05027", "year": 2016}, {"authors": ["J. Hu", "L. Shen", "G. Sun"], "title": "Squeeze-and-excitation networks", "venue": "CoRR, abs/1709.01507", "year": 2017}, {"authors": ["G. Huang", "Z. Liu", "K.Q. Weinberger"], "title": "Densely connected convolutional networks", "venue": "CoRR, abs/1608.06993", "year": 2016}, {"authors": ["D.P. Kingma", "J. Ba"], "title": "Adam: A method for stochastic optimization", "venue": "CoRR, abs/1412.6980", "year": 2014}, {"authors": ["A. Kurakin"], "title": "Adversarial attacks and defences competition", "venue": "CoRR", "year": 2018}, {"authors": ["A. Kurakin", "I. Goodfellow", "S. Bengio"], "title": "Adversarial examples in the physical world", "venue": "arXiv preprint arXiv:1607.02533", "year": 2016}, {"authors": ["K. Lee"], "title": "A simple unified framework for detecting out-ofdistribution samples and adversarial attacks", "venue": "NeurIPS", "year": 2018}, {"authors": ["K. Lee", "K. Lee", "H. Lee", "J. Shin"], "title": "A simple unified framework for detecting out-of-distribution samples and adversarial attacks", "venue": "Advances in Neural Information Processing Systems, pages 7167\u20137177", "year": 2018}, {"authors": ["A. Nguyen", "J. Yosinski", "J. Clune"], "title": "Deep neural networks are easily fooled: High confidence predictions for unrecognizable images", "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 427\u2013436", "year": 2015}, {"authors": ["N. Papernot", "P. McDaniel", "I. Goodfellow"], "title": "Transferability in machine learning: from phenomena to black-box attacks using adversarial samples", "venue": "arXiv preprint arXiv:1605.07277", "year": 2016}, {"authors": ["N. Papernot", "P. McDaniel", "I. Goodfellow", "S. Jha", "Z.B. Celik", "A. Swami"], "title": "Practical black-box attacks against machine learning", "venue": "Proceedings of the 2017 ACM on Asia Conference on Computer and Communications Security, pages 506\u2013519. ACM", "year": 2017}, {"authors": ["T.M. Quan", "D.G. Hildebrand", "W.-K. Jeong"], "title": "Fusionnet: A deep fully residual convolutional neural network for image segmentation in connectomics", "venue": "arXiv preprint arXiv:1612.05360", "year": 2016}, {"authors": ["J. Rauber", "W. Brendel"], "title": "and M", "venue": "Bethge. Foolbox v0.8.0: A python toolbox to benchmark the robustness of machine learning models. CoRR, abs/1707.04131", "year": 2017}, {"authors": ["O. Ronneberger", "P. Fischer", "T. Brox"], "title": "U-net: Convolutional networks for biomedical image segmentation", "venue": "International Conference on Medical image computing and computer-assisted intervention, pages 234\u2013241. Springer", "year": 2015}, {"authors": ["O. Russakovsky", "J. Deng", "H. Su", "J. Krause", "S. Satheesh", "S. Ma", "Z. Huang", "A. Karpathy", "A. Khosla", "M. Bernstein", "A.C. Berg", "L. Fei-Fei"], "title": "ImageNet Large Scale Visual Recognition Challenge", "venue": "International Journal of Computer Vision (IJCV), 115(3):211\u2013252", "year": 2015}, {"authors": ["A. Sevastopolsky", "S. Drapak", "K. Kiselev", "B.M. Snyder", "A. Georgievskaya"], "title": "Stack-u-net: Refinement network for image segmentation on the example of optic disc and cup", "venue": "arXiv preprint arXiv:1804.11294", "year": 2018}, {"authors": ["M. Sharif", "S. Bhagavatula", "L. Bauer", "M.K. Reiter"], "title": "Accessorize to a crime: Real and stealthy attacks on state-ofthe-art face recognition", "venue": "Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security, pages 1528\u20131540. ACM", "year": 2016}, {"authors": ["K. Simonyan", "A. Zisserman"], "title": "Very deep convolutional networks for large-scale image recognition", "venue": "CoRR, abs/1409.1556", "year": 2014}, {"authors": ["C. Szegedy", "S. Ioffe", "V. Vanhoucke"], "title": "Inception-v4", "venue": "inception-resnet and the impact of residual connections on learning. CoRR, abs/1602.07261", "year": 2016}, {"authors": ["C. Szegedy", "W. Zaremba", "I. Sutskever", "J. Bruna", "D. Erhan", "I. Goodfellow", "R. Fergus"], "title": "Intriguing properties of neural networks", "venue": "arXiv preprint arXiv:1312.6199", "year": 2013}, {"authors": ["P. Vincent", "H. Larochelle", "Y. Bengio", "P.-A. Manzagol"], "title": "Extracting and composing robust features with denoising autoencoders", "venue": "Proceedings of the 25th international conference on Machine learning, pages 1096\u20131103. ACM", "year": 2008}], "sections": [{"text": "ICCV 2019 Workshop on Interpreting and Explaining Visual Artificial Intelligence Models"}, {"heading": "1. Introduction", "text": "In the computer vision field, deep neural networks(DNNs) achieve successful performance across various areas such as image classification, object detection, and semantic segmentation. But even though DNN is well trained, it can be easily degraded when noise is added to input data. Especially, DNN models trained by gradient-descent and back-propagation can be deteriorated by gradient-based noise attack, so called adversarial noise [2, 17, 25]. In such an adversarial attack to classifier case,\n\u2217Equal contribution, alphabetical order \u2020Corresponding author\nnoise is located near discriminant hyperplane of DNN models, which makes easy to deceive the classifier. Thus, it is accomplished by making noise in a vulnerable area of DNN [28, 14]. Briefly, adversarial noise is a practical method because it could perturb target DNN without involvement in the learning process, and it often happens that it is difficult to visually confirm the presence of noise.\nAs a defense method for the type of adversarial attack, it is very natural to consider gradient masking, which hides the gradient of DNNs. But, gradient-based noise could be easily generated by substituting a model to a target classifier called a black-box attack [18, 19]. Therefore, most differentiable DNN could be easily exposed to gradient-based attack.\nOne of basic defense method against adversarial noise is to remove adversarial perturbation before the classifier. Among many denoising methods, denoising AutoEncoder(DAE) [29] can be designed as a convolutional neural network (CNN) that can reduce the number of parameters and improve calculation efficiency while it maintains the performance [4]. For example, encoder-decoder structure and lateral skip-connection for residual learning based methods such as U-Net [22], FusionNet [20] and stacked UNet [24] were introduced. Though the schemes are designed for image segmentation, it could be trained as a denoiser using pixel distance based objective function.\nAs shown the table 1, the experiment addressed that the performance of classifiers was not significantly improved in spite of reduced noise by the denoiser(FusionNet). It means that the characteristics of adversarial noise affect classification performance. For a good understanding of this phenomenon, adversarial noise has to be observed, how it would be propagated while it passes through DNN.\nIn this study, we examined of propagation behavior from input to output using well-known classifiers, three gradientbased attack noise - fast gradient sign method(FGSM) [5], iterative fast gradient sign method(i-FGSM) [14] and momentum iterative fast gradient sign method(mi-FGSM) [3]. We analyzed why this kind of noise is difficult to defence using denoiser and DNN classifier.\n1\nar X\niv :1\n90 9.\n09 26\n3v 2\n[ cs\n.C V\n] 2\n3 Se\np 20\nadversarial mode Perturbation of Val. set(pix) Top-1 Val. Acc. (%) MSE(xvalori , x val adv) MSE(x val ori , DN(x val adv)) F(x val adv) F(DN(x val adv)) FGSM V1 0.166 0.268 80.24 80.31 FGSM V2 6.018 2.703 27.06 45.47 i-FGSM V1 1.071 0.689 59.37 66.77 i-FGSM V2 3.621 1.415 29.6 45.68 mi-FGSM 1.262 0.574 76.43 78.41"}, {"heading": "1.1. Contribution", "text": ""}, {"heading": "2. Preparations", "text": "For observing the propagation of adversarial perturbation through a classifier, we calculated some distance between feature maps of original data and perturbed one layer by layer. Before running into it, three essential components, 1)generation of adversarial examples, 2)trained classifiers by training the dataset, and 3)trained denoisers by perturbed datasets, are required."}, {"heading": "2.1. Generation of adversarial examples", "text": "On generation adversarial examples, we used three types of gradient-based attack and generated five adversarial datasets. datasets are generated by using TinyImageNet [1] and black&white-box attack [18, 19] in this paper.\n\u2022 Fast gradient sign method(FGSM) [5]: To generate adversarial example, the attacker accumulates perturbation to the direction of input-output gradient to the\n\u2022 Momentum iterative fast gradient sign method(miFGSM) [3]: In this method, a gradient is updated from the previous version with the momentum term, then it is accumulated to the image perturbed just before, as follows:\ng0 = 0, x0 = original image\ngk+1 \u2190\u2212 \u00b5 \u00b7 gk + \u2207xJ(\u03b8, xk, y) ||\u2207xJ(\u03b8, xk, y)||1\nxk+1 \u2190\u2212 xk + \u00b7 sign(gk+1)\n(3)\nIn the equation, xk is k times perturbed noise and \u00b5 is balancing coefficient to adjust the change of the gradient by using a previous one. It also iterates this procedure until the classifier misclassifies the input or it gets to \u2019s step limit.\nIn general, the attacker is a substitute model of the classifier. In the black box attack, attack for input is iteratively conducted until a classifier returns a wrong label. During the attack, as an input-output gradient, adversarial perturbation is calculated in the attacker, which is another classifier trained on the same task. Based on these methods, we generated five adversarial examples sets by using Foolbox library [21] which is a python toolbox of large collection about the adversarial attack. The configurations for generating adversarial examples are shown in Table 2."}, {"heading": "2.2. Preparation of classifiers trained by training", "text": "set\nTo observe the propagation of adversarial perturbation, 5 well-known CNNs with different capacity, i.e. VGG19 [26], ResNet V2-50 [9], Inception-ResNet V2 [27], DenseNet-201 [11] and SENet-154 [10], were trained with\nTinyImageNet training set. For generalization, we trained them nearly perfectly on the training set. Before training, parameters of all classifiers were initialized by pre-trained model on ImageNet [23] and input images were resized to 128\u00d7128 (original size is 64\u00d764) by bilinear interpolation. As an aside, we slightly modified their architecture (by adjustment stride size in the low level layers), as pretrained models were optimized to the image size (299\u00d7299) of ImageNet. Training examples were sequentially transformed with random crop (range 0.85\u223c1.0) and horizontal flip (prob. 0.5) for each epoch, and normalized by a range of (-1.0, 1.0). Each of them was trained with Adam optimizer [12] with an initial learning rate of 1.0e\u22125 and L2 regularization coefficient of 1.0e\u22125. The prepared classifiers and their capacity are shown in Table 3."}, {"heading": "2.3. Preparation of denoiser trained by adversarial", "text": "example sets\nAs a denoising architecture, the authors selected U-Net [22] and FusionNet [20] as a denoiser. The reason is that UNet methodology has proven to perform well in maintaining the robustness of models against adversarial attacks (in the NIPS2017 adversarial vision challenge [13]). So we have experimented with U-Net. Moreover, FusionNet which is an improved version of U-Net by skip-connections was used [20]. They were trained by a mean square error (MSE) objective between original images and adversarial examples. During training, each input batch consisted of all kinds of\nadversaries with ratio of FGSM v1 : FGSM v2 : i-FGSM v1 : i-FGSM v2 : mi-FGSM = 0.05 : 0.30 : 0.05 : 0.30 : 0.30. FGSM and i-FGSM v1 are slightly perturbed dataset while FGSM and i-FGSM v2 are more heavily perturbed dataset. To compute MSE, we set the denoisers to generate the same output size (64\u00d764) to the adversarial input. The FusionNet was trained for 300 epochs with Adam optimizer with an initial learning rate of 1.0e\u22125 and L2 regularization coefficient of 1.0e\u22125. The U-Net was trained using fine-tuning with Adam optimizer with an initial learning rate of 1.0e\u22127 and L2 regularization coefficient of 1.0e\u22126. Primary and reduced errors between the training set and corresponding adversaries measured by MSE for each denoiser are shown in Table 4."}, {"heading": "3. Experiments", "text": "We assume that the prepared classifiers are nearly generalized to the training set with their training accuracy. So, observing the propagation of perturbations for its corresponding adversarial sets is justified, since they can purely contribute to making the classifiers fool. In the remaining part\nof the paper, please note that we only use a training set and its corresponding adversarial sets.\nAs seen in Figure 1, to observe the propagation of adversarial perturbation, we should measure the difference between the feature maps extracted from the identical classifier, layer by layer. We can consider two feature maps; one is extracted by the original input (Baseline), and the other by the adversarial input (Configuration 1). The difference is measured by Euclidean and cosine distance (COS-D) between two feature vectors at the same layer, respectively. Euclidean value is normalized by the number of elements of the feature map, so we call it normalized Euclidean distance (NE-D). Additionally, as the classifiers show limited improvement even though passing through the denoising process (Table 5), we also need to observe the feature maps by denoised adversaries passed by denoiser (Configuration 2).\nPractically, it is time-consuming to observe all of feature maps to all the datasets, due to tremendously large size of them and computational cost. Thus, we appointed some representative feature maps to observe for each CNN and Table 6 shows them. Because recently proposed DNNs have too much feature maps to observe all of them. So we only evaluated the last layers of each block as a representative layer. It is a common approach to analyze feature maps, such as [15]. Additionally, as extracting feature maps for all of the image set was burdensome work in the aspect of computational time and resources, we randomly sampled 1,000 images from the original training set and took adversarial examples corresponding to them. Consequently, at one observed position in one CNN, we measured the average distance of 1,000 feature map pairs of the originals (Baseline) and adversaries (Configuration 1) or denoised adversaries (Configuration 2).\nIn this experiment, PyTorch 0.4.1 and Python 3.5.2 were used in the Ubuntu 16.04 LTS."}, {"heading": "4. Results and Discussion", "text": "Figure 2 and 3 show experimental results about averaged NE-D and COS-D between the feature maps of baseline and configuration settings for each classifier and adversarial set. In all classifier with/without denoiser, NE-D explosively increases in the fully connected (FC) layer while it tends to keep in small in the convolutional layers (i.e. all layers except for the last one). Generally, adversarial set which has relatively larger perturbation (FGSM v2 and i-FGSM v2) shows a bigger gap than others. Especially, VGG-19 shows an incredibly large jump in the gap after the last FC layer. On the other hand, Figure 3 shows dramatic directional identification at the end of each network by the FC layers, while the directional gap is gradually increased (ResNet V2-50, VGG-19, and SENet-154) or shows updown-up (Inception-ResNet V2 and DenseNet-201) in the\nconvolutional layers. Figure 3\u2019s result is consistent with [16], which confirmed that a feature vector of the middle layer shows the behavior of outlier.\nIn the aspect of the effect of denoisers, MSE was not perfectly eliminated by the denoisers (see Table 4), so that they gave not enough improvement in validation accuracy in spite of reduced adversarial noise (see Table 5). As seen the graph in Figure 2 and 3, NE-D is a little, but not enough, decreased compared to the case without the denoisers (Of course, in ResNet-V2 50, noise is reduced 20\u223c 30 % in the case of FGSM v2 and i-FGSM v2). COS-D also tends to be reduced during the convolutional layers, but it becomes identical eventually. Based on that observation, denoisers are somewhat effective in reducing COS-D in the middle layers. We should note that NE-D is much a little reduced at the last layers in SENet-154, Inception-ResNet V2 and DenseNet-201. This phenomenon seems that it relates to weaker improvement than the case of ResNet V2-50.\nOverall, observations for the experiment follow below,\n1. In convolutional layers, adversarial perturbation is not amplified with averaged NE-D, but with COS-D. However, in FC layers, it shows the opposite pattern. As an exceptional case, in ResNet V2-50, COS-D is not decreased when passing through the FC layer while it shows relatively lower NE-D than others.\n2. As seen in Table 5, accuracy is most improved when a denoiser is combined with ResNet V2-50. Seemingly, ResNet V2-50 has successful noise suppression capacity than other classifiers when seen NE-D. However, it poorly controls the direction of noise in the aspect of COS-D.\n3. Effect of denoiser is different depends on classifiers, but it is limited from the aspect of a logit vector. NED shows that the amount of change of ResNet V250 is larger than other classifiers, such as SENet-154, Inception-ResNet V2 and DenseNet-201. Denoiser also reduce COS-D in middle layers for all classifiers.\nWhen seen the results of the last FC layer, adversaries result in angular (ResNet V2-50) or longitudinal perturbations (the others). This means that the different discriminant hyperplane might be constructed according to the classifiers. Since the adversarial examples are generated to make the classifiers fool, it is reasonable for us to infer where the discriminant hyperplane is, based on moved feature vectors. When inferring from relative small NE-D and large COS-D, a radial discriminant plane might be reasonable in the case of ResNet V2-50, as seen in Figure 4(a). On the other hand, in the case of the other classifiers, a tangential one is strongly suspected, as seen in Figure 4(b). With this inference, it is convincible that effectiveness of\nthe denoisers is maximized in ResNet V2-50, since reduced COS-D (approx. 50% or more) and small NE-D are very effective to prevent misclassification. On the contrary, in the other cases which have a tangential plane, in spite of tiny COS-D, an improvement on performance cannot easily be achieved unless the denoiser reduces NE-D much a lot. Thus, ResNet V2-50 architecture is more efficient than other architectures to reduce NE-D in the experiment. However, because the adversarial perturbed image set is generated by ResNet only, additional experiments using various attacker have to be conducted for consistency.\nDue to surprisingly amplified NE-D in the last FC layer, it is natural to consider replacement of it to convolutional one. Because DNN is generally trained to be overconfident [6], it is guessable that final FC layer is trained to make it\u2019s distance large. So, we additionally conducted the same experiment with modified DenseNet-201(i.e. the last layer is modified from avg. pooling(kernel size=4, stride=1, no padding) + FC to Conv. layer (kernel size=4, stride=1, no padding), so the network has only Conv. layers). But, there is no big difference (but, tiny improvement) when comparing to the previous result (See Figure 5). It is somewhat guessable because it just changes a linear operation from on 1\u00d71 map to on 4\u00d74 that is similar setting in that it refers to whole map, not local. Consequently, the FC layer itself, at least, is not a direct factor of amplification of NE-D.\nIn fact, except for the last FC layer, all feature maps were observed after Relu activation which reduces NED via rectifying the output. At that point, we wondered whether getting lower NE-D is possible or not if Relu is added after the FC. With that setting, we experimented again with DenseNet-201. However, generalization could not be achieved with the training set. So, we changed Relu to PRelu(\u03b1 = 0.25) [8] instead.\nAs a result, NE-D of the model is decreased while COSD is increased on the opposite side (Figure 6). The plot of NE-D and COS-D for the model follows a similar pattern to that of ResNet V2-50, but it little affects the performance (Table 7). Consequently, a classifier which is trained to reduce NE-D causes large COS-D logit, and training only using NE-D could not affect the performance. Thus, the performance of denoiser for the model is less than that of ResNet V2-50."}, {"heading": "5. Conclusion", "text": "To defense adversarial attack, the use of denoiser is the most widely used solution. It reduces the amount of noise, but the improvement of classification accuracy is marginal. In this paper, we aimed to examine the propagation of adversarial perturbation by measuring Euclidean distance and cosine distance in each CNN layer between each feature map of the original image and perturbed image passed through denoiser. We observed that Euclidean distance explosively increases in final FC layer while cosine distance fluctuated and disappeared at the last layer in most cases except the ResNet V2-50 classifier. In the case of ResNet V2-50, COS-D explosively increased in final FC layer while NE-D disappeared at the last layer. The accuracy improvement of ResNet V2-50 is more than that of other networks. This means that the two types of distance could be utilized\nto examine how noise is propagated through the network. It would be interesting future work to analysis why the ResNet V2-50 is robust for an adversarial attack."}], "title": "Propagated Perturbation of Adversarial Attack for well-known CNNs: Empirical Study and its Explanation", "year": 2019}
+{
+  "abstractText": "Deep Neural Network based classifiers are known to be vulnerable to perturbations of inputs constructed by an adversarial attack to force misclassification. Most studies have focused on how to make vulnerable noise by gradient based attack methods or to defense model from adversarial attack. The use of the denoiser model is one of a wellknown solution to reduce the adversarial noise although classification performance had not significantly improved. In this study, we aim to analyze the propagation of adversarial attack as an explainable AI(XAI) point of view. Specifically, we examine the trend of adversarial perturbations through the CNN architectures. To analyze the propagated perturbation, we measured normalized Euclidean Distance and cosine distance in each CNN layer between the feature map of the perturbed image passed through denoiser and the non-perturbed original image. We used five well-known CNN based classifiers and three gradient-based adversarial attacks. From the experimental results, we observed that in most cases, Euclidean Distance explosively increases in the final fully connected layer while cosine distance fluctuated and disappeared at the last layer. This means that the use of denoiser can decrease the amount of noise. However, it failed to defense accuracy degradation.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Jihyeun Yoon"
+    },
+    {
+      "affiliations": [],
+      "name": "Kyungyul Kim"
+    },
+    {
+      "affiliations": [],
+      "name": "Jongseong Jang"
+    }
+  ],
+  "id": "SP:ce80dedb919b6eae8d025faf1befd72b83ea76fc",
+  "references": [
+    {
+      "authors": [
+        "M. Barreno",
+        "B. Nelson",
+        "A.D. Joseph",
+        "J.D. Tygar"
+      ],
+      "title": "The security of machine learning",
+      "venue": "Machine Learning, 81(2):121\u2013 148",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Y. Dong",
+        "F. Liao",
+        "T. Pang",
+        "H. Su",
+        "J. Zhu",
+        "X. Hu",
+        "J. Li"
+      ],
+      "title": "Boosting adversarial attacks with momentum",
+      "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 9185\u20139193",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "L. Gondara"
+      ],
+      "title": "Medical image denoising using convolutional denoising autoencoders",
+      "venue": "Data Mining Workshops (ICDMW), 2016 IEEE 16th International Conference on, pages 241\u2013246. IEEE",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "I.J. Goodfellow",
+        "J. Shlens",
+        "C. Szegedy"
+      ],
+      "title": "Explaining and harnessing adversarial examples",
+      "venue": "arXiv preprint arXiv:1412.6572",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "C. Guo",
+        "G. Pleiss",
+        "Y. Sun",
+        "K.Q. Weinberger"
+      ],
+      "title": "On calibration of modern neural networks",
+      "venue": "Proceedings of the 34th International Conference on Machine Learning-Volume 70, pages 1321\u20131330. JMLR. org",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "K. He",
+        "X. Zhang",
+        "S. Ren",
+        "J. Sun"
+      ],
+      "title": "Deep residual learning for image recognition",
+      "venue": "CoRR, abs/1512.03385",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "K. He",
+        "X. Zhang",
+        "S. Ren",
+        "J. Sun"
+      ],
+      "title": "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification",
+      "venue": "CoRR, abs/1502.01852",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "K. He",
+        "X. Zhang",
+        "S. Ren",
+        "J. Sun"
+      ],
+      "title": "Identity mappings in deep residual networks",
+      "venue": "CoRR, abs/1603.05027",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J. Hu",
+        "L. Shen",
+        "G. Sun"
+      ],
+      "title": "Squeeze-and-excitation networks",
+      "venue": "CoRR, abs/1709.01507",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "G. Huang",
+        "Z. Liu",
+        "K.Q. Weinberger"
+      ],
+      "title": "Densely connected convolutional networks",
+      "venue": "CoRR, abs/1608.06993",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "D.P. Kingma",
+        "J. Ba"
+      ],
+      "title": "Adam: A method for stochastic optimization",
+      "venue": "CoRR, abs/1412.6980",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "A. Kurakin"
+      ],
+      "title": "Adversarial attacks and defences competition",
+      "venue": "CoRR",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Kurakin",
+        "I. Goodfellow",
+        "S. Bengio"
+      ],
+      "title": "Adversarial examples in the physical world",
+      "venue": "arXiv preprint arXiv:1607.02533",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "K. Lee"
+      ],
+      "title": "A simple unified framework for detecting out-ofdistribution samples and adversarial attacks",
+      "venue": "NeurIPS",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "K. Lee",
+        "K. Lee",
+        "H. Lee",
+        "J. Shin"
+      ],
+      "title": "A simple unified framework for detecting out-of-distribution samples and adversarial attacks",
+      "venue": "Advances in Neural Information Processing Systems, pages 7167\u20137177",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Nguyen",
+        "J. Yosinski",
+        "J. Clune"
+      ],
+      "title": "Deep neural networks are easily fooled: High confidence predictions for unrecognizable images",
+      "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 427\u2013436",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "N. Papernot",
+        "P. McDaniel",
+        "I. Goodfellow"
+      ],
+      "title": "Transferability in machine learning: from phenomena to black-box attacks using adversarial samples",
+      "venue": "arXiv preprint arXiv:1605.07277",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "N. Papernot",
+        "P. McDaniel",
+        "I. Goodfellow",
+        "S. Jha",
+        "Z.B. Celik",
+        "A. Swami"
+      ],
+      "title": "Practical black-box attacks against machine learning",
+      "venue": "Proceedings of the 2017 ACM on Asia Conference on Computer and Communications Security, pages 506\u2013519. ACM",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "T.M. Quan",
+        "D.G. Hildebrand",
+        "W.-K. Jeong"
+      ],
+      "title": "Fusionnet: A deep fully residual convolutional neural network for image segmentation in connectomics",
+      "venue": "arXiv preprint arXiv:1612.05360",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J. Rauber",
+        "W. Brendel"
+      ],
+      "title": "and M",
+      "venue": "Bethge. Foolbox v0.8.0: A python toolbox to benchmark the robustness of machine learning models. CoRR, abs/1707.04131",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "O. Ronneberger",
+        "P. Fischer",
+        "T. Brox"
+      ],
+      "title": "U-net: Convolutional networks for biomedical image segmentation",
+      "venue": "International Conference on Medical image computing and computer-assisted intervention, pages 234\u2013241. Springer",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "O. Russakovsky",
+        "J. Deng",
+        "H. Su",
+        "J. Krause",
+        "S. Satheesh",
+        "S. Ma",
+        "Z. Huang",
+        "A. Karpathy",
+        "A. Khosla",
+        "M. Bernstein",
+        "A.C. Berg",
+        "L. Fei-Fei"
+      ],
+      "title": "ImageNet Large Scale Visual Recognition Challenge",
+      "venue": "International Journal of Computer Vision (IJCV), 115(3):211\u2013252",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "A. Sevastopolsky",
+        "S. Drapak",
+        "K. Kiselev",
+        "B.M. Snyder",
+        "A. Georgievskaya"
+      ],
+      "title": "Stack-u-net: Refinement network for image segmentation on the example of optic disc and cup",
+      "venue": "arXiv preprint arXiv:1804.11294",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Sharif",
+        "S. Bhagavatula",
+        "L. Bauer",
+        "M.K. Reiter"
+      ],
+      "title": "Accessorize to a crime: Real and stealthy attacks on state-ofthe-art face recognition",
+      "venue": "Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security, pages 1528\u20131540. ACM",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "K. Simonyan",
+        "A. Zisserman"
+      ],
+      "title": "Very deep convolutional networks for large-scale image recognition",
+      "venue": "CoRR, abs/1409.1556",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "C. Szegedy",
+        "S. Ioffe",
+        "V. Vanhoucke"
+      ],
+      "title": "Inception-v4",
+      "venue": "inception-resnet and the impact of residual connections on learning. CoRR, abs/1602.07261",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "C. Szegedy",
+        "W. Zaremba",
+        "I. Sutskever",
+        "J. Bruna",
+        "D. Erhan",
+        "I. Goodfellow",
+        "R. Fergus"
+      ],
+      "title": "Intriguing properties of neural networks",
+      "venue": "arXiv preprint arXiv:1312.6199",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "P. Vincent",
+        "H. Larochelle",
+        "Y. Bengio",
+        "P.-A. Manzagol"
+      ],
+      "title": "Extracting and composing robust features with denoising autoencoders",
+      "venue": "Proceedings of the 25th international conference on Machine learning, pages 1096\u20131103. ACM",
+      "year": 2008
+    }
+  ],
+  "sections": [
+    {
+      "text": "ICCV 2019 Workshop on Interpreting and Explaining Visual Artificial Intelligence Models"
+    },
+    {
+      "heading": "1. Introduction",
+      "text": "In the computer vision field, deep neural networks(DNNs) achieve successful performance across various areas such as image classification, object detection, and semantic segmentation. But even though DNN is well trained, it can be easily degraded when noise is added to input data. Especially, DNN models trained by gradient-descent and back-propagation can be deteriorated by gradient-based noise attack, so called adversarial noise [2, 17, 25]. In such an adversarial attack to classifier case,\n\u2217Equal contribution, alphabetical order \u2020Corresponding author\nnoise is located near discriminant hyperplane of DNN models, which makes easy to deceive the classifier. Thus, it is accomplished by making noise in a vulnerable area of DNN [28, 14]. Briefly, adversarial noise is a practical method because it could perturb target DNN without involvement in the learning process, and it often happens that it is difficult to visually confirm the presence of noise.\nAs a defense method for the type of adversarial attack, it is very natural to consider gradient masking, which hides the gradient of DNNs. But, gradient-based noise could be easily generated by substituting a model to a target classifier called a black-box attack [18, 19]. Therefore, most differentiable DNN could be easily exposed to gradient-based attack.\nOne of basic defense method against adversarial noise is to remove adversarial perturbation before the classifier. Among many denoising methods, denoising AutoEncoder(DAE) [29] can be designed as a convolutional neural network (CNN) that can reduce the number of parameters and improve calculation efficiency while it maintains the performance [4]. For example, encoder-decoder structure and lateral skip-connection for residual learning based methods such as U-Net [22], FusionNet [20] and stacked UNet [24] were introduced. Though the schemes are designed for image segmentation, it could be trained as a denoiser using pixel distance based objective function.\nAs shown the table 1, the experiment addressed that the performance of classifiers was not significantly improved in spite of reduced noise by the denoiser(FusionNet). It means that the characteristics of adversarial noise affect classification performance. For a good understanding of this phenomenon, adversarial noise has to be observed, how it would be propagated while it passes through DNN.\nIn this study, we examined of propagation behavior from input to output using well-known classifiers, three gradientbased attack noise - fast gradient sign method(FGSM) [5], iterative fast gradient sign method(i-FGSM) [14] and momentum iterative fast gradient sign method(mi-FGSM) [3]. We analyzed why this kind of noise is difficult to defence using denoiser and DNN classifier.\n1\nar X\niv :1\n90 9.\n09 26\n3v 2\n[ cs\n.C V\n] 2\n3 Se\np 20\nadversarial mode Perturbation of Val. set(pix) Top-1 Val. Acc. (%) MSE(xvalori , x val adv) MSE(x val ori , DN(x val adv)) F(x val adv) F(DN(x val adv)) FGSM V1 0.166 0.268 80.24 80.31 FGSM V2 6.018 2.703 27.06 45.47 i-FGSM V1 1.071 0.689 59.37 66.77 i-FGSM V2 3.621 1.415 29.6 45.68 mi-FGSM 1.262 0.574 76.43 78.41"
+    },
+    {
+      "heading": "1.1. Contribution",
+      "text": ""
+    },
+    {
+      "heading": "2. Preparations",
+      "text": "For observing the propagation of adversarial perturbation through a classifier, we calculated some distance between feature maps of original data and perturbed one layer by layer. Before running into it, three essential components, 1)generation of adversarial examples, 2)trained classifiers by training the dataset, and 3)trained denoisers by perturbed datasets, are required."
+    },
+    {
+      "heading": "2.1. Generation of adversarial examples",
+      "text": "On generation adversarial examples, we used three types of gradient-based attack and generated five adversarial datasets. datasets are generated by using TinyImageNet [1] and black&white-box attack [18, 19] in this paper.\n\u2022 Fast gradient sign method(FGSM) [5]: To generate adversarial example, the attacker accumulates perturbation to the direction of input-output gradient to the\n\u2022 Momentum iterative fast gradient sign method(miFGSM) [3]: In this method, a gradient is updated from the previous version with the momentum term, then it is accumulated to the image perturbed just before, as follows:\ng0 = 0, x0 = original image\ngk+1 \u2190\u2212 \u00b5 \u00b7 gk + \u2207xJ(\u03b8, xk, y) ||\u2207xJ(\u03b8, xk, y)||1\nxk+1 \u2190\u2212 xk + \u00b7 sign(gk+1)\n(3)\nIn the equation, xk is k times perturbed noise and \u00b5 is balancing coefficient to adjust the change of the gradient by using a previous one. It also iterates this procedure until the classifier misclassifies the input or it gets to \u2019s step limit.\nIn general, the attacker is a substitute model of the classifier. In the black box attack, attack for input is iteratively conducted until a classifier returns a wrong label. During the attack, as an input-output gradient, adversarial perturbation is calculated in the attacker, which is another classifier trained on the same task. Based on these methods, we generated five adversarial examples sets by using Foolbox library [21] which is a python toolbox of large collection about the adversarial attack. The configurations for generating adversarial examples are shown in Table 2."
+    },
+    {
+      "heading": "2.2. Preparation of classifiers trained by training",
+      "text": "set\nTo observe the propagation of adversarial perturbation, 5 well-known CNNs with different capacity, i.e. VGG19 [26], ResNet V2-50 [9], Inception-ResNet V2 [27], DenseNet-201 [11] and SENet-154 [10], were trained with\nTinyImageNet training set. For generalization, we trained them nearly perfectly on the training set. Before training, parameters of all classifiers were initialized by pre-trained model on ImageNet [23] and input images were resized to 128\u00d7128 (original size is 64\u00d764) by bilinear interpolation. As an aside, we slightly modified their architecture (by adjustment stride size in the low level layers), as pretrained models were optimized to the image size (299\u00d7299) of ImageNet. Training examples were sequentially transformed with random crop (range 0.85\u223c1.0) and horizontal flip (prob. 0.5) for each epoch, and normalized by a range of (-1.0, 1.0). Each of them was trained with Adam optimizer [12] with an initial learning rate of 1.0e\u22125 and L2 regularization coefficient of 1.0e\u22125. The prepared classifiers and their capacity are shown in Table 3."
+    },
+    {
+      "heading": "2.3. Preparation of denoiser trained by adversarial",
+      "text": "example sets\nAs a denoising architecture, the authors selected U-Net [22] and FusionNet [20] as a denoiser. The reason is that UNet methodology has proven to perform well in maintaining the robustness of models against adversarial attacks (in the NIPS2017 adversarial vision challenge [13]). So we have experimented with U-Net. Moreover, FusionNet which is an improved version of U-Net by skip-connections was used [20]. They were trained by a mean square error (MSE) objective between original images and adversarial examples. During training, each input batch consisted of all kinds of\nadversaries with ratio of FGSM v1 : FGSM v2 : i-FGSM v1 : i-FGSM v2 : mi-FGSM = 0.05 : 0.30 : 0.05 : 0.30 : 0.30. FGSM and i-FGSM v1 are slightly perturbed dataset while FGSM and i-FGSM v2 are more heavily perturbed dataset. To compute MSE, we set the denoisers to generate the same output size (64\u00d764) to the adversarial input. The FusionNet was trained for 300 epochs with Adam optimizer with an initial learning rate of 1.0e\u22125 and L2 regularization coefficient of 1.0e\u22125. The U-Net was trained using fine-tuning with Adam optimizer with an initial learning rate of 1.0e\u22127 and L2 regularization coefficient of 1.0e\u22126. Primary and reduced errors between the training set and corresponding adversaries measured by MSE for each denoiser are shown in Table 4."
+    },
+    {
+      "heading": "3. Experiments",
+      "text": "We assume that the prepared classifiers are nearly generalized to the training set with their training accuracy. So, observing the propagation of perturbations for its corresponding adversarial sets is justified, since they can purely contribute to making the classifiers fool. In the remaining part\nof the paper, please note that we only use a training set and its corresponding adversarial sets.\nAs seen in Figure 1, to observe the propagation of adversarial perturbation, we should measure the difference between the feature maps extracted from the identical classifier, layer by layer. We can consider two feature maps; one is extracted by the original input (Baseline), and the other by the adversarial input (Configuration 1). The difference is measured by Euclidean and cosine distance (COS-D) between two feature vectors at the same layer, respectively. Euclidean value is normalized by the number of elements of the feature map, so we call it normalized Euclidean distance (NE-D). Additionally, as the classifiers show limited improvement even though passing through the denoising process (Table 5), we also need to observe the feature maps by denoised adversaries passed by denoiser (Configuration 2).\nPractically, it is time-consuming to observe all of feature maps to all the datasets, due to tremendously large size of them and computational cost. Thus, we appointed some representative feature maps to observe for each CNN and Table 6 shows them. Because recently proposed DNNs have too much feature maps to observe all of them. So we only evaluated the last layers of each block as a representative layer. It is a common approach to analyze feature maps, such as [15]. Additionally, as extracting feature maps for all of the image set was burdensome work in the aspect of computational time and resources, we randomly sampled 1,000 images from the original training set and took adversarial examples corresponding to them. Consequently, at one observed position in one CNN, we measured the average distance of 1,000 feature map pairs of the originals (Baseline) and adversaries (Configuration 1) or denoised adversaries (Configuration 2).\nIn this experiment, PyTorch 0.4.1 and Python 3.5.2 were used in the Ubuntu 16.04 LTS."
+    },
+    {
+      "heading": "4. Results and Discussion",
+      "text": "Figure 2 and 3 show experimental results about averaged NE-D and COS-D between the feature maps of baseline and configuration settings for each classifier and adversarial set. In all classifier with/without denoiser, NE-D explosively increases in the fully connected (FC) layer while it tends to keep in small in the convolutional layers (i.e. all layers except for the last one). Generally, adversarial set which has relatively larger perturbation (FGSM v2 and i-FGSM v2) shows a bigger gap than others. Especially, VGG-19 shows an incredibly large jump in the gap after the last FC layer. On the other hand, Figure 3 shows dramatic directional identification at the end of each network by the FC layers, while the directional gap is gradually increased (ResNet V2-50, VGG-19, and SENet-154) or shows updown-up (Inception-ResNet V2 and DenseNet-201) in the\nconvolutional layers. Figure 3\u2019s result is consistent with [16], which confirmed that a feature vector of the middle layer shows the behavior of outlier.\nIn the aspect of the effect of denoisers, MSE was not perfectly eliminated by the denoisers (see Table 4), so that they gave not enough improvement in validation accuracy in spite of reduced adversarial noise (see Table 5). As seen the graph in Figure 2 and 3, NE-D is a little, but not enough, decreased compared to the case without the denoisers (Of course, in ResNet-V2 50, noise is reduced 20\u223c 30 % in the case of FGSM v2 and i-FGSM v2). COS-D also tends to be reduced during the convolutional layers, but it becomes identical eventually. Based on that observation, denoisers are somewhat effective in reducing COS-D in the middle layers. We should note that NE-D is much a little reduced at the last layers in SENet-154, Inception-ResNet V2 and DenseNet-201. This phenomenon seems that it relates to weaker improvement than the case of ResNet V2-50.\nOverall, observations for the experiment follow below,\n1. In convolutional layers, adversarial perturbation is not amplified with averaged NE-D, but with COS-D. However, in FC layers, it shows the opposite pattern. As an exceptional case, in ResNet V2-50, COS-D is not decreased when passing through the FC layer while it shows relatively lower NE-D than others.\n2. As seen in Table 5, accuracy is most improved when a denoiser is combined with ResNet V2-50. Seemingly, ResNet V2-50 has successful noise suppression capacity than other classifiers when seen NE-D. However, it poorly controls the direction of noise in the aspect of COS-D.\n3. Effect of denoiser is different depends on classifiers, but it is limited from the aspect of a logit vector. NED shows that the amount of change of ResNet V250 is larger than other classifiers, such as SENet-154, Inception-ResNet V2 and DenseNet-201. Denoiser also reduce COS-D in middle layers for all classifiers.\nWhen seen the results of the last FC layer, adversaries result in angular (ResNet V2-50) or longitudinal perturbations (the others). This means that the different discriminant hyperplane might be constructed according to the classifiers. Since the adversarial examples are generated to make the classifiers fool, it is reasonable for us to infer where the discriminant hyperplane is, based on moved feature vectors. When inferring from relative small NE-D and large COS-D, a radial discriminant plane might be reasonable in the case of ResNet V2-50, as seen in Figure 4(a). On the other hand, in the case of the other classifiers, a tangential one is strongly suspected, as seen in Figure 4(b). With this inference, it is convincible that effectiveness of\nthe denoisers is maximized in ResNet V2-50, since reduced COS-D (approx. 50% or more) and small NE-D are very effective to prevent misclassification. On the contrary, in the other cases which have a tangential plane, in spite of tiny COS-D, an improvement on performance cannot easily be achieved unless the denoiser reduces NE-D much a lot. Thus, ResNet V2-50 architecture is more efficient than other architectures to reduce NE-D in the experiment. However, because the adversarial perturbed image set is generated by ResNet only, additional experiments using various attacker have to be conducted for consistency.\nDue to surprisingly amplified NE-D in the last FC layer, it is natural to consider replacement of it to convolutional one. Because DNN is generally trained to be overconfident [6], it is guessable that final FC layer is trained to make it\u2019s distance large. So, we additionally conducted the same experiment with modified DenseNet-201(i.e. the last layer is modified from avg. pooling(kernel size=4, stride=1, no padding) + FC to Conv. layer (kernel size=4, stride=1, no padding), so the network has only Conv. layers). But, there is no big difference (but, tiny improvement) when comparing to the previous result (See Figure 5). It is somewhat guessable because it just changes a linear operation from on 1\u00d71 map to on 4\u00d74 that is similar setting in that it refers to whole map, not local. Consequently, the FC layer itself, at least, is not a direct factor of amplification of NE-D.\nIn fact, except for the last FC layer, all feature maps were observed after Relu activation which reduces NED via rectifying the output. At that point, we wondered whether getting lower NE-D is possible or not if Relu is added after the FC. With that setting, we experimented again with DenseNet-201. However, generalization could not be achieved with the training set. So, we changed Relu to PRelu(\u03b1 = 0.25) [8] instead.\nAs a result, NE-D of the model is decreased while COSD is increased on the opposite side (Figure 6). The plot of NE-D and COS-D for the model follows a similar pattern to that of ResNet V2-50, but it little affects the performance (Table 7). Consequently, a classifier which is trained to reduce NE-D causes large COS-D logit, and training only using NE-D could not affect the performance. Thus, the performance of denoiser for the model is less than that of ResNet V2-50."
+    },
+    {
+      "heading": "5. Conclusion",
+      "text": "To defense adversarial attack, the use of denoiser is the most widely used solution. It reduces the amount of noise, but the improvement of classification accuracy is marginal. In this paper, we aimed to examine the propagation of adversarial perturbation by measuring Euclidean distance and cosine distance in each CNN layer between each feature map of the original image and perturbed image passed through denoiser. We observed that Euclidean distance explosively increases in final FC layer while cosine distance fluctuated and disappeared at the last layer in most cases except the ResNet V2-50 classifier. In the case of ResNet V2-50, COS-D explosively increased in final FC layer while NE-D disappeared at the last layer. The accuracy improvement of ResNet V2-50 is more than that of other networks. This means that the two types of distance could be utilized\nto examine how noise is propagated through the network. It would be interesting future work to analysis why the ResNet V2-50 is robust for an adversarial attack."
+    }
+  ],
+  "title": "Propagated Perturbation of Adversarial Attack for well-known CNNs: Empirical Study and its Explanation",
+  "year": 2019
+}

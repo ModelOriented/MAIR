@@ -1,1 +1,510 @@
-{"abstractText": "We study the XAI (explainable AI) on the face recognition task, particularly the face verification here. Face verification is a crucial task in recent days and it has been deployed to plenty of applications, such as access control, surveillance, and automatic personal log-on for mobile devices. With the increasing amount of data, deep convolutional neural networks can achieve very high accuracy for the face verification task. Beyond exceptional performances, deep face verification models need more interpretability so that we can trust the results they generate. In this paper, we propose a novel similarity metric, called explainable cosine (xCos), that comes with a learnable module that can be plugged into most of the verification models to provide meaningful explanations. With the help of xCos, we can see which parts of the 2 input faces are similar, where the model pays its attention to, and how the local similarities are weighted to form the output xCos score. We demonstrate the effectiveness of our proposed method on LFW and various competitive benchmarks, resulting in not only providing novel and desiring model interpretability for face verification but also ensuring the accuracy as plugging into existing face recognition models.", "authors": [{"affiliations": [], "name": "Yu-Sheng Lin"}, {"affiliations": [], "name": "Zhe-Yu Liu"}, {"affiliations": [], "name": "Yu-An Chen"}, {"affiliations": [], "name": "Yu-Siang Wang"}, {"affiliations": [], "name": "Hsin-Ying Lee"}, {"affiliations": [], "name": "Yi-Rong Chen"}, {"affiliations": [], "name": "Ya-Liang Chang"}, {"affiliations": [], "name": "Winston H. Hsu"}], "id": "SP:e7d804c55138f1a9f70eabb0cd501177e8ba9a81", "references": [{"authors": ["W. Brendel", "M. Bethge"], "title": "Approximating cnns with bag-of-local-features models works surprisingly well on imagenet", "venue": "International Conference on Learning Representations", "year": 2019}, {"authors": ["Q. Cao", "L. Shen", "W. Xie", "O.M. Parkhi", "A. Zisserman"], "title": "Vggface2: A dataset for recognising faces across pose and age", "venue": "2018 13th IEEE International Conference on Automatic Face & Gesture Recognition (FG 2018). pp. 67\u201374. IEEE", "year": 2018}, {"authors": ["G. Casta\u00f1\u00f3n", "J. Byrne"], "title": "Visualizing and quantifying discriminative features for face recognition", "venue": "2018 13th IEEE International Conference on Automatic Face \u2014& Gesture Recognition (FG 2018) pp. 16\u201323", "year": 2018}, {"authors": ["Y.L. Chang", "Z.Y. Liu", "K.Y. Lee", "W. Hsu"], "title": "Free-form video inpainting with 3d gated convolution and temporal patchgan", "venue": "In Proceedings of the International Conference on Computer Vision (ICCV)", "year": 2019}, {"authors": ["A. Chattopadhay", "A. Sarkar", "P. Howlader", "V.N. Balasubramanian"], "title": "Gradcam++: Generalized gradient-based visual explanations for deep convolutional networks", "venue": "2018 IEEE Winter Conference on Applications of Computer Vision (WACV). pp. 839\u2013847", "year": 2018}, {"authors": ["J. Deng", "J. Guo", "X. Niannan", "S. Zafeiriou"], "title": "Arcface: Additive angular margin loss for deep face recognition", "venue": "CVPR", "year": 2019}, {"authors": ["J. Deng", "Y. Zhou", "S.P. Zafeiriou"], "title": "Marginal loss for deep face recognition", "venue": "2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW) pp. 2006\u20132014", "year": 2017}, {"authors": ["D. Gunning"], "title": "Explainable artificial intelligence (xai)", "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web 2", "year": 2017}, {"authors": ["Y. Guo", "L. Zhang", "Y. Hu", "X. He", "J. Gao"], "title": "Ms-celeb-1m: A dataset and benchmark for large-scale face recognition", "venue": "ECCV", "year": 2016}, {"authors": ["C. Han", "S. Shan", "M. Kan", "S. Wu", "X. Chen"], "title": "Face recognition with contrastive convolution", "venue": "Computer Vision - ECCV 2018 - 15th European Conference, Munich, Germany, September 8-14, 2018, Proceedings, Part IX. pp. 120\u2013135", "year": 2018}, {"authors": ["K. He", "X. Zhang", "S. Ren", "J. Sun"], "title": "Deep residual learning for image recognition", "venue": "2016 IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2016, Las Vegas, NV, USA, June 27-30, 2016. pp. 770\u2013778", "year": 2016}, {"authors": ["M. Hind", "D. Wei", "M. Campbell", "N.C.F. Codella", "A. Dhurandhar", "A. Mojsilovi\u0107", "K. Natesan Ramamurthy", "K.R. Varshney"], "title": "Ted: Teaching ai to explain its decisions", "venue": "Proceedings of the 2019 AAAI/ACM Conference on AI, Ethics, and Society. pp. 123\u2013129. AIES \u201919, ACM, New York, NY, USA", "year": 2019}, {"authors": ["G. Hinton", "O. Vinyals", "J. Dean"], "title": "Distilling the knowledge in a neural network. In: NIPS Deep Learning and Representation Learning Workshop", "year": 2015}, {"authors": ["G.B. Huang", "M. Ramesh", "T. Berg", "E. Learned-Miller"], "title": "Labeled faces in the wild: A database for studying face recognition in unconstrained environments", "venue": "Tech. Rep. 07-49, University of Massachusetts, Amherst", "year": 2007}, {"authors": ["R. Huang", "S. Zhang", "T. Li", "R. He"], "title": "Beyond face rotation: Global and local perception gan for photorealistic and identity preserving frontal view synthesis", "venue": "The IEEE International Conference on Computer Vision (ICCV)", "year": 2017}, {"authors": ["M. Kan", "S. Shan", "H. Chang", "X. Chen"], "title": "Stacked progressive auto-encoders (spae) for face recognition across poses", "venue": "2014 IEEE Conference on Computer Vision and Pattern Recognition pp. 1883\u20131890", "year": 2014}, {"authors": ["W. Liu", "Y. Wen", "Z. Yu", "M. Li", "B. Raj", "L. Song"], "title": "Sphereface: Deep hypersphere embedding for face recognition", "venue": "The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)", "year": 2017}, {"authors": ["X. Liu", "X. Wang", "S. Matwin"], "title": "Improving the interpretability of deep neural networks with knowledge distillation", "venue": "2018 IEEE International Conference on Data Mining Workshops (ICDMW) pp. 905\u2013912", "year": 2018}, {"authors": ["C. Lu", "X. Tang"], "title": "Surpassing human-level face verification performance on lfw with gaussian face", "venue": "Proceedings of the Twenty-Ninth AAAI Conference on Artificial Intelligence. pp. 3811\u20133819", "year": 2015}, {"authors": ["A.M. Martinez", "R. Benavente"], "title": "The ar face database", "venue": "Tech. Rep. 24 CVC Technical Report", "year": 1998}, {"authors": ["S. Moschoglou", "A. Papaioannou", "C. Sagonas", "J. Deng", "I. Kotsia", "S. Zafeiriou"], "title": "Agedb: The first manually collected, in-the-wild age database", "venue": "2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW). pp. 1997\u20132005", "year": 2017}, {"authors": ["O.M. Parkhi", "A. Vedaldi", "A. Zisserman"], "title": "Deep face recognition", "venue": "BMVC", "year": 2015}, {"authors": ["S. Ren", "K. He", "R.B. Girshick", "J. Sun"], "title": "Faster R-CNN: towards real-time object detection with region proposal networks", "venue": "IEEE Trans. Pattern Anal. Mach. Intell. 39(6), 1137\u20131149", "year": 2017}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "why should i trust you?\u201d: Explaining the predictions of any classifier", "venue": "Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. pp. 1135\u20131144. KDD \u201916, ACM, New York, NY, USA", "year": 2016}, {"authors": ["R.R. Selvaraju", "M. Cogswell", "A. Das", "R. Vedantam", "D. Parikh", "D. Batra"], "title": "Gradcam: Visual explanations from deep networks via gradient-based localization", "venue": "2017 IEEE International Conference on Computer Vision (ICCV). pp. 618\u2013626", "year": 2017}, {"authors": ["S. Sengupta", "J. Chen", "C. Castillo", "V.M. Patel", "R. Chellappa", "D.W. Jacobs"], "title": "Frontal to profile face verification in the wild", "venue": "2016 IEEE Winter Conference on Applications of Computer Vision (WACV). pp. 1\u20139", "year": 2016}, {"authors": ["E. Shelhamer", "J. Long", "T. Darrell"], "title": "Fully convolutional networks for semantic segmentation", "venue": "IEEE Trans. Pattern Anal. Mach. Intell. 39(4), 640\u2013 651", "year": 2017}, {"authors": ["Y. Sun", "Y. Chen", "X. Wang", "X. Tang"], "title": "Deep learning face representation by joint identification-verification", "venue": "Advances in Neural Information Processing Systems 27: Annual Conference on Neural Information Processing Systems", "year": 2014}, {"authors": ["H.J. Wang", "Y. Wang", "Z. Zhou", "X. Ji", "D. Gong", "J. Zhou", "Z. Li", "W. Liu"], "title": "Cosface: Large margin cosine loss for deep face recognition", "venue": "2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition pp. 5265\u20135274", "year": 2018}, {"authors": ["Y. Wen", "K. Zhang", "Z. Li", "Y. Qiao"], "title": "A discriminative feature learning approach for deep face recognition", "venue": "ECCV", "year": 2016}, {"authors": ["L. Wolf", "T. Hassner", "I. Maoz"], "title": "Face recognition in unconstrained videos with matched background similarity", "venue": "CVPR 2011 pp. 529\u2013534", "year": 2011}, {"authors": ["D. Yi", "Z. Lei", "S. Liao", "S.Z. Li"], "title": "Learning face representation from scratch", "venue": "ArXiv abs/1411.7923", "year": 2014}, {"authors": ["B. Yin*", "L. Tran*", "H. Li", "X. Shen", "X. Liu"], "title": "Towards interpretable face recognition", "venue": "In Proceeding of International Conference on Computer Vision. Seoul, South Korea", "year": 2019}, {"authors": ["K. Zhang", "Z. Zhang", "Z. Li", "Y. Qiao"], "title": "Joint face detection and alignment using multitask cascaded convolutional networks", "venue": "IEEE Signal Processing Letters 23(10), 1499\u20131503", "year": 2016}, {"authors": ["T. Zheng", "W. Deng", "J. Hu"], "title": "Cross-age LFW: A database for studying cross-age face recognition in unconstrained environments", "year": 2017}, {"authors": ["B. Zhou", "A. Khosla", "A. Lapedriza", "A. Oliva", "A. Torralba"], "title": "Learning Deep Features for Discriminative Localization", "venue": "arXiv e-prints arXiv:1512.04150", "year": 2015}, {"authors": ["Z. Zhu", "P. Luo", "X. Wang", "X. Tang"], "title": "Deep learning identity-preserving face space", "venue": "pp. 113\u2013120", "year": 2013}], "sections": [{"text": "Keywords: explainable AI, XAI, interpretable AI, face verification"}, {"heading": "1 Introduction", "text": "Recent years have witnessed rapid development in the area of deep learning and it has been applied to many computer vision tasks, such as image classification [2,13], object detection [25], semantic segmentation [29], and face verification [30], etc. In spite of the astonishing success of convolutional neural networks (CNNs), computer vision communities still lack an effective method to understand the working mechanism of deep learning models due to their inborn non-linear structures and complicated decision-making process (so-called \u201cblack box\u201d). Moreover, when it comes to security applications (e.g., face verification for mobile screen lock), the false positive results for unknown reasons by deep learning models could lead to serious security and privacy issues. The aforementioned problems will make users insecure about deep learning based systems and also make developers hard to improve them. Therefore, it is crucial to increase transparency during the decision-making process for deep learning models. ar X\niv :2\n00 3.\n05 38\n3v 2\n[ cs\n.C V\n] 2\n3 Ju\nl 2 02\nA rising field to address this issue is called explainable AI (XAI) [10], which attempts to empower the researcher to understand the decision-making process of neural nets via explainable features or decision processes. With the support of explainable AI, we can understand and trust the neural networks\u2019 prediction more. In this work, we focus on building a more explainable face verification framework with our proposed novel xCos module. With xCos, we can exactly know how the model determines the similarity score via examining the local similarity map and the attention map.\nWe begin our work with a pivotal question: How to produce more explainable results? To answer this question, we first investigate the pipeline of current face verification models and then introduce the intuition of the human being\u2019s decision-making process for face verification. Next, we formulate our definition of interpretability and design the explainable framework that meets our needs.\nState-of-the-art face verification models [8,19] extract deep features of a pair of face images and compute the cosine similarity or the L2-distance of the paired features. Two images are said to be from the same person if the similarity is larger than a threshold value. However, with this standard procedure, we can hardly interpret these high dimensional features with our knowledge. Although\nthere are some previous works attempting to visualize the results [27,7,5] on the input images with saliency map, these saliency map based visualizations are mostly used for the localization of objects in a single image rather the similarity of two faces. Therefore, our framework provides a new verification branch to calculate similarity maps and discriminative location maps based on the features extracted from two faces. (cf. Figure 4) This way, we can strike a balance between verification accuracy and visual interpretability.\nWe observe that humans usually decide whether the two face images are from the same identity by comparing their face characteristics. For instance, if two face images are from the same person, then the same parts of the 2 face images should be similar, including the eyes, the nose, etc. Based on this insight, we come up with a novel face verification framework, xCos, which behaves closely to our observation.\nIllustrated by the observation above, we define the interpretability in the face verification that the output similarity metric aims to provide not only the local similarity information but also the spatial attention of the model. Based on our definition of interpretability, we propose a similarity metric, xCos, that can be analyzed in an explainable way. As shown in Fig. 1, we can insert our novel xCos module into any deep face verification networks and get 2 spatialinterpretable maps. Here we plug the proposed xCos module into ArcFace [8] and CosFace [31].The first map displays the cosine similarity of each grid feature pair, and the second one shows what the model pays attention to. With the two visualized maps, we can directly understand which grid feature pair is more similar and important for the decision-making process.\nThe main contributions of this work are as follows:\n\u2013 We address the interpretability issue in the face verification task from the perspective of local similarity and model attention, and propose a novel explainable metric, xCos (explainable cosine). \u2013 We introduce the using of the convolution feature as the face representation, which preserves location information while remaining good verification performances. \u2013 The proposed xCos module can be plugged into various face verification models, such as ArcFace and CosFace (cf. Table 1)."}, {"heading": "2 Related Work", "text": ""}, {"heading": "2.1 Face Verification", "text": "Face verification task has come a long way these years. GaussianFace [21] first proposed Discriminative Gaussian Process Latent Variable Model that surpasses human-level face verification accuracy. Due to the emerging of deep learning, DeepFace [24], SphereFace [19], CosFace [31], and ArcFace[8] achieve great performances on face verification task with different loss function designs and deeper backbone architectures. Recently, [12] optimizes the face verification model on contrastive face characteristics. However, this work still does not meet our needs for explainability."}, {"heading": "2.2 Explainable AI", "text": "With the rising demand for explainable AI, there have been plenty of works related to this topic in recent years. Visualizations of convolution neural networks using saliency maps are the main techniques used in [38,27,7]. However, as we have mentioned, saliency map based visualization is more suitable for the localization of objects. Knowledge Distillation [15] is another path to interpretable machine learning because we can transfer the learned knowledge from the teacher model to the student model. [20] realizes this idea by means of distilling Deep Neural Networks into decision trees. In our work, the current face verification model functions as the teacher model to supervise the xCos module with the cosine similarity values it produces.\nAs for BagNet [3], the authors combine the bag-of-local-feature concept with convolution neural network models and perform well on the ImageNet by classifying images based on the occurrences of patched local features without considering their spatial ordering. To some extent, the authors provide a straightforward way to quantitatively analyze how exactly each patch of the image impacts on the classification results, with the constraint on local representations.\nIn [14], the authors mentioned that there are many challenges to provide AI explanations, such as the lack of one satisfying formal definition for effective human-to-human explanations. However, [26] outlines four desirable characteristics for explanation methods, including interpretable, local fidelity, modelagnostic, and global perspective, and our work manages to satisfy these criteria by constructing interpretable maps with local information in the field of face verification.\nThe most related work is [35]. In this work, the authors applied the spatial activation diversity loss and the feature activation diversity loss to learn more structured face representations and force the interpretable representations to be discriminative. Their definition of interpretability of the face representation is that each dimension of the representation can represent a face structure or a face part. Nevertheless, their method mainly focuses on how to visualize the individual identification result given a single image, while it cannot quantitatively tell people which filters or responses are worthy of notice given a pair of images in the face verification task. Compared to [35], our model can provide both the quantitative and qualitative reasons that explain why 2 face images are from the same person or not. If the 2 face images are viewed as the same person by the model, our proposed method can clearly show which patches on the face are more representative than others via providing local similarity values and the attention weights."}, {"heading": "3 Proposed Approach", "text": "First, we define the ideal properties of xCos metric. Second, we propose 3 possible xCos formulas.\n3.1 Ideal xCos Metric\nIn comparison with the traditional cosine similarity for face verification, the ideal xCos (explainable cosine) metric should not only output a single similarity score but also produce spatial explanations on it. That is, xCos should enable humans to understand why the 2 face images are from the same person (or not) by showing the composition of xCos value in terms of components that make sense to humans (e.g., their noses look similar). Besides this explainable property, face verification models using xCos as the metric should remain good performance so that it could be used to replace cosine metric in real scenarios.\n3.2 xCos Candidates.\nWe propose 3 candidates for the xCos metric. Given an face image I and a CNN feature extractor C, we can get the grid features FI of size (hF , wF , cF ):\nFI = C(I) \u2208 RhF ,wF ,cF (1)\nIn order to concisely demonstrate the core idea of each xCos candidate, we first formulate xCos metric as a general function of FA, FB , and W:\nxCos(FIA , FIB ,W) = hF\u2211 i=1 wF\u2211 j=1 wi,j \u2217 cos(F i,jIA , F i,j IB ) (2)\nwhere F i,jI is the feature of position (i, j), W \u2208 RhF ,wF is the matrix of the attention weights, wi,j \u2208W is the attention weight for the grid of position (i, j), and IA, IB refer to2 different face images A and B.\nPatched xCos This xCos candidate simply realizes the idea that every pair of the grids on faces should be similar if the 2 faces are from the same person. Thus, we let unit attention U:\nU = 1\nhF \u2217 wF JhF ,wF (3)\nwhere JhF ,wF is the all-ones matrix of size (hF , wF ), and the patched xCos can be calculated in this way:\nxCospatched = xCos(FIA , FIB ,U) (4)\nCorrelated-patched xCos Inspired by the idea that each patch on the face may contribute different weights to xCos, we can change the unit attention to correlated-attention P, with the features fIC , fID extracted from any other deep face verification models:\nP \u2208 RhF ,wF (5)\nwhere the element pi,j in P is the Pearson-correlation of the set{ (cos(F i,jIC , F i,j ID ), cos(fIC , fID )) }\n(6)\nover all the image pairs (IC , ID) in the training dataset (C, D are arbitrary identity indices in the dataset). As a result, we get the formula of correlatedpatched xCos:\nxCoscorr = xCos(FIA , FIB ,P) (7)\nAttention-patched xCos We propose another kind of xCos metric which learns the attention L, i.e.\nL = Mattention(FIA , FIB ) \u2208 RhF ,wF (8)\n, where Mattention is a CNN module. The learned attention L is supervised by the cosine similarity of fIA and fIB that is generated with any other target face verification model. With this module, we can formulate the attention-patched xCos as follows:\nxCosattention = xCos(FIA , FIB ,L) (9)"}, {"heading": "3.3 Network Architecture", "text": "For current face verification models, the main obstacle to interpretability is that the fully connected layer removes spatial information, so it is hard for humans to understand how the convolution features before the FC are combined in a human sense. To address this problem, we propose a 2-streamed network with a slightly different backbone and one plug-in xCos module, as described in the following sections:\nBackbone Modification We target on learning the face representation which is not only discriminative but also spatially informative. To achieve this goal, we choose a current face recognition backbone, called f(C \u2032(I)), delete its fullyconnected part f(x) for face feature extraction, and then append the 1 by 1 convolutional layer C1x1 after the original convolutional layers C\n\u2032(I), i.e. the C(I) in the previous subsection is equal to C1x1(C\n\u2032(I)). The resulting feature FI plays two roles:\n1. When it is flattened, FI can represent the entire face. 2. When it is viewed as the grid features, we can make use of the local infor-\nmation of every grid F i,jI so as to provide xCos with regard to the inputs.\nPatched Cosine Calculation Given a pair of face convolutional features, FIA , FIB , each of size (hF , wF , cF ), we can compute the cosine similarity in each grid pair and generate a patched cosine map S \u2208 RhF ,wF . Each element of this map S represents the similarity of each corresponding grid. With this cosine map S, we can inspect which parts of the face images are considered similar by the model.\nxCos Calculation Given 2 convolutional feature maps, FIA , FIB , we can first compute the patched cosine map S and generate the attention map W \u2208 {U,P,L}. Then, we perform the Frobenius inner product < S,W >F to get the value of xCos. Specifically, we sum over the result of element-wise multiplication on the attention map W and the patched cosine map S, and then obtain the xCos value defined in 3.2)\nAttention on Patched Cosine Map Given 2 face images, IA and IB , we can compute their cosine similarity with any face verification model, i.e. let c\u2032 = cos(fIA , fIB ). Then, with 2 feature maps FIA , FIB and the supervising cosine scores c\u2032, we can learn the attention module Mattention.\nInside Mattention(FIA , FIB ), we use convolution layers to perform dimensionality reduction for the two face features FIA , FIB , and then fuse the 2 deduced features by concatenation along the channel dimension. Next, we feed the fused feature into two convolution layers, normalize the output feature map, and get the attention map L \u2208 Rh,w.\nAfter getting L, we apply element-wise multiplication on the attention map L and the patched cosine map S, sum the result to get the xCosattention with value c, and calculate the L2-Loss of c and c\u2032 so that L is trainable.\nMultitasking for Two-branched Training As shown in Fig. 2, the identification branch is trained with the flattened 1 by 1 convolution feature FIA , FIB , and the loss function for the identification task, Lid, can be the one from ArcFace [8], CosFace [31], or any other deep face recognition model. In addition, the xCos branch performs the task of regressing the xCos value c to the cosine value c\u2032 calculated from the target model, and Lcos, the loss of regressing xCos to cosine value, is L2-Loss, i.e.\nLcos = 1\nN \u2032 N \u2032\u2211 n=1 (cn \u2212 c\u2032n)2 (10)\nwhere the N \u2032 refers to the number of image pairs in each batch, and n denotes the n-th pair in one batch."}, {"heading": "4 Experiments", "text": ""}, {"heading": "4.1 Implementation Details", "text": "Datasets We use publicly available MS1M-ArcFace [11] [8] as training data, and use LFW [16], AgeDB-30 [23] [9], CFP [28], CALFW [37], VGG2-FP [4], AR database [22], and YTF [33] as our testing datasets.\nDate Preprocessing We follow the data preprocessing pipeline that is similar to [8] [31] [19]. We first use MTCNN [36] to detect faces. Then we apply similarity transform with 5 facial landmark points on each face to get aligned images. Next, we randomly horizontal-flip the face image, resize it into 112 x 112 pixels, and follow the convention [32] [31] to normalize each pixel (in [0, 255] for each channel) in the RGB image by subtracting 127.5 then dividing by 128.\nCNN Setup We mainly apply the same backbone as the one in ArcFace [8]. However, we replace the last fully connected layer and the flatten layer before it with 1 by 1 conv layer (input channel size = 512; output channel size = 32), and called the output of it as grid features FI . The size of a grid feature FI for an (112, 112, 3) RGB image I will be (7, 7, 32). When training the face identification branch, we flatten the grid feature FI into an 1-D vector with dimension 1568.\nxCos Module Setup Given 2 grid features, FIA , FIB , of size (7, 7, 32), our goal is to produce one attention map L and one patched cosine map S. To get the attention map L, we first use a convolution layer with kernel size = 3 and padding = 1 to perform dimension reduction on FI with the output channel dimension = 16. The 2 reduced convolution features of size (7, 7, 16) are then concatenated into a new fused grid feature of size (7, 7, 32). Second, we feed the fused grid feature into another 2 convolution layers to get the output L, of size (7, 7), as the attention map W for xCosattention. Finally, we normalize the attention map with a softmax function in order to make sure the sum of all the 49 grid attention weights is 1. The patch-cosine map S \u2208 R7,7 is obtained by computing the grid-wise cosine similarity between any grid pair features from FA and FB . Once finishing computing the attention map L and the patch-cosine map S, the model will calculate the xCos output value by performing the Frobenius inner product between L and S. All models are trained with learning rate 1e-3 which will be divided by 10 after 12, 15, 18 epochs."}, {"heading": "4.2 Quantitative Results", "text": "Face Verification Performance To demonstrate the effectiveness of our proposed method, we show the performance of xCos in the Table 1. From Table 1, we can observe that the xCos module not only provides explainability with the trade-off of little drop of accuracy on the LFW dataset but also produces promising performance gain over the human performance and some earlier non-deep face verification models like GaussianFace [21].\nAblation Studies As shown in Table 2, we use the face recognition models without the backbone modification as baseline, and then observe the effectiveness of xCos via applying different attention weights W \u2208 {U,P,L}. In pursue of a fair comparison, we train the baseline with the same setting of xCos except the feature extraction layer, and turn off the testing time augmentation for the baseline because it will apply averaging operation over features, which leads to the mix of spatial information for our convolutional features. Among most of the testing datasets, attention-patched xCos achieves the best performances, which suggests that our attention module takes effect. However, in few datasets like VGG2-FP, it seems that the patched xCos and the correlated-patched xCos get a better result than the attention-patched xCos. We hypothesize that our proposed models, which are trained on aligned face images, do not perform as expected due to the huge pose difference and pose variations in these 2 datasets. Also, both baseline model and our purposed xCos models have obvious performance drop between the pose-varying datasets and datasets without pose variations. Therefore, we believe this is a general issue for all the face verification models which do not handle pose variations by design. We discuss how to optimize both the explainability and the model performance, and provide some possible solutions to this advanced issue in Section 5.2.\nComputational Cost Although in our system, there are some additional costs to calculate the pairwise cosine similarity and attention map, the feature extraction process is still the computational bottleneck. When ignoring all disk reading and writing time and running on an i7-3770 CPU with a 1080ti GPU,\nthe inference for a pair of faces takes 6.1 ms and 6.7 ms for the original model and our xCos model, respectively. Considering the explainability gain over the original model, this efficiency drop is negligible."}, {"heading": "4.3 Qualitative Results", "text": "Visualizations of xCos As shown in Fig 3, there are two interesting phenomena worth mentioning:\n1. The area around central columns is of great interest to the xCos model. By observing the weight distributions on the attention maps, we can conclude that the central convolution feature is influential for the model to verify the identity. 2. The area near mouths and chins is of greater importance than the upper parts of faces. People may wear hats, change hairstyles, or become bald as growing older, so the model pays less attention to the area on the top of faces. On the contrary, the variations of the shape of mouths and chins are constrained to the color of lips or facial expression like smiling. For instance, the fourth row in Fig 3a and the second row in Fig 3d both contain faces with hats while the model pays less attention to those facial parts which occupied with hats.\nComparison with saliency methods. Saliency methods like Grad-CAM[27] can provide attention-like heat maps. However, it is mainly for identification tasks but not verification tasks. Fig.4 shows four qualitative results of GradCAM. It is hard for us to interpret why the 2 face images are verified as the same person or not. Several previous works have dealt with finding the pixels that contribute the most. However, those works, even the most relevant one [35], (1) provide no local similarity information in their saliency maps and (2) hardly focus on the face verification task. (See Table 3.) Contrarily, xCos not only highlights important regions but tells users which grids are (dis)similar. Revealing local similarity can help users debug the verification system, for example, by showing the local dissimilarities caused by hand occlusion (e.g., the first row of 3d)."}, {"heading": "5 Discussions", "text": ""}, {"heading": "5.1 Additional Robustness to Occlusion", "text": "Since our method considers patch features independently and the attention module will decide where to focus on, our method should be more robust than the original model when faces are partially occluded. AR face is a natural occlusion face database with around 4K faces of 126 subjects and therefore a good test set for this experiment. We select the faces with scarfs or glasses and exclude those which can not be detected by MTCNN. After the selection, 1488 images are used to randomly generate 6000 positive pairs and 6000 negative pairs. As shown in\nTable 5(a), our proposed methods outperform the original ArcFace model even without the attention module. Besides, we also use the free-form masks in [6] to create synthetic CASIA[34] and LFW[16] occlusion datasets for fine-tuning and testing, respectively. There is one mask that occupies about x% out of the total area for each image in the training or testing dataset (See Table 5(c) for examples.) From Table 5(b), it can be concluded that the proposed xCos method has less performance drop than the original face verification model.\n5.2 How to Adapt xCos From Frontal Images to Profile Ones\nIn this work, we open a new avenue for explainability for face recognition. As the pilot study for the emerging problem, we have to take 2 steps to make our research more convincing: (1) verify that the existence of our explainable module\ndoes not degrade the overall verification performance on the ideal test setting (e.g. test on the aligned LFW dataset) for SoTA face recognition models; (2) find out how to extend its usage to other rigorous experiment settings, like face images with large pose variations or extreme illuminations. We are optimistic to see that our work, which realizes the main idea in stage (1), is going to inspire more future research on face applications with critical conditions.\nThere are plenty of papers embarked on tackling various challenging conditions, including low light/resolution settings or large pose variations, cross-age, etc. Following our successful attempt in the first stage, we believe the research communities can extend the adaptability of xCos module for many other face recognition problems. For example, some previous works have explored the possibility of recovering the canonical view of face images from non-frontal images using SAE[18], CNN[39] and GAN[17] models, so we can extend the usage of xCos to the cross-pose scenario by performing these preprocessing method first."}, {"heading": "6 Conclusions", "text": "We propose a novel metric for face verification task, called xCos (explainable cosine). With this metric, we can not only view it as one similarity score to quantitatively verify 2 face images but also decompose it into patched cosines and one attention map so that humans can intuitively understand which parts of the face are similar and how important each grid on the face is. We believe that xCos can be used to inspect the face verification model behavior and bridge the gap between the model complexity and humans\u2019 understanding in an explainable way."}, {"heading": "7 Acknowledgement", "text": "This work was supported in part by the Ministry of Science and Technology, Taiwan, under Grant MOST 109-2634-F-002-032. We benefit from the NVIDIA grants and the DGX-1 AI Supercomputer and are also grateful to the National Center for High-performance Computing."}], "title": "xCos: An Explainable Cosine Metric for Face Verification Task", "year": 2020}
+{
+  "abstractText": "We study the XAI (explainable AI) on the face recognition task, particularly the face verification here. Face verification is a crucial task in recent days and it has been deployed to plenty of applications, such as access control, surveillance, and automatic personal log-on for mobile devices. With the increasing amount of data, deep convolutional neural networks can achieve very high accuracy for the face verification task. Beyond exceptional performances, deep face verification models need more interpretability so that we can trust the results they generate. In this paper, we propose a novel similarity metric, called explainable cosine (xCos), that comes with a learnable module that can be plugged into most of the verification models to provide meaningful explanations. With the help of xCos, we can see which parts of the 2 input faces are similar, where the model pays its attention to, and how the local similarities are weighted to form the output xCos score. We demonstrate the effectiveness of our proposed method on LFW and various competitive benchmarks, resulting in not only providing novel and desiring model interpretability for face verification but also ensuring the accuracy as plugging into existing face recognition models.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Yu-Sheng Lin"
+    },
+    {
+      "affiliations": [],
+      "name": "Zhe-Yu Liu"
+    },
+    {
+      "affiliations": [],
+      "name": "Yu-An Chen"
+    },
+    {
+      "affiliations": [],
+      "name": "Yu-Siang Wang"
+    },
+    {
+      "affiliations": [],
+      "name": "Hsin-Ying Lee"
+    },
+    {
+      "affiliations": [],
+      "name": "Yi-Rong Chen"
+    },
+    {
+      "affiliations": [],
+      "name": "Ya-Liang Chang"
+    },
+    {
+      "affiliations": [],
+      "name": "Winston H. Hsu"
+    }
+  ],
+  "id": "SP:e7d804c55138f1a9f70eabb0cd501177e8ba9a81",
+  "references": [
+    {
+      "authors": [
+        "W. Brendel",
+        "M. Bethge"
+      ],
+      "title": "Approximating cnns with bag-of-local-features models works surprisingly well on imagenet",
+      "venue": "International Conference on Learning Representations",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Q. Cao",
+        "L. Shen",
+        "W. Xie",
+        "O.M. Parkhi",
+        "A. Zisserman"
+      ],
+      "title": "Vggface2: A dataset for recognising faces across pose and age",
+      "venue": "2018 13th IEEE International Conference on Automatic Face & Gesture Recognition (FG 2018). pp. 67\u201374. IEEE",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "G. Casta\u00f1\u00f3n",
+        "J. Byrne"
+      ],
+      "title": "Visualizing and quantifying discriminative features for face recognition",
+      "venue": "2018 13th IEEE International Conference on Automatic Face \u2014& Gesture Recognition (FG 2018) pp. 16\u201323",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Y.L. Chang",
+        "Z.Y. Liu",
+        "K.Y. Lee",
+        "W. Hsu"
+      ],
+      "title": "Free-form video inpainting with 3d gated convolution and temporal patchgan",
+      "venue": "In Proceedings of the International Conference on Computer Vision (ICCV)",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Chattopadhay",
+        "A. Sarkar",
+        "P. Howlader",
+        "V.N. Balasubramanian"
+      ],
+      "title": "Gradcam++: Generalized gradient-based visual explanations for deep convolutional networks",
+      "venue": "2018 IEEE Winter Conference on Applications of Computer Vision (WACV). pp. 839\u2013847",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Deng",
+        "J. Guo",
+        "X. Niannan",
+        "S. Zafeiriou"
+      ],
+      "title": "Arcface: Additive angular margin loss for deep face recognition",
+      "venue": "CVPR",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J. Deng",
+        "Y. Zhou",
+        "S.P. Zafeiriou"
+      ],
+      "title": "Marginal loss for deep face recognition",
+      "venue": "2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW) pp. 2006\u20132014",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Gunning"
+      ],
+      "title": "Explainable artificial intelligence (xai)",
+      "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web 2",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Guo",
+        "L. Zhang",
+        "Y. Hu",
+        "X. He",
+        "J. Gao"
+      ],
+      "title": "Ms-celeb-1m: A dataset and benchmark for large-scale face recognition",
+      "venue": "ECCV",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "C. Han",
+        "S. Shan",
+        "M. Kan",
+        "S. Wu",
+        "X. Chen"
+      ],
+      "title": "Face recognition with contrastive convolution",
+      "venue": "Computer Vision - ECCV 2018 - 15th European Conference, Munich, Germany, September 8-14, 2018, Proceedings, Part IX. pp. 120\u2013135",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "K. He",
+        "X. Zhang",
+        "S. Ren",
+        "J. Sun"
+      ],
+      "title": "Deep residual learning for image recognition",
+      "venue": "2016 IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2016, Las Vegas, NV, USA, June 27-30, 2016. pp. 770\u2013778",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Hind",
+        "D. Wei",
+        "M. Campbell",
+        "N.C.F. Codella",
+        "A. Dhurandhar",
+        "A. Mojsilovi\u0107",
+        "K. Natesan Ramamurthy",
+        "K.R. Varshney"
+      ],
+      "title": "Ted: Teaching ai to explain its decisions",
+      "venue": "Proceedings of the 2019 AAAI/ACM Conference on AI, Ethics, and Society. pp. 123\u2013129. AIES \u201919, ACM, New York, NY, USA",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "G. Hinton",
+        "O. Vinyals",
+        "J. Dean"
+      ],
+      "title": "Distilling the knowledge in a neural network. In: NIPS Deep Learning and Representation Learning Workshop",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "G.B. Huang",
+        "M. Ramesh",
+        "T. Berg",
+        "E. Learned-Miller"
+      ],
+      "title": "Labeled faces in the wild: A database for studying face recognition in unconstrained environments",
+      "venue": "Tech. Rep. 07-49, University of Massachusetts, Amherst",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "R. Huang",
+        "S. Zhang",
+        "T. Li",
+        "R. He"
+      ],
+      "title": "Beyond face rotation: Global and local perception gan for photorealistic and identity preserving frontal view synthesis",
+      "venue": "The IEEE International Conference on Computer Vision (ICCV)",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Kan",
+        "S. Shan",
+        "H. Chang",
+        "X. Chen"
+      ],
+      "title": "Stacked progressive auto-encoders (spae) for face recognition across poses",
+      "venue": "2014 IEEE Conference on Computer Vision and Pattern Recognition pp. 1883\u20131890",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "W. Liu",
+        "Y. Wen",
+        "Z. Yu",
+        "M. Li",
+        "B. Raj",
+        "L. Song"
+      ],
+      "title": "Sphereface: Deep hypersphere embedding for face recognition",
+      "venue": "The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "X. Liu",
+        "X. Wang",
+        "S. Matwin"
+      ],
+      "title": "Improving the interpretability of deep neural networks with knowledge distillation",
+      "venue": "2018 IEEE International Conference on Data Mining Workshops (ICDMW) pp. 905\u2013912",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C. Lu",
+        "X. Tang"
+      ],
+      "title": "Surpassing human-level face verification performance on lfw with gaussian face",
+      "venue": "Proceedings of the Twenty-Ninth AAAI Conference on Artificial Intelligence. pp. 3811\u20133819",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "A.M. Martinez",
+        "R. Benavente"
+      ],
+      "title": "The ar face database",
+      "venue": "Tech. Rep. 24 CVC Technical Report",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "S. Moschoglou",
+        "A. Papaioannou",
+        "C. Sagonas",
+        "J. Deng",
+        "I. Kotsia",
+        "S. Zafeiriou"
+      ],
+      "title": "Agedb: The first manually collected, in-the-wild age database",
+      "venue": "2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops (CVPRW). pp. 1997\u20132005",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "O.M. Parkhi",
+        "A. Vedaldi",
+        "A. Zisserman"
+      ],
+      "title": "Deep face recognition",
+      "venue": "BMVC",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S. Ren",
+        "K. He",
+        "R.B. Girshick",
+        "J. Sun"
+      ],
+      "title": "Faster R-CNN: towards real-time object detection with region proposal networks",
+      "venue": "IEEE Trans. Pattern Anal. Mach. Intell. 39(6), 1137\u20131149",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "why should i trust you?\u201d: Explaining the predictions of any classifier",
+      "venue": "Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. pp. 1135\u20131144. KDD \u201916, ACM, New York, NY, USA",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "R.R. Selvaraju",
+        "M. Cogswell",
+        "A. Das",
+        "R. Vedantam",
+        "D. Parikh",
+        "D. Batra"
+      ],
+      "title": "Gradcam: Visual explanations from deep networks via gradient-based localization",
+      "venue": "2017 IEEE International Conference on Computer Vision (ICCV). pp. 618\u2013626",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Sengupta",
+        "J. Chen",
+        "C. Castillo",
+        "V.M. Patel",
+        "R. Chellappa",
+        "D.W. Jacobs"
+      ],
+      "title": "Frontal to profile face verification in the wild",
+      "venue": "2016 IEEE Winter Conference on Applications of Computer Vision (WACV). pp. 1\u20139",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "E. Shelhamer",
+        "J. Long",
+        "T. Darrell"
+      ],
+      "title": "Fully convolutional networks for semantic segmentation",
+      "venue": "IEEE Trans. Pattern Anal. Mach. Intell. 39(4), 640\u2013 651",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Sun",
+        "Y. Chen",
+        "X. Wang",
+        "X. Tang"
+      ],
+      "title": "Deep learning face representation by joint identification-verification",
+      "venue": "Advances in Neural Information Processing Systems 27: Annual Conference on Neural Information Processing Systems",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "H.J. Wang",
+        "Y. Wang",
+        "Z. Zhou",
+        "X. Ji",
+        "D. Gong",
+        "J. Zhou",
+        "Z. Li",
+        "W. Liu"
+      ],
+      "title": "Cosface: Large margin cosine loss for deep face recognition",
+      "venue": "2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition pp. 5265\u20135274",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Y. Wen",
+        "K. Zhang",
+        "Z. Li",
+        "Y. Qiao"
+      ],
+      "title": "A discriminative feature learning approach for deep face recognition",
+      "venue": "ECCV",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Wolf",
+        "T. Hassner",
+        "I. Maoz"
+      ],
+      "title": "Face recognition in unconstrained videos with matched background similarity",
+      "venue": "CVPR 2011 pp. 529\u2013534",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "D. Yi",
+        "Z. Lei",
+        "S. Liao",
+        "S.Z. Li"
+      ],
+      "title": "Learning face representation from scratch",
+      "venue": "ArXiv abs/1411.7923",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "B. Yin*",
+        "L. Tran*",
+        "H. Li",
+        "X. Shen",
+        "X. Liu"
+      ],
+      "title": "Towards interpretable face recognition",
+      "venue": "In Proceeding of International Conference on Computer Vision. Seoul, South Korea",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Zhang",
+        "Z. Zhang",
+        "Z. Li",
+        "Y. Qiao"
+      ],
+      "title": "Joint face detection and alignment using multitask cascaded convolutional networks",
+      "venue": "IEEE Signal Processing Letters 23(10), 1499\u20131503",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T. Zheng",
+        "W. Deng",
+        "J. Hu"
+      ],
+      "title": "Cross-age LFW: A database for studying cross-age face recognition in unconstrained environments",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B. Zhou",
+        "A. Khosla",
+        "A. Lapedriza",
+        "A. Oliva",
+        "A. Torralba"
+      ],
+      "title": "Learning Deep Features for Discriminative Localization",
+      "venue": "arXiv e-prints arXiv:1512.04150",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Z. Zhu",
+        "P. Luo",
+        "X. Wang",
+        "X. Tang"
+      ],
+      "title": "Deep learning identity-preserving face space",
+      "venue": "pp. 113\u2013120",
+      "year": 2013
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords: explainable AI, XAI, interpretable AI, face verification"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Recent years have witnessed rapid development in the area of deep learning and it has been applied to many computer vision tasks, such as image classification [2,13], object detection [25], semantic segmentation [29], and face verification [30], etc. In spite of the astonishing success of convolutional neural networks (CNNs), computer vision communities still lack an effective method to understand the working mechanism of deep learning models due to their inborn non-linear structures and complicated decision-making process (so-called \u201cblack box\u201d). Moreover, when it comes to security applications (e.g., face verification for mobile screen lock), the false positive results for unknown reasons by deep learning models could lead to serious security and privacy issues. The aforementioned problems will make users insecure about deep learning based systems and also make developers hard to improve them. Therefore, it is crucial to increase transparency during the decision-making process for deep learning models. ar X\niv :2\n00 3.\n05 38\n3v 2\n[ cs\n.C V\n] 2\n3 Ju\nl 2 02\nA rising field to address this issue is called explainable AI (XAI) [10], which attempts to empower the researcher to understand the decision-making process of neural nets via explainable features or decision processes. With the support of explainable AI, we can understand and trust the neural networks\u2019 prediction more. In this work, we focus on building a more explainable face verification framework with our proposed novel xCos module. With xCos, we can exactly know how the model determines the similarity score via examining the local similarity map and the attention map.\nWe begin our work with a pivotal question: How to produce more explainable results? To answer this question, we first investigate the pipeline of current face verification models and then introduce the intuition of the human being\u2019s decision-making process for face verification. Next, we formulate our definition of interpretability and design the explainable framework that meets our needs.\nState-of-the-art face verification models [8,19] extract deep features of a pair of face images and compute the cosine similarity or the L2-distance of the paired features. Two images are said to be from the same person if the similarity is larger than a threshold value. However, with this standard procedure, we can hardly interpret these high dimensional features with our knowledge. Although\nthere are some previous works attempting to visualize the results [27,7,5] on the input images with saliency map, these saliency map based visualizations are mostly used for the localization of objects in a single image rather the similarity of two faces. Therefore, our framework provides a new verification branch to calculate similarity maps and discriminative location maps based on the features extracted from two faces. (cf. Figure 4) This way, we can strike a balance between verification accuracy and visual interpretability.\nWe observe that humans usually decide whether the two face images are from the same identity by comparing their face characteristics. For instance, if two face images are from the same person, then the same parts of the 2 face images should be similar, including the eyes, the nose, etc. Based on this insight, we come up with a novel face verification framework, xCos, which behaves closely to our observation.\nIllustrated by the observation above, we define the interpretability in the face verification that the output similarity metric aims to provide not only the local similarity information but also the spatial attention of the model. Based on our definition of interpretability, we propose a similarity metric, xCos, that can be analyzed in an explainable way. As shown in Fig. 1, we can insert our novel xCos module into any deep face verification networks and get 2 spatialinterpretable maps. Here we plug the proposed xCos module into ArcFace [8] and CosFace [31].The first map displays the cosine similarity of each grid feature pair, and the second one shows what the model pays attention to. With the two visualized maps, we can directly understand which grid feature pair is more similar and important for the decision-making process.\nThe main contributions of this work are as follows:\n\u2013 We address the interpretability issue in the face verification task from the perspective of local similarity and model attention, and propose a novel explainable metric, xCos (explainable cosine). \u2013 We introduce the using of the convolution feature as the face representation, which preserves location information while remaining good verification performances. \u2013 The proposed xCos module can be plugged into various face verification models, such as ArcFace and CosFace (cf. Table 1)."
+    },
+    {
+      "heading": "2 Related Work",
+      "text": ""
+    },
+    {
+      "heading": "2.1 Face Verification",
+      "text": "Face verification task has come a long way these years. GaussianFace [21] first proposed Discriminative Gaussian Process Latent Variable Model that surpasses human-level face verification accuracy. Due to the emerging of deep learning, DeepFace [24], SphereFace [19], CosFace [31], and ArcFace[8] achieve great performances on face verification task with different loss function designs and deeper backbone architectures. Recently, [12] optimizes the face verification model on contrastive face characteristics. However, this work still does not meet our needs for explainability."
+    },
+    {
+      "heading": "2.2 Explainable AI",
+      "text": "With the rising demand for explainable AI, there have been plenty of works related to this topic in recent years. Visualizations of convolution neural networks using saliency maps are the main techniques used in [38,27,7]. However, as we have mentioned, saliency map based visualization is more suitable for the localization of objects. Knowledge Distillation [15] is another path to interpretable machine learning because we can transfer the learned knowledge from the teacher model to the student model. [20] realizes this idea by means of distilling Deep Neural Networks into decision trees. In our work, the current face verification model functions as the teacher model to supervise the xCos module with the cosine similarity values it produces.\nAs for BagNet [3], the authors combine the bag-of-local-feature concept with convolution neural network models and perform well on the ImageNet by classifying images based on the occurrences of patched local features without considering their spatial ordering. To some extent, the authors provide a straightforward way to quantitatively analyze how exactly each patch of the image impacts on the classification results, with the constraint on local representations.\nIn [14], the authors mentioned that there are many challenges to provide AI explanations, such as the lack of one satisfying formal definition for effective human-to-human explanations. However, [26] outlines four desirable characteristics for explanation methods, including interpretable, local fidelity, modelagnostic, and global perspective, and our work manages to satisfy these criteria by constructing interpretable maps with local information in the field of face verification.\nThe most related work is [35]. In this work, the authors applied the spatial activation diversity loss and the feature activation diversity loss to learn more structured face representations and force the interpretable representations to be discriminative. Their definition of interpretability of the face representation is that each dimension of the representation can represent a face structure or a face part. Nevertheless, their method mainly focuses on how to visualize the individual identification result given a single image, while it cannot quantitatively tell people which filters or responses are worthy of notice given a pair of images in the face verification task. Compared to [35], our model can provide both the quantitative and qualitative reasons that explain why 2 face images are from the same person or not. If the 2 face images are viewed as the same person by the model, our proposed method can clearly show which patches on the face are more representative than others via providing local similarity values and the attention weights."
+    },
+    {
+      "heading": "3 Proposed Approach",
+      "text": "First, we define the ideal properties of xCos metric. Second, we propose 3 possible xCos formulas.\n3.1 Ideal xCos Metric\nIn comparison with the traditional cosine similarity for face verification, the ideal xCos (explainable cosine) metric should not only output a single similarity score but also produce spatial explanations on it. That is, xCos should enable humans to understand why the 2 face images are from the same person (or not) by showing the composition of xCos value in terms of components that make sense to humans (e.g., their noses look similar). Besides this explainable property, face verification models using xCos as the metric should remain good performance so that it could be used to replace cosine metric in real scenarios.\n3.2 xCos Candidates.\nWe propose 3 candidates for the xCos metric. Given an face image I and a CNN feature extractor C, we can get the grid features FI of size (hF , wF , cF ):\nFI = C(I) \u2208 RhF ,wF ,cF (1)\nIn order to concisely demonstrate the core idea of each xCos candidate, we first formulate xCos metric as a general function of FA, FB , and W:\nxCos(FIA , FIB ,W) = hF\u2211 i=1 wF\u2211 j=1 wi,j \u2217 cos(F i,jIA , F i,j IB ) (2)\nwhere F i,jI is the feature of position (i, j), W \u2208 RhF ,wF is the matrix of the attention weights, wi,j \u2208W is the attention weight for the grid of position (i, j), and IA, IB refer to2 different face images A and B.\nPatched xCos This xCos candidate simply realizes the idea that every pair of the grids on faces should be similar if the 2 faces are from the same person. Thus, we let unit attention U:\nU = 1\nhF \u2217 wF JhF ,wF (3)\nwhere JhF ,wF is the all-ones matrix of size (hF , wF ), and the patched xCos can be calculated in this way:\nxCospatched = xCos(FIA , FIB ,U) (4)\nCorrelated-patched xCos Inspired by the idea that each patch on the face may contribute different weights to xCos, we can change the unit attention to correlated-attention P, with the features fIC , fID extracted from any other deep face verification models:\nP \u2208 RhF ,wF (5)\nwhere the element pi,j in P is the Pearson-correlation of the set{ (cos(F i,jIC , F i,j ID ), cos(fIC , fID )) }\n(6)\nover all the image pairs (IC , ID) in the training dataset (C, D are arbitrary identity indices in the dataset). As a result, we get the formula of correlatedpatched xCos:\nxCoscorr = xCos(FIA , FIB ,P) (7)\nAttention-patched xCos We propose another kind of xCos metric which learns the attention L, i.e.\nL = Mattention(FIA , FIB ) \u2208 RhF ,wF (8)\n, where Mattention is a CNN module. The learned attention L is supervised by the cosine similarity of fIA and fIB that is generated with any other target face verification model. With this module, we can formulate the attention-patched xCos as follows:\nxCosattention = xCos(FIA , FIB ,L) (9)"
+    },
+    {
+      "heading": "3.3 Network Architecture",
+      "text": "For current face verification models, the main obstacle to interpretability is that the fully connected layer removes spatial information, so it is hard for humans to understand how the convolution features before the FC are combined in a human sense. To address this problem, we propose a 2-streamed network with a slightly different backbone and one plug-in xCos module, as described in the following sections:\nBackbone Modification We target on learning the face representation which is not only discriminative but also spatially informative. To achieve this goal, we choose a current face recognition backbone, called f(C \u2032(I)), delete its fullyconnected part f(x) for face feature extraction, and then append the 1 by 1 convolutional layer C1x1 after the original convolutional layers C\n\u2032(I), i.e. the C(I) in the previous subsection is equal to C1x1(C\n\u2032(I)). The resulting feature FI plays two roles:\n1. When it is flattened, FI can represent the entire face. 2. When it is viewed as the grid features, we can make use of the local infor-\nmation of every grid F i,jI so as to provide xCos with regard to the inputs.\nPatched Cosine Calculation Given a pair of face convolutional features, FIA , FIB , each of size (hF , wF , cF ), we can compute the cosine similarity in each grid pair and generate a patched cosine map S \u2208 RhF ,wF . Each element of this map S represents the similarity of each corresponding grid. With this cosine map S, we can inspect which parts of the face images are considered similar by the model.\nxCos Calculation Given 2 convolutional feature maps, FIA , FIB , we can first compute the patched cosine map S and generate the attention map W \u2208 {U,P,L}. Then, we perform the Frobenius inner product < S,W >F to get the value of xCos. Specifically, we sum over the result of element-wise multiplication on the attention map W and the patched cosine map S, and then obtain the xCos value defined in 3.2)\nAttention on Patched Cosine Map Given 2 face images, IA and IB , we can compute their cosine similarity with any face verification model, i.e. let c\u2032 = cos(fIA , fIB ). Then, with 2 feature maps FIA , FIB and the supervising cosine scores c\u2032, we can learn the attention module Mattention.\nInside Mattention(FIA , FIB ), we use convolution layers to perform dimensionality reduction for the two face features FIA , FIB , and then fuse the 2 deduced features by concatenation along the channel dimension. Next, we feed the fused feature into two convolution layers, normalize the output feature map, and get the attention map L \u2208 Rh,w.\nAfter getting L, we apply element-wise multiplication on the attention map L and the patched cosine map S, sum the result to get the xCosattention with value c, and calculate the L2-Loss of c and c\u2032 so that L is trainable.\nMultitasking for Two-branched Training As shown in Fig. 2, the identification branch is trained with the flattened 1 by 1 convolution feature FIA , FIB , and the loss function for the identification task, Lid, can be the one from ArcFace [8], CosFace [31], or any other deep face recognition model. In addition, the xCos branch performs the task of regressing the xCos value c to the cosine value c\u2032 calculated from the target model, and Lcos, the loss of regressing xCos to cosine value, is L2-Loss, i.e.\nLcos = 1\nN \u2032 N \u2032\u2211 n=1 (cn \u2212 c\u2032n)2 (10)\nwhere the N \u2032 refers to the number of image pairs in each batch, and n denotes the n-th pair in one batch."
+    },
+    {
+      "heading": "4 Experiments",
+      "text": ""
+    },
+    {
+      "heading": "4.1 Implementation Details",
+      "text": "Datasets We use publicly available MS1M-ArcFace [11] [8] as training data, and use LFW [16], AgeDB-30 [23] [9], CFP [28], CALFW [37], VGG2-FP [4], AR database [22], and YTF [33] as our testing datasets.\nDate Preprocessing We follow the data preprocessing pipeline that is similar to [8] [31] [19]. We first use MTCNN [36] to detect faces. Then we apply similarity transform with 5 facial landmark points on each face to get aligned images. Next, we randomly horizontal-flip the face image, resize it into 112 x 112 pixels, and follow the convention [32] [31] to normalize each pixel (in [0, 255] for each channel) in the RGB image by subtracting 127.5 then dividing by 128.\nCNN Setup We mainly apply the same backbone as the one in ArcFace [8]. However, we replace the last fully connected layer and the flatten layer before it with 1 by 1 conv layer (input channel size = 512; output channel size = 32), and called the output of it as grid features FI . The size of a grid feature FI for an (112, 112, 3) RGB image I will be (7, 7, 32). When training the face identification branch, we flatten the grid feature FI into an 1-D vector with dimension 1568.\nxCos Module Setup Given 2 grid features, FIA , FIB , of size (7, 7, 32), our goal is to produce one attention map L and one patched cosine map S. To get the attention map L, we first use a convolution layer with kernel size = 3 and padding = 1 to perform dimension reduction on FI with the output channel dimension = 16. The 2 reduced convolution features of size (7, 7, 16) are then concatenated into a new fused grid feature of size (7, 7, 32). Second, we feed the fused grid feature into another 2 convolution layers to get the output L, of size (7, 7), as the attention map W for xCosattention. Finally, we normalize the attention map with a softmax function in order to make sure the sum of all the 49 grid attention weights is 1. The patch-cosine map S \u2208 R7,7 is obtained by computing the grid-wise cosine similarity between any grid pair features from FA and FB . Once finishing computing the attention map L and the patch-cosine map S, the model will calculate the xCos output value by performing the Frobenius inner product between L and S. All models are trained with learning rate 1e-3 which will be divided by 10 after 12, 15, 18 epochs."
+    },
+    {
+      "heading": "4.2 Quantitative Results",
+      "text": "Face Verification Performance To demonstrate the effectiveness of our proposed method, we show the performance of xCos in the Table 1. From Table 1, we can observe that the xCos module not only provides explainability with the trade-off of little drop of accuracy on the LFW dataset but also produces promising performance gain over the human performance and some earlier non-deep face verification models like GaussianFace [21].\nAblation Studies As shown in Table 2, we use the face recognition models without the backbone modification as baseline, and then observe the effectiveness of xCos via applying different attention weights W \u2208 {U,P,L}. In pursue of a fair comparison, we train the baseline with the same setting of xCos except the feature extraction layer, and turn off the testing time augmentation for the baseline because it will apply averaging operation over features, which leads to the mix of spatial information for our convolutional features. Among most of the testing datasets, attention-patched xCos achieves the best performances, which suggests that our attention module takes effect. However, in few datasets like VGG2-FP, it seems that the patched xCos and the correlated-patched xCos get a better result than the attention-patched xCos. We hypothesize that our proposed models, which are trained on aligned face images, do not perform as expected due to the huge pose difference and pose variations in these 2 datasets. Also, both baseline model and our purposed xCos models have obvious performance drop between the pose-varying datasets and datasets without pose variations. Therefore, we believe this is a general issue for all the face verification models which do not handle pose variations by design. We discuss how to optimize both the explainability and the model performance, and provide some possible solutions to this advanced issue in Section 5.2.\nComputational Cost Although in our system, there are some additional costs to calculate the pairwise cosine similarity and attention map, the feature extraction process is still the computational bottleneck. When ignoring all disk reading and writing time and running on an i7-3770 CPU with a 1080ti GPU,\nthe inference for a pair of faces takes 6.1 ms and 6.7 ms for the original model and our xCos model, respectively. Considering the explainability gain over the original model, this efficiency drop is negligible."
+    },
+    {
+      "heading": "4.3 Qualitative Results",
+      "text": "Visualizations of xCos As shown in Fig 3, there are two interesting phenomena worth mentioning:\n1. The area around central columns is of great interest to the xCos model. By observing the weight distributions on the attention maps, we can conclude that the central convolution feature is influential for the model to verify the identity. 2. The area near mouths and chins is of greater importance than the upper parts of faces. People may wear hats, change hairstyles, or become bald as growing older, so the model pays less attention to the area on the top of faces. On the contrary, the variations of the shape of mouths and chins are constrained to the color of lips or facial expression like smiling. For instance, the fourth row in Fig 3a and the second row in Fig 3d both contain faces with hats while the model pays less attention to those facial parts which occupied with hats.\nComparison with saliency methods. Saliency methods like Grad-CAM[27] can provide attention-like heat maps. However, it is mainly for identification tasks but not verification tasks. Fig.4 shows four qualitative results of GradCAM. It is hard for us to interpret why the 2 face images are verified as the same person or not. Several previous works have dealt with finding the pixels that contribute the most. However, those works, even the most relevant one [35], (1) provide no local similarity information in their saliency maps and (2) hardly focus on the face verification task. (See Table 3.) Contrarily, xCos not only highlights important regions but tells users which grids are (dis)similar. Revealing local similarity can help users debug the verification system, for example, by showing the local dissimilarities caused by hand occlusion (e.g., the first row of 3d)."
+    },
+    {
+      "heading": "5 Discussions",
+      "text": ""
+    },
+    {
+      "heading": "5.1 Additional Robustness to Occlusion",
+      "text": "Since our method considers patch features independently and the attention module will decide where to focus on, our method should be more robust than the original model when faces are partially occluded. AR face is a natural occlusion face database with around 4K faces of 126 subjects and therefore a good test set for this experiment. We select the faces with scarfs or glasses and exclude those which can not be detected by MTCNN. After the selection, 1488 images are used to randomly generate 6000 positive pairs and 6000 negative pairs. As shown in\nTable 5(a), our proposed methods outperform the original ArcFace model even without the attention module. Besides, we also use the free-form masks in [6] to create synthetic CASIA[34] and LFW[16] occlusion datasets for fine-tuning and testing, respectively. There is one mask that occupies about x% out of the total area for each image in the training or testing dataset (See Table 5(c) for examples.) From Table 5(b), it can be concluded that the proposed xCos method has less performance drop than the original face verification model.\n5.2 How to Adapt xCos From Frontal Images to Profile Ones\nIn this work, we open a new avenue for explainability for face recognition. As the pilot study for the emerging problem, we have to take 2 steps to make our research more convincing: (1) verify that the existence of our explainable module\ndoes not degrade the overall verification performance on the ideal test setting (e.g. test on the aligned LFW dataset) for SoTA face recognition models; (2) find out how to extend its usage to other rigorous experiment settings, like face images with large pose variations or extreme illuminations. We are optimistic to see that our work, which realizes the main idea in stage (1), is going to inspire more future research on face applications with critical conditions.\nThere are plenty of papers embarked on tackling various challenging conditions, including low light/resolution settings or large pose variations, cross-age, etc. Following our successful attempt in the first stage, we believe the research communities can extend the adaptability of xCos module for many other face recognition problems. For example, some previous works have explored the possibility of recovering the canonical view of face images from non-frontal images using SAE[18], CNN[39] and GAN[17] models, so we can extend the usage of xCos to the cross-pose scenario by performing these preprocessing method first."
+    },
+    {
+      "heading": "6 Conclusions",
+      "text": "We propose a novel metric for face verification task, called xCos (explainable cosine). With this metric, we can not only view it as one similarity score to quantitatively verify 2 face images but also decompose it into patched cosines and one attention map so that humans can intuitively understand which parts of the face are similar and how important each grid on the face is. We believe that xCos can be used to inspect the face verification model behavior and bridge the gap between the model complexity and humans\u2019 understanding in an explainable way."
+    },
+    {
+      "heading": "7 Acknowledgement",
+      "text": "This work was supported in part by the Ministry of Science and Technology, Taiwan, under Grant MOST 109-2634-F-002-032. We benefit from the NVIDIA grants and the DGX-1 AI Supercomputer and are also grateful to the National Center for High-performance Computing."
+    }
+  ],
+  "title": "xCos: An Explainable Cosine Metric for Face Verification Task",
+  "year": 2020
+}

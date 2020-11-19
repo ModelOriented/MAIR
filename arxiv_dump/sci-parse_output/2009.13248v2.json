@@ -1,1 +1,897 @@
-{"abstractText": "The growing availability of data and computing power is fueling the development of predictive models. In order to ensure the safe and effective functioning of such models, we need methods for exploration, debugging, and validation. New methods and tools for this purpose are being developed within the eXplainable Artificial Intelligence (XAI) subdomain of machine learning. In this work, (1) we present the taxonomy of methods for model explanations, (2) we identify and compare 27 packages available in R to perform XAI analysis, (3) we present an example of an application of particular packages, (4) we acknowledge trends in recent developments. The article is primarily devoted to the tools available in R, but since it is easy to integrate the Python code, we will also show examples for the most popular libraries from Python. Importance of eXplainable Artificial Intelligence The growing demand for fast and automated development of predictive models has contributed to the popularity of machine learning frameworks such as caret (from Jed Wing et al., 2019), mlr (Bischl et al., 2016), mlr3 (Lang et al., 2019), tidymodels (Kuhn and Wickham, 2020), h2o (H2O.ai, 2015), scikit-learn (Pedregosa et al., 2011), keras (Chollet et al., 2015), pytorch (Paszke et al., 2019), and many others. These tools allow us to quickly test models of very different structures and choose the best one based on a selected performance measure. However, it soon became apparent that such a process leads to treating models like black-boxes. This, in turn, makes it difficult to detect certain problems early enough. Insufficiently tested models quickly lose their effectiveness, lead to unfair decisions, they discriminate, are deferred by users, and do not provide the option to appeal (Gill et al., 2020). To overcome these problems methods and tools for analysis of black-box predictive models are essential. In this work, we will present tools that can be used for this purpose. There are various situations where we need tools for in-depth model analysis. For example: \u2022 The model makes incorrect decisions on certain observations. We want to understand what the cause is of these incorrect decisions, in hopes to improve the model. In some sense, we want to debug the model by looking for the source of its ineffectiveness. \u2022 Model predictions are used by inquisitive parties. In order to build their trust and confidence, we need to present additional arguments or reasoning behind particular predictions. \u2022 Sometimes we expect that the model will automatically discover some relationships hidden in the data. By analyzing the model, we want to extract and understand these relationships in order to increase our domain knowledge. \u2022 It is becoming increasingly common to expect not only decisions but also reasons, arguments and explanations for a decision to be made in an automated way. Sometimes such explanations are required by law, see, for example, GDPR regulations (Goodman and Flaxman, 2017). \u2022 Often the key factor is the question of responsibility. If model developers responsibly recommend the use of a model, they often need to understand the way the model works. Thus, we cannot rely on the black-box. We need a deeper understanding of the model. In this work, we present tools that can be used in eXplainable Artificial Intelligence (XAI) modeling, which can help to explore predictive models. In recent years, plenty of interesting software has been developed. We hope that presenting XAI tools in this paper will make them easier to apply and will, therefore, lead to building better and safer predictive models. The main contributions of this paper are as follows. 1. We introduced two taxonomies of methods for model comparisons. The first one concerns a model as a subject of analysis, and the second one concerns the domain of the explanation. 2. We conducted a comprehensive review and identified 27 popular R packages that implement XAI methods. 3. We compared the capabilities of recognized R packages, taking into account the variety of implemented methods, interoperability, and time of operation. 4. We prepared knitr reports with illustrative examples for each of the considered packages. The R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859 ar X iv :2 00 9. 13 24 8v 2 [ cs .L G ] 2 2 O ct 2 02 0 CONTRIBUTED RESEARCH ARTICLE 2 This paper is focused on the tools available to R users rather than on overview of mathematical details for particular methods. Those interested in a more detailed analysis of the methods may be interested in the work of Chatzimparmpas et al. (2020) with a meta-analysis of 18 survey papers that refer to the explainability of machine learning models. Some of them are related to model visualization, such as Liu et al. (2017), predictive visual analytics (Lu et al., 2017a,b), interaction with models (Amershi et al., 2014; Dudley and Kristensson, 2018), deep learning (Choo and Liu, 2018; Garcia et al., 2018; Hohman et al., 2019), or dimensionality reduction (Sacha et al., 2016). Algorithmics detailes for XAI methods can also be found in books Interpretable Machine Learning (Molnar, 2019) or Explanatory Model Analysis (Biecek and Burzykowski, 2020). Chatzimparmpas et al. (2020) emphasized the importance of regularly keeping up with new surveys, both due to the covering of more articles as well as the different perspectives. To the best of our knowledge, none of these surveys aims at a comprehensive analysis of software tools for eXplainable Artificial Intelligence. In this paper, we conduct an extensive review of the R packages. It should be noted that work in this area is being carried out in various camps of modelers. The contributions of the statisticians are intertwined with those made by practitioners in machine learning or deep learning. This sometimes leads to redundancy in the nomenclature. The name eXplainable Artificial Intelligence was popularized by the DARPA program (Gunning, 2017), emphasizing the question of how much the algorithm can explain the reasons for a recommended decision. The name Interpretable Machine Learning was popularized by a book with the same title (Molnar, 2019), which emphasizes a model\u2019s interpretability. The name Explanatory Model Analysis (Biecek and Burzykowski, 2020) refers to the main objective, which is to explore model behavior. These threads are also known as Veridical Data Science (Yu and Kumbier, 2020) or Responsible Machine Learning (Gill et al., 2020). In this paper, we will use the term XAI, but note that in most cases these names can be used interchangeably. Taxonomy of XAI methods The literature presents several taxonomies of XAI methods categorization (Gilpin et al., 2018; Biran and Cotton, 2017; Molnar, 2019; Biecek and Burzykowski, 2020). Figure 1 summarizes the most frequent grouping of these methods. Figure 1: Model oriented taxonomy for XAI methods. The introduced taxonomy puts the model structure in the center. From this point of view, we are dealing with three groups of methods. \u2022 Methods for models with interpretable structure (interpretable by design), such as linear models, decision trees (Hothorn et al., 2006), decision rules (Hahsler et al., 2011), k-nearest neighbors (Venables and Ripley, 2002; Schliep and Hechenbichler, 2016), and others. The The R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859 CONTRIBUTED RESEARCH ARTICLE 3 architecture of such predictive models allows us to directly explain a certain aspect of the model. Such explanations are accurate, i.e. they are based on model coefficients and describe the model in a complete way. Of course, such models can be difficult to understand. A tree can contain hundreds of decision leaves, making it challenging to grasp the whole. But, the model structure is, in general, directly interpretable. \u2022 Model-specific methods. There are situations in which the model structure is so complex that it cannot be interpreted by looking at individual parameters. However, there are methods for knowledge extraction designed for specific classes of models. For tree ensembles, it is possible to analyze the tree structures in order to read from them some relationships between variables. For neural networks, it is possible to trace gradients. This group of methods assumes full access to the model structure. We expect that the explanation of the operation is a rough approximation of a more complex process. \u2022 Model-agnostic methods. The most general class of methods are those that facilitate analysis of the model without any knowledge of the internal structure. The analysis is usually carried out on the basis of a number of model evaluations on properly prepared perturbed input data. Such an analysis can be carried out on any predictive model. In the last chapter of this paper, we will present examples of methods for each of these groups, but the main emphasis is on model-agnostic methods. The reason for this is that we often compare models with different structures when looking for a final model, and, sometimes, we even have to compare models created in different frameworks. The main advantage of that approach is flexibility. It allows users of such an algorithm to compare explanations of different machine learning models, for instance, the forest type model with a boosting tree or even neural network, with common scales between them. The disadvantage is that explanations acquired with that approach may be less accurate. They only approximate the behavior of the predictive model ignoring information that comes from the structure. Another possible taxonomy refers to the task to which the explanation is used. The most common are two situations when the explanation concerns one observation or when it concerns the whole dataset. If the explanation concerns a single observation, it is called local or individual. If an explanation refers to the whole dataset, it is called global or dataset-level. In applications, we sometimes fall into a gray zone where we are interested in the behavior of the model for a group of observations. Usually, both local and global methods can be used in such cases. Table 1 introduces the second taxonomy of methods according to the purpose of model explanation, whether the goal is to understand the importance of the variables, profile the variables, or to analyze the performance of a model. Later on in the article, we will present examples of comparisons of models based on this taxonomy. Local Global Model Parts \u2022 Permutational feature importance \u2022 Leave-One-Covariate-Out (LOCO) \u2022 Surrogate models \u2022 Aggreagated SHapley Additive exPlanations Predict Parts \u2022 Break Down (BD) \u2022 SHapley Additive exPlanations (SHAP) \u2022 Local Interpretable Model-agnostic Explanations (LIME)", "authors": [{"affiliations": [], "name": "Szymon Maksymiuk"}, {"affiliations": [], "name": "Alicja Gosiewska"}, {"affiliations": [], "name": "Przemys\u0142aw Biecek"}], "id": "SP:c03d1f103b231b9fc41660b9947bc0ae0d4d06a0", "references": [{"authors": ["S. Amershi", "M. Cakmak", "W.B. Knox", "T. Kulesza"], "title": "Power to the People: The Role of Humans in Interactive Machine Learning", "venue": "AI Magazine,", "year": 2014}, {"authors": ["D. Apley"], "title": "ALEPlot: Accumulated Local Effects (ALE) Plots and Partial Dependence (PD) Plots, 2018", "venue": "URL https://CRAN.R-project.org/package=ALEPlot. R package version 1.1", "year": 2018}, {"authors": ["D.W. Apley", "J. Zhu"], "title": "Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models. arXiv, 2016", "venue": "URL https://arxiv.org/abs/1612.08468", "year": 2016}, {"authors": ["V. Arya", "R.K.E. Bellamy", "P.-Y. Chen", "A. Dhurandhar", "M. Hind", "S.C. Hoffman", "S. Houde", "Q.V. Liao", "R. Luss", "A. Mojsilovi\u0107", "S. Mourad", "P. Pedemonte", "R. Raghavendra", "J.T. Richards", "P. Sattigeri", "K. Shanmugam", "M. Singh", "K.R. Varshney", "D. Wei", "Y. Zhang"], "title": "Ai explainability 360: An extensible toolkit for understanding data and machine learning models", "venue": "Journal of Machine Learning Research,", "year": 2020}, {"authors": ["H. Baniecki", "P. Biecek"], "title": "modelStudio: Interactive Studio with Explanations for ML Predictive Models", "venue": "Journal of Open Source Software,", "year": 2019}, {"authors": ["P. Biecek"], "title": "DALEX: Explainers for Complex Predictive Models in R", "venue": "Journal of Machine Learning Research,", "year": 2018}, {"authors": ["P. Biecek", "H. Baniecki", "A. Izdebski", "K. Pekala"], "title": "ingredients: Effects and Importances of Model Ingredients, 2019", "venue": "URL http://CRAN.R-project.org/package=ingredients", "year": 2019}, {"authors": ["O. Biran", "C. Cotton"], "title": "Explanation and justification in machine learning: A survey", "venue": "In IJCAI-17 workshop on explainable AI (XAI),", "year": 2017}, {"authors": ["B. Bischl", "M. Lang", "L. Kotthoff", "J. Schiffner", "J. Richter", "E. Studerus", "G. Casalicchio", "Z.M. Jones"], "title": "URL http: //jmlr.org/papers/v17/15-066.html", "venue": "mlr: Machine Learning in R. Journal of Machine Learning Research,", "year": 2016}, {"authors": ["L. Breiman"], "title": "Statistical modeling: The two cultures (with comments and a rejoinder by the author)", "venue": "Statist. Sci., 16(3):199\u2013231,", "year": 2001}, {"authors": ["R. Caruana", "Y. Lou", "J. Gehrke", "P. Koch", "M. Sturm", "N. Elhadad"], "title": "Intelligible Models for HealthCare: Predicting Pneumonia Risk and Hospital 30-Day Readmission", "venue": "In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,", "year": 2015}, {"authors": ["A. Chatzimparmpas", "R.M. Martins", "I. Jusufi", "A. Kerren"], "title": "A survey of surveys on the use of visualization for interpreting machine learning models", "venue": "Information Visualization,", "year": 2020}, {"authors": ["J. Choo", "S. Liu"], "title": "Visual analytics for explainable deep learning", "venue": "IEEE computer graphics and applications,", "year": 2018}, {"authors": ["G. de Queiroz", "S. Ronaghan", "S. Swaminathan"], "title": "aif360: Help Detect and Mitigate Bias in Machine Learning Models, 2020", "venue": "URL https://CRAN.R-project.org/package=aif360. R package version", "year": 2020}, {"authors": ["J.J. Dudley", "P.O. Kristensson"], "title": "A review of user interface design for interactive machine learning", "venue": "ACM Transactions on Interactive Intelligent Systems (TiiS),", "year": 2018}, {"authors": ["A. Fisher", "C. Rudin", "F. Dominici"], "title": "All Models are Wrong, but Many are Useful: Learning a Variable\u2019s Importance by Studying an Entire Class of Prediction Models Simultaneously", "venue": "URL https://arxiv.org/abs/1801.01489", "year": 2018}, {"authors": ["J. Friedman", "T. Hastie", "R. Tibshirani"], "title": "Regularization Paths for Generalized Linear Models via Coordinate Descent", "venue": "Journal of Statistical Software,", "year": 2010}, {"authors": ["J.H. Friedman"], "title": "Greedy Function Approximation: A Gradient Boosting Machine", "venue": "Annals of Statistics,", "year": 2000}, {"authors": ["M.K.C. from Jed Wing", "S. Weston", "A. Williams", "C. Keefer", "A. Engelhardt", "T. Cooper", "Z. Mayer", "B. Kenkel", "the R Core Team", "M. Benesty", "R. Lescarbeau", "A. Ziem", "L. Scrucca", "Y. Tang", "C. Candan", "T. Hunt"], "title": "caret: Classification and Regression Training, 2019", "venue": "URL https://CRAN.R-project.org/package=caret. R package version 6.0-84", "year": 2019}, {"authors": ["R. Garcia", "A.C. Telea", "B.C. da Silva", "J. T\u00f8rresen", "J.L.D. Comba"], "title": "A task-and-technique centered survey on visual analytics for deep learning model engineering", "venue": "Computers & Graphics,", "year": 2018}, {"authors": ["N. Gill", "P. Hall", "K. Montgomery", "N. Schmidt"], "title": "A Responsible Machine Learning Workflow with Focus on Interpretable Models, Post-hoc Explanation, and Discrimination", "venue": "Testing. Information,", "year": 2020}, {"authors": ["L. Gilpin", "D. Bau", "B. Yuan", "A. Bajwa", "M. Specter", "L. Kagal"], "title": "Explaining Explanations: An Overview of Interpretability of Machine Learning", "venue": "pages 80\u201389,", "year": 2018}, {"authors": ["A. Goldstein", "A. Kapelner", "J. Bleich", "E. Pitkin"], "title": "Peeking Inside the Black Box: Visualizing Statistical Learning With Plots of Individual Conditional Expectation", "venue": "Journal of Computational and Graphical Statistics,", "year": 2015}, {"authors": ["B. Goodman", "S. Flaxman"], "title": "European union regulations on algorithmic decision-making and a \u201cright to explanation", "venue": "AI Magazine,", "year": 2017}, {"authors": ["A. Gosiewska", "P. Biecek"], "title": "auditor: an R Package for Model-Agnostic Visual Validation and Diagnostics", "venue": "The R Journal,", "year": 2019}, {"authors": ["A. Gosiewska", "P. Biecek"], "title": "Do Not Trust Additive Explanations", "venue": "arXiv, 2019b. URL https://arxiv. org/abs/1903.11420v3", "year": 1903}, {"authors": ["B. Greenwell"], "title": "fastshap: Fast Approximate Shapley Values, 2020. URL https://CRAN.R-project.org/ package=fastshap. R package version 0.0.5", "year": 2020}, {"authors": ["B. Greenwell", "B. Boehmke", "B. Gray"], "title": "vip: Variable Importance Plots, 2020", "venue": "URL https://CRAN.Rproject.org/package=vip. R package version 0.2.2", "year": 2020}, {"authors": ["B.M. Greenwell"], "title": "pdp: An R Package for Constructing Partial Dependence Plots", "venue": "The R Journal,", "year": 2017}, {"authors": ["A. Grudziaz", "A. Gosiewska", "P. Biecek"], "title": "survxai: an R package for structure-agnostic explanations of survival models", "venue": "Journal of Open Source Software,", "year": 2018}, {"authors": ["D. Gunning"], "title": "Explainable Artificial Intelligence (XAI), 2017. URL https://www.darpa.mil/attachments/ XAIProgramUpdate.pdf", "year": 2017}, {"authors": ["M. Hahsler"], "title": "arulesViz: Interactive Visualization of Association Rules with R", "venue": "The R Journal,", "year": 2017}, {"authors": ["M. Hahsler", "S. Chelluboina", "K. Hornik", "C. Buchta"], "title": "The arules R-Package Ecosystem: Analyzing Interesting Patterns from Large Transaction Datasets", "venue": "Journal of Machine Learning Research,", "year": 1977}, {"authors": ["M. Hahsler", "I. Johnson", "T. Kliegr", "J. Kucha\u0159"], "title": "Associative Classification in R: arc, arulesCBA, and rCBA", "venue": "The R Journal,", "year": 2019}, {"authors": ["P. Hall"], "title": "On the Art and Science of Machine Learning Explanations. arXiv, 2018", "venue": "URL https://arxiv. org/abs/1810.02909", "year": 2018}, {"authors": ["P. Hall"], "title": "awesome-machine-learning-interpretability. https://github.com/jphall663/awesomemachine-learning-interpretability, 2020", "venue": "Access: 2020-07-01", "year": 2020}, {"authors": ["P. Hall", "N. Gill"], "title": "An Introduction to Machine Learning Interpretability: An Applied Perspective on Fairness, Accountability", "venue": "Transparency, and Explainable AI. O\u2019Reilly Media,", "year": 1492}, {"authors": ["F. Hohman", "M. Kahng", "R. Pienta", "D.H. Chau"], "title": "Visual Analytics in Deep Learning: An Interrogative Survey for the Next Frontiers", "venue": "IEEE Transactions on Visualization and Computer Graphics,", "year": 2019}, {"authors": ["T. Hothorn", "K. Hornik", "A. Zeileis"], "title": "Unbiased Recursive Partitioning: A Conditional Inference Framework", "venue": "Journal of Computational and Graphical Statistics,", "year": 2006}, {"authors": ["H. Jopia"], "title": "smbinning: Scoring Modeling and Optimal Binning, 2019", "venue": "URL https://CRAN.R-project.org/ package=smbinning. R package version 0.9", "year": 2019}, {"authors": ["E. Karbowiak", "P. Biecek"], "title": "EIX: Explain Interactions in \u2019XGBoost\u2019, 2020", "venue": "URL https://CRAN.Rproject.org/package=EIX. R package version 1.1", "year": 2020}, {"authors": ["N. Kennedy"], "title": "forestmodel: Forest Plots from Regression Models, 2020", "venue": "URL https://CRAN.R-project.org/ package=forestmodel. R package version 0.6.2", "year": 2020}, {"authors": ["K. Komisarczyk", "P. Kozminski", "P. Biecek"], "title": "treeshap: Fast shap values computations for ensamble models, 2020", "venue": "URL https://github.com/ModelOriented/treeshap. R package version 0.0.0.9000", "year": 2020}, {"authors": ["A. Kozak", "P. Biecek"], "title": "vivo: Variable Importance via Oscillations, 2020", "venue": "URL https://CRAN.R-project. org/package=vivo. R package version 0.2.0", "year": 2020}, {"authors": ["N. Kozodoi", "T.V. Varga"], "title": "fairness: Algorithmic Fairness Metrics, 2020", "venue": "URL https://CRAN.Rproject.org/package=fairness. R package version 1.1.1", "year": 2020}, {"authors": ["M. Kuhn", "H. Wickham"], "title": "Tidymodels: a collection of packages for modeling and machine learning using tidyverse principles., 2020", "venue": "URL https://www.tidymodels.org", "year": 2020}, {"authors": ["M. Lang", "M. Binder", "J. Richter", "P. Schratz", "F. Pfisterer", "S. Coors", "Q. Au", "G. Casalicchio", "L. Kotthoff", "B. Bischl"], "title": "mlr3: A modern object-oriented machine learning framework in r", "venue": "Journal of Open Source Software,", "year": 1903}, {"authors": ["J. Lei", "M. G\u2019Sell", "A. Rinaldo", "R.J. Tibshirani", "L. Wasserman"], "title": "Distribution-Free Predictive Inference for Regression", "venue": "Journal of the American Statistical Association,", "year": 2018}, {"authors": ["S. Liu", "X. Wang", "M. Liu", "J. Zhu"], "title": "Towards better analysis of machine learning models: A visual analytics perspective", "venue": "Visual Informatics,", "year": 2017}, {"authors": ["Y. Liu", "A. Just"], "title": "SHAPforxgboost: SHAP Plots for \u2019XGBoost\u2019, 2020", "venue": "URL https://CRAN.R-project. org/package=SHAPforxgboost. R package version 0.0.4", "year": 2020}, {"authors": ["J. Lu", "W. Chen", "Y. Ma", "J. Ke", "Z. Li", "F. Zhang", "R. Maciejewski"], "title": "Recent progress and trends in predictive visual analytics", "venue": "Frontiers of Computer Science,", "year": 2017}, {"authors": ["Y. Lu", "R. Garcia", "B. Hansen", "M. Gleicher", "R. Maciejewski"], "title": "The State-of-the-Art in Predictive Visual Analytics", "venue": "Computer Graphics Forum,", "year": 2017}, {"authors": ["S.M. Lundberg", "S.-I. Lee"], "title": "A Unified Approach to Interpreting Model Predictions", "venue": "Advances in Neural Information Processing Systems", "year": 2017}, {"authors": ["M. Majka"], "title": "naivebayes: High Performance Implementation of the Naive Bayes Algorithm in R, 2019", "venue": "URL https://CRAN.R-project.org/package=naivebayes. R package version 0.9.7", "year": 2019}, {"authors": ["S. Maksymiuk", "P. Biecek"], "title": "DALEXtra: Extension for \u2019DALEX", "venue": "Package,", "year": 2020}, {"authors": ["S. Maksymiuk", "A. Gosiewska", "P. Biecek"], "title": "shapper: Wrapper of Python Library \u2019shap\u2019, 2019", "venue": "URL https://CRAN.R-project.org/package=shapper. R package version 0.1.2", "year": 2019}, {"authors": ["M. Mayer"], "title": "flashlight: Shed Light on Black Box Machine Learning Models, 2020", "venue": "URL https://CRAN.Rproject.org/package=flashlight. R package version 0.7.0", "year": 2020}, {"authors": ["C. Molnar"], "title": "Interpretable Machine Learning. 2019", "venue": "https://christophm.github.io/interpretable-mlbook/. [p2,", "year": 2019}, {"authors": ["C. Molnar", "B. Bischl", "G. Casalicchio"], "title": "iml: An R package for Interpretable Machine Learning", "venue": "JOSS, 3(26):786,", "year": 2018}, {"authors": ["H. Nori", "S. Jenkins", "P. Koch", "R. Caruana"], "title": "InterpretML: A Unified Framework for Machine Learning Interpretability. arXiv, 2019", "venue": "URL https://arxiv.org/abs/1909.09223", "year": 1909}, {"authors": ["A. Paluszynska", "P. Biecek", "Y. Jiang"], "title": "randomForestExplainer: Explaining and Visualizing Random Forests in Terms of Variable Importance, 2020", "venue": "URL https://CRAN.R-project.org/package= randomForestExplainer. R package version 0.10.1", "year": 2020}, {"authors": ["T.L. Pedersen", "M. Benesty"], "title": "lime: Local Interpretable Model-Agnostic Explanations, 2019", "venue": "URL https://CRAN.R-project.org/package=lime. R package version 0.5.1", "year": 2019}, {"authors": ["F. Pedregosa", "G. Varoquaux", "A. Gramfort", "V. Michel", "B. Thirion", "O. Grisel", "M. Blondel", "P. Prettenhofer", "R. Weiss", "V. Dubourg", "J. Vanderplas", "A. Passos", "D. Cournapeau", "M. Brucher", "M. Perrot", "E. Duchesnay"], "title": "Scikit-learn: Machine Learning in Python", "venue": "Journal of Machine Learning Research,", "year": 2011}, {"authors": ["K. Pekala", "P. Biecek"], "title": "triplot: Explaining Correlated Features in Machine Learning Models, 2020", "venue": "URL https://CRAN.R-project.org/package=triplot. R package version 1.3.0", "year": 2020}, {"authors": ["M. Philipp", "T. Rusch", "K. Hornik", "C. Strobl"], "title": "Measuring the Stability of Results from Supervised Statistical Learning", "venue": "Journal of Computational and Graphical Statistics,", "year": 2018}, {"authors": ["P. Pi\u0105tyszek", "P. Biecek"], "title": "arenar: Arena for the Exploration and Comparison of any ML Models, 2020. URL https://CRAN.R-project.org/package=arenar. R package version 0.1.8", "year": 2020}, {"authors": ["D. Rafacz", "H. Baniecki", "S. Maksymiuk"], "title": "Bakala. deepdep: Visualise and Explore the Deep Dependencies of R Packages, 2020", "venue": "URL https://CRAN.R-project.org/package=deepdep. R package version", "year": 2020}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "Why Should I Trust You?\": Explaining the Predictions of Any Classifier", "venue": "In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data", "year": 2016}, {"authors": ["M. Robnik-Sikonja"], "title": "ExplainPrediction: Explanation of Predictions for Classification and Regression Models, 2018", "venue": "URL https://CRAN.R-project.org/package=ExplainPrediction. R package version", "year": 2018}, {"authors": ["K. Romaszko", "M. Tatarynowicz", "M. Urba\u0144ski", "P. Biecek"], "title": "modelDown: automated website generator with interpretable documentation for predictive machine learning models", "venue": "Journal of Open Source Software,", "year": 2019}, {"authors": ["D. Sacha", "L. Zhang", "M. Sedlmair", "J.A. Lee", "J. Peltonen", "D. Weiskopf", "S.C. North", "D.A. Keim"], "title": "Visual interaction with dimensionality reduction: A structured literature analysis", "venue": "IEEE transactions on visualization and computer graphics,", "year": 2016}, {"authors": ["K.K. Schliep"], "title": "Hechenbichler. kknn: Weighted k-Nearest Neighbors, 2016", "venue": "URL https://CRAN.Rproject.org/package=kknn. R package version 1.3.1", "year": 2016}, {"authors": ["M. Scutari"], "title": "fairml: Fair Models in Machine Learning, 2020", "venue": "URL https://CRAN.R-project.org/package= fairml. R package version 0.2", "year": 2020}, {"authors": ["N. Sellereite", "M. Jullum"], "title": "shapr: An R-package for explaining machine learning models with dependence-aware", "venue": "Shapley values. Journal of Open Source Software,", "year": 2019}, {"authors": ["M. Staniak", "P. Biecek"], "title": "Explanations of Model Predictions with live and breakDown Packages", "venue": "The R Journal,", "year": 2018}, {"authors": ["J. Szlek", "P. Adam", "L. Raymond", "J. Renata", "M. Aleksander"], "title": "Heuristic modeling of macromolecule release from PLGA microspheres", "venue": "International Journal of Nanomedicine,", "year": 2013}, {"authors": ["K. Ushey", "J. Allaire", "Y. Tang"], "title": "reticulate: Interface to \u2019Python\u2019, 2019", "venue": "URL https://CRAN.R-project. org/package=reticulate. R package version 1.14", "year": 2019}, {"authors": ["W.N. Venables", "B.D. Ripley"], "title": "Modern Applied Statistics with S", "venue": "URL http://www.stats.ox.ac.uk/pub/MASS4. ISBN 0-387-95457-0", "year": 2002}, {"authors": ["J. Wi\u015bniewski", "P. Biecek"], "title": "fairmodels: Flexible Tool for Bias Detection, Visualization, and Mitigation, 2020. URL https://CRAN.R-project.org/package=fairmodels. R package version 0.1.1", "year": 2020}, {"authors": ["B. Yu", "K. Kumbier"], "title": "Veridical data science", "venue": "Proceedings of the National Academy of Sciences,", "year": 2020}], "sections": [{"heading": "Importance of eXplainable Artificial Intelligence", "text": "The growing demand for fast and automated development of predictive models has contributed to the popularity of machine learning frameworks such as caret (from Jed Wing et al., 2019), mlr (Bischl et al., 2016), mlr3 (Lang et al., 2019), tidymodels (Kuhn and Wickham, 2020), h2o (H2O.ai, 2015), scikit-learn (Pedregosa et al., 2011), keras (Chollet et al., 2015), pytorch (Paszke et al., 2019), and many others. These tools allow us to quickly test models of very different structures and choose the best one based on a selected performance measure. However, it soon became apparent that such a process leads to treating models like black-boxes. This, in turn, makes it difficult to detect certain problems early enough. Insufficiently tested models quickly lose their effectiveness, lead to unfair decisions, they discriminate, are deferred by users, and do not provide the option to appeal (Gill et al., 2020). To overcome these problems methods and tools for analysis of black-box predictive models are essential. In this work, we will present tools that can be used for this purpose.\nThere are various situations where we need tools for in-depth model analysis. For example:\n\u2022 The model makes incorrect decisions on certain observations. We want to understand what the cause is of these incorrect decisions, in hopes to improve the model. In some sense, we want to debug the model by looking for the source of its ineffectiveness.\n\u2022 Model predictions are used by inquisitive parties. In order to build their trust and confidence, we need to present additional arguments or reasoning behind particular predictions.\n\u2022 Sometimes we expect that the model will automatically discover some relationships hidden in the data. By analyzing the model, we want to extract and understand these relationships in order to increase our domain knowledge.\n\u2022 It is becoming increasingly common to expect not only decisions but also reasons, arguments and explanations for a decision to be made in an automated way. Sometimes such explanations are required by law, see, for example, GDPR regulations (Goodman and Flaxman, 2017).\n\u2022 Often the key factor is the question of responsibility. If model developers responsibly recommend the use of a model, they often need to understand the way the model works. Thus, we cannot rely on the black-box. We need a deeper understanding of the model.\nIn this work, we present tools that can be used in eXplainable Artificial Intelligence (XAI) modeling, which can help to explore predictive models. In recent years, plenty of interesting software has been developed. We hope that presenting XAI tools in this paper will make them easier to apply and will, therefore, lead to building better and safer predictive models. The main contributions of this paper are as follows.\n1. We introduced two taxonomies of methods for model comparisons. The first one concerns a model as a subject of analysis, and the second one concerns the domain of the explanation.\n2. We conducted a comprehensive review and identified 27 popular R packages that implement XAI methods.\n3. We compared the capabilities of recognized R packages, taking into account the variety of implemented methods, interoperability, and time of operation.\n4. We prepared knitr reports with illustrative examples for each of the considered packages.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nar X\niv :2\n00 9.\n13 24\n8v 2\n[ cs\n.L G\n] 2\n2 O\nct 2\n02 0\nThis paper is focused on the tools available to R users rather than on overview of mathematical details for particular methods. Those interested in a more detailed analysis of the methods may be interested in the work of Chatzimparmpas et al. (2020) with a meta-analysis of 18 survey papers that refer to the explainability of machine learning models. Some of them are related to model visualization, such as Liu et al. (2017), predictive visual analytics (Lu et al., 2017a,b), interaction with models (Amershi et al., 2014; Dudley and Kristensson, 2018), deep learning (Choo and Liu, 2018; Garcia et al., 2018; Hohman et al., 2019), or dimensionality reduction (Sacha et al., 2016). Algorithmics detailes for XAI methods can also be found in books Interpretable Machine Learning (Molnar, 2019) or Explanatory Model Analysis (Biecek and Burzykowski, 2020). Chatzimparmpas et al. (2020) emphasized the importance of regularly keeping up with new surveys, both due to the covering of more articles as well as the different perspectives. To the best of our knowledge, none of these surveys aims at a comprehensive analysis of software tools for eXplainable Artificial Intelligence. In this paper, we conduct an extensive review of the R packages.\nIt should be noted that work in this area is being carried out in various camps of modelers. The contributions of the statisticians are intertwined with those made by practitioners in machine learning or deep learning. This sometimes leads to redundancy in the nomenclature. The name eXplainable Artificial Intelligence was popularized by the DARPA program (Gunning, 2017), emphasizing the question of how much the algorithm can explain the reasons for a recommended decision. The name Interpretable Machine Learning was popularized by a book with the same title (Molnar, 2019), which emphasizes a model\u2019s interpretability. The name Explanatory Model Analysis (Biecek and Burzykowski, 2020) refers to the main objective, which is to explore model behavior. These threads are also known as Veridical Data Science (Yu and Kumbier, 2020) or Responsible Machine Learning (Gill et al., 2020). In this paper, we will use the term XAI, but note that in most cases these names can be used interchangeably."}, {"heading": "Taxonomy of XAI methods", "text": "The literature presents several taxonomies of XAI methods categorization (Gilpin et al., 2018; Biran and Cotton, 2017; Molnar, 2019; Biecek and Burzykowski, 2020). Figure 1 summarizes the most frequent grouping of these methods.\nThe introduced taxonomy puts the model structure in the center. From this point of view, we are dealing with three groups of methods.\n\u2022 Methods for models with interpretable structure (interpretable by design), such as linear models, decision trees (Hothorn et al., 2006), decision rules (Hahsler et al., 2011), k-nearest neighbors (Venables and Ripley, 2002; Schliep and Hechenbichler, 2016), and others. The\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\narchitecture of such predictive models allows us to directly explain a certain aspect of the model. Such explanations are accurate, i.e. they are based on model coefficients and describe the model in a complete way. Of course, such models can be difficult to understand. A tree can contain hundreds of decision leaves, making it challenging to grasp the whole. But, the model structure is, in general, directly interpretable.\n\u2022 Model-specific methods. There are situations in which the model structure is so complex that it cannot be interpreted by looking at individual parameters. However, there are methods for knowledge extraction designed for specific classes of models. For tree ensembles, it is possible to analyze the tree structures in order to read from them some relationships between variables. For neural networks, it is possible to trace gradients. This group of methods assumes full access to the model structure. We expect that the explanation of the operation is a rough approximation of a more complex process.\n\u2022 Model-agnostic methods. The most general class of methods are those that facilitate analysis of the model without any knowledge of the internal structure. The analysis is usually carried out on the basis of a number of model evaluations on properly prepared perturbed input data. Such an analysis can be carried out on any predictive model.\nIn the last chapter of this paper, we will present examples of methods for each of these groups, but the main emphasis is on model-agnostic methods. The reason for this is that we often compare models with different structures when looking for a final model, and, sometimes, we even have to compare models created in different frameworks. The main advantage of that approach is flexibility. It allows users of such an algorithm to compare explanations of different machine learning models, for instance, the forest type model with a boosting tree or even neural network, with common scales between them. The disadvantage is that explanations acquired with that approach may be less accurate. They only approximate the behavior of the predictive model ignoring information that comes from the structure.\nAnother possible taxonomy refers to the task to which the explanation is used. The most common are two situations when the explanation concerns one observation or when it concerns the whole dataset. If the explanation concerns a single observation, it is called local or individual. If an explanation refers to the whole dataset, it is called global or dataset-level. In applications, we sometimes fall into a gray zone where we are interested in the behavior of the model for a group of observations. Usually, both local and global methods can be used in such cases.\nTable 1 introduces the second taxonomy of methods according to the purpose of model explanation, whether the goal is to understand the importance of the variables, profile the variables, or to analyze the performance of a model. Later on in the article, we will present examples of comparisons of models based on this taxonomy."}, {"heading": "Local Global", "text": "Below we discuss the objectives for each task and give examples of methods.\n\u2022 Model Parts focuses on the importance of variables or groups of variables. It considers a\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nglobal level approach. The Model Parts task can be realized by computing the impact of a single variable or group of variables have on the model performance using various methods like permutation feature importance, Leave One Covariate Out (LOCO) (Lei et al., 2018), or surrogate tree models. It seems the most popular is the permutation feature importance (Fisher et al., 2018) which assesses the importance of a variable by the change in the model performance after masking the effect of one or a group of variables. The effect of masking is achieved by permutations or resampling values for selected variables.\n\u2022 Model Profile aims at presenting how a single variable or a group of variables affects model response. It shows the profile of model prediction as a function of dependent variables. Model Profile represents the global domain of explanations, where the whole dataset is taken into consideration. The most popular examples of such methods are Partial Dependence Profiles (PDP) and Accumulated Local Effects (ALE). PDP (Friedman, 2000) is a method of profiling the global behavior of models in the context of one or a pair of variables. Its purpose is to show how the expected prediction of the model change based on changes to dependent variables. In other words, it estimates model response as a function of a specific variable. ALE (Apley and Zhu, 2016) is to some extent, similar to PDP, but it takes into account the conditional distribution of a feature, instead of a marginal one. Thus, it is more suited in the cases where variables are correlated.\n\u2022 Model Diagnostics focuses on methods that can be utilized to evaluate the performance of the model, improve the quality of predictions or present the structure of the model. It is a very wide category without distinctive representatives. Examples of explanation methods that comply with a definition of Model Diagnostics are residual density plots, variable vs prediction plots, and many other figures that present responses or residuals versus different variables.\n\u2022 The Predict Parts explanation task analyses and presents the impact of components and from the perspective of a single observation. The goal of that task is to measure the contributions each observation has to the final prediction. It belongs to the local explanation domain. Examples of the Predict Parts Explanation Method are LIME (Ribeiro et al., 2016), SHAP (Lundberg and Lee, 2017) or BreakDown (Gosiewska and Biecek, 2019b). Probably the most popular method in this group is the SHapley Additive exPlanations (SHAP) (Lundberg and Lee, 2017) method. It is based on the Shapley values concept, which derives from game theory. They are the solution for the problem in cooperative games where non-identical players contribute, to different extents, to the outcome. Shapley values allow us to calculate how the surplus should be distributed. Translating it into the language of models, players now are dependent variables while the model prediction is a surplus to divide. Current implementations usually approximate Shapley values in general case or calculates exact values for tree ensembles.\n\u2022 Predict Profile sometimes called sensitivity analysis, is a task similar to Model Profile. The only difference lies in the explanation subject. For this task, there is no aggregation over the whole dataset. Instead, variables are profiled from the perspective of a single observation. An instance of an explanation method that complies with the Predict Profile task is Individual Conditional Expectations (Goldstein et al., 2015) also known as the Ceteris Paribus Profile (Biecek and Burzykowski, 2020).\n\u2022 Predict Diagnostics follows the same principia as the Model Diagnostics task. What differs between the two is the way they look at the model. For Predict Diagnostics, a single observation or its neighbors are taken as perspective instead of the whole dataset. One of the examples of the Predict Diagnostics methods is a comparison of residual distribution for k neighbors of a single observation versus distribution over the whole dataset."}, {"heading": "Comparison of packages for XAI analysis", "text": ""}, {"heading": "Selection criteria for XAI packages", "text": "The number of tools that can be used to analyze predictive models is growing rapidly, and, at the same time, there is no established definition of an XAI tool. Therefore, it would not be possible to reliably identify and present all existing XAI packages.\nFor a reliable analysis, we have adopted the following criteria. For the initial set of packages, we have used the list Awesome Machine Learning Interpretability, maintained by Patrick Hall (Hall, 2020). We chose this list because of the pioneer works related to the synthesis of approaches to XAI described in An Introduction to Machine Learning Interpretability (Hall and Gill, 2018; Hall, 2018). We restricted this list to packages published on CRAN with at least 5000 downloads. The list is in Table 2.\nIn addition, this list was extended by packages available on CRAN, which have in the DESCRIPTION file some keywords used in XAI analysis. We checked 15,993 packages (access 08.07.2020)\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nlooking for keywords like xai, iml, explain and interpretability. This way, we encountered a great deal of false-positive entries (for instance, packages that explain the meaning of HTTP codes or indeed use XAI methods but to solve other, well-defined problems, not to actually explain the predictive models). This list was then manually cleaned and we ended up with 27 packages.\nWe would like to point out that mcr (Manuilova et al., 2014) and smbinning (Jopia, 2019) may look like they do not actually belong to the XAI area. However, they were included in Patrick Hall\u2019s original list, and we would consider it biased to arbitrarily remove packages despite meeting all the requirements of being included. Therefore, we did our best to extract the XAI related functionalities of those packages.\nNote, the purpose of this paper is to compare packages that can be used for models created in R. However, we have decided to add also some Python libraries for context.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"}, {"heading": "Available methods in XAI packages", "text": "Table 3 summarizes methods available in the XAI packages. Some packages are focused only on a single aspect of a model explanation, while others implement a larger number of methods. In section 2.4 Example gallery for XAI packages, we present an explanation generated by each package.\nMost of the compared packages implement Model Parts or Predict Parts explanations. This means that the primary focus is on inspection of how consecutive features contribute to model prediction either locally or globally. Nine out of all compared R packages implement both Model Parts and Predict Parts methods. Two packages implement exactly those two types of methods, while seven provide other types of methods as well. On the other hand, Predict Diagnostics is the least represented type of explanation as only one package support it. However, Model Diagnostics methods are available in nine out of checked R packages, and, for three of them, this is the only supported type of explanation. Only five packages allow the variables to be locally profiled, while nine provide an opportunity to do it globally. Eight of the compared packages provide access to three or more different types of explanations, but only five to at least four types. Taking into consideration the compared Python packages, they give access to similar features as the R packages do.\nModels comparisons and the Rashomon effect\nThe Rashomon effect (Wikipedia, 2020) refers to a situation in which an event has contradictory interpretations by different spectators. Breiman (2001) has introduced this concept to machine learning modeling. The same relationship between the variables may be differently described by different\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nmodels. For example, contrary to the flexible random forest, a simple linear model would not catch non-linearity between predicted variables and other features.\nThe juxtaposition of explanations for different models allows for a more complete analysis. However, not every package facilitates easy model comparison and not every package was designed with model comparison in mind. Packages auditor (Gosiewska and Biecek, 2019a), DALEX, DALEXtra (Maksymiuk and Biecek, 2020), flashlight (Mayer, 2020), ingredients (Biecek et al., 2019), modelDown (Romaszko et al., 2019), modelStudio (Baniecki and Biecek, 2019), and vivo (Kozak and Biecek, 2020) are designed for plot explanations of two or more models next to each other in a single chart.\nInteroperability XAI frameworks\nMost of the packages we discuss in this article implement model-agnostic explanation methods. Yet, not all of them work smoothly with the different frameworks used to train predictive models. In Table 4, we summarize which packages work with popular machine learning frameworks. Such analysis is important because several models (for example random forest) are available in different frameworks (mlr, scikit-learn, and others) and although algorithms should be the same, the models differ in terms of names of parameters or interfaces to making predictions. Therefore, to explain models created with various ML frameworks it may be necessary to put additional effort into obtaining the prediction of the model in the form understandable for the XAI framework.\nInteroperability with the framework is not binary, and it may require a different amount of work. The packages can support the given framework out of the box, meaning they do not require any additional work to generate an explanation except providing a model or loading any additional library. Packages may also allow for relatively easy use of frameworks, for example, by passing their own user-defined function that accesses model predictions. If the explanations and model are in two different programming languages, the application of one to another may require even more work, e.g. using the reticulate (Ushey et al., 2019) package.\nOverall, we compared 27 R packages and six Python libraries in terms of their interoperability with various machine learning frameworks. Four of those frameworks are implemented in R, two of them in Python and one in Java, which is accessible via official R and Python wrappers. Four compared XAI packages, EIX (Karbowiak and Biecek, 2020), forestmodel (Kennedy, 2020), randomForestExplainer (Paluszynska et al., 2020) and smbinning, present a model-specific approach and, are designed to work only with a particular group of models. One R package, mcr, does not allow model input at all. Instead, it fits and explains its own algorithms. Only one package (i.e. fscaret (Szlek et al., 2013)) supports one framework despite implementing model-agnostic methods, which is due to the fact that it is an extension for the caret ML framework. To the best of our knowledge, two of the compared packages, DALEXtra and modelStudio provide support for all types of models taken into consideration. Moreover, there is no universal ML framework that would be supported by all XAI packages. The caret package is supported by the highest number of packages, while, on the other hand, mlr3 by the least, which is probably related to the time of development of these frameworks.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\n1EIX is a package that provide model-specific explanations of packages created with xgboost or LightGBM pacakges.\n2forestmodel is a package that provide model-specific explanations of linear models created with stats pacakge 3mcr pacakge build its own model and present explanation for them. 4randomForestExplainer is a package that provide model-specific explanations of forest models created with randomForest pacakge 5smbinning is a package that provide model-specific explanations of scoring linear models created among others with stats pacakge 6aix360 pacakge build its own model and present explanation for them. 7interpret pacakge build its own model and present explanation for them.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"}, {"heading": "Time of operation", "text": "The time of operation is an important aspect of software and varies between different XAI packages. Some explanations are generated in near real-time, while others take a long time to produce results. In Table 5, we have an overview of computation time for different XAI packages.\nWe performed this benchmark to enhance the comparison of R packages. The benchmark was performed on a standard laptop used for everyday work. We computed the time of evaluation of each chunk from Markdown files linked in Section 2.4.\nWherever it was possible, we tried to be consistent with the parameters of functions from different packages. For example, the number of samples for Shapley-based methods = 50. However, given that markdowns contain only sample codes, the default parameters between functions in different packages may cause differences in code evaluation times. Therefore, the benchmark should not be considered the final comparison of the speed of the packages, but rather support in developing an intuition for the overall performance time.\nThe packages DALEXtra, modelStudio, modelDown, and randomForestExplainer have long computation times, however, they are designed to compute standalone reports that can be later viewed without any additional computations. XAI frameworks, such as, DALEX, flashlight (Mayer, 2020), and iml (Molnar et al., 2018) have a wide range of computation times because of the several different methods they implement.\nIt is worth noting that we calculated all times on models fitted on the titanic dataset that has 2,207 observations, which is a relatively small amount of data. For large datasets, some explanations may take a long time or be impossible to compute.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"}, {"heading": "Example gallery for XAI packages", "text": "The following paragraphs briefly discuss consecutive XAI packages. For each of the packages listed in Table 2, we prepared an example use-case in the form of a markdown document. The documents have similar chapters and sections to facilitate comparison of the capabilities of each package. Also, in each use-case, we use the titanic dataset from stablelearner package (Philipp et al., 2018). It consists of both numerical and categorical dependent variables, and, therefore, it was possible to inspect how toolkits handle different types of features.\nThe Python library aix360 (Arya et al., 2020) is a framework that aims at interpretability and explainability of datasets and machine learning models with the help of a method designed for that purpose. It implements, among others, local post-hoc methods like SHAP and LIME, global post-hoc profWeight. aix360 also provides direct local and global-local explanations (for instance for Generalized Linear Models) as well as methods for explaining the data.\nThe R package ALEPlot (Apley, 2018) creates ALE profiles that demonstrates the behavior of the predictive model response based on one or two dependent variables. The method is described as an improvement to Partial Dependence Profiles and the library can work with any type of model. Find an example at http://xai-tools.drwhy.ai/ALEplot.html.\nThe R package arules (Hahsler et al., 2011) is dedicated for transaction data analysis. They provide a wide range of methods for rule modeling. arulesCBA (Hahsler et al., 2019) for arules is an extension package and provides support for classification glass-box predictive models. Another extension, arulesViz (Hahsler, 2017), equips users with plenty of methods to visualize and inspect a fitted model. Find an example at http://xai-tools.drwhy.ai/arules.html.\nThe R package auditor (Gosiewska and Biecek, 2019a) is dedicated for complex model diagnostics. It provides plots and metrics that allow the user to evaluate the performance of a model. On top of that, packages make it possible to conduct complex residual-based model diagnostics. Find an example at http://xai-tools.drwhy.ai/auditor.html.\nThe R package DALEX (Biecek, 2018) provides tools for Explanatory Model Analysis (Biecek and Burzykowski, 2020). It represents the global explanation approach by serving feature importance interface, ability to create Partial, Accumulated, and Conditional Dependence Profiles. It facilitates the performance of global and local residual-based model diagnostics. On the local explanations side, it implements SHAP, BreakDown, oscillation contributions, and Ceteris Paribus (ICE). Examples of PDP and SHAP explanations can be seen in the Figure 2 and Figure 3. Find an example at http://xai-tools.drwhy.ai/DALEX.html.\nThe R package DALEXtra (Maksymiuk and Biecek, 2020) serves as an extension for DALEX. Its main purpose is to provide a set of pre-defined predict functions for different ML frameworks. This facilitates the integration of XAI packages with modest popular model classes. Find an example at http://xai-tools.drwhy.ai/DALEXtra.html.\nThe R package EIX (Karbowiak and Biecek, 2020) is a model-specific tool designed to explain xgboost models. It provides the ability to diagnose the model by plotting its structure, find variables with the biggest interaction, and perform variable importance using them. It is also possible to explain a single observation using this package. Find an example at http://xai-tools.drwhy.ai/EIX.html.\nThe Python library eli5 (Korobov and Lopuhin, 2020) provides two ways to inspect black-boxes: permutation importance and text explanations with LIME. The library eli5 supports the most common Python frameworks and packages: scikit-learn, Keras, xgboost, LightGBM, CatBoost, lightning, and sklearn.\nThe R package ExplainPrediction (Robnik-Sikonja, 2018) allows users to explain predictive model instances through instances showing how values of variables contributed to the prediction of each observation in test data. Explanations can be then aggregated into one global feature importance. Find an example at http://xai-tools.drwhy.ai/ExplainPrediction.html.\nThe R package fairness (Kozodoi and V. Varga, 2020) is dedicated for fairness analysis. It provides 9 different metrics that allow the user to recognize if predicted values contain bias. Plots of metrics and density of probabilities in subgroups are also included. Find an example at http://xai-tools. drwhy.ai/fairness.html.\nThe R package fastshap (Greenwell, 2020) approximates Shapley values for any type of predictive model. Through this tool feature importance, profiles of variables, and contributions for a single observation can be acquired. Provides an interface for Python shap plots. An example of SHAP can be seen in the Figure 3. Find an example at http://xai-tools.drwhy.ai/fastshap.html.\nThe R package flashlight (Mayer, 2020) provides methods that can be used for wide-model analysis, including variable importance, and methods of profiling variables like PDP, ALE, residual, target, and predicted value profiles. A single prediction can be explained with this tool as well with the help of\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nSHAP, BreakDown, and ICE. An example of PDP explanation can be seen in Figure 2. Find an example at http://xai-tools.drwhy.ai/flashlight.html.\nThe R package forestmodel (Kennedy, 2020) generates forest plots of the estimated coefficients of models. The library supports objects produced by lm(), glm(), and survival::coxph() functions. Find an example at http://xai-tools.drwhy.ai/forestmodel.html.\nThe R package fscaret (Szlek et al., 2013) is associated with caret. It can train various types of predictive models while acquiring feature importance during that process. Any type of model supported by caret can be explained. Find an example at http://xai-tools.drwhy.ai/fscaret.html.\nThe R package glmnet (Friedman et al., 2010) is an interface for fitting Generalized Linear Models. They are examples of glass-box interpretable-by-design models that can be explored via analysis of coefficients provided by the package. Find an example at http://xai-tools.drwhy.ai/glmnet.html.\nThe R package naivebayes (Majka, 2019) is a tool dedicated to fitting Naive Bayes predictive models. It provides various types of support for different distributions. It also implements plots that allow users to inspect the model itself. Find an example at http://xai-tools.drwhy.ai/naivebayes. html.\nThe R package iBreakDown (Gosiewska and Biecek, 2019b) provides methods for local model explanations. It allows us to compute and visualize the additive and interaction BreakDown of a single observation. It also provides an interface for SHAP. Find an example at http://xai-tools.drwhy.ai/ iBreakDown.html.\nThe R package ICEbox (Goldstein et al., 2015) allows user to create ICE curves across the dataset. It also aggregates them creating Partial Dependence Curves or Partial Derivative Curves, and provides an interface for clustering ICE curves. Find an example at http://xai-tools.drwhy.ai/ICEbox.html.\nThe R package iml (Molnar, 2019) implements a wide range of global and local model-agnostic explanation methods, such as feature importance, PDP, ALE, ICE, surrogate models, LIME, and SHAP. The iml library is characterized by the use of R6 classes. Examples of PDP and SHAP explanations can be seen in Figure 2 and Figure 3. Find an example at http://xai-tools.drwhy.ai/iml.html.\nThe R package ingredients (Biecek et al., 2019) implements techniques for both local and global explanations. It facilitates the computation of permutational feature importance, Accumulated, Partial, and Conditional dependence profiles. The package provides a tool for computing Ceteris Paribus (ICE) curves, clustering them, and calculating oscillations in order to explain a single variable. Find an\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nexample at http://xai-tools.drwhy.ai/ingredients.html.\nAn R package interpret (Nori et al., 2019) is a tool for training Explainable Boosting Machine models (Caruana et al., 2015) that are high-performance generalized additive models with pairwise interactions. The Python version (library interpret) implements more interpretable models, which are decision trees, linear regression, and logistic regression. It also provides XAI methods, such as SHAP, Tree SHAP, LIME, Morris Sensitivity Analysis, and PDP.\nThe R package kknn (Schliep and Hechenbichler, 2016) provides an extended interface for training classifiers based on the k-Nearest Neighbors method. The package provides ways to inspect the nearest neighbors (the most similar observations). Find an example at https://mi2datalab.github.io/XAILtools/kknn.html.\nThe Python library lime is an implementation of the LIME (Ribeiro et al., 2016) technique by the\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nauthors of this method. The library supports text, image, and tabular data explanations.\nThe R package lime (Pedersen and Benesty, 2019) is an implementation that is independent of the authors of the original Python library. An R tool supports a wide range of frameworks, e.g. caret, parsnip, and mlr. See an example in Figure 4. Find an example at http://xai-tools.drwhy.ai/lime. html.\nThe R package live (Staniak and Biecek, 2018) provides local, interpretable, and model-agnostic visual explanations. The idea behind LIVE is similar to LIME, the difference is the definition of the surroundings of an observation. A neighborhood of the observation of interest is simulated by perturbing one feature at a time. Therefore, numerical features are used in the interpretable local model and are not discretized as in the basic LIME. Find an example at http://xai-tools.drwhy.ai/ live.html.\nThe R package mcr (Manuilova et al., 2014) is a tool to compare two measurement methods using regression analysis. The package contains functions for summarizing and plotting results. The mcr provide comparisons of models, yet is limited only to the regression models. Find an example at http://xai-tools.drwhy.ai/mcr.html.\nThe R package modelDown (Romaszko et al., 2019) generates a website with HTML summaries for predictive models. The generated website provides information about model performance, variable response (PDP, ALE), and the importance of variables, and concept drift. The modelDown also provides a comparison of models. Additionally, data available on the website can be downloaded and recreated in the R session. Find an example at http://xai-tools.drwhy.ai/modelDown.html.\nThe R package modelStudio (Baniecki and Biecek, 2019) generates interactive and animated model explanations in the form of a serverless HTML site. modelStudio provides various explanations, such as SHAP, Ceteris Paribus, permutational variable importance, PDP, ALE, and plots for exploratory data analysis. The package can be easily integrated with the scikit-learn and lightgbm Python libraries. An example screenshot of the HTML site with explanations is presented in Figure 5. Find an example at http://xai-tools.drwhy.ai/modelStudio.html.\nThe R package party (Hothorn et al., 2006) is a tool dedicated for recursive partitioning. The core of the package is the implementation of the decision tree glass-box model. Decision paths can be plotted using it, along with the split rules. The visualization also covers the distribution of values in terminal nodes. Find an example at http://xai-tools.drwhy.ai/party.html.\nThe R package pdp (Greenwell, 2017) is a tool for computing PDP and ICE. This library works with any predictive model. An example of the PDP explanation can be seen in Figure 2. Find an example at http://xai-tools.drwhy.ai/pdp.html.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nThe R package randomForestExplainer (Paluszynska et al., 2020) is a set of tools for explaining random forests. The existing explanations show variable importance, distribution of minimal depth for each variable, variable interactions, and prediction plot for two variables. What is more, a package provides an option to generate all explanations as an HTML report. Find an example at http://xai-tools.drwhy.ai/randomForestExplainer.html.\nThe Python library shap is an implementation of the Shapley-based explanations technique (SHAP) (Lundberg and Lee, 2017) provided by its authors. SHAP explanations are supported by many visualizations. The library provides also a high-speed algorithm for tree-based models and SHAP-based variable importance and detection of variable interactions.\nThe R package shapper (Maksymiuk et al., 2019) is an interface for Python library shap. A package implements new plots, different than in the Python version. The shapper provides plotting explanations for multiple models together. An example of the SHAP explanation can be seen in Figure 3. Find an example at http://xai-tools.drwhy.ai/shapper.html.\nThe Python library Skater (Oracle and contributors, 2020) is a tool for global and explanations. The implemented features are: feature importance, partial dependence profiles, LIME, Scalable Bayesian Rule Lists, Tree Surrogates, and two methods for deep neural networks, i.e. Layer-wise Relevance Propagation (e-LRP), and Integrated Gradient.\nThe R package smbinning (Jopia, 2019) provides tools to organize the end-to-end development process of building a scoring model. The library covers data exploration, variable selection, feature engineering, binning, and model selection. Find an example at http://xai-tools.drwhy.ai/smbinning. html.\nThe R package survxai (Grudziaz et al., 2018) is, to the best of our knowledge, the only tool for model-agnostic explanations of survival analysis models. The package implements local and global explanations, and it also provides comparisons of models. Find an example at http://xaitools.drwhy.ai/survxai.html.\nThe R package vip (Greenwell et al., 2020) provides many ways to calculate feature importance and interaction strength measures. There is model-based variable importance for models such as random forest, gradient boosted decision trees and multivariate adaptive regression splines. The vip package also provides three model-agnostic variable importance measures: permutation-based, Shapley-based, and variance-based. Find an example at http://xai-tools.drwhy.ai/vip.html.\nThe R package vivo (Kozak and Biecek, 2020) is an implementation of variable importance measures. Global importance is based on oscillations of partial dependence profiles while local importance is based on oscillations of ceteris paribus profiles. Find an example at http://xaitools.drwhy.ai/vivo.html."}, {"heading": "Discussion", "text": "The article compared 27 different R packages with methods for XAI analysis of predictive models. The selection criteria (Section 2.3.1) limited the pool of the packages that were analyzed. However, we believe that the constraints resulted in the fact that all considered libraries were mature and have a group of everyday users. Moreover, the fact that the package is published on CRAN proves that it is operational, has been tested, and is being maintained.\nThe first observation refers to explanation methods. Analysis of explanation tasks that are covered by various R packages shows that the overall distribution of those tasks over libraries is changing in time. Back in the day, explanations of predictive models were focused on a global level, with popular profiling methods, such as Partial Dependence, such as (pdp, September 2016) or Accumulated Local Effect plots (ALEplot, November 2017). The Model Parts task also fit that trend with the vip package (June 2018) and feature importance related function in pdp. Nowadays, the Predict Parts Task seems to be more and more popular, especially methods related to Shapley values. On top of previously published packages, such as shapper (March 2019) and fastshap (November 2019), there are new, recently created tools. shapr (Sellereite and Jullum, 2019), SHAPforxgboost (Liu and Just, 2020) and treeshap (Komisarczyk et al., 2020), which still awaits publication on CRAN, are examples of such new packages. Not to mention other Predict Parts explanation methods like BreakDown. Another new trend in eXplainable Artificial Intelligence is fairness. There was only one package dedicated to fairness analysis in our comparison, but a number of recently published packages still await their reception. There are, for instance, fairmodels (Wis\u0301niewski and Biecek, 2020), fairml (Scutari, 2020) and aif360 (de Queiroz et al., 2020) packages. Their number, the short time from publication, and the fact that fairness was first published in September 2019, support the statement that fairness is a new, popular trend in R XAI that cannot be overseen.\nThe packages that were compared were designed to serve as eXplainable Artificial Intelligence\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nsupport for model creators and users. However, different tools can be used in the various stages of the model development process. It is easy to explain with the help of an example from our list. The main target group of flashlight users is different than the target of modelStudio or modelDown. The first one is a tool that serves mostly model developers, so they can fit models based on XAI experience, which is an important part of the model life cycle. The second package is dedicated to end-users; those who get a ready model and want to explore its behavior, rather than fitting a new one. That second group of packages is an important new trend in the XAI toolkits world. They are a gateway to model exploration for those who lack expert knowledge about XAI and modeling itself, but want to familiarize themselves with the behavior of the model they are using. This trend is also followed by recently developed packages such as arenar (Pia\u0328tyszek and Biecek, 2020) or xai2cloud (Rydelek, 2020).\nOne more aspect that distinguishes the compared packages is their complexity. On the one hand, some packages focus on one method like pdp or ALEPlot, while, on the other hand, there are packages, such as iml or DALEX, that provide a wide range of different explanation method. There are also tools that present a unique approach to certain areas of XAI. We find it necessary to acknowledge those.\n\u2022 DALEXtra - is designed to bridge XAI packages with frameworks for ML model developments including those coming from different programming languages like Python scikit-learn. It also helps in finding a solution to the Rashomon effect problem, by providing an interface to compare model explanations and performance.\n\u2022 flashlight - this is one of the tools that provides a wide range of explanation methods for complex model analysis. What distinguishes it from similar DALEX and iml packages is weight use cases. flashlight allows users to specify weight to every observation and consider them while computing explanations.\n\u2022 modelStudio and arenar - both of these packages provide an easy to use interface to model explanations. Such analysis requires no expert knowledge, since with a few lines of code, a stand alone HTML document with precalculated explanations (modelStudio), or an online browser application (arenar) can be created. Moreover, arenar is capable of presenting explanations for more than one model at once and comparing them (See Rashomon Effect in Section 2.3.3).\n\u2022 treeshap - this is an example of a new, yet-to-be published package that could be an important tool in the future. It uses the additive nature of Shapley values and allows them to be directly computed for ensemble tree-like models. In addition, the implementation in C++ makes computations fast.\n\u2022 triplot (Pekala and Biecek, 2020) implements explanations that take into account the correlation of features. This tool, instead of considering a single variable, explains a model using aspects. An aspect is a group of variables (usually correlated one) that is considered as one feature.\n\u2022 vip - this is a package oriented around variable importance. It proposes an interesting concept of mixing up model-specific and model-agnostic explanation types. For some types of models, a natural feature importance measure can be extracted, while, at the same time, there is an option to access that measure in a model-agnostic way. It provides three different ways of computing model-agnostics variable importance, including permutational feature importance, Shapley-based variable importance, and variance-based variable importance."}, {"heading": "Summary", "text": "In this the article, we presented R packages dedicated to eXplainable Artificial Intelligence. We started demonstrating the importance of XAI in today\u2019s world (see Section 2.1), and we discussed the issue of previously presented taxonomies. We proposed a taxonomy dedicated to predictive model explanations (see Section 2.2).\nReserach of the literature has shown that there are plenty of R packages dedicated for XAI. Each of them is extensive to a different degree (Section 2.3.2), providing a wide range of various opportunities for explaining models using a number of tools. On the one hand, there are packages such as ALEplot and lime that implement one specific method, or are oriented around one explanation task. On the other hand, packages such as flashlight or DALEX implement diverse methods belonging to different explanation tasks. Explanation of predictive models can also be utilized in the process of finding a model that is better for a given use-case (Section 2.3.3). This process is simplified by the interfaces provided by some of the frameworks. Section 2.3.4 shows that R packages for XAI are flexible in terms of interoperability with frameworks used for model development. This means that XAI methods can be used for any type of predictive model.\nWe believe that examples presented in Section 2.4 and in the xai-tools.drwhy.ai webpage will encourage more frequent use of XAI tools during the modeling process. The large range of diversity among R packages that provide explanations of machine learning models means that everyone should be able to find a method convenient to use.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"}, {"heading": "Acknowledgements", "text": "We would like to thank the whole MI2DataLab team, especially Hubert Baniecki and Anna Kozak for the discussions and support. Last, but not least, we would like to thank Patrick Hall for his valuable comments. Work on this paper was financially supported by the NCN Opus grant 2017/27/B/ST6/0130."}, {"heading": "AI Team", "text": "ORCiD: 0000-0001-8423-1823 przemyslaw.biecek@gmail.com\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"}], "year": 2020}
+{
+  "abstractText": "The growing availability of data and computing power is fueling the development of predictive models. In order to ensure the safe and effective functioning of such models, we need methods for exploration, debugging, and validation. New methods and tools for this purpose are being developed within the eXplainable Artificial Intelligence (XAI) subdomain of machine learning. In this work, (1) we present the taxonomy of methods for model explanations, (2) we identify and compare 27 packages available in R to perform XAI analysis, (3) we present an example of an application of particular packages, (4) we acknowledge trends in recent developments. The article is primarily devoted to the tools available in R, but since it is easy to integrate the Python code, we will also show examples for the most popular libraries from Python. Importance of eXplainable Artificial Intelligence The growing demand for fast and automated development of predictive models has contributed to the popularity of machine learning frameworks such as caret (from Jed Wing et al., 2019), mlr (Bischl et al., 2016), mlr3 (Lang et al., 2019), tidymodels (Kuhn and Wickham, 2020), h2o (H2O.ai, 2015), scikit-learn (Pedregosa et al., 2011), keras (Chollet et al., 2015), pytorch (Paszke et al., 2019), and many others. These tools allow us to quickly test models of very different structures and choose the best one based on a selected performance measure. However, it soon became apparent that such a process leads to treating models like black-boxes. This, in turn, makes it difficult to detect certain problems early enough. Insufficiently tested models quickly lose their effectiveness, lead to unfair decisions, they discriminate, are deferred by users, and do not provide the option to appeal (Gill et al., 2020). To overcome these problems methods and tools for analysis of black-box predictive models are essential. In this work, we will present tools that can be used for this purpose. There are various situations where we need tools for in-depth model analysis. For example: \u2022 The model makes incorrect decisions on certain observations. We want to understand what the cause is of these incorrect decisions, in hopes to improve the model. In some sense, we want to debug the model by looking for the source of its ineffectiveness. \u2022 Model predictions are used by inquisitive parties. In order to build their trust and confidence, we need to present additional arguments or reasoning behind particular predictions. \u2022 Sometimes we expect that the model will automatically discover some relationships hidden in the data. By analyzing the model, we want to extract and understand these relationships in order to increase our domain knowledge. \u2022 It is becoming increasingly common to expect not only decisions but also reasons, arguments and explanations for a decision to be made in an automated way. Sometimes such explanations are required by law, see, for example, GDPR regulations (Goodman and Flaxman, 2017). \u2022 Often the key factor is the question of responsibility. If model developers responsibly recommend the use of a model, they often need to understand the way the model works. Thus, we cannot rely on the black-box. We need a deeper understanding of the model. In this work, we present tools that can be used in eXplainable Artificial Intelligence (XAI) modeling, which can help to explore predictive models. In recent years, plenty of interesting software has been developed. We hope that presenting XAI tools in this paper will make them easier to apply and will, therefore, lead to building better and safer predictive models. The main contributions of this paper are as follows. 1. We introduced two taxonomies of methods for model comparisons. The first one concerns a model as a subject of analysis, and the second one concerns the domain of the explanation. 2. We conducted a comprehensive review and identified 27 popular R packages that implement XAI methods. 3. We compared the capabilities of recognized R packages, taking into account the variety of implemented methods, interoperability, and time of operation. 4. We prepared knitr reports with illustrative examples for each of the considered packages. The R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859 ar X iv :2 00 9. 13 24 8v 2 [ cs .L G ] 2 2 O ct 2 02 0 CONTRIBUTED RESEARCH ARTICLE 2 This paper is focused on the tools available to R users rather than on overview of mathematical details for particular methods. Those interested in a more detailed analysis of the methods may be interested in the work of Chatzimparmpas et al. (2020) with a meta-analysis of 18 survey papers that refer to the explainability of machine learning models. Some of them are related to model visualization, such as Liu et al. (2017), predictive visual analytics (Lu et al., 2017a,b), interaction with models (Amershi et al., 2014; Dudley and Kristensson, 2018), deep learning (Choo and Liu, 2018; Garcia et al., 2018; Hohman et al., 2019), or dimensionality reduction (Sacha et al., 2016). Algorithmics detailes for XAI methods can also be found in books Interpretable Machine Learning (Molnar, 2019) or Explanatory Model Analysis (Biecek and Burzykowski, 2020). Chatzimparmpas et al. (2020) emphasized the importance of regularly keeping up with new surveys, both due to the covering of more articles as well as the different perspectives. To the best of our knowledge, none of these surveys aims at a comprehensive analysis of software tools for eXplainable Artificial Intelligence. In this paper, we conduct an extensive review of the R packages. It should be noted that work in this area is being carried out in various camps of modelers. The contributions of the statisticians are intertwined with those made by practitioners in machine learning or deep learning. This sometimes leads to redundancy in the nomenclature. The name eXplainable Artificial Intelligence was popularized by the DARPA program (Gunning, 2017), emphasizing the question of how much the algorithm can explain the reasons for a recommended decision. The name Interpretable Machine Learning was popularized by a book with the same title (Molnar, 2019), which emphasizes a model\u2019s interpretability. The name Explanatory Model Analysis (Biecek and Burzykowski, 2020) refers to the main objective, which is to explore model behavior. These threads are also known as Veridical Data Science (Yu and Kumbier, 2020) or Responsible Machine Learning (Gill et al., 2020). In this paper, we will use the term XAI, but note that in most cases these names can be used interchangeably. Taxonomy of XAI methods The literature presents several taxonomies of XAI methods categorization (Gilpin et al., 2018; Biran and Cotton, 2017; Molnar, 2019; Biecek and Burzykowski, 2020). Figure 1 summarizes the most frequent grouping of these methods. Figure 1: Model oriented taxonomy for XAI methods. The introduced taxonomy puts the model structure in the center. From this point of view, we are dealing with three groups of methods. \u2022 Methods for models with interpretable structure (interpretable by design), such as linear models, decision trees (Hothorn et al., 2006), decision rules (Hahsler et al., 2011), k-nearest neighbors (Venables and Ripley, 2002; Schliep and Hechenbichler, 2016), and others. The The R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859 CONTRIBUTED RESEARCH ARTICLE 3 architecture of such predictive models allows us to directly explain a certain aspect of the model. Such explanations are accurate, i.e. they are based on model coefficients and describe the model in a complete way. Of course, such models can be difficult to understand. A tree can contain hundreds of decision leaves, making it challenging to grasp the whole. But, the model structure is, in general, directly interpretable. \u2022 Model-specific methods. There are situations in which the model structure is so complex that it cannot be interpreted by looking at individual parameters. However, there are methods for knowledge extraction designed for specific classes of models. For tree ensembles, it is possible to analyze the tree structures in order to read from them some relationships between variables. For neural networks, it is possible to trace gradients. This group of methods assumes full access to the model structure. We expect that the explanation of the operation is a rough approximation of a more complex process. \u2022 Model-agnostic methods. The most general class of methods are those that facilitate analysis of the model without any knowledge of the internal structure. The analysis is usually carried out on the basis of a number of model evaluations on properly prepared perturbed input data. Such an analysis can be carried out on any predictive model. In the last chapter of this paper, we will present examples of methods for each of these groups, but the main emphasis is on model-agnostic methods. The reason for this is that we often compare models with different structures when looking for a final model, and, sometimes, we even have to compare models created in different frameworks. The main advantage of that approach is flexibility. It allows users of such an algorithm to compare explanations of different machine learning models, for instance, the forest type model with a boosting tree or even neural network, with common scales between them. The disadvantage is that explanations acquired with that approach may be less accurate. They only approximate the behavior of the predictive model ignoring information that comes from the structure. Another possible taxonomy refers to the task to which the explanation is used. The most common are two situations when the explanation concerns one observation or when it concerns the whole dataset. If the explanation concerns a single observation, it is called local or individual. If an explanation refers to the whole dataset, it is called global or dataset-level. In applications, we sometimes fall into a gray zone where we are interested in the behavior of the model for a group of observations. Usually, both local and global methods can be used in such cases. Table 1 introduces the second taxonomy of methods according to the purpose of model explanation, whether the goal is to understand the importance of the variables, profile the variables, or to analyze the performance of a model. Later on in the article, we will present examples of comparisons of models based on this taxonomy. Local Global Model Parts \u2022 Permutational feature importance \u2022 Leave-One-Covariate-Out (LOCO) \u2022 Surrogate models \u2022 Aggreagated SHapley Additive exPlanations Predict Parts \u2022 Break Down (BD) \u2022 SHapley Additive exPlanations (SHAP) \u2022 Local Interpretable Model-agnostic Explanations (LIME)",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Szymon Maksymiuk"
+    },
+    {
+      "affiliations": [],
+      "name": "Alicja Gosiewska"
+    },
+    {
+      "affiliations": [],
+      "name": "Przemys\u0142aw Biecek"
+    }
+  ],
+  "id": "SP:c03d1f103b231b9fc41660b9947bc0ae0d4d06a0",
+  "references": [
+    {
+      "authors": [
+        "S. Amershi",
+        "M. Cakmak",
+        "W.B. Knox",
+        "T. Kulesza"
+      ],
+      "title": "Power to the People: The Role of Humans in Interactive Machine Learning",
+      "venue": "AI Magazine,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "D. Apley"
+      ],
+      "title": "ALEPlot: Accumulated Local Effects (ALE) Plots and Partial Dependence (PD) Plots, 2018",
+      "venue": "URL https://CRAN.R-project.org/package=ALEPlot. R package version 1.1",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D.W. Apley",
+        "J. Zhu"
+      ],
+      "title": "Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models. arXiv, 2016",
+      "venue": "URL https://arxiv.org/abs/1612.08468",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "V. Arya",
+        "R.K.E. Bellamy",
+        "P.-Y. Chen",
+        "A. Dhurandhar",
+        "M. Hind",
+        "S.C. Hoffman",
+        "S. Houde",
+        "Q.V. Liao",
+        "R. Luss",
+        "A. Mojsilovi\u0107",
+        "S. Mourad",
+        "P. Pedemonte",
+        "R. Raghavendra",
+        "J.T. Richards",
+        "P. Sattigeri",
+        "K. Shanmugam",
+        "M. Singh",
+        "K.R. Varshney",
+        "D. Wei",
+        "Y. Zhang"
+      ],
+      "title": "Ai explainability 360: An extensible toolkit for understanding data and machine learning models",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "H. Baniecki",
+        "P. Biecek"
+      ],
+      "title": "modelStudio: Interactive Studio with Explanations for ML Predictive Models",
+      "venue": "Journal of Open Source Software,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P. Biecek"
+      ],
+      "title": "DALEX: Explainers for Complex Predictive Models in R",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "P. Biecek",
+        "H. Baniecki",
+        "A. Izdebski",
+        "K. Pekala"
+      ],
+      "title": "ingredients: Effects and Importances of Model Ingredients, 2019",
+      "venue": "URL http://CRAN.R-project.org/package=ingredients",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "O. Biran",
+        "C. Cotton"
+      ],
+      "title": "Explanation and justification in machine learning: A survey",
+      "venue": "In IJCAI-17 workshop on explainable AI (XAI),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B. Bischl",
+        "M. Lang",
+        "L. Kotthoff",
+        "J. Schiffner",
+        "J. Richter",
+        "E. Studerus",
+        "G. Casalicchio",
+        "Z.M. Jones"
+      ],
+      "title": "URL http: //jmlr.org/papers/v17/15-066.html",
+      "venue": "mlr: Machine Learning in R. Journal of Machine Learning Research,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Breiman"
+      ],
+      "title": "Statistical modeling: The two cultures (with comments and a rejoinder by the author)",
+      "venue": "Statist. Sci., 16(3):199\u2013231,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "R. Caruana",
+        "Y. Lou",
+        "J. Gehrke",
+        "P. Koch",
+        "M. Sturm",
+        "N. Elhadad"
+      ],
+      "title": "Intelligible Models for HealthCare: Predicting Pneumonia Risk and Hospital 30-Day Readmission",
+      "venue": "In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "A. Chatzimparmpas",
+        "R.M. Martins",
+        "I. Jusufi",
+        "A. Kerren"
+      ],
+      "title": "A survey of surveys on the use of visualization for interpreting machine learning models",
+      "venue": "Information Visualization,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "J. Choo",
+        "S. Liu"
+      ],
+      "title": "Visual analytics for explainable deep learning",
+      "venue": "IEEE computer graphics and applications,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "G. de Queiroz",
+        "S. Ronaghan",
+        "S. Swaminathan"
+      ],
+      "title": "aif360: Help Detect and Mitigate Bias in Machine Learning Models, 2020",
+      "venue": "URL https://CRAN.R-project.org/package=aif360. R package version",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "J.J. Dudley",
+        "P.O. Kristensson"
+      ],
+      "title": "A review of user interface design for interactive machine learning",
+      "venue": "ACM Transactions on Interactive Intelligent Systems (TiiS),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Fisher",
+        "C. Rudin",
+        "F. Dominici"
+      ],
+      "title": "All Models are Wrong, but Many are Useful: Learning a Variable\u2019s Importance by Studying an Entire Class of Prediction Models Simultaneously",
+      "venue": "URL https://arxiv.org/abs/1801.01489",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Friedman",
+        "T. Hastie",
+        "R. Tibshirani"
+      ],
+      "title": "Regularization Paths for Generalized Linear Models via Coordinate Descent",
+      "venue": "Journal of Statistical Software,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "J.H. Friedman"
+      ],
+      "title": "Greedy Function Approximation: A Gradient Boosting Machine",
+      "venue": "Annals of Statistics,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "M.K.C. from Jed Wing",
+        "S. Weston",
+        "A. Williams",
+        "C. Keefer",
+        "A. Engelhardt",
+        "T. Cooper",
+        "Z. Mayer",
+        "B. Kenkel",
+        "the R Core Team",
+        "M. Benesty",
+        "R. Lescarbeau",
+        "A. Ziem",
+        "L. Scrucca",
+        "Y. Tang",
+        "C. Candan",
+        "T. Hunt"
+      ],
+      "title": "caret: Classification and Regression Training, 2019",
+      "venue": "URL https://CRAN.R-project.org/package=caret. R package version 6.0-84",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R. Garcia",
+        "A.C. Telea",
+        "B.C. da Silva",
+        "J. T\u00f8rresen",
+        "J.L.D. Comba"
+      ],
+      "title": "A task-and-technique centered survey on visual analytics for deep learning model engineering",
+      "venue": "Computers & Graphics,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "N. Gill",
+        "P. Hall",
+        "K. Montgomery",
+        "N. Schmidt"
+      ],
+      "title": "A Responsible Machine Learning Workflow with Focus on Interpretable Models, Post-hoc Explanation, and Discrimination",
+      "venue": "Testing. Information,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "L. Gilpin",
+        "D. Bau",
+        "B. Yuan",
+        "A. Bajwa",
+        "M. Specter",
+        "L. Kagal"
+      ],
+      "title": "Explaining Explanations: An Overview of Interpretability of Machine Learning",
+      "venue": "pages 80\u201389,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Goldstein",
+        "A. Kapelner",
+        "J. Bleich",
+        "E. Pitkin"
+      ],
+      "title": "Peeking Inside the Black Box: Visualizing Statistical Learning With Plots of Individual Conditional Expectation",
+      "venue": "Journal of Computational and Graphical Statistics,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "B. Goodman",
+        "S. Flaxman"
+      ],
+      "title": "European union regulations on algorithmic decision-making and a \u201cright to explanation",
+      "venue": "AI Magazine,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Gosiewska",
+        "P. Biecek"
+      ],
+      "title": "auditor: an R Package for Model-Agnostic Visual Validation and Diagnostics",
+      "venue": "The R Journal,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Gosiewska",
+        "P. Biecek"
+      ],
+      "title": "Do Not Trust Additive Explanations",
+      "venue": "arXiv, 2019b. URL https://arxiv. org/abs/1903.11420v3",
+      "year": 1903
+    },
+    {
+      "authors": [
+        "B. Greenwell"
+      ],
+      "title": "fastshap: Fast Approximate Shapley Values, 2020. URL https://CRAN.R-project.org/ package=fastshap. R package version 0.0.5",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "B. Greenwell",
+        "B. Boehmke",
+        "B. Gray"
+      ],
+      "title": "vip: Variable Importance Plots, 2020",
+      "venue": "URL https://CRAN.Rproject.org/package=vip. R package version 0.2.2",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "B.M. Greenwell"
+      ],
+      "title": "pdp: An R Package for Constructing Partial Dependence Plots",
+      "venue": "The R Journal,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Grudziaz",
+        "A. Gosiewska",
+        "P. Biecek"
+      ],
+      "title": "survxai: an R package for structure-agnostic explanations of survival models",
+      "venue": "Journal of Open Source Software,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D. Gunning"
+      ],
+      "title": "Explainable Artificial Intelligence (XAI), 2017. URL https://www.darpa.mil/attachments/ XAIProgramUpdate.pdf",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Hahsler"
+      ],
+      "title": "arulesViz: Interactive Visualization of Association Rules with R",
+      "venue": "The R Journal,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Hahsler",
+        "S. Chelluboina",
+        "K. Hornik",
+        "C. Buchta"
+      ],
+      "title": "The arules R-Package Ecosystem: Analyzing Interesting Patterns from Large Transaction Datasets",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 1977
+    },
+    {
+      "authors": [
+        "M. Hahsler",
+        "I. Johnson",
+        "T. Kliegr",
+        "J. Kucha\u0159"
+      ],
+      "title": "Associative Classification in R: arc, arulesCBA, and rCBA",
+      "venue": "The R Journal,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P. Hall"
+      ],
+      "title": "On the Art and Science of Machine Learning Explanations. arXiv, 2018",
+      "venue": "URL https://arxiv. org/abs/1810.02909",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "P. Hall"
+      ],
+      "title": "awesome-machine-learning-interpretability. https://github.com/jphall663/awesomemachine-learning-interpretability, 2020",
+      "venue": "Access: 2020-07-01",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "P. Hall",
+        "N. Gill"
+      ],
+      "title": "An Introduction to Machine Learning Interpretability: An Applied Perspective on Fairness, Accountability",
+      "venue": "Transparency, and Explainable AI. O\u2019Reilly Media,",
+      "year": 1492
+    },
+    {
+      "authors": [
+        "F. Hohman",
+        "M. Kahng",
+        "R. Pienta",
+        "D.H. Chau"
+      ],
+      "title": "Visual Analytics in Deep Learning: An Interrogative Survey for the Next Frontiers",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "T. Hothorn",
+        "K. Hornik",
+        "A. Zeileis"
+      ],
+      "title": "Unbiased Recursive Partitioning: A Conditional Inference Framework",
+      "venue": "Journal of Computational and Graphical Statistics,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "H. Jopia"
+      ],
+      "title": "smbinning: Scoring Modeling and Optimal Binning, 2019",
+      "venue": "URL https://CRAN.R-project.org/ package=smbinning. R package version 0.9",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "E. Karbowiak",
+        "P. Biecek"
+      ],
+      "title": "EIX: Explain Interactions in \u2019XGBoost\u2019, 2020",
+      "venue": "URL https://CRAN.Rproject.org/package=EIX. R package version 1.1",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "N. Kennedy"
+      ],
+      "title": "forestmodel: Forest Plots from Regression Models, 2020",
+      "venue": "URL https://CRAN.R-project.org/ package=forestmodel. R package version 0.6.2",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "K. Komisarczyk",
+        "P. Kozminski",
+        "P. Biecek"
+      ],
+      "title": "treeshap: Fast shap values computations for ensamble models, 2020",
+      "venue": "URL https://github.com/ModelOriented/treeshap. R package version 0.0.0.9000",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Kozak",
+        "P. Biecek"
+      ],
+      "title": "vivo: Variable Importance via Oscillations, 2020",
+      "venue": "URL https://CRAN.R-project. org/package=vivo. R package version 0.2.0",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "N. Kozodoi",
+        "T.V. Varga"
+      ],
+      "title": "fairness: Algorithmic Fairness Metrics, 2020",
+      "venue": "URL https://CRAN.Rproject.org/package=fairness. R package version 1.1.1",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M. Kuhn",
+        "H. Wickham"
+      ],
+      "title": "Tidymodels: a collection of packages for modeling and machine learning using tidyverse principles., 2020",
+      "venue": "URL https://www.tidymodels.org",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M. Lang",
+        "M. Binder",
+        "J. Richter",
+        "P. Schratz",
+        "F. Pfisterer",
+        "S. Coors",
+        "Q. Au",
+        "G. Casalicchio",
+        "L. Kotthoff",
+        "B. Bischl"
+      ],
+      "title": "mlr3: A modern object-oriented machine learning framework in r",
+      "venue": "Journal of Open Source Software,",
+      "year": 1903
+    },
+    {
+      "authors": [
+        "J. Lei",
+        "M. G\u2019Sell",
+        "A. Rinaldo",
+        "R.J. Tibshirani",
+        "L. Wasserman"
+      ],
+      "title": "Distribution-Free Predictive Inference for Regression",
+      "venue": "Journal of the American Statistical Association,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Liu",
+        "X. Wang",
+        "M. Liu",
+        "J. Zhu"
+      ],
+      "title": "Towards better analysis of machine learning models: A visual analytics perspective",
+      "venue": "Visual Informatics,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Liu",
+        "A. Just"
+      ],
+      "title": "SHAPforxgboost: SHAP Plots for \u2019XGBoost\u2019, 2020",
+      "venue": "URL https://CRAN.R-project. org/package=SHAPforxgboost. R package version 0.0.4",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "J. Lu",
+        "W. Chen",
+        "Y. Ma",
+        "J. Ke",
+        "Z. Li",
+        "F. Zhang",
+        "R. Maciejewski"
+      ],
+      "title": "Recent progress and trends in predictive visual analytics",
+      "venue": "Frontiers of Computer Science,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Lu",
+        "R. Garcia",
+        "B. Hansen",
+        "M. Gleicher",
+        "R. Maciejewski"
+      ],
+      "title": "The State-of-the-Art in Predictive Visual Analytics",
+      "venue": "Computer Graphics Forum,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "S.-I. Lee"
+      ],
+      "title": "A Unified Approach to Interpreting Model Predictions",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Majka"
+      ],
+      "title": "naivebayes: High Performance Implementation of the Naive Bayes Algorithm in R, 2019",
+      "venue": "URL https://CRAN.R-project.org/package=naivebayes. R package version 0.9.7",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Maksymiuk",
+        "P. Biecek"
+      ],
+      "title": "DALEXtra: Extension for \u2019DALEX",
+      "venue": "Package,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "S. Maksymiuk",
+        "A. Gosiewska",
+        "P. Biecek"
+      ],
+      "title": "shapper: Wrapper of Python Library \u2019shap\u2019, 2019",
+      "venue": "URL https://CRAN.R-project.org/package=shapper. R package version 0.1.2",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Mayer"
+      ],
+      "title": "flashlight: Shed Light on Black Box Machine Learning Models, 2020",
+      "venue": "URL https://CRAN.Rproject.org/package=flashlight. R package version 0.7.0",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "C. Molnar"
+      ],
+      "title": "Interpretable Machine Learning. 2019",
+      "venue": "https://christophm.github.io/interpretable-mlbook/. [p2,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Molnar",
+        "B. Bischl",
+        "G. Casalicchio"
+      ],
+      "title": "iml: An R package for Interpretable Machine Learning",
+      "venue": "JOSS, 3(26):786,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "H. Nori",
+        "S. Jenkins",
+        "P. Koch",
+        "R. Caruana"
+      ],
+      "title": "InterpretML: A Unified Framework for Machine Learning Interpretability. arXiv, 2019",
+      "venue": "URL https://arxiv.org/abs/1909.09223",
+      "year": 1909
+    },
+    {
+      "authors": [
+        "A. Paluszynska",
+        "P. Biecek",
+        "Y. Jiang"
+      ],
+      "title": "randomForestExplainer: Explaining and Visualizing Random Forests in Terms of Variable Importance, 2020",
+      "venue": "URL https://CRAN.R-project.org/package= randomForestExplainer. R package version 0.10.1",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "T.L. Pedersen",
+        "M. Benesty"
+      ],
+      "title": "lime: Local Interpretable Model-Agnostic Explanations, 2019",
+      "venue": "URL https://CRAN.R-project.org/package=lime. R package version 0.5.1",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "F. Pedregosa",
+        "G. Varoquaux",
+        "A. Gramfort",
+        "V. Michel",
+        "B. Thirion",
+        "O. Grisel",
+        "M. Blondel",
+        "P. Prettenhofer",
+        "R. Weiss",
+        "V. Dubourg",
+        "J. Vanderplas",
+        "A. Passos",
+        "D. Cournapeau",
+        "M. Brucher",
+        "M. Perrot",
+        "E. Duchesnay"
+      ],
+      "title": "Scikit-learn: Machine Learning in Python",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "K. Pekala",
+        "P. Biecek"
+      ],
+      "title": "triplot: Explaining Correlated Features in Machine Learning Models, 2020",
+      "venue": "URL https://CRAN.R-project.org/package=triplot. R package version 1.3.0",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M. Philipp",
+        "T. Rusch",
+        "K. Hornik",
+        "C. Strobl"
+      ],
+      "title": "Measuring the Stability of Results from Supervised Statistical Learning",
+      "venue": "Journal of Computational and Graphical Statistics,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "P. Pi\u0105tyszek",
+        "P. Biecek"
+      ],
+      "title": "arenar: Arena for the Exploration and Comparison of any ML Models, 2020. URL https://CRAN.R-project.org/package=arenar. R package version 0.1.8",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "D. Rafacz",
+        "H. Baniecki",
+        "S. Maksymiuk"
+      ],
+      "title": "Bakala. deepdep: Visualise and Explore the Deep Dependencies of R Packages, 2020",
+      "venue": "URL https://CRAN.R-project.org/package=deepdep. R package version",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Why Should I Trust You?\": Explaining the Predictions of Any Classifier",
+      "venue": "In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Robnik-Sikonja"
+      ],
+      "title": "ExplainPrediction: Explanation of Predictions for Classification and Regression Models, 2018",
+      "venue": "URL https://CRAN.R-project.org/package=ExplainPrediction. R package version",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "K. Romaszko",
+        "M. Tatarynowicz",
+        "M. Urba\u0144ski",
+        "P. Biecek"
+      ],
+      "title": "modelDown: automated website generator with interpretable documentation for predictive machine learning models",
+      "venue": "Journal of Open Source Software,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Sacha",
+        "L. Zhang",
+        "M. Sedlmair",
+        "J.A. Lee",
+        "J. Peltonen",
+        "D. Weiskopf",
+        "S.C. North",
+        "D.A. Keim"
+      ],
+      "title": "Visual interaction with dimensionality reduction: A structured literature analysis",
+      "venue": "IEEE transactions on visualization and computer graphics,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "K.K. Schliep"
+      ],
+      "title": "Hechenbichler. kknn: Weighted k-Nearest Neighbors, 2016",
+      "venue": "URL https://CRAN.Rproject.org/package=kknn. R package version 1.3.1",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Scutari"
+      ],
+      "title": "fairml: Fair Models in Machine Learning, 2020",
+      "venue": "URL https://CRAN.R-project.org/package= fairml. R package version 0.2",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "N. Sellereite",
+        "M. Jullum"
+      ],
+      "title": "shapr: An R-package for explaining machine learning models with dependence-aware",
+      "venue": "Shapley values. Journal of Open Source Software,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Staniak",
+        "P. Biecek"
+      ],
+      "title": "Explanations of Model Predictions with live and breakDown Packages",
+      "venue": "The R Journal,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Szlek",
+        "P. Adam",
+        "L. Raymond",
+        "J. Renata",
+        "M. Aleksander"
+      ],
+      "title": "Heuristic modeling of macromolecule release from PLGA microspheres",
+      "venue": "International Journal of Nanomedicine,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "K. Ushey",
+        "J. Allaire",
+        "Y. Tang"
+      ],
+      "title": "reticulate: Interface to \u2019Python\u2019, 2019",
+      "venue": "URL https://CRAN.R-project. org/package=reticulate. R package version 1.14",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "W.N. Venables",
+        "B.D. Ripley"
+      ],
+      "title": "Modern Applied Statistics with S",
+      "venue": "URL http://www.stats.ox.ac.uk/pub/MASS4. ISBN 0-387-95457-0",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "J. Wi\u015bniewski",
+        "P. Biecek"
+      ],
+      "title": "fairmodels: Flexible Tool for Bias Detection, Visualization, and Mitigation, 2020. URL https://CRAN.R-project.org/package=fairmodels. R package version 0.1.1",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "B. Yu",
+        "K. Kumbier"
+      ],
+      "title": "Veridical data science",
+      "venue": "Proceedings of the National Academy of Sciences,",
+      "year": 2020
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Importance of eXplainable Artificial Intelligence",
+      "text": "The growing demand for fast and automated development of predictive models has contributed to the popularity of machine learning frameworks such as caret (from Jed Wing et al., 2019), mlr (Bischl et al., 2016), mlr3 (Lang et al., 2019), tidymodels (Kuhn and Wickham, 2020), h2o (H2O.ai, 2015), scikit-learn (Pedregosa et al., 2011), keras (Chollet et al., 2015), pytorch (Paszke et al., 2019), and many others. These tools allow us to quickly test models of very different structures and choose the best one based on a selected performance measure. However, it soon became apparent that such a process leads to treating models like black-boxes. This, in turn, makes it difficult to detect certain problems early enough. Insufficiently tested models quickly lose their effectiveness, lead to unfair decisions, they discriminate, are deferred by users, and do not provide the option to appeal (Gill et al., 2020). To overcome these problems methods and tools for analysis of black-box predictive models are essential. In this work, we will present tools that can be used for this purpose.\nThere are various situations where we need tools for in-depth model analysis. For example:\n\u2022 The model makes incorrect decisions on certain observations. We want to understand what the cause is of these incorrect decisions, in hopes to improve the model. In some sense, we want to debug the model by looking for the source of its ineffectiveness.\n\u2022 Model predictions are used by inquisitive parties. In order to build their trust and confidence, we need to present additional arguments or reasoning behind particular predictions.\n\u2022 Sometimes we expect that the model will automatically discover some relationships hidden in the data. By analyzing the model, we want to extract and understand these relationships in order to increase our domain knowledge.\n\u2022 It is becoming increasingly common to expect not only decisions but also reasons, arguments and explanations for a decision to be made in an automated way. Sometimes such explanations are required by law, see, for example, GDPR regulations (Goodman and Flaxman, 2017).\n\u2022 Often the key factor is the question of responsibility. If model developers responsibly recommend the use of a model, they often need to understand the way the model works. Thus, we cannot rely on the black-box. We need a deeper understanding of the model.\nIn this work, we present tools that can be used in eXplainable Artificial Intelligence (XAI) modeling, which can help to explore predictive models. In recent years, plenty of interesting software has been developed. We hope that presenting XAI tools in this paper will make them easier to apply and will, therefore, lead to building better and safer predictive models. The main contributions of this paper are as follows.\n1. We introduced two taxonomies of methods for model comparisons. The first one concerns a model as a subject of analysis, and the second one concerns the domain of the explanation.\n2. We conducted a comprehensive review and identified 27 popular R packages that implement XAI methods.\n3. We compared the capabilities of recognized R packages, taking into account the variety of implemented methods, interoperability, and time of operation.\n4. We prepared knitr reports with illustrative examples for each of the considered packages.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nar X\niv :2\n00 9.\n13 24\n8v 2\n[ cs\n.L G\n] 2\n2 O\nct 2\n02 0\nThis paper is focused on the tools available to R users rather than on overview of mathematical details for particular methods. Those interested in a more detailed analysis of the methods may be interested in the work of Chatzimparmpas et al. (2020) with a meta-analysis of 18 survey papers that refer to the explainability of machine learning models. Some of them are related to model visualization, such as Liu et al. (2017), predictive visual analytics (Lu et al., 2017a,b), interaction with models (Amershi et al., 2014; Dudley and Kristensson, 2018), deep learning (Choo and Liu, 2018; Garcia et al., 2018; Hohman et al., 2019), or dimensionality reduction (Sacha et al., 2016). Algorithmics detailes for XAI methods can also be found in books Interpretable Machine Learning (Molnar, 2019) or Explanatory Model Analysis (Biecek and Burzykowski, 2020). Chatzimparmpas et al. (2020) emphasized the importance of regularly keeping up with new surveys, both due to the covering of more articles as well as the different perspectives. To the best of our knowledge, none of these surveys aims at a comprehensive analysis of software tools for eXplainable Artificial Intelligence. In this paper, we conduct an extensive review of the R packages.\nIt should be noted that work in this area is being carried out in various camps of modelers. The contributions of the statisticians are intertwined with those made by practitioners in machine learning or deep learning. This sometimes leads to redundancy in the nomenclature. The name eXplainable Artificial Intelligence was popularized by the DARPA program (Gunning, 2017), emphasizing the question of how much the algorithm can explain the reasons for a recommended decision. The name Interpretable Machine Learning was popularized by a book with the same title (Molnar, 2019), which emphasizes a model\u2019s interpretability. The name Explanatory Model Analysis (Biecek and Burzykowski, 2020) refers to the main objective, which is to explore model behavior. These threads are also known as Veridical Data Science (Yu and Kumbier, 2020) or Responsible Machine Learning (Gill et al., 2020). In this paper, we will use the term XAI, but note that in most cases these names can be used interchangeably."
+    },
+    {
+      "heading": "Taxonomy of XAI methods",
+      "text": "The literature presents several taxonomies of XAI methods categorization (Gilpin et al., 2018; Biran and Cotton, 2017; Molnar, 2019; Biecek and Burzykowski, 2020). Figure 1 summarizes the most frequent grouping of these methods.\nThe introduced taxonomy puts the model structure in the center. From this point of view, we are dealing with three groups of methods.\n\u2022 Methods for models with interpretable structure (interpretable by design), such as linear models, decision trees (Hothorn et al., 2006), decision rules (Hahsler et al., 2011), k-nearest neighbors (Venables and Ripley, 2002; Schliep and Hechenbichler, 2016), and others. The\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\narchitecture of such predictive models allows us to directly explain a certain aspect of the model. Such explanations are accurate, i.e. they are based on model coefficients and describe the model in a complete way. Of course, such models can be difficult to understand. A tree can contain hundreds of decision leaves, making it challenging to grasp the whole. But, the model structure is, in general, directly interpretable.\n\u2022 Model-specific methods. There are situations in which the model structure is so complex that it cannot be interpreted by looking at individual parameters. However, there are methods for knowledge extraction designed for specific classes of models. For tree ensembles, it is possible to analyze the tree structures in order to read from them some relationships between variables. For neural networks, it is possible to trace gradients. This group of methods assumes full access to the model structure. We expect that the explanation of the operation is a rough approximation of a more complex process.\n\u2022 Model-agnostic methods. The most general class of methods are those that facilitate analysis of the model without any knowledge of the internal structure. The analysis is usually carried out on the basis of a number of model evaluations on properly prepared perturbed input data. Such an analysis can be carried out on any predictive model.\nIn the last chapter of this paper, we will present examples of methods for each of these groups, but the main emphasis is on model-agnostic methods. The reason for this is that we often compare models with different structures when looking for a final model, and, sometimes, we even have to compare models created in different frameworks. The main advantage of that approach is flexibility. It allows users of such an algorithm to compare explanations of different machine learning models, for instance, the forest type model with a boosting tree or even neural network, with common scales between them. The disadvantage is that explanations acquired with that approach may be less accurate. They only approximate the behavior of the predictive model ignoring information that comes from the structure.\nAnother possible taxonomy refers to the task to which the explanation is used. The most common are two situations when the explanation concerns one observation or when it concerns the whole dataset. If the explanation concerns a single observation, it is called local or individual. If an explanation refers to the whole dataset, it is called global or dataset-level. In applications, we sometimes fall into a gray zone where we are interested in the behavior of the model for a group of observations. Usually, both local and global methods can be used in such cases.\nTable 1 introduces the second taxonomy of methods according to the purpose of model explanation, whether the goal is to understand the importance of the variables, profile the variables, or to analyze the performance of a model. Later on in the article, we will present examples of comparisons of models based on this taxonomy."
+    },
+    {
+      "heading": "Local Global",
+      "text": "Below we discuss the objectives for each task and give examples of methods.\n\u2022 Model Parts focuses on the importance of variables or groups of variables. It considers a\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nglobal level approach. The Model Parts task can be realized by computing the impact of a single variable or group of variables have on the model performance using various methods like permutation feature importance, Leave One Covariate Out (LOCO) (Lei et al., 2018), or surrogate tree models. It seems the most popular is the permutation feature importance (Fisher et al., 2018) which assesses the importance of a variable by the change in the model performance after masking the effect of one or a group of variables. The effect of masking is achieved by permutations or resampling values for selected variables.\n\u2022 Model Profile aims at presenting how a single variable or a group of variables affects model response. It shows the profile of model prediction as a function of dependent variables. Model Profile represents the global domain of explanations, where the whole dataset is taken into consideration. The most popular examples of such methods are Partial Dependence Profiles (PDP) and Accumulated Local Effects (ALE). PDP (Friedman, 2000) is a method of profiling the global behavior of models in the context of one or a pair of variables. Its purpose is to show how the expected prediction of the model change based on changes to dependent variables. In other words, it estimates model response as a function of a specific variable. ALE (Apley and Zhu, 2016) is to some extent, similar to PDP, but it takes into account the conditional distribution of a feature, instead of a marginal one. Thus, it is more suited in the cases where variables are correlated.\n\u2022 Model Diagnostics focuses on methods that can be utilized to evaluate the performance of the model, improve the quality of predictions or present the structure of the model. It is a very wide category without distinctive representatives. Examples of explanation methods that comply with a definition of Model Diagnostics are residual density plots, variable vs prediction plots, and many other figures that present responses or residuals versus different variables.\n\u2022 The Predict Parts explanation task analyses and presents the impact of components and from the perspective of a single observation. The goal of that task is to measure the contributions each observation has to the final prediction. It belongs to the local explanation domain. Examples of the Predict Parts Explanation Method are LIME (Ribeiro et al., 2016), SHAP (Lundberg and Lee, 2017) or BreakDown (Gosiewska and Biecek, 2019b). Probably the most popular method in this group is the SHapley Additive exPlanations (SHAP) (Lundberg and Lee, 2017) method. It is based on the Shapley values concept, which derives from game theory. They are the solution for the problem in cooperative games where non-identical players contribute, to different extents, to the outcome. Shapley values allow us to calculate how the surplus should be distributed. Translating it into the language of models, players now are dependent variables while the model prediction is a surplus to divide. Current implementations usually approximate Shapley values in general case or calculates exact values for tree ensembles.\n\u2022 Predict Profile sometimes called sensitivity analysis, is a task similar to Model Profile. The only difference lies in the explanation subject. For this task, there is no aggregation over the whole dataset. Instead, variables are profiled from the perspective of a single observation. An instance of an explanation method that complies with the Predict Profile task is Individual Conditional Expectations (Goldstein et al., 2015) also known as the Ceteris Paribus Profile (Biecek and Burzykowski, 2020).\n\u2022 Predict Diagnostics follows the same principia as the Model Diagnostics task. What differs between the two is the way they look at the model. For Predict Diagnostics, a single observation or its neighbors are taken as perspective instead of the whole dataset. One of the examples of the Predict Diagnostics methods is a comparison of residual distribution for k neighbors of a single observation versus distribution over the whole dataset."
+    },
+    {
+      "heading": "Comparison of packages for XAI analysis",
+      "text": ""
+    },
+    {
+      "heading": "Selection criteria for XAI packages",
+      "text": "The number of tools that can be used to analyze predictive models is growing rapidly, and, at the same time, there is no established definition of an XAI tool. Therefore, it would not be possible to reliably identify and present all existing XAI packages.\nFor a reliable analysis, we have adopted the following criteria. For the initial set of packages, we have used the list Awesome Machine Learning Interpretability, maintained by Patrick Hall (Hall, 2020). We chose this list because of the pioneer works related to the synthesis of approaches to XAI described in An Introduction to Machine Learning Interpretability (Hall and Gill, 2018; Hall, 2018). We restricted this list to packages published on CRAN with at least 5000 downloads. The list is in Table 2.\nIn addition, this list was extended by packages available on CRAN, which have in the DESCRIPTION file some keywords used in XAI analysis. We checked 15,993 packages (access 08.07.2020)\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nlooking for keywords like xai, iml, explain and interpretability. This way, we encountered a great deal of false-positive entries (for instance, packages that explain the meaning of HTTP codes or indeed use XAI methods but to solve other, well-defined problems, not to actually explain the predictive models). This list was then manually cleaned and we ended up with 27 packages.\nWe would like to point out that mcr (Manuilova et al., 2014) and smbinning (Jopia, 2019) may look like they do not actually belong to the XAI area. However, they were included in Patrick Hall\u2019s original list, and we would consider it biased to arbitrarily remove packages despite meeting all the requirements of being included. Therefore, we did our best to extract the XAI related functionalities of those packages.\nNote, the purpose of this paper is to compare packages that can be used for models created in R. However, we have decided to add also some Python libraries for context.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"
+    },
+    {
+      "heading": "Available methods in XAI packages",
+      "text": "Table 3 summarizes methods available in the XAI packages. Some packages are focused only on a single aspect of a model explanation, while others implement a larger number of methods. In section 2.4 Example gallery for XAI packages, we present an explanation generated by each package.\nMost of the compared packages implement Model Parts or Predict Parts explanations. This means that the primary focus is on inspection of how consecutive features contribute to model prediction either locally or globally. Nine out of all compared R packages implement both Model Parts and Predict Parts methods. Two packages implement exactly those two types of methods, while seven provide other types of methods as well. On the other hand, Predict Diagnostics is the least represented type of explanation as only one package support it. However, Model Diagnostics methods are available in nine out of checked R packages, and, for three of them, this is the only supported type of explanation. Only five packages allow the variables to be locally profiled, while nine provide an opportunity to do it globally. Eight of the compared packages provide access to three or more different types of explanations, but only five to at least four types. Taking into consideration the compared Python packages, they give access to similar features as the R packages do.\nModels comparisons and the Rashomon effect\nThe Rashomon effect (Wikipedia, 2020) refers to a situation in which an event has contradictory interpretations by different spectators. Breiman (2001) has introduced this concept to machine learning modeling. The same relationship between the variables may be differently described by different\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nmodels. For example, contrary to the flexible random forest, a simple linear model would not catch non-linearity between predicted variables and other features.\nThe juxtaposition of explanations for different models allows for a more complete analysis. However, not every package facilitates easy model comparison and not every package was designed with model comparison in mind. Packages auditor (Gosiewska and Biecek, 2019a), DALEX, DALEXtra (Maksymiuk and Biecek, 2020), flashlight (Mayer, 2020), ingredients (Biecek et al., 2019), modelDown (Romaszko et al., 2019), modelStudio (Baniecki and Biecek, 2019), and vivo (Kozak and Biecek, 2020) are designed for plot explanations of two or more models next to each other in a single chart.\nInteroperability XAI frameworks\nMost of the packages we discuss in this article implement model-agnostic explanation methods. Yet, not all of them work smoothly with the different frameworks used to train predictive models. In Table 4, we summarize which packages work with popular machine learning frameworks. Such analysis is important because several models (for example random forest) are available in different frameworks (mlr, scikit-learn, and others) and although algorithms should be the same, the models differ in terms of names of parameters or interfaces to making predictions. Therefore, to explain models created with various ML frameworks it may be necessary to put additional effort into obtaining the prediction of the model in the form understandable for the XAI framework.\nInteroperability with the framework is not binary, and it may require a different amount of work. The packages can support the given framework out of the box, meaning they do not require any additional work to generate an explanation except providing a model or loading any additional library. Packages may also allow for relatively easy use of frameworks, for example, by passing their own user-defined function that accesses model predictions. If the explanations and model are in two different programming languages, the application of one to another may require even more work, e.g. using the reticulate (Ushey et al., 2019) package.\nOverall, we compared 27 R packages and six Python libraries in terms of their interoperability with various machine learning frameworks. Four of those frameworks are implemented in R, two of them in Python and one in Java, which is accessible via official R and Python wrappers. Four compared XAI packages, EIX (Karbowiak and Biecek, 2020), forestmodel (Kennedy, 2020), randomForestExplainer (Paluszynska et al., 2020) and smbinning, present a model-specific approach and, are designed to work only with a particular group of models. One R package, mcr, does not allow model input at all. Instead, it fits and explains its own algorithms. Only one package (i.e. fscaret (Szlek et al., 2013)) supports one framework despite implementing model-agnostic methods, which is due to the fact that it is an extension for the caret ML framework. To the best of our knowledge, two of the compared packages, DALEXtra and modelStudio provide support for all types of models taken into consideration. Moreover, there is no universal ML framework that would be supported by all XAI packages. The caret package is supported by the highest number of packages, while, on the other hand, mlr3 by the least, which is probably related to the time of development of these frameworks.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\n1EIX is a package that provide model-specific explanations of packages created with xgboost or LightGBM pacakges.\n2forestmodel is a package that provide model-specific explanations of linear models created with stats pacakge 3mcr pacakge build its own model and present explanation for them. 4randomForestExplainer is a package that provide model-specific explanations of forest models created with randomForest pacakge 5smbinning is a package that provide model-specific explanations of scoring linear models created among others with stats pacakge 6aix360 pacakge build its own model and present explanation for them. 7interpret pacakge build its own model and present explanation for them.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"
+    },
+    {
+      "heading": "Time of operation",
+      "text": "The time of operation is an important aspect of software and varies between different XAI packages. Some explanations are generated in near real-time, while others take a long time to produce results. In Table 5, we have an overview of computation time for different XAI packages.\nWe performed this benchmark to enhance the comparison of R packages. The benchmark was performed on a standard laptop used for everyday work. We computed the time of evaluation of each chunk from Markdown files linked in Section 2.4.\nWherever it was possible, we tried to be consistent with the parameters of functions from different packages. For example, the number of samples for Shapley-based methods = 50. However, given that markdowns contain only sample codes, the default parameters between functions in different packages may cause differences in code evaluation times. Therefore, the benchmark should not be considered the final comparison of the speed of the packages, but rather support in developing an intuition for the overall performance time.\nThe packages DALEXtra, modelStudio, modelDown, and randomForestExplainer have long computation times, however, they are designed to compute standalone reports that can be later viewed without any additional computations. XAI frameworks, such as, DALEX, flashlight (Mayer, 2020), and iml (Molnar et al., 2018) have a wide range of computation times because of the several different methods they implement.\nIt is worth noting that we calculated all times on models fitted on the titanic dataset that has 2,207 observations, which is a relatively small amount of data. For large datasets, some explanations may take a long time or be impossible to compute.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"
+    },
+    {
+      "heading": "Example gallery for XAI packages",
+      "text": "The following paragraphs briefly discuss consecutive XAI packages. For each of the packages listed in Table 2, we prepared an example use-case in the form of a markdown document. The documents have similar chapters and sections to facilitate comparison of the capabilities of each package. Also, in each use-case, we use the titanic dataset from stablelearner package (Philipp et al., 2018). It consists of both numerical and categorical dependent variables, and, therefore, it was possible to inspect how toolkits handle different types of features.\nThe Python library aix360 (Arya et al., 2020) is a framework that aims at interpretability and explainability of datasets and machine learning models with the help of a method designed for that purpose. It implements, among others, local post-hoc methods like SHAP and LIME, global post-hoc profWeight. aix360 also provides direct local and global-local explanations (for instance for Generalized Linear Models) as well as methods for explaining the data.\nThe R package ALEPlot (Apley, 2018) creates ALE profiles that demonstrates the behavior of the predictive model response based on one or two dependent variables. The method is described as an improvement to Partial Dependence Profiles and the library can work with any type of model. Find an example at http://xai-tools.drwhy.ai/ALEplot.html.\nThe R package arules (Hahsler et al., 2011) is dedicated for transaction data analysis. They provide a wide range of methods for rule modeling. arulesCBA (Hahsler et al., 2019) for arules is an extension package and provides support for classification glass-box predictive models. Another extension, arulesViz (Hahsler, 2017), equips users with plenty of methods to visualize and inspect a fitted model. Find an example at http://xai-tools.drwhy.ai/arules.html.\nThe R package auditor (Gosiewska and Biecek, 2019a) is dedicated for complex model diagnostics. It provides plots and metrics that allow the user to evaluate the performance of a model. On top of that, packages make it possible to conduct complex residual-based model diagnostics. Find an example at http://xai-tools.drwhy.ai/auditor.html.\nThe R package DALEX (Biecek, 2018) provides tools for Explanatory Model Analysis (Biecek and Burzykowski, 2020). It represents the global explanation approach by serving feature importance interface, ability to create Partial, Accumulated, and Conditional Dependence Profiles. It facilitates the performance of global and local residual-based model diagnostics. On the local explanations side, it implements SHAP, BreakDown, oscillation contributions, and Ceteris Paribus (ICE). Examples of PDP and SHAP explanations can be seen in the Figure 2 and Figure 3. Find an example at http://xai-tools.drwhy.ai/DALEX.html.\nThe R package DALEXtra (Maksymiuk and Biecek, 2020) serves as an extension for DALEX. Its main purpose is to provide a set of pre-defined predict functions for different ML frameworks. This facilitates the integration of XAI packages with modest popular model classes. Find an example at http://xai-tools.drwhy.ai/DALEXtra.html.\nThe R package EIX (Karbowiak and Biecek, 2020) is a model-specific tool designed to explain xgboost models. It provides the ability to diagnose the model by plotting its structure, find variables with the biggest interaction, and perform variable importance using them. It is also possible to explain a single observation using this package. Find an example at http://xai-tools.drwhy.ai/EIX.html.\nThe Python library eli5 (Korobov and Lopuhin, 2020) provides two ways to inspect black-boxes: permutation importance and text explanations with LIME. The library eli5 supports the most common Python frameworks and packages: scikit-learn, Keras, xgboost, LightGBM, CatBoost, lightning, and sklearn.\nThe R package ExplainPrediction (Robnik-Sikonja, 2018) allows users to explain predictive model instances through instances showing how values of variables contributed to the prediction of each observation in test data. Explanations can be then aggregated into one global feature importance. Find an example at http://xai-tools.drwhy.ai/ExplainPrediction.html.\nThe R package fairness (Kozodoi and V. Varga, 2020) is dedicated for fairness analysis. It provides 9 different metrics that allow the user to recognize if predicted values contain bias. Plots of metrics and density of probabilities in subgroups are also included. Find an example at http://xai-tools. drwhy.ai/fairness.html.\nThe R package fastshap (Greenwell, 2020) approximates Shapley values for any type of predictive model. Through this tool feature importance, profiles of variables, and contributions for a single observation can be acquired. Provides an interface for Python shap plots. An example of SHAP can be seen in the Figure 3. Find an example at http://xai-tools.drwhy.ai/fastshap.html.\nThe R package flashlight (Mayer, 2020) provides methods that can be used for wide-model analysis, including variable importance, and methods of profiling variables like PDP, ALE, residual, target, and predicted value profiles. A single prediction can be explained with this tool as well with the help of\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nSHAP, BreakDown, and ICE. An example of PDP explanation can be seen in Figure 2. Find an example at http://xai-tools.drwhy.ai/flashlight.html.\nThe R package forestmodel (Kennedy, 2020) generates forest plots of the estimated coefficients of models. The library supports objects produced by lm(), glm(), and survival::coxph() functions. Find an example at http://xai-tools.drwhy.ai/forestmodel.html.\nThe R package fscaret (Szlek et al., 2013) is associated with caret. It can train various types of predictive models while acquiring feature importance during that process. Any type of model supported by caret can be explained. Find an example at http://xai-tools.drwhy.ai/fscaret.html.\nThe R package glmnet (Friedman et al., 2010) is an interface for fitting Generalized Linear Models. They are examples of glass-box interpretable-by-design models that can be explored via analysis of coefficients provided by the package. Find an example at http://xai-tools.drwhy.ai/glmnet.html.\nThe R package naivebayes (Majka, 2019) is a tool dedicated to fitting Naive Bayes predictive models. It provides various types of support for different distributions. It also implements plots that allow users to inspect the model itself. Find an example at http://xai-tools.drwhy.ai/naivebayes. html.\nThe R package iBreakDown (Gosiewska and Biecek, 2019b) provides methods for local model explanations. It allows us to compute and visualize the additive and interaction BreakDown of a single observation. It also provides an interface for SHAP. Find an example at http://xai-tools.drwhy.ai/ iBreakDown.html.\nThe R package ICEbox (Goldstein et al., 2015) allows user to create ICE curves across the dataset. It also aggregates them creating Partial Dependence Curves or Partial Derivative Curves, and provides an interface for clustering ICE curves. Find an example at http://xai-tools.drwhy.ai/ICEbox.html.\nThe R package iml (Molnar, 2019) implements a wide range of global and local model-agnostic explanation methods, such as feature importance, PDP, ALE, ICE, surrogate models, LIME, and SHAP. The iml library is characterized by the use of R6 classes. Examples of PDP and SHAP explanations can be seen in Figure 2 and Figure 3. Find an example at http://xai-tools.drwhy.ai/iml.html.\nThe R package ingredients (Biecek et al., 2019) implements techniques for both local and global explanations. It facilitates the computation of permutational feature importance, Accumulated, Partial, and Conditional dependence profiles. The package provides a tool for computing Ceteris Paribus (ICE) curves, clustering them, and calculating oscillations in order to explain a single variable. Find an\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nexample at http://xai-tools.drwhy.ai/ingredients.html.\nAn R package interpret (Nori et al., 2019) is a tool for training Explainable Boosting Machine models (Caruana et al., 2015) that are high-performance generalized additive models with pairwise interactions. The Python version (library interpret) implements more interpretable models, which are decision trees, linear regression, and logistic regression. It also provides XAI methods, such as SHAP, Tree SHAP, LIME, Morris Sensitivity Analysis, and PDP.\nThe R package kknn (Schliep and Hechenbichler, 2016) provides an extended interface for training classifiers based on the k-Nearest Neighbors method. The package provides ways to inspect the nearest neighbors (the most similar observations). Find an example at https://mi2datalab.github.io/XAILtools/kknn.html.\nThe Python library lime is an implementation of the LIME (Ribeiro et al., 2016) technique by the\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nauthors of this method. The library supports text, image, and tabular data explanations.\nThe R package lime (Pedersen and Benesty, 2019) is an implementation that is independent of the authors of the original Python library. An R tool supports a wide range of frameworks, e.g. caret, parsnip, and mlr. See an example in Figure 4. Find an example at http://xai-tools.drwhy.ai/lime. html.\nThe R package live (Staniak and Biecek, 2018) provides local, interpretable, and model-agnostic visual explanations. The idea behind LIVE is similar to LIME, the difference is the definition of the surroundings of an observation. A neighborhood of the observation of interest is simulated by perturbing one feature at a time. Therefore, numerical features are used in the interpretable local model and are not discretized as in the basic LIME. Find an example at http://xai-tools.drwhy.ai/ live.html.\nThe R package mcr (Manuilova et al., 2014) is a tool to compare two measurement methods using regression analysis. The package contains functions for summarizing and plotting results. The mcr provide comparisons of models, yet is limited only to the regression models. Find an example at http://xai-tools.drwhy.ai/mcr.html.\nThe R package modelDown (Romaszko et al., 2019) generates a website with HTML summaries for predictive models. The generated website provides information about model performance, variable response (PDP, ALE), and the importance of variables, and concept drift. The modelDown also provides a comparison of models. Additionally, data available on the website can be downloaded and recreated in the R session. Find an example at http://xai-tools.drwhy.ai/modelDown.html.\nThe R package modelStudio (Baniecki and Biecek, 2019) generates interactive and animated model explanations in the form of a serverless HTML site. modelStudio provides various explanations, such as SHAP, Ceteris Paribus, permutational variable importance, PDP, ALE, and plots for exploratory data analysis. The package can be easily integrated with the scikit-learn and lightgbm Python libraries. An example screenshot of the HTML site with explanations is presented in Figure 5. Find an example at http://xai-tools.drwhy.ai/modelStudio.html.\nThe R package party (Hothorn et al., 2006) is a tool dedicated for recursive partitioning. The core of the package is the implementation of the decision tree glass-box model. Decision paths can be plotted using it, along with the split rules. The visualization also covers the distribution of values in terminal nodes. Find an example at http://xai-tools.drwhy.ai/party.html.\nThe R package pdp (Greenwell, 2017) is a tool for computing PDP and ICE. This library works with any predictive model. An example of the PDP explanation can be seen in Figure 2. Find an example at http://xai-tools.drwhy.ai/pdp.html.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nThe R package randomForestExplainer (Paluszynska et al., 2020) is a set of tools for explaining random forests. The existing explanations show variable importance, distribution of minimal depth for each variable, variable interactions, and prediction plot for two variables. What is more, a package provides an option to generate all explanations as an HTML report. Find an example at http://xai-tools.drwhy.ai/randomForestExplainer.html.\nThe Python library shap is an implementation of the Shapley-based explanations technique (SHAP) (Lundberg and Lee, 2017) provided by its authors. SHAP explanations are supported by many visualizations. The library provides also a high-speed algorithm for tree-based models and SHAP-based variable importance and detection of variable interactions.\nThe R package shapper (Maksymiuk et al., 2019) is an interface for Python library shap. A package implements new plots, different than in the Python version. The shapper provides plotting explanations for multiple models together. An example of the SHAP explanation can be seen in Figure 3. Find an example at http://xai-tools.drwhy.ai/shapper.html.\nThe Python library Skater (Oracle and contributors, 2020) is a tool for global and explanations. The implemented features are: feature importance, partial dependence profiles, LIME, Scalable Bayesian Rule Lists, Tree Surrogates, and two methods for deep neural networks, i.e. Layer-wise Relevance Propagation (e-LRP), and Integrated Gradient.\nThe R package smbinning (Jopia, 2019) provides tools to organize the end-to-end development process of building a scoring model. The library covers data exploration, variable selection, feature engineering, binning, and model selection. Find an example at http://xai-tools.drwhy.ai/smbinning. html.\nThe R package survxai (Grudziaz et al., 2018) is, to the best of our knowledge, the only tool for model-agnostic explanations of survival analysis models. The package implements local and global explanations, and it also provides comparisons of models. Find an example at http://xaitools.drwhy.ai/survxai.html.\nThe R package vip (Greenwell et al., 2020) provides many ways to calculate feature importance and interaction strength measures. There is model-based variable importance for models such as random forest, gradient boosted decision trees and multivariate adaptive regression splines. The vip package also provides three model-agnostic variable importance measures: permutation-based, Shapley-based, and variance-based. Find an example at http://xai-tools.drwhy.ai/vip.html.\nThe R package vivo (Kozak and Biecek, 2020) is an implementation of variable importance measures. Global importance is based on oscillations of partial dependence profiles while local importance is based on oscillations of ceteris paribus profiles. Find an example at http://xaitools.drwhy.ai/vivo.html."
+    },
+    {
+      "heading": "Discussion",
+      "text": "The article compared 27 different R packages with methods for XAI analysis of predictive models. The selection criteria (Section 2.3.1) limited the pool of the packages that were analyzed. However, we believe that the constraints resulted in the fact that all considered libraries were mature and have a group of everyday users. Moreover, the fact that the package is published on CRAN proves that it is operational, has been tested, and is being maintained.\nThe first observation refers to explanation methods. Analysis of explanation tasks that are covered by various R packages shows that the overall distribution of those tasks over libraries is changing in time. Back in the day, explanations of predictive models were focused on a global level, with popular profiling methods, such as Partial Dependence, such as (pdp, September 2016) or Accumulated Local Effect plots (ALEplot, November 2017). The Model Parts task also fit that trend with the vip package (June 2018) and feature importance related function in pdp. Nowadays, the Predict Parts Task seems to be more and more popular, especially methods related to Shapley values. On top of previously published packages, such as shapper (March 2019) and fastshap (November 2019), there are new, recently created tools. shapr (Sellereite and Jullum, 2019), SHAPforxgboost (Liu and Just, 2020) and treeshap (Komisarczyk et al., 2020), which still awaits publication on CRAN, are examples of such new packages. Not to mention other Predict Parts explanation methods like BreakDown. Another new trend in eXplainable Artificial Intelligence is fairness. There was only one package dedicated to fairness analysis in our comparison, but a number of recently published packages still await their reception. There are, for instance, fairmodels (Wis\u0301niewski and Biecek, 2020), fairml (Scutari, 2020) and aif360 (de Queiroz et al., 2020) packages. Their number, the short time from publication, and the fact that fairness was first published in September 2019, support the statement that fairness is a new, popular trend in R XAI that cannot be overseen.\nThe packages that were compared were designed to serve as eXplainable Artificial Intelligence\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859\nsupport for model creators and users. However, different tools can be used in the various stages of the model development process. It is easy to explain with the help of an example from our list. The main target group of flashlight users is different than the target of modelStudio or modelDown. The first one is a tool that serves mostly model developers, so they can fit models based on XAI experience, which is an important part of the model life cycle. The second package is dedicated to end-users; those who get a ready model and want to explore its behavior, rather than fitting a new one. That second group of packages is an important new trend in the XAI toolkits world. They are a gateway to model exploration for those who lack expert knowledge about XAI and modeling itself, but want to familiarize themselves with the behavior of the model they are using. This trend is also followed by recently developed packages such as arenar (Pia\u0328tyszek and Biecek, 2020) or xai2cloud (Rydelek, 2020).\nOne more aspect that distinguishes the compared packages is their complexity. On the one hand, some packages focus on one method like pdp or ALEPlot, while, on the other hand, there are packages, such as iml or DALEX, that provide a wide range of different explanation method. There are also tools that present a unique approach to certain areas of XAI. We find it necessary to acknowledge those.\n\u2022 DALEXtra - is designed to bridge XAI packages with frameworks for ML model developments including those coming from different programming languages like Python scikit-learn. It also helps in finding a solution to the Rashomon effect problem, by providing an interface to compare model explanations and performance.\n\u2022 flashlight - this is one of the tools that provides a wide range of explanation methods for complex model analysis. What distinguishes it from similar DALEX and iml packages is weight use cases. flashlight allows users to specify weight to every observation and consider them while computing explanations.\n\u2022 modelStudio and arenar - both of these packages provide an easy to use interface to model explanations. Such analysis requires no expert knowledge, since with a few lines of code, a stand alone HTML document with precalculated explanations (modelStudio), or an online browser application (arenar) can be created. Moreover, arenar is capable of presenting explanations for more than one model at once and comparing them (See Rashomon Effect in Section 2.3.3).\n\u2022 treeshap - this is an example of a new, yet-to-be published package that could be an important tool in the future. It uses the additive nature of Shapley values and allows them to be directly computed for ensemble tree-like models. In addition, the implementation in C++ makes computations fast.\n\u2022 triplot (Pekala and Biecek, 2020) implements explanations that take into account the correlation of features. This tool, instead of considering a single variable, explains a model using aspects. An aspect is a group of variables (usually correlated one) that is considered as one feature.\n\u2022 vip - this is a package oriented around variable importance. It proposes an interesting concept of mixing up model-specific and model-agnostic explanation types. For some types of models, a natural feature importance measure can be extracted, while, at the same time, there is an option to access that measure in a model-agnostic way. It provides three different ways of computing model-agnostics variable importance, including permutational feature importance, Shapley-based variable importance, and variance-based variable importance."
+    },
+    {
+      "heading": "Summary",
+      "text": "In this the article, we presented R packages dedicated to eXplainable Artificial Intelligence. We started demonstrating the importance of XAI in today\u2019s world (see Section 2.1), and we discussed the issue of previously presented taxonomies. We proposed a taxonomy dedicated to predictive model explanations (see Section 2.2).\nReserach of the literature has shown that there are plenty of R packages dedicated for XAI. Each of them is extensive to a different degree (Section 2.3.2), providing a wide range of various opportunities for explaining models using a number of tools. On the one hand, there are packages such as ALEplot and lime that implement one specific method, or are oriented around one explanation task. On the other hand, packages such as flashlight or DALEX implement diverse methods belonging to different explanation tasks. Explanation of predictive models can also be utilized in the process of finding a model that is better for a given use-case (Section 2.3.3). This process is simplified by the interfaces provided by some of the frameworks. Section 2.3.4 shows that R packages for XAI are flexible in terms of interoperability with frameworks used for model development. This means that XAI methods can be used for any type of predictive model.\nWe believe that examples presented in Section 2.4 and in the xai-tools.drwhy.ai webpage will encourage more frequent use of XAI tools during the modeling process. The large range of diversity among R packages that provide explanations of machine learning models means that everyone should be able to find a method convenient to use.\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"
+    },
+    {
+      "heading": "Acknowledgements",
+      "text": "We would like to thank the whole MI2DataLab team, especially Hubert Baniecki and Anna Kozak for the discussions and support. Last, but not least, we would like to thank Patrick Hall for his valuable comments. Work on this paper was financially supported by the NCN Opus grant 2017/27/B/ST6/0130."
+    },
+    {
+      "heading": "AI Team",
+      "text": "ORCiD: 0000-0001-8423-1823 przemyslaw.biecek@gmail.com\nThe R Journal Vol. XX/YY, AAAA 20ZZ ISSN 2073-4859"
+    }
+  ],
+  "year": 2020
+}

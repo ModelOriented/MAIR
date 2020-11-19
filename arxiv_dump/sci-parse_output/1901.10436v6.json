@@ -1,1 +1,966 @@
-{"abstractText": "Face recognition is a long-standing challenge in the field of Artificial Intelligence (AI). The goal is to create systems that detect, recognize, verify and understand characteristics of human faces. There are significant technical hurdles in making these systems accurate, particularly in unconstrained settings, due to confounding factors related to pose, resolution, illumination, occlusion and viewpoint. However, with recent advances in neural networks, face recognition has achieved unprecedented accuracy, built largely on data-driven deep learning methods. While this is encouraging, a critical aspect limiting face recognition performance in practice is intrinsic facial diversity. Every face is different. Every face reflects something unique about us. Aspects of our heritage \u2013 including race, ethnicity, culture, geography \u2013 and our individual identity \u2013 age, gender and visible forms of self-expression \u2013 are reflected in our faces. Faces are personal. We expect face recognition to work accurately for each of us. Performance should not vary for different individuals or different populations. As we rely on data-driven methods to create face recognition technology, we need to answer a fundamental question: does the training data for these systems fairly represent the distribution of faces we see in the world? At the heart of this core question are deeper scientific questions about how to measure facial diversity, what features capture intrinsic facial variation and how to evaluate coverage and balance for face image data sets. Towards the goal of answering these questions, Diversity in Faces (DiF ) provides a new data set of annotations of one million publicly available face images for advancing the study of facial diversity. The annotations are generated using ten facial coding schemes that provide human-interpretable quantitative measures of intrinsic facial features. We believe that making these descriptors available will encourage deeper research on this important topic and accelerate efforts towards creating more fair and accurate face recognition systems.", "authors": [{"affiliations": [], "name": "Michele Merler"}, {"affiliations": [], "name": "Nalini Ratha"}, {"affiliations": [], "name": "Rogerio Feris"}, {"affiliations": [], "name": "John R. Smith"}], "id": "SP:7333d25c151f9a37663d7cbe9fd2e08acb4499f3", "references": [{"authors": ["B. Thomee", "D.A. Shamma", "G. Friedland", "B. Elizalde", "K. Ni", "D. Poland", "D. Borth", "L. Li"], "title": "Yfcc100m: The new data in multimedia research", "venue": "Communications of the ACM,", "year": 2016}, {"authors": ["Leslie G. Farkas"], "title": "Anthropometry of the Head and Face", "year": 1994}, {"authors": ["LG Farkas"], "title": "Intl. anthropometric study of facial morphology in various ethnic groups/races", "venue": "Journal of Craniofacial Surgery,", "year": 2005}, {"authors": ["N. Ramanathan", "R. Chellappa"], "title": "Modeling age progression in young faces", "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),", "year": 2006}, {"authors": ["A.C. Little", "B.C. Jones", "L.M. DeBruine"], "title": "Facial attractiveness evolutionary based research", "venue": "Philosophical Trans. of the Royal Society B: Biological Sciences,", "year": 2011}, {"authors": ["A. Porcheron", "E. Mauger", "F. Soppelsa", "Y. Liu", "L. Ge", "O. Pascalis", "R. Russell", "F. Morizot"], "title": "Facial contrast is a cross-cultural cue for perceiving age", "venue": "Front. Psychology,", "year": 2017}, {"authors": ["A. Chardon", "I. Cretois", "C. Hourseau"], "title": "Skin colour typology and suntanning pathways", "venue": "Intl. Journal of Cosmetic Science,", "year": 1991}, {"authors": ["T. Rothe", "R. Timofte", "L. Van Gool"], "title": "Deep expectation of real and apparent age from a single image without facial landmarks. L", "venue": "Int J Comput Vis,", "year": 2018}, {"authors": ["Ziwei Liu", "Ping Luo", "Xiaogang Wang", "Xiaoou Tang"], "title": "Deep learning face attributes in the wild", "venue": "In IEEE Intl. Conf. on Computer Vision (ICCV),", "year": 2015}, {"authors": ["X. Zhu", "D. Ramanan"], "title": "Face detection, pose estimation, and landmark localization in the wild", "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),", "year": 2012}, {"authors": ["T. Kanade"], "title": "Picture processing system by computer complex and recognition of human faces", "venue": "Doctoral dissertation,", "year": 1973}, {"authors": ["M.A. Turk", "A. Pentland"], "title": "Face recognition using eigenfaces", "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),", "year": 1991}, {"authors": ["Ira Kemelmacher-Shlizerman", "Steven M Seitz", "Daniel Miller", "Evan Brossard"], "title": "The megaface benchmark: 1 million faces for recognition at scale", "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition", "year": 2016}, {"authors": ["Yandong Guo", "Lei Zhang", "Yuxiao Hu", "Xiaodong He", "Jianfeng Gao"], "title": "MS-Celeb-1M: A dataset and benchmark for large scale face recognition", "venue": "In European Conf. on Computer Vision (ECCV),", "year": 2016}, {"authors": ["Gary B. Huang", "Manu Ramesh", "Tamara Berg", "Erik Learned-Miller"], "title": "Labeled faces in the wild: A database for studying face recognition in unconstrained environments", "venue": "Technical Report 07-49,", "year": 2007}, {"authors": ["Alex Krizhevsky", "Ilya Sutskever", "Geoffrey E Hinton"], "title": "Imagenet classification with deep convolutional neural networks", "venue": "In Advances in neural information processing systems,", "year": 2012}, {"authors": ["Yaniv Taigman", "Ming Yang", "Marc\u2019Aurelio Ranzato", "Lior Wolf"], "title": "Deepface: Closing the gap to human-level performance in face verification", "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,", "year": 2014}, {"authors": ["Jingtuo Liu", "Yafeng Deng", "Tao Bai", "Zhengping Wei", "Chang Huang"], "title": "Targeting ultimate accuracy: Face recognition via deep embedding", "venue": "arXiv preprint arXiv:1506.07310,", "year": 2015}, {"authors": ["Jiankang Deng", "Jia Guo", "Niannan Xue", "Stefanos Zafeiriou"], "title": "Arcface: Additive angular margin loss for deep face recognition", "venue": "arXiv preprint arXiv:1801.07698,", "year": 2018}, {"authors": ["Q. Cao", "L. Shen", "W. Xie", "O.M. Parkhi", "A. Zisserman"], "title": "Vggface2: A dataset for recognising faces across pose and age", "venue": "In Intl. Conf. on Automatic Face and Gesture Recognition (FG),", "year": 2018}, {"authors": ["O.M. Parkhi", "A. Vedaldi", "A. Zisserman"], "title": "Deep face recognition", "venue": "In BMVC,", "year": 2015}, {"authors": ["Fei Wang", "Liren Chen", "Cheng Li", "Shiyao Huang", "Yanjie Chen", "Chen Qian", "Chen Change Loy"], "title": "The devil of face recognition is in the noise", "venue": "In European Conf. on Computer Vision (ECCV),", "year": 2018}, {"authors": ["Shengcai Liao Dong Yi", "Zhen Lei", "Stan Z. Li"], "title": "Learning face representation from scratch", "venue": "In arXiv preprint,", "year": 2014}, {"authors": ["Ankan Bansal", "Anirudh Nanduri", "Carlos D Castillo", "Rajeev Ranjan", "Rama Chellappa"], "title": "Umdfaces: An annotated face dataset for training deep networks", "year": 2016}, {"authors": ["B.C. Chen", "C.S. Chen", "W.H. Hsu"], "title": "Face recognition and retrieval using cross-age reference coding with cross-age celebrity dataset", "venue": "IEEE Trans. on Multimedia,", "year": 2015}, {"authors": ["B. Maze", "J. Adams", "J.A. Duncan", "N. Kalka", "T. Miller", "C. Otto", "A.K. Jain", "W.T. Niggel", "J. Anderson", "J. Cheney", "P. Grother"], "title": "Iarpa janus benchmark - c: Face dataset and protocol", "venue": "In Intl. Conf. on Biometrics (ICB),", "year": 2018}, {"authors": ["S. Winkler H.-W. Ng"], "title": "A data-driven approach to cleaning large face datasets", "venue": "In ICIP,", "year": 2014}, {"authors": ["C. Whitelam", "E. Taborsky", "A. Blanton", "B. Maze", "J. Adams", "T. Miller", "N. Kalka", "A.K. Jain", "J.A. Duncan", "K. Allen", "J. Cheney", "P. Grother"], "title": "Iarpa janus benchmark-b face dataset", "venue": "In IEEE Conf. on Computer Vision and Pattern Recognition (CVPR) Workshop,", "year": 2017}, {"authors": ["Eran Eidinger", "Roee Enbar", "Tal Hassner"], "title": "Age and gender estimation of unfiltered faces", "venue": "IEEE Trans. on Information Forensics and Security,", "year": 2014}, {"authors": ["Zhifei Zhang", "Yang Song", "Hairong Qi"], "title": "Age progression/regression by conditional adversarial autoencoder", "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition", "year": 2017}, {"authors": ["S. Moschoglou", "A. Papaioannou", "C. Sagonas", "J. Deng", "I. Kotsia", "S. Zafeiriou"], "title": "Agedb: the first manually collected, in-the-wild age database", "venue": "In IEEE Conf. on Computer Vision and Pattern Recognition (CVPR) Workshop, Honolulu,", "year": 2017}, {"authors": ["H. Han", "A.K. Jain", "S. Shan", "X. Chen"], "title": "Heterogeneous face attribute estimation: A deep multi-task learning approach", "venue": "IEEE Trans. on Pattern Analysis and Machine Intelligence (PAMI),", "year": 2017}, {"authors": ["N. Kumar", "A. Berg", "P.N. Belhumeur", "S. Nayar"], "title": "Describable visual attributes for face verification and image search", "venue": "IEEE Trans. on Pattern Analysis and Machine Intelligence (PAMI),", "year": 2011}, {"authors": ["Joy Buolamwini", "Timnit Gebru"], "title": "Gender shades: Intersectional accuracy disparities in commercial gender classification", "venue": "In Proceedings of the 1st Conf. on Fairness, Accountability and Transparency,", "year": 2018}, {"authors": ["I.D. Raji", "J. Buolamwini"], "title": "Actionable auditing: Investigating the impact of publicly naming biased performance results of commercial ai products", "venue": "In AAAI/ACM Conf. on AI Ethics and Society,", "year": 2019}, {"authors": ["Thomas B. Fitzpatrick"], "title": "The validity and practicality of sun-reactive skin types i through vi", "venue": "Archives of Dermatology,", "year": 1988}, {"authors": ["M. Orcutt"], "title": "Are face recognition systems accurate? depends on your race", "venue": "https://www.technologyreview.com/s/601786/ are-face-recognition-systems-accurate-depends-on-your-race/,", "year": 2016}, {"authors": ["S. Lohr"], "title": "Facial recognition is accurate, if you\u2019re a white guy", "venue": "https://www.nytimes.com/ 2018/02/09/technology/facial-recognition-race-artificial-intelligence.html,", "year": 2018}, {"authors": ["J. Vanian"], "title": "Unmasking a.i.\u2019s bias problem", "venue": "http://fortune.com/longform/ ai-bias-problem/, June", "year": 2018}, {"authors": ["Hee Jung Ryu", "Hartwig Adam", "Margaret Mitchell"], "title": "Inclusivefacenet: Improving face attribute detection with race and gender diversity", "venue": "In ECCV Workshop on Fairness, Accountability and Transparency in Machine Learning (FAT/ML),", "year": 2018}, {"authors": ["P.K. Lohia", "K.N. Ramamurthy", "M. Bhide", "D. Saha", "K.R. Varshney", "R. Puri"], "title": "Bias mitigation post-processing for individual and group fairness", "venue": "arXiv preprint arXiv:1812.06135,", "year": 2018}, {"authors": ["J. Zhao", "T. Wang", "M. Yatskar", "V. Ordonez", "K.-W. Chang"], "title": "Men also like shopping: Reducing gender bias amplification using corpus-level constraints", "venue": "arXiv preprint arXiv:1707.09457,", "year": 2017}, {"authors": ["Lisa Anne Hendricks", "Kaylee Burns", "Kate Saenko", "Trevor Darrell", "Anna Rohrbach"], "title": "Women also snowboard: Overcoming bias in captioning models", "venue": "In European Conf. on Computer Vision (ECCV),", "year": 2018}, {"authors": ["A. Torralba", "A.A. Efros"], "title": "Unbiased look at dataset bias", "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),", "year": 2011}, {"authors": ["T. Tommasi", "N. Patricia", "B. Caputo", "T. Tuytelaars"], "title": "A deeper look at dataset bias", "venue": "In Domain Adaptation in Computer Vision Applications,", "year": 2017}, {"authors": ["Judy Hoffman", "Eric Tzeng", "Jeff Donahue", "Yangqing Jia", "Kate Saenko", "Trevor Darrell"], "title": "One-Shot Adaptation of Supervised Deep Convolutional Models. https://arxiv.org/pdf/1312.6204.pdf, 2019", "year": 2019}, {"authors": ["Aditya Khosla", "Tinghui Zhou", "Tomasz Malisiewicz", "Alexei Efros", "Antonio Torralba"], "title": "Undoing the damage of dataset bias", "venue": "In European Conf. on Computer Vision (ECCV),", "year": 2012}, {"authors": ["Moritz Hardt", "Eric Price", "Nati Srebro"], "title": "Equality of opportunity in supervised learning", "venue": "Advances in Neural Information Processing Systems", "year": 2016}, {"authors": ["Muhammad Bilal Zafar", "Isabel Valera", "Manuel Gomez Rodriguez", "Krishna P. Gummadi"], "title": "Fairness beyond disparate treatment & disparate impact: Learning classification without disparate mistreatment", "venue": "In Proceedings of the 26th Intl. Conf. on World Wide Web (WWW),", "year": 2017}, {"authors": ["Wei Wang", "Xavier Alameda-Pineda", "Dan Xu", "Pascal Fu", "Elisa Ricci", "Nicu Sebe"], "title": "Every Smile is Unique: Landmark-Guided", "venue": "Diverse Smile Generation", "year": 2019}, {"authors": ["B. Maze", "J. Adams", "J. Duncan", "N. Kalka", "T. Miller", "C. Otto", "A.K. Jain", "W.T. Niggel", "J. Anderson", "J. Cheney"], "title": "Iarpa janus benchmark\u2013c: Face dataset and protocol", "venue": "In 11th IAPR Intl. Conf. on Biometrics,", "year": 2018}, {"authors": ["Gil Levi", "Tal Hassner"], "title": "Age and gender classification using convolutional neural networks", "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR) Workshop,", "year": 2015}, {"authors": ["S. Escalera", "X. Baro", "H. Jair Escalante", "I. Guyon"], "title": "Chalearn looking at people: A review of events and resources", "venue": "In IEEE Intl. Joint Conf. on Neural Networks,", "year": 2017}, {"authors": ["Hu Han", "Anil K. Jain"], "title": "Age, gender and race estimation from unconstrained face images", "venue": "In MSU Technical Report, volume MSU-CSE-14-5,", "year": 2014}, {"authors": ["Wilma A Bainbridge", "Phillip Isola", "Aude Oliva"], "title": "The intrinsic memorability of face photographs", "venue": "Journal of Experimental Psychology General,", "year": 2013}, {"authors": ["Gabriel Panis", "Andreas Lanitis"], "title": "An overview of research on facial aging using the fg-net aging database", "venue": "IET Biometrics,", "year": 2016}, {"authors": ["Karl Ricanek", "Tamirat Tesafaye"], "title": "Morph: A longitudinal image database of normal adult age-progression", "venue": "In Intl. Conf. on Automatic Face and Gesture Recognition (FG),", "year": 2006}, {"authors": ["B.F. Klare", "B. Klein", "E. Taborsky", "A. Blanton", "J. Cheney", "K. Allen", "P. Grother", "A. Mah", "M. Burge", "A.K. Jain"], "title": "Pushing the frontiers of unconstrained face detection and recognition: Iarpa janus benchmark a", "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),", "year": 2015}, {"authors": ["R. Shaoqing", "K. He", "R. Girshick", "J. Sun"], "title": "Faster R-CNN: Towards real-time object detection with region proposal networks", "venue": "In Advances in Neural Information Processing Systems (NIPS),", "year": 2015}, {"authors": ["Davis E. King"], "title": "Dlib-ml: A machine learning toolkit", "venue": "Journal of Machine Learning Research,", "year": 2009}, {"authors": ["S. Fu", "H. He", "Z.-G. Hou"], "title": "Learning race from face: A survey", "venue": "IEEE Trans. Pattern Analysis and Machine Intelligence (PAMI),", "year": 2014}, {"authors": ["A. Goldstein"], "title": "Race-related variation of facial features: Anthropometric data", "venue": "i. Bulletin of the Psychonomic Society,", "year": 1979}, {"authors": ["J.P. Porter"], "title": "Anthropometric facial analysis of the african american woman", "venue": "Arch. Facial Plastic Surgery,", "year": 2001}, {"authors": ["T. Karras", "T. Aila", "S. Laine", "J. Lehtinen"], "title": "Progressive growing of gans for improved quality, stability, and variation", "venue": "In ICLR,", "year": 2018}, {"authors": ["Y. Liu", "K.L. Schmidt", "J.F. Cohn", "R.L. Weaver"], "title": "Facial asymmetry quantification for expression invariant human identification", "venue": "In IEEE Face Gesture Recognition,", "year": 2002}, {"authors": ["E.E. Moise"], "title": "Geometric topology in dimensions 2 and 3. Springer-Verlag", "venue": "New York,", "year": 1977}, {"authors": ["H. Takiwaki"], "title": "Measurement of skin color: practical application and theoretical considerations", "venue": "The Journal of Medical Investigation,", "year": 1998}, {"authors": ["M. Wang", "K. Xiao", "S. Wuerger", "V. Cheung", "M.R. Luo"], "title": "Measuring human skin color", "venue": "In Society for Imaging Science and Technology 23rd Color and Imaging Conference,", "year": 2015}, {"authors": ["T. Weyrich", "W. Matusik", "H. Pfister", "B. Bickel", "C. Donner", "C. Tu", "J. McAndless", "J. Lee", "A. Ngan", "H.W. Jensen", "M. Gross"], "title": "Analysis of human faces using a measurement-based skin reflectance model", "venue": "ACM Transactions on Graphics (TOG) TOG,", "year": 2006}, {"authors": ["M. Wilkes", "C.Y. Wright", "J.L. du Plessis", "A. Reeder"], "title": "Fitzpatrick skin type, individual typology angle, and melanin index in an african population: Steps towards universally applicable skin photosensivity assessments", "venue": "JAMA Dermatology,", "year": 2015}, {"authors": ["N.C.F. Codella", "D. Anderson", "T. Philips", "A. Porto", "K. Massey", "J. Snowdon", "R. Feris", "J. Smith"], "title": "Segmentation of both diseased and healthy skin from clinical photographs in a primary care setting", "venue": "40th Annual Intl. Conf. of the IEEE Engineering in Medicine and Biology Society (EMBC),", "year": 2018}, {"authors": ["R. Rothe", "R. Timofte", "L. Van Gool"], "title": "Dex: Deep expectation of apparent age from a single image", "venue": "In IEEE Intl. Conf. on Computer Vision Workshops (ICCVW) on Looking at People,", "year": 2015}, {"authors": ["C.H.R. Heip", "P.M.J. Herman"], "title": "Soetaret. Indices of diversity and evenness", "venue": "Ocenia,", "year": 1998}, {"authors": ["M.O. Hill"], "title": "Diversity and evenness: A unifying notation and its consequences", "year": 1973}, {"authors": ["Yujun Shen", "Ping Luo", "Junjie Yan", "Xiaogang Wang", "Xiaoou Tang"], "title": "Faceid-gan: Learning a symmetry three-player gan for identity-preserving face synthesis", "venue": "In Intl. COnf. on Computer Vision and Pattern Recognition (CVPR),", "year": 2018}, {"authors": ["Zachary Bessinger", "Nathan Jacobs"], "title": "A generative model of worldwide facial appearance", "venue": "In IEEE Winter Conference on Applications of Computer Vision (WACV),", "year": 2019}], "sections": [{"heading": "1 Introduction", "text": "Have you ever been treated unfairly? How did it make you feel? Probably not too good. Most people generally agree that a fairer world is a better world. Artificial Intelligence (AI) has enormous potential to make the world a better place. Yet, as we develop and apply AI towards addressing a broad set of important challenges, we need to make sure the AI systems themselves are fair and accurate. Recent advances in AI technology have produced remarkable capabilities for accomplishing sophisticated tasks, like translating speech across languages to augment communications and bridge cultures, improving complex interactions between people and machines, and automatically recognizing contents of video to assist in safety applications. Much of the recent power of AI comes from the use of data-driven deep learning to train increasingly accurate models by using growing amounts of data. However, the strength of these techniques can also be their inherent weakness.\nar X\niv :1\n90 1.\n10 43\n6v 6\n[ cs\n.C V\n] 8\nA pr\nThese AI systems learn what they are taught. If they are not taught with robust and diverse data sets, accuracy and fairness are at risk. For that reason, AI developers and the research community need to be thoughtful about what data they use for training. This is essential for developing AI systems which can help to make the world more fair.\nThe challenge in training AI systems is manifested in a very apparent and profound way with face recognition technology. Today, there can be difficulties in making face recognition systems that meet fairness expectations. The heart of the problem lies not with the AI technology itself, per se, but with how the systems are trained. For face recognition to perform as desired - to be both accurate and fair - training data must provide sufficient balance and coverage. The training data sets should be large enough and diverse enough to learn the many ways in which faces inherently differ. The images must reflect the diversity of features in faces we see in the world. This raises the important question of how we measure and ensure diversity for faces. On one hand, we are familiar with how faces may differ according to age, gender and skin color. But, as prior studies have shown, these dimensions are inadequate for characterizing the full range of diversity of faces. Dimensions like face symmetry, facial contrast, and the sizes, distances and ratios of the various attributes of the face (eyes, nose, forehead, etc.), among many others, are important.\nDiversity in Faces (DiF ) is a new large and diverse data set designed to advance the study of fairness and accuracy in face recognition technology. DiF provides a data set of annotations of one million face images. The DiF annotations are made on faces sampled from the publicly available YFCC-100M data set of 100 million images [1]. The DiF data set provides a comprehensive set of annotations of intrinsic facial features that includes craniofacial distances, areas and ratios, facial symmetry and contrast, skin color, age and gender predictions, subjective annotations, and pose and resolution. The facial coding schemes, summarized in Table 1, are among the strongest identified in the scientific literature and build a solid foundation to our collective knowledge. We believe that making these descriptors available will help accelerate the study of diversity and coverage of data towards creating more fair and accurate face recognition systems.\nIn this paper, we describe the development and analysis of the DiF data set. The paper is organized as follows: in Section 2, we review the state of face recognition technology and examine how different face image data sets are used today. We discuss some of the shortcomings from over-reliance on narrow data sets. In Section 3, we describe the process for creating the DiF data set. In Section 4, we describe the implementation of the ten facial coding schemes. In Section 5, we provide a statistical analysis of the coding schemes extracted for the face images. In Section 6, we summarize and discuss future directions."}, {"heading": "2 Related Work", "text": "Face recognition is a long-standing topic in computer vision, and AI broadly. Computer-based face recognition was addressed as far back as the 1970s with Takeo Kanade\u2018s seminal thesis on recognizing faces using a set of manually defined points corresponding to nose, mouth, eyes and other features. Modest by today\u2019s standards, his work processed 800 photographs and conducted experiments involving identification of 20 people [11]. Two decades later, a significant development came from Matthew Turk and Alex Pentland, who developed an appearance-based technique called eigenfaces that models faces holistically from image data [12]. This kind of data-driven methodology was subsequently helped by numerous efforts of curating large and growing face image data sets. The community has built open evaluations around these data sets, such as MegaFace [13], MSCeleb [14] and the NIST Face Recognition Vendor Test (FRVT)1.\n1https://www.nist.gov/programs-projects/face-recognition-vendor-test-frvt\nOne prominent example of an early face data set and open evaluation is Labeled Faces in the Wild (LFW), which is comprised of 13, 233 face photos from the Web of 5, 749 individuals, mostly celebrities and public figures, captured in unconstrained conditions of lighting, pose and expression [15]. LFW gained significant focus from the research community upon its release. Eventually, with the advent of deep learning techniques [16,17], face recognition performance on LFW reached near-perfect results with 99.8% accuracy [18,19]. Megaface defined a follow-on larger data set comprised of faces from 690, 572 unique individuals which was made more difficult with the addition of 1 million face image distractors [13]. Although early results produced low accuracy in the range of 50%\u2212 60%, ultimately, performance reached near-perfect levels of 99.9% [20, 21]. Other data sets and evaluations such as CelebA have brought focus to a wider set of problems in face recognition such as face attribute recognition. CelebA provides a data set of 202, 599 face images with annotations of 40 attributes such as \u2018eyeglasses,\u2019 \u2018smiling,\u2019 and \u2018mustache\u2019 [9]. State-of-art systems have achieved greater than 90% mean accuracy across the CelebA attribute set and as high as 99% for some attributes. Many other face data sets and evaluations have produced similar improvements using deep learning methods [8,9,14,22\u201334]. The healthy progress on face recognition, as measured on these data sets and evaluations, has raised expectations in the technology.\nHowever, high accuracy on these data sets does not readily translate into equivalent accuracy in deployments [36, 37]. The reason is that different or broader distributions of faces, as well as varied environmental conditions, are found in real applications. Face recognition systems that are trained within only a narrow context of a specific data set will inevitably acquire bias that skews learning towards the specific characteristics of the data set. This narrow context appears as underrepresentation or over-representation of certain types of faces in many of the publicly available data sets. Table 2 shows some of the big differences in distribution of age groups for seven prominent face image data sets. Generally, there is a skew away from younger and older ages. Some of the differences are quite dramatic. For example, 36.5% of faces in IMDB-Face are for individuals 20-30 years of age, whereas IJB-C has 16.2% of faces in this age group.\nSimilarly, Table 3 shows the distribution of gender and skin color/type for eight face image data sets. LFW is highly skewed towards male faces with 77.4% corresponding to male. Six of the eight data sets have more male faces. A similar skew is seen with skin color/type when grouped coarsely into darker and lighter groups. Note that different methods were used for characterizing skin color/type in Table 3, and the meaning of darker and lighter is not the same across these eight data sets. For all but two data sets the distribution shows > 80% faces that are lighter. AgeDb is the most heavily skewed, with 94.6% faces that are lighter. The Pilot Parliaments Benchmark (PPB) data set was designed to be balanced for gender and skin type, where a board certified dermatologist provided the ground-truth labels using the Fitzpatrick six-point system [36, 38]. However, the age distribution in PPB is skewed, having been built from official photos of members of parliaments, all adults, from six countries. Face recognition systems developed from skewed training data are bound\nto produce biased models. This mismatch has been evidenced in the significant drop in performance for different groupings of faces [39\u201341]. A published study showed that gender estimation from face images is biased against dark-skinned females over white-skinned males [36, 37]. Such biases may have serious impacts in practice. Yet much of the prior research on face recognition does not take these issues under consideration, having focused strongly on driving up accuracy on narrow data sets. Note also that the gender categorization in Table 3, as in much of the prior work, uses a binary system for gender classification that corresponds to biological sex \u2013 male and female. However, different interpretations of gender in practice can include biological gender, psychological gender and social gender roles. As with race and ethnicity, over-simplification of gender by imposing an incomplete system of categorization can result in face recognition technologies that do not work fairly for all of us. Some recent efforts, such as InclusiveFaceNet [42], show that imperfect categorization of race and gender can help with face attribute recognition. However, we expect that more nuanced treatment of race, ethnicity and gender is important towards improving diversity in face data sets."}, {"heading": "2.1 Bias and Fairness", "text": "The study of bias and fairness has recently gained broad interest in computer vision and machine learning [43\u201345]. Torralba and Efros [46] presented an evaluation of metrics related to bias and framed bias in visual classification as a domain transfer problem. Tommasi et al. [47] and Hoffman et al. [48] conducted a similar evaluation with deep features, showing that data set bias can be reduced but not eliminated. Khosla et al. [49] proposed a method that learns bias vectors associated with individual data sets, as well as weights common across data sets, which are learned by undoing unwanted bias from each data set. Hardt et al. [50] proposed a framework for fairness called equalized odds, also referred to as disparate mistreatment [51], where the goal is to predict a true outcome based on labeled training data, while ensuring it is \u2018non-discriminatory\u2019 with respect to a chosen protected attribute. More recently, Burns et al. [45] addressed bias in image captioning, proposing a model that ensures equal gender probability when gender evidence is occluded in a scene, and otherwise predicts gender from relevant information when present. The problem of gender-neutral smile classification was addressed in [42]. Bias in face detection for skin tone, pose and expression was studied in [52]. Buolamwini et al. [36] proposed an approach to evaluate unwanted bias in face recognition and data sets with respect to phenotypic subgroups and introduced the PPB data set balanced by gender and skin type."}, {"heading": "2.2 Face Data Sets", "text": "As described above, the last decade has seen an ever-growing collection of face recognition data sets. Table 4 summarizes many of the prominent face image data sets used for evaluating face recognition technology. Returning to Labeled Faces in the Wild (LFW) [15], it presented considerable technical challenges upon its release in 2007, whereas nearly perfect results are being attained today. Several data sets such as IJBC [53], UMD [26] and VGGFace [22, 23] provide a larger set of face images with a wider range of pose and lighting variations. Other large-scale face recognition data sets include MegaFace [13], MS-Celeb [14] and CASIA [25]. Many other data sets have been proposed for different facial analysis tasks, such as age and gender classification [24, 27, 31, 54\u201356], facial expression analysis [55], memorability [57], attributes [35] and aging [58]. Unlike the prior data sets, which focus on robustness under variations of pose, lighting, occlusion, and scale, the DiF data set is aimed understanding diversity with respect to intrinsic facial features.\n3 DiF Data Set Construction\nGiven the above issues, we were motivated to create the DiF data set to obtain a scientific and computationally practical basis for ensuring fairness and accuracy in face recognition. At one extreme the challenge of diversity could be solved by building a data set comprised from the face of every person in the world. However, this would not be practical or even possible, let alone the significant privacy concerns. For one, our facial appearances are constantly changing due to ageing, among other factors. At best this would give a solution for a point in time. Rather, a solution needs to come from obtaining or generating a representative sample of faces with sufficient coverage and balance. That, however, is also not a simple task. There are many challenging questions: what does coverage mean computationally? How should balance be measured? Are age, gender and skin color sufficient? What about other highly personal attributes that are part of our identity, such as race, ethnicity, culture, geography, or visible forms of self-expression that are reflected in our faces in a myriad of ways? We realized very quickly that until these questions were answered we could not construct a complete and balanced data set of face images.\nWe formulated a new approach that would help answer these questions. We designed the DiF data set to provide a scientific foundation for research into facial diversity. We reviewed the scientific literature on face analysis and studied prior work in fields as diverse as psychology, sociology, dermatology, cosmetology and facial surgery. We concluded that no single facial feature or combination of commonly used classifications \u2013 such as age, gender and skin color \u2013 would suffice. Therefore, we formulated a novel multi-modal approach that incorporates a diversity of face analysis methods. Based on study of the large body of prior work, we chose to implement a solid starter-set of ten facial coding schemes. The criteria for selecting these coding schemes included several important considerations: (1) strong scientific basis as evidenced by highly cited prior work, (2) extracting the coding scheme was computationally feasible, (3) the coding scheme produced continuous valued dimensions that could feed subsequent analysis, as opposed to generating only categorical values or labels, and (4) the coding scheme would allow for human interpretation to help with our understanding.\nWe chose YFCC-100M [1] to be the source for the sample of images. There were a number of important reasons for this. Ideally, we would be able to automatically obtain any large sample of images from any source meeting any characteristics of diversity we desire. However, practical considerations prevent this, including the fact that various copyright laws and privacy regulations must be respected. YFCC-100M is one of the largest image collections, consisting of more than 100 millions photos. It was populated by users of the Flickr photo service. There is a large diversity in these photos overall, where people and faces appear in an enormous number of ways. Also, importantly, a large portion of the photos have Creative Commons license. The downside of using YFCC-100M is that there is skew in the Flickr user community that contributed the photos. We cannot rely on the set of users or their photos to be inherently diverse. A consequence of this is that the set of images used in the DiF is not completely balanced on its own. However, it still provides the desired basis for studying methods for characterizing facial diversity."}, {"heading": "3.1 Data Selection", "text": "While the YFCC-100M photo data set is large, not all images could be considered. Naturally, we excluded photos that did not contain a face. We also excluded black and white and grayscale photos and those with significant blur. Although face recognition needs to be robust for non-color photos, we deferred incorporating these images in the initial DiF data set in order to focus on intrinsic facial variation rather than image variation due to color processing."}, {"heading": "3.2 Pre-processing Pipeline", "text": "The YFCC-100M data set gives a set of URLs that point to the Flickr web page for each of the photos. The first step we took was to check whether the URL was still active. If so, we then checked the license. We proceeded with the download only if the license type was Creative Commons. Once we retrieved the photo, we processed it using face detection to find all depicted faces. For the face detection step, we used a Convolutional Neural Network (CNN) object detector trained for faces based on Faster-RCNN [61]. For each detected face, we then extracted both pose and 68 face key-points using the open source DLIB toolkit [62]. If there was any failure in the image processing steps, we excluded the face from further consideration. We also removed faces of size less than 50\u00d7 50 pixels or with inter-ocular distance of less than 30 pixels. We removed faces with substantial non-frontal pose. The overall process is shown in Figure 1.\nFinally, we generated two instances of each face. One is a rectified instance whereby the center points of each eye are fixed to a specific location in the overall image. The second crops an expanded region surrounding each face to give 50% additional spatial context. This overall process filtered the 100 million YFCC-100M photos down to approximately one million mostly frontal faces with adequate size. The surviving face images were the ones used for the DiF data set. Note that the overall process of sampling YFCC-100M used only factors described above including color, size, quality and pose. We did not bias the sampling towards intrinsic facial characteristics or by using metadata associated with each photo, such as a geo-tag, date, labels or Flickr user name. In this sense, the DiF data distribution is expected to closely follow the overall distribution of the YFCC100M photos. In future efforts to grow the DiF data set, we may relax some of the constraints based on size, pose and quality, or we may bias the sampling based on other properties. However, one million publicly available face images provides a good start. Given this compiled set of faces, we next process each one by extracting the ten facial coding schemes."}, {"heading": "4 Facial Coding Scheme Implementation", "text": "In this Section, we describe the implementation of the ten facial coding schemes and the process of extracting them from the DiF face images. The advantage of using ten coding schemes is that it gives a diversity of methods and allows us to compare statistical measures for facial diversity. As described above, the ten schemes have been selected based on their strong scientific basis, computational feasibility, numerical representation and interpretability. Overall the chosen ten coding schemes capture multiple modalities of facial features, which includes craniofacial distances, areas and ratios, facial symmetry and contrast, skin color, age and gender predictions, subjective annotations, and pose and resolution. Three of the DiF facial coding schemes are based on craniofacial features. As prior work has pointed out, skin color alone is not a strong predictor of race, and other features such as facial proportions are important [6,63\u201365]. Face morphology is also relevant for attributes such as age and gender [4]. We incorporated multiple facial coding schemes aimed at capturing facial morphology using craniofacial features [2\u20134]. The basis of craniofacial science is the measurement of the face in terms of distances, sizes and ratios between specific points such as the tip of the nose, corner of the eyes, lips, chin, and so on. Many of these measures can be reliably estimated from photos of frontal faces using 47 landmark points of the head and face [2]. To provide the basis for the three craniofacial feature coding schemes used in DiF , we built on the subset of 19 facial landmarks listed in Table 5. For brevity we adopt the abbreviations from [2] when referring to these facial landmark points instead of using the full anatomical terms.\nIn order to extract the 19 facial landmark points, we leveraged standard DLIB facial key-point extraction tools that provide a set 68 key-points for each face. As shown in Figure 2, we mapped the 68 DLIB key-points to the 19 facial landmarks [2]. These 19 landmarks were used for extracting the craniofacial features. Note that for illustrative purposes, the example face used in Figure 2 was adopted from [66] and was generated synthetically using a progressive Generative Adversarial Network (GAN) model. The face does not correspond to a known individual person. However, the image is subject to license terms as per [66]. In order to incorporate a diversity of approaches, we implemented three facial coding schemes for craniofacial features. The first, coding scheme 1, provides a set of craniofacial distance measures from [2]. The second, coding scheme 2, provides an expanded set of craniofacial areas from [3]. The third, coding scheme 3, provides a set of craniofacial ratios from [4]."}, {"heading": "4.1 Coding Scheme 1: Craniofacial Distances", "text": "The first coding scheme for craniofacial distances has been adopted from [2]. It comprises eight measures which characterize all the vertical distances between elements in a face: the top of the forehead, the eyes, the nose, the mouth and the chin. In referring to the implementation of the coding scheme, we use the abbreviations from Table 5. We note that two required points, tn and sto, were not part of the set of 68 DLIB key-points. As such, we had to derive them in the following manner: tn was computed as the topmost point vertically above n in the rectified facial image, and sto was computed from the vertical average of ls and li. The eight dimensions of craniofacial distances are summarized in Table 6."}, {"heading": "4.2 Coding Scheme 2: Craniofacial Areas", "text": "The second coding scheme is adopted from a later development from Farkas et al. [3]. It comprises measures corresponding to different areas of the cranium. Similar to the craniofacial distances, the extraction of craniofacial areas relied on the mapped DLIB key-points to the corresponding facial landmarks. Table 7 summarizes the twelve dimensions of the craniofacial area features."}, {"heading": "4.3 Coding Scheme 3: Craniofacial Ratios", "text": "The third coding scheme comprises measures corresponding to different ratios of the face. These features were used to estimate age progression from faces in the age groups of 0 to 18 in [4]. Similar to the above features, the craniofacial ratios used the mapped DLIB key-points as facial landmarks. Table 8 summarizes the eight dimensions of the craniofacial ratio features."}, {"heading": "4.4 Coding Scheme 4: Facial Symmetry", "text": "Facial symmetry has been found in psychology and anthropology studies to be correlated with subjective and objective traits including expression variation [67] and attractiveness [5]. We adopted facial symmetry for coding scheme 4, given its intrinsic nature. To represent the symmetry of each face we computed two measures, following the work of Liu et al. [67]. We processed each face as shown in Figure 3. We used three of the DLIB key-points detected in the face image to spatially normalize and rectify it to the following locations: the inner canthus of each eye (C1 and C2) to reference locations C1 = (40, 48), C2 = (88, 48) and the philtrum C3 was mapped to C3 = (64, 84). Next, the face mid-line (point b in Figure 3(a)) was computed as the line passing through the mid-point of the line segment connecting C1\u2212 C2 (point a in Figure 3(a)) and the philtrum C3.\nWe point out that although a face image is spatially transformed during rectification, facial symmetry with respect to the face mid-line is preserved according to the topological properties of the affine transformation [68]. Each image is then cropped to 128x128 pixels to create a squared image with the face mid-line centered vertically. Next we convert the spatially transformed image to grayscale to measure intensity. Each point (x, y) on this normalized face intensity image I on the left of the face mid-line has a unique corresponding horizontally mirrored point on the other side of the face image I \u2032(x, y) (right of the mid-line). We also extract edges in this image I to produce Ie using a Sobel filter. Finally, we compute two facial symmetry measures based on density difference DD(x, y) and edge orientation similarity EOS(x, y) as follows: for each pixel (x, y) in the left 128x64 part (I and Ie) and the corresponding 128x64 right part (I\n\u2032 and I \u2032e) are computed as summarized in Table 9, where \u03c6(Ie(x, y), I \u2032 e(x, y)) is the angle between the two edge orientations of images Ie and I \u2032 e at pixel (x, y). We compute the average value of DD(x, y) and EOS(x, y) to be the two measures for facial symmetry. It is interesting to notice that the two symmetry measurements capture facial symmetry from different perspectives: density difference is affected by the left-right relative intensity variations of a face, while edge orientation similarity is affected by the zero-crossing of the intensity field. Higher values of density difference correspond to more asymmetrical faces, while the higher the values of edge orientation similarity refer to more symmetrical faces."}, {"heading": "4.5 Coding Scheme 5: Facial Regions Contrast", "text": "Prior studies have shown that facial contrast is a cross-cultural cue for perceiving facial attributes such as age. An analysis of full face color photographs of Chinese, Latin American and black South African women aged 20\u201380 in [6] found similar changes in facial contrast with ageing across races and were comparable to changes with Caucasian faces. This study found that high-contrast faces were judged to be younger than low-contrast faces. The study also found that artificially increasing the aspects of facial contrast that decrease with age across diverse races makes faces look younger, independent of the ethnic origin of the face or cultural origin of the observers [6]. On one hand, the age that you are is one dimension that needs to be addressed in terms of fairness and accuracy of face recognition. However, the age that you look, considering possible artificial changes, should not change requirements for fairness and accuracy.\nWe adopted facial regions contrast as the basis for coding scheme 5. To compute facial contrast, we measured contrast individually for each image color channel IL, Ia, Ib, corresponding to the CIELab color space, for three facial regions: lips, eyes, and eyebrows, as shown in Figure 4. First, we defined the internal regions ringed by facial key points computed from DLIB for each of these facial parts (shown as the inner rings around lips, eyes, and eyebrows in Figure 4). Then, we expanded this region by 50% to define an outer region around each of these facial parts (shown as the outer rings in Figure 4). The contrast is then measured as the difference between the average pixel intensities in the outer and inner regions. This is repeated for each of the three CIE-Lab color channels. Given the three facial regions, this gives a total of nine measures, where the contrast values for the eyes and eyebrows are based on the average of the left and right regions. The computation is summarized in Table 10, where Ik(x, y) is the pixel intensity at (x, y) for CIE-Lab channel k and ptouter, ptinner correspond to the outer and inner regions around each facial part pt."}, {"heading": "4.6 Coding Scheme 6: Skin Color", "text": "Skin occupies a large fraction of the face. As such, characteristics of the skin influence the appearance and perception of faces. Prior work has studied different methods of characterizing skin based on skin color [7, 69, 70], skin type [7, 38] and skin reflectance [71]. Early studies used Fitzpatrick skin type (FST) to classify sun-reactive skin types [38], which was also adopted recently in [36]. However, to-date, there is no universal measure for skin color, even within the dermatology field. In a study of 556 participants in South Africa, self-identified as either black, Indian/Asian, white, or mixed, Wilkes et al. found a high correlation between the Melanin Index (MI), which is frequently used to assign FST, with Individual Typology Angle (ITA) [72]. Since a dermatology expert is typically needed to assign the FST, the high correlation of MI and ITA indicates that ITA may be a practical method for measuring skin color given the simplicity of computing ITA. In order to explore this further, we designed coding scheme 6 to use ITA for representing skin color [7]. ITA has a strong advantage over Fitzpatrick in that it can be computed directly from an image. As in [7], we implemented ITA in the CIE-Lab space. For obvious practical reasons, we could not obtain measurements through a device directly applied on the skin of each individual, but instead converted the RGB image to CIE-Lab space using standard image processing. The L axis quantifies luminance, whereas a quantifies absence or presence of redness, and b quantifies yellowness. Figure 5 depicts the image processing steps for extracting the coding scheme 6 for skin color.\nIt is important to note that that ITA is a point measurement. Hence, every pixel corresponding to skin can have an ITA measurement. In order to generate a feature measure for the whole face, we extract ITA for pixels within a masked face region as shown in Figure 5(g). This masked region is determined in the following steps:\n1. Extract the skin mask in the face (pixels corresponding to skin) using a deep neural network, as described in [73].\n2. Extract regions corresponding to the chin, two cheeks and forehead using the extracted 68 DLIB key-points\n3. Smooth the ITA values of each region to reduce outliers using an averaging filter\n4. Pick the peak value of each region to give its ITA score\n5. Average the values to give a single ITA score for each face\nTable 11 gives the formula for computing the ITA values for each pixel in the masked face region."}, {"heading": "4.7 Coding Scheme 7: Age Prediction", "text": "Age is an attribute we all possess and our faces are predictors of our age, whether it is our actual age or manipulated age appearance [6]. As discussed in Section 4.5, particular facial features such as facial contrast are correlated with age. As an alternative to designing specific feature representations for predicting age, for coding scheme 7, we adopt a Convolutional Neural Network (CNN) that is trained from face images to predict age. We adopt the DEX model [8, 74] that is among the highest performing on some of the known face image data sets. The model is based on a pre-trained VGG16-face neural network for face identity that was subsequently fine-tuned on the IMDB-wiki data set [8] to predict age (years in the range 0-100). Since the DEX model was trained within a narrow context, it is not likely to be fair. However, our initial use here is to get some continuous measure of age in order to study diversity. Ultimately, it will require an iterative process of understanding diversity to make more balanced data sets and create more fair models. In order to predict age using DEX, each face was pre-processed as in [74]. First, the bounding box\nwas expanded by 40% both horizontally and vertically, then resized to 256x256 pixels. Inferencing was then performed on the 224x224 square cropped at the center of the image. Since softmax loss was used during the fine-tuning process, age prediction is output from the softmax layer, which is computed from E(P ) = \u2211100 i=0 piyi, where pi \u2208 P are the softmax output probabilities for each of the 101 discrete years yi \u2208 Y corresponding to each class i, with Y = {0, ..., 100}."}, {"heading": "4.8 Coding Scheme 8: Gender Prediction", "text": "Coding scheme 8 follows a similar process for gender prediction as for age prediction [8]. We used the same pre-processing steps as described in Section 4.7 as well as the same neural network model and training pipeline. The only difference is that we use the DEX model to predict a continuous value score for gender between 0 and 1, and not just report a binary output."}, {"heading": "4.9 Coding Scheme 9: Subjective Annotation", "text": "Coding scheme 9 aims at capturing age and gender but through subjective means rather than using a neural network-based predictive model. For each of the DiF face images, we employed the Figure Eight crowd-sourcing platform [75] to obtain subjective human-labeled annotations of gender and age. The gender annotations used two class labels (male and female) and the age group labeling used seven classes ([0-3],[4-12],[13-19],[20-30],[31-45],[46-60],[61-]), as well as a continuous age value to be consistent with the automatic prediction labels. For each face, input was taken from three independent annotators. A weighted voting scheme was used to aggregate the labels, where the vote of each annotator was weighted according to their performance on a set of \u201cgold standard\u201d faces for which the ground truth was known."}, {"heading": "4.10 Coding Scheme 10: Pose and Resolution", "text": "The final coding scheme 10 provides information about pose and resolution. Although pose can only loosely be considered an intrinsic facial attribute, how we present our faces to cameras should not affect performance. We include resolution as it gives useful information to correlate with the other coding scheme features to provide further insight. In order to extract pose, we use the DLIB toolkit to compute a pose score of 0-4. Here, the values correspond as follows: 0-frontal, 1-rotated left, 2-rotated right, 3-frontal but tilted left, 4-frontal but tilted right. Along with pose, resolution is determined from the size of the bounding box of each face and inter-ocular distance (IOD), which is the distance between the center points of each eye."}, {"heading": "5 Statistical Analysis", "text": "In this Section, we report on the statistical analysis of the ten facial coding schemes in the DiF data set. Intuitively, in order to provide sufficient coverage and balance, a data set needs to include data with diverse population characteristics. This type of analysis comes up in multiple disciplines, including bio-diversity [76, 77], where an important objective is to quantify species diversity of ecological communities. It has been reported that species diversity has two separate components: (1) species richness, or the number of species present, and (2) their relative abundances, called evenness. We use these same measures to quantify the diversity of face images using the ten facial coding schemes. We compute diversity using Shannon H and E scores and Simpson D and E scores [76]. Additionally, we measure mean and variance for each of the feature dimensions of the ten facial coding schemes The computation of diversity is as follows: given individual pi in a\nprobability distribution for each feature measure, and the S being the number of classes for the attribute, we compute:\nDiversity Evenness Shannon H = \u2212 \u2211S\ni=1 pi \u2217 ln(pi) Shannon E = H ln(S)\nSimpson D = 1\u2211S i=1(pi\u2217pi)\nSimpson E = DS\nShannon H and Simpson D are diversity measures and Shannon E and Simpson E are evenness measures. To see how they work, consider a 20 class problem (S = 20) with uniform distribution (pi = 0.05). These measures take the following values: Shannon H = 2.999, Shannon E = 1.0, Simpson D = 2.563, and Simpson E = 1.0. Evenness is constant at 1.0 as expected. Shannon D represents the diversity of 20 classes (e2.999 \u2248 20). For complex distributions, it may not be easy to understand the meaning of specific values of these scores. Generally, a higher diversity value is better than a lower value, whereas an evenness value closer to 1.0 is better. Figure 6 illustrates these measures on two example distributions. Figure 6 (a) and (b) show how diversity and evenness values vary for a uniform distribution, respectively, as the number of classes increase from 2 to 20. Figure 6 (c) and (d) show the same information for a random distribution.\nTable 12 summarizes the diversity scores computed for the ten facial coding schemes in the DiF data set. As described in Section 4, many of the coding schemes have multiple dimensions. Hence the table has more than ten rows. The craniofacial measurements across the three coding scheme types total 28 features corresponding to craniofacial distances, craniofacial areas and craniofacial ratios. The diversity scores of the different dimensions of the remaining seven coding schemes can similarly be seen in Table 12."}, {"heading": "5.1 Coding Scheme 1: Craniofacial Distances", "text": "Figure 7 summarizes the feature distribution for the 8 craniofacial distances in coding scheme 1. The highest Simpson D value is 5.888 and the lowest is 5.832. The highest and lowest Shannon H values are 1.782 and 1.777. Based on the Shannon H values, this feature dimension would typically map to 6 classes. Evenness is generally balanced with highest Simpson E and Shannon E of 0.981 and 0.995, respectively."}, {"heading": "5.2 Coding Scheme 2: Craniofacial Areas", "text": "Figure 8 summarizes the feature distribution for the 12 craniofacial areas in coding scheme 2. The highest Simpson D value is 5.888 and the smallest is 5.858. The highest Shannon H value is 1.782 and the lowest is 1.780. Compared to coding scheme 1, these values are in the similar range, mapping to 6 classes. Evenness ranges between 0.981 and 0.976."}, {"heading": "5.3 Coding Scheme 3: Craniofacial Ratios", "text": "Figure 9 summarizes the feature distribution for the 8 craniofacial ratios in coding scheme 3. The largest Simpson D value is 5.902 and smallest is 5.870. Similarly, the largest Shannon H value is 1.783 and smallest is 1.781. This would map to approximately to 6 classes. While Simpson E has a range between 0.978 to 0.984, Shannon E ranges between 0.994 to 0.995. The evenness of coding scheme 3 is similar to coding scheme 2."}, {"heading": "5.4 Coding Scheme 4: Facial Symmetry", "text": "Figure 10 summarizes the feature distribution for facial symmetry in coding scheme 4. The diversity value is in a middle range compared to the previous coding schemes. For example, the highest Simpson D is 5.510 and the largest Shannon H is 1.748. The evenness values are lower as well with highest Simpson E value being 0.918 and highest Shannon E value being 0.975. The Shannon H value of 1.692 translates to about 5.4 classes."}, {"heading": "5.5 Coding Scheme 5: Facial Regions Contrast", "text": "Figure 11 summarizes the feature distribution for facial contrast in coding scheme 5. The highest Simpson D value is 5.872 and highest Shannon H value is 1.781, which is equivalent to 5.9 classes. The evenness factor Shannon E is very close to 0.979 indicating that the measures are close to even."}, {"heading": "5.6 Coding Scheme 6: Skin Color", "text": "Figure 12 summarizes the feature distribution for skin color in coding scheme 6. The Simpson D value is 5.283 and Shannon H value is 1.773 which translates to about 5.88 classes, which shows a good match with the number of bins we used. The evenness is weaker than a uniform distribution."}, {"heading": "5.7 Coding Scheme 7: Age Prediction", "text": "Figure 13(a) summarizes the feature distribution for age prediction in coding scheme 7, where we bin the age values into seven groups: [0-3],[4-12],[13-19],[20-30],[31-45],[46-60],[61-]. The Simpson D and Shannon H values are 4.368 and 1.601. Because of the data distribution not being even, we can see a lower E value around 0.624. The Shannon H value of 1.601 maps to 5 classes."}, {"heading": "5.8 Coding Scheme 8: Gender Prediction", "text": "Figure 13 also summarizes the feature distribution for gender prediction in coding scheme 8. Even though this has two classes, male and female, the confidence score ranges between 0\u22121. The gender score distribution is shown in Figure 13 (b). The Simpson D is 3.441 and Shannon H is 1.488. The Shannon H value translates to 4.4 classes, which is beyond the typical two classes used for gender, possibly reflecting the presence of sub-classes. The Simpson evenness score of 0.573 reflect some unevenness as well."}, {"heading": "5.9 Coding Scheme 9: Subjective Annotation", "text": "Figure 14 summarizes the feature distribution for the subjective annotations of age and gender for coding scheme 9. The Simpson D for gender distribution is 2.0 and Shannon H is 0.693, indicating the equivalent classes to be near 2, which is understandable. The evenness is very high, indicating a nearly flat distribution. The Simpson D is 4.368 and Shannon H is 1.675, resulting in a equivalent class index of approximately 5.3. However, the evenness scores are low at 0.629, indicating unevenness, as is visible in the distribution of the annotated age scores."}, {"heading": "5.10 Coding Scheme 10: Pose and Resolution", "text": "Figure 15 summarizes the feature distribution for pose and resolution for coding scheme 10. Pose uses three dimensions from the output of DLIB face detection and the distribution is shown in 15 (a). When computing mean and variance for pose in Table 12, we used the following values: Frontal Tilted Left -1, Frontal 0, and Frontal Tilted Right 1. The IOD and box size distribution\nare shown in Figure 15 (b)-(c). The distances have been binned to six classes. The three class pose distribution has a Shannon H value of 0.39. The Shannon H value for IOD is 1.69 (mapping to equivalent of 5.4 classes) while for the box size it is 1.197, translating to 3.3 classes."}, {"heading": "5.11 Discussion", "text": "Some observations come from this statistical analysis of the ten coding schemes on the DiF face image data. One is that the many of the dimensions of the craniofacial schemes have high scores in diversity relative to the other coding schemes. Generally, they are higher than measures used for age and gender, whether using a predictive model or subjective annotation. Similarly, their evenness scores are also closer to one. What this shows is that there is higher variability in these measures, and they are capturing information that age and gender alone do not. Interestingly, facial regions contrast, which was designed to capture information about age, has a higher diversity score and better evenness than that for either neural network prediction of age or subjective human annotation of age. Again, it implies that this continuous valued feature of facial contrast is capturing information that goes beyond simple age prediction or labeling. The only feature dimension with lower diversity is understandably pose, which was a controlled variable in selecting images for the DiF data set, since only mostly frontal faces were incorporated. In future work, we will use these methods to assess diversity of other face data sets, which will provide a basis for comparison and further insight."}, {"heading": "6 Summary and Future Work", "text": "We described the new Diversity in Faces (DiF ) data set, which has been developed to help advance the study of fairness and accuracy in face recognition technology. DiF provides a data set of annotations of publicly available face images sampled from the YFCC-100M data set of 100 million images. The annotations are defined from facial coding schemes that provide quantitative measures related to intrinsic characteristics of faces including craniofacial features, facial symmetry, facial contrast, skin color, age, gender, subjective annotations and pose and resolution. We described the process for generating the DiF data set as well as the implementation and extraction of the ten facial coding schemes. We also provided a statistical analysis of the facial coding scheme measures on the one million DiF images using measures of diversity, evenness and variance. For one, this kind of analysis has provided insight into how the 47 total feature dimensions within the ten facial coding schemes provide measures of data set diversity for the one million images. While it may not yet be possible to conclude that the goal is to drive all of these feature dimensions to be maximally diverse and even, we believe the approach outlined in this work provides a needed methodology for advancing the study of diversity for face recognition.\nThere are multiple next directions for this work. Table 4 outlined many of the currently used face data sets. We plan to perform the equivalent statistical analysis on some of these other data sets using the ten coding schemes. This will provide an important basis for comparing data sets in terms of diversity. Using the statistical measures outlined in this paper, including diversity, evenness and variance, we will begin to answer questions of whether one data set is better than another, or where a data set falls short in terms of coverage and balance. We also strongly encourage others to build on this work. We selected a solid starting point by using over one million publicly available face images and by implementing ten facial coding schemes. We hope that others will find ways to grow the data set to include more faces. As more insight comes from the type of analysis outlined in this paper, we see that an iterative process can more proactive sampling to fill in gaps. For example, as technologies like Generative Adversarial Networks (GANs) continue to improve [66, 78], it may be possible to generate faces of any variety to synthesize training data as needed. We expect that DiF will be valuable to steer these generative methods towards gaps and blind spots in the training data, for example, to assist methods that automatically generate faces corresponding to a specific geographical area [79]. We also hope that others will see ways to improve on the initial ten coding schemes and add new ones. Pulling together our collective efforts is the best way to make progress on this important topic. We hope that the DiF data set provides a useful foundation for creating more fair and accurate face recognition systems in practice."}], "title": "Diversity in Faces", "year": 2019}
+{
+  "abstractText": "Face recognition is a long-standing challenge in the field of Artificial Intelligence (AI). The goal is to create systems that detect, recognize, verify and understand characteristics of human faces. There are significant technical hurdles in making these systems accurate, particularly in unconstrained settings, due to confounding factors related to pose, resolution, illumination, occlusion and viewpoint. However, with recent advances in neural networks, face recognition has achieved unprecedented accuracy, built largely on data-driven deep learning methods. While this is encouraging, a critical aspect limiting face recognition performance in practice is intrinsic facial diversity. Every face is different. Every face reflects something unique about us. Aspects of our heritage \u2013 including race, ethnicity, culture, geography \u2013 and our individual identity \u2013 age, gender and visible forms of self-expression \u2013 are reflected in our faces. Faces are personal. We expect face recognition to work accurately for each of us. Performance should not vary for different individuals or different populations. As we rely on data-driven methods to create face recognition technology, we need to answer a fundamental question: does the training data for these systems fairly represent the distribution of faces we see in the world? At the heart of this core question are deeper scientific questions about how to measure facial diversity, what features capture intrinsic facial variation and how to evaluate coverage and balance for face image data sets. Towards the goal of answering these questions, Diversity in Faces (DiF ) provides a new data set of annotations of one million publicly available face images for advancing the study of facial diversity. The annotations are generated using ten facial coding schemes that provide human-interpretable quantitative measures of intrinsic facial features. We believe that making these descriptors available will encourage deeper research on this important topic and accelerate efforts towards creating more fair and accurate face recognition systems.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Michele Merler"
+    },
+    {
+      "affiliations": [],
+      "name": "Nalini Ratha"
+    },
+    {
+      "affiliations": [],
+      "name": "Rogerio Feris"
+    },
+    {
+      "affiliations": [],
+      "name": "John R. Smith"
+    }
+  ],
+  "id": "SP:7333d25c151f9a37663d7cbe9fd2e08acb4499f3",
+  "references": [
+    {
+      "authors": [
+        "B. Thomee",
+        "D.A. Shamma",
+        "G. Friedland",
+        "B. Elizalde",
+        "K. Ni",
+        "D. Poland",
+        "D. Borth",
+        "L. Li"
+      ],
+      "title": "Yfcc100m: The new data in multimedia research",
+      "venue": "Communications of the ACM,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Leslie G. Farkas"
+      ],
+      "title": "Anthropometry of the Head and Face",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "LG Farkas"
+      ],
+      "title": "Intl. anthropometric study of facial morphology in various ethnic groups/races",
+      "venue": "Journal of Craniofacial Surgery,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "N. Ramanathan",
+        "R. Chellappa"
+      ],
+      "title": "Modeling age progression in young faces",
+      "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "A.C. Little",
+        "B.C. Jones",
+        "L.M. DeBruine"
+      ],
+      "title": "Facial attractiveness evolutionary based research",
+      "venue": "Philosophical Trans. of the Royal Society B: Biological Sciences,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "A. Porcheron",
+        "E. Mauger",
+        "F. Soppelsa",
+        "Y. Liu",
+        "L. Ge",
+        "O. Pascalis",
+        "R. Russell",
+        "F. Morizot"
+      ],
+      "title": "Facial contrast is a cross-cultural cue for perceiving age",
+      "venue": "Front. Psychology,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Chardon",
+        "I. Cretois",
+        "C. Hourseau"
+      ],
+      "title": "Skin colour typology and suntanning pathways",
+      "venue": "Intl. Journal of Cosmetic Science,",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "T. Rothe",
+        "R. Timofte",
+        "L. Van Gool"
+      ],
+      "title": "Deep expectation of real and apparent age from a single image without facial landmarks. L",
+      "venue": "Int J Comput Vis,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ziwei Liu",
+        "Ping Luo",
+        "Xiaogang Wang",
+        "Xiaoou Tang"
+      ],
+      "title": "Deep learning face attributes in the wild",
+      "venue": "In IEEE Intl. Conf. on Computer Vision (ICCV),",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "X. Zhu",
+        "D. Ramanan"
+      ],
+      "title": "Face detection, pose estimation, and landmark localization in the wild",
+      "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "T. Kanade"
+      ],
+      "title": "Picture processing system by computer complex and recognition of human faces",
+      "venue": "Doctoral dissertation,",
+      "year": 1973
+    },
+    {
+      "authors": [
+        "M.A. Turk",
+        "A. Pentland"
+      ],
+      "title": "Face recognition using eigenfaces",
+      "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "Ira Kemelmacher-Shlizerman",
+        "Steven M Seitz",
+        "Daniel Miller",
+        "Evan Brossard"
+      ],
+      "title": "The megaface benchmark: 1 million faces for recognition at scale",
+      "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Yandong Guo",
+        "Lei Zhang",
+        "Yuxiao Hu",
+        "Xiaodong He",
+        "Jianfeng Gao"
+      ],
+      "title": "MS-Celeb-1M: A dataset and benchmark for large scale face recognition",
+      "venue": "In European Conf. on Computer Vision (ECCV),",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Gary B. Huang",
+        "Manu Ramesh",
+        "Tamara Berg",
+        "Erik Learned-Miller"
+      ],
+      "title": "Labeled faces in the wild: A database for studying face recognition in unconstrained environments",
+      "venue": "Technical Report 07-49,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Alex Krizhevsky",
+        "Ilya Sutskever",
+        "Geoffrey E Hinton"
+      ],
+      "title": "Imagenet classification with deep convolutional neural networks",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Yaniv Taigman",
+        "Ming Yang",
+        "Marc\u2019Aurelio Ranzato",
+        "Lior Wolf"
+      ],
+      "title": "Deepface: Closing the gap to human-level performance in face verification",
+      "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Jingtuo Liu",
+        "Yafeng Deng",
+        "Tao Bai",
+        "Zhengping Wei",
+        "Chang Huang"
+      ],
+      "title": "Targeting ultimate accuracy: Face recognition via deep embedding",
+      "venue": "arXiv preprint arXiv:1506.07310,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Jiankang Deng",
+        "Jia Guo",
+        "Niannan Xue",
+        "Stefanos Zafeiriou"
+      ],
+      "title": "Arcface: Additive angular margin loss for deep face recognition",
+      "venue": "arXiv preprint arXiv:1801.07698,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Q. Cao",
+        "L. Shen",
+        "W. Xie",
+        "O.M. Parkhi",
+        "A. Zisserman"
+      ],
+      "title": "Vggface2: A dataset for recognising faces across pose and age",
+      "venue": "In Intl. Conf. on Automatic Face and Gesture Recognition (FG),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "O.M. Parkhi",
+        "A. Vedaldi",
+        "A. Zisserman"
+      ],
+      "title": "Deep face recognition",
+      "venue": "In BMVC,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Fei Wang",
+        "Liren Chen",
+        "Cheng Li",
+        "Shiyao Huang",
+        "Yanjie Chen",
+        "Chen Qian",
+        "Chen Change Loy"
+      ],
+      "title": "The devil of face recognition is in the noise",
+      "venue": "In European Conf. on Computer Vision (ECCV),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Shengcai Liao Dong Yi",
+        "Zhen Lei",
+        "Stan Z. Li"
+      ],
+      "title": "Learning face representation from scratch",
+      "venue": "In arXiv preprint,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Ankan Bansal",
+        "Anirudh Nanduri",
+        "Carlos D Castillo",
+        "Rajeev Ranjan",
+        "Rama Chellappa"
+      ],
+      "title": "Umdfaces: An annotated face dataset for training deep networks",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "B.C. Chen",
+        "C.S. Chen",
+        "W.H. Hsu"
+      ],
+      "title": "Face recognition and retrieval using cross-age reference coding with cross-age celebrity dataset",
+      "venue": "IEEE Trans. on Multimedia,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "B. Maze",
+        "J. Adams",
+        "J.A. Duncan",
+        "N. Kalka",
+        "T. Miller",
+        "C. Otto",
+        "A.K. Jain",
+        "W.T. Niggel",
+        "J. Anderson",
+        "J. Cheney",
+        "P. Grother"
+      ],
+      "title": "Iarpa janus benchmark - c: Face dataset and protocol",
+      "venue": "In Intl. Conf. on Biometrics (ICB),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Winkler H.-W. Ng"
+      ],
+      "title": "A data-driven approach to cleaning large face datasets",
+      "venue": "In ICIP,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "C. Whitelam",
+        "E. Taborsky",
+        "A. Blanton",
+        "B. Maze",
+        "J. Adams",
+        "T. Miller",
+        "N. Kalka",
+        "A.K. Jain",
+        "J.A. Duncan",
+        "K. Allen",
+        "J. Cheney",
+        "P. Grother"
+      ],
+      "title": "Iarpa janus benchmark-b face dataset",
+      "venue": "In IEEE Conf. on Computer Vision and Pattern Recognition (CVPR) Workshop,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Eran Eidinger",
+        "Roee Enbar",
+        "Tal Hassner"
+      ],
+      "title": "Age and gender estimation of unfiltered faces",
+      "venue": "IEEE Trans. on Information Forensics and Security,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Zhifei Zhang",
+        "Yang Song",
+        "Hairong Qi"
+      ],
+      "title": "Age progression/regression by conditional adversarial autoencoder",
+      "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Moschoglou",
+        "A. Papaioannou",
+        "C. Sagonas",
+        "J. Deng",
+        "I. Kotsia",
+        "S. Zafeiriou"
+      ],
+      "title": "Agedb: the first manually collected, in-the-wild age database",
+      "venue": "In IEEE Conf. on Computer Vision and Pattern Recognition (CVPR) Workshop, Honolulu,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "H. Han",
+        "A.K. Jain",
+        "S. Shan",
+        "X. Chen"
+      ],
+      "title": "Heterogeneous face attribute estimation: A deep multi-task learning approach",
+      "venue": "IEEE Trans. on Pattern Analysis and Machine Intelligence (PAMI),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "N. Kumar",
+        "A. Berg",
+        "P.N. Belhumeur",
+        "S. Nayar"
+      ],
+      "title": "Describable visual attributes for face verification and image search",
+      "venue": "IEEE Trans. on Pattern Analysis and Machine Intelligence (PAMI),",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Joy Buolamwini",
+        "Timnit Gebru"
+      ],
+      "title": "Gender shades: Intersectional accuracy disparities in commercial gender classification",
+      "venue": "In Proceedings of the 1st Conf. on Fairness, Accountability and Transparency,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "I.D. Raji",
+        "J. Buolamwini"
+      ],
+      "title": "Actionable auditing: Investigating the impact of publicly naming biased performance results of commercial ai products",
+      "venue": "In AAAI/ACM Conf. on AI Ethics and Society,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Thomas B. Fitzpatrick"
+      ],
+      "title": "The validity and practicality of sun-reactive skin types i through vi",
+      "venue": "Archives of Dermatology,",
+      "year": 1988
+    },
+    {
+      "authors": [
+        "M. Orcutt"
+      ],
+      "title": "Are face recognition systems accurate? depends on your race",
+      "venue": "https://www.technologyreview.com/s/601786/ are-face-recognition-systems-accurate-depends-on-your-race/,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "S. Lohr"
+      ],
+      "title": "Facial recognition is accurate, if you\u2019re a white guy",
+      "venue": "https://www.nytimes.com/ 2018/02/09/technology/facial-recognition-race-artificial-intelligence.html,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Vanian"
+      ],
+      "title": "Unmasking a.i.\u2019s bias problem",
+      "venue": "http://fortune.com/longform/ ai-bias-problem/, June",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Hee Jung Ryu",
+        "Hartwig Adam",
+        "Margaret Mitchell"
+      ],
+      "title": "Inclusivefacenet: Improving face attribute detection with race and gender diversity",
+      "venue": "In ECCV Workshop on Fairness, Accountability and Transparency in Machine Learning (FAT/ML),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "P.K. Lohia",
+        "K.N. Ramamurthy",
+        "M. Bhide",
+        "D. Saha",
+        "K.R. Varshney",
+        "R. Puri"
+      ],
+      "title": "Bias mitigation post-processing for individual and group fairness",
+      "venue": "arXiv preprint arXiv:1812.06135,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Zhao",
+        "T. Wang",
+        "M. Yatskar",
+        "V. Ordonez",
+        "K.-W. Chang"
+      ],
+      "title": "Men also like shopping: Reducing gender bias amplification using corpus-level constraints",
+      "venue": "arXiv preprint arXiv:1707.09457,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Lisa Anne Hendricks",
+        "Kaylee Burns",
+        "Kate Saenko",
+        "Trevor Darrell",
+        "Anna Rohrbach"
+      ],
+      "title": "Women also snowboard: Overcoming bias in captioning models",
+      "venue": "In European Conf. on Computer Vision (ECCV),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Torralba",
+        "A.A. Efros"
+      ],
+      "title": "Unbiased look at dataset bias",
+      "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "T. Tommasi",
+        "N. Patricia",
+        "B. Caputo",
+        "T. Tuytelaars"
+      ],
+      "title": "A deeper look at dataset bias",
+      "venue": "In Domain Adaptation in Computer Vision Applications,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Judy Hoffman",
+        "Eric Tzeng",
+        "Jeff Donahue",
+        "Yangqing Jia",
+        "Kate Saenko",
+        "Trevor Darrell"
+      ],
+      "title": "One-Shot Adaptation of Supervised Deep Convolutional Models. https://arxiv.org/pdf/1312.6204.pdf, 2019",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Aditya Khosla",
+        "Tinghui Zhou",
+        "Tomasz Malisiewicz",
+        "Alexei Efros",
+        "Antonio Torralba"
+      ],
+      "title": "Undoing the damage of dataset bias",
+      "venue": "In European Conf. on Computer Vision (ECCV),",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Moritz Hardt",
+        "Eric Price",
+        "Nati Srebro"
+      ],
+      "title": "Equality of opportunity in supervised learning",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Muhammad Bilal Zafar",
+        "Isabel Valera",
+        "Manuel Gomez Rodriguez",
+        "Krishna P. Gummadi"
+      ],
+      "title": "Fairness beyond disparate treatment & disparate impact: Learning classification without disparate mistreatment",
+      "venue": "In Proceedings of the 26th Intl. Conf. on World Wide Web (WWW),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Wei Wang",
+        "Xavier Alameda-Pineda",
+        "Dan Xu",
+        "Pascal Fu",
+        "Elisa Ricci",
+        "Nicu Sebe"
+      ],
+      "title": "Every Smile is Unique: Landmark-Guided",
+      "venue": "Diverse Smile Generation",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "B. Maze",
+        "J. Adams",
+        "J. Duncan",
+        "N. Kalka",
+        "T. Miller",
+        "C. Otto",
+        "A.K. Jain",
+        "W.T. Niggel",
+        "J. Anderson",
+        "J. Cheney"
+      ],
+      "title": "Iarpa janus benchmark\u2013c: Face dataset and protocol",
+      "venue": "In 11th IAPR Intl. Conf. on Biometrics,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Gil Levi",
+        "Tal Hassner"
+      ],
+      "title": "Age and gender classification using convolutional neural networks",
+      "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR) Workshop,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S. Escalera",
+        "X. Baro",
+        "H. Jair Escalante",
+        "I. Guyon"
+      ],
+      "title": "Chalearn looking at people: A review of events and resources",
+      "venue": "In IEEE Intl. Joint Conf. on Neural Networks,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Hu Han",
+        "Anil K. Jain"
+      ],
+      "title": "Age, gender and race estimation from unconstrained face images",
+      "venue": "In MSU Technical Report, volume MSU-CSE-14-5,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Wilma A Bainbridge",
+        "Phillip Isola",
+        "Aude Oliva"
+      ],
+      "title": "The intrinsic memorability of face photographs",
+      "venue": "Journal of Experimental Psychology General,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Gabriel Panis",
+        "Andreas Lanitis"
+      ],
+      "title": "An overview of research on facial aging using the fg-net aging database",
+      "venue": "IET Biometrics,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Karl Ricanek",
+        "Tamirat Tesafaye"
+      ],
+      "title": "Morph: A longitudinal image database of normal adult age-progression",
+      "venue": "In Intl. Conf. on Automatic Face and Gesture Recognition (FG),",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "B.F. Klare",
+        "B. Klein",
+        "E. Taborsky",
+        "A. Blanton",
+        "J. Cheney",
+        "K. Allen",
+        "P. Grother",
+        "A. Mah",
+        "M. Burge",
+        "A.K. Jain"
+      ],
+      "title": "Pushing the frontiers of unconstrained face detection and recognition: Iarpa janus benchmark a",
+      "venue": "In Intl. Conf. on Computer Vision and Pattern Recognition (CVPR),",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "R. Shaoqing",
+        "K. He",
+        "R. Girshick",
+        "J. Sun"
+      ],
+      "title": "Faster R-CNN: Towards real-time object detection with region proposal networks",
+      "venue": "In Advances in Neural Information Processing Systems (NIPS),",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Davis E. King"
+      ],
+      "title": "Dlib-ml: A machine learning toolkit",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "S. Fu",
+        "H. He",
+        "Z.-G. Hou"
+      ],
+      "title": "Learning race from face: A survey",
+      "venue": "IEEE Trans. Pattern Analysis and Machine Intelligence (PAMI),",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "A. Goldstein"
+      ],
+      "title": "Race-related variation of facial features: Anthropometric data",
+      "venue": "i. Bulletin of the Psychonomic Society,",
+      "year": 1979
+    },
+    {
+      "authors": [
+        "J.P. Porter"
+      ],
+      "title": "Anthropometric facial analysis of the african american woman",
+      "venue": "Arch. Facial Plastic Surgery,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "T. Karras",
+        "T. Aila",
+        "S. Laine",
+        "J. Lehtinen"
+      ],
+      "title": "Progressive growing of gans for improved quality, stability, and variation",
+      "venue": "In ICLR,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Y. Liu",
+        "K.L. Schmidt",
+        "J.F. Cohn",
+        "R.L. Weaver"
+      ],
+      "title": "Facial asymmetry quantification for expression invariant human identification",
+      "venue": "In IEEE Face Gesture Recognition,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "E.E. Moise"
+      ],
+      "title": "Geometric topology in dimensions 2 and 3. Springer-Verlag",
+      "venue": "New York,",
+      "year": 1977
+    },
+    {
+      "authors": [
+        "H. Takiwaki"
+      ],
+      "title": "Measurement of skin color: practical application and theoretical considerations",
+      "venue": "The Journal of Medical Investigation,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "M. Wang",
+        "K. Xiao",
+        "S. Wuerger",
+        "V. Cheung",
+        "M.R. Luo"
+      ],
+      "title": "Measuring human skin color",
+      "venue": "In Society for Imaging Science and Technology 23rd Color and Imaging Conference,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "T. Weyrich",
+        "W. Matusik",
+        "H. Pfister",
+        "B. Bickel",
+        "C. Donner",
+        "C. Tu",
+        "J. McAndless",
+        "J. Lee",
+        "A. Ngan",
+        "H.W. Jensen",
+        "M. Gross"
+      ],
+      "title": "Analysis of human faces using a measurement-based skin reflectance model",
+      "venue": "ACM Transactions on Graphics (TOG) TOG,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "M. Wilkes",
+        "C.Y. Wright",
+        "J.L. du Plessis",
+        "A. Reeder"
+      ],
+      "title": "Fitzpatrick skin type, individual typology angle, and melanin index in an african population: Steps towards universally applicable skin photosensivity assessments",
+      "venue": "JAMA Dermatology,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "N.C.F. Codella",
+        "D. Anderson",
+        "T. Philips",
+        "A. Porto",
+        "K. Massey",
+        "J. Snowdon",
+        "R. Feris",
+        "J. Smith"
+      ],
+      "title": "Segmentation of both diseased and healthy skin from clinical photographs in a primary care setting",
+      "venue": "40th Annual Intl. Conf. of the IEEE Engineering in Medicine and Biology Society (EMBC),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R. Rothe",
+        "R. Timofte",
+        "L. Van Gool"
+      ],
+      "title": "Dex: Deep expectation of apparent age from a single image",
+      "venue": "In IEEE Intl. Conf. on Computer Vision Workshops (ICCVW) on Looking at People,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "C.H.R. Heip",
+        "P.M.J. Herman"
+      ],
+      "title": "Soetaret. Indices of diversity and evenness",
+      "venue": "Ocenia,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "M.O. Hill"
+      ],
+      "title": "Diversity and evenness: A unifying notation and its consequences",
+      "year": 1973
+    },
+    {
+      "authors": [
+        "Yujun Shen",
+        "Ping Luo",
+        "Junjie Yan",
+        "Xiaogang Wang",
+        "Xiaoou Tang"
+      ],
+      "title": "Faceid-gan: Learning a symmetry three-player gan for identity-preserving face synthesis",
+      "venue": "In Intl. COnf. on Computer Vision and Pattern Recognition (CVPR),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Zachary Bessinger",
+        "Nathan Jacobs"
+      ],
+      "title": "A generative model of worldwide facial appearance",
+      "venue": "In IEEE Winter Conference on Applications of Computer Vision (WACV),",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "Have you ever been treated unfairly? How did it make you feel? Probably not too good. Most people generally agree that a fairer world is a better world. Artificial Intelligence (AI) has enormous potential to make the world a better place. Yet, as we develop and apply AI towards addressing a broad set of important challenges, we need to make sure the AI systems themselves are fair and accurate. Recent advances in AI technology have produced remarkable capabilities for accomplishing sophisticated tasks, like translating speech across languages to augment communications and bridge cultures, improving complex interactions between people and machines, and automatically recognizing contents of video to assist in safety applications. Much of the recent power of AI comes from the use of data-driven deep learning to train increasingly accurate models by using growing amounts of data. However, the strength of these techniques can also be their inherent weakness.\nar X\niv :1\n90 1.\n10 43\n6v 6\n[ cs\n.C V\n] 8\nA pr\nThese AI systems learn what they are taught. If they are not taught with robust and diverse data sets, accuracy and fairness are at risk. For that reason, AI developers and the research community need to be thoughtful about what data they use for training. This is essential for developing AI systems which can help to make the world more fair.\nThe challenge in training AI systems is manifested in a very apparent and profound way with face recognition technology. Today, there can be difficulties in making face recognition systems that meet fairness expectations. The heart of the problem lies not with the AI technology itself, per se, but with how the systems are trained. For face recognition to perform as desired - to be both accurate and fair - training data must provide sufficient balance and coverage. The training data sets should be large enough and diverse enough to learn the many ways in which faces inherently differ. The images must reflect the diversity of features in faces we see in the world. This raises the important question of how we measure and ensure diversity for faces. On one hand, we are familiar with how faces may differ according to age, gender and skin color. But, as prior studies have shown, these dimensions are inadequate for characterizing the full range of diversity of faces. Dimensions like face symmetry, facial contrast, and the sizes, distances and ratios of the various attributes of the face (eyes, nose, forehead, etc.), among many others, are important.\nDiversity in Faces (DiF ) is a new large and diverse data set designed to advance the study of fairness and accuracy in face recognition technology. DiF provides a data set of annotations of one million face images. The DiF annotations are made on faces sampled from the publicly available YFCC-100M data set of 100 million images [1]. The DiF data set provides a comprehensive set of annotations of intrinsic facial features that includes craniofacial distances, areas and ratios, facial symmetry and contrast, skin color, age and gender predictions, subjective annotations, and pose and resolution. The facial coding schemes, summarized in Table 1, are among the strongest identified in the scientific literature and build a solid foundation to our collective knowledge. We believe that making these descriptors available will help accelerate the study of diversity and coverage of data towards creating more fair and accurate face recognition systems.\nIn this paper, we describe the development and analysis of the DiF data set. The paper is organized as follows: in Section 2, we review the state of face recognition technology and examine how different face image data sets are used today. We discuss some of the shortcomings from over-reliance on narrow data sets. In Section 3, we describe the process for creating the DiF data set. In Section 4, we describe the implementation of the ten facial coding schemes. In Section 5, we provide a statistical analysis of the coding schemes extracted for the face images. In Section 6, we summarize and discuss future directions."
+    },
+    {
+      "heading": "2 Related Work",
+      "text": "Face recognition is a long-standing topic in computer vision, and AI broadly. Computer-based face recognition was addressed as far back as the 1970s with Takeo Kanade\u2018s seminal thesis on recognizing faces using a set of manually defined points corresponding to nose, mouth, eyes and other features. Modest by today\u2019s standards, his work processed 800 photographs and conducted experiments involving identification of 20 people [11]. Two decades later, a significant development came from Matthew Turk and Alex Pentland, who developed an appearance-based technique called eigenfaces that models faces holistically from image data [12]. This kind of data-driven methodology was subsequently helped by numerous efforts of curating large and growing face image data sets. The community has built open evaluations around these data sets, such as MegaFace [13], MSCeleb [14] and the NIST Face Recognition Vendor Test (FRVT)1.\n1https://www.nist.gov/programs-projects/face-recognition-vendor-test-frvt\nOne prominent example of an early face data set and open evaluation is Labeled Faces in the Wild (LFW), which is comprised of 13, 233 face photos from the Web of 5, 749 individuals, mostly celebrities and public figures, captured in unconstrained conditions of lighting, pose and expression [15]. LFW gained significant focus from the research community upon its release. Eventually, with the advent of deep learning techniques [16,17], face recognition performance on LFW reached near-perfect results with 99.8% accuracy [18,19]. Megaface defined a follow-on larger data set comprised of faces from 690, 572 unique individuals which was made more difficult with the addition of 1 million face image distractors [13]. Although early results produced low accuracy in the range of 50%\u2212 60%, ultimately, performance reached near-perfect levels of 99.9% [20, 21]. Other data sets and evaluations such as CelebA have brought focus to a wider set of problems in face recognition such as face attribute recognition. CelebA provides a data set of 202, 599 face images with annotations of 40 attributes such as \u2018eyeglasses,\u2019 \u2018smiling,\u2019 and \u2018mustache\u2019 [9]. State-of-art systems have achieved greater than 90% mean accuracy across the CelebA attribute set and as high as 99% for some attributes. Many other face data sets and evaluations have produced similar improvements using deep learning methods [8,9,14,22\u201334]. The healthy progress on face recognition, as measured on these data sets and evaluations, has raised expectations in the technology.\nHowever, high accuracy on these data sets does not readily translate into equivalent accuracy in deployments [36, 37]. The reason is that different or broader distributions of faces, as well as varied environmental conditions, are found in real applications. Face recognition systems that are trained within only a narrow context of a specific data set will inevitably acquire bias that skews learning towards the specific characteristics of the data set. This narrow context appears as underrepresentation or over-representation of certain types of faces in many of the publicly available data sets. Table 2 shows some of the big differences in distribution of age groups for seven prominent face image data sets. Generally, there is a skew away from younger and older ages. Some of the differences are quite dramatic. For example, 36.5% of faces in IMDB-Face are for individuals 20-30 years of age, whereas IJB-C has 16.2% of faces in this age group.\nSimilarly, Table 3 shows the distribution of gender and skin color/type for eight face image data sets. LFW is highly skewed towards male faces with 77.4% corresponding to male. Six of the eight data sets have more male faces. A similar skew is seen with skin color/type when grouped coarsely into darker and lighter groups. Note that different methods were used for characterizing skin color/type in Table 3, and the meaning of darker and lighter is not the same across these eight data sets. For all but two data sets the distribution shows > 80% faces that are lighter. AgeDb is the most heavily skewed, with 94.6% faces that are lighter. The Pilot Parliaments Benchmark (PPB) data set was designed to be balanced for gender and skin type, where a board certified dermatologist provided the ground-truth labels using the Fitzpatrick six-point system [36, 38]. However, the age distribution in PPB is skewed, having been built from official photos of members of parliaments, all adults, from six countries. Face recognition systems developed from skewed training data are bound\nto produce biased models. This mismatch has been evidenced in the significant drop in performance for different groupings of faces [39\u201341]. A published study showed that gender estimation from face images is biased against dark-skinned females over white-skinned males [36, 37]. Such biases may have serious impacts in practice. Yet much of the prior research on face recognition does not take these issues under consideration, having focused strongly on driving up accuracy on narrow data sets. Note also that the gender categorization in Table 3, as in much of the prior work, uses a binary system for gender classification that corresponds to biological sex \u2013 male and female. However, different interpretations of gender in practice can include biological gender, psychological gender and social gender roles. As with race and ethnicity, over-simplification of gender by imposing an incomplete system of categorization can result in face recognition technologies that do not work fairly for all of us. Some recent efforts, such as InclusiveFaceNet [42], show that imperfect categorization of race and gender can help with face attribute recognition. However, we expect that more nuanced treatment of race, ethnicity and gender is important towards improving diversity in face data sets."
+    },
+    {
+      "heading": "2.1 Bias and Fairness",
+      "text": "The study of bias and fairness has recently gained broad interest in computer vision and machine learning [43\u201345]. Torralba and Efros [46] presented an evaluation of metrics related to bias and framed bias in visual classification as a domain transfer problem. Tommasi et al. [47] and Hoffman et al. [48] conducted a similar evaluation with deep features, showing that data set bias can be reduced but not eliminated. Khosla et al. [49] proposed a method that learns bias vectors associated with individual data sets, as well as weights common across data sets, which are learned by undoing unwanted bias from each data set. Hardt et al. [50] proposed a framework for fairness called equalized odds, also referred to as disparate mistreatment [51], where the goal is to predict a true outcome based on labeled training data, while ensuring it is \u2018non-discriminatory\u2019 with respect to a chosen protected attribute. More recently, Burns et al. [45] addressed bias in image captioning, proposing a model that ensures equal gender probability when gender evidence is occluded in a scene, and otherwise predicts gender from relevant information when present. The problem of gender-neutral smile classification was addressed in [42]. Bias in face detection for skin tone, pose and expression was studied in [52]. Buolamwini et al. [36] proposed an approach to evaluate unwanted bias in face recognition and data sets with respect to phenotypic subgroups and introduced the PPB data set balanced by gender and skin type."
+    },
+    {
+      "heading": "2.2 Face Data Sets",
+      "text": "As described above, the last decade has seen an ever-growing collection of face recognition data sets. Table 4 summarizes many of the prominent face image data sets used for evaluating face recognition technology. Returning to Labeled Faces in the Wild (LFW) [15], it presented considerable technical challenges upon its release in 2007, whereas nearly perfect results are being attained today. Several data sets such as IJBC [53], UMD [26] and VGGFace [22, 23] provide a larger set of face images with a wider range of pose and lighting variations. Other large-scale face recognition data sets include MegaFace [13], MS-Celeb [14] and CASIA [25]. Many other data sets have been proposed for different facial analysis tasks, such as age and gender classification [24, 27, 31, 54\u201356], facial expression analysis [55], memorability [57], attributes [35] and aging [58]. Unlike the prior data sets, which focus on robustness under variations of pose, lighting, occlusion, and scale, the DiF data set is aimed understanding diversity with respect to intrinsic facial features.\n3 DiF Data Set Construction\nGiven the above issues, we were motivated to create the DiF data set to obtain a scientific and computationally practical basis for ensuring fairness and accuracy in face recognition. At one extreme the challenge of diversity could be solved by building a data set comprised from the face of every person in the world. However, this would not be practical or even possible, let alone the significant privacy concerns. For one, our facial appearances are constantly changing due to ageing, among other factors. At best this would give a solution for a point in time. Rather, a solution needs to come from obtaining or generating a representative sample of faces with sufficient coverage and balance. That, however, is also not a simple task. There are many challenging questions: what does coverage mean computationally? How should balance be measured? Are age, gender and skin color sufficient? What about other highly personal attributes that are part of our identity, such as race, ethnicity, culture, geography, or visible forms of self-expression that are reflected in our faces in a myriad of ways? We realized very quickly that until these questions were answered we could not construct a complete and balanced data set of face images.\nWe formulated a new approach that would help answer these questions. We designed the DiF data set to provide a scientific foundation for research into facial diversity. We reviewed the scientific literature on face analysis and studied prior work in fields as diverse as psychology, sociology, dermatology, cosmetology and facial surgery. We concluded that no single facial feature or combination of commonly used classifications \u2013 such as age, gender and skin color \u2013 would suffice. Therefore, we formulated a novel multi-modal approach that incorporates a diversity of face analysis methods. Based on study of the large body of prior work, we chose to implement a solid starter-set of ten facial coding schemes. The criteria for selecting these coding schemes included several important considerations: (1) strong scientific basis as evidenced by highly cited prior work, (2) extracting the coding scheme was computationally feasible, (3) the coding scheme produced continuous valued dimensions that could feed subsequent analysis, as opposed to generating only categorical values or labels, and (4) the coding scheme would allow for human interpretation to help with our understanding.\nWe chose YFCC-100M [1] to be the source for the sample of images. There were a number of important reasons for this. Ideally, we would be able to automatically obtain any large sample of images from any source meeting any characteristics of diversity we desire. However, practical considerations prevent this, including the fact that various copyright laws and privacy regulations must be respected. YFCC-100M is one of the largest image collections, consisting of more than 100 millions photos. It was populated by users of the Flickr photo service. There is a large diversity in these photos overall, where people and faces appear in an enormous number of ways. Also, importantly, a large portion of the photos have Creative Commons license. The downside of using YFCC-100M is that there is skew in the Flickr user community that contributed the photos. We cannot rely on the set of users or their photos to be inherently diverse. A consequence of this is that the set of images used in the DiF is not completely balanced on its own. However, it still provides the desired basis for studying methods for characterizing facial diversity."
+    },
+    {
+      "heading": "3.1 Data Selection",
+      "text": "While the YFCC-100M photo data set is large, not all images could be considered. Naturally, we excluded photos that did not contain a face. We also excluded black and white and grayscale photos and those with significant blur. Although face recognition needs to be robust for non-color photos, we deferred incorporating these images in the initial DiF data set in order to focus on intrinsic facial variation rather than image variation due to color processing."
+    },
+    {
+      "heading": "3.2 Pre-processing Pipeline",
+      "text": "The YFCC-100M data set gives a set of URLs that point to the Flickr web page for each of the photos. The first step we took was to check whether the URL was still active. If so, we then checked the license. We proceeded with the download only if the license type was Creative Commons. Once we retrieved the photo, we processed it using face detection to find all depicted faces. For the face detection step, we used a Convolutional Neural Network (CNN) object detector trained for faces based on Faster-RCNN [61]. For each detected face, we then extracted both pose and 68 face key-points using the open source DLIB toolkit [62]. If there was any failure in the image processing steps, we excluded the face from further consideration. We also removed faces of size less than 50\u00d7 50 pixels or with inter-ocular distance of less than 30 pixels. We removed faces with substantial non-frontal pose. The overall process is shown in Figure 1.\nFinally, we generated two instances of each face. One is a rectified instance whereby the center points of each eye are fixed to a specific location in the overall image. The second crops an expanded region surrounding each face to give 50% additional spatial context. This overall process filtered the 100 million YFCC-100M photos down to approximately one million mostly frontal faces with adequate size. The surviving face images were the ones used for the DiF data set. Note that the overall process of sampling YFCC-100M used only factors described above including color, size, quality and pose. We did not bias the sampling towards intrinsic facial characteristics or by using metadata associated with each photo, such as a geo-tag, date, labels or Flickr user name. In this sense, the DiF data distribution is expected to closely follow the overall distribution of the YFCC100M photos. In future efforts to grow the DiF data set, we may relax some of the constraints based on size, pose and quality, or we may bias the sampling based on other properties. However, one million publicly available face images provides a good start. Given this compiled set of faces, we next process each one by extracting the ten facial coding schemes."
+    },
+    {
+      "heading": "4 Facial Coding Scheme Implementation",
+      "text": "In this Section, we describe the implementation of the ten facial coding schemes and the process of extracting them from the DiF face images. The advantage of using ten coding schemes is that it gives a diversity of methods and allows us to compare statistical measures for facial diversity. As described above, the ten schemes have been selected based on their strong scientific basis, computational feasibility, numerical representation and interpretability. Overall the chosen ten coding schemes capture multiple modalities of facial features, which includes craniofacial distances, areas and ratios, facial symmetry and contrast, skin color, age and gender predictions, subjective annotations, and pose and resolution. Three of the DiF facial coding schemes are based on craniofacial features. As prior work has pointed out, skin color alone is not a strong predictor of race, and other features such as facial proportions are important [6,63\u201365]. Face morphology is also relevant for attributes such as age and gender [4]. We incorporated multiple facial coding schemes aimed at capturing facial morphology using craniofacial features [2\u20134]. The basis of craniofacial science is the measurement of the face in terms of distances, sizes and ratios between specific points such as the tip of the nose, corner of the eyes, lips, chin, and so on. Many of these measures can be reliably estimated from photos of frontal faces using 47 landmark points of the head and face [2]. To provide the basis for the three craniofacial feature coding schemes used in DiF , we built on the subset of 19 facial landmarks listed in Table 5. For brevity we adopt the abbreviations from [2] when referring to these facial landmark points instead of using the full anatomical terms.\nIn order to extract the 19 facial landmark points, we leveraged standard DLIB facial key-point extraction tools that provide a set 68 key-points for each face. As shown in Figure 2, we mapped the 68 DLIB key-points to the 19 facial landmarks [2]. These 19 landmarks were used for extracting the craniofacial features. Note that for illustrative purposes, the example face used in Figure 2 was adopted from [66] and was generated synthetically using a progressive Generative Adversarial Network (GAN) model. The face does not correspond to a known individual person. However, the image is subject to license terms as per [66]. In order to incorporate a diversity of approaches, we implemented three facial coding schemes for craniofacial features. The first, coding scheme 1, provides a set of craniofacial distance measures from [2]. The second, coding scheme 2, provides an expanded set of craniofacial areas from [3]. The third, coding scheme 3, provides a set of craniofacial ratios from [4]."
+    },
+    {
+      "heading": "4.1 Coding Scheme 1: Craniofacial Distances",
+      "text": "The first coding scheme for craniofacial distances has been adopted from [2]. It comprises eight measures which characterize all the vertical distances between elements in a face: the top of the forehead, the eyes, the nose, the mouth and the chin. In referring to the implementation of the coding scheme, we use the abbreviations from Table 5. We note that two required points, tn and sto, were not part of the set of 68 DLIB key-points. As such, we had to derive them in the following manner: tn was computed as the topmost point vertically above n in the rectified facial image, and sto was computed from the vertical average of ls and li. The eight dimensions of craniofacial distances are summarized in Table 6."
+    },
+    {
+      "heading": "4.2 Coding Scheme 2: Craniofacial Areas",
+      "text": "The second coding scheme is adopted from a later development from Farkas et al. [3]. It comprises measures corresponding to different areas of the cranium. Similar to the craniofacial distances, the extraction of craniofacial areas relied on the mapped DLIB key-points to the corresponding facial landmarks. Table 7 summarizes the twelve dimensions of the craniofacial area features."
+    },
+    {
+      "heading": "4.3 Coding Scheme 3: Craniofacial Ratios",
+      "text": "The third coding scheme comprises measures corresponding to different ratios of the face. These features were used to estimate age progression from faces in the age groups of 0 to 18 in [4]. Similar to the above features, the craniofacial ratios used the mapped DLIB key-points as facial landmarks. Table 8 summarizes the eight dimensions of the craniofacial ratio features."
+    },
+    {
+      "heading": "4.4 Coding Scheme 4: Facial Symmetry",
+      "text": "Facial symmetry has been found in psychology and anthropology studies to be correlated with subjective and objective traits including expression variation [67] and attractiveness [5]. We adopted facial symmetry for coding scheme 4, given its intrinsic nature. To represent the symmetry of each face we computed two measures, following the work of Liu et al. [67]. We processed each face as shown in Figure 3. We used three of the DLIB key-points detected in the face image to spatially normalize and rectify it to the following locations: the inner canthus of each eye (C1 and C2) to reference locations C1 = (40, 48), C2 = (88, 48) and the philtrum C3 was mapped to C3 = (64, 84). Next, the face mid-line (point b in Figure 3(a)) was computed as the line passing through the mid-point of the line segment connecting C1\u2212 C2 (point a in Figure 3(a)) and the philtrum C3.\nWe point out that although a face image is spatially transformed during rectification, facial symmetry with respect to the face mid-line is preserved according to the topological properties of the affine transformation [68]. Each image is then cropped to 128x128 pixels to create a squared image with the face mid-line centered vertically. Next we convert the spatially transformed image to grayscale to measure intensity. Each point (x, y) on this normalized face intensity image I on the left of the face mid-line has a unique corresponding horizontally mirrored point on the other side of the face image I \u2032(x, y) (right of the mid-line). We also extract edges in this image I to produce Ie using a Sobel filter. Finally, we compute two facial symmetry measures based on density difference DD(x, y) and edge orientation similarity EOS(x, y) as follows: for each pixel (x, y) in the left 128x64 part (I and Ie) and the corresponding 128x64 right part (I\n\u2032 and I \u2032e) are computed as summarized in Table 9, where \u03c6(Ie(x, y), I \u2032 e(x, y)) is the angle between the two edge orientations of images Ie and I \u2032 e at pixel (x, y). We compute the average value of DD(x, y) and EOS(x, y) to be the two measures for facial symmetry. It is interesting to notice that the two symmetry measurements capture facial symmetry from different perspectives: density difference is affected by the left-right relative intensity variations of a face, while edge orientation similarity is affected by the zero-crossing of the intensity field. Higher values of density difference correspond to more asymmetrical faces, while the higher the values of edge orientation similarity refer to more symmetrical faces."
+    },
+    {
+      "heading": "4.5 Coding Scheme 5: Facial Regions Contrast",
+      "text": "Prior studies have shown that facial contrast is a cross-cultural cue for perceiving facial attributes such as age. An analysis of full face color photographs of Chinese, Latin American and black South African women aged 20\u201380 in [6] found similar changes in facial contrast with ageing across races and were comparable to changes with Caucasian faces. This study found that high-contrast faces were judged to be younger than low-contrast faces. The study also found that artificially increasing the aspects of facial contrast that decrease with age across diverse races makes faces look younger, independent of the ethnic origin of the face or cultural origin of the observers [6]. On one hand, the age that you are is one dimension that needs to be addressed in terms of fairness and accuracy of face recognition. However, the age that you look, considering possible artificial changes, should not change requirements for fairness and accuracy.\nWe adopted facial regions contrast as the basis for coding scheme 5. To compute facial contrast, we measured contrast individually for each image color channel IL, Ia, Ib, corresponding to the CIELab color space, for three facial regions: lips, eyes, and eyebrows, as shown in Figure 4. First, we defined the internal regions ringed by facial key points computed from DLIB for each of these facial parts (shown as the inner rings around lips, eyes, and eyebrows in Figure 4). Then, we expanded this region by 50% to define an outer region around each of these facial parts (shown as the outer rings in Figure 4). The contrast is then measured as the difference between the average pixel intensities in the outer and inner regions. This is repeated for each of the three CIE-Lab color channels. Given the three facial regions, this gives a total of nine measures, where the contrast values for the eyes and eyebrows are based on the average of the left and right regions. The computation is summarized in Table 10, where Ik(x, y) is the pixel intensity at (x, y) for CIE-Lab channel k and ptouter, ptinner correspond to the outer and inner regions around each facial part pt."
+    },
+    {
+      "heading": "4.6 Coding Scheme 6: Skin Color",
+      "text": "Skin occupies a large fraction of the face. As such, characteristics of the skin influence the appearance and perception of faces. Prior work has studied different methods of characterizing skin based on skin color [7, 69, 70], skin type [7, 38] and skin reflectance [71]. Early studies used Fitzpatrick skin type (FST) to classify sun-reactive skin types [38], which was also adopted recently in [36]. However, to-date, there is no universal measure for skin color, even within the dermatology field. In a study of 556 participants in South Africa, self-identified as either black, Indian/Asian, white, or mixed, Wilkes et al. found a high correlation between the Melanin Index (MI), which is frequently used to assign FST, with Individual Typology Angle (ITA) [72]. Since a dermatology expert is typically needed to assign the FST, the high correlation of MI and ITA indicates that ITA may be a practical method for measuring skin color given the simplicity of computing ITA. In order to explore this further, we designed coding scheme 6 to use ITA for representing skin color [7]. ITA has a strong advantage over Fitzpatrick in that it can be computed directly from an image. As in [7], we implemented ITA in the CIE-Lab space. For obvious practical reasons, we could not obtain measurements through a device directly applied on the skin of each individual, but instead converted the RGB image to CIE-Lab space using standard image processing. The L axis quantifies luminance, whereas a quantifies absence or presence of redness, and b quantifies yellowness. Figure 5 depicts the image processing steps for extracting the coding scheme 6 for skin color.\nIt is important to note that that ITA is a point measurement. Hence, every pixel corresponding to skin can have an ITA measurement. In order to generate a feature measure for the whole face, we extract ITA for pixels within a masked face region as shown in Figure 5(g). This masked region is determined in the following steps:\n1. Extract the skin mask in the face (pixels corresponding to skin) using a deep neural network, as described in [73].\n2. Extract regions corresponding to the chin, two cheeks and forehead using the extracted 68 DLIB key-points\n3. Smooth the ITA values of each region to reduce outliers using an averaging filter\n4. Pick the peak value of each region to give its ITA score\n5. Average the values to give a single ITA score for each face\nTable 11 gives the formula for computing the ITA values for each pixel in the masked face region."
+    },
+    {
+      "heading": "4.7 Coding Scheme 7: Age Prediction",
+      "text": "Age is an attribute we all possess and our faces are predictors of our age, whether it is our actual age or manipulated age appearance [6]. As discussed in Section 4.5, particular facial features such as facial contrast are correlated with age. As an alternative to designing specific feature representations for predicting age, for coding scheme 7, we adopt a Convolutional Neural Network (CNN) that is trained from face images to predict age. We adopt the DEX model [8, 74] that is among the highest performing on some of the known face image data sets. The model is based on a pre-trained VGG16-face neural network for face identity that was subsequently fine-tuned on the IMDB-wiki data set [8] to predict age (years in the range 0-100). Since the DEX model was trained within a narrow context, it is not likely to be fair. However, our initial use here is to get some continuous measure of age in order to study diversity. Ultimately, it will require an iterative process of understanding diversity to make more balanced data sets and create more fair models. In order to predict age using DEX, each face was pre-processed as in [74]. First, the bounding box\nwas expanded by 40% both horizontally and vertically, then resized to 256x256 pixels. Inferencing was then performed on the 224x224 square cropped at the center of the image. Since softmax loss was used during the fine-tuning process, age prediction is output from the softmax layer, which is computed from E(P ) = \u2211100 i=0 piyi, where pi \u2208 P are the softmax output probabilities for each of the 101 discrete years yi \u2208 Y corresponding to each class i, with Y = {0, ..., 100}."
+    },
+    {
+      "heading": "4.8 Coding Scheme 8: Gender Prediction",
+      "text": "Coding scheme 8 follows a similar process for gender prediction as for age prediction [8]. We used the same pre-processing steps as described in Section 4.7 as well as the same neural network model and training pipeline. The only difference is that we use the DEX model to predict a continuous value score for gender between 0 and 1, and not just report a binary output."
+    },
+    {
+      "heading": "4.9 Coding Scheme 9: Subjective Annotation",
+      "text": "Coding scheme 9 aims at capturing age and gender but through subjective means rather than using a neural network-based predictive model. For each of the DiF face images, we employed the Figure Eight crowd-sourcing platform [75] to obtain subjective human-labeled annotations of gender and age. The gender annotations used two class labels (male and female) and the age group labeling used seven classes ([0-3],[4-12],[13-19],[20-30],[31-45],[46-60],[61-]), as well as a continuous age value to be consistent with the automatic prediction labels. For each face, input was taken from three independent annotators. A weighted voting scheme was used to aggregate the labels, where the vote of each annotator was weighted according to their performance on a set of \u201cgold standard\u201d faces for which the ground truth was known."
+    },
+    {
+      "heading": "4.10 Coding Scheme 10: Pose and Resolution",
+      "text": "The final coding scheme 10 provides information about pose and resolution. Although pose can only loosely be considered an intrinsic facial attribute, how we present our faces to cameras should not affect performance. We include resolution as it gives useful information to correlate with the other coding scheme features to provide further insight. In order to extract pose, we use the DLIB toolkit to compute a pose score of 0-4. Here, the values correspond as follows: 0-frontal, 1-rotated left, 2-rotated right, 3-frontal but tilted left, 4-frontal but tilted right. Along with pose, resolution is determined from the size of the bounding box of each face and inter-ocular distance (IOD), which is the distance between the center points of each eye."
+    },
+    {
+      "heading": "5 Statistical Analysis",
+      "text": "In this Section, we report on the statistical analysis of the ten facial coding schemes in the DiF data set. Intuitively, in order to provide sufficient coverage and balance, a data set needs to include data with diverse population characteristics. This type of analysis comes up in multiple disciplines, including bio-diversity [76, 77], where an important objective is to quantify species diversity of ecological communities. It has been reported that species diversity has two separate components: (1) species richness, or the number of species present, and (2) their relative abundances, called evenness. We use these same measures to quantify the diversity of face images using the ten facial coding schemes. We compute diversity using Shannon H and E scores and Simpson D and E scores [76]. Additionally, we measure mean and variance for each of the feature dimensions of the ten facial coding schemes The computation of diversity is as follows: given individual pi in a\nprobability distribution for each feature measure, and the S being the number of classes for the attribute, we compute:\nDiversity Evenness Shannon H = \u2212 \u2211S\ni=1 pi \u2217 ln(pi) Shannon E = H ln(S)\nSimpson D = 1\u2211S i=1(pi\u2217pi)\nSimpson E = DS\nShannon H and Simpson D are diversity measures and Shannon E and Simpson E are evenness measures. To see how they work, consider a 20 class problem (S = 20) with uniform distribution (pi = 0.05). These measures take the following values: Shannon H = 2.999, Shannon E = 1.0, Simpson D = 2.563, and Simpson E = 1.0. Evenness is constant at 1.0 as expected. Shannon D represents the diversity of 20 classes (e2.999 \u2248 20). For complex distributions, it may not be easy to understand the meaning of specific values of these scores. Generally, a higher diversity value is better than a lower value, whereas an evenness value closer to 1.0 is better. Figure 6 illustrates these measures on two example distributions. Figure 6 (a) and (b) show how diversity and evenness values vary for a uniform distribution, respectively, as the number of classes increase from 2 to 20. Figure 6 (c) and (d) show the same information for a random distribution.\nTable 12 summarizes the diversity scores computed for the ten facial coding schemes in the DiF data set. As described in Section 4, many of the coding schemes have multiple dimensions. Hence the table has more than ten rows. The craniofacial measurements across the three coding scheme types total 28 features corresponding to craniofacial distances, craniofacial areas and craniofacial ratios. The diversity scores of the different dimensions of the remaining seven coding schemes can similarly be seen in Table 12."
+    },
+    {
+      "heading": "5.1 Coding Scheme 1: Craniofacial Distances",
+      "text": "Figure 7 summarizes the feature distribution for the 8 craniofacial distances in coding scheme 1. The highest Simpson D value is 5.888 and the lowest is 5.832. The highest and lowest Shannon H values are 1.782 and 1.777. Based on the Shannon H values, this feature dimension would typically map to 6 classes. Evenness is generally balanced with highest Simpson E and Shannon E of 0.981 and 0.995, respectively."
+    },
+    {
+      "heading": "5.2 Coding Scheme 2: Craniofacial Areas",
+      "text": "Figure 8 summarizes the feature distribution for the 12 craniofacial areas in coding scheme 2. The highest Simpson D value is 5.888 and the smallest is 5.858. The highest Shannon H value is 1.782 and the lowest is 1.780. Compared to coding scheme 1, these values are in the similar range, mapping to 6 classes. Evenness ranges between 0.981 and 0.976."
+    },
+    {
+      "heading": "5.3 Coding Scheme 3: Craniofacial Ratios",
+      "text": "Figure 9 summarizes the feature distribution for the 8 craniofacial ratios in coding scheme 3. The largest Simpson D value is 5.902 and smallest is 5.870. Similarly, the largest Shannon H value is 1.783 and smallest is 1.781. This would map to approximately to 6 classes. While Simpson E has a range between 0.978 to 0.984, Shannon E ranges between 0.994 to 0.995. The evenness of coding scheme 3 is similar to coding scheme 2."
+    },
+    {
+      "heading": "5.4 Coding Scheme 4: Facial Symmetry",
+      "text": "Figure 10 summarizes the feature distribution for facial symmetry in coding scheme 4. The diversity value is in a middle range compared to the previous coding schemes. For example, the highest Simpson D is 5.510 and the largest Shannon H is 1.748. The evenness values are lower as well with highest Simpson E value being 0.918 and highest Shannon E value being 0.975. The Shannon H value of 1.692 translates to about 5.4 classes."
+    },
+    {
+      "heading": "5.5 Coding Scheme 5: Facial Regions Contrast",
+      "text": "Figure 11 summarizes the feature distribution for facial contrast in coding scheme 5. The highest Simpson D value is 5.872 and highest Shannon H value is 1.781, which is equivalent to 5.9 classes. The evenness factor Shannon E is very close to 0.979 indicating that the measures are close to even."
+    },
+    {
+      "heading": "5.6 Coding Scheme 6: Skin Color",
+      "text": "Figure 12 summarizes the feature distribution for skin color in coding scheme 6. The Simpson D value is 5.283 and Shannon H value is 1.773 which translates to about 5.88 classes, which shows a good match with the number of bins we used. The evenness is weaker than a uniform distribution."
+    },
+    {
+      "heading": "5.7 Coding Scheme 7: Age Prediction",
+      "text": "Figure 13(a) summarizes the feature distribution for age prediction in coding scheme 7, where we bin the age values into seven groups: [0-3],[4-12],[13-19],[20-30],[31-45],[46-60],[61-]. The Simpson D and Shannon H values are 4.368 and 1.601. Because of the data distribution not being even, we can see a lower E value around 0.624. The Shannon H value of 1.601 maps to 5 classes."
+    },
+    {
+      "heading": "5.8 Coding Scheme 8: Gender Prediction",
+      "text": "Figure 13 also summarizes the feature distribution for gender prediction in coding scheme 8. Even though this has two classes, male and female, the confidence score ranges between 0\u22121. The gender score distribution is shown in Figure 13 (b). The Simpson D is 3.441 and Shannon H is 1.488. The Shannon H value translates to 4.4 classes, which is beyond the typical two classes used for gender, possibly reflecting the presence of sub-classes. The Simpson evenness score of 0.573 reflect some unevenness as well."
+    },
+    {
+      "heading": "5.9 Coding Scheme 9: Subjective Annotation",
+      "text": "Figure 14 summarizes the feature distribution for the subjective annotations of age and gender for coding scheme 9. The Simpson D for gender distribution is 2.0 and Shannon H is 0.693, indicating the equivalent classes to be near 2, which is understandable. The evenness is very high, indicating a nearly flat distribution. The Simpson D is 4.368 and Shannon H is 1.675, resulting in a equivalent class index of approximately 5.3. However, the evenness scores are low at 0.629, indicating unevenness, as is visible in the distribution of the annotated age scores."
+    },
+    {
+      "heading": "5.10 Coding Scheme 10: Pose and Resolution",
+      "text": "Figure 15 summarizes the feature distribution for pose and resolution for coding scheme 10. Pose uses three dimensions from the output of DLIB face detection and the distribution is shown in 15 (a). When computing mean and variance for pose in Table 12, we used the following values: Frontal Tilted Left -1, Frontal 0, and Frontal Tilted Right 1. The IOD and box size distribution\nare shown in Figure 15 (b)-(c). The distances have been binned to six classes. The three class pose distribution has a Shannon H value of 0.39. The Shannon H value for IOD is 1.69 (mapping to equivalent of 5.4 classes) while for the box size it is 1.197, translating to 3.3 classes."
+    },
+    {
+      "heading": "5.11 Discussion",
+      "text": "Some observations come from this statistical analysis of the ten coding schemes on the DiF face image data. One is that the many of the dimensions of the craniofacial schemes have high scores in diversity relative to the other coding schemes. Generally, they are higher than measures used for age and gender, whether using a predictive model or subjective annotation. Similarly, their evenness scores are also closer to one. What this shows is that there is higher variability in these measures, and they are capturing information that age and gender alone do not. Interestingly, facial regions contrast, which was designed to capture information about age, has a higher diversity score and better evenness than that for either neural network prediction of age or subjective human annotation of age. Again, it implies that this continuous valued feature of facial contrast is capturing information that goes beyond simple age prediction or labeling. The only feature dimension with lower diversity is understandably pose, which was a controlled variable in selecting images for the DiF data set, since only mostly frontal faces were incorporated. In future work, we will use these methods to assess diversity of other face data sets, which will provide a basis for comparison and further insight."
+    },
+    {
+      "heading": "6 Summary and Future Work",
+      "text": "We described the new Diversity in Faces (DiF ) data set, which has been developed to help advance the study of fairness and accuracy in face recognition technology. DiF provides a data set of annotations of publicly available face images sampled from the YFCC-100M data set of 100 million images. The annotations are defined from facial coding schemes that provide quantitative measures related to intrinsic characteristics of faces including craniofacial features, facial symmetry, facial contrast, skin color, age, gender, subjective annotations and pose and resolution. We described the process for generating the DiF data set as well as the implementation and extraction of the ten facial coding schemes. We also provided a statistical analysis of the facial coding scheme measures on the one million DiF images using measures of diversity, evenness and variance. For one, this kind of analysis has provided insight into how the 47 total feature dimensions within the ten facial coding schemes provide measures of data set diversity for the one million images. While it may not yet be possible to conclude that the goal is to drive all of these feature dimensions to be maximally diverse and even, we believe the approach outlined in this work provides a needed methodology for advancing the study of diversity for face recognition.\nThere are multiple next directions for this work. Table 4 outlined many of the currently used face data sets. We plan to perform the equivalent statistical analysis on some of these other data sets using the ten coding schemes. This will provide an important basis for comparing data sets in terms of diversity. Using the statistical measures outlined in this paper, including diversity, evenness and variance, we will begin to answer questions of whether one data set is better than another, or where a data set falls short in terms of coverage and balance. We also strongly encourage others to build on this work. We selected a solid starting point by using over one million publicly available face images and by implementing ten facial coding schemes. We hope that others will find ways to grow the data set to include more faces. As more insight comes from the type of analysis outlined in this paper, we see that an iterative process can more proactive sampling to fill in gaps. For example, as technologies like Generative Adversarial Networks (GANs) continue to improve [66, 78], it may be possible to generate faces of any variety to synthesize training data as needed. We expect that DiF will be valuable to steer these generative methods towards gaps and blind spots in the training data, for example, to assist methods that automatically generate faces corresponding to a specific geographical area [79]. We also hope that others will see ways to improve on the initial ten coding schemes and add new ones. Pulling together our collective efforts is the best way to make progress on this important topic. We hope that the DiF data set provides a useful foundation for creating more fair and accurate face recognition systems in practice."
+    }
+  ],
+  "title": "Diversity in Faces",
+  "year": 2019
+}

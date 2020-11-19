@@ -1,1 +1,598 @@
-{"abstractText": "In recent years there has been a cascade of research in attempting to make AI systems more interpretable by providing explanations; so-called Explainable AI (XAI). Most of this research has dealt with the challenges that arise in explaining black-box deep learning systems in classification and regression tasks, with a focus on tabular and image data; for example, there is a rich seam of work on post-hoc counterfactual explanations for a variety of black-box classifiers (e.g., when a user is refused a loan, the counterfactual explanation tells the user about the conditions under which they would get the loan). However, less attention has been paid to the parallel interpretability challenges arising in AI systems dealing with time series data. This paper advances a novel technique, called Native-Guide, for the generation of proximal and plausible counterfactual explanations for instance-based time series classification tasks (e.g., where users are provided with alternative time series to explain how a classification might change). The Native-Guide method retrieves and uses native in-sample counterfactuals that already exist in the training data as \u201cguides\u201d for perturbation in time series counterfactual generation. This method can be coupled with both Euclidean and Dynamic Time Warping (DTW) distance measures. After illustrating the technique on a case study involving a climate classification task, we reported on a comprehensive series of experiments on both real-world and synthetic data sets from the UCR archive. These experiments provide computational evidence of the quality of the counterfactual explana-", "authors": [{"affiliations": [], "name": "Eoin Delaney"}, {"affiliations": [], "name": "Derek Greene"}, {"affiliations": [], "name": "Mark T. Keane"}], "id": "SP:2f87561c4c93574498fe860656466225061f741e", "references": [{"authors": ["A. Bagnall", "J. Lines", "A. Bostrom", "J. Large", "E. Keogh"], "title": "The great time series classification bake off: a review and experimental evaluation of recent algorithmic advances", "venue": "Data Mining and Knowledge Discovery 31(3): 606\u2013660.", "year": 2017}, {"authors": ["M.M. Breunig", "H.-P. Kriegel", "R.T. Ng", "J. Sander"], "title": "LOF: identifying density-based local outliers", "venue": "Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93\u2013104.", "year": 2000}, {"authors": ["R.M. Byrne"], "title": "Counterfactuals in explainable artificial intelligence (XAI): Evidence from human reasoning", "venue": "IJCAI International Joint Conference on Artificial Intelligence 2019-August: 6276\u20136282. ISSN 10450823. doi:", "year": 2019}, {"authors": ["P. Cunningham", "S.J. Delany"], "title": "k-Nearest Neighbour Classifiers: 2nd Edition (with Python examples) (1): 1\u201322", "venue": "URL http://arxiv.org/abs/2004.04523.", "year": 2020}, {"authors": ["H.A. Dau", "A. Bagnall", "K. Kamgar", "C.-C.M. Yeh", "Y. Zhu", "S. Gharghabi", "C.A. Ratanamahatana", "E. Keogh"], "title": "The UCR time series archive", "venue": "IEEE/CAA Journal of Automatica Sinica 6(6): 1293\u20131305.", "year": 2019}, {"authors": ["J. Dodge", "Q.V. Liao", "Y. Zhang", "R.K. Bellamy", "C. Dugan"], "title": "Explaining models: an empirical study of how explanations impact fairness judgment", "venue": "Proceedings of the 24th International Conference on Intelligent User Interfaces, 275\u2013285.", "year": 2019}, {"authors": ["K. Fauvel", "V. Masson", "\u00c9. Fromont"], "title": "A Performance-Explainability Framework to Benchmark Machine Learning Methods: Application to Multivariate Time Series Classifiers", "venue": "arXiv preprint arXiv:2005.14501 .", "year": 2020}, {"authors": ["H.I. Fawaz", "G. Forestier", "J. Weber", "L. Idoumghar", "P.-A. Muller"], "title": "Deep learning for time series classification: a review", "venue": "Data Mining and Knowledge Discovery 33(4): 917\u2013963.", "year": 2019}, {"authors": ["G. Forestier", "F. Petitjean", "H.A. Dau", "G.I. Webb", "E. Keogh"], "title": "Generating synthetic time series to augment sparse datasets", "venue": "2017 IEEE international conference on data mining (ICDM), 865\u2013870. IEEE.", "year": 2017}, {"authors": ["A.H. Gee", "D. Garcia-Olano", "J. Ghosh", "D. Paydarfar"], "title": "Explaining deep classification of time-series data with learned prototypes", "venue": "CEUR Workshop Proceedings 2429: 15\u2013", "year": 2019}, {"authors": ["R. Guidotti", "A. Monreale", "F. Giannotti", "D. Pedreschi", "S. Ruggieri", "F. Turini"], "title": "Factual and counterfactual explanations for black box decision making", "venue": "IEEE Intelligent Systems 34(6): 14\u201323.", "year": 2019}, {"authors": ["D. Gunning"], "title": "Explainable artificial intelligence (xai)", "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web 2: 2.", "year": 2017}, {"authors": ["F. Karim", "S. Majumdar", "H. Darabi", "S. Chen"], "title": "LSTM fully convolutional networks for time series classification", "venue": "IEEE access 6: 1662\u20131669.", "year": 2017}, {"authors": ["I. Karlsson", "J. Rebane", "P. Papapetrou", "A. Gionis"], "title": "Explainable time series tweaking via irreversible and reversible temporal transformations", "venue": "2018 IEEE International Conference on Data Mining (ICDM), 207\u2013216. IEEE.", "year": 2018}, {"authors": ["M.T. Keane", "E.M. Kenny"], "title": "How case based reasoning explained neural networks: an XAI survey of posthoc explanation-by-example in ANN-CBR twins", "venue": "arXiv preprint arXiv:1905.07186 .", "year": 2019}, {"authors": ["M.T. Keane", "B. Smyth"], "title": "Good Counterfactuals and Where to Find Them: A Case-Based Technique for Generating Counterfactuals for Explainable AI (XAI)", "venue": "Proceedings of the 28th International Conference on Case-Based Reasoning, ICCBR 2020 .", "year": 2020}, {"authors": ["M. Kottek", "J. Grieser", "C. Beck", "B. Rudolf", "F. Rubel"], "title": "World map of the K\u00f6ppen-Geiger climate classification updated", "venue": "Meteorologische Zeitschrift 15(3): 259\u2013263.", "year": 2006}, {"authors": ["T. Laugel", "M.-J. Lesot", "C. Marsala", "X. Renard", "M. Detyniecki"], "title": "Comparison-based inverse classification for interpretability in machine learning", "venue": "International Conference on Information Processing and Management of Uncertainty in Knowledge-Based Systems, 100\u2013111.", "year": 2018}, {"authors": ["T. Le Nguyen", "S. Gsponer", "I. Ilie", "M. O\u2019Reilly", "G. Ifrim"], "title": "Interpretable time series classification using linear models and multi-resolution multi-domain symbolic representations. Data Mining and Knowledge Discovery", "year": 2019}, {"authors": ["Z.C. Lipton"], "title": "The mythos of model interpretability", "venue": "Communications of the ACM", "year": 2018}, {"authors": ["F.T. Liu", "K.M. Ting", "Z.-H. Zhou"], "title": "Isolation forest", "venue": "2008 Eighth IEEE International Conference on Data Mining, 413\u2013422. IEEE.", "year": 2008}, {"authors": ["J. Ma", "S. Perkins"], "title": "Time-series Novelty Detection Using One-class Support Vector Machines", "venue": "Proceedings of the International Joint Conference on Neural Networks 3: 1741\u20131745.", "year": 2003}, {"authors": ["T. Miller"], "title": "Explanation in artificial intelligence: Insights from the social sciences", "venue": "Artificial Intelligence 267: 1\u201338.", "year": 2019}, {"authors": ["B. Mittelstadt", "C. Russell", "S. Wachter"], "title": "Explaining explanations in AI", "venue": "Proceedings of the conference on fairness, accountability, and transparency, 279\u2013288.", "year": 2019}, {"authors": ["C. Molnar"], "title": "Interpretable Machine Learning", "venue": "https: //christophm.github.io/interpretable-ml-book/.", "year": 2020}, {"authors": ["R.K. Mothilal", "A. Sharma", "C. Tan"], "title": "Explaining machine learning classifiers through diverse counterfactual explanations", "venue": "Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 607\u2013617.", "year": 2020}, {"authors": ["A. Mueen", "E. Keogh"], "title": "Extracting optimal performance from dynamic time warping", "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2129\u20132130.", "year": 2016}, {"authors": ["T.T. Nguyen", "T. Le Nguyen", "G. Ifrim"], "title": "A ModelAgnostic Approach to Quantifying the Informativeness of Explanation Methods for Time Series Classification", "venue": "Proceedings of the 5th Workshop on Advanced Analytics and Learning on Temporal Data at ECML 2020. Springer.", "year": 2020}, {"authors": ["C. Nugent", "D. Doyle", "P. Cunningham"], "title": "Gaining insight through case-based explanation", "venue": "Journal of Intelligent Information Systems 32(3): 267\u2013295.", "year": 2009}, {"authors": ["J. Pearl", "D. Mackenzie"], "title": "The Book of Why", "venue": "New York: Basic Books. ISBN 978-0-465-09760-9.", "year": 2018}, {"authors": ["F. Pedregosa", "G. Varoquaux", "A. Gramfort", "V. Michel", "B. Thirion", "O. Grisel", "M. Blondel", "P. Prettenhofer", "R. Weiss", "V. Dubourg", "J. Vanderplas", "A. Passos", "D. Cournapeau", "M. Brucher", "M. Perrot", "E. Duchesnay"], "title": "Scikitlearn: Machine Learning in Python", "venue": "Journal of Machine", "year": 2011}, {"authors": ["F. Petitjean", "A. Ketterlin", "P. Gan\u00e7arski"], "title": "A global averaging method for dynamic time warping, with applications to clustering", "venue": "Pattern Recognition 44(3): 678\u2013693. ISSN 00313203. doi:10.1016/j.patcog.2010.09.013.", "year": 2011}, {"authors": ["R. Poyiadzi", "K. Sokol", "R. Santos-Rodriguez", "T. De Bie", "P. Flach"], "title": "FACE: feasible and actionable counterfactual explanations", "venue": "Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society, 344\u2013350.", "year": 2020}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "Why should i trust you?\u201d Explaining the predictions of any classifier", "venue": "Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining 13-17August-2016: 1135\u20131144. doi:10.1145/2939672.2939778.", "year": 2016}, {"authors": ["C. Rudin"], "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead", "venue": "Nature Machine Intelligence 1(5): 206\u2013215. ISSN 25225839. doi:10.1038/s42256-019-0048-x.", "year": 2019}, {"authors": ["H. Sakoe", "S. Chiba"], "title": "Dynamic programming algorithm optimization for spoken word recognition", "venue": "IEEE transactions on acoustics, speech, and signal processing 26(1): 43\u201349.", "year": 1978}, {"authors": ["U. Schlegel", "H. Arnout", "M. El-Assady", "D. Oelke", "D.A. Keim"], "title": "Towards a rigorous evaluation of XAI Methods on Time Series", "venue": "arXiv preprint arXiv:1909.07082 .", "year": 2019}, {"authors": ["B. Sch\u00f6lkopf", "R.C. Williamson", "A.J. Smola", "J. ShaweTaylor", "J.C. Platt"], "title": "Support vector method for novelty detection", "venue": "Advances in neural information processing systems, 582\u2013588.", "year": 2000}, {"authors": ["K. Sokol", "P. Flach"], "title": "Explainability fact sheets: a framework for systematic assessment of explainable approaches", "venue": "Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 56\u201367.", "year": 2020}, {"authors": ["C.W. Tan", "G.I. Webb", "F. Petitjean"], "title": "Indexing and classifying gigabytes of time series under time warping", "venue": "Proceedings of the 2017 SIAM international conference on data mining, 282\u2013290. SIAM.", "year": 2017}, {"authors": ["R. Tavenard", "J. Faouzi", "G. Vandewiele", "F. Divo", "G. Androz", "C. Holtz", "M. Payne", "R. Yurchak", "M. Ru\u00dfwurm", "K. Kolar", "E. Woods"], "title": "Tslearn, A Machine Learning Toolkit for Time Series Data", "venue": "Journal of Machine Learning Research 21(118): 1\u20136. URL http://jmlr.org/papers/v21/20-", "year": 2020}, {"authors": ["A. Van Looveren", "J. Klaise"], "title": "Interpretable counterfactual explanations guided by prototypes", "venue": "arXiv preprint arXiv:1907.02584 .", "year": 2019}, {"authors": ["R. Vinuesa", "H. Azizpour", "I. Leite", "M. Balaam", "V. Dignum", "S. Domisch", "A. Fell\u00e4nder", "S.D. Langhans", "M. Tegmark", "F.F. Nerini"], "title": "The role of artificial intelligence in achieving the Sustainable Development Goals", "venue": "Nature communications 11(1): 1\u201310.", "year": 2020}, {"authors": ["S. Wachter", "B. Mittelstadt", "C. Russell"], "title": "Counterfactual explanations without opening the black box: Automated decisions and the GDPR", "venue": "Harv. JL & Tech. 31: 841.", "year": 2017}, {"authors": ["Y. Wang", "R. Emonet", "E. Fromont", "S. Malinowski", "E. Menager", "L. Mosser", "R. Tavenard"], "title": "Learning Interpretable Shapelets for Time Series Classification through Adversarial Regularization", "venue": "arXiv preprint arXiv:1906.00917 .", "year": 2019}, {"authors": ["Y. Yan", "L. Cao", "E.A. Rundensteiner"], "title": "Distributed Top-N local outlier detection in big data", "venue": "2017 IEEE International Conference on Big Data (Big Data), 827\u2013836. IEEE.", "year": 2017}], "sections": [{"heading": "1 Introduction", "text": "In recent years, the predictive success of machine learning systems has been undermined by their lack of interpretability, and there have been growing public calls for fairness, accountability, and transparency in the decisions of intelligent systems (Gunning 2017). These challenges have led to major efforts in Explainable AI (XAI) where a raft of techniques have been developed to shed light on opaque predictions. Many of these explanation methods provide users with post-hoc, example-based justifications such as factual explanations (i.e., \u201cYou were refused a loan because your profile is the same person X who was also refused\u201d; see e.g., (Keane and Kenny 2019)) or post-hoc counterfactual explanations (i.e., \u201cIf your salary was higher\n*Corresponding Author\nyou would have received the loan\u201d; see e.g., (Byrne 2019; Mittelstadt, Russell, and Wachter 2019)). Most of this XAI research focuses on tabular and image data, with less attention being given to the explanation of time series data (Nguyen, Le Nguyen, and Ifrim 2020). Indeed, we have found no work showing how post-hoc counterfactual explanations (Miller 2019), could be computed for time series predictions. Hence, in this paper, we propose Native-Guide, a novel model agnostic post-hoc explanation technique for time series classifiers that provides factual and counterfactual explanations for their predictions.\nPaper Outline: In the remainder of the introduction, we review related work on explaining time series models, before considering why counterfactual explanations might be especially useful. Then, in Section 2, we outline some of the problems that arise in finding and evaluating counterfactual explanations, before presenting Native-Guide as a solution and describing how to evaluate explanations (see Section 3). In Sections 4 and 5, we present a case study, involving a climate prediction task, and then report results from tests on 38 benchmark data sets from the UCR archive (Dau et al. 2019). Section 6 concludes with a consideration of issues arising from this work and opportunities for future research."}, {"heading": "1.1 Related Work", "text": "From one perspective, given the flexibility, accuracy, and simplicity of k-NN techniques for time series prediction, the use of post-hoc, example-based explanations have often been a preferred option (Mueen and Keogh 2016; Cunningham and Delany 2020; Rudin 2019; Sokol and Flach 2020); any time series classification or prediction can easily be explained using a nearest neighbouring instance (e.g., Figure 1 which asserts \u201cthe climate in Rome should be like that of Athens because they have very similar weekly high-temperatures\u201d). So, the success of baseline methods, using 1-NN-Euclidean and 1-NN-DTW (Dynamic Time Warping) techniques for time series classification (TSC) have made factual-example-based explanations the preferred choice (Bagnall et al. 2017). These white-box models are comprehensible and, since the explanations are generated directly from the underlying model, they are faithful by definition (Rudin 2019; Fauvel, Masson, and Fromont 2020). However, with the emergence of less transparent, deep learnar X iv :2\n00 9.\n13 21\n1v 1\n[ cs\n.L G\n] 2\n8 Se\np 20\n20\ning methods (Fawaz et al. 2019), the need to find some way to explain predictions has re-emerged as a challenge. For example, methods such as COTE and LSTM-FCN boast impressive predictive performance, but limited interpretability (Le Nguyen et al. 2019; Karim et al. 2017). Beyond factual, nearest-neighbour explanations, it is not at all clear how contrastive explanations for time series prediction might be computed, a new class of post-hoc explanations that is now attracting much attention (Miller 2019; Byrne 2019; Mittelstadt, Russell, and Wachter 2019).\nRecent work has explored model-agnostic methods, such as Saliency Maps, LIME (Ribeiro, Singh, and Guestrin 2016), and SHAP, to explain time series classification (Schlegel et al. 2019). Class activation maps, shapelets, and dictionary-based approaches have been linked to interpretable prediction as they highlight the most influential sub-sequences of the time series at the time of classification (Wang et al. 2019; Karlsson et al. 2018). Instance-based approaches using prototypes have also been advanced for black-box deep learning classifiers, where the prototype instances are representative of a whole class (Gee et al. 2019; Molnar 2020). Class prototypes have also proved useful in guiding the formation of counterfactual explanations for image and tabular data (Van Looveren and Klaise 2019). However, it is not at all clear how these approaches can be applied to time series data where very different similarity measures (e.g., Dynamic Time Warping as opposed to weighted Manhattan distance) and feature-dimension partitioning methods (i.e., k-d trees (Van Looveren and Klaise 2019)) are used (Tan, Webb, and Petitjean 2017). As such, the problem of how to explain time series classifications largely still remains to be solved, especially with respect to the development of counterfactual explanations."}, {"heading": "1.2 Why Counterfactual Explanations?", "text": "The best way to understand how counterfactual explanations might be used for time series classification is to consider how they differ from factual explanations. Consider a binary classification system which predicts that \u201cthe number of new people infected by Covid-19 in a certain region is set to increase\u201d, based on an analysis of the time series for case numbers over the last week. The system might explain its decision factually with the following statement: \u201cThe number of cases next week will increase because in the past a region with similar characteristics (population, restriction measures etc.) reported an increase in cases\u201d. In contrast, the system might explain its decision counterfactually with the following statement: \u201cIf you tightened the regulations using a local lockdown, then the number of cases would go down\u201d. There is a growing consensus that such counterfactual explanations are causally more informative (Lipton 2018; Pearl and Mackenzie 2018), psychologically effective (Miller 2019; Byrne 2019; Dodge et al. 2019; Keane and Smyth 2020; Molnar 2020), and legally acceptable with respect to GDPR, (Wachter, Mittelstadt, and Russell 2017). Some have specifically argued that counterfactuals provide more robust and informative explanations when compared to other model agnostic methods, such as LIME or SHAP (Guidotti et al. 2019). Finally, although it is difficult to vi-\nsualise counterfactuals for tabular data (Mothilal, Sharma, and Tan 2020), for time series such visualisations are quite straight-forward. That is, if one can find a way to compute the counterfactual alternative, the visual presentation of that alternative is a given."}, {"heading": "1.3 Contributions of this Work", "text": "This work introduces a novel model-agnostic method for generating counterfactual explanations for time series classifiers. Specifically, we show that:\n\u2022 Counterfactual explanations can be built by retrieving existing in-sample instances that bear counterfactualrelationships to one another (i.e., Native counterfactuals) and then perturbing these to explain the predictions of a query posed to a k-NN time series classifier (hence, it is called the Native-Guide method)\n\u2022 This Native-Guide method is flexible enough to be used with either Euclidean and DTW distance measures.\n\u2022 This method consistently generates \u201cgood\u201d counterfactuals for a wide range of data sets from the UCR repository."}, {"heading": "2 Native-Guides for Counterfactuals", "text": "In this section, we motivate and describe Native-Guide, a method for generating good counterfactual explanations for time series classification. Many existing methods produce counterfactuals by implementing \u201cblind\u201d perturbations without referencing the existing data (Keane and Smyth 2020). This strategy tends to result in large numbers of candidate explanations (i.e., the so-called Rashoman effect (Rudin 2019)), many of which will be invalid observations (i.e., they are actually misleading as they fall outside the sample). Furthermore, given the number of possible feature dimensions in time series data, this solution quickly becomes intractable. Instance-based solutions for counterfactual generation often rely on the strategy of finding/generating the closest instance\nto the to-be explained prediction that involves a class change (Laugel et al. 2018; Nugent, Doyle, and Cunningham 2009; Keane and Smyth 2020). Hence, for time series data, the current method relies on using instances from the existing data set (so-called \u201cnative in-sample guides\u201d), to generate counterfactual candidates to explain time series predictions. In the following sub-sections, we summarise the prerequisite definitions adopted in defining the method, before describing the algorithm and how it retrieves and perturbs native guides."}, {"heading": "2.1 Prerequisite Definitions", "text": "The following definitions are adopted in the current method (see also Figure 2): Definition 1 Time Series Data Set. A time series T =< t1, ....., tL > is an ordered set of real values, where L is the length. A time series data set D = T1, ..., TN is a collection of such time series. Definition 2 Time Series Classification Task. A time series data set D contains N time series, each of which has a class label p. The goal of time series classification is to distinguish to which class an unlabelled query time series belongs. Definition 3 Distance Function A distance function d(Ta, Tb) takes two time series Ta and Tb as inputs and returns a non negative value as an output which we refer to as the distance between the two time series. We require that this function is symmetric i.e. d(Ta, Tb) = d(Tb, Ta)"}, {"heading": "2.2 Retrieving Native-Guides", "text": "A Native-Guide is a counterfactual instance that already exists within the data set (i.e., the nearest-neighbouring time series of the query time series which involves a class change). In Figure 1, the queried time series is represented by an X and the corresponding native -guide is labelled accordingly. We can retrieve this instance using a 1-NN search (see Algorithm 1).\nAlgorithm 1 Native-Guide Retrieval 1: Input: Tq: Query time series with predicted class p 2: Input: d: A distance function (e.g. Euclidean, DTW) 3: Input: Dp\u2032 \u2286 D: The set of time series {T1, ..., Tn} in\nthe training data with class label p\u2032 4: Initialize: d(Tq, CNative) =\u221e , CNative = \u2205 5: for i = 1, 2, ...n: do 6: compute \u03b4 = d(Tq, Ti) 7: if \u03b4 < d(Tq, CNative): then 8: Set CNative = Ti 9: Set d(Tq, CNative) = \u03b4\n10: end if 11: end for 12: Return: CNative"}, {"heading": "2.3 Perturbing Native-Guides", "text": "The retrieved native-guide is then perturbed towards the query until just before there is a class change in the base classifiers prediction (yellow instance in Figure 2). We outline how to generate such instances with reference to Figure 2;\n1. Inputs \u2022 Tq: The queried time series \u2022 CNative: The retrieved in-sample counterfactual\nNative-Guide\n2. Initialize \u2022 Start at Native-Guide (CNative)\n3. Perturbation \u2022 Perturb CNative towards Tq using a suitable weighted\naverage function (see arrow in Figure 2) \u2022 Classify the newly generated instance\n4. Stopping-Condition \u2022 Terminate process just before we cross the decision\nboundary \u2022 Return C\u2217: Generated counterfactual instance (In-\nstance in yellow Figure 2.)\nThis method ensures that, rather than blindly perturbing the time series to generate a counterfactual explanation, we are perturbing from the existing data. The approach is designed to ensure that the generated counterfactual is close to the query (i.e., closer than the native-guide), while it remains within the distribution of the data. That is, formally:\nd(Q,C\u2217) < d(Q,CNative) (1)\nOf course, the above allows for different distance measures d to be used. Next, we elaborate on such measures which are commonly employed in conjunction with time series data: Euclidean distance and Dynamic Time Warping.\nEuclidean Case. The simplest approach is to implement a weighted perturbation strategy, defined as\nC\u2217 = (\u03b2 \u00d7Q) + ((1\u2212 \u03b2)\u00d7 CNative) (2)\nwhere \u03b2 \u2208 [0, 1] is a weight controlling the resemblance of the generated counterfactual C\u2217 to the native counterfactual CNative. As we increase the weight on the guided perturbation to inherit properties of the query, the counterfactual should generate better explanations as it will be in closer proximity to the query.\nDynamic Time Warping (DTW) Case. Although Euclidean distance is a popular baseline distance metric for time series classification tasks, a 1-NN classifier can achieve state-of-the-art performance when using Dynamic Time Warping (DTW) as a distance measure (Mueen and Keogh 2016) DTW is based on Levenshtein distance, and was originally introduced for application in speech recognition (Sakoe and Chiba 1978). It finds the optimal alignment between two sequences of numerical values, and captures flexible similarities by aligning the coordinates inside both sequences (Petitjean, Ketterlin, and Ganc\u0327arski 2011), which can be appropriate if two time series are out of phase. In order to compute an average or weighted time series using DTW we are tasked with aligning similar sub-sequences instead of element wise matching as in the Euclidean case. This adds a layer of abstraction and complexity to the process and invites a different form of perturbation. Here we apply a global averaging technique known as Dynamic Barycenter Averaging (DBA) (Petitjean, Ketterlin, and Ganc\u0327arski 2011). This approach aims to compute an \u201caverage\u201d sequence, called the barycenter, which ensures that the sum of squared DTW distance between the barycenter and the set of considered sequences is minimized. This technique has been applied to generate synthetic time series to augment sparse data sets and significantly improve classification accuracy (Forestier et al. 2017): defined as follows:\nDefinition 4 Weighted average of time series under DTW. Given a weighted set of time series D = (T1, \u03b21), ..., (TN , \u03b2n), the average time series under DTW, T , is the time series that minimizes:\nargmin T N\u2211 i=1 \u03b2i \u00b7DTW 2(T , Ti) (3)\nThis technique generates in-distribution time series data, suggesting that it should tend to generate feasible explanations. By adjusting the weights on the query and in-sample counterfactual instance, we can generate a new time series that offers a better explanation when compared to the insample, native counterfactual."}, {"heading": "3 Evaluating Counterfactual Goodness", "text": "Although a common consensus on the best approach to evaluate counterfactual explanations is still emerging; there is a general agreement that the explanations should be (i) Similar to the query (Mittelstadt, Russell, and Wachter 2019; Keane and Smyth 2020) and (ii) Within the distribution of the data (Sokol and Flach 2020). Hence, in our evaluations we use a Relative Counterfactual Distance (RCF) measure (Keane\nand Smyth 2020) and an Out-of-Distribution count (OOD) measure, which are described below."}, {"heading": "3.1 Relative Counterfactual Distance (RCF)", "text": "It is generally assumed that good counterfactuals are ones in which the original query and the explanation-instance are close on some distance measure. Typically, a counterfactual that is in close proximity to the query offers the best explanation (Mothilal, Sharma, and Tan 2020). A relative counterfactual distance (RCF) measure was proposed by (Keane and Smyth 2020) to assess if a generated counterfactual is closer to the query than the native in-sample counterfactual.\nRCF = d(Q,C\u2217)\nd(Q,CNative) (4)\nIf RCF > 1 the in-sample counterfactual is closer to the query than the generated counterfactual and if RCF < 1 the generated counterfactual is closer. We use the distance metric used in the underlying classifier (i.e., it can be either Euclidean, or DTW , but could be any distance metric)."}, {"heading": "3.2 Measuring Out of Distribution (OOD)", "text": "Counterfactual instances are not necessarily representative of the underlying data distribution and may be based on invalid data-points (Poyiadzi et al. 2020). We cast the evaluation of if a counterfactual is in-distribution as a novelty detection problem. When we have a data set of n observations from the same distribution described by p features and we add another observation to that data set, novelty detection methods can tell us if the new observation is within the distribution of the original data or an outlier (Pedregosa et al. 2011). Common novelty detection algorithms include one class Support Vector Machines (Scho\u0308lkopf et al. 2000; Ma and Perkins 2003), Isolation forests (Liu, Ting, and Zhou 2008) and Local Outlier Factors (Breunig et al. 2000). As we are already using instance-based methods, we implement Local Outlier Factor (LOF) to evaluate if the generated counterfactual explanations are plausible and representative of the existing data. LOF evaluates if the generated counterfactuals \u201cmake sense\u201d or fit the distribution of the existing data. This is done by measuring the local deviation of a given data point with respect to its neighbours. LOF quantifies how isolated a point is with regard to the density of its neighbourhood. LOF depends on a single parameter k which indicates the number of nearest neighbours to consider. Recent work has shown that LOF is scalable for large data sets, and can leverage modern distributed infrastructures making it suitable for our task. A good technical summary of LOF can be found in (Yan, Cao, and Rundensteiner 2017). In the next section, we provide a case study using the Native-Guide method and evaluate it using these measures (see Section 4)."}, {"heading": "4 Case Study: Climate Classification", "text": "As a case study we examine a climate prediction task in some detail. There is evidence that AI advances will support the understanding of climate change and the modeling of its possible impacts (Vinuesa et al. 2020). Under the UNs AI for Good Platform; Goal 13 targets the understanding and\nprediction of climate change. The task in this case-study is to explain the predictions of a 1-NN time series classificationsystem; specifically, it is a binary classification-task where system classifies a city as having an Oceanic climate (class: 0) or a Mediterranean climate (class: 1) based on the average weekly high temperatures over a period of two years. The system uses Weather data from 40 cities over a two-year period from 2017\u20132019, to capture seasonal effects and trends. The WorldWeather API was used to collect the data. The true labels are from the Koppen-Geiger classification system (Kottek et al. 2006). Explaining the systems predictions can provide us with insights into the conditions that would cause the classifications to change. The main goal of the case study is to portray the intuition behind and method of using in-sample counterfactual instances as Native-Guides for counterfactual generation. All code, data, and results are included in Supplementary Material.\nExperimental Setup Twenty cities were used for training data and twenty for testing data, with an equal representation of each class present in each of the splits to mitigate class imbalance. Nearest neighbours are retrieved along with the in-sample counterfactual and the corresponding distance: d(Q,CNative) is recorded. We generate counterfactual explanations for instances and record the distance between the generated counterfactual and the query d(Q,C\u2217). The RCF is calculated to determine the proximity of the counterfactual to the query relative to the in-sample counterfactual. The LOF (parameter k set to \u221a len(Xtrain +Xtest)) is used to determine the OOD measure which evaluates if the generated counterfactuals are within the distribution of the data. A subset of results for instance retrieval can be found in Table 1 with a full collection of data, results and code to be found in Supplementary Material A.\nExplaining Climate Classifications In this section, we will look at explanations for specific instances. We also show how contrastive explanations can be visualized for time series data. In this example, Amsterdam (NED) was queried (see Figure 3) and three different explanatory instances generated by the system are shown: \u2022 A. Factual explanation: The true label for the query,\nAmsterdam (NED), according to Koppen Climate Classification is a Oceanic climate. In the training data its nearest neighbour is London (UK), where d(Amsterdam,London) = 23.193, which also has an Oceanic climate. Therefore, the system correctly classifies Amsterdam\u2019s climate to be Oceanic (Figure 3A). Hence, this factual explanation could be summarised as: \u201cAmsterdam has an Oceanic climate because it is most similar to London, which has an Oceanic climate too\u201d.\nExplaination for Amsterdam (NED) Prediciton\n\u2022 B. In-sample counterfactual explanation: The system can also find an in-sample counterfactual to the \u201ccorrect\u201d Oceanic classification, in the form of the city of Salamanca (ESP), which is in the training data, where d(Amsterdam, Salamanca) = 57.587, which is classed as having a Mediterranean climate (Figure 3B). This counterfactual explanation could be glossed as saying: \u201cIf Amsterdam had the same weather as Salamanca the system would classify it as having a Mediterranean climate\u201d.\n\u2022 C. Generated counterfactual: Finally, the systems can generate a counterfactual (that should be better than the in-sample case), that is a perturbation of the Salamanca data, but closer to the query (i.e., Salamanca\u2019s summer highs are noticeably hotter than Amsterdam\u2019s). As the underlying classifier predicts this generated counterfactual to be in the Mediterranean class, this explanation can be glossed as saying \u201cIf Amsterdam had a weather profile like the Generated-Instance then system would classify it as as having a Mediterranean climate\u201d (Figure 3C). This generated explanation is much closer to the query d(Q,C\u2217) = 36.28. It is also within the distribution of the existing based off LOF."}, {"heading": "5 Multiple Data sets Experiment (for Euclidean and DTW)", "text": "In order to determine if Native-Guide can generate good counterfactual explanations for a variety of different data sets, we apply the proposed method on 38 diverse benchmark data sets from the UCR archive (Dau et al. 2019). We report results for the key evaluative measures for the performance of the system (i.e., RCF and OOD)."}, {"heading": "5.1 Data", "text": "We evaluate our method on 38 diverse binary time series classification tasks from the UCR archive (Dau et al. 2019). Examples of these tasks include heartbeat anomaly detection, traffic-flow management, and earthquake classification. The archive has been incrementally extended and contains a substantial collection of real-world and synthetic data from multiple domains and problem types. It is perhaps the most common used benchmark for recent studies on time series classification (Le Nguyen et al. 2019). In order to promote reproducibility, we performed all experiments on the default single training-test split set specified by the benchmark."}, {"heading": "5.2 Experimental Setup", "text": "Native-Guides are retrieved from the corresponding time series data set using 1-NN instance retrieval with a Euclidean distance metric and then a DTW distance measure (Algorithm 1). The distance between the in-sample counterfactual and the query d(Q,CNative) is recorded. Next we generate counterfactual using guided perturbation instance adaption. In the DTW implementation we deploy\nweighted-DBA to generate counterfactual time series for explanatory purposes. The idea is analogous to the Euclidean implementation as we iteratively approach the query from the perspective of the Native-Guide. We apply a weight \u03b2 to each time series and gradually increase the weight towards the query until just before there is a class change (see Figure 2). We record d(Q,C\u2217), the distance between the query and the generated counterfactual. Counterfactuals are evaluated based on Proximity (RCF) and Plausibility (OOD) using Local Outlier Factor with parameter k set to\u221a len(Xtrain +Xtest). In the cognitive sciences evidence suggests that people tend to create counterfactuals to imagine how an outcome could have been better instead of worse (Byrne 2019). Therefore, we focus on generating counterfactuals for misclassifications. For each data set we note the number of misclassifications for the base classifier, which is also equal to the number of counterfactuals (CF) that we generate."}, {"heading": "5.3 Results and Discussion", "text": "The proposed method generates counterfactuals that are significantly closer to the query compared to the in-sample counterfactuals when using both Euclidean and DTW distance measures (see Figure 4 and RCF values in Figure 5). As some of the data sets are not normalized we perform a Man-Whitney U test to statistically confirm that there is a significant difference between d(Q,C\u2217) and d(Q,CNative); Euclidean (p < 0.01), DTW (p < 0.01). Native-Guide also produces plausible counterfactual explanations that are representative of real time series data. Few of the counterfactuals are out-of-distribution (526 out of the 3570 generated counterfactuals for the Euclidean experiment, and 371 out\nof 3041 for the DTW implementation). It should be noted that the FreezerSmallTrain data set accounts for the majority (398 Euclidean, 177 DTW) of these OOD values. This is possibly due to the fact that this data set has a small amount of training data compared to the test data indicating that the proposed method works best when there is a diverse availability of training data. Indeed in the companion data set FreezerRegularTrain (more training data) the OOD counts are much lower (8 Euclidean, 21 DTW).\nThe mean \u03b2 value across the data sets (0.79 Euclidean, 0.82 DTW) indicates that the generated counterfactual explanations typically have a very strong resemblance to the query. This also suggests that the global properties of the time series such as trend and seasonality have been preserved. In summary, Native-Guide consistently generates good counterfactual explanations for time series classification tasks that are proximal and plausible and the method can easily be coupled with both Euclidean and DTW distance measures. For space reasons, a subset of results can be found in Tables 2 and 3, with full results provided in Supplementary Material B.\n0\n2\n4\n6\nEuclidean In-Sample Generated\nECG200 Gunpoint FreezerRegTrain FreezerSmTrain ItalyPowerDemand0.0\n0.5\n1.0\n1.5\n2.0\n2.5 DTW\nDataset\nM ea\nn D\nis ta\nnc e\nto Q\nue ry\nFigure 4: Counterfactual proximities for five representative UCR data sets, indicating that the Native-Guide method can generate counterfactuals which are close to the query.\n0.0 0.1 0.2 0.3 0.4 0.5 RCF Euclidean\n0.1\n0.2\n0.3\n0.4\n0.5\nRC F\nD TW\nVisualising RCF for all Datasets\nFigure 5: RCF value over all data sets highlighting the generation of proximal counterfactuals (Euclidean and DTW)."}, {"heading": "6 Conclusion", "text": "In this paper a novel method, Native-Guide, was proposed to provide good counterfactual explanations for time series classification tasks. Our method generates counterfactuals based on reference instances that exist in the data set to generate better counterfactual explanations. The method was tested on a case study and a collection of diverse binary data sets from the UCR archive using 1-NN Euclidean and 1- NN DTW classifiers which are benchmark algorithms in this domain due to their simplicity and accuracy. Native-Guide consistently generated counterfactual explanations that were in close proximity to the query and plausible as they were within the distribution of the data. Moreover, these counterfactuals were significantly better than explanations that already existed in the training data. Our method generates new time series data which also holds promise for data augmentation and improving classification performance for sparse data sets (Forestier et al. 2017).\nOne limitation of our approach is that we are perturbing the whole time series, rather than the most influential sub sequences. Future work will focus on adding sparsity constraints to the generation of counterfactual explanation that are flexible with Euclidean and Dynamic Time Warping distance measures. This indicates the promise of deep learning approaches and the development of a suitable loss function for counterfactual explanation in time series. Throughout the research we link counterfactual explanations in time series to the relevant evidence from psychology and the cognitive sciences (Miller 2019; Byrne 2019). Evaluating our explanations and comparing them to other methods by means of a user-study is another avenue for future research\nImplementation and Reproducibility The tslearn library was extensively used in this research (Tavenard et al. 2020). Experiments were implemented on a Dell XPS15 Laptop; Processor: Intel Core i7-10875H; Memory: 16GB DDR4-2133MHz. For the DTW experiment, our experiments were batched and executed in parallel. A single algorithm run was needed to produce results. Full details of this can be found in the supplementary material. We include all data and code for the case study in Supplementary Material A. The UCR data is publicly available to download (Dau et al. 2019), and we include all code needed to reproduce our results for the corresponding Euclidean and DTW experiments in Supplementary Material B."}, {"heading": "Acknowledgements", "text": "This paper emanated from research funded by (i) Science Foundation Ireland (SFI) to the Insight Centre for Data Analytics (12/RC/2289 P2), (ii) SFI and DAFM on behalf of the Government of Ireland to the VistaMilk SFI Research Centre (16/RC/3835)"}], "title": "Instance-Based Counterfactual Explanations for Time Series Classification", "year": 2020}
+{
+  "abstractText": "In recent years there has been a cascade of research in attempting to make AI systems more interpretable by providing explanations; so-called Explainable AI (XAI). Most of this research has dealt with the challenges that arise in explaining black-box deep learning systems in classification and regression tasks, with a focus on tabular and image data; for example, there is a rich seam of work on post-hoc counterfactual explanations for a variety of black-box classifiers (e.g., when a user is refused a loan, the counterfactual explanation tells the user about the conditions under which they would get the loan). However, less attention has been paid to the parallel interpretability challenges arising in AI systems dealing with time series data. This paper advances a novel technique, called Native-Guide, for the generation of proximal and plausible counterfactual explanations for instance-based time series classification tasks (e.g., where users are provided with alternative time series to explain how a classification might change). The Native-Guide method retrieves and uses native in-sample counterfactuals that already exist in the training data as \u201cguides\u201d for perturbation in time series counterfactual generation. This method can be coupled with both Euclidean and Dynamic Time Warping (DTW) distance measures. After illustrating the technique on a case study involving a climate classification task, we reported on a comprehensive series of experiments on both real-world and synthetic data sets from the UCR archive. These experiments provide computational evidence of the quality of the counterfactual explana-",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Eoin Delaney"
+    },
+    {
+      "affiliations": [],
+      "name": "Derek Greene"
+    },
+    {
+      "affiliations": [],
+      "name": "Mark T. Keane"
+    }
+  ],
+  "id": "SP:2f87561c4c93574498fe860656466225061f741e",
+  "references": [
+    {
+      "authors": [
+        "A. Bagnall",
+        "J. Lines",
+        "A. Bostrom",
+        "J. Large",
+        "E. Keogh"
+      ],
+      "title": "The great time series classification bake off: a review and experimental evaluation of recent algorithmic advances",
+      "venue": "Data Mining and Knowledge Discovery 31(3): 606\u2013660.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M.M. Breunig",
+        "H.-P. Kriegel",
+        "R.T. Ng",
+        "J. Sander"
+      ],
+      "title": "LOF: identifying density-based local outliers",
+      "venue": "Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93\u2013104.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "R.M. Byrne"
+      ],
+      "title": "Counterfactuals in explainable artificial intelligence (XAI): Evidence from human reasoning",
+      "venue": "IJCAI International Joint Conference on Artificial Intelligence 2019-August: 6276\u20136282. ISSN 10450823. doi:",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P. Cunningham",
+        "S.J. Delany"
+      ],
+      "title": "k-Nearest Neighbour Classifiers: 2nd Edition (with Python examples) (1): 1\u201322",
+      "venue": "URL http://arxiv.org/abs/2004.04523.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "H.A. Dau",
+        "A. Bagnall",
+        "K. Kamgar",
+        "C.-C.M. Yeh",
+        "Y. Zhu",
+        "S. Gharghabi",
+        "C.A. Ratanamahatana",
+        "E. Keogh"
+      ],
+      "title": "The UCR time series archive",
+      "venue": "IEEE/CAA Journal of Automatica Sinica 6(6): 1293\u20131305.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J. Dodge",
+        "Q.V. Liao",
+        "Y. Zhang",
+        "R.K. Bellamy",
+        "C. Dugan"
+      ],
+      "title": "Explaining models: an empirical study of how explanations impact fairness judgment",
+      "venue": "Proceedings of the 24th International Conference on Intelligent User Interfaces, 275\u2013285.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Fauvel",
+        "V. Masson",
+        "\u00c9. Fromont"
+      ],
+      "title": "A Performance-Explainability Framework to Benchmark Machine Learning Methods: Application to Multivariate Time Series Classifiers",
+      "venue": "arXiv preprint arXiv:2005.14501 .",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "H.I. Fawaz",
+        "G. Forestier",
+        "J. Weber",
+        "L. Idoumghar",
+        "P.-A. Muller"
+      ],
+      "title": "Deep learning for time series classification: a review",
+      "venue": "Data Mining and Knowledge Discovery 33(4): 917\u2013963.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "G. Forestier",
+        "F. Petitjean",
+        "H.A. Dau",
+        "G.I. Webb",
+        "E. Keogh"
+      ],
+      "title": "Generating synthetic time series to augment sparse datasets",
+      "venue": "2017 IEEE international conference on data mining (ICDM), 865\u2013870. IEEE.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A.H. Gee",
+        "D. Garcia-Olano",
+        "J. Ghosh",
+        "D. Paydarfar"
+      ],
+      "title": "Explaining deep classification of time-series data with learned prototypes",
+      "venue": "CEUR Workshop Proceedings 2429: 15\u2013",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R. Guidotti",
+        "A. Monreale",
+        "F. Giannotti",
+        "D. Pedreschi",
+        "S. Ruggieri",
+        "F. Turini"
+      ],
+      "title": "Factual and counterfactual explanations for black box decision making",
+      "venue": "IEEE Intelligent Systems 34(6): 14\u201323.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Gunning"
+      ],
+      "title": "Explainable artificial intelligence (xai)",
+      "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web 2: 2.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "F. Karim",
+        "S. Majumdar",
+        "H. Darabi",
+        "S. Chen"
+      ],
+      "title": "LSTM fully convolutional networks for time series classification",
+      "venue": "IEEE access 6: 1662\u20131669.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "I. Karlsson",
+        "J. Rebane",
+        "P. Papapetrou",
+        "A. Gionis"
+      ],
+      "title": "Explainable time series tweaking via irreversible and reversible temporal transformations",
+      "venue": "2018 IEEE International Conference on Data Mining (ICDM), 207\u2013216. IEEE.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M.T. Keane",
+        "E.M. Kenny"
+      ],
+      "title": "How case based reasoning explained neural networks: an XAI survey of posthoc explanation-by-example in ANN-CBR twins",
+      "venue": "arXiv preprint arXiv:1905.07186 .",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M.T. Keane",
+        "B. Smyth"
+      ],
+      "title": "Good Counterfactuals and Where to Find Them: A Case-Based Technique for Generating Counterfactuals for Explainable AI (XAI)",
+      "venue": "Proceedings of the 28th International Conference on Case-Based Reasoning, ICCBR 2020 .",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M. Kottek",
+        "J. Grieser",
+        "C. Beck",
+        "B. Rudolf",
+        "F. Rubel"
+      ],
+      "title": "World map of the K\u00f6ppen-Geiger climate classification updated",
+      "venue": "Meteorologische Zeitschrift 15(3): 259\u2013263.",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "T. Laugel",
+        "M.-J. Lesot",
+        "C. Marsala",
+        "X. Renard",
+        "M. Detyniecki"
+      ],
+      "title": "Comparison-based inverse classification for interpretability in machine learning",
+      "venue": "International Conference on Information Processing and Management of Uncertainty in Knowledge-Based Systems, 100\u2013111.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "T. Le Nguyen",
+        "S. Gsponer",
+        "I. Ilie",
+        "M. O\u2019Reilly",
+        "G. Ifrim"
+      ],
+      "title": "Interpretable time series classification using linear models and multi-resolution multi-domain symbolic representations. Data Mining and Knowledge Discovery",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Z.C. Lipton"
+      ],
+      "title": "The mythos of model interpretability",
+      "venue": "Communications of the ACM",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "F.T. Liu",
+        "K.M. Ting",
+        "Z.-H. Zhou"
+      ],
+      "title": "Isolation forest",
+      "venue": "2008 Eighth IEEE International Conference on Data Mining, 413\u2013422. IEEE.",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "J. Ma",
+        "S. Perkins"
+      ],
+      "title": "Time-series Novelty Detection Using One-class Support Vector Machines",
+      "venue": "Proceedings of the International Joint Conference on Neural Networks 3: 1741\u20131745.",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "T. Miller"
+      ],
+      "title": "Explanation in artificial intelligence: Insights from the social sciences",
+      "venue": "Artificial Intelligence 267: 1\u201338.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "B. Mittelstadt",
+        "C. Russell",
+        "S. Wachter"
+      ],
+      "title": "Explaining explanations in AI",
+      "venue": "Proceedings of the conference on fairness, accountability, and transparency, 279\u2013288.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Molnar"
+      ],
+      "title": "Interpretable Machine Learning",
+      "venue": "https: //christophm.github.io/interpretable-ml-book/.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "R.K. Mothilal",
+        "A. Sharma",
+        "C. Tan"
+      ],
+      "title": "Explaining machine learning classifiers through diverse counterfactual explanations",
+      "venue": "Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 607\u2013617.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Mueen",
+        "E. Keogh"
+      ],
+      "title": "Extracting optimal performance from dynamic time warping",
+      "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, 2129\u20132130.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T.T. Nguyen",
+        "T. Le Nguyen",
+        "G. Ifrim"
+      ],
+      "title": "A ModelAgnostic Approach to Quantifying the Informativeness of Explanation Methods for Time Series Classification",
+      "venue": "Proceedings of the 5th Workshop on Advanced Analytics and Learning on Temporal Data at ECML 2020. Springer.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "C. Nugent",
+        "D. Doyle",
+        "P. Cunningham"
+      ],
+      "title": "Gaining insight through case-based explanation",
+      "venue": "Journal of Intelligent Information Systems 32(3): 267\u2013295.",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "J. Pearl",
+        "D. Mackenzie"
+      ],
+      "title": "The Book of Why",
+      "venue": "New York: Basic Books. ISBN 978-0-465-09760-9.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "F. Pedregosa",
+        "G. Varoquaux",
+        "A. Gramfort",
+        "V. Michel",
+        "B. Thirion",
+        "O. Grisel",
+        "M. Blondel",
+        "P. Prettenhofer",
+        "R. Weiss",
+        "V. Dubourg",
+        "J. Vanderplas",
+        "A. Passos",
+        "D. Cournapeau",
+        "M. Brucher",
+        "M. Perrot",
+        "E. Duchesnay"
+      ],
+      "title": "Scikitlearn: Machine Learning in Python",
+      "venue": "Journal of Machine",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "F. Petitjean",
+        "A. Ketterlin",
+        "P. Gan\u00e7arski"
+      ],
+      "title": "A global averaging method for dynamic time warping, with applications to clustering",
+      "venue": "Pattern Recognition 44(3): 678\u2013693. ISSN 00313203. doi:10.1016/j.patcog.2010.09.013.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "R. Poyiadzi",
+        "K. Sokol",
+        "R. Santos-Rodriguez",
+        "T. De Bie",
+        "P. Flach"
+      ],
+      "title": "FACE: feasible and actionable counterfactual explanations",
+      "venue": "Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society, 344\u2013350.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Why should i trust you?\u201d Explaining the predictions of any classifier",
+      "venue": "Proceedings of the ACM SIGKDD International Conference on Knowledge Discovery and Data Mining 13-17August-2016: 1135\u20131144. doi:10.1145/2939672.2939778.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "C. Rudin"
+      ],
+      "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+      "venue": "Nature Machine Intelligence 1(5): 206\u2013215. ISSN 25225839. doi:10.1038/s42256-019-0048-x.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "H. Sakoe",
+        "S. Chiba"
+      ],
+      "title": "Dynamic programming algorithm optimization for spoken word recognition",
+      "venue": "IEEE transactions on acoustics, speech, and signal processing 26(1): 43\u201349.",
+      "year": 1978
+    },
+    {
+      "authors": [
+        "U. Schlegel",
+        "H. Arnout",
+        "M. El-Assady",
+        "D. Oelke",
+        "D.A. Keim"
+      ],
+      "title": "Towards a rigorous evaluation of XAI Methods on Time Series",
+      "venue": "arXiv preprint arXiv:1909.07082 .",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "B. Sch\u00f6lkopf",
+        "R.C. Williamson",
+        "A.J. Smola",
+        "J. ShaweTaylor",
+        "J.C. Platt"
+      ],
+      "title": "Support vector method for novelty detection",
+      "venue": "Advances in neural information processing systems, 582\u2013588.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "K. Sokol",
+        "P. Flach"
+      ],
+      "title": "Explainability fact sheets: a framework for systematic assessment of explainable approaches",
+      "venue": "Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, 56\u201367.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "C.W. Tan",
+        "G.I. Webb",
+        "F. Petitjean"
+      ],
+      "title": "Indexing and classifying gigabytes of time series under time warping",
+      "venue": "Proceedings of the 2017 SIAM international conference on data mining, 282\u2013290. SIAM.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "R. Tavenard",
+        "J. Faouzi",
+        "G. Vandewiele",
+        "F. Divo",
+        "G. Androz",
+        "C. Holtz",
+        "M. Payne",
+        "R. Yurchak",
+        "M. Ru\u00dfwurm",
+        "K. Kolar",
+        "E. Woods"
+      ],
+      "title": "Tslearn, A Machine Learning Toolkit for Time Series Data",
+      "venue": "Journal of Machine Learning Research 21(118): 1\u20136. URL http://jmlr.org/papers/v21/20-",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Van Looveren",
+        "J. Klaise"
+      ],
+      "title": "Interpretable counterfactual explanations guided by prototypes",
+      "venue": "arXiv preprint arXiv:1907.02584 .",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R. Vinuesa",
+        "H. Azizpour",
+        "I. Leite",
+        "M. Balaam",
+        "V. Dignum",
+        "S. Domisch",
+        "A. Fell\u00e4nder",
+        "S.D. Langhans",
+        "M. Tegmark",
+        "F.F. Nerini"
+      ],
+      "title": "The role of artificial intelligence in achieving the Sustainable Development Goals",
+      "venue": "Nature communications 11(1): 1\u201310.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "S. Wachter",
+        "B. Mittelstadt",
+        "C. Russell"
+      ],
+      "title": "Counterfactual explanations without opening the black box: Automated decisions and the GDPR",
+      "venue": "Harv. JL & Tech. 31: 841.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Wang",
+        "R. Emonet",
+        "E. Fromont",
+        "S. Malinowski",
+        "E. Menager",
+        "L. Mosser",
+        "R. Tavenard"
+      ],
+      "title": "Learning Interpretable Shapelets for Time Series Classification through Adversarial Regularization",
+      "venue": "arXiv preprint arXiv:1906.00917 .",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Y. Yan",
+        "L. Cao",
+        "E.A. Rundensteiner"
+      ],
+      "title": "Distributed Top-N local outlier detection in big data",
+      "venue": "2017 IEEE International Conference on Big Data (Big Data), 827\u2013836. IEEE.",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "In recent years, the predictive success of machine learning systems has been undermined by their lack of interpretability, and there have been growing public calls for fairness, accountability, and transparency in the decisions of intelligent systems (Gunning 2017). These challenges have led to major efforts in Explainable AI (XAI) where a raft of techniques have been developed to shed light on opaque predictions. Many of these explanation methods provide users with post-hoc, example-based justifications such as factual explanations (i.e., \u201cYou were refused a loan because your profile is the same person X who was also refused\u201d; see e.g., (Keane and Kenny 2019)) or post-hoc counterfactual explanations (i.e., \u201cIf your salary was higher\n*Corresponding Author\nyou would have received the loan\u201d; see e.g., (Byrne 2019; Mittelstadt, Russell, and Wachter 2019)). Most of this XAI research focuses on tabular and image data, with less attention being given to the explanation of time series data (Nguyen, Le Nguyen, and Ifrim 2020). Indeed, we have found no work showing how post-hoc counterfactual explanations (Miller 2019), could be computed for time series predictions. Hence, in this paper, we propose Native-Guide, a novel model agnostic post-hoc explanation technique for time series classifiers that provides factual and counterfactual explanations for their predictions.\nPaper Outline: In the remainder of the introduction, we review related work on explaining time series models, before considering why counterfactual explanations might be especially useful. Then, in Section 2, we outline some of the problems that arise in finding and evaluating counterfactual explanations, before presenting Native-Guide as a solution and describing how to evaluate explanations (see Section 3). In Sections 4 and 5, we present a case study, involving a climate prediction task, and then report results from tests on 38 benchmark data sets from the UCR archive (Dau et al. 2019). Section 6 concludes with a consideration of issues arising from this work and opportunities for future research."
+    },
+    {
+      "heading": "1.1 Related Work",
+      "text": "From one perspective, given the flexibility, accuracy, and simplicity of k-NN techniques for time series prediction, the use of post-hoc, example-based explanations have often been a preferred option (Mueen and Keogh 2016; Cunningham and Delany 2020; Rudin 2019; Sokol and Flach 2020); any time series classification or prediction can easily be explained using a nearest neighbouring instance (e.g., Figure 1 which asserts \u201cthe climate in Rome should be like that of Athens because they have very similar weekly high-temperatures\u201d). So, the success of baseline methods, using 1-NN-Euclidean and 1-NN-DTW (Dynamic Time Warping) techniques for time series classification (TSC) have made factual-example-based explanations the preferred choice (Bagnall et al. 2017). These white-box models are comprehensible and, since the explanations are generated directly from the underlying model, they are faithful by definition (Rudin 2019; Fauvel, Masson, and Fromont 2020). However, with the emergence of less transparent, deep learnar X iv :2\n00 9.\n13 21\n1v 1\n[ cs\n.L G\n] 2\n8 Se\np 20\n20\ning methods (Fawaz et al. 2019), the need to find some way to explain predictions has re-emerged as a challenge. For example, methods such as COTE and LSTM-FCN boast impressive predictive performance, but limited interpretability (Le Nguyen et al. 2019; Karim et al. 2017). Beyond factual, nearest-neighbour explanations, it is not at all clear how contrastive explanations for time series prediction might be computed, a new class of post-hoc explanations that is now attracting much attention (Miller 2019; Byrne 2019; Mittelstadt, Russell, and Wachter 2019).\nRecent work has explored model-agnostic methods, such as Saliency Maps, LIME (Ribeiro, Singh, and Guestrin 2016), and SHAP, to explain time series classification (Schlegel et al. 2019). Class activation maps, shapelets, and dictionary-based approaches have been linked to interpretable prediction as they highlight the most influential sub-sequences of the time series at the time of classification (Wang et al. 2019; Karlsson et al. 2018). Instance-based approaches using prototypes have also been advanced for black-box deep learning classifiers, where the prototype instances are representative of a whole class (Gee et al. 2019; Molnar 2020). Class prototypes have also proved useful in guiding the formation of counterfactual explanations for image and tabular data (Van Looveren and Klaise 2019). However, it is not at all clear how these approaches can be applied to time series data where very different similarity measures (e.g., Dynamic Time Warping as opposed to weighted Manhattan distance) and feature-dimension partitioning methods (i.e., k-d trees (Van Looveren and Klaise 2019)) are used (Tan, Webb, and Petitjean 2017). As such, the problem of how to explain time series classifications largely still remains to be solved, especially with respect to the development of counterfactual explanations."
+    },
+    {
+      "heading": "1.2 Why Counterfactual Explanations?",
+      "text": "The best way to understand how counterfactual explanations might be used for time series classification is to consider how they differ from factual explanations. Consider a binary classification system which predicts that \u201cthe number of new people infected by Covid-19 in a certain region is set to increase\u201d, based on an analysis of the time series for case numbers over the last week. The system might explain its decision factually with the following statement: \u201cThe number of cases next week will increase because in the past a region with similar characteristics (population, restriction measures etc.) reported an increase in cases\u201d. In contrast, the system might explain its decision counterfactually with the following statement: \u201cIf you tightened the regulations using a local lockdown, then the number of cases would go down\u201d. There is a growing consensus that such counterfactual explanations are causally more informative (Lipton 2018; Pearl and Mackenzie 2018), psychologically effective (Miller 2019; Byrne 2019; Dodge et al. 2019; Keane and Smyth 2020; Molnar 2020), and legally acceptable with respect to GDPR, (Wachter, Mittelstadt, and Russell 2017). Some have specifically argued that counterfactuals provide more robust and informative explanations when compared to other model agnostic methods, such as LIME or SHAP (Guidotti et al. 2019). Finally, although it is difficult to vi-\nsualise counterfactuals for tabular data (Mothilal, Sharma, and Tan 2020), for time series such visualisations are quite straight-forward. That is, if one can find a way to compute the counterfactual alternative, the visual presentation of that alternative is a given."
+    },
+    {
+      "heading": "1.3 Contributions of this Work",
+      "text": "This work introduces a novel model-agnostic method for generating counterfactual explanations for time series classifiers. Specifically, we show that:\n\u2022 Counterfactual explanations can be built by retrieving existing in-sample instances that bear counterfactualrelationships to one another (i.e., Native counterfactuals) and then perturbing these to explain the predictions of a query posed to a k-NN time series classifier (hence, it is called the Native-Guide method)\n\u2022 This Native-Guide method is flexible enough to be used with either Euclidean and DTW distance measures.\n\u2022 This method consistently generates \u201cgood\u201d counterfactuals for a wide range of data sets from the UCR repository."
+    },
+    {
+      "heading": "2 Native-Guides for Counterfactuals",
+      "text": "In this section, we motivate and describe Native-Guide, a method for generating good counterfactual explanations for time series classification. Many existing methods produce counterfactuals by implementing \u201cblind\u201d perturbations without referencing the existing data (Keane and Smyth 2020). This strategy tends to result in large numbers of candidate explanations (i.e., the so-called Rashoman effect (Rudin 2019)), many of which will be invalid observations (i.e., they are actually misleading as they fall outside the sample). Furthermore, given the number of possible feature dimensions in time series data, this solution quickly becomes intractable. Instance-based solutions for counterfactual generation often rely on the strategy of finding/generating the closest instance\nto the to-be explained prediction that involves a class change (Laugel et al. 2018; Nugent, Doyle, and Cunningham 2009; Keane and Smyth 2020). Hence, for time series data, the current method relies on using instances from the existing data set (so-called \u201cnative in-sample guides\u201d), to generate counterfactual candidates to explain time series predictions. In the following sub-sections, we summarise the prerequisite definitions adopted in defining the method, before describing the algorithm and how it retrieves and perturbs native guides."
+    },
+    {
+      "heading": "2.1 Prerequisite Definitions",
+      "text": "The following definitions are adopted in the current method (see also Figure 2): Definition 1 Time Series Data Set. A time series T =< t1, ....., tL > is an ordered set of real values, where L is the length. A time series data set D = T1, ..., TN is a collection of such time series. Definition 2 Time Series Classification Task. A time series data set D contains N time series, each of which has a class label p. The goal of time series classification is to distinguish to which class an unlabelled query time series belongs. Definition 3 Distance Function A distance function d(Ta, Tb) takes two time series Ta and Tb as inputs and returns a non negative value as an output which we refer to as the distance between the two time series. We require that this function is symmetric i.e. d(Ta, Tb) = d(Tb, Ta)"
+    },
+    {
+      "heading": "2.2 Retrieving Native-Guides",
+      "text": "A Native-Guide is a counterfactual instance that already exists within the data set (i.e., the nearest-neighbouring time series of the query time series which involves a class change). In Figure 1, the queried time series is represented by an X and the corresponding native -guide is labelled accordingly. We can retrieve this instance using a 1-NN search (see Algorithm 1).\nAlgorithm 1 Native-Guide Retrieval 1: Input: Tq: Query time series with predicted class p 2: Input: d: A distance function (e.g. Euclidean, DTW) 3: Input: Dp\u2032 \u2286 D: The set of time series {T1, ..., Tn} in\nthe training data with class label p\u2032 4: Initialize: d(Tq, CNative) =\u221e , CNative = \u2205 5: for i = 1, 2, ...n: do 6: compute \u03b4 = d(Tq, Ti) 7: if \u03b4 < d(Tq, CNative): then 8: Set CNative = Ti 9: Set d(Tq, CNative) = \u03b4\n10: end if 11: end for 12: Return: CNative"
+    },
+    {
+      "heading": "2.3 Perturbing Native-Guides",
+      "text": "The retrieved native-guide is then perturbed towards the query until just before there is a class change in the base classifiers prediction (yellow instance in Figure 2). We outline how to generate such instances with reference to Figure 2;\n1. Inputs \u2022 Tq: The queried time series \u2022 CNative: The retrieved in-sample counterfactual\nNative-Guide\n2. Initialize \u2022 Start at Native-Guide (CNative)\n3. Perturbation \u2022 Perturb CNative towards Tq using a suitable weighted\naverage function (see arrow in Figure 2) \u2022 Classify the newly generated instance\n4. Stopping-Condition \u2022 Terminate process just before we cross the decision\nboundary \u2022 Return C\u2217: Generated counterfactual instance (In-\nstance in yellow Figure 2.)\nThis method ensures that, rather than blindly perturbing the time series to generate a counterfactual explanation, we are perturbing from the existing data. The approach is designed to ensure that the generated counterfactual is close to the query (i.e., closer than the native-guide), while it remains within the distribution of the data. That is, formally:\nd(Q,C\u2217) < d(Q,CNative) (1)\nOf course, the above allows for different distance measures d to be used. Next, we elaborate on such measures which are commonly employed in conjunction with time series data: Euclidean distance and Dynamic Time Warping.\nEuclidean Case. The simplest approach is to implement a weighted perturbation strategy, defined as\nC\u2217 = (\u03b2 \u00d7Q) + ((1\u2212 \u03b2)\u00d7 CNative) (2)\nwhere \u03b2 \u2208 [0, 1] is a weight controlling the resemblance of the generated counterfactual C\u2217 to the native counterfactual CNative. As we increase the weight on the guided perturbation to inherit properties of the query, the counterfactual should generate better explanations as it will be in closer proximity to the query.\nDynamic Time Warping (DTW) Case. Although Euclidean distance is a popular baseline distance metric for time series classification tasks, a 1-NN classifier can achieve state-of-the-art performance when using Dynamic Time Warping (DTW) as a distance measure (Mueen and Keogh 2016) DTW is based on Levenshtein distance, and was originally introduced for application in speech recognition (Sakoe and Chiba 1978). It finds the optimal alignment between two sequences of numerical values, and captures flexible similarities by aligning the coordinates inside both sequences (Petitjean, Ketterlin, and Ganc\u0327arski 2011), which can be appropriate if two time series are out of phase. In order to compute an average or weighted time series using DTW we are tasked with aligning similar sub-sequences instead of element wise matching as in the Euclidean case. This adds a layer of abstraction and complexity to the process and invites a different form of perturbation. Here we apply a global averaging technique known as Dynamic Barycenter Averaging (DBA) (Petitjean, Ketterlin, and Ganc\u0327arski 2011). This approach aims to compute an \u201caverage\u201d sequence, called the barycenter, which ensures that the sum of squared DTW distance between the barycenter and the set of considered sequences is minimized. This technique has been applied to generate synthetic time series to augment sparse data sets and significantly improve classification accuracy (Forestier et al. 2017): defined as follows:\nDefinition 4 Weighted average of time series under DTW. Given a weighted set of time series D = (T1, \u03b21), ..., (TN , \u03b2n), the average time series under DTW, T , is the time series that minimizes:\nargmin T N\u2211 i=1 \u03b2i \u00b7DTW 2(T , Ti) (3)\nThis technique generates in-distribution time series data, suggesting that it should tend to generate feasible explanations. By adjusting the weights on the query and in-sample counterfactual instance, we can generate a new time series that offers a better explanation when compared to the insample, native counterfactual."
+    },
+    {
+      "heading": "3 Evaluating Counterfactual Goodness",
+      "text": "Although a common consensus on the best approach to evaluate counterfactual explanations is still emerging; there is a general agreement that the explanations should be (i) Similar to the query (Mittelstadt, Russell, and Wachter 2019; Keane and Smyth 2020) and (ii) Within the distribution of the data (Sokol and Flach 2020). Hence, in our evaluations we use a Relative Counterfactual Distance (RCF) measure (Keane\nand Smyth 2020) and an Out-of-Distribution count (OOD) measure, which are described below."
+    },
+    {
+      "heading": "3.1 Relative Counterfactual Distance (RCF)",
+      "text": "It is generally assumed that good counterfactuals are ones in which the original query and the explanation-instance are close on some distance measure. Typically, a counterfactual that is in close proximity to the query offers the best explanation (Mothilal, Sharma, and Tan 2020). A relative counterfactual distance (RCF) measure was proposed by (Keane and Smyth 2020) to assess if a generated counterfactual is closer to the query than the native in-sample counterfactual.\nRCF = d(Q,C\u2217)\nd(Q,CNative) (4)\nIf RCF > 1 the in-sample counterfactual is closer to the query than the generated counterfactual and if RCF < 1 the generated counterfactual is closer. We use the distance metric used in the underlying classifier (i.e., it can be either Euclidean, or DTW , but could be any distance metric)."
+    },
+    {
+      "heading": "3.2 Measuring Out of Distribution (OOD)",
+      "text": "Counterfactual instances are not necessarily representative of the underlying data distribution and may be based on invalid data-points (Poyiadzi et al. 2020). We cast the evaluation of if a counterfactual is in-distribution as a novelty detection problem. When we have a data set of n observations from the same distribution described by p features and we add another observation to that data set, novelty detection methods can tell us if the new observation is within the distribution of the original data or an outlier (Pedregosa et al. 2011). Common novelty detection algorithms include one class Support Vector Machines (Scho\u0308lkopf et al. 2000; Ma and Perkins 2003), Isolation forests (Liu, Ting, and Zhou 2008) and Local Outlier Factors (Breunig et al. 2000). As we are already using instance-based methods, we implement Local Outlier Factor (LOF) to evaluate if the generated counterfactual explanations are plausible and representative of the existing data. LOF evaluates if the generated counterfactuals \u201cmake sense\u201d or fit the distribution of the existing data. This is done by measuring the local deviation of a given data point with respect to its neighbours. LOF quantifies how isolated a point is with regard to the density of its neighbourhood. LOF depends on a single parameter k which indicates the number of nearest neighbours to consider. Recent work has shown that LOF is scalable for large data sets, and can leverage modern distributed infrastructures making it suitable for our task. A good technical summary of LOF can be found in (Yan, Cao, and Rundensteiner 2017). In the next section, we provide a case study using the Native-Guide method and evaluate it using these measures (see Section 4)."
+    },
+    {
+      "heading": "4 Case Study: Climate Classification",
+      "text": "As a case study we examine a climate prediction task in some detail. There is evidence that AI advances will support the understanding of climate change and the modeling of its possible impacts (Vinuesa et al. 2020). Under the UNs AI for Good Platform; Goal 13 targets the understanding and\nprediction of climate change. The task in this case-study is to explain the predictions of a 1-NN time series classificationsystem; specifically, it is a binary classification-task where system classifies a city as having an Oceanic climate (class: 0) or a Mediterranean climate (class: 1) based on the average weekly high temperatures over a period of two years. The system uses Weather data from 40 cities over a two-year period from 2017\u20132019, to capture seasonal effects and trends. The WorldWeather API was used to collect the data. The true labels are from the Koppen-Geiger classification system (Kottek et al. 2006). Explaining the systems predictions can provide us with insights into the conditions that would cause the classifications to change. The main goal of the case study is to portray the intuition behind and method of using in-sample counterfactual instances as Native-Guides for counterfactual generation. All code, data, and results are included in Supplementary Material.\nExperimental Setup Twenty cities were used for training data and twenty for testing data, with an equal representation of each class present in each of the splits to mitigate class imbalance. Nearest neighbours are retrieved along with the in-sample counterfactual and the corresponding distance: d(Q,CNative) is recorded. We generate counterfactual explanations for instances and record the distance between the generated counterfactual and the query d(Q,C\u2217). The RCF is calculated to determine the proximity of the counterfactual to the query relative to the in-sample counterfactual. The LOF (parameter k set to \u221a len(Xtrain +Xtest)) is used to determine the OOD measure which evaluates if the generated counterfactuals are within the distribution of the data. A subset of results for instance retrieval can be found in Table 1 with a full collection of data, results and code to be found in Supplementary Material A.\nExplaining Climate Classifications In this section, we will look at explanations for specific instances. We also show how contrastive explanations can be visualized for time series data. In this example, Amsterdam (NED) was queried (see Figure 3) and three different explanatory instances generated by the system are shown: \u2022 A. Factual explanation: The true label for the query,\nAmsterdam (NED), according to Koppen Climate Classification is a Oceanic climate. In the training data its nearest neighbour is London (UK), where d(Amsterdam,London) = 23.193, which also has an Oceanic climate. Therefore, the system correctly classifies Amsterdam\u2019s climate to be Oceanic (Figure 3A). Hence, this factual explanation could be summarised as: \u201cAmsterdam has an Oceanic climate because it is most similar to London, which has an Oceanic climate too\u201d.\nExplaination for Amsterdam (NED) Prediciton\n\u2022 B. In-sample counterfactual explanation: The system can also find an in-sample counterfactual to the \u201ccorrect\u201d Oceanic classification, in the form of the city of Salamanca (ESP), which is in the training data, where d(Amsterdam, Salamanca) = 57.587, which is classed as having a Mediterranean climate (Figure 3B). This counterfactual explanation could be glossed as saying: \u201cIf Amsterdam had the same weather as Salamanca the system would classify it as having a Mediterranean climate\u201d.\n\u2022 C. Generated counterfactual: Finally, the systems can generate a counterfactual (that should be better than the in-sample case), that is a perturbation of the Salamanca data, but closer to the query (i.e., Salamanca\u2019s summer highs are noticeably hotter than Amsterdam\u2019s). As the underlying classifier predicts this generated counterfactual to be in the Mediterranean class, this explanation can be glossed as saying \u201cIf Amsterdam had a weather profile like the Generated-Instance then system would classify it as as having a Mediterranean climate\u201d (Figure 3C). This generated explanation is much closer to the query d(Q,C\u2217) = 36.28. It is also within the distribution of the existing based off LOF."
+    },
+    {
+      "heading": "5 Multiple Data sets Experiment (for Euclidean and DTW)",
+      "text": "In order to determine if Native-Guide can generate good counterfactual explanations for a variety of different data sets, we apply the proposed method on 38 diverse benchmark data sets from the UCR archive (Dau et al. 2019). We report results for the key evaluative measures for the performance of the system (i.e., RCF and OOD)."
+    },
+    {
+      "heading": "5.1 Data",
+      "text": "We evaluate our method on 38 diverse binary time series classification tasks from the UCR archive (Dau et al. 2019). Examples of these tasks include heartbeat anomaly detection, traffic-flow management, and earthquake classification. The archive has been incrementally extended and contains a substantial collection of real-world and synthetic data from multiple domains and problem types. It is perhaps the most common used benchmark for recent studies on time series classification (Le Nguyen et al. 2019). In order to promote reproducibility, we performed all experiments on the default single training-test split set specified by the benchmark."
+    },
+    {
+      "heading": "5.2 Experimental Setup",
+      "text": "Native-Guides are retrieved from the corresponding time series data set using 1-NN instance retrieval with a Euclidean distance metric and then a DTW distance measure (Algorithm 1). The distance between the in-sample counterfactual and the query d(Q,CNative) is recorded. Next we generate counterfactual using guided perturbation instance adaption. In the DTW implementation we deploy\nweighted-DBA to generate counterfactual time series for explanatory purposes. The idea is analogous to the Euclidean implementation as we iteratively approach the query from the perspective of the Native-Guide. We apply a weight \u03b2 to each time series and gradually increase the weight towards the query until just before there is a class change (see Figure 2). We record d(Q,C\u2217), the distance between the query and the generated counterfactual. Counterfactuals are evaluated based on Proximity (RCF) and Plausibility (OOD) using Local Outlier Factor with parameter k set to\u221a len(Xtrain +Xtest). In the cognitive sciences evidence suggests that people tend to create counterfactuals to imagine how an outcome could have been better instead of worse (Byrne 2019). Therefore, we focus on generating counterfactuals for misclassifications. For each data set we note the number of misclassifications for the base classifier, which is also equal to the number of counterfactuals (CF) that we generate."
+    },
+    {
+      "heading": "5.3 Results and Discussion",
+      "text": "The proposed method generates counterfactuals that are significantly closer to the query compared to the in-sample counterfactuals when using both Euclidean and DTW distance measures (see Figure 4 and RCF values in Figure 5). As some of the data sets are not normalized we perform a Man-Whitney U test to statistically confirm that there is a significant difference between d(Q,C\u2217) and d(Q,CNative); Euclidean (p < 0.01), DTW (p < 0.01). Native-Guide also produces plausible counterfactual explanations that are representative of real time series data. Few of the counterfactuals are out-of-distribution (526 out of the 3570 generated counterfactuals for the Euclidean experiment, and 371 out\nof 3041 for the DTW implementation). It should be noted that the FreezerSmallTrain data set accounts for the majority (398 Euclidean, 177 DTW) of these OOD values. This is possibly due to the fact that this data set has a small amount of training data compared to the test data indicating that the proposed method works best when there is a diverse availability of training data. Indeed in the companion data set FreezerRegularTrain (more training data) the OOD counts are much lower (8 Euclidean, 21 DTW).\nThe mean \u03b2 value across the data sets (0.79 Euclidean, 0.82 DTW) indicates that the generated counterfactual explanations typically have a very strong resemblance to the query. This also suggests that the global properties of the time series such as trend and seasonality have been preserved. In summary, Native-Guide consistently generates good counterfactual explanations for time series classification tasks that are proximal and plausible and the method can easily be coupled with both Euclidean and DTW distance measures. For space reasons, a subset of results can be found in Tables 2 and 3, with full results provided in Supplementary Material B.\n0\n2\n4\n6\nEuclidean In-Sample Generated\nECG200 Gunpoint FreezerRegTrain FreezerSmTrain ItalyPowerDemand0.0\n0.5\n1.0\n1.5\n2.0\n2.5 DTW\nDataset\nM ea\nn D\nis ta\nnc e\nto Q\nue ry\nFigure 4: Counterfactual proximities for five representative UCR data sets, indicating that the Native-Guide method can generate counterfactuals which are close to the query.\n0.0 0.1 0.2 0.3 0.4 0.5 RCF Euclidean\n0.1\n0.2\n0.3\n0.4\n0.5\nRC F\nD TW\nVisualising RCF for all Datasets\nFigure 5: RCF value over all data sets highlighting the generation of proximal counterfactuals (Euclidean and DTW)."
+    },
+    {
+      "heading": "6 Conclusion",
+      "text": "In this paper a novel method, Native-Guide, was proposed to provide good counterfactual explanations for time series classification tasks. Our method generates counterfactuals based on reference instances that exist in the data set to generate better counterfactual explanations. The method was tested on a case study and a collection of diverse binary data sets from the UCR archive using 1-NN Euclidean and 1- NN DTW classifiers which are benchmark algorithms in this domain due to their simplicity and accuracy. Native-Guide consistently generated counterfactual explanations that were in close proximity to the query and plausible as they were within the distribution of the data. Moreover, these counterfactuals were significantly better than explanations that already existed in the training data. Our method generates new time series data which also holds promise for data augmentation and improving classification performance for sparse data sets (Forestier et al. 2017).\nOne limitation of our approach is that we are perturbing the whole time series, rather than the most influential sub sequences. Future work will focus on adding sparsity constraints to the generation of counterfactual explanation that are flexible with Euclidean and Dynamic Time Warping distance measures. This indicates the promise of deep learning approaches and the development of a suitable loss function for counterfactual explanation in time series. Throughout the research we link counterfactual explanations in time series to the relevant evidence from psychology and the cognitive sciences (Miller 2019; Byrne 2019). Evaluating our explanations and comparing them to other methods by means of a user-study is another avenue for future research\nImplementation and Reproducibility The tslearn library was extensively used in this research (Tavenard et al. 2020). Experiments were implemented on a Dell XPS15 Laptop; Processor: Intel Core i7-10875H; Memory: 16GB DDR4-2133MHz. For the DTW experiment, our experiments were batched and executed in parallel. A single algorithm run was needed to produce results. Full details of this can be found in the supplementary material. We include all data and code for the case study in Supplementary Material A. The UCR data is publicly available to download (Dau et al. 2019), and we include all code needed to reproduce our results for the corresponding Euclidean and DTW experiments in Supplementary Material B."
+    },
+    {
+      "heading": "Acknowledgements",
+      "text": "This paper emanated from research funded by (i) Science Foundation Ireland (SFI) to the Insight Centre for Data Analytics (12/RC/2289 P2), (ii) SFI and DAFM on behalf of the Government of Ireland to the VistaMilk SFI Research Centre (16/RC/3835)"
+    }
+  ],
+  "title": "Instance-Based Counterfactual Explanations for Time Series Classification",
+  "year": 2020
+}

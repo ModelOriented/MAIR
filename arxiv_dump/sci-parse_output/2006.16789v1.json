@@ -1,1 +1,743 @@
-{"abstractText": "Recent years have witnessed the rapid growth of machine learning in a wide range of fields such as image recognition, text classification, credit scoring prediction, recommendation system, etc. In spite of their great performance in different sectors, researchers still concern about the mechanism under any machine learning (ML) techniques that are inherently blackbox and becoming more complex to achieve higher accuracy. Therefore, interpreting machine learning model is currently a mainstream topic in the research community. However, the traditional interpretable machine learning focuses on the association instead of the causality. This paper provides an overview of causal analysis with the fundamental background and key concepts, and then summarizes most recent causal approaches for interpretable machine learning. The evaluation techniques for assessing method quality, and open problems in causal interpretability are also discussed in this paper.", "authors": [{"affiliations": [], "name": "Guandong Xu"}, {"affiliations": [], "name": "Tri Dung Duong"}, {"affiliations": [], "name": "Qian Li"}, {"affiliations": [], "name": "Shaowu Liu"}, {"affiliations": [], "name": "Xianzhi Wang"}], "id": "SP:66ad67bcade392dd12cd00c69c1043dbd7277e59", "references": [{"authors": ["Himabindu Lakkaraju", "Stephen H Bach", "Jure Leskovec"], "title": "Interpretable decision sets: A joint framework for description and prediction", "venue": "In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining,", "year": 2016}, {"authors": ["Xuezhou Zhang", "Sarah Tan", "Paul Koch", "Yin Lou", "Urszula Chajewska", "Rich Caruana"], "title": "Axiomatic interpretability for multiclass additive models", "venue": "In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining,", "year": 2019}, {"authors": ["Rich Caruana", "Yin Lou", "Johannes Gehrke", "Paul Koch", "Marc Sturm", "Noemie Elhadad"], "title": "Intelligible Models for HealthCare: Predicting Pneumonia Risk and Hospital 30-day Readmission", "venue": "In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining - KDD", "year": 2015}, {"authors": ["Xuezhou Zhang", "Sarah Tan", "Paul Koch", "Yin Lou", "Urszula Chajewska", "Rich Caruana"], "title": "Axiomatic Interpretability for Multiclass Additive Models", "venue": "In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining - KDD", "year": 2019}, {"authors": ["Paul J Darwen"], "title": "Bayesian model averaging for river flow prediction", "venue": "Applied Intelligence,", "year": 2019}, {"authors": ["Benjamin Letham", "Cynthia Rudin", "Tyler H McCormick", "David Madigan"], "title": "Interpretable classifiers using rules and bayesian analysis: Building a better stroke prediction model", "venue": "The Annals of Applied Statistics,", "year": 2015}, {"authors": ["Tong Wang"], "title": "Multi-Value Rule Sets", "year": 2017}, {"authors": ["Benjamin Letham", "Cynthia Rudin", "Tyler H. McCormick", "David Madigan"], "title": "Interpretable classifiers using rules and Bayesian analysis: Building a better stroke prediction model", "venue": "The Annals of Applied Statistics,", "year": 2015}, {"authors": ["Sercan O Arik", "Tomas Pfister"], "title": "TabNet: Attentive Interpretable Tabular Learning", "venue": "arXiv preprint arXiv:1908.07442,", "year": 2019}, {"authors": ["J-SR Jang", "C-T Sun"], "title": "Functional equivalence between radial basis function networks and fuzzy inference systems", "venue": "IEEE transactions on Neural Networks,", "year": 1993}, {"authors": ["Serge Guillaume"], "title": "Designing fuzzy inference systems from data: An interpretability-oriented review", "venue": "IEEE Transactions on fuzzy systems,", "year": 2001}, {"authors": ["Jeen-Shing Wang", "CS George Lee"], "title": "Self-adaptive neuro-fuzzy inference systems for classification applications", "venue": "IEEE Transactions on Fuzzy Systems,", "year": 2002}, {"authors": ["Marco Tulio Ribeiro", "Sameer Singh", "Carlos Guestrin"], "title": "Why should i trust you?\u201d Explaining the predictions of any classifier", "venue": "In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining,", "year": 2016}, {"authors": ["Scott M Lundberg", "Su-In Lee"], "title": "A unified approach to interpreting model predictions", "venue": "In Advances in neural information processing systems,", "year": 2017}, {"authors": ["Riccardo Guidotti", "Anna Monreale", "Salvatore Ruggieri", "Dino Pedreschi", "Franco Turini", "Fosca Giannotti"], "title": "Local rule-based explanations of black box decision systems", "venue": "arXiv preprint arXiv:1805.10820,", "year": 2018}, {"authors": ["Pang Wei Koh", "Percy Liang"], "title": "Understanding black-box predictions via influence functions", "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume", "year": 2017}, {"authors": ["Patrick Schwab", "Djordje Miladinovic", "Walter Karlen"], "title": "Granger- Causal Attentive Mixtures of Experts: Learning Important Features with Neural Networks", "venue": "Proceedings of the AAAI Conference on Artificial Intelligence,", "year": 2019}, {"authors": ["Patrick Schwab", "Walter Karlen"], "title": "CXPlain: Causal Explanations for Model Interpretation under Uncertainty", "year": 2019}, {"authors": ["Judea Pearl"], "title": "Causal inference in statistics: An overview", "venue": "Statistics Surveys, 3:96\u2013146,", "year": 2009}, {"authors": ["Donald B Rubin"], "title": "Estimating causal effects of treatments in randomized and nonrandomized studies", "venue": "Journal of educational Psychology,", "year": 1974}, {"authors": ["Victor Chernozhukov", "Denis Chetverikov", "Mert Demirer", "Esther Duflo", "Christian Hansen", "Whitney Newey", "James Robins"], "title": "Double/debiased machine learning for treatment and causal parameters", "venue": "arXiv preprint arXiv:1608.00060,", "year": 2016}, {"authors": ["S\u00f6ren R. K\u00fcnzel", "Jasjeet S. Sekhon", "Peter J. Bickel", "Bin Yu"], "title": "Metalearners for estimating heterogeneous treatment effects using machine learning", "venue": "Proceedings of the National Academy of Sciences,", "year": 2019}, {"authors": ["Miruna Oprescu", "Vasilis Syrgkanis", "Zhiwei Steven Wu"], "title": "Orthogonal random forest for causal inference", "venue": "arXiv preprint arXiv:1806.03467,", "year": 2018}, {"authors": ["Dylan J Foster", "Vasilis Syrgkanis"], "title": "Orthogonal statistical learning", "venue": "arXiv preprint arXiv:1901.09036,", "year": 2019}, {"authors": ["Judea Pearl", "Dana Mackenzie"], "title": "The Book of Why: The New Science of Cause and Effect", "venue": "Basic Books, Inc., USA,", "year": 2018}, {"authors": ["Aditya Chattopadhyay", "Piyushi Manupriya", "Anirban Sarkar", "Vineeth N Balasubramanian"], "title": "Neural network attributions: A causal perspective", "venue": "arXiv preprint arXiv:1902.02302,", "year": 2019}, {"authors": ["Tanmayee Narendra", "Anush Sankaran", "Deepak Vijaykeerthy", "Senthil Mani"], "title": "Explaining deep learning models using causal inference", "venue": "arXiv preprint arXiv:1811.04376,", "year": 2018}, {"authors": ["Been Kim", "Martin Wattenberg", "Justin Gilmer", "Carrie J. Cai", "James Wexler", "Fernanda B. Vi\u00e9gas", "Rory Sayres"], "title": "Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (tcav)", "year": 2017}, {"authors": ["Yash Goyal", "Amir Feder", "Uri Shalit", "Been Kim"], "title": "Explaining Classifiers with Causal Concept Effect (CaCE). arXiv:1907.07165 [cs, stat", "year": 2020}, {"authors": ["Michel Besserve", "Arash Mehrjou", "R\u00e9my Sun", "Bernhard Sch\u00f6lkopf"], "title": "Counterfactuals uncover the modular structure of deep generative models", "venue": "arXiv preprint arXiv:1812.03253,", "year": 2018}, {"authors": ["Prashan Madumal", "Tim Miller", "Liz Sonenberg", "Frank Vetere"], "title": "Explainable reinforcement learning through a causal lens", "venue": "arXiv preprint arXiv:1905.10958,", "year": 2019}, {"authors": ["Gavin C. Cawley"], "title": "Causal & non-causal feature selection for ridge regression", "venue": "Proceedings of the Workshop on the Causation and Prediction Challenge at WCCI 2008,", "year": 2008}, {"authors": ["Constantin F Aliferis", "Ioannis Tsamardinos", "Alexander Statnikov"], "title": "Hiton: a novel markov blanket algorithm for optimal variable selection", "venue": "In AMIA annual symposium proceedings,", "year": 2003}, {"authors": ["Jonas Peters", "Peter B\u00fchlmann", "Nicolai Meinshausen"], "title": "Causal inference using invariant prediction: identification and confidence intervals", "venue": "arXiv e-prints, page arXiv:1501.01332,", "year": 2015}, {"authors": ["Rory Mc Grath", "Luca Costabello", "Chan Le Van", "Paul Sweeney", "Farbod Kamiab", "Zhao Shen", "Freddy Lecue"], "title": "Interpretable Credit Application Predictions With Counterfactual Explanations", "venue": "[cs],", "year": 2018}, {"authors": ["Sandra Wachter", "Brent Mittelstadt", "Chris Russell"], "title": "Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR", "venue": "[cs],", "year": 2018}, {"authors": ["Amit Dhurandhar", "Pin-Yu Chen", "Ronny Luss", "Chun-Chen Tu", "Paishun Ting", "Karthikeyan Shanmugam", "Payel Das"], "title": "Explanations based on the missing: Towards contrastive explanations with pertinent negatives", "venue": "In Advances in neural information processing systems,", "year": 2018}, {"authors": ["Arnaud Van Looveren", "Janis Klaise"], "title": "Interpretable Counterfactual Explanations Guided by Prototypes", "venue": "[cs, stat],", "year": 2020}, {"authors": ["Ramaravind K. Mothilal", "Amit Sharma", "Chenhao Tan"], "title": "Explaining machine learning classifiers through diverse counterfactual explanations", "venue": "In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency,", "year": 2020}, {"authors": ["Berk Ustun", "Alexander Spangher", "Yang Liu"], "title": "Actionable recourse in linear classification", "venue": "In Proceedings of the Conference on Fairness, Accountability, and Transparency,", "year": 2019}, {"authors": ["Chris Russell"], "title": "Efficient Search for Diverse Coherent Explanations", "venue": "In Proceedings of the Conference on Fairness, Accountability, and Transparency - FAT*", "year": 2019}, {"authors": ["Andr\u00e9 Artelt", "Barbara Hammer"], "title": "Convex density constraints for computing plausible counterfactual explanations", "venue": "arXiv preprint arXiv:2002.04862,", "year": 2020}, {"authors": ["Shubham Sharma", "Jette Henderson", "Joydeep Ghosh"], "title": "Certifai: Counterfactual explanations for robustness, transparency, interpretability, and fairness of artificial intelligence models", "year": 1905}, {"authors": ["Zhou Wang", "A.C. Bovik", "H.R. Sheikh", "E.P. Simoncelli"], "title": "Image quality assessment: from error visibility to structural similarity", "venue": "IEEE Transactions on Image Processing,", "year": 2004}, {"authors": ["Rafael Poyiadzi", "Kacper Sokol", "Raul Santos-Rodriguez", "Tijl De Bie", "Peter Flach"], "title": "Face: Feasible and actionable counterfactual explanations", "venue": "In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society,", "year": 2020}, {"authors": ["Alex Goldstein", "Adam Kapelner", "Justin Bleich", "Emil Pitkin"], "title": "Peeking inside the black box: Visualizing statistical learning with plots of individual conditional expectation", "venue": "Journal of Computational and Graphical Statistics,", "year": 2015}, {"authors": ["Qingyuan Zhao", "Trevor Hastie"], "title": "Causal interpretations of black-box models", "venue": "Journal of Business & Economic Statistics,", "year": 2019}, {"authors": ["Finale Doshi-Velez", "Been Kim"], "title": "Towards a rigorous science of interpretable machine learning", "venue": "arXiv preprint arXiv:1702.08608,", "year": 2017}, {"authors": ["Joseph Jay Williams", "Juho Kim", "Anna Rafferty", "Samuel Maldonado", "Krzysztof Z. Gajos", "Walter S. Lasecki", "Neil Heffernan"], "title": "Axis: Generating explanations at scale with learnersourcing and machine learning", "venue": "In Proceedings of the Third (2016) ACM Conference on Learning @ Scale,", "year": 2016}, {"authors": ["Robert R Hoffman", "Shane T Mueller", "Gary Klein", "Jordan Litman"], "title": "Metrics for explainable ai: Challenges and prospects", "venue": "arXiv preprint arXiv:1812.04608,", "year": 2018}, {"authors": ["Timor Kadir", "Michael Brady"], "title": "Saliency, scale and image description", "venue": "Int. J. Comput. Vision,", "year": 2001}, {"authors": ["Mukund Sundararajan", "Ankur Taly", "Qiqi Yan"], "title": "Axiomatic attribution for deep networks", "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume", "year": 2017}, {"authors": ["Michael Harradon", "Jeff Druce", "Brian Ruttenberg"], "title": "Causal learning and explanation of deep neural networks via autoencoded activations", "venue": "arXiv preprint arXiv:1802.00541,", "year": 2018}, {"authors": ["Rajeev H Dehejia", "Sadek Wahba"], "title": "Propensity score-matching methods for nonexperimental causal studies", "venue": "Review of Economics and statistics,", "year": 2002}, {"authors": ["Huigang Chen", "Totte Harinen", "Jeong-Yoon Lee", "Mike Yung", "Zhenyu Zhao"], "title": "Causalml: Python package for causal machine learning, 2020", "year": 2020}, {"authors": ["Yan Zhao", "Xiao Fang", "David Simchi-Levi"], "title": "Uplift Modeling with Multiple Treatments and General Response Types", "venue": "arXiv e-prints, page arXiv:1705.08492,", "year": 2017}, {"authors": ["Nicholas J Radcliffe", "Patrick D Surry"], "title": "Real-world uplift modelling with significance-based uplift trees. White Paper TR-2011-1", "venue": "Stochastic Solutions,", "year": 2011}, {"authors": ["Diviyan Kalainathan", "Olivier Goudet"], "title": "Causal Discovery Toolbox: Uncover causal relationships in Python", "venue": "arXiv e-prints, page arXiv:1903.02278,", "year": 1903}, {"authors": ["Jakob Runge", "Peer Nowack", "Marlene Kretschmer", "Seth Flaxman", "Dino Sejdinovic"], "title": "Detecting and quantifying causal associations in large nonlinear time series datasets", "venue": "Science Advances,", "year": 2019}, {"authors": ["J. Runge"], "title": "Causal network reconstruction from time series: From theoretical assumptions to practical estimation", "venue": "Chaos: An Interdisciplinary Journal of Nonlinear Science,", "year": 2018}, {"authors": ["Jakob Runge"], "title": "Conditional independence testing based on a nearestneighbor estimator of conditional mutual information", "venue": "arXiv preprint arXiv:1709.01447,", "year": 2017}, {"authors": ["Jakob Runge", "Vladimir Petoukhov", "Jonathan F Donges", "Jaroslav Hlinka", "Nikola Jajcay", "Martin Vejmelka", "David Hartman", "Norbert Marwan", "Milan Palu\u0161", "J\u00fcrgen Kurths"], "title": "Identifying causal gateways and mediators in complex spatio-temporal systems", "venue": "Nature communications,", "year": 2015}, {"authors": ["Jakob Runge"], "title": "Quantifying information transfer and mediation along causal pathways in complex systems", "venue": "Physical Review E,", "year": 2015}, {"authors": ["Yikun Xian", "Zuohui Fu", "S Muthukrishnan", "Gerard De Melo", "Yongfeng Zhang"], "title": "Reinforcement knowledge graph reasoning for explainable recommendation", "venue": "In Proceedings of the 42nd International ACM SIGIR Conference on Research and Development in Information Retrieval,", "year": 2019}], "sections": [{"text": "Index Terms\u2014Interpretable Machine Learning, Causal Inference, Counterfactual Explanation, Causal Feature, Causal Interpretability\nI. INTRODUCTION\nIn the past decades, machine learning has achieved the impressive performance in diverse tasks, and is increasingly applied in science, society and business. However, most of state-of-the-art models remained incomprehensible for both researchers, users and engineers, causing difficulties when deploying in real world. Specifically, there are several highstake decision-making domains such as self-driving cars, crime prediction or personalized medicine in which the lack of transparency in machine learning prevents themselves from being adopted. Take for instance, in the healthcare sector where each decision can affect the people\u2019s survival, physicians are frequently concerned about the safety and trust of any deployed models. They do not likely trust the model\u2019s prediction if they can not understanding the rationales behind it. Consequently, interpretability in machine learning plays a significantly important role in generating trust-worthy models. This furthermore allows researchers, data scientists and engineers to ensure the models following the human understanding, ethnic codes, fairness and security. We as human have an insatiable curious nature; thus, our goal is not only to understand models\u2019 mechanism but also to generate and extract new knowledge of the world.\nIn view of the time of explanation generation shown in Figure 1, interpretable machine learning can be divided into two branches: ad-hoc and post-hoc methods. The evolutionary history of noticeable traditional interpretable machine learning techniques is briefly described in the Figure 1. The ad-hoc\ntype focuses on building the model architecture, algorithms or mechanisms that are self-explainable and transparent. Intrinsically interpretable models are the central research in the early years of artificial intelligence with the dominance of symbolism methods, followed by more advanced approaches such as decision sets [1], generalized linear regression, generalized additive model [2]\u2013[4], Bayesian probabilistic model [5], [6], rule-based model [7], [8], attention mechanism [9], fuzzy inference systems [10]\u2013[12], TabNet [9], etc. With the rapid growth of deep learning in recent decades, machine learning model is gradually evolved into complicated and incomprehensible form, which leads to the increasing attention on post-hoc interpretations. Several prominent approaches in this category include Local surrogate models (LIME [13], SHAP [14], LORE [15], etc), influence functions [16] and feature importance estimation [17], [18] have been introduced.\nHowever, traditional interpretable machine learning focuses on the association instead of the causality. With the emergence of causal inference, an increasing number of causality-oriented methods have been proposed in interpretable machine learning. In comparison with traditional methods, causal approaches can be utilized to identify causes and effects of models architecture or conduct the reasoning over its decisions and behaviors. This article examines the overview of interpretable machine learning, presents the causal analysis in machine learning interpretability and finally discusses the future research directions. More specifically, we first present the background of causal analysis with key concepts, models and evaluation metrics. We then provide an overview of state-of-the-art works on causal interpretability. We also illustrate the potential evaluation metrics used in interpretable machine learning."}, {"heading": "II. CAUSALITY ANALYSIS", "text": "Causality analysis can exploit the causality mechanisms underlying the data-generating process, which is more advanced than the predictive or descriptive capability in machine learning techniques. Causal inference and causal discovery are two main research topics for causality analysis. The goal of causal inference is to estimate the causal effect of treatment (i.e., a decision made or action taken) on the outcome (i.e., the result of treatment). Causal discovery examines whether a set of causal relationships exists among the variables. This paper would primarily focus on causal effect, which is more correlated to machine learning interpretability.\ni\nar X\niv :2\n00 6.\n16 78\n9v 1\n[ cs\n.L G\n] 2\n7 Ju\nn 20\n20"}, {"heading": "A. Causal Inference", "text": "Causal inference has been widely applied in econometric, social science and medicine fields for evaluating the policy\u2019s effect or the drugs\u2019 side effect. Effect estimation is tied to the outcome caused by the treatment applied to an instance. An instance is the atomic research object, which can be a physical object or an individual person. Treatment and outcome are terms that denote a decision made or action taken and its result, respectively. We first introduce the essential concepts for learning treatment effect followed by the causal models.\n\u2022 Covariates X refers to the background variables or features of the instance. \u2022 Treatment T refers to the action (manipulation or intervention) that applies to a instance. \u2022 Outcome Y is the result of the treatment applied on a instance. \u2022 Confounder Z is a variable which causally affects both treatment and outcome.\nTo better understand causal inference, we give the following example combined with the notations defined above. To prove the efficiency of the medication on the disease, the scientist needs to assess its positive effect into the patients\u2019 recovery rate. Figure 2 depicts the corresponding causal relationships among the essential variables. The treatment T is whether the drugs are applied or not, and the observed features X are the patients\u2019 condition such as the level of insulin and cholesterol, heart rate, etc. Outcome Y is the recovery rate and age is the confounder Z. This is simply because age firstly determined the need of applying medication into patients, since the young people may not necessarily take the medicine. Age also affects to the recovery rate: the youth has a higher probability to recover than the elderly."}, {"heading": "B. Causal Models", "text": "We now introduce the two most important formal frameworks used for causal inference, namely the structural causal models and the potential outcome framework.\nStructural causal model [19] consists of two main components: the causal graph and structural equations. Causal graph is the probabilistic graphical model which is used to represent the assumption about prior knowledge and data generating process. A causal graph is defined as G = \u3008V, E\u3009 where V is the set of nodes and E is the set of edges. Structural equation is a set of equations Eq. (1) which are used to represent the\nii\ncausal effect illustrated by the edge in the causal graph.\nX = fX(EX),\nT = fT (X,ET ).\nY = fY (X,D,EY )\n(1)\nwhere EX , ET , EY are exogenous variables, which are independent from other models\u2019 variable, and are determined outside the model.\nPotential outcome framework is proposed by Neyman and Rubin [20]. Considering binary treatments for a set of units, there are two possible outcomes for each unit. The unit will be assigned to the control treatment if T = 0, or to the treated treatment if T = 1. As a result, we denote two potential outcomes Y0 and Y1 as the results caused by T = 0 and T = 1, respectively. Importantly, only one potential outcome is observed corresponds to the assigned treatment T , and we call this as the observed (factual) outcome Y . The unobserved potential outcome refers to the counterfactual outcome. Given the treatment Ti, the relationship between the observed outcome Y and two potential outcomes are\nYi = TiY1 + (1\u2212 Ti)Y0 (2)"}, {"heading": "C. Treatment Effect Metric", "text": "With the key concepts and causal models, the treatment effect can be measured at the population, treated group, subgroup, and individual level. For simplicity, we discuss the treatment effect under the binary treatment, and it can be easily extended to multiple treatments by considering multiple potential outcomes.\nThe individual treatment effect (ITE) is defined as the change of Y0 and Y1, while keeping the covariates X unchanged (i.e., condition on those covariates). For an instance i with covariates Xi, its corresponding ITE is\nITE(Xi) = E[Y1|Xi]\u2212 E[Y0|Xi] (3)\nAs only one potential outcome is observed, it is nearly impossible to estimate the effect at the individual level. A more feasible way is to measure treatment effect at the average level.\nThe average treatment effect (ATE) measures the treatment effect at the whole population level as\nATE = E[Y1 \u2212 Y0] (4)\nThe average treatment effect (ATT) is for the group of instances with the treatment equal to 1, i.e., the treated group.\nATT = E[Y1 \u2212 Y0|T = 1] (5)\nConditional average treatment effect (CATE) known as heterogeneous treatment effect is defined on the subgroup with the particular covariate X = x.\nCATE = E[Y1 \u2212 Y0|X = x] (6)"}, {"heading": "D. Tools for Causal Analysis", "text": "Several libraries or tools are available for causal inference. Examples including Double Machine Learning [21], Metalearners [22], Orthogonal Learning [23], [24] have been supported by EconML, CausalML, DoWhy and CausalNex, whereas causal discovery methods including graph inference and pairwise inference are provided in Causal Discovery Toolbox. Meanwhile, TIGRAMITE is a novel framework for causal discovery in time series. We summarize the existing toolboxes in Table I.\nIII. INTERPRETABLE MACHINE LEARNING WITH CAUSALITY\nPearl [25] argues that causal reasoning is indispensable for machine learning to reach the human-level artificial intelligence, since it is the basic mechanism of human to be aware of the world. As a result, causal methodology is gradually becoming a vitally important component in explainable and interpretable machine learning. However, most of current interpretability techniques pay attention to solving the correlation statistic rather than the causation. Therefore, the causal approaches should be emphasized to achieve a higher degree of interpretability."}, {"heading": "A. Model-Agnostic Causality for Deep Neural Neworks", "text": "The traditional way to analyze Deep Neural Network is to build several models with different architectures and make a comparison between their performances. The problem is that re-training DNNs is computationally expensive, and infeasible when it comes to the complicated architecture. Inspired by causal model, several methods have been proposed to interpret neural network model.\nChattopadhyay et al. [26] define ACEydo(xi=\u03b1) as the causal attribution of neuron xi to the output neuron yi, and E[y|do(xi = \u03b1)] as the interventional expectation Eq. (7). The polynomial function is selected to estimate this value.\nE[y|do(xi = \u03b1)] = \u222b yp(y|do(xi = \u03b1))dy (7)\nNarendra et al. [27] propose to construct a modified structural causal model as an abstraction of a DNN to make an reasoning over its elements. Thereafter, they rank each component based on their contribution to the final prediction for evaluation.\nBased on TCAV [28] which generates a high-level conceptbased explanation such as gender, race, background, others, the study in [29] evaluates the causal concept effect on a neural network prediction. They overcome the problem of do-operator by using Variational AutoEncoder (VAE).\nRegarding Generative Adversarial Networks (GANs) interpretability, Bau et al. [30] proposes an approach for visualization and understanding at unit-, object-, and scene- level by estimating the causal effect of the models\u2019 interpretable components. There are two main steps in their approach: dissection and intervention. In the dissection step, the classes with the explicit representation are firstly identified. Thereafter, they\niii\nmake an intervention by forcing the units to be appeared and disappeared, and calculate its causal effect. Meanwhile, the authors [31] propose a causal framework to explore the intervention effect for proving that the components in images generated by GAN can be modified independently.\nIn terms of reinforcement learning, action influence model [32] is introduced for explaining the behavior of RL agents. They construct a modified structural causal model, learn the causal equation as the regression model during training the agent, and finally generate the contrastive explanation to answer the counterfactual question \u201dWhy does the agent choose action A instead of action B?\u201d."}, {"heading": "B. Post-hoc Interpretability", "text": "Model-Agnostic explanations are particular challenging when the models\u2019 parameters have more complex relationships. To further aid the intepretability, the practitioners propose a variety of post-hoc interpretability methods to exploit what a trained model has learned, without changing the underlying model. Most widely useful post-hoc interpretation methods fall into two main categories: causal feature learning and counterfactual explanations, respectively.\n1) Casual Feature Learning: Recent work on feature learning derives the subset of features that have causal contributions to the models\u2019 prediction. Early causal feature learning is to find the Markov Blanket (MB) containing a set of features which makes the target (T) independent from other features given MB(T). In the study [33], the authors firstly use the HITON algorithm [34] to derive the Markov Blanket, and thereafter deploy Max-Min Hill-Climbing (MMHC) algorithm to identify the causes and effects of the target variable. Given the number of transfer learning tasks D, Peters et al. [35] assume that there exists a subset of features XS\u2217 such that the conditional distribution Yk|XS\u2217 is the same for different tasks k, and other settings Eq. (8). They propose an algorithm called subset search which samples the subset features, and then adopt the Levene test to assess the assumption.\nYk|XkS\u2217 \u2248 Y \u2032k|Xk \u2032 S\u2217 \u2200k, k\u2032 \u2208 1, ..., D (8)\nCXPlain [18] is the causal framework that can explain more complex machine learning models by estimating the feature importance. Granger-causal objective is introduced to quantify how much the exclusion of a single feature reduces model performance. Particularly, CXPlain trains a separate explanation model to any predictor f by optimizing a Grangercausal objective. CXPlain can also estimate the uncertainty of features importance by calculating confidence interval (CI).\n2) Counterfactual Explanation: Counterfactual explanation is the example-based model-agnostic method which generates new instances that would change the models\u2019 prediction. The prominent example [36] in this research is that one person x with the annual income a and the current balance b has been rejected a loan by the financial institution, so how she/he can change her/his income and balance to a\u2032 and b\u2032 in order to receive the loan. Given the set of points P , in order to generate\nthe set of counterfactual samples F , the objective function of counterfactual explanation [37] is to optimize the following function:\narg min x max \u03bb\n(\u03bb \u00b7 (f\u0302(x\u2032)\u2212 y\u2032)2 + d(x, x\u2032))\nd(xi, x \u2032) = \u2211 k\u2208F | xk \u2212 x\u2032k | MADk\nMADk = median (j\u2208P) (|Xj,k \u2212median (l\u2208P) (Xl,k)|)\n(9)\nwhere x is an original instance, x\u2032 is the counterfactual instance which close to x, y\u2032 is the target class label for x\u2032, \u03bb is the regularized parameter, d(x, x\u2032) denotes the distance between the original instance and the counterfactual samples, MADk is the median absolute deviation for feature k.\nGrath et al. [36] extend d(x, x\u2032) in Eq. (9) by adding a weight vector \u0398. The vector \u0398 is used to evaluate models\u2019 feature importance, and can be obtained by many algorithms such as K-Nearest Neighbors or global feature evaluation. Dhurandhar et al. [38] combine the loss function generated from Convolutional AutoEncoder, while Arnaud [39] uses the prototypes function to ensure that the generated perturbation falls into the same distribution with the original data as well as increasing the computational speed without tuning too many parameters. Additionally, the counterfactual samples should be as diverse as possible; the study [40] proposes to use determinant of kernel matrix to illustrate this property.\nTo empower the capability of counterfactual explanations, constraints are considered in optimization problem of counterfactual explanation. Take for example, a person cannot decrease his age, or change his race and skin color. Recent work [41], [42] adopt Mixed Integer Programming (MIP) formulation to deal with categorical, numeric and mixed data type. Meanwhile, Artelt et al. [43] propose convex density constraints to generate counterfactual located in a region of the data space. Specifically, the density constraint p\u0302y \u2265 \u03b4 denoted by a kernel density estimator or a Gaussian mixture model is added into the distance function d(x, x\u2032).\nCERTIFAI [44] proposed by Sharma et al. as a novel and flexible approach which can be used in any type of data. CERTIFAI uses the customized genetic algorithm to choose individuals that have the best fitness scores defined as follows.\nfitness = 1\nd(x, x\u2032)\nd(x, x\u2032) =\n{ nx\u2032on n l1(x,x \u2032) + ncatn simp(x,x \u2032) tabular data\n1 SSIM(x,x\u2032) image data\nFor tabular data, CERTIFAI chooses l1 norm for continuous features and a simple matching distance for categorical features (simp). For image data, Structural Similarity Index Measure (SSIM) [45] measures the similarity of what humans consider. ncon and ncat are the number of continuous features and categorical features, respectively.\niv\nInstead of identifying the minimum changes leading to the desired outcome, a new line of counterfactual explanations provides feasible paths to transform a selected instance into one that meets a certain goal. FACE [46] proposed by Poyiadzi et al. constructs a graph over the data points with the weights illustrating the feasible degree to transit between two vertices. FACE thereafter can be solved by the Disjstra algorithm to find the shortest path from the original instance to the counterfactual one.\nC. Visualization of Causal Effect\nVisualization-based method is another commonplace approach for quick understanding what the models have learned. Partial dependence plot (PDP) [47] depicts the marginal effect of features into the predicted outcomes. The partial dependence function is defined as:\nf\u0302xS (xS) = ExC [ f\u0302(xS , xC) ] = \u222b f\u0302(xS , xC)p(xC)dxC\n(10) Zhao et al. [48] use Partial dependence plot (PDP) an its extension called Individual Conditional Expectation (ICE) to extract the causal information from machine learning model. These visualization tools allow to measure the predictions\u2019 change after making an intervention, which can help to discover the features\u2019 causal relationship."}, {"heading": "IV. EVALUATION", "text": "Evaluation in causal interpretability is an extremely difficult task, at least in the current stage, since there are nearly no grouthtruth data to evaluate the methods\u2019 performance. Evaluation for traditional interpretable machine learning evaluation can be classified into three categories [49]: applicationbased, human-based and function-based. We apply the same category and focus on evaluations that can be used in causal interpretability."}, {"heading": "A. Application-based", "text": "In real-world scenario where the machine learning model is deployed to assist experts, application-based evaluation illustrates how well the models provide explanations to human experts for improving their performance in specific tasks. Take for example, a randomized experiment [50] is conducted among a group of learner to solve the problems. They then rate the explanation generated by the machine learning models. With the assistance of models, the performance of people in different tasks is proved to be improved."}, {"heading": "B. Human-based", "text": "Human-based evaluation methods refer to evaluate the performance of interpretable models with the assistance of human. Madumal et al. [32] generate explanation for the reinforcement learning. They implement an RL agent, and conduct an experiment running on StarCraft II, a strategic game, with 120 participants. Explanation Satisfactory Scale [51] is defined as the degree of human understanding of the AI system to measure the quality of generated explanations."}, {"heading": "C. Function-based", "text": "Functional-based evaluation methods can be carried out without the assistance of human to evaluate the performance of the explanation model. There are some evaluation procedures for different techniques in Section IV:\n1) Causal Interpretability for DNN: The lack of ground truth for feature effect makes it challenging to evaluate the performance of causal effect estimation. Chattopadhyay et al. [26] compare the salient map [52] generated by causal attribution method with Integrated Gradient [53]. Harradon etc al. [54] identify the components having the significant causal effects into the individual prediction. Specifically, they conduct the experiments in three different architectures VGG 19 in Birds200, VGG 16 and 6-layer cov network applied in Inria dataset. Thereafter, they make a query for an individual input, and then visualize top k variables according to their causal effect.\n2) Counterfactual Explanations: A previous research [40] suggests that there are three main metrics to evaluate the counterfactual explanation: proximity, diversity and sparsity. The proximity is to reflect the similarity between the CF examples and the original one which was calculated as the mean proximity all over the examples. Meanwhile, the diversity measures the mean of the distances between the pairs of samples, ensuring that the generated instances should be as diverse as possible. Finally, the sparsity is the average number of changes converting CF examples to the original one.\nproximity = \u22121 k k\u2211 i=1 dist(xcfi , x)\ndiversity = 1\nCk2 k\u22121\u2211 i=1 k\u2211 j=i+1 dist(xcfi , xcfj )\nsparsity = 1\u2212 1 k \u00b7 d k\u2211 i=1 d\u2211 l=1 1[xlcfi 6\u2261 x l i]\n(11)\nwith xcf and x are the counterfactual samples and original instance, respectively, dist(xcfi , xcfj ) illustrates the distance between two generated counterfactual instances, d is the number of input features, k is the number of counterfactual samples to be generated."}, {"heading": "V. OPEN QUESTIONS AND DISCUSSIONS", "text": "The need of explaining and interpreting models becomes highly critical along with the growing popularity of deep learning and automated machine learning. Although, there are currently several studies in this field, several open problems still remain unresolved.\n1) Counterfactual explanation in classification tasks. There are a plethora of constraints, especially features\u2019 causal relationship, should be taken into consideration when adopting counterfactual explanation. Take for example, the counterfactual explanation cannot recommend the users to change sensitive and discriminative features such as race and gender in order to be accepted by the system. Therefore, its reasonability\nv\nand feasibility should be discovered and investigated more strictly.\n2) Counterfactual explanation in recommendation system and time series data. Although recommendation system gains the immense popularity these days, there are not many studies working on counterfactual explanation for such system. How we can make an intervention into human actions to enable the system to change their recommended items still remains an open question. Meanwhile, regarding time series data, it is also interesting to discover that what the model would change its prediction if we change something in the past.\n3) Causal reasoning in knowledge graph. Knowledge graph is recently utilized as an effective tool in several tasks such as recommendation system, knowledge extraction, classification, etc. Instead of embedding the knowledge graph as the latent features, Xian et al. [68] state that the true intelligent recommendation systems have to own the ability to recommend their items based on their causal reasoning.\n4) Explanation understandable by non-experts. A number of recent methods frequently provide the explanations to experts and researchers rather than the end-users. Therefore, another challenge is to generate explanation under the form such as rules, natural language, images, etc which can allow nonprofessional people to catch up with machine learning model behaviors."}, {"heading": "VI. CONCLUSION", "text": "Interpretable machine learning is expected to become a mainstream topic in the foreseeable future. This paper provides the desiderata and brief overview of causal inference, followed by the causality based interpretable machine learning. We present two main causal approaches for interpretable machine learning including feature importance estimation, causal effects of model components, and counterfactual explanation. Finally, we has discussed several potentially unresolved problems in this field which open opportunities for researchers to work in.\nIn machine learning, the more data the better. However, in causal inference, the more data alone is not yet enough. Having more data only helps to get more precise estimates, but it cannot make sure these estimates are correct and unbiased. Machine learning methods enhance the development\nof causal inference, meanwhile, causal inference also helps machine learning methods. The simple pursuit of predictive accuracy is insufficient for modern machine learning research, and correctness and interpretability are also the targets of machine learning methods. Causal inference is starting to help to improve machine learning, such as recommender systems or reinforcement learning."}], "title": "Causality Learning: A New Perspective for Interpretable Machine Learning", "year": 2020}
+{
+  "abstractText": "Recent years have witnessed the rapid growth of machine learning in a wide range of fields such as image recognition, text classification, credit scoring prediction, recommendation system, etc. In spite of their great performance in different sectors, researchers still concern about the mechanism under any machine learning (ML) techniques that are inherently blackbox and becoming more complex to achieve higher accuracy. Therefore, interpreting machine learning model is currently a mainstream topic in the research community. However, the traditional interpretable machine learning focuses on the association instead of the causality. This paper provides an overview of causal analysis with the fundamental background and key concepts, and then summarizes most recent causal approaches for interpretable machine learning. The evaluation techniques for assessing method quality, and open problems in causal interpretability are also discussed in this paper.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Guandong Xu"
+    },
+    {
+      "affiliations": [],
+      "name": "Tri Dung Duong"
+    },
+    {
+      "affiliations": [],
+      "name": "Qian Li"
+    },
+    {
+      "affiliations": [],
+      "name": "Shaowu Liu"
+    },
+    {
+      "affiliations": [],
+      "name": "Xianzhi Wang"
+    }
+  ],
+  "id": "SP:66ad67bcade392dd12cd00c69c1043dbd7277e59",
+  "references": [
+    {
+      "authors": [
+        "Himabindu Lakkaraju",
+        "Stephen H Bach",
+        "Jure Leskovec"
+      ],
+      "title": "Interpretable decision sets: A joint framework for description and prediction",
+      "venue": "In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Xuezhou Zhang",
+        "Sarah Tan",
+        "Paul Koch",
+        "Yin Lou",
+        "Urszula Chajewska",
+        "Rich Caruana"
+      ],
+      "title": "Axiomatic interpretability for multiclass additive models",
+      "venue": "In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Rich Caruana",
+        "Yin Lou",
+        "Johannes Gehrke",
+        "Paul Koch",
+        "Marc Sturm",
+        "Noemie Elhadad"
+      ],
+      "title": "Intelligible Models for HealthCare: Predicting Pneumonia Risk and Hospital 30-day Readmission",
+      "venue": "In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining - KDD",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Xuezhou Zhang",
+        "Sarah Tan",
+        "Paul Koch",
+        "Yin Lou",
+        "Urszula Chajewska",
+        "Rich Caruana"
+      ],
+      "title": "Axiomatic Interpretability for Multiclass Additive Models",
+      "venue": "In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining - KDD",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Paul J Darwen"
+      ],
+      "title": "Bayesian model averaging for river flow prediction",
+      "venue": "Applied Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Benjamin Letham",
+        "Cynthia Rudin",
+        "Tyler H McCormick",
+        "David Madigan"
+      ],
+      "title": "Interpretable classifiers using rules and bayesian analysis: Building a better stroke prediction model",
+      "venue": "The Annals of Applied Statistics,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Tong Wang"
+      ],
+      "title": "Multi-Value Rule Sets",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Benjamin Letham",
+        "Cynthia Rudin",
+        "Tyler H. McCormick",
+        "David Madigan"
+      ],
+      "title": "Interpretable classifiers using rules and Bayesian analysis: Building a better stroke prediction model",
+      "venue": "The Annals of Applied Statistics,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Sercan O Arik",
+        "Tomas Pfister"
+      ],
+      "title": "TabNet: Attentive Interpretable Tabular Learning",
+      "venue": "arXiv preprint arXiv:1908.07442,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J-SR Jang",
+        "C-T Sun"
+      ],
+      "title": "Functional equivalence between radial basis function networks and fuzzy inference systems",
+      "venue": "IEEE transactions on Neural Networks,",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "Serge Guillaume"
+      ],
+      "title": "Designing fuzzy inference systems from data: An interpretability-oriented review",
+      "venue": "IEEE Transactions on fuzzy systems,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Jeen-Shing Wang",
+        "CS George Lee"
+      ],
+      "title": "Self-adaptive neuro-fuzzy inference systems for classification applications",
+      "venue": "IEEE Transactions on Fuzzy Systems,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why should i trust you?\u201d Explaining the predictions of any classifier",
+      "venue": "In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Scott M Lundberg",
+        "Su-In Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Riccardo Guidotti",
+        "Anna Monreale",
+        "Salvatore Ruggieri",
+        "Dino Pedreschi",
+        "Franco Turini",
+        "Fosca Giannotti"
+      ],
+      "title": "Local rule-based explanations of black box decision systems",
+      "venue": "arXiv preprint arXiv:1805.10820,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Pang Wei Koh",
+        "Percy Liang"
+      ],
+      "title": "Understanding black-box predictions via influence functions",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Patrick Schwab",
+        "Djordje Miladinovic",
+        "Walter Karlen"
+      ],
+      "title": "Granger- Causal Attentive Mixtures of Experts: Learning Important Features with Neural Networks",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Patrick Schwab",
+        "Walter Karlen"
+      ],
+      "title": "CXPlain: Causal Explanations for Model Interpretation under Uncertainty",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Judea Pearl"
+      ],
+      "title": "Causal inference in statistics: An overview",
+      "venue": "Statistics Surveys, 3:96\u2013146,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Donald B Rubin"
+      ],
+      "title": "Estimating causal effects of treatments in randomized and nonrandomized studies",
+      "venue": "Journal of educational Psychology,",
+      "year": 1974
+    },
+    {
+      "authors": [
+        "Victor Chernozhukov",
+        "Denis Chetverikov",
+        "Mert Demirer",
+        "Esther Duflo",
+        "Christian Hansen",
+        "Whitney Newey",
+        "James Robins"
+      ],
+      "title": "Double/debiased machine learning for treatment and causal parameters",
+      "venue": "arXiv preprint arXiv:1608.00060,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "S\u00f6ren R. K\u00fcnzel",
+        "Jasjeet S. Sekhon",
+        "Peter J. Bickel",
+        "Bin Yu"
+      ],
+      "title": "Metalearners for estimating heterogeneous treatment effects using machine learning",
+      "venue": "Proceedings of the National Academy of Sciences,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Miruna Oprescu",
+        "Vasilis Syrgkanis",
+        "Zhiwei Steven Wu"
+      ],
+      "title": "Orthogonal random forest for causal inference",
+      "venue": "arXiv preprint arXiv:1806.03467,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Dylan J Foster",
+        "Vasilis Syrgkanis"
+      ],
+      "title": "Orthogonal statistical learning",
+      "venue": "arXiv preprint arXiv:1901.09036,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Judea Pearl",
+        "Dana Mackenzie"
+      ],
+      "title": "The Book of Why: The New Science of Cause and Effect",
+      "venue": "Basic Books, Inc., USA,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Aditya Chattopadhyay",
+        "Piyushi Manupriya",
+        "Anirban Sarkar",
+        "Vineeth N Balasubramanian"
+      ],
+      "title": "Neural network attributions: A causal perspective",
+      "venue": "arXiv preprint arXiv:1902.02302,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Tanmayee Narendra",
+        "Anush Sankaran",
+        "Deepak Vijaykeerthy",
+        "Senthil Mani"
+      ],
+      "title": "Explaining deep learning models using causal inference",
+      "venue": "arXiv preprint arXiv:1811.04376,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Been Kim",
+        "Martin Wattenberg",
+        "Justin Gilmer",
+        "Carrie J. Cai",
+        "James Wexler",
+        "Fernanda B. Vi\u00e9gas",
+        "Rory Sayres"
+      ],
+      "title": "Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (tcav)",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Yash Goyal",
+        "Amir Feder",
+        "Uri Shalit",
+        "Been Kim"
+      ],
+      "title": "Explaining Classifiers with Causal Concept Effect (CaCE). arXiv:1907.07165 [cs, stat",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Michel Besserve",
+        "Arash Mehrjou",
+        "R\u00e9my Sun",
+        "Bernhard Sch\u00f6lkopf"
+      ],
+      "title": "Counterfactuals uncover the modular structure of deep generative models",
+      "venue": "arXiv preprint arXiv:1812.03253,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Prashan Madumal",
+        "Tim Miller",
+        "Liz Sonenberg",
+        "Frank Vetere"
+      ],
+      "title": "Explainable reinforcement learning through a causal lens",
+      "venue": "arXiv preprint arXiv:1905.10958,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Gavin C. Cawley"
+      ],
+      "title": "Causal & non-causal feature selection for ridge regression",
+      "venue": "Proceedings of the Workshop on the Causation and Prediction Challenge at WCCI 2008,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Constantin F Aliferis",
+        "Ioannis Tsamardinos",
+        "Alexander Statnikov"
+      ],
+      "title": "Hiton: a novel markov blanket algorithm for optimal variable selection",
+      "venue": "In AMIA annual symposium proceedings,",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "Jonas Peters",
+        "Peter B\u00fchlmann",
+        "Nicolai Meinshausen"
+      ],
+      "title": "Causal inference using invariant prediction: identification and confidence intervals",
+      "venue": "arXiv e-prints, page arXiv:1501.01332,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Rory Mc Grath",
+        "Luca Costabello",
+        "Chan Le Van",
+        "Paul Sweeney",
+        "Farbod Kamiab",
+        "Zhao Shen",
+        "Freddy Lecue"
+      ],
+      "title": "Interpretable Credit Application Predictions With Counterfactual Explanations",
+      "venue": "[cs],",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Sandra Wachter",
+        "Brent Mittelstadt",
+        "Chris Russell"
+      ],
+      "title": "Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR",
+      "venue": "[cs],",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Amit Dhurandhar",
+        "Pin-Yu Chen",
+        "Ronny Luss",
+        "Chun-Chen Tu",
+        "Paishun Ting",
+        "Karthikeyan Shanmugam",
+        "Payel Das"
+      ],
+      "title": "Explanations based on the missing: Towards contrastive explanations with pertinent negatives",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Arnaud Van Looveren",
+        "Janis Klaise"
+      ],
+      "title": "Interpretable Counterfactual Explanations Guided by Prototypes",
+      "venue": "[cs, stat],",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Ramaravind K. Mothilal",
+        "Amit Sharma",
+        "Chenhao Tan"
+      ],
+      "title": "Explaining machine learning classifiers through diverse counterfactual explanations",
+      "venue": "In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Berk Ustun",
+        "Alexander Spangher",
+        "Yang Liu"
+      ],
+      "title": "Actionable recourse in linear classification",
+      "venue": "In Proceedings of the Conference on Fairness, Accountability, and Transparency,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Chris Russell"
+      ],
+      "title": "Efficient Search for Diverse Coherent Explanations",
+      "venue": "In Proceedings of the Conference on Fairness, Accountability, and Transparency - FAT*",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Andr\u00e9 Artelt",
+        "Barbara Hammer"
+      ],
+      "title": "Convex density constraints for computing plausible counterfactual explanations",
+      "venue": "arXiv preprint arXiv:2002.04862,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Shubham Sharma",
+        "Jette Henderson",
+        "Joydeep Ghosh"
+      ],
+      "title": "Certifai: Counterfactual explanations for robustness, transparency, interpretability, and fairness of artificial intelligence models",
+      "year": 1905
+    },
+    {
+      "authors": [
+        "Zhou Wang",
+        "A.C. Bovik",
+        "H.R. Sheikh",
+        "E.P. Simoncelli"
+      ],
+      "title": "Image quality assessment: from error visibility to structural similarity",
+      "venue": "IEEE Transactions on Image Processing,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Rafael Poyiadzi",
+        "Kacper Sokol",
+        "Raul Santos-Rodriguez",
+        "Tijl De Bie",
+        "Peter Flach"
+      ],
+      "title": "Face: Feasible and actionable counterfactual explanations",
+      "venue": "In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Alex Goldstein",
+        "Adam Kapelner",
+        "Justin Bleich",
+        "Emil Pitkin"
+      ],
+      "title": "Peeking inside the black box: Visualizing statistical learning with plots of individual conditional expectation",
+      "venue": "Journal of Computational and Graphical Statistics,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Qingyuan Zhao",
+        "Trevor Hastie"
+      ],
+      "title": "Causal interpretations of black-box models",
+      "venue": "Journal of Business & Economic Statistics,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Finale Doshi-Velez",
+        "Been Kim"
+      ],
+      "title": "Towards a rigorous science of interpretable machine learning",
+      "venue": "arXiv preprint arXiv:1702.08608,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Joseph Jay Williams",
+        "Juho Kim",
+        "Anna Rafferty",
+        "Samuel Maldonado",
+        "Krzysztof Z. Gajos",
+        "Walter S. Lasecki",
+        "Neil Heffernan"
+      ],
+      "title": "Axis: Generating explanations at scale with learnersourcing and machine learning",
+      "venue": "In Proceedings of the Third (2016) ACM Conference on Learning @ Scale,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Robert R Hoffman",
+        "Shane T Mueller",
+        "Gary Klein",
+        "Jordan Litman"
+      ],
+      "title": "Metrics for explainable ai: Challenges and prospects",
+      "venue": "arXiv preprint arXiv:1812.04608,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Timor Kadir",
+        "Michael Brady"
+      ],
+      "title": "Saliency, scale and image description",
+      "venue": "Int. J. Comput. Vision,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Mukund Sundararajan",
+        "Ankur Taly",
+        "Qiqi Yan"
+      ],
+      "title": "Axiomatic attribution for deep networks",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Michael Harradon",
+        "Jeff Druce",
+        "Brian Ruttenberg"
+      ],
+      "title": "Causal learning and explanation of deep neural networks via autoencoded activations",
+      "venue": "arXiv preprint arXiv:1802.00541,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Rajeev H Dehejia",
+        "Sadek Wahba"
+      ],
+      "title": "Propensity score-matching methods for nonexperimental causal studies",
+      "venue": "Review of Economics and statistics,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Huigang Chen",
+        "Totte Harinen",
+        "Jeong-Yoon Lee",
+        "Mike Yung",
+        "Zhenyu Zhao"
+      ],
+      "title": "Causalml: Python package for causal machine learning, 2020",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Yan Zhao",
+        "Xiao Fang",
+        "David Simchi-Levi"
+      ],
+      "title": "Uplift Modeling with Multiple Treatments and General Response Types",
+      "venue": "arXiv e-prints, page arXiv:1705.08492,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Nicholas J Radcliffe",
+        "Patrick D Surry"
+      ],
+      "title": "Real-world uplift modelling with significance-based uplift trees. White Paper TR-2011-1",
+      "venue": "Stochastic Solutions,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Diviyan Kalainathan",
+        "Olivier Goudet"
+      ],
+      "title": "Causal Discovery Toolbox: Uncover causal relationships in Python",
+      "venue": "arXiv e-prints, page arXiv:1903.02278,",
+      "year": 1903
+    },
+    {
+      "authors": [
+        "Jakob Runge",
+        "Peer Nowack",
+        "Marlene Kretschmer",
+        "Seth Flaxman",
+        "Dino Sejdinovic"
+      ],
+      "title": "Detecting and quantifying causal associations in large nonlinear time series datasets",
+      "venue": "Science Advances,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J. Runge"
+      ],
+      "title": "Causal network reconstruction from time series: From theoretical assumptions to practical estimation",
+      "venue": "Chaos: An Interdisciplinary Journal of Nonlinear Science,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Jakob Runge"
+      ],
+      "title": "Conditional independence testing based on a nearestneighbor estimator of conditional mutual information",
+      "venue": "arXiv preprint arXiv:1709.01447,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jakob Runge",
+        "Vladimir Petoukhov",
+        "Jonathan F Donges",
+        "Jaroslav Hlinka",
+        "Nikola Jajcay",
+        "Martin Vejmelka",
+        "David Hartman",
+        "Norbert Marwan",
+        "Milan Palu\u0161",
+        "J\u00fcrgen Kurths"
+      ],
+      "title": "Identifying causal gateways and mediators in complex spatio-temporal systems",
+      "venue": "Nature communications,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Jakob Runge"
+      ],
+      "title": "Quantifying information transfer and mediation along causal pathways in complex systems",
+      "venue": "Physical Review E,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Yikun Xian",
+        "Zuohui Fu",
+        "S Muthukrishnan",
+        "Gerard De Melo",
+        "Yongfeng Zhang"
+      ],
+      "title": "Reinforcement knowledge graph reasoning for explainable recommendation",
+      "venue": "In Proceedings of the 42nd International ACM SIGIR Conference on Research and Development in Information Retrieval,",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "text": "Index Terms\u2014Interpretable Machine Learning, Causal Inference, Counterfactual Explanation, Causal Feature, Causal Interpretability\nI. INTRODUCTION\nIn the past decades, machine learning has achieved the impressive performance in diverse tasks, and is increasingly applied in science, society and business. However, most of state-of-the-art models remained incomprehensible for both researchers, users and engineers, causing difficulties when deploying in real world. Specifically, there are several highstake decision-making domains such as self-driving cars, crime prediction or personalized medicine in which the lack of transparency in machine learning prevents themselves from being adopted. Take for instance, in the healthcare sector where each decision can affect the people\u2019s survival, physicians are frequently concerned about the safety and trust of any deployed models. They do not likely trust the model\u2019s prediction if they can not understanding the rationales behind it. Consequently, interpretability in machine learning plays a significantly important role in generating trust-worthy models. This furthermore allows researchers, data scientists and engineers to ensure the models following the human understanding, ethnic codes, fairness and security. We as human have an insatiable curious nature; thus, our goal is not only to understand models\u2019 mechanism but also to generate and extract new knowledge of the world.\nIn view of the time of explanation generation shown in Figure 1, interpretable machine learning can be divided into two branches: ad-hoc and post-hoc methods. The evolutionary history of noticeable traditional interpretable machine learning techniques is briefly described in the Figure 1. The ad-hoc\ntype focuses on building the model architecture, algorithms or mechanisms that are self-explainable and transparent. Intrinsically interpretable models are the central research in the early years of artificial intelligence with the dominance of symbolism methods, followed by more advanced approaches such as decision sets [1], generalized linear regression, generalized additive model [2]\u2013[4], Bayesian probabilistic model [5], [6], rule-based model [7], [8], attention mechanism [9], fuzzy inference systems [10]\u2013[12], TabNet [9], etc. With the rapid growth of deep learning in recent decades, machine learning model is gradually evolved into complicated and incomprehensible form, which leads to the increasing attention on post-hoc interpretations. Several prominent approaches in this category include Local surrogate models (LIME [13], SHAP [14], LORE [15], etc), influence functions [16] and feature importance estimation [17], [18] have been introduced.\nHowever, traditional interpretable machine learning focuses on the association instead of the causality. With the emergence of causal inference, an increasing number of causality-oriented methods have been proposed in interpretable machine learning. In comparison with traditional methods, causal approaches can be utilized to identify causes and effects of models architecture or conduct the reasoning over its decisions and behaviors. This article examines the overview of interpretable machine learning, presents the causal analysis in machine learning interpretability and finally discusses the future research directions. More specifically, we first present the background of causal analysis with key concepts, models and evaluation metrics. We then provide an overview of state-of-the-art works on causal interpretability. We also illustrate the potential evaluation metrics used in interpretable machine learning."
+    },
+    {
+      "heading": "II. CAUSALITY ANALYSIS",
+      "text": "Causality analysis can exploit the causality mechanisms underlying the data-generating process, which is more advanced than the predictive or descriptive capability in machine learning techniques. Causal inference and causal discovery are two main research topics for causality analysis. The goal of causal inference is to estimate the causal effect of treatment (i.e., a decision made or action taken) on the outcome (i.e., the result of treatment). Causal discovery examines whether a set of causal relationships exists among the variables. This paper would primarily focus on causal effect, which is more correlated to machine learning interpretability.\ni\nar X\niv :2\n00 6.\n16 78\n9v 1\n[ cs\n.L G\n] 2\n7 Ju\nn 20\n20"
+    },
+    {
+      "heading": "A. Causal Inference",
+      "text": "Causal inference has been widely applied in econometric, social science and medicine fields for evaluating the policy\u2019s effect or the drugs\u2019 side effect. Effect estimation is tied to the outcome caused by the treatment applied to an instance. An instance is the atomic research object, which can be a physical object or an individual person. Treatment and outcome are terms that denote a decision made or action taken and its result, respectively. We first introduce the essential concepts for learning treatment effect followed by the causal models.\n\u2022 Covariates X refers to the background variables or features of the instance. \u2022 Treatment T refers to the action (manipulation or intervention) that applies to a instance. \u2022 Outcome Y is the result of the treatment applied on a instance. \u2022 Confounder Z is a variable which causally affects both treatment and outcome.\nTo better understand causal inference, we give the following example combined with the notations defined above. To prove the efficiency of the medication on the disease, the scientist needs to assess its positive effect into the patients\u2019 recovery rate. Figure 2 depicts the corresponding causal relationships among the essential variables. The treatment T is whether the drugs are applied or not, and the observed features X are the patients\u2019 condition such as the level of insulin and cholesterol, heart rate, etc. Outcome Y is the recovery rate and age is the confounder Z. This is simply because age firstly determined the need of applying medication into patients, since the young people may not necessarily take the medicine. Age also affects to the recovery rate: the youth has a higher probability to recover than the elderly."
+    },
+    {
+      "heading": "B. Causal Models",
+      "text": "We now introduce the two most important formal frameworks used for causal inference, namely the structural causal models and the potential outcome framework.\nStructural causal model [19] consists of two main components: the causal graph and structural equations. Causal graph is the probabilistic graphical model which is used to represent the assumption about prior knowledge and data generating process. A causal graph is defined as G = \u3008V, E\u3009 where V is the set of nodes and E is the set of edges. Structural equation is a set of equations Eq. (1) which are used to represent the\nii\ncausal effect illustrated by the edge in the causal graph.\nX = fX(EX),\nT = fT (X,ET ).\nY = fY (X,D,EY )\n(1)\nwhere EX , ET , EY are exogenous variables, which are independent from other models\u2019 variable, and are determined outside the model.\nPotential outcome framework is proposed by Neyman and Rubin [20]. Considering binary treatments for a set of units, there are two possible outcomes for each unit. The unit will be assigned to the control treatment if T = 0, or to the treated treatment if T = 1. As a result, we denote two potential outcomes Y0 and Y1 as the results caused by T = 0 and T = 1, respectively. Importantly, only one potential outcome is observed corresponds to the assigned treatment T , and we call this as the observed (factual) outcome Y . The unobserved potential outcome refers to the counterfactual outcome. Given the treatment Ti, the relationship between the observed outcome Y and two potential outcomes are\nYi = TiY1 + (1\u2212 Ti)Y0 (2)"
+    },
+    {
+      "heading": "C. Treatment Effect Metric",
+      "text": "With the key concepts and causal models, the treatment effect can be measured at the population, treated group, subgroup, and individual level. For simplicity, we discuss the treatment effect under the binary treatment, and it can be easily extended to multiple treatments by considering multiple potential outcomes.\nThe individual treatment effect (ITE) is defined as the change of Y0 and Y1, while keeping the covariates X unchanged (i.e., condition on those covariates). For an instance i with covariates Xi, its corresponding ITE is\nITE(Xi) = E[Y1|Xi]\u2212 E[Y0|Xi] (3)\nAs only one potential outcome is observed, it is nearly impossible to estimate the effect at the individual level. A more feasible way is to measure treatment effect at the average level.\nThe average treatment effect (ATE) measures the treatment effect at the whole population level as\nATE = E[Y1 \u2212 Y0] (4)\nThe average treatment effect (ATT) is for the group of instances with the treatment equal to 1, i.e., the treated group.\nATT = E[Y1 \u2212 Y0|T = 1] (5)\nConditional average treatment effect (CATE) known as heterogeneous treatment effect is defined on the subgroup with the particular covariate X = x.\nCATE = E[Y1 \u2212 Y0|X = x] (6)"
+    },
+    {
+      "heading": "D. Tools for Causal Analysis",
+      "text": "Several libraries or tools are available for causal inference. Examples including Double Machine Learning [21], Metalearners [22], Orthogonal Learning [23], [24] have been supported by EconML, CausalML, DoWhy and CausalNex, whereas causal discovery methods including graph inference and pairwise inference are provided in Causal Discovery Toolbox. Meanwhile, TIGRAMITE is a novel framework for causal discovery in time series. We summarize the existing toolboxes in Table I.\nIII. INTERPRETABLE MACHINE LEARNING WITH CAUSALITY\nPearl [25] argues that causal reasoning is indispensable for machine learning to reach the human-level artificial intelligence, since it is the basic mechanism of human to be aware of the world. As a result, causal methodology is gradually becoming a vitally important component in explainable and interpretable machine learning. However, most of current interpretability techniques pay attention to solving the correlation statistic rather than the causation. Therefore, the causal approaches should be emphasized to achieve a higher degree of interpretability."
+    },
+    {
+      "heading": "A. Model-Agnostic Causality for Deep Neural Neworks",
+      "text": "The traditional way to analyze Deep Neural Network is to build several models with different architectures and make a comparison between their performances. The problem is that re-training DNNs is computationally expensive, and infeasible when it comes to the complicated architecture. Inspired by causal model, several methods have been proposed to interpret neural network model.\nChattopadhyay et al. [26] define ACEydo(xi=\u03b1) as the causal attribution of neuron xi to the output neuron yi, and E[y|do(xi = \u03b1)] as the interventional expectation Eq. (7). The polynomial function is selected to estimate this value.\nE[y|do(xi = \u03b1)] = \u222b yp(y|do(xi = \u03b1))dy (7)\nNarendra et al. [27] propose to construct a modified structural causal model as an abstraction of a DNN to make an reasoning over its elements. Thereafter, they rank each component based on their contribution to the final prediction for evaluation.\nBased on TCAV [28] which generates a high-level conceptbased explanation such as gender, race, background, others, the study in [29] evaluates the causal concept effect on a neural network prediction. They overcome the problem of do-operator by using Variational AutoEncoder (VAE).\nRegarding Generative Adversarial Networks (GANs) interpretability, Bau et al. [30] proposes an approach for visualization and understanding at unit-, object-, and scene- level by estimating the causal effect of the models\u2019 interpretable components. There are two main steps in their approach: dissection and intervention. In the dissection step, the classes with the explicit representation are firstly identified. Thereafter, they\niii\nmake an intervention by forcing the units to be appeared and disappeared, and calculate its causal effect. Meanwhile, the authors [31] propose a causal framework to explore the intervention effect for proving that the components in images generated by GAN can be modified independently.\nIn terms of reinforcement learning, action influence model [32] is introduced for explaining the behavior of RL agents. They construct a modified structural causal model, learn the causal equation as the regression model during training the agent, and finally generate the contrastive explanation to answer the counterfactual question \u201dWhy does the agent choose action A instead of action B?\u201d."
+    },
+    {
+      "heading": "B. Post-hoc Interpretability",
+      "text": "Model-Agnostic explanations are particular challenging when the models\u2019 parameters have more complex relationships. To further aid the intepretability, the practitioners propose a variety of post-hoc interpretability methods to exploit what a trained model has learned, without changing the underlying model. Most widely useful post-hoc interpretation methods fall into two main categories: causal feature learning and counterfactual explanations, respectively.\n1) Casual Feature Learning: Recent work on feature learning derives the subset of features that have causal contributions to the models\u2019 prediction. Early causal feature learning is to find the Markov Blanket (MB) containing a set of features which makes the target (T) independent from other features given MB(T). In the study [33], the authors firstly use the HITON algorithm [34] to derive the Markov Blanket, and thereafter deploy Max-Min Hill-Climbing (MMHC) algorithm to identify the causes and effects of the target variable. Given the number of transfer learning tasks D, Peters et al. [35] assume that there exists a subset of features XS\u2217 such that the conditional distribution Yk|XS\u2217 is the same for different tasks k, and other settings Eq. (8). They propose an algorithm called subset search which samples the subset features, and then adopt the Levene test to assess the assumption.\nYk|XkS\u2217 \u2248 Y \u2032k|Xk \u2032 S\u2217 \u2200k, k\u2032 \u2208 1, ..., D (8)\nCXPlain [18] is the causal framework that can explain more complex machine learning models by estimating the feature importance. Granger-causal objective is introduced to quantify how much the exclusion of a single feature reduces model performance. Particularly, CXPlain trains a separate explanation model to any predictor f by optimizing a Grangercausal objective. CXPlain can also estimate the uncertainty of features importance by calculating confidence interval (CI).\n2) Counterfactual Explanation: Counterfactual explanation is the example-based model-agnostic method which generates new instances that would change the models\u2019 prediction. The prominent example [36] in this research is that one person x with the annual income a and the current balance b has been rejected a loan by the financial institution, so how she/he can change her/his income and balance to a\u2032 and b\u2032 in order to receive the loan. Given the set of points P , in order to generate\nthe set of counterfactual samples F , the objective function of counterfactual explanation [37] is to optimize the following function:\narg min x max \u03bb\n(\u03bb \u00b7 (f\u0302(x\u2032)\u2212 y\u2032)2 + d(x, x\u2032))\nd(xi, x \u2032) = \u2211 k\u2208F | xk \u2212 x\u2032k | MADk\nMADk = median (j\u2208P) (|Xj,k \u2212median (l\u2208P) (Xl,k)|)\n(9)\nwhere x is an original instance, x\u2032 is the counterfactual instance which close to x, y\u2032 is the target class label for x\u2032, \u03bb is the regularized parameter, d(x, x\u2032) denotes the distance between the original instance and the counterfactual samples, MADk is the median absolute deviation for feature k.\nGrath et al. [36] extend d(x, x\u2032) in Eq. (9) by adding a weight vector \u0398. The vector \u0398 is used to evaluate models\u2019 feature importance, and can be obtained by many algorithms such as K-Nearest Neighbors or global feature evaluation. Dhurandhar et al. [38] combine the loss function generated from Convolutional AutoEncoder, while Arnaud [39] uses the prototypes function to ensure that the generated perturbation falls into the same distribution with the original data as well as increasing the computational speed without tuning too many parameters. Additionally, the counterfactual samples should be as diverse as possible; the study [40] proposes to use determinant of kernel matrix to illustrate this property.\nTo empower the capability of counterfactual explanations, constraints are considered in optimization problem of counterfactual explanation. Take for example, a person cannot decrease his age, or change his race and skin color. Recent work [41], [42] adopt Mixed Integer Programming (MIP) formulation to deal with categorical, numeric and mixed data type. Meanwhile, Artelt et al. [43] propose convex density constraints to generate counterfactual located in a region of the data space. Specifically, the density constraint p\u0302y \u2265 \u03b4 denoted by a kernel density estimator or a Gaussian mixture model is added into the distance function d(x, x\u2032).\nCERTIFAI [44] proposed by Sharma et al. as a novel and flexible approach which can be used in any type of data. CERTIFAI uses the customized genetic algorithm to choose individuals that have the best fitness scores defined as follows.\nfitness = 1\nd(x, x\u2032)\nd(x, x\u2032) =\n{ nx\u2032on n l1(x,x \u2032) + ncatn simp(x,x \u2032) tabular data\n1 SSIM(x,x\u2032) image data\nFor tabular data, CERTIFAI chooses l1 norm for continuous features and a simple matching distance for categorical features (simp). For image data, Structural Similarity Index Measure (SSIM) [45] measures the similarity of what humans consider. ncon and ncat are the number of continuous features and categorical features, respectively.\niv\nInstead of identifying the minimum changes leading to the desired outcome, a new line of counterfactual explanations provides feasible paths to transform a selected instance into one that meets a certain goal. FACE [46] proposed by Poyiadzi et al. constructs a graph over the data points with the weights illustrating the feasible degree to transit between two vertices. FACE thereafter can be solved by the Disjstra algorithm to find the shortest path from the original instance to the counterfactual one.\nC. Visualization of Causal Effect\nVisualization-based method is another commonplace approach for quick understanding what the models have learned. Partial dependence plot (PDP) [47] depicts the marginal effect of features into the predicted outcomes. The partial dependence function is defined as:\nf\u0302xS (xS) = ExC [ f\u0302(xS , xC) ] = \u222b f\u0302(xS , xC)p(xC)dxC\n(10) Zhao et al. [48] use Partial dependence plot (PDP) an its extension called Individual Conditional Expectation (ICE) to extract the causal information from machine learning model. These visualization tools allow to measure the predictions\u2019 change after making an intervention, which can help to discover the features\u2019 causal relationship."
+    },
+    {
+      "heading": "IV. EVALUATION",
+      "text": "Evaluation in causal interpretability is an extremely difficult task, at least in the current stage, since there are nearly no grouthtruth data to evaluate the methods\u2019 performance. Evaluation for traditional interpretable machine learning evaluation can be classified into three categories [49]: applicationbased, human-based and function-based. We apply the same category and focus on evaluations that can be used in causal interpretability."
+    },
+    {
+      "heading": "A. Application-based",
+      "text": "In real-world scenario where the machine learning model is deployed to assist experts, application-based evaluation illustrates how well the models provide explanations to human experts for improving their performance in specific tasks. Take for example, a randomized experiment [50] is conducted among a group of learner to solve the problems. They then rate the explanation generated by the machine learning models. With the assistance of models, the performance of people in different tasks is proved to be improved."
+    },
+    {
+      "heading": "B. Human-based",
+      "text": "Human-based evaluation methods refer to evaluate the performance of interpretable models with the assistance of human. Madumal et al. [32] generate explanation for the reinforcement learning. They implement an RL agent, and conduct an experiment running on StarCraft II, a strategic game, with 120 participants. Explanation Satisfactory Scale [51] is defined as the degree of human understanding of the AI system to measure the quality of generated explanations."
+    },
+    {
+      "heading": "C. Function-based",
+      "text": "Functional-based evaluation methods can be carried out without the assistance of human to evaluate the performance of the explanation model. There are some evaluation procedures for different techniques in Section IV:\n1) Causal Interpretability for DNN: The lack of ground truth for feature effect makes it challenging to evaluate the performance of causal effect estimation. Chattopadhyay et al. [26] compare the salient map [52] generated by causal attribution method with Integrated Gradient [53]. Harradon etc al. [54] identify the components having the significant causal effects into the individual prediction. Specifically, they conduct the experiments in three different architectures VGG 19 in Birds200, VGG 16 and 6-layer cov network applied in Inria dataset. Thereafter, they make a query for an individual input, and then visualize top k variables according to their causal effect.\n2) Counterfactual Explanations: A previous research [40] suggests that there are three main metrics to evaluate the counterfactual explanation: proximity, diversity and sparsity. The proximity is to reflect the similarity between the CF examples and the original one which was calculated as the mean proximity all over the examples. Meanwhile, the diversity measures the mean of the distances between the pairs of samples, ensuring that the generated instances should be as diverse as possible. Finally, the sparsity is the average number of changes converting CF examples to the original one.\nproximity = \u22121 k k\u2211 i=1 dist(xcfi , x)\ndiversity = 1\nCk2 k\u22121\u2211 i=1 k\u2211 j=i+1 dist(xcfi , xcfj )\nsparsity = 1\u2212 1 k \u00b7 d k\u2211 i=1 d\u2211 l=1 1[xlcfi 6\u2261 x l i]\n(11)\nwith xcf and x are the counterfactual samples and original instance, respectively, dist(xcfi , xcfj ) illustrates the distance between two generated counterfactual instances, d is the number of input features, k is the number of counterfactual samples to be generated."
+    },
+    {
+      "heading": "V. OPEN QUESTIONS AND DISCUSSIONS",
+      "text": "The need of explaining and interpreting models becomes highly critical along with the growing popularity of deep learning and automated machine learning. Although, there are currently several studies in this field, several open problems still remain unresolved.\n1) Counterfactual explanation in classification tasks. There are a plethora of constraints, especially features\u2019 causal relationship, should be taken into consideration when adopting counterfactual explanation. Take for example, the counterfactual explanation cannot recommend the users to change sensitive and discriminative features such as race and gender in order to be accepted by the system. Therefore, its reasonability\nv\nand feasibility should be discovered and investigated more strictly.\n2) Counterfactual explanation in recommendation system and time series data. Although recommendation system gains the immense popularity these days, there are not many studies working on counterfactual explanation for such system. How we can make an intervention into human actions to enable the system to change their recommended items still remains an open question. Meanwhile, regarding time series data, it is also interesting to discover that what the model would change its prediction if we change something in the past.\n3) Causal reasoning in knowledge graph. Knowledge graph is recently utilized as an effective tool in several tasks such as recommendation system, knowledge extraction, classification, etc. Instead of embedding the knowledge graph as the latent features, Xian et al. [68] state that the true intelligent recommendation systems have to own the ability to recommend their items based on their causal reasoning.\n4) Explanation understandable by non-experts. A number of recent methods frequently provide the explanations to experts and researchers rather than the end-users. Therefore, another challenge is to generate explanation under the form such as rules, natural language, images, etc which can allow nonprofessional people to catch up with machine learning model behaviors."
+    },
+    {
+      "heading": "VI. CONCLUSION",
+      "text": "Interpretable machine learning is expected to become a mainstream topic in the foreseeable future. This paper provides the desiderata and brief overview of causal inference, followed by the causality based interpretable machine learning. We present two main causal approaches for interpretable machine learning including feature importance estimation, causal effects of model components, and counterfactual explanation. Finally, we has discussed several potentially unresolved problems in this field which open opportunities for researchers to work in.\nIn machine learning, the more data the better. However, in causal inference, the more data alone is not yet enough. Having more data only helps to get more precise estimates, but it cannot make sure these estimates are correct and unbiased. Machine learning methods enhance the development\nof causal inference, meanwhile, causal inference also helps machine learning methods. The simple pursuit of predictive accuracy is insufficient for modern machine learning research, and correctness and interpretability are also the targets of machine learning methods. Causal inference is starting to help to improve machine learning, such as recommender systems or reinforcement learning."
+    }
+  ],
+  "title": "Causality Learning: A New Perspective for Interpretable Machine Learning",
+  "year": 2020
+}

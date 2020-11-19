@@ -1,1 +1,187 @@
-{"abstractText": "Mateus de Souza Monteiro IBM Research Rio de Janeiro, RJ, Brazil msmonteiro@ibm.com Abstract As Artificial Intelligence (AI) technology gets more intertwined with every system, people are using AI to make decisions on their everyday activities. In simple contexts, such as Netflix recommendations, or in more complex context like in judicial scenarios, AI is part of people's decisions. People make decisions and usually they need to explain their decision to others or in some matter. It is particularly critical in contexts where human expertise is central for decision-making. In order to explain their decisions with AI support, people need to understand how AI is part of that decision. When considering the aspect of fairness, the role that AI has on a decision-making process becomes even more sensitive since it affects the fairness and the responsibility of those people making the ultimate decision. We have been exploring an evidence-based explanation design approach to 'tell the story of a decision'. In this position paper, we discuss our approach for AI systems using fairness sensitive cases in the literature.", "authors": [{"affiliations": [], "name": "Juliana Jansen Ferreira"}], "id": "SP:4a638bbe20e8af4becb91db93dae9bf78ea849ed", "references": [{"authors": ["Ashley Deeks"], "title": "The Judicial Demand for Explainable Artificial Intelligence", "venue": "Columbia Law Review 119,", "year": 2019}, {"authors": ["Ashraf Abdul", "Jo Vermeulen", "Danding Wang", "Brian Y. Lim", "Mohan Kankanhalli"], "title": "Trends and Trajectories for Explainable, Accountable and Intelligible Systems: An HCI Research Agenda", "venue": "Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems,", "year": 2018}, {"authors": ["Cynthia Rudin", "Caroline Wang", "Beau Coker"], "title": "The age of secrecy and unfairness in recidivism prediction", "venue": "arXiv preprint arXiv:1811.00731", "year": 2018}, {"authors": ["Finale Doshi-Velez", "Mason Kortz", "Ryan Budish"], "title": "Accountability of AI under the law: The role of explanation", "venue": "arXiv preprint arXiv:1711.01134", "year": 2017}, {"authors": ["Gheorghe Tecuci", "David A. Schum", "Dorin Marcu", "Mihai Boicu"], "title": "Intelligence analysis as discovery of evidence, hypotheses, and arguments: connecting the dots", "year": 2016}, {"authors": ["Jonathan Dodge", "Q. Vera Liao", "Yunfeng Zhang", "Rachel KE Bellamy", "Casey Dugan"], "title": "Explaining Models: An Empirical Study of How Explanations Impact Fairness Judgment", "venue": "arXiv preprint arXiv:1901.07694", "year": 2019}, {"authors": ["Juliana Jansen Ferreira", "Ana Fucs", "Vin\u00edcius Segura"], "title": "Should I Interfere\u2019 AI-Assistants\u2019 Interaction with Knowledge Workers: A Case Study in the Oil and Gas Industry", "venue": "Extended Abstracts of the 2019 CHI Conference on Human Factors in Computing Systems, ACM,", "year": 2019}, {"authors": ["Kenneth Holstein", "Jennifer Wortman Vaughan", "Hal Daum\u00e9 III", "Miro Dudik", "Hanna Wallach"], "title": "Improving fairness in machine learning systems: What do industry practitioners need", "venue": "Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems,", "year": 2019}, {"authors": ["Kenneth Holstein", "Jennifer Wortman Vaughan", "Hal Daum\u00e9 III", "Miro Dudik", "Hanna Wallach"], "title": "Improving fairness in machine learning systems: What do industry practitioners need", "venue": "Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems,", "year": 2019}, {"authors": ["Michael Veale", "Max Van Kleek", "Reuben Binns"], "title": "Fairness and accountability design needs for algorithmic support in high-stakes public sector decision-making", "venue": "Proceedings of the 2018 chi conference on human factors in computing systems,", "year": 2018}, {"authors": ["Min Kyung Lee", "Su Baykal"], "title": "Algorithmic mediation in group decisions: Fairness perceptions of algorithmically mediated vs. discussion-based social division", "venue": "Proceedings of the 2017 ACM Conference on Computer Supported Cooperative Work and Social Computing,", "year": 2017}, {"authors": ["Rachel KE Bellamy", "Kuntal Dey", "Michael Hind"], "title": "AI Fairness 360: An extensible toolkit for detecting, understanding, and mitigating unwanted algorithmic bias", "venue": "arXiv preprint arXiv:1810.01943", "year": 2018}, {"authors": ["Tim Miller"], "title": "Explanation in artificial intelligence: Insights from the social sciences", "venue": "Artificial Intelligence", "year": 2019}, {"authors": ["Yogesh K. Dwivedi", "Laurie Hughes", "Elvira Ismagilova"], "title": "Artificial Intelligence (AI): Multidisciplinary perspectives on emerging challenges, opportunities, and agenda for research, practice and policy", "venue": "International Journal of Information Management: S026840121930917X", "year": 2019}], "sections": [{"heading": "Juliana Jansen Ferreira", "text": "IBM Research Rio de Janeiro, RJ, Brazil jjansen@br.ibm.com"}, {"heading": "Mateus de Souza Monteiro", "text": "IBM Research Rio de Janeiro, RJ, Brazil msmonteiro@ibm.com\nAs Artificial Intelligence (AI) technology gets more intertwined with every system, people are using AI to make decisions on their everyday activities. In simple contexts, such as Netflix recommendations, or in more complex context like in judicial scenarios, AI is part of people's decisions. People make decisions and usually they need to explain their decision to others or in some matter. It is particularly critical in contexts where human expertise is central for decision-making. In order to explain their decisions with AI support, people need to understand how AI is part of that decision. When considering the aspect of fairness, the role that AI has on a decision-making process becomes even more sensitive since it affects the fairness and the responsibility of those people making the ultimate decision. We have been exploring an evidence-based explanation design approach to 'tell the story of a decision'. In this position paper, we discuss our approach for AI systems using fairness sensitive cases in the literature."}, {"heading": "Author Keywords", "text": "Evidence-based; eXplainable AI; fairness; decisionmaking; expert.\nPermission to make digital or hard copies of part or all of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for third-party components of this work must be honored. For all other uses, contact the owner/author(s). CHI 2020 Extended Abstracts, April 25\u201330, 2020, Honolulu, HI, USA. \u00a9 2020 Copyright is held by the owner/author(s). ACM ISBN 978-1-4503-6819-3/20/04. DOI: https://doi.org/10.1145/3334480.XXXXXXX *update the above block & DOI per your rightsreview confirmation (provided after acceptance)"}, {"heading": "CSS Concepts", "text": "\u2022 Human-centered computing~Human computer interaction (HCI);"}, {"heading": "Introduction", "text": "The use of Artificial Intelligence (AI) on practically every technology-based task people perform is a reality. From making simple decisions, such as what movie to watch1, to complex ones like a judge ruling on someone\u2019s freedom [1][4], AI is already an influential player on the decision-making process. Even without direct action from a person, an algorithmic decisionmaking can affect that person\u2019s life [2], and that person may not even know it.\nIn decision-making processes where people must have the final word, the role AI plays on that decisions needs to be very clear for decision-makers. AI is used as an empowerment tool for people [2], but if an AI output can be part of the decision, decision-makers need to understand how AI got to that output. In this scenario, the demand for AI explanation just rises and becomes imperative for decisions people make that might have impact on other people's lives [2][13].\nExplainable AI is a hot topic due to the AI reach on everyday technologies and have been investigated by different perspectives [6][13][14]. When the decisionmaking process relays on human expertise, the use of pieces of evidence to explain the decisions is a way to show experts\u2019 rational to reach the decision. An evidence is any data or item of information that is relevant regarding some matter to be proven or disproven, it is data that support statements [5].\n1 https://research.netflix.com/research-area/machine-learning\nAs AI explanation, fairness in AI is not a one-dimension characteristic. For now, we consider two dimensions: context and stakeholders of AI fairness. First, fairness is context-dependent, and it needs to deal with more scenarios than just nondiscrimination, as covered by statistical fairness [8]. Second, fairness needs to account for all people involved with the AI system, directly or not. The notion of fairness varies for different stakeholders [9] and do not always correspond to mathematical interpretations of algorithmic fairness or biases [11][12].\nWe have been investigating the context of a knowledge-intensive decision-making process where decisions are based on human expertise [7]. In this context, we have an AI system to support de decision process and we have been investigating an evidencebased explanation to support decision-makers on telling the story of their decision. We believe that our approach to decision rational explanation with pieces of evidence can be used to promote fairness in the decision process, especially to highlight where the AI system provides input for that decision. In this position paper, we discuss our investigation on evidence-based explanation for AI systems, considering fairness in literature cases."}, {"heading": "Fairness and AI", "text": "Law is a particular rich context to explore the topic of AI fairness. Notwithstanding the potential benefits of AI for law, given the concerns of affecting people's liberty, safety, or privacy, opaque algorithms have come under criticism [1]. The failure to present what is behind the results hollow people's sense of fairness and trust. Reasons for eXplainable AI (XAI) in courts are abundant, such as ([1], pp. 1845-1846).\nVeale, Kleek, and Binns [10] argue that improvement in the fairness challenges for criminal justice and courts is more than just algorithms transparency. It will only happen through close collaboration with different disciplines, practitioners, and affected stakeholders.\nDeek [1] suggests that courts should focus on two principles: maximizing xAI's ability to help identify errors and biases within the algorithm, and aligning the form of xAI in a given case with the needs of the relevant audiences. Besides, Doshi-Velez and Mason ([4], pp. 2-3) affirm that the explanation should be able to answer a set of questions (Table 1).\nFairness and explanation are strongly dependent. The explanation of the decision process is a way to guarantee fairness to all people impacted by AI-related decisions. Although the complexity of defining fairness, Rudin, Wager, and Coker [3] summarizes by arguing that it is not fair life-changing decisions made by unclear, untrusted, and unverifiable explanation."}, {"heading": "Discussion", "text": "Our evidence-based explanation design approach aims to support experts to tell their decision story. Every step of the decision is presented is a timeline with the related evidence, to allow the decision-maker to revisit his rational considering each portion of that final decision (Figure 1). This story-based design approach can be used to assess fairness in the decision process with AI.\nThe events in the timeline might present the AI systems as a player that needs feedback interaction with the expert (Figure 1-B), but also indicate events where expert\u2019s tacit knowledge was the main evidence\nin different ways: a) as new input (Figure 1-A), by associating previous data as new knowledge (Figure 1- C), and associating tacit knowledge to previous data (Figure 1-D). The decision itself is a event that composes the story.\nOur approach aligns with the set of question for explanation proposed by Doshi-Velez and Mason [4] (Table 1). It allows the decision-maker or other stakeholders to check the factors for the decision, to inquire if different factors could impact the decision, and compare different decisions\u2019 stories. The decisionmaker himself is part of the story, is a relevant factor of the decision.\nConsidering the context and the stakeholders of the explanation might promote fairness in the decision process supported by AI. The receiver of the explanation and the reason for that explanation will define what kind of evidence can aid fairness for all people involved in the decision story. Can an algorithmic explanation provide fairness to stakeholders? Sometimes yes, but, sometimes no.\nTable 1. Questions for XAI in decision-making [4]\nQuestions for XAI in decision-making:\nQ1: What are the main factors in a decision?\nA list of pieces of evidence that went into a decision;\nQ2: Would be changing a certain factor have changed the decision?\nBy looking at the effect of changing that information\non the output and comparing it to our\nexpectations, we can infer whether it was used\ncorrectly;\nQ3: Why did two similarlooking cases get different decisions?\nWhether a specific factor was determinative to\nanother decision. Useful to assess the integrity of the\ndecision-maker."}], "title": "Evidence-based Explanation to Promote Fairness in AI systems", "year": 2020}
+{
+  "abstractText": "Mateus de Souza Monteiro IBM Research Rio de Janeiro, RJ, Brazil msmonteiro@ibm.com Abstract As Artificial Intelligence (AI) technology gets more intertwined with every system, people are using AI to make decisions on their everyday activities. In simple contexts, such as Netflix recommendations, or in more complex context like in judicial scenarios, AI is part of people's decisions. People make decisions and usually they need to explain their decision to others or in some matter. It is particularly critical in contexts where human expertise is central for decision-making. In order to explain their decisions with AI support, people need to understand how AI is part of that decision. When considering the aspect of fairness, the role that AI has on a decision-making process becomes even more sensitive since it affects the fairness and the responsibility of those people making the ultimate decision. We have been exploring an evidence-based explanation design approach to 'tell the story of a decision'. In this position paper, we discuss our approach for AI systems using fairness sensitive cases in the literature.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Juliana Jansen Ferreira"
+    }
+  ],
+  "id": "SP:4a638bbe20e8af4becb91db93dae9bf78ea849ed",
+  "references": [
+    {
+      "authors": [
+        "Ashley Deeks"
+      ],
+      "title": "The Judicial Demand for Explainable Artificial Intelligence",
+      "venue": "Columbia Law Review 119,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ashraf Abdul",
+        "Jo Vermeulen",
+        "Danding Wang",
+        "Brian Y. Lim",
+        "Mohan Kankanhalli"
+      ],
+      "title": "Trends and Trajectories for Explainable, Accountable and Intelligible Systems: An HCI Research Agenda",
+      "venue": "Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Cynthia Rudin",
+        "Caroline Wang",
+        "Beau Coker"
+      ],
+      "title": "The age of secrecy and unfairness in recidivism prediction",
+      "venue": "arXiv preprint arXiv:1811.00731",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Finale Doshi-Velez",
+        "Mason Kortz",
+        "Ryan Budish"
+      ],
+      "title": "Accountability of AI under the law: The role of explanation",
+      "venue": "arXiv preprint arXiv:1711.01134",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Gheorghe Tecuci",
+        "David A. Schum",
+        "Dorin Marcu",
+        "Mihai Boicu"
+      ],
+      "title": "Intelligence analysis as discovery of evidence, hypotheses, and arguments: connecting the dots",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Jonathan Dodge",
+        "Q. Vera Liao",
+        "Yunfeng Zhang",
+        "Rachel KE Bellamy",
+        "Casey Dugan"
+      ],
+      "title": "Explaining Models: An Empirical Study of How Explanations Impact Fairness Judgment",
+      "venue": "arXiv preprint arXiv:1901.07694",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Juliana Jansen Ferreira",
+        "Ana Fucs",
+        "Vin\u00edcius Segura"
+      ],
+      "title": "Should I Interfere\u2019 AI-Assistants\u2019 Interaction with Knowledge Workers: A Case Study in the Oil and Gas Industry",
+      "venue": "Extended Abstracts of the 2019 CHI Conference on Human Factors in Computing Systems, ACM,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Kenneth Holstein",
+        "Jennifer Wortman Vaughan",
+        "Hal Daum\u00e9 III",
+        "Miro Dudik",
+        "Hanna Wallach"
+      ],
+      "title": "Improving fairness in machine learning systems: What do industry practitioners need",
+      "venue": "Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Kenneth Holstein",
+        "Jennifer Wortman Vaughan",
+        "Hal Daum\u00e9 III",
+        "Miro Dudik",
+        "Hanna Wallach"
+      ],
+      "title": "Improving fairness in machine learning systems: What do industry practitioners need",
+      "venue": "Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Michael Veale",
+        "Max Van Kleek",
+        "Reuben Binns"
+      ],
+      "title": "Fairness and accountability design needs for algorithmic support in high-stakes public sector decision-making",
+      "venue": "Proceedings of the 2018 chi conference on human factors in computing systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Min Kyung Lee",
+        "Su Baykal"
+      ],
+      "title": "Algorithmic mediation in group decisions: Fairness perceptions of algorithmically mediated vs. discussion-based social division",
+      "venue": "Proceedings of the 2017 ACM Conference on Computer Supported Cooperative Work and Social Computing,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Rachel KE Bellamy",
+        "Kuntal Dey",
+        "Michael Hind"
+      ],
+      "title": "AI Fairness 360: An extensible toolkit for detecting, understanding, and mitigating unwanted algorithmic bias",
+      "venue": "arXiv preprint arXiv:1810.01943",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Tim Miller"
+      ],
+      "title": "Explanation in artificial intelligence: Insights from the social sciences",
+      "venue": "Artificial Intelligence",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Yogesh K. Dwivedi",
+        "Laurie Hughes",
+        "Elvira Ismagilova"
+      ],
+      "title": "Artificial Intelligence (AI): Multidisciplinary perspectives on emerging challenges, opportunities, and agenda for research, practice and policy",
+      "venue": "International Journal of Information Management: S026840121930917X",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Juliana Jansen Ferreira",
+      "text": "IBM Research Rio de Janeiro, RJ, Brazil jjansen@br.ibm.com"
+    },
+    {
+      "heading": "Mateus de Souza Monteiro",
+      "text": "IBM Research Rio de Janeiro, RJ, Brazil msmonteiro@ibm.com\nAs Artificial Intelligence (AI) technology gets more intertwined with every system, people are using AI to make decisions on their everyday activities. In simple contexts, such as Netflix recommendations, or in more complex context like in judicial scenarios, AI is part of people's decisions. People make decisions and usually they need to explain their decision to others or in some matter. It is particularly critical in contexts where human expertise is central for decision-making. In order to explain their decisions with AI support, people need to understand how AI is part of that decision. When considering the aspect of fairness, the role that AI has on a decision-making process becomes even more sensitive since it affects the fairness and the responsibility of those people making the ultimate decision. We have been exploring an evidence-based explanation design approach to 'tell the story of a decision'. In this position paper, we discuss our approach for AI systems using fairness sensitive cases in the literature."
+    },
+    {
+      "heading": "Author Keywords",
+      "text": "Evidence-based; eXplainable AI; fairness; decisionmaking; expert.\nPermission to make digital or hard copies of part or all of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for third-party components of this work must be honored. For all other uses, contact the owner/author(s). CHI 2020 Extended Abstracts, April 25\u201330, 2020, Honolulu, HI, USA. \u00a9 2020 Copyright is held by the owner/author(s). ACM ISBN 978-1-4503-6819-3/20/04. DOI: https://doi.org/10.1145/3334480.XXXXXXX *update the above block & DOI per your rightsreview confirmation (provided after acceptance)"
+    },
+    {
+      "heading": "CSS Concepts",
+      "text": "\u2022 Human-centered computing~Human computer interaction (HCI);"
+    },
+    {
+      "heading": "Introduction",
+      "text": "The use of Artificial Intelligence (AI) on practically every technology-based task people perform is a reality. From making simple decisions, such as what movie to watch1, to complex ones like a judge ruling on someone\u2019s freedom [1][4], AI is already an influential player on the decision-making process. Even without direct action from a person, an algorithmic decisionmaking can affect that person\u2019s life [2], and that person may not even know it.\nIn decision-making processes where people must have the final word, the role AI plays on that decisions needs to be very clear for decision-makers. AI is used as an empowerment tool for people [2], but if an AI output can be part of the decision, decision-makers need to understand how AI got to that output. In this scenario, the demand for AI explanation just rises and becomes imperative for decisions people make that might have impact on other people's lives [2][13].\nExplainable AI is a hot topic due to the AI reach on everyday technologies and have been investigated by different perspectives [6][13][14]. When the decisionmaking process relays on human expertise, the use of pieces of evidence to explain the decisions is a way to show experts\u2019 rational to reach the decision. An evidence is any data or item of information that is relevant regarding some matter to be proven or disproven, it is data that support statements [5].\n1 https://research.netflix.com/research-area/machine-learning\nAs AI explanation, fairness in AI is not a one-dimension characteristic. For now, we consider two dimensions: context and stakeholders of AI fairness. First, fairness is context-dependent, and it needs to deal with more scenarios than just nondiscrimination, as covered by statistical fairness [8]. Second, fairness needs to account for all people involved with the AI system, directly or not. The notion of fairness varies for different stakeholders [9] and do not always correspond to mathematical interpretations of algorithmic fairness or biases [11][12].\nWe have been investigating the context of a knowledge-intensive decision-making process where decisions are based on human expertise [7]. In this context, we have an AI system to support de decision process and we have been investigating an evidencebased explanation to support decision-makers on telling the story of their decision. We believe that our approach to decision rational explanation with pieces of evidence can be used to promote fairness in the decision process, especially to highlight where the AI system provides input for that decision. In this position paper, we discuss our investigation on evidence-based explanation for AI systems, considering fairness in literature cases."
+    },
+    {
+      "heading": "Fairness and AI",
+      "text": "Law is a particular rich context to explore the topic of AI fairness. Notwithstanding the potential benefits of AI for law, given the concerns of affecting people's liberty, safety, or privacy, opaque algorithms have come under criticism [1]. The failure to present what is behind the results hollow people's sense of fairness and trust. Reasons for eXplainable AI (XAI) in courts are abundant, such as ([1], pp. 1845-1846).\nVeale, Kleek, and Binns [10] argue that improvement in the fairness challenges for criminal justice and courts is more than just algorithms transparency. It will only happen through close collaboration with different disciplines, practitioners, and affected stakeholders.\nDeek [1] suggests that courts should focus on two principles: maximizing xAI's ability to help identify errors and biases within the algorithm, and aligning the form of xAI in a given case with the needs of the relevant audiences. Besides, Doshi-Velez and Mason ([4], pp. 2-3) affirm that the explanation should be able to answer a set of questions (Table 1).\nFairness and explanation are strongly dependent. The explanation of the decision process is a way to guarantee fairness to all people impacted by AI-related decisions. Although the complexity of defining fairness, Rudin, Wager, and Coker [3] summarizes by arguing that it is not fair life-changing decisions made by unclear, untrusted, and unverifiable explanation."
+    },
+    {
+      "heading": "Discussion",
+      "text": "Our evidence-based explanation design approach aims to support experts to tell their decision story. Every step of the decision is presented is a timeline with the related evidence, to allow the decision-maker to revisit his rational considering each portion of that final decision (Figure 1). This story-based design approach can be used to assess fairness in the decision process with AI.\nThe events in the timeline might present the AI systems as a player that needs feedback interaction with the expert (Figure 1-B), but also indicate events where expert\u2019s tacit knowledge was the main evidence\nin different ways: a) as new input (Figure 1-A), by associating previous data as new knowledge (Figure 1- C), and associating tacit knowledge to previous data (Figure 1-D). The decision itself is a event that composes the story.\nOur approach aligns with the set of question for explanation proposed by Doshi-Velez and Mason [4] (Table 1). It allows the decision-maker or other stakeholders to check the factors for the decision, to inquire if different factors could impact the decision, and compare different decisions\u2019 stories. The decisionmaker himself is part of the story, is a relevant factor of the decision.\nConsidering the context and the stakeholders of the explanation might promote fairness in the decision process supported by AI. The receiver of the explanation and the reason for that explanation will define what kind of evidence can aid fairness for all people involved in the decision story. Can an algorithmic explanation provide fairness to stakeholders? Sometimes yes, but, sometimes no.\nTable 1. Questions for XAI in decision-making [4]\nQuestions for XAI in decision-making:\nQ1: What are the main factors in a decision?\nA list of pieces of evidence that went into a decision;\nQ2: Would be changing a certain factor have changed the decision?\nBy looking at the effect of changing that information\non the output and comparing it to our\nexpectations, we can infer whether it was used\ncorrectly;\nQ3: Why did two similarlooking cases get different decisions?\nWhether a specific factor was determinative to\nanother decision. Useful to assess the integrity of the\ndecision-maker."
+    }
+  ],
+  "title": "Evidence-based Explanation to Promote Fairness in AI systems",
+  "year": 2020
+}

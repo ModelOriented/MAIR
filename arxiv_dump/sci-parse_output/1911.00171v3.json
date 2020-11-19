@@ -1,1 +1,216 @@
-{"abstractText": "Learning from demonstration has been widely studied in machine learning but becomes challenging when the demonstrated trajectories are unstructured and follow different objectives. This short-paper proposes PODNet, Plannable Option Discovery Network, addressing how to segment an unstructured set of demonstrated trajectories for option discovery. This enables learning from demonstration to perform multiple tasks and plan high-level trajectories based on the discovered option labels. PODNet combines a custom categorical variational autoencoder, a recurrent option inference network, option-conditioned policy network, and option dynamics model in an end-to-end learning architecture. Due to the concurrently trained option-conditioned policy network and option dynamics model, the proposed architecture has implications in multi-task and hierarchical learning, explainable and interpretable artificial intelligence, and applications where the agent is required to learn only from observations.", "authors": [{"affiliations": [], "name": "Ritwik Bera"}, {"affiliations": [], "name": "Vinicius G. Goecks"}, {"affiliations": [], "name": "Gregory M. Gremillion"}, {"affiliations": [], "name": "John Valasek"}, {"affiliations": [], "name": "Nicholas R. Waytowich"}], "id": "SP:81739cc8161881196d36638a44fa306255e52f30", "references": [{"authors": ["Achiam"], "title": "Variational option discovery algorithms. arXiv preprint arXiv:1807.10299", "year": 2018}, {"authors": ["Argall"], "title": "A survey of robot learning from demonstration. Robotics and autonomous systems 57(5):469\u2013483", "year": 2009}, {"authors": ["Bojarski"], "title": "End to end learning for self-driving cars. arXiv preprint arXiv:1604.07316", "year": 2016}, {"authors": ["Chen"], "title": "Infogan: Interpretable representation learning by information maximizing generative adversarial nets", "venue": "In Advances in neural information processing systems,", "year": 2016}, {"authors": ["Eysenbach"], "title": "Diversity is all you need: Learning skills without a reward function", "venue": "arXiv preprint arXiv:1802.06070", "year": 2018}, {"authors": ["Goecks"], "title": "Efficiently combining human demonstrations and interventions for safe training of autonomous systems in real-time", "venue": "CoRR abs/1810.11545", "year": 2018}, {"authors": ["V.P. Namboodiri"], "title": "InfoRL: Interpretable Reinforcement Learning using Information Maximization", "year": 2019}, {"authors": ["Higgins"], "title": "beta-vae: Learning basic visual concepts with a constrained variational framework", "year": 2017}, {"authors": ["Hochreiter", "S. Schmidhuber 1997] Hochreiter", "J. Schmidhuber"], "title": "Long short-term memory. Neural computation 9(8):1735\u20131780", "year": 1997}, {"authors": ["Gu Jang", "E. Poole 2016] Jang", "S. Gu", "B. Poole"], "title": "Categorical Reparameterization with GumbelSoftmax", "year": 2016}, {"authors": ["Kipf"], "title": "Compile: Compositional imitation learning and execution", "venue": "In International Conference on Machine Learning,", "year": 2019}, {"authors": ["Song Li", "Y. Ermon 2017] Li", "J. Song", "S. Ermon"], "title": "InfoGAIL: Interpretable Imitation Learning from Visual Demonstrations", "year": 2017}, {"authors": ["Mikolov"], "title": "Efficient estimation of word representations in vector space. arXiv preprint arXiv:1301.3781", "year": 2013}, {"authors": ["Ross"], "title": "Learning monocular reactive uav control in cluttered natural environments", "venue": "IEEE international conference on robotics and automation,", "year": 2013}, {"authors": ["Gordon Ross", "S. Bagnell 2011] Ross", "G. Gordon", "D. Bagnell"], "title": "A reduction of imitation learning and structured prediction to no-regret online learning", "venue": "In Proceedings of the fourteenth international conference on artificial intelligence and statistics,", "year": 2011}, {"authors": ["Sharma"], "title": "Directed-Info GAIL: Learning Hierarchical Policies from Unsegmented Demonstrations using Directed Information", "year": 2018}, {"authors": ["Stolle", "M. Precup 2002] Stolle", "D. Precup"], "title": "Learning options in reinforcement learning", "venue": "In International Symposium on abstraction, reformulation, and approximation,", "year": 2002}, {"authors": ["Precup Sutton", "R.S. Singh 1999] Sutton", "D. Precup", "S. Singh"], "title": "Between mdps and semi-mdps: A framework for temporal abstraction in reinforcement learning. Artificial intelligence 112(1-2):181\u2013211", "year": 1999}, {"authors": ["Wang"], "title": "Robust Imitation of Diverse Behaviors", "year": 2017}], "sections": [{"heading": "Introduction", "text": "Learning from demonstrations to perform a single task has been widely studied in the machine learning literature (Argall et al. 2009; Ross, Gordon, and Bagnell 2011; Ross et al. 2013; Bojarski et al. 2016; Goecks et al. 2018). In these approaches, demonstrations are carefully curated in order to exemplify a specific task to be carried out by the learning agent. The challenge arises when the demonstrator is performing more than one task, or multiple hierarchical sub-tasks of a complex objective, also called options, where the same set of observations can be mapped to a different set of actions depending on the option being performed (Sutton, Precup, and Singh 1999; Stolle and Precup 2002). This is a challenge for traditional behavior cloning techniques that focus on learning a single mapping between observation and actions in a single option scenario.\nThis paper presents Plannable Option Discovery Network (PODNet), attempting to enable agents to learn the semantic structure behind those complex demonstrated tasks by using a meta-controller operating in the option-space instead of directly operating in the action-space. The main hypothesis is that a meta-controller operating in the option-space\nCopyright c\u00a9 2020, Association for the Advancement of Artificial Intelligence (www.aaai.org). All rights reserved.\ncan achieve much faster convergence on imitation learning and reinforcement learning benchmarks than an actionspace policy network due to the significantly smaller size of the option-space. Our contribution, PODNet, is a custom categorical variational autoencoder (Jang, Gu, and Poole 2016) that is composed of several constituent networks that not only segment demonstrated trajectories into options, but concurrently trains an option dynamics model that can be used for downstream planning tasks and training on simulated rollouts to minimize interaction with the environment while the policy is maturing. Unlike previous imitationlearning based approaches to option discovery, our approach does not require the agent to interact with the environment in its option discovery process as it trains offline on just behavior cloning data. Moreover, being able to infer the option label for the current behavior executed by the learning agent, essentially, allowing the agent to broadcast the option it is currently pursuing, has implications in explainable and interpretable artificial intelligence."}, {"heading": "Related Work", "text": "This work addresses how to segment an unstructured set of demonstrated trajectories for option discovery. The one-shot imitation architecture developed by Wang et al. (Wang et al. 2017) using conditional GAIL (cGAIL) maps trajectories into a set of latent codes that capture the semantics and context of the trajectories. This is analogous to word2vec (Mikolov et al. 2013) in natural language processing (NLP) where words are embedded into a vector space that preserves linguistic relationships.\nIn InfoGAN (Chen et al. 2016), a generative adversarial network (GAN) maximizes the mutual information between the latent variables and the observation, learning a discriminator that confidently predict the observation labels. InfoRL (Hayat, Singh, and Namboodiri 2019) and InfoGAIL (Li, Song, and Ermon 2017) utilized the concept of mutual information maximization to map latent variables to solution trajectories (generated by RL) and expert demonstrations respectively. Directed-InfoGAIL (Sharma et al. 2018) introduced the concept of directed information. It maximized the mutual information between the trajectory observed so far and the consequent option label. This modification to the In-\nar X\niv :1\n91 1.\n00 17\n1v 3\n[ cs\n.L G\n] 2\n8 Fe\nb 20\nfoGAIL architecture allowed it to segment demonstrations and reproduce option. However, it assumed a prior knowledge of the number of options to be discovered. Diversity Is All You Need (DIAYN) (Eysenbach et al. 2018) recovers distinctive sub-behaviors (from random exploration) by generating random trajectories and maximising mutual information between the states and the behavior label.\nVariational Autoencoding Learning of Options by Reinforcement (VALOR) (Achiam et al. 2018) used \u03b2\u2212VAEs (Higgins et al. 2017) to encode labels into trajectories, thus also implicitly maximising mutual information between behavior labels and corresponding trajectories. DIAYN\u2019s, mutual information maximisation objective function is also implicitly solved in a \u03b2\u2212VAE setting. Both VAEs and InfoGANs maximize mutual information between latent states and the input data. The difference is that VAE\u2019s have access to the true data distribution while InfoGANs also have to learn to model the true data distribution. More recently, CompILE (Kipf et al. 2019) employed a VAE based approach to infer not only option labels at every trajectory step but also infer option start and termination points in the given trajectory. However, once inferred to be completed, options are masked out. Thus while inferring options in the future, the agent loses track of critical options that might have happened in the past.\nMost of the related works mentioned so far do not learn a dynamics model, and as a result, the discovered options cannot be used for downstream planning via model-based RL techniques. In our work, we utilize the fact that the demonstration data has state-transition information embedded within the demonstration trajectories and thus can be used to learn a dynamics model while simultaneously learning options. We also present a technique to identify the number of distinguishable options to be discovered from the demonstration data."}, {"heading": "Plannable Option Discovery Network", "text": "Our proposed approach, Plannable Option Discovery Network (PODNet), is a custom categorical variational autoencoder (Jang, Gu, and Poole 2016) which consists of several\nconstituent networks: a recurrent option inference network, an option-conditioned policy network, and an option dynamics model, as seen in Figure 1. The categorical VAE allows the network to map each trajectory segment into a latent code and intrinsically perform soft k-means clustering on the inferred option labels. The following subsections explain the constituent components of PODNet."}, {"heading": "Constituent Neural Networks", "text": "Recurrent option inference network In a complex task, the choice of an option at any time depends on both the current state, as well a history of the current and previous options that have been executed. For example, in a door opening task, an agent would decide to open a door only if it had already fetched the key earlier. We utilize a recurrent encoder using short long-term memory (LSTM) (Hochreiter and Schmidhuber 1997) to ensure the current option\u2019s dependence on both the current state and the preceding options is captured. This helps overcome the problem where different options that contain similar or overlapping states are mapped to the same option label, as was observed in DIAYN (Eysenbach et al. 2018). Our option inference network P is an LSTM that takes as input the current state st as well as the previous option label ct\u22121 and predicts the next option label for time step t.\nOption-conditioned policy network Approaches such as InfoGAIL (Li, Song, and Ermon 2017), achieve the disentanglement into latent variables by imitating the demo trajectories while having access only to the inferred latent variable and not the demonstrator actions. We achieve this goal by concurrently training a option label conditioned policy network \u03c0 that takes in the current predicted option ct as well as the current state st and predicts the action at that minimizes the behavior cloning loss LBC of the demonstration trajectories.\nOption dynamics model The main novelty of PODNet is the inclusion of an option dynamics model. The options dynamics model Q takes in as input the current state st and option label ct and predicts the next state st+1. In other words,\nthe option dynamics model is an option-conditioned statetransition function, or dynamics model, that is dependent on the current option being executed instead of using the current action as traditional state-transition models would. The option dynamics model is trained simultaneously with the other policy and option inference networks by adding the option dynamics consistency loss to the overall training objective. The benefit of training an option dynamics model in this way is twofold: first, it ensures the the system dynamics can be completely defined by the option label, potentially allowing for easier recovery of option labels; second, it ensures that the recovered option labels ct allow for modeling the environment dynamics in terms of the options themselves. This not only provides the ability to incorporate planning, but it allows planning to be performed at the options level instead of the action level, which will allow for more efficient planning on longer time-scales."}, {"heading": "Training", "text": "The training process occurs offline and starts by collecting a dataset D consisting of unstructured demonstrated trajectories, which can be generated from any source as, for example, human experts, optimal controllers, or pre-trained reinforcement learning agents. The overall training loss-function is given as,\nL(\u03b8, \u03c6, \u03c8) = E\u03c0E [Ect\u223cP\u03c8(.|st,ct\u22121)[(st+1 \u2212Q\u03c6(st, ct)) 2+\n(at \u2212 \u03c0\u03b8(st, ct))2]\u2212 \u03b2DKL(P\u03c8(ct | st, ct\u22121) || p(c))]\nHence,\nL(\u03b8, \u03c6, \u03c8) = Option Dynamics Consistency Loss(LODC)+ Behavior Cloning Loss(LBC) + Entropy Regularization\nEnsuring smooth backpropagation To ensure that the gradients flow through differentiable functions only during backpropagation, ct is represented by a Gumbel-Softmax distribution, as illustrated in the literature on Categorical VAEs (Jang, Gu, and Poole 2016). Using argmax to select\nthe option with highest conditional probability would lead to having a discrete operation in the neural network and prohibit backpropagation in PODNet. Solo softmax is only used during the backward pass to allow backpropagation. For the forward pass, the softmax output is further subject to the argmax operator to obtain a one-hot encoded label vector.\nEntropy Regularization The categorical distribution arising from the encoder network is forced to have minimal KL divergence with a uniform categorical distribution. This is done to ensure that all inputs are not encoded into the same sub-behavior cluster and are meaningfully separated into separate clusters. Entropy-driven regularization encourages exploration of the label space. This exploration can be modulated by tuning the hyperparameter \u03b2.\nDownsampling of demonstration data For accurate prediction of option labels that concur with human intuition, it is important to downsample the state sequences since highlevel dynamic changes have a low-frequency. Downsampling also decreases training time due to fewer samples being processed.\nPrediction horizon To ensure that the option dynamics model does not simply learn an identity projection, the dynamics model is made to predict more than one time step ahead. This prediction horizon hyperparameter could be manually tuned depending on the situation.\nDiscovery of number of options The number of options can be obtained by having a held-out part of the demonstration, on which the behavior cloning loss LBC is evaluated, similar to how validation loss is. We start with an initial number of options, K, to be discovered and increment/decrement it to move towards decreasing LBC ."}, {"heading": "Planning Option Sequences", "text": "Although the main motivation for PODNet is to segment unstructured trajectories, the learned option dynamics model combined with the option-conditioned policy network can be used for planning option sequences. As shown in Figure\n2, the option dynamics model learned with PODNets can be integrated to meta-controllers to plan trajectories. Given a goal state sgoal, the meta-controller simulate trajectories using the option dynamics model and output the best estimated sequence of options to achieve the goal state. This sequence is then passed to the option-conditioned policy network, which outputs the sequence of estimated actions required to follow the planned option sequence."}, {"heading": "Conclusion", "text": "In this paper we presented PODNet, a neural network architecture for discovery of plannable options. Our approach combines a custom categorical variational autoencoder, a recurrent option inference network, option-conditioned policy network, and option dynamics model for end-to-end training and segmentation of an unstructured set of demonstrated trajectories for option discovery. PODNet\u2019s architecture implicitly utilizes prior knowledge about options being dynamically consistent (plannable and representable by a skill dynamics model), being temporally extended and definitive of the agent\u2019s actions at a particular state (as enforced by a option-conditioned policy network). This leads to discovery of plannable options that enable predictable behavior in AI agents when they adapt to newer tasks in a transfer learning setting. The proposed architecture has implications in multitask and hierarchical learning, explainable and interpretable artificial intelligence."}], "title": "PODNet: A Neural Network for Discovery of Plannable Options", "year": 2020}
+{
+  "abstractText": "Learning from demonstration has been widely studied in machine learning but becomes challenging when the demonstrated trajectories are unstructured and follow different objectives. This short-paper proposes PODNet, Plannable Option Discovery Network, addressing how to segment an unstructured set of demonstrated trajectories for option discovery. This enables learning from demonstration to perform multiple tasks and plan high-level trajectories based on the discovered option labels. PODNet combines a custom categorical variational autoencoder, a recurrent option inference network, option-conditioned policy network, and option dynamics model in an end-to-end learning architecture. Due to the concurrently trained option-conditioned policy network and option dynamics model, the proposed architecture has implications in multi-task and hierarchical learning, explainable and interpretable artificial intelligence, and applications where the agent is required to learn only from observations.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Ritwik Bera"
+    },
+    {
+      "affiliations": [],
+      "name": "Vinicius G. Goecks"
+    },
+    {
+      "affiliations": [],
+      "name": "Gregory M. Gremillion"
+    },
+    {
+      "affiliations": [],
+      "name": "John Valasek"
+    },
+    {
+      "affiliations": [],
+      "name": "Nicholas R. Waytowich"
+    }
+  ],
+  "id": "SP:81739cc8161881196d36638a44fa306255e52f30",
+  "references": [
+    {
+      "authors": [
+        "Achiam"
+      ],
+      "title": "Variational option discovery algorithms. arXiv preprint arXiv:1807.10299",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Argall"
+      ],
+      "title": "A survey of robot learning from demonstration. Robotics and autonomous systems 57(5):469\u2013483",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Bojarski"
+      ],
+      "title": "End to end learning for self-driving cars. arXiv preprint arXiv:1604.07316",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Chen"
+      ],
+      "title": "Infogan: Interpretable representation learning by information maximizing generative adversarial nets",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Eysenbach"
+      ],
+      "title": "Diversity is all you need: Learning skills without a reward function",
+      "venue": "arXiv preprint arXiv:1802.06070",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Goecks"
+      ],
+      "title": "Efficiently combining human demonstrations and interventions for safe training of autonomous systems in real-time",
+      "venue": "CoRR abs/1810.11545",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "V.P. Namboodiri"
+      ],
+      "title": "InfoRL: Interpretable Reinforcement Learning using Information Maximization",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Higgins"
+      ],
+      "title": "beta-vae: Learning basic visual concepts with a constrained variational framework",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Hochreiter",
+        "S. Schmidhuber 1997] Hochreiter",
+        "J. Schmidhuber"
+      ],
+      "title": "Long short-term memory. Neural computation 9(8):1735\u20131780",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "Gu Jang",
+        "E. Poole 2016] Jang",
+        "S. Gu",
+        "B. Poole"
+      ],
+      "title": "Categorical Reparameterization with GumbelSoftmax",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Kipf"
+      ],
+      "title": "Compile: Compositional imitation learning and execution",
+      "venue": "In International Conference on Machine Learning,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Song Li",
+        "Y. Ermon 2017] Li",
+        "J. Song",
+        "S. Ermon"
+      ],
+      "title": "InfoGAIL: Interpretable Imitation Learning from Visual Demonstrations",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Mikolov"
+      ],
+      "title": "Efficient estimation of word representations in vector space. arXiv preprint arXiv:1301.3781",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Ross"
+      ],
+      "title": "Learning monocular reactive uav control in cluttered natural environments",
+      "venue": "IEEE international conference on robotics and automation,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Gordon Ross",
+        "S. Bagnell 2011] Ross",
+        "G. Gordon",
+        "D. Bagnell"
+      ],
+      "title": "A reduction of imitation learning and structured prediction to no-regret online learning",
+      "venue": "In Proceedings of the fourteenth international conference on artificial intelligence and statistics,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Sharma"
+      ],
+      "title": "Directed-Info GAIL: Learning Hierarchical Policies from Unsegmented Demonstrations using Directed Information",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Stolle",
+        "M. Precup 2002] Stolle",
+        "D. Precup"
+      ],
+      "title": "Learning options in reinforcement learning",
+      "venue": "In International Symposium on abstraction, reformulation, and approximation,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Precup Sutton",
+        "R.S. Singh 1999] Sutton",
+        "D. Precup",
+        "S. Singh"
+      ],
+      "title": "Between mdps and semi-mdps: A framework for temporal abstraction in reinforcement learning. Artificial intelligence 112(1-2):181\u2013211",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "Wang"
+      ],
+      "title": "Robust Imitation of Diverse Behaviors",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Introduction",
+      "text": "Learning from demonstrations to perform a single task has been widely studied in the machine learning literature (Argall et al. 2009; Ross, Gordon, and Bagnell 2011; Ross et al. 2013; Bojarski et al. 2016; Goecks et al. 2018). In these approaches, demonstrations are carefully curated in order to exemplify a specific task to be carried out by the learning agent. The challenge arises when the demonstrator is performing more than one task, or multiple hierarchical sub-tasks of a complex objective, also called options, where the same set of observations can be mapped to a different set of actions depending on the option being performed (Sutton, Precup, and Singh 1999; Stolle and Precup 2002). This is a challenge for traditional behavior cloning techniques that focus on learning a single mapping between observation and actions in a single option scenario.\nThis paper presents Plannable Option Discovery Network (PODNet), attempting to enable agents to learn the semantic structure behind those complex demonstrated tasks by using a meta-controller operating in the option-space instead of directly operating in the action-space. The main hypothesis is that a meta-controller operating in the option-space\nCopyright c\u00a9 2020, Association for the Advancement of Artificial Intelligence (www.aaai.org). All rights reserved.\ncan achieve much faster convergence on imitation learning and reinforcement learning benchmarks than an actionspace policy network due to the significantly smaller size of the option-space. Our contribution, PODNet, is a custom categorical variational autoencoder (Jang, Gu, and Poole 2016) that is composed of several constituent networks that not only segment demonstrated trajectories into options, but concurrently trains an option dynamics model that can be used for downstream planning tasks and training on simulated rollouts to minimize interaction with the environment while the policy is maturing. Unlike previous imitationlearning based approaches to option discovery, our approach does not require the agent to interact with the environment in its option discovery process as it trains offline on just behavior cloning data. Moreover, being able to infer the option label for the current behavior executed by the learning agent, essentially, allowing the agent to broadcast the option it is currently pursuing, has implications in explainable and interpretable artificial intelligence."
+    },
+    {
+      "heading": "Related Work",
+      "text": "This work addresses how to segment an unstructured set of demonstrated trajectories for option discovery. The one-shot imitation architecture developed by Wang et al. (Wang et al. 2017) using conditional GAIL (cGAIL) maps trajectories into a set of latent codes that capture the semantics and context of the trajectories. This is analogous to word2vec (Mikolov et al. 2013) in natural language processing (NLP) where words are embedded into a vector space that preserves linguistic relationships.\nIn InfoGAN (Chen et al. 2016), a generative adversarial network (GAN) maximizes the mutual information between the latent variables and the observation, learning a discriminator that confidently predict the observation labels. InfoRL (Hayat, Singh, and Namboodiri 2019) and InfoGAIL (Li, Song, and Ermon 2017) utilized the concept of mutual information maximization to map latent variables to solution trajectories (generated by RL) and expert demonstrations respectively. Directed-InfoGAIL (Sharma et al. 2018) introduced the concept of directed information. It maximized the mutual information between the trajectory observed so far and the consequent option label. This modification to the In-\nar X\niv :1\n91 1.\n00 17\n1v 3\n[ cs\n.L G\n] 2\n8 Fe\nb 20\nfoGAIL architecture allowed it to segment demonstrations and reproduce option. However, it assumed a prior knowledge of the number of options to be discovered. Diversity Is All You Need (DIAYN) (Eysenbach et al. 2018) recovers distinctive sub-behaviors (from random exploration) by generating random trajectories and maximising mutual information between the states and the behavior label.\nVariational Autoencoding Learning of Options by Reinforcement (VALOR) (Achiam et al. 2018) used \u03b2\u2212VAEs (Higgins et al. 2017) to encode labels into trajectories, thus also implicitly maximising mutual information between behavior labels and corresponding trajectories. DIAYN\u2019s, mutual information maximisation objective function is also implicitly solved in a \u03b2\u2212VAE setting. Both VAEs and InfoGANs maximize mutual information between latent states and the input data. The difference is that VAE\u2019s have access to the true data distribution while InfoGANs also have to learn to model the true data distribution. More recently, CompILE (Kipf et al. 2019) employed a VAE based approach to infer not only option labels at every trajectory step but also infer option start and termination points in the given trajectory. However, once inferred to be completed, options are masked out. Thus while inferring options in the future, the agent loses track of critical options that might have happened in the past.\nMost of the related works mentioned so far do not learn a dynamics model, and as a result, the discovered options cannot be used for downstream planning via model-based RL techniques. In our work, we utilize the fact that the demonstration data has state-transition information embedded within the demonstration trajectories and thus can be used to learn a dynamics model while simultaneously learning options. We also present a technique to identify the number of distinguishable options to be discovered from the demonstration data."
+    },
+    {
+      "heading": "Plannable Option Discovery Network",
+      "text": "Our proposed approach, Plannable Option Discovery Network (PODNet), is a custom categorical variational autoencoder (Jang, Gu, and Poole 2016) which consists of several\nconstituent networks: a recurrent option inference network, an option-conditioned policy network, and an option dynamics model, as seen in Figure 1. The categorical VAE allows the network to map each trajectory segment into a latent code and intrinsically perform soft k-means clustering on the inferred option labels. The following subsections explain the constituent components of PODNet."
+    },
+    {
+      "heading": "Constituent Neural Networks",
+      "text": "Recurrent option inference network In a complex task, the choice of an option at any time depends on both the current state, as well a history of the current and previous options that have been executed. For example, in a door opening task, an agent would decide to open a door only if it had already fetched the key earlier. We utilize a recurrent encoder using short long-term memory (LSTM) (Hochreiter and Schmidhuber 1997) to ensure the current option\u2019s dependence on both the current state and the preceding options is captured. This helps overcome the problem where different options that contain similar or overlapping states are mapped to the same option label, as was observed in DIAYN (Eysenbach et al. 2018). Our option inference network P is an LSTM that takes as input the current state st as well as the previous option label ct\u22121 and predicts the next option label for time step t.\nOption-conditioned policy network Approaches such as InfoGAIL (Li, Song, and Ermon 2017), achieve the disentanglement into latent variables by imitating the demo trajectories while having access only to the inferred latent variable and not the demonstrator actions. We achieve this goal by concurrently training a option label conditioned policy network \u03c0 that takes in the current predicted option ct as well as the current state st and predicts the action at that minimizes the behavior cloning loss LBC of the demonstration trajectories.\nOption dynamics model The main novelty of PODNet is the inclusion of an option dynamics model. The options dynamics model Q takes in as input the current state st and option label ct and predicts the next state st+1. In other words,\nthe option dynamics model is an option-conditioned statetransition function, or dynamics model, that is dependent on the current option being executed instead of using the current action as traditional state-transition models would. The option dynamics model is trained simultaneously with the other policy and option inference networks by adding the option dynamics consistency loss to the overall training objective. The benefit of training an option dynamics model in this way is twofold: first, it ensures the the system dynamics can be completely defined by the option label, potentially allowing for easier recovery of option labels; second, it ensures that the recovered option labels ct allow for modeling the environment dynamics in terms of the options themselves. This not only provides the ability to incorporate planning, but it allows planning to be performed at the options level instead of the action level, which will allow for more efficient planning on longer time-scales."
+    },
+    {
+      "heading": "Training",
+      "text": "The training process occurs offline and starts by collecting a dataset D consisting of unstructured demonstrated trajectories, which can be generated from any source as, for example, human experts, optimal controllers, or pre-trained reinforcement learning agents. The overall training loss-function is given as,\nL(\u03b8, \u03c6, \u03c8) = E\u03c0E [Ect\u223cP\u03c8(.|st,ct\u22121)[(st+1 \u2212Q\u03c6(st, ct)) 2+\n(at \u2212 \u03c0\u03b8(st, ct))2]\u2212 \u03b2DKL(P\u03c8(ct | st, ct\u22121) || p(c))]\nHence,\nL(\u03b8, \u03c6, \u03c8) = Option Dynamics Consistency Loss(LODC)+ Behavior Cloning Loss(LBC) + Entropy Regularization\nEnsuring smooth backpropagation To ensure that the gradients flow through differentiable functions only during backpropagation, ct is represented by a Gumbel-Softmax distribution, as illustrated in the literature on Categorical VAEs (Jang, Gu, and Poole 2016). Using argmax to select\nthe option with highest conditional probability would lead to having a discrete operation in the neural network and prohibit backpropagation in PODNet. Solo softmax is only used during the backward pass to allow backpropagation. For the forward pass, the softmax output is further subject to the argmax operator to obtain a one-hot encoded label vector.\nEntropy Regularization The categorical distribution arising from the encoder network is forced to have minimal KL divergence with a uniform categorical distribution. This is done to ensure that all inputs are not encoded into the same sub-behavior cluster and are meaningfully separated into separate clusters. Entropy-driven regularization encourages exploration of the label space. This exploration can be modulated by tuning the hyperparameter \u03b2.\nDownsampling of demonstration data For accurate prediction of option labels that concur with human intuition, it is important to downsample the state sequences since highlevel dynamic changes have a low-frequency. Downsampling also decreases training time due to fewer samples being processed.\nPrediction horizon To ensure that the option dynamics model does not simply learn an identity projection, the dynamics model is made to predict more than one time step ahead. This prediction horizon hyperparameter could be manually tuned depending on the situation.\nDiscovery of number of options The number of options can be obtained by having a held-out part of the demonstration, on which the behavior cloning loss LBC is evaluated, similar to how validation loss is. We start with an initial number of options, K, to be discovered and increment/decrement it to move towards decreasing LBC ."
+    },
+    {
+      "heading": "Planning Option Sequences",
+      "text": "Although the main motivation for PODNet is to segment unstructured trajectories, the learned option dynamics model combined with the option-conditioned policy network can be used for planning option sequences. As shown in Figure\n2, the option dynamics model learned with PODNets can be integrated to meta-controllers to plan trajectories. Given a goal state sgoal, the meta-controller simulate trajectories using the option dynamics model and output the best estimated sequence of options to achieve the goal state. This sequence is then passed to the option-conditioned policy network, which outputs the sequence of estimated actions required to follow the planned option sequence."
+    },
+    {
+      "heading": "Conclusion",
+      "text": "In this paper we presented PODNet, a neural network architecture for discovery of plannable options. Our approach combines a custom categorical variational autoencoder, a recurrent option inference network, option-conditioned policy network, and option dynamics model for end-to-end training and segmentation of an unstructured set of demonstrated trajectories for option discovery. PODNet\u2019s architecture implicitly utilizes prior knowledge about options being dynamically consistent (plannable and representable by a skill dynamics model), being temporally extended and definitive of the agent\u2019s actions at a particular state (as enforced by a option-conditioned policy network). This leads to discovery of plannable options that enable predictable behavior in AI agents when they adapt to newer tasks in a transfer learning setting. The proposed architecture has implications in multitask and hierarchical learning, explainable and interpretable artificial intelligence."
+    }
+  ],
+  "title": "PODNet: A Neural Network for Discovery of Plannable Options",
+  "year": 2020
+}

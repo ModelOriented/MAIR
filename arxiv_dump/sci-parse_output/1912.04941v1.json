@@ -1,1 +1,573 @@
-{"abstractText": "Machine learning (especially reinforcement learning) methods for trading are increasingly reliant on simulation for agent training and testing. Furthermore, simulation is important for validation of hand-coded trading strategies and for testing hypotheses about market structure. A challenge, however, concerns the robustness of policies validated in simulation because the simulations lack fidelity. In fact, researchers have shown that many market simulation approaches fail to reproduce statistics and stylized facts seen in real markets. As a step towards addressing this we surveyed the literature to collect a set of reference metrics and applied them to real market data and simulation output. Our paper provides a comprehensive catalog of these metrics including mathematical formulations where appropriate. Our results show that there are still significant discrepancies between simulated markets and real ones. However, this work serves as a benchmark against which we can measure future improvement. 1 Background and related work", "authors": [{"affiliations": [], "name": "Svitlana Vyetrenko"}, {"affiliations": [], "name": "David Byrd"}, {"affiliations": [], "name": "Nick Petosa"}, {"affiliations": [], "name": "Mahmoud Mahfouz"}, {"affiliations": [], "name": "Danial Dervovic"}, {"affiliations": [], "name": "Manuela Veloso"}, {"affiliations": [], "name": "Tucker Hybinette Balch"}], "id": "SP:23c27841ce2e2e02a647e8130c8489427fdffee0", "references": [{"authors": ["Robert Almgren", "Neil Chriss"], "title": "Optimal execution of portfolio transactions", "venue": "Journal of Risk,", "year": 1999}, {"authors": ["T. Spooner", "J. Fearnley", "R. Savani", "A. Koukorinis"], "title": "Market making via reinforcement learning", "venue": "Proceedings of the 17th International Conference on Autonomous Agents and Multiagent Systems, pages 434\u2013442, Stockholm, Sweden", "year": 2018}, {"authors": ["Y. Nevmyvaka", "Y. Feng", "M. Kearns"], "title": "Reinforcement learning for optimized trade execution", "venue": "Proceedings of the 23rd International Conference on Machine Learning, Pittsburg, PA", "year": 2006}, {"authors": ["H Buehler", "L Gonon", "J Teichmann", "B Wood"], "title": "Deep hedging", "venue": "arXiv:1802.03042", "year": 2018}, {"authors": ["David Lu"], "title": "Agent inspired trading using recurrent reinforcement learning and lstm neural networks. arXiv:1707.07338", "year": 2017}, {"authors": ["C Macal", "M North"], "title": "Tutorial on agent-based modeling and simulation", "venue": "Journal of Simulation", "year": 2010}, {"authors": ["Jean-Philippe Bouchaud", "Julius Bonart", "Jonathan Donier", "Martin Gould"], "title": "Trades, quotes and prices: financial markets under the microscope", "year": 2018}, {"authors": ["Rama Cont"], "title": "Empirical properties of asset returns: stylized facts and statistical issues", "year": 2001}, {"authors": ["J Farmer", "Paolo Patelli", "Ilija Zovko"], "title": "The predictive power of zero intelligence in financial markets", "venue": "Proceedings of the National Academy of Sciences of the United States of America, 102:2254\u20139,", "year": 2005}, {"authors": ["Imon Palit", "Steve Phelps", "Wing Lon Ng"], "title": "Can a zero-intelligence plus model explain the stylized facts of financial time series data", "year": 2012}, {"authors": ["L. Julian Schvartzman", "Michael P. Wellman"], "title": "Stronger cda strategies through empirical game-theoretic analysis and reinforcement learning", "venue": "In Proceedings of The 8th International Conference on Autonomous Agents and Multiagent Systems - Volume", "year": 2009}, {"authors": ["Wei Cui", "Anthony Brabazon"], "title": "An agent-based modeling approach to study price impact", "venue": "IEEE Conference on Computational Intelligence for Financial Engineering and Economics,", "year": 2012}, {"authors": ["Sandrine Leal", "Mauro Napoletano"], "title": "Market stability vs. market resilience: Regulatory policies experiments in an agent based model with low- and high-frequency trading", "venue": "Journal of Economic Behavior and Organization,", "year": 2016}, {"authors": ["Mark Paddrik", "Roy Hayes", "Andrew Todd", "Steve Yang", "Peter Beling", "William Scherer"], "title": "An agent based model of the e-mini s&p 500 applied to flash crash analysis", "venue": "IEEE Conference on Computational Intelligence for Financial Engineering & Economics (CIFEr),", "year": 2012}, {"authors": ["Michael P Wellman"], "title": "Methods for empirical game-theoretic analysis", "venue": "In AAAI, pages 1552\u20131556,", "year": 2006}, {"authors": ["Vincent Darley", "Alexander V. Outkin"], "title": "Nasdaq Market Simulation: Insights on a Major Market from the Science of Complex", "venue": "Adaptive Systems", "year": 2007}, {"authors": ["Eric Bonabeau"], "title": "Agent-based modeling: Methods and techniques for simulating human systems", "venue": "Proceedings of the National Academy of Sciences of the United States of America,", "year": 2002}, {"authors": ["Robert Almgren", "Chee Thum", "Emmanuel Hauptmann", "Hong Li"], "title": "Direct estimation of equity market impact", "venue": "RISK, 18,", "year": 2005}, {"authors": ["Thomas Spooner", "John Fearnley", "Rahul Savani", "Andreas Koukorinis"], "title": "Market making via reinforcement learning", "venue": "In Proceedings of the 17th International Conference on Autonomous Agents and MultiAgent Systems,", "year": 2018}, {"authors": ["Svitlana Vyetrenko", "Shaojie Xu"], "title": "Risk-sensitive compact decision trees for autonomous execution in presence of simulated market response", "venue": "In ICML 2019 Workshop on AI in Finance,", "year": 2019}, {"authors": ["Jean-Philippe Bouchaud", "Yuval Gefen", "Marc Potters", "Matthieu Wyart"], "title": "Fluctuations and response in financial markets: the subtle nature of random price changes", "venue": "Quantitative Finance,", "year": 2003}, {"authors": ["Jim Gatheral"], "title": "No-dynamic-arbitrage and market impact", "venue": "Quantitative Finance,", "year": 2010}, {"authors": ["Gabriele Tedeschi", "Maria Recchioni", "Mauro Gallegati"], "title": "A calibration procedure for analyzing stock price dynamics in an agent-based framework", "year": 2013}, {"authors": ["Jakob Grazzini", "Matteo Richiardi", "Efthymios Tsionas"], "title": "Bayesian estimation of agent-based models", "venue": "Journal of Economic Dynamics and Control,", "year": 2015}, {"authors": ["S. Yang", "M. Paddrik", "R. Hayes", "A. Todd", "A. Kirilenko", "P. Beling", "W. Scherer"], "title": "Behavior based learning in identifying high frequency trading strategies", "venue": "IEEE Conference on Computational Intelligence for Financial Engineering Economics (CIFEr),", "year": 2012}, {"authors": ["Junling Hu", "Michael P. Wellman"], "title": "Multiagent reinforcement learning: Theoretical framework and an algorithm", "venue": "In Proceedings of the Fifteenth International Conference on Machine Learning,", "year": 1998}, {"authors": ["Junyi Li", "Xintong Wang", "Yaoyang Lin", "Arunesh Sinha", "Michael P. Wellman"], "title": "Generating realistic stock market order streams, 2019", "year": 2019}, {"authors": ["N. Ruiz", "S. Schulter", "M. Chandraker"], "title": "Learning to simulate", "venue": "Proceeding of the International Conference on Learning Representations, New Orleans, LA", "year": 2019}, {"authors": ["Blake LeBaron", "Ryuichi Yamamoto"], "title": "Long-memory in an order-driven market", "year": 2007}, {"authors": ["Andrew Lo"], "title": "Reconciling efficient markets with behavioral finance: The adaptive markets hypothesis", "venue": "Journal of Investment Consulting,", "year": 2004}, {"authors": ["Xintong Wang", "Michael P Wellman"], "title": "Spoofing the limit order book: An agent-based model", "venue": "In Proceedings of the 16th Conference on Autonomous Agents and MultiAgent Systems,", "year": 2017}, {"authors": ["Giuseppe Ballocchi", "Michel M. Dacorogna", "Carl M. Hopman", "Ulrich A. Muller", "Richard B. Olsen"], "title": "The intraday multivariate structure of the Eurofutures markets", "venue": "Journal of Empirical Finance,", "year": 1999}, {"authors": ["Olivier Brandouy", "Angelo Corelli", "Iryna Veryzhenko", "Roger Waldeck"], "title": "A re-examination of the \u201czero is enough\u201d hypothesis in the emergence of financial stylized facts", "venue": "Journal of Economic Interaction and Coordination, 7:223\u2013248,", "year": 2012}, {"authors": ["Jean-Philippe Bouchaud", "Marc Mezard", "Marc Potters"], "title": "Statistical properties of stock order books: Empirical results and models", "venue": "Quantitative Finance, 2:301,", "year": 2002}, {"authors": ["Fr\u00e9d\u00e9ric Abergel", "Marouane Anane", "Anirban Chakraborti", "Aymen Jedidi", "Ioane Muni Toke"], "title": "Limit order books", "year": 2016}, {"authors": ["Andrew Lo", "A Craig MacKinlay", "June Zhang"], "title": "Econometric models of limit-order executions", "venue": "Journal of Financial Economics,", "year": 2001}, {"authors": ["Michael M. Dacorogna", "Ulrich Alfons M\u00fcller", "Robert J. Nagler", "Richard B. Olsen", "Olivier V. Pictet"], "title": "A geographical model for the daily and weekly seasonal volatility in the foreign exchange", "year": 1993}, {"authors": ["Thierry Ane", "Helyette Geman"], "title": "Order flow, transaction clock, and normality of asset returns", "venue": "The Journal of Finance,", "year": 2000}, {"authors": ["Li Li", "Zuliu Hu"], "title": "Responses of the stock market to macroeconomic announcements across economic states", "venue": "IMF Working Paper,", "year": 1998}, {"authors": ["David Byrd", "Maria Hybinette", "Tucker Hybinette Balch"], "title": "Abides: Towards high-fidelity market simulation for ai research", "venue": "arXiv preprint arXiv:1904.12066,", "year": 2019}, {"authors": ["David Byrd"], "title": "Explaining agent-based financial market simulation", "venue": "arXiv preprint arXiv:1909.11650,", "year": 2019}, {"authors": ["Dhananjay K Gode", "Shyam Sunder"], "title": "Allocative efficiency of markets with zero-intelligence traders: Market as a partial substitute for individual rationality", "venue": "Journal of political economy,", "year": 1993}, {"authors": ["Elaine Wah", "Mason Wright", "Michael P Wellman"], "title": "Welfare effects of market making in continuous double auctions", "venue": "Journal of Artificial Intelligence Research,", "year": 2017}, {"authors": ["Steven Gjerstad"], "title": "The competitive market paradox", "venue": "Journal of Economic Dynamics and Control,", "year": 2007}, {"authors": ["Steven Gjerstad", "John Dickhaut"], "title": "Price formation in double auctions", "venue": "Games and economic behavior,", "year": 1998}, {"authors": ["Frank McGroarty", "Ash Booth", "Enrico Gerding", "Venkata L. Raju Chinthalapati"], "title": "High frequency trading strategies, market fragility and price spikes: an agent based model perspective", "venue": "Annals of Operations Research,", "year": 2018}, {"authors": ["Tanmoy Chakraborty", "Michael Kearns"], "title": "Market making and mean reversion", "venue": "In Proceedings of the 12th ACM conference on Electronic commerce,", "year": 2011}], "sections": [{"heading": "1 Background and related work", "text": ""}, {"heading": "1.1 Motivation", "text": "Most professional investors, hedge funds, investment institutions and banks need robust means of testing trading strategies in simulation before \u201cgoing live\u201d with funds at risk. A key reason for this is to gain assurance that the strategy is likely to be effective. Alpha strategies aim to profit from price movements, while execution strategies are intended to complete large volume orders while minimizing transaction costs. For instance, a pension fund may have concluded that it should reduce its holdings in a particular stock and therefore trigger a sell order for that asset. If this order were sent to an exchange as a market sell order, the price would likely fall significantly and provide the seller a lower average price than they would hope. In order to reduce transaction costs, it is a common practice to design execution strategies so that price impact is minimized by distributing a larger order as a set of smaller orders over time [1].\nSignificant research effort is aimed at applying Reinforcement Learning to a variety of trading problems in which the learners are trained in simulation: A reinforcement learning market-maker was presented in [2]; a reinforcement learning approach to algorithmic execution was introduced in\n\u2217This paper was prepared for information purposes by the AI Research Group of J.P. Morgan Chase and Co and its affiliates, and is not a product of the Research Department of J.P. Morgan. J.P. Morgan makes no explicit or implied representation and warranty and accepts no liability, for the completeness, accuracy or reliability of information, or the legal, compliance, financial, tax or accounting effects of matters contained herein. This document is not intended as investment research or investment advice, or a recommendation, offer or solicitation for the purchase or sale of any security, financial instrument, financial product or service, or to be used in any way for evaluating the merits of participating in any transaction.\n33rd Conference on Neural Information Processing Systems (NeurIPS 2019), Vancouver, Canada.\nar X\niv :1\n91 2.\n04 94\n1v 1\n[ q-\nfi n.\nT R\n] 1\n0 D\nec 2\n[3]; deep hedging a portfolio of derivatives (including over-the-counter derivatives) in the presence of market friction was considered in [4]; LSTM representations for an RL trading agent was given in [5].\nIn these financial trading problems, the statistical properties of the environment and how the market responds to trading activity is often unknown and difficult to model. In such cases, repeating the process a number of times in a simulated environment allows us to eliminate the need of knowing transition probabilities explicitly, and an optimal policy can be learned from the gained simulated experience requiring realistic market simulation tools.\nIn real-time algorithmic trading, the actions of any given agent incurs response from other market participants. In simulation, autonomous agents can choose to place orders at any time and market response to them will not be reflected in historical data. Therefore, simple market replay of historical data is not sufficient for back testing or strategy construction. Interactive agent-based simulation (IABS) can potentially simulate interaction between individual market participants [6]. In such simulators, price arises from incentives of fully autonomous agents each of whom act rationally in order to maximize their profits. These principles reflect how real markets operate; the challenge is, however, to find realistic agent configurations and prescribe agent behavior in such a way that their actions produce synthetic time series whose statistical properties resemble real markets."}, {"heading": "1.2 Stylized Facts of Limit Order Book (LOB) Behavior", "text": "Later sections of this paper rely on the reader\u2019s understanding of the mechanisms by which electronic markets operate, so we briefly review them here. Public exchanges such as NASDAQ and NYSE facilitate the buying and selling of assets by accepting and satisfying buy and sell orders from multiple market participants. The exchange maintains an order book data structure for each asset traded. The LOB represents a snapshot of the supply and demand for the asset at a given time. It is an electronic record of all the outstanding buy and sell limit orders organized by price levels. A matching engine, such as first-in-first-out, is used to match incoming buy and sell order interest [7].\nOrder types are further distinguished between limit orders and market orders. A limit order specifies a price that should not be exceeded in the case of a buy order, or should not be gone below in the case of a sell order. Hence, a limit order queues a resting order in the LOB at the side of the book of the market participant. A market order indicates that the trader is willing to accept the best price available immediately. A diagram illustrating LOB structure is provided in Figure 1.\nMany of the metrics we present below are derived from the observation of the LOB over time. Properties of LOB behavior that are repeated across a wide range of instruments, markets, and time periods are referred to as stylized facts [8].\nEvaluating the statistical properties of simulated asset returns, order volumes, order arrival times, order cancellations, etc and comparing them to those generated from real historical data allows us to infer the level of fidelity of a simulation. The question of whether stylized facts originate from traders\u2019 behavior, or if they are a natural consequence of order book markets, has been widely discussed in the literature. If some stylized facts can be derived from markets populated only by zero intelligence (ZI) agents which make decisions without the knowledge of market microstructure, then these facts must\noriginate from the mechanism that is governing the markets and not from strategic agent behavior. For example, [9] showed that a market simulation that consists only of ZI agents that place limit and market orders independently at random is able to reproduce price and spread dynamics as well as market impact. Ability of ZI agents to reproduce fat tails and long range dependence was shown in [10], however, the authors emphasized that in order to reproduce correlated order phenomena such as volatility clustering, strategic agent behavior may be required.\nIn this paper, we provide a survey of several groups of LOB stylized facts across multiple asset classes that lead to realism metrics with respect to empirical distributions (defined in Section 2). We compare two simulator configurations: one that contains zero intelligence (ZI) agents only and another that combines ZI agents with minimal strategic behavior agents. We find that the more diverse agent configuration behaves more similarly to real markets; however, we conclude that for more robust simulation of collective market phenomena online learning adaptive agents might be necessary. [11, 10]."}, {"heading": "1.3 Related work", "text": "IABS methods allow us to study phenomena that emerge as a consequence of multiple participant interactions and are difficult to model otherwise. Examples of such complex phenomena include both the routine market microstructure events such as market response to an individual participant\u2019s trading [12]; and rare events such as flash crashes [13, 14, 15] as well as extreme market shocks.\nWellman helped establish an empirical approach to the study of markets using simulated multi-agent systems [16]. In this approach, referred to as Empirical Game Theoretic Analysis (EGTA), many tens of thousands of simulations are run during which the strategies of agents are adjusted until the system reaches a Nash equilibrium. It is only after the system reaches equilibrium that its statistical properties are evaluated. We regard this as a desirable approach, but we have not yet implemented the methods necessary for discovering equilibria in our experimental platform.\nOne notable example of multi-agent simulator use success is the NASDAQ tick size experiment where NASDAQ researchers experimentally demonstrated that under some agent scenarios reducing tick size would actually lead to increased spreads (an undesirable property) and would negatively impact price discovery [17, 18]. These findings are counter-intuitive and illustrate importance of multi-agent simulations for market policy research since one would expect that smaller tick size results in tighter spreads. Some explanations of these observations include the possibility of the existence and proliferation of parasitic strategies that can take advantage of better prices to make the market more jittery and volatile. These findings are particularly important since NASDAQ is interested in finding policies that have not yet been discovered and used by market participants in order to prevent potential market manipulations.\nIn real-time trading, injecting orders to the market induces other market participant activity that typically drives prices away from the agent. This activity is known as market impact [1, 19]. Presence of market impact in real time implies that a realistic trading strategy simulation should include deviation from historical data. In literature, it is common to make an assumption of negligible market impact given the size of agent orders is small and sufficient amount of time is allowed between consecutive trades [20]. A simple two-agent simulated market environment that consists of an algorithmic trading agent and the rest of the market is presented in [21]. It is a partially synthetic data model that allows to deviate from historical data only at times when agent places market orders which are known to cause highest market impact. This model is, however, only suited for small order placement, and is unable to capture more complex dynamics of transient price impact [22, 23].\nWhile modeling the market as an interplay of multiple agents seems a natural approach to mimic real market collective emergent behavior, justifying the realism of such approach for validating new trading strategies is difficult. Agent modeling typically relies on common sense hand-crafted rules (e.g., [10]), which can be difficult to calibrate as historical data labeled with details about each individual constituent agent behavior is typically not available for public use. Several calibration approaches\u2014 e.g. error minimization to find parameters for the asset pricing model with heterogeneous beliefs [24] and using Bayesian parameter estimation techniques in the simulated context\u2014have been introduced [25]. When individual agent- or execution strategy-specific data is available to the researcher, it can be used for the simulator calibration (e.g., [21, 26]).\nOne can view the multi-agent LOB environment as a non-cooperative game in which every agent pursues their own goal and there is no communication among agents [27]. From a game-theoretic\nperspective, a simulated environment is more realistic when it reaches a Nash equilibrium, where every player\u2019s parameters are configured so that each can do no better by unilaterally changing its strategy. Agents that learn to maximize their long term rewards by reinforcement from empirical equilibrium environments have been discussed in [11].\nOther approaches to IABS realism can include inverse learning agents\u2019 rewards from the market [26]; generating synthetic LOB data using GANs [28]; incorporating feedback from real-time trading into the simulation [29] and building adaptive agents that are governed by the evolutionary principles and can learn from experience [30, 31]."}, {"heading": "2 Realism metrics", "text": "We now focus on and review a series of metrics of LOB behavior found in the literature. One way to establish IABS realism is to ensure that simulated LOB time series mimic the stylized facts derived from real market histories. Below we review several groups of such stylized facts across multiple asset classes [26, 32, 9, 10]."}, {"heading": "2.1 Notation and definitions", "text": "For simplicity of presentation, we introduce some notation and definitions that will be used throughout this paper. At time t, let bt be the best bid price, and let at be the best ask price. We define mid-price as mt = at+bt2 . Choose time scale \u2206t. Given a time scale \u2206t, which can range from milliseconds to months, the log return (or simply return) at scale \u2206t is defined as rt,\u2206t = lnmt+\u2206t \u2212 lnmt. Let \u03c3\u2206t be return volatility which can be calculated as standard deviation of price returns.\nLet x be size of a new order placed into LOB. Let T be a lifetime of an order until it is fully executed or canceled. We denote by bt \u2212\u2206 the price of a new buy limit order, and at + \u2206 the price of a new sell limit order. Notice that \u2206 can be negative. Let Va and Vb be the volumes available at the best bid and ask price. Slice LOB price and volume time series in small non-overlapping time intervals. For each time interval \u03c4 , let \u00b5V\u03c4 be the average traded volume and \u03c3\u03c4,\u2206t be the return volatility over \u03c4 . Furthermore, let P (.) denote probability density function of a given quantity."}, {"heading": "2.2 Stylized facts about asset return distributions", "text": "Multiple stylized facts about price return distributions were studied in [8] for equity markets as well as in [33] for foreign exchange and rates markets.\n\u2022 Absence of autocorrelations Linear autocorrelations corr(rt+\u03c4,\u2206t, rt,\u2206t) of asset returns over periods \u03c4 longer than 20 minutes are insignificant.\n\u2022 Heavy tails and aggregational normality The distribution of daily asset price returns shows fat tails; however, as one increases the period of time \u2206t over which these returns are calculated, asset returns show lower tails. One way to quantify deviation from normal distribution is to calculate its kurtosis.\n\u2022 Intermittency At any micro or macro time scale, asset price returns must display high degree of volatility.\n\u2022 Volatility clustering High-volatility events tend to cluster in time. A quantity used to measure volatility clustering is the autocorrelation function of the squared returns corr(r2t+\u03c4,\u2206t, r 2 t,\u2206t). Empirical studies using returns from various equities indicate that\nthis autocorrelation function remains significantly positive over several days, which indicate periods of high volatility clustering [8].\n\u2022 Long range dependence If one looks at autocorrelation function of absolute returns as a function of time lag f(\u03c4) = corr(|rt+\u03c4,\u2206t|, |rt,\u2206t|), it is empirically shown that it decays according to the power law distribution f(\u03c4) \u223c \u03c4\u2212\u03b2 with exponent \u03b2 \u2208 [0.2, 0.4] [8].\n\u2022 Gain/loss asymmetry Gain/loss asymmetry is prevalent for equity price returns as stocks lose value faster than they grow [8]. However, this trend is not as pronounced for foreign exchange and rates products. Skewness is a metric that can be used to quantify the asymmetry of probability distribution about its mean.\n\u2022 Volume/volatility positive correlation Volume and volatility are positively correlated. Linear regression relationship \u00b5V\u03c4 \u223c \u03b1+ \u03b2\u03c3\u03c4,\u2206t can be derived from the data [34]. \u2022 Returns/volatility negative correlation Asset returns/volatility are negatively correlated. \u2022 Asymmetric causal information flow Coarse-scaled volatility predicts fine-scaled volatility\nbetter than fine-scaled volatility predicts coarse scaled-volatility,"}, {"heading": "2.3 Stylized facts about volumes and order flow", "text": "\u2022 Order book volumes Volumes at best bid Vb (and respectively volumes at best ask Va) are\ndistributed according to Gamma distribution for \u03b3 \u2264 1 [35]: P (Vb) \u223c exp\u2212Vb V \u22121+\u03b3b .\n\u2022 Order sizes Order sizes are power-law distributed [7]. For instance,[36] show examples when limit order sizes are distributed as P (x) \u223c x\u2212(1+\u00b5) with exponent 1 + \u00b5 \u2248 2 and market order sizes are distributed as P (x) \u223c x\u2212(1+\u00b5) with exponent 1 + \u00b5 \u2248 2.3 \u2212 2.7. Orders tend to have round number of shares (i.e. multiples of 10, 100, etc. are more common than neighboring sizes); in general, power-law distribution fit is product-specific.\n\u2022 Number of orders in a fixed time window Number of orders in a fixed time window can be approximated by gamma or lognormal distributions [36].\n\u2022 Order inter-arrival times In the literature, LOB order inter-arrival times are suggested to be fit into exponential [28], lognormal, and Weibull distributions [36].\n\u2022 New order prices Prices at which new limit orders are placed, are power-law distributed around bid-ask [36]. Specifically, P (\u2206) \u223c \u2206\u2212(1+\u00b5) with 1 + \u00b5 \u2248 1.6 [35].\n\u2022 Cancellation time, time-to-first-fill and time-to-execution Lifetimes of both cancelled and executed limit orders are power-law distributed, P (T ) \u223c T\u2212(1+\u00b5) with 1 + \u00b5 ranging between 1.3 and 1.6 for both canceled and executed limit orders [36]. Since an order can require multiple fills to be completed, one must distinguish between time-to-first-fill and time-to-completion statistics. Generalized gamma distribution with accelerated failure time can be used to model time-to-first-fill and time-to-completion distributions [37].\n\u2022 Time correlation of order flow Individual agent\u2019s order placement decisions depend on other agents\u2019 actions [10]."}, {"heading": "2.4 Stylized facts about non-stationary patterns", "text": "\u2022 Intraday volume patterns LOB volumes are known to exhibit strong intraday patterns. For\ninstance, historical foreign exchange trading volumes can be approximated by fifth-degree polynomial \"U-shaped\" regional sessions that correspond to New York, London, and Tokyo trading [38]. Similarly, in most equity markets, volumes are highest in the beginning of trading day, followed by a period of lower activity, and then spike again at the end of the trading day [7]. Note that making a transformation from physical time to tick (or transaction) time may help adjusting for intraday non-stationarity [39].\n\u2022 Seasonal volume patterns Some assets, especially those consumer demand for which is seasonal (e.g., electricity futures), display strong seasonal volume patterns.\n\u2022 Intraday sensitivity to macro economic events/holidays Due to product sensitivity to macro factors, volume spikes are known to occur in foreign exchange and rates markets during economic announcements. Equities trading is also sensitive to economic events [40]. Additionally, lower trading volumes are observed on holidays throughout all asset classes. \u2022 Intraday volume/spread negative correlation Lower spreads are typically observed dur-\ning periods of higher trading volumes."}, {"heading": "2.5 Stylized facts about order market impact", "text": "Market impact of order placement is a expected to grow as a function of order volume. For each time interval \u03c4 , define Vbuy,\u03c4 and Vask,\u03c4 to be buy and sell order volumes in \u03c4 respectively. Define participation of volume in \u03c4 as\nP\u03c4 = |Vbuy,\u03c4 \u2212 Vask,\u03c4 | Vbuy,\u03c4 + Vask,\u03c4 .\nNote that 0 \u2264 P\u03c4 \u2264 1. Also define \u2206m\u03c4 to be the observable mid-price move in \u03c4 . Discretize the range for P\u03c4 into bins Bi, i = 1, . . . , N such that Bi = {\u03c4 : i\u22121N \u2264 P\u03c4 \u2264 i N }. For each Bi, define\nMi = 1 |Bi| \u2211 \u03c4\u2208Bi \u2206m\u03c4 and Pi = 1 |Bi| \u2211 \u03c4\u2208Bi \u2206P\u03c4\nto be the average price move and average participation of volume in bins with similar volume participation. One can then fit the relationship of the form Mi \u223c \u03b1P \u03b2i through the data [19, 9, 41]."}, {"heading": "2.6 Stylized facts about cross asset correlations", "text": "When simulating multiple assets, cross asset correlation properties must hold. For instance, equity index and its major constituents must show high degree of correlation [8]. For futures, for example, asset price moves across term structure are highly correlated and exhibits consistent patterns uncovered by the PCA (e.g., [33]). It is also worth noting that extreme returns (e.g., 99-percentile returns that occur during financial crisis) across various stocks or asset classes can be extremely correlated while their average returns are not [8]."}, {"heading": "3 Experiments with a multi-agent simulation", "text": ""}, {"heading": "3.1 ABIDES - Agent-Based Interactive Discrete Event Simulation environment", "text": "In order to evaluate the ability of a given agent configuration to reproduce stylized facts about the market, we employ ABIDES, an agent-based interactive discrete event simulation environment [42]. ABIDES provides a selection of background agent types (such as agent types described in Section 3.2), a NASDAQ-like exchange agent which lists any number of securities for trade against a LOB with price-then-FIFO matching rules, and a simulation kernel which manages the flow of time and handles all inter-agent communication. Trading agents may not inspect the state of the exchange directly, but must direct realistic messages to request order book depth, obtain last trade prices, or place or cancel limit orders through the kernel, which imposes delays for computational effort and communication latency. Time proceeds in nanoseconds and all securities are priced in cents. The ABIDES source code is freely available under a BSD-style license at https://github.com/abides-sim/abides."}, {"heading": "3.2 Background agent types", "text": "In order to conduct experiments, we specify one ZI and three minimal strategic agent types (market maker, momentum and heuristic belief learning agents). Detailed explanations and examples for the ZI and HBL agents and the fundamental process which drives them are available in [43].\nZero intelligence agents: Originally introduced in [44], ZI agent class includes a variety of agents that do not base their trading decisions on the knowledge of LOB microstructure. Similarly to [45], ZI agents in our implementation are enhanced with knowledge of noisy observation of exogenous \u2019true\u2019 value of stock which represents agent\u2019s understanding of the outside world (eg. earnings reports, macro events, immediate trading demand). ZI agents in our experiment arrive to the market according to a Poisson process and do not use LOB microstructure signals for trading decisions.\nHeuristic belief learning (HBL) agent: HBL agents base their decisions on a limited-length historical snapshot of the order stream, which they use to maximize expected surplus using a heuristic estimation of the probability that a given limit price will successfully transact in the market [46], [47]. Our implementation matches that of [32].\nMarket maker agent: The market maker agent acts as a liquidity provider by placing orders on both sides of LOB with a constant arrival rate of 10 seconds. The agent starts by cancelling any existing orders. It then queries the current spread to determine the prices of the buy and sell orders to be submitted. The agent is configured to place orders on top N levels on both sides of LOB with the size split determined by the number of price levels it quotes and the order volume chosen uniformly at random within fixed bounds. Our implementation is similar to that of [48, 49].\nMomentum agents: The momentum agents base their trading decision on observed price trends. Our implementation compares the 20 past mid-price observations with the 50 past observations and places a buy order of random size, if the former exceeds the latter and a sell order otherwise."}, {"heading": "3.3 Agent configurations", "text": "In this paper we present two background agent configurations, one that is composed exclusively of ZI agents (sparse_zi_100\u2014contains 100 ZI agents), and one that has both ZI and strategic agents (rmsc01\u2014contains 1 market maker agent, 50 ZI agents, 25 HBL agents and 24 momentum trading agents). Note that in both configurations, all agents are permitted to reenter the market. To assess the realism of sparse_zi_100 and rmsc01 ABIDES configurations, we look at stylized facts about asset returns and order flow described in Section 2."}, {"heading": "4 Experimental results", "text": ""}, {"heading": "4.1 Stylized facts about asset return distributions", "text": "To derive historical asset return distributions, we analyze minutely intraday log returns of 50 randomly sampled U.S. exchange-traded equities for each trading day of 2011. The set of equities is resampled each trading day and is drawn uniformly across all stocks from all exchanges.\n\u2022 Heavy tails and aggregation normality. We confirm experimentally that both rmsc01 and sparse_zi_100 show heavy tails and aggregational normality, with rmsc01 being closer to historical data (see Figure 2).\n\u2022 Absence of autocorrelations Figure 3 (left) shows the correlation coefficient distributions for lag 1 autocorrelation of log returns over 30 minute intervals. Historical market data exhibits a notable spike of 0 correlation, in line with previous discussion in Section 2. Both the sparse_zi_100 and rmsc01 agent configurations fail to capture this stylized fact. When comparing the overall distribution shape, the rmsc01 configuration resembles the shape of historical autocorrelation distribution closer.\n\u2022 Volatility clustering. The average autocorrelation of square returns decays for both historical and simulated data as time lag increases (see Figure 3 (center)).\n\u2022 Volume/volatility correlation. Neither simulated distribution of correlation coefficients between volume and volatility was as skewed or high-variance as that of historical data (see Figure 3 (right))."}, {"heading": "4.2 Stylized facts about volumes and order flow", "text": "To derive historical distributions, we consider order book historical data for JPM stock traded on the NASDAQ exchange for each trading day of June 2019 from 9:30 am to 4:30 pm.\n\u2022 Number of orders in a fixed time window. Figure 4 (left) shows limit order volume distribution in a five-minute window for the simulated vs. the historical data. We find that gamma distribution produces a good fit for these curves.\n\u2022 Intraday volume patterns. Quadratic curves have been fitted to this data to demonstrate the \"U-shaped\" pattern of historical intraday volumes (see Figure 4 (right) ). The simulation data for rmsc01 shows the reverse of expected activity: namely, reduced trading at the open and close of the market.\n\u2022 Order interarrival times. Figure 4 (right) shows distribution of interarrival times for simulated data as well as the historical data. Historical data fits Weibull distribution rather well. The distribution for rmsc01 is dominated by values close to zero resulting in a poor fit to the Weibull distribution."}, {"heading": "5 Conclusion and Discussion", "text": "In this paper, we provided a catalog of known stylized facts regarding LOB microstructure behavior with respect to market realism. We chose ABIDES environment [42] as a simulation platform and evaluated two experimental configurations of agent types\u2014one exclusively of ZI agents and one with ZI agents and other agents with minimal strategic behavior.\nWe observed that the configuration with a more diverse agent population leads to statistics that more closely mimic real markets, we acknowledge that there is much room for improvement. In particular, time correlation of order flow and intraday volume patterns are not well reproduced. While additional constraints might be needed to produce stylized facts about intraday patterns from agents\u2019 incentives (e.g., require agents to close all positions by the end of the trading day), correlated order behaviors, especially herding or clustering behaviors, require adaptation of one agent\u2019s behavior in response to other agents\u2019 actions and will possibly require introduction of online learning agents [10]. For example, [30] conducted comparisons of non learning and learning agents and concluded that agents capable of learning and adaption to other agent flows are able to replicate stylized facts about long range dependence and correlation between volume and volatility better. Specifically, during periods of high volumes, when more agents are trading in response to others\u2019 behavior, higher trading activity keeps volume queues available at best bid or ask levels relatively short; hence, LOB layers move more frequently and, as a result, prices are more volatile. Moreover, in real markets, rational agents evolve over time by learning to expand effective and cull ineffective trading strategies [31]. Hence, we believe that enhancing autonomous LOB agents with ability to learn from experience will be a step towards making simulated environments more robust."}, {"heading": "6 Acknowledgements", "text": "This material is based on research supported in part by the National Science Foundation under Grant no. 1741026, and by a J.P.Morgan AI Research Fellowship."}], "title": "Get Real: Realism Metrics for Robust Limit Order Book Market Simulations", "year": 2019}
+{
+  "abstractText": "Machine learning (especially reinforcement learning) methods for trading are increasingly reliant on simulation for agent training and testing. Furthermore, simulation is important for validation of hand-coded trading strategies and for testing hypotheses about market structure. A challenge, however, concerns the robustness of policies validated in simulation because the simulations lack fidelity. In fact, researchers have shown that many market simulation approaches fail to reproduce statistics and stylized facts seen in real markets. As a step towards addressing this we surveyed the literature to collect a set of reference metrics and applied them to real market data and simulation output. Our paper provides a comprehensive catalog of these metrics including mathematical formulations where appropriate. Our results show that there are still significant discrepancies between simulated markets and real ones. However, this work serves as a benchmark against which we can measure future improvement. 1 Background and related work",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Svitlana Vyetrenko"
+    },
+    {
+      "affiliations": [],
+      "name": "David Byrd"
+    },
+    {
+      "affiliations": [],
+      "name": "Nick Petosa"
+    },
+    {
+      "affiliations": [],
+      "name": "Mahmoud Mahfouz"
+    },
+    {
+      "affiliations": [],
+      "name": "Danial Dervovic"
+    },
+    {
+      "affiliations": [],
+      "name": "Manuela Veloso"
+    },
+    {
+      "affiliations": [],
+      "name": "Tucker Hybinette Balch"
+    }
+  ],
+  "id": "SP:23c27841ce2e2e02a647e8130c8489427fdffee0",
+  "references": [
+    {
+      "authors": [
+        "Robert Almgren",
+        "Neil Chriss"
+      ],
+      "title": "Optimal execution of portfolio transactions",
+      "venue": "Journal of Risk,",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "T. Spooner",
+        "J. Fearnley",
+        "R. Savani",
+        "A. Koukorinis"
+      ],
+      "title": "Market making via reinforcement learning",
+      "venue": "Proceedings of the 17th International Conference on Autonomous Agents and Multiagent Systems, pages 434\u2013442, Stockholm, Sweden",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Y. Nevmyvaka",
+        "Y. Feng",
+        "M. Kearns"
+      ],
+      "title": "Reinforcement learning for optimized trade execution",
+      "venue": "Proceedings of the 23rd International Conference on Machine Learning, Pittsburg, PA",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "H Buehler",
+        "L Gonon",
+        "J Teichmann",
+        "B Wood"
+      ],
+      "title": "Deep hedging",
+      "venue": "arXiv:1802.03042",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "David Lu"
+      ],
+      "title": "Agent inspired trading using recurrent reinforcement learning and lstm neural networks. arXiv:1707.07338",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C Macal",
+        "M North"
+      ],
+      "title": "Tutorial on agent-based modeling and simulation",
+      "venue": "Journal of Simulation",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Jean-Philippe Bouchaud",
+        "Julius Bonart",
+        "Jonathan Donier",
+        "Martin Gould"
+      ],
+      "title": "Trades, quotes and prices: financial markets under the microscope",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Rama Cont"
+      ],
+      "title": "Empirical properties of asset returns: stylized facts and statistical issues",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "J Farmer",
+        "Paolo Patelli",
+        "Ilija Zovko"
+      ],
+      "title": "The predictive power of zero intelligence in financial markets",
+      "venue": "Proceedings of the National Academy of Sciences of the United States of America, 102:2254\u20139,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "Imon Palit",
+        "Steve Phelps",
+        "Wing Lon Ng"
+      ],
+      "title": "Can a zero-intelligence plus model explain the stylized facts of financial time series data",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "L. Julian Schvartzman",
+        "Michael P. Wellman"
+      ],
+      "title": "Stronger cda strategies through empirical game-theoretic analysis and reinforcement learning",
+      "venue": "In Proceedings of The 8th International Conference on Autonomous Agents and Multiagent Systems - Volume",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Wei Cui",
+        "Anthony Brabazon"
+      ],
+      "title": "An agent-based modeling approach to study price impact",
+      "venue": "IEEE Conference on Computational Intelligence for Financial Engineering and Economics,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Sandrine Leal",
+        "Mauro Napoletano"
+      ],
+      "title": "Market stability vs. market resilience: Regulatory policies experiments in an agent based model with low- and high-frequency trading",
+      "venue": "Journal of Economic Behavior and Organization,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Mark Paddrik",
+        "Roy Hayes",
+        "Andrew Todd",
+        "Steve Yang",
+        "Peter Beling",
+        "William Scherer"
+      ],
+      "title": "An agent based model of the e-mini s&p 500 applied to flash crash analysis",
+      "venue": "IEEE Conference on Computational Intelligence for Financial Engineering & Economics (CIFEr),",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Michael P Wellman"
+      ],
+      "title": "Methods for empirical game-theoretic analysis",
+      "venue": "In AAAI, pages 1552\u20131556,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Vincent Darley",
+        "Alexander V. Outkin"
+      ],
+      "title": "Nasdaq Market Simulation: Insights on a Major Market from the Science of Complex",
+      "venue": "Adaptive Systems",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Eric Bonabeau"
+      ],
+      "title": "Agent-based modeling: Methods and techniques for simulating human systems",
+      "venue": "Proceedings of the National Academy of Sciences of the United States of America,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Robert Almgren",
+        "Chee Thum",
+        "Emmanuel Hauptmann",
+        "Hong Li"
+      ],
+      "title": "Direct estimation of equity market impact",
+      "venue": "RISK, 18,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "Thomas Spooner",
+        "John Fearnley",
+        "Rahul Savani",
+        "Andreas Koukorinis"
+      ],
+      "title": "Market making via reinforcement learning",
+      "venue": "In Proceedings of the 17th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Svitlana Vyetrenko",
+        "Shaojie Xu"
+      ],
+      "title": "Risk-sensitive compact decision trees for autonomous execution in presence of simulated market response",
+      "venue": "In ICML 2019 Workshop on AI in Finance,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Jean-Philippe Bouchaud",
+        "Yuval Gefen",
+        "Marc Potters",
+        "Matthieu Wyart"
+      ],
+      "title": "Fluctuations and response in financial markets: the subtle nature of random price changes",
+      "venue": "Quantitative Finance,",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "Jim Gatheral"
+      ],
+      "title": "No-dynamic-arbitrage and market impact",
+      "venue": "Quantitative Finance,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Gabriele Tedeschi",
+        "Maria Recchioni",
+        "Mauro Gallegati"
+      ],
+      "title": "A calibration procedure for analyzing stock price dynamics in an agent-based framework",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Jakob Grazzini",
+        "Matteo Richiardi",
+        "Efthymios Tsionas"
+      ],
+      "title": "Bayesian estimation of agent-based models",
+      "venue": "Journal of Economic Dynamics and Control,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S. Yang",
+        "M. Paddrik",
+        "R. Hayes",
+        "A. Todd",
+        "A. Kirilenko",
+        "P. Beling",
+        "W. Scherer"
+      ],
+      "title": "Behavior based learning in identifying high frequency trading strategies",
+      "venue": "IEEE Conference on Computational Intelligence for Financial Engineering Economics (CIFEr),",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Junling Hu",
+        "Michael P. Wellman"
+      ],
+      "title": "Multiagent reinforcement learning: Theoretical framework and an algorithm",
+      "venue": "In Proceedings of the Fifteenth International Conference on Machine Learning,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "Junyi Li",
+        "Xintong Wang",
+        "Yaoyang Lin",
+        "Arunesh Sinha",
+        "Michael P. Wellman"
+      ],
+      "title": "Generating realistic stock market order streams, 2019",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "N. Ruiz",
+        "S. Schulter",
+        "M. Chandraker"
+      ],
+      "title": "Learning to simulate",
+      "venue": "Proceeding of the International Conference on Learning Representations, New Orleans, LA",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Blake LeBaron",
+        "Ryuichi Yamamoto"
+      ],
+      "title": "Long-memory in an order-driven market",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Andrew Lo"
+      ],
+      "title": "Reconciling efficient markets with behavioral finance: The adaptive markets hypothesis",
+      "venue": "Journal of Investment Consulting,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Xintong Wang",
+        "Michael P Wellman"
+      ],
+      "title": "Spoofing the limit order book: An agent-based model",
+      "venue": "In Proceedings of the 16th Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Giuseppe Ballocchi",
+        "Michel M. Dacorogna",
+        "Carl M. Hopman",
+        "Ulrich A. Muller",
+        "Richard B. Olsen"
+      ],
+      "title": "The intraday multivariate structure of the Eurofutures markets",
+      "venue": "Journal of Empirical Finance,",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "Olivier Brandouy",
+        "Angelo Corelli",
+        "Iryna Veryzhenko",
+        "Roger Waldeck"
+      ],
+      "title": "A re-examination of the \u201czero is enough\u201d hypothesis in the emergence of financial stylized facts",
+      "venue": "Journal of Economic Interaction and Coordination, 7:223\u2013248,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Jean-Philippe Bouchaud",
+        "Marc Mezard",
+        "Marc Potters"
+      ],
+      "title": "Statistical properties of stock order books: Empirical results and models",
+      "venue": "Quantitative Finance, 2:301,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Fr\u00e9d\u00e9ric Abergel",
+        "Marouane Anane",
+        "Anirban Chakraborti",
+        "Aymen Jedidi",
+        "Ioane Muni Toke"
+      ],
+      "title": "Limit order books",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Andrew Lo",
+        "A Craig MacKinlay",
+        "June Zhang"
+      ],
+      "title": "Econometric models of limit-order executions",
+      "venue": "Journal of Financial Economics,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Michael M. Dacorogna",
+        "Ulrich Alfons M\u00fcller",
+        "Robert J. Nagler",
+        "Richard B. Olsen",
+        "Olivier V. Pictet"
+      ],
+      "title": "A geographical model for the daily and weekly seasonal volatility in the foreign exchange",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "Thierry Ane",
+        "Helyette Geman"
+      ],
+      "title": "Order flow, transaction clock, and normality of asset returns",
+      "venue": "The Journal of Finance,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Li Li",
+        "Zuliu Hu"
+      ],
+      "title": "Responses of the stock market to macroeconomic announcements across economic states",
+      "venue": "IMF Working Paper,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "David Byrd",
+        "Maria Hybinette",
+        "Tucker Hybinette Balch"
+      ],
+      "title": "Abides: Towards high-fidelity market simulation for ai research",
+      "venue": "arXiv preprint arXiv:1904.12066,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "David Byrd"
+      ],
+      "title": "Explaining agent-based financial market simulation",
+      "venue": "arXiv preprint arXiv:1909.11650,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Dhananjay K Gode",
+        "Shyam Sunder"
+      ],
+      "title": "Allocative efficiency of markets with zero-intelligence traders: Market as a partial substitute for individual rationality",
+      "venue": "Journal of political economy,",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "Elaine Wah",
+        "Mason Wright",
+        "Michael P Wellman"
+      ],
+      "title": "Welfare effects of market making in continuous double auctions",
+      "venue": "Journal of Artificial Intelligence Research,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Steven Gjerstad"
+      ],
+      "title": "The competitive market paradox",
+      "venue": "Journal of Economic Dynamics and Control,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Steven Gjerstad",
+        "John Dickhaut"
+      ],
+      "title": "Price formation in double auctions",
+      "venue": "Games and economic behavior,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "Frank McGroarty",
+        "Ash Booth",
+        "Enrico Gerding",
+        "Venkata L. Raju Chinthalapati"
+      ],
+      "title": "High frequency trading strategies, market fragility and price spikes: an agent based model perspective",
+      "venue": "Annals of Operations Research,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Tanmoy Chakraborty",
+        "Michael Kearns"
+      ],
+      "title": "Market making and mean reversion",
+      "venue": "In Proceedings of the 12th ACM conference on Electronic commerce,",
+      "year": 2011
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Background and related work",
+      "text": ""
+    },
+    {
+      "heading": "1.1 Motivation",
+      "text": "Most professional investors, hedge funds, investment institutions and banks need robust means of testing trading strategies in simulation before \u201cgoing live\u201d with funds at risk. A key reason for this is to gain assurance that the strategy is likely to be effective. Alpha strategies aim to profit from price movements, while execution strategies are intended to complete large volume orders while minimizing transaction costs. For instance, a pension fund may have concluded that it should reduce its holdings in a particular stock and therefore trigger a sell order for that asset. If this order were sent to an exchange as a market sell order, the price would likely fall significantly and provide the seller a lower average price than they would hope. In order to reduce transaction costs, it is a common practice to design execution strategies so that price impact is minimized by distributing a larger order as a set of smaller orders over time [1].\nSignificant research effort is aimed at applying Reinforcement Learning to a variety of trading problems in which the learners are trained in simulation: A reinforcement learning market-maker was presented in [2]; a reinforcement learning approach to algorithmic execution was introduced in\n\u2217This paper was prepared for information purposes by the AI Research Group of J.P. Morgan Chase and Co and its affiliates, and is not a product of the Research Department of J.P. Morgan. J.P. Morgan makes no explicit or implied representation and warranty and accepts no liability, for the completeness, accuracy or reliability of information, or the legal, compliance, financial, tax or accounting effects of matters contained herein. This document is not intended as investment research or investment advice, or a recommendation, offer or solicitation for the purchase or sale of any security, financial instrument, financial product or service, or to be used in any way for evaluating the merits of participating in any transaction.\n33rd Conference on Neural Information Processing Systems (NeurIPS 2019), Vancouver, Canada.\nar X\niv :1\n91 2.\n04 94\n1v 1\n[ q-\nfi n.\nT R\n] 1\n0 D\nec 2\n[3]; deep hedging a portfolio of derivatives (including over-the-counter derivatives) in the presence of market friction was considered in [4]; LSTM representations for an RL trading agent was given in [5].\nIn these financial trading problems, the statistical properties of the environment and how the market responds to trading activity is often unknown and difficult to model. In such cases, repeating the process a number of times in a simulated environment allows us to eliminate the need of knowing transition probabilities explicitly, and an optimal policy can be learned from the gained simulated experience requiring realistic market simulation tools.\nIn real-time algorithmic trading, the actions of any given agent incurs response from other market participants. In simulation, autonomous agents can choose to place orders at any time and market response to them will not be reflected in historical data. Therefore, simple market replay of historical data is not sufficient for back testing or strategy construction. Interactive agent-based simulation (IABS) can potentially simulate interaction between individual market participants [6]. In such simulators, price arises from incentives of fully autonomous agents each of whom act rationally in order to maximize their profits. These principles reflect how real markets operate; the challenge is, however, to find realistic agent configurations and prescribe agent behavior in such a way that their actions produce synthetic time series whose statistical properties resemble real markets."
+    },
+    {
+      "heading": "1.2 Stylized Facts of Limit Order Book (LOB) Behavior",
+      "text": "Later sections of this paper rely on the reader\u2019s understanding of the mechanisms by which electronic markets operate, so we briefly review them here. Public exchanges such as NASDAQ and NYSE facilitate the buying and selling of assets by accepting and satisfying buy and sell orders from multiple market participants. The exchange maintains an order book data structure for each asset traded. The LOB represents a snapshot of the supply and demand for the asset at a given time. It is an electronic record of all the outstanding buy and sell limit orders organized by price levels. A matching engine, such as first-in-first-out, is used to match incoming buy and sell order interest [7].\nOrder types are further distinguished between limit orders and market orders. A limit order specifies a price that should not be exceeded in the case of a buy order, or should not be gone below in the case of a sell order. Hence, a limit order queues a resting order in the LOB at the side of the book of the market participant. A market order indicates that the trader is willing to accept the best price available immediately. A diagram illustrating LOB structure is provided in Figure 1.\nMany of the metrics we present below are derived from the observation of the LOB over time. Properties of LOB behavior that are repeated across a wide range of instruments, markets, and time periods are referred to as stylized facts [8].\nEvaluating the statistical properties of simulated asset returns, order volumes, order arrival times, order cancellations, etc and comparing them to those generated from real historical data allows us to infer the level of fidelity of a simulation. The question of whether stylized facts originate from traders\u2019 behavior, or if they are a natural consequence of order book markets, has been widely discussed in the literature. If some stylized facts can be derived from markets populated only by zero intelligence (ZI) agents which make decisions without the knowledge of market microstructure, then these facts must\noriginate from the mechanism that is governing the markets and not from strategic agent behavior. For example, [9] showed that a market simulation that consists only of ZI agents that place limit and market orders independently at random is able to reproduce price and spread dynamics as well as market impact. Ability of ZI agents to reproduce fat tails and long range dependence was shown in [10], however, the authors emphasized that in order to reproduce correlated order phenomena such as volatility clustering, strategic agent behavior may be required.\nIn this paper, we provide a survey of several groups of LOB stylized facts across multiple asset classes that lead to realism metrics with respect to empirical distributions (defined in Section 2). We compare two simulator configurations: one that contains zero intelligence (ZI) agents only and another that combines ZI agents with minimal strategic behavior agents. We find that the more diverse agent configuration behaves more similarly to real markets; however, we conclude that for more robust simulation of collective market phenomena online learning adaptive agents might be necessary. [11, 10]."
+    },
+    {
+      "heading": "1.3 Related work",
+      "text": "IABS methods allow us to study phenomena that emerge as a consequence of multiple participant interactions and are difficult to model otherwise. Examples of such complex phenomena include both the routine market microstructure events such as market response to an individual participant\u2019s trading [12]; and rare events such as flash crashes [13, 14, 15] as well as extreme market shocks.\nWellman helped establish an empirical approach to the study of markets using simulated multi-agent systems [16]. In this approach, referred to as Empirical Game Theoretic Analysis (EGTA), many tens of thousands of simulations are run during which the strategies of agents are adjusted until the system reaches a Nash equilibrium. It is only after the system reaches equilibrium that its statistical properties are evaluated. We regard this as a desirable approach, but we have not yet implemented the methods necessary for discovering equilibria in our experimental platform.\nOne notable example of multi-agent simulator use success is the NASDAQ tick size experiment where NASDAQ researchers experimentally demonstrated that under some agent scenarios reducing tick size would actually lead to increased spreads (an undesirable property) and would negatively impact price discovery [17, 18]. These findings are counter-intuitive and illustrate importance of multi-agent simulations for market policy research since one would expect that smaller tick size results in tighter spreads. Some explanations of these observations include the possibility of the existence and proliferation of parasitic strategies that can take advantage of better prices to make the market more jittery and volatile. These findings are particularly important since NASDAQ is interested in finding policies that have not yet been discovered and used by market participants in order to prevent potential market manipulations.\nIn real-time trading, injecting orders to the market induces other market participant activity that typically drives prices away from the agent. This activity is known as market impact [1, 19]. Presence of market impact in real time implies that a realistic trading strategy simulation should include deviation from historical data. In literature, it is common to make an assumption of negligible market impact given the size of agent orders is small and sufficient amount of time is allowed between consecutive trades [20]. A simple two-agent simulated market environment that consists of an algorithmic trading agent and the rest of the market is presented in [21]. It is a partially synthetic data model that allows to deviate from historical data only at times when agent places market orders which are known to cause highest market impact. This model is, however, only suited for small order placement, and is unable to capture more complex dynamics of transient price impact [22, 23].\nWhile modeling the market as an interplay of multiple agents seems a natural approach to mimic real market collective emergent behavior, justifying the realism of such approach for validating new trading strategies is difficult. Agent modeling typically relies on common sense hand-crafted rules (e.g., [10]), which can be difficult to calibrate as historical data labeled with details about each individual constituent agent behavior is typically not available for public use. Several calibration approaches\u2014 e.g. error minimization to find parameters for the asset pricing model with heterogeneous beliefs [24] and using Bayesian parameter estimation techniques in the simulated context\u2014have been introduced [25]. When individual agent- or execution strategy-specific data is available to the researcher, it can be used for the simulator calibration (e.g., [21, 26]).\nOne can view the multi-agent LOB environment as a non-cooperative game in which every agent pursues their own goal and there is no communication among agents [27]. From a game-theoretic\nperspective, a simulated environment is more realistic when it reaches a Nash equilibrium, where every player\u2019s parameters are configured so that each can do no better by unilaterally changing its strategy. Agents that learn to maximize their long term rewards by reinforcement from empirical equilibrium environments have been discussed in [11].\nOther approaches to IABS realism can include inverse learning agents\u2019 rewards from the market [26]; generating synthetic LOB data using GANs [28]; incorporating feedback from real-time trading into the simulation [29] and building adaptive agents that are governed by the evolutionary principles and can learn from experience [30, 31]."
+    },
+    {
+      "heading": "2 Realism metrics",
+      "text": "We now focus on and review a series of metrics of LOB behavior found in the literature. One way to establish IABS realism is to ensure that simulated LOB time series mimic the stylized facts derived from real market histories. Below we review several groups of such stylized facts across multiple asset classes [26, 32, 9, 10]."
+    },
+    {
+      "heading": "2.1 Notation and definitions",
+      "text": "For simplicity of presentation, we introduce some notation and definitions that will be used throughout this paper. At time t, let bt be the best bid price, and let at be the best ask price. We define mid-price as mt = at+bt2 . Choose time scale \u2206t. Given a time scale \u2206t, which can range from milliseconds to months, the log return (or simply return) at scale \u2206t is defined as rt,\u2206t = lnmt+\u2206t \u2212 lnmt. Let \u03c3\u2206t be return volatility which can be calculated as standard deviation of price returns.\nLet x be size of a new order placed into LOB. Let T be a lifetime of an order until it is fully executed or canceled. We denote by bt \u2212\u2206 the price of a new buy limit order, and at + \u2206 the price of a new sell limit order. Notice that \u2206 can be negative. Let Va and Vb be the volumes available at the best bid and ask price. Slice LOB price and volume time series in small non-overlapping time intervals. For each time interval \u03c4 , let \u00b5V\u03c4 be the average traded volume and \u03c3\u03c4,\u2206t be the return volatility over \u03c4 . Furthermore, let P (.) denote probability density function of a given quantity."
+    },
+    {
+      "heading": "2.2 Stylized facts about asset return distributions",
+      "text": "Multiple stylized facts about price return distributions were studied in [8] for equity markets as well as in [33] for foreign exchange and rates markets.\n\u2022 Absence of autocorrelations Linear autocorrelations corr(rt+\u03c4,\u2206t, rt,\u2206t) of asset returns over periods \u03c4 longer than 20 minutes are insignificant.\n\u2022 Heavy tails and aggregational normality The distribution of daily asset price returns shows fat tails; however, as one increases the period of time \u2206t over which these returns are calculated, asset returns show lower tails. One way to quantify deviation from normal distribution is to calculate its kurtosis.\n\u2022 Intermittency At any micro or macro time scale, asset price returns must display high degree of volatility.\n\u2022 Volatility clustering High-volatility events tend to cluster in time. A quantity used to measure volatility clustering is the autocorrelation function of the squared returns corr(r2t+\u03c4,\u2206t, r 2 t,\u2206t). Empirical studies using returns from various equities indicate that\nthis autocorrelation function remains significantly positive over several days, which indicate periods of high volatility clustering [8].\n\u2022 Long range dependence If one looks at autocorrelation function of absolute returns as a function of time lag f(\u03c4) = corr(|rt+\u03c4,\u2206t|, |rt,\u2206t|), it is empirically shown that it decays according to the power law distribution f(\u03c4) \u223c \u03c4\u2212\u03b2 with exponent \u03b2 \u2208 [0.2, 0.4] [8].\n\u2022 Gain/loss asymmetry Gain/loss asymmetry is prevalent for equity price returns as stocks lose value faster than they grow [8]. However, this trend is not as pronounced for foreign exchange and rates products. Skewness is a metric that can be used to quantify the asymmetry of probability distribution about its mean.\n\u2022 Volume/volatility positive correlation Volume and volatility are positively correlated. Linear regression relationship \u00b5V\u03c4 \u223c \u03b1+ \u03b2\u03c3\u03c4,\u2206t can be derived from the data [34]. \u2022 Returns/volatility negative correlation Asset returns/volatility are negatively correlated. \u2022 Asymmetric causal information flow Coarse-scaled volatility predicts fine-scaled volatility\nbetter than fine-scaled volatility predicts coarse scaled-volatility,"
+    },
+    {
+      "heading": "2.3 Stylized facts about volumes and order flow",
+      "text": "\u2022 Order book volumes Volumes at best bid Vb (and respectively volumes at best ask Va) are\ndistributed according to Gamma distribution for \u03b3 \u2264 1 [35]: P (Vb) \u223c exp\u2212Vb V \u22121+\u03b3b .\n\u2022 Order sizes Order sizes are power-law distributed [7]. For instance,[36] show examples when limit order sizes are distributed as P (x) \u223c x\u2212(1+\u00b5) with exponent 1 + \u00b5 \u2248 2 and market order sizes are distributed as P (x) \u223c x\u2212(1+\u00b5) with exponent 1 + \u00b5 \u2248 2.3 \u2212 2.7. Orders tend to have round number of shares (i.e. multiples of 10, 100, etc. are more common than neighboring sizes); in general, power-law distribution fit is product-specific.\n\u2022 Number of orders in a fixed time window Number of orders in a fixed time window can be approximated by gamma or lognormal distributions [36].\n\u2022 Order inter-arrival times In the literature, LOB order inter-arrival times are suggested to be fit into exponential [28], lognormal, and Weibull distributions [36].\n\u2022 New order prices Prices at which new limit orders are placed, are power-law distributed around bid-ask [36]. Specifically, P (\u2206) \u223c \u2206\u2212(1+\u00b5) with 1 + \u00b5 \u2248 1.6 [35].\n\u2022 Cancellation time, time-to-first-fill and time-to-execution Lifetimes of both cancelled and executed limit orders are power-law distributed, P (T ) \u223c T\u2212(1+\u00b5) with 1 + \u00b5 ranging between 1.3 and 1.6 for both canceled and executed limit orders [36]. Since an order can require multiple fills to be completed, one must distinguish between time-to-first-fill and time-to-completion statistics. Generalized gamma distribution with accelerated failure time can be used to model time-to-first-fill and time-to-completion distributions [37].\n\u2022 Time correlation of order flow Individual agent\u2019s order placement decisions depend on other agents\u2019 actions [10]."
+    },
+    {
+      "heading": "2.4 Stylized facts about non-stationary patterns",
+      "text": "\u2022 Intraday volume patterns LOB volumes are known to exhibit strong intraday patterns. For\ninstance, historical foreign exchange trading volumes can be approximated by fifth-degree polynomial \"U-shaped\" regional sessions that correspond to New York, London, and Tokyo trading [38]. Similarly, in most equity markets, volumes are highest in the beginning of trading day, followed by a period of lower activity, and then spike again at the end of the trading day [7]. Note that making a transformation from physical time to tick (or transaction) time may help adjusting for intraday non-stationarity [39].\n\u2022 Seasonal volume patterns Some assets, especially those consumer demand for which is seasonal (e.g., electricity futures), display strong seasonal volume patterns.\n\u2022 Intraday sensitivity to macro economic events/holidays Due to product sensitivity to macro factors, volume spikes are known to occur in foreign exchange and rates markets during economic announcements. Equities trading is also sensitive to economic events [40]. Additionally, lower trading volumes are observed on holidays throughout all asset classes. \u2022 Intraday volume/spread negative correlation Lower spreads are typically observed dur-\ning periods of higher trading volumes."
+    },
+    {
+      "heading": "2.5 Stylized facts about order market impact",
+      "text": "Market impact of order placement is a expected to grow as a function of order volume. For each time interval \u03c4 , define Vbuy,\u03c4 and Vask,\u03c4 to be buy and sell order volumes in \u03c4 respectively. Define participation of volume in \u03c4 as\nP\u03c4 = |Vbuy,\u03c4 \u2212 Vask,\u03c4 | Vbuy,\u03c4 + Vask,\u03c4 .\nNote that 0 \u2264 P\u03c4 \u2264 1. Also define \u2206m\u03c4 to be the observable mid-price move in \u03c4 . Discretize the range for P\u03c4 into bins Bi, i = 1, . . . , N such that Bi = {\u03c4 : i\u22121N \u2264 P\u03c4 \u2264 i N }. For each Bi, define\nMi = 1 |Bi| \u2211 \u03c4\u2208Bi \u2206m\u03c4 and Pi = 1 |Bi| \u2211 \u03c4\u2208Bi \u2206P\u03c4\nto be the average price move and average participation of volume in bins with similar volume participation. One can then fit the relationship of the form Mi \u223c \u03b1P \u03b2i through the data [19, 9, 41]."
+    },
+    {
+      "heading": "2.6 Stylized facts about cross asset correlations",
+      "text": "When simulating multiple assets, cross asset correlation properties must hold. For instance, equity index and its major constituents must show high degree of correlation [8]. For futures, for example, asset price moves across term structure are highly correlated and exhibits consistent patterns uncovered by the PCA (e.g., [33]). It is also worth noting that extreme returns (e.g., 99-percentile returns that occur during financial crisis) across various stocks or asset classes can be extremely correlated while their average returns are not [8]."
+    },
+    {
+      "heading": "3 Experiments with a multi-agent simulation",
+      "text": ""
+    },
+    {
+      "heading": "3.1 ABIDES - Agent-Based Interactive Discrete Event Simulation environment",
+      "text": "In order to evaluate the ability of a given agent configuration to reproduce stylized facts about the market, we employ ABIDES, an agent-based interactive discrete event simulation environment [42]. ABIDES provides a selection of background agent types (such as agent types described in Section 3.2), a NASDAQ-like exchange agent which lists any number of securities for trade against a LOB with price-then-FIFO matching rules, and a simulation kernel which manages the flow of time and handles all inter-agent communication. Trading agents may not inspect the state of the exchange directly, but must direct realistic messages to request order book depth, obtain last trade prices, or place or cancel limit orders through the kernel, which imposes delays for computational effort and communication latency. Time proceeds in nanoseconds and all securities are priced in cents. The ABIDES source code is freely available under a BSD-style license at https://github.com/abides-sim/abides."
+    },
+    {
+      "heading": "3.2 Background agent types",
+      "text": "In order to conduct experiments, we specify one ZI and three minimal strategic agent types (market maker, momentum and heuristic belief learning agents). Detailed explanations and examples for the ZI and HBL agents and the fundamental process which drives them are available in [43].\nZero intelligence agents: Originally introduced in [44], ZI agent class includes a variety of agents that do not base their trading decisions on the knowledge of LOB microstructure. Similarly to [45], ZI agents in our implementation are enhanced with knowledge of noisy observation of exogenous \u2019true\u2019 value of stock which represents agent\u2019s understanding of the outside world (eg. earnings reports, macro events, immediate trading demand). ZI agents in our experiment arrive to the market according to a Poisson process and do not use LOB microstructure signals for trading decisions.\nHeuristic belief learning (HBL) agent: HBL agents base their decisions on a limited-length historical snapshot of the order stream, which they use to maximize expected surplus using a heuristic estimation of the probability that a given limit price will successfully transact in the market [46], [47]. Our implementation matches that of [32].\nMarket maker agent: The market maker agent acts as a liquidity provider by placing orders on both sides of LOB with a constant arrival rate of 10 seconds. The agent starts by cancelling any existing orders. It then queries the current spread to determine the prices of the buy and sell orders to be submitted. The agent is configured to place orders on top N levels on both sides of LOB with the size split determined by the number of price levels it quotes and the order volume chosen uniformly at random within fixed bounds. Our implementation is similar to that of [48, 49].\nMomentum agents: The momentum agents base their trading decision on observed price trends. Our implementation compares the 20 past mid-price observations with the 50 past observations and places a buy order of random size, if the former exceeds the latter and a sell order otherwise."
+    },
+    {
+      "heading": "3.3 Agent configurations",
+      "text": "In this paper we present two background agent configurations, one that is composed exclusively of ZI agents (sparse_zi_100\u2014contains 100 ZI agents), and one that has both ZI and strategic agents (rmsc01\u2014contains 1 market maker agent, 50 ZI agents, 25 HBL agents and 24 momentum trading agents). Note that in both configurations, all agents are permitted to reenter the market. To assess the realism of sparse_zi_100 and rmsc01 ABIDES configurations, we look at stylized facts about asset returns and order flow described in Section 2."
+    },
+    {
+      "heading": "4 Experimental results",
+      "text": ""
+    },
+    {
+      "heading": "4.1 Stylized facts about asset return distributions",
+      "text": "To derive historical asset return distributions, we analyze minutely intraday log returns of 50 randomly sampled U.S. exchange-traded equities for each trading day of 2011. The set of equities is resampled each trading day and is drawn uniformly across all stocks from all exchanges.\n\u2022 Heavy tails and aggregation normality. We confirm experimentally that both rmsc01 and sparse_zi_100 show heavy tails and aggregational normality, with rmsc01 being closer to historical data (see Figure 2).\n\u2022 Absence of autocorrelations Figure 3 (left) shows the correlation coefficient distributions for lag 1 autocorrelation of log returns over 30 minute intervals. Historical market data exhibits a notable spike of 0 correlation, in line with previous discussion in Section 2. Both the sparse_zi_100 and rmsc01 agent configurations fail to capture this stylized fact. When comparing the overall distribution shape, the rmsc01 configuration resembles the shape of historical autocorrelation distribution closer.\n\u2022 Volatility clustering. The average autocorrelation of square returns decays for both historical and simulated data as time lag increases (see Figure 3 (center)).\n\u2022 Volume/volatility correlation. Neither simulated distribution of correlation coefficients between volume and volatility was as skewed or high-variance as that of historical data (see Figure 3 (right))."
+    },
+    {
+      "heading": "4.2 Stylized facts about volumes and order flow",
+      "text": "To derive historical distributions, we consider order book historical data for JPM stock traded on the NASDAQ exchange for each trading day of June 2019 from 9:30 am to 4:30 pm.\n\u2022 Number of orders in a fixed time window. Figure 4 (left) shows limit order volume distribution in a five-minute window for the simulated vs. the historical data. We find that gamma distribution produces a good fit for these curves.\n\u2022 Intraday volume patterns. Quadratic curves have been fitted to this data to demonstrate the \"U-shaped\" pattern of historical intraday volumes (see Figure 4 (right) ). The simulation data for rmsc01 shows the reverse of expected activity: namely, reduced trading at the open and close of the market.\n\u2022 Order interarrival times. Figure 4 (right) shows distribution of interarrival times for simulated data as well as the historical data. Historical data fits Weibull distribution rather well. The distribution for rmsc01 is dominated by values close to zero resulting in a poor fit to the Weibull distribution."
+    },
+    {
+      "heading": "5 Conclusion and Discussion",
+      "text": "In this paper, we provided a catalog of known stylized facts regarding LOB microstructure behavior with respect to market realism. We chose ABIDES environment [42] as a simulation platform and evaluated two experimental configurations of agent types\u2014one exclusively of ZI agents and one with ZI agents and other agents with minimal strategic behavior.\nWe observed that the configuration with a more diverse agent population leads to statistics that more closely mimic real markets, we acknowledge that there is much room for improvement. In particular, time correlation of order flow and intraday volume patterns are not well reproduced. While additional constraints might be needed to produce stylized facts about intraday patterns from agents\u2019 incentives (e.g., require agents to close all positions by the end of the trading day), correlated order behaviors, especially herding or clustering behaviors, require adaptation of one agent\u2019s behavior in response to other agents\u2019 actions and will possibly require introduction of online learning agents [10]. For example, [30] conducted comparisons of non learning and learning agents and concluded that agents capable of learning and adaption to other agent flows are able to replicate stylized facts about long range dependence and correlation between volume and volatility better. Specifically, during periods of high volumes, when more agents are trading in response to others\u2019 behavior, higher trading activity keeps volume queues available at best bid or ask levels relatively short; hence, LOB layers move more frequently and, as a result, prices are more volatile. Moreover, in real markets, rational agents evolve over time by learning to expand effective and cull ineffective trading strategies [31]. Hence, we believe that enhancing autonomous LOB agents with ability to learn from experience will be a step towards making simulated environments more robust."
+    },
+    {
+      "heading": "6 Acknowledgements",
+      "text": "This material is based on research supported in part by the National Science Foundation under Grant no. 1741026, and by a J.P.Morgan AI Research Fellowship."
+    }
+  ],
+  "title": "Get Real: Realism Metrics for Robust Limit Order Book Market Simulations",
+  "year": 2019
+}

@@ -1,1 +1,1515 @@
-{"abstractText": "A large set of the explainable Artificial Intelligence (XAI) literature is emerging on feature relevance techniques to explain a deep neural network (DNN) output or explaining models that ingest image source data. However, assessing how XAI techniques can help understand models beyond classification tasks, e.g. for reinforcement learning (RL), has not been extensively studied. We review recent works in the direction to attain Explainable Reinforcement Learning (XRL), a relatively new subfield of Explainable Artificial Intelligence, intended to be used in general public applications, with diverse audiences, requiring ethical, responsible and trustable algorithms. In critical situations where it is essential to justify and explain the agent\u2019s behaviour, better explainability and interpretability of RL models could help gain scientific insight on the inner workings of what is still considered a black box. We evaluate mainly studies directly linking explainability to RL, and split these into two categories according to the way the explanations are generated: transparent algorithms and post-hoc explainaility. We also review the most prominent XAI works from the lenses of how they could potentially enlighten the further deployment of the latest advances in RL, in the demanding present and future of everyday problems.", "authors": [{"affiliations": [], "name": "Alexandre Heuillet"}, {"affiliations": [], "name": "Fabien Couthouis"}, {"affiliations": [], "name": "Natalia D\u00edaz-Rodr\u00edguez"}], "id": "SP:4dd83dea672f8aec2f6761b4a3af4126de23c9e4", "references": [{"authors": ["Pieter Abbeel", "Andrew Ng"], "title": "Apprenticeship Learning via Inverse Reinforcement Learning", "venue": "Proceedings, Twenty-First International Conference on Machine Learning,", "year": 2004}, {"authors": ["Alessandro Achille", "Tom Eccles", "Loic Matthey", "Chris Burgess", "Nicholas Watters", "Alexander Lerchner", "Irina Higgins"], "title": "Life-Long Disentangled Representation Learning with Cross-Domain Latent Homologies", "venue": "Advances in Neural Information Processing Systems 31", "year": 2018}, {"authors": ["Alessandro Achille", "Stefano Soatto"], "title": "A Separation Principle for Control in the Age of Deep Learning", "year": 2017}, {"authors": ["Alessandro Achille", "Stefano Soatto"], "title": "Emergence of Invariance and Disentanglement in Deep Representations", "venue": "[cs.LG]. url: https://arxiv.org/abs/1706.01350", "year": 2017}, {"authors": ["Julius Adebayo", "Justin Gilmer", "Michael Muelly", "Ian Goodfellow", "Moritz Hardt", "Been Kim"], "title": "Sanity Checks for Saliency Maps", "venue": "[cs.CV]. url: https://arxiv.org/pdf/1810.03292", "year": 2018}, {"authors": ["Samuel Alvernaz", "Julian Togelius"], "title": "Autoencoder-augmented Neuroevolution for Visual Doom Playing. 2017", "venue": "[cs.AI]. url: https://arxiv.org/pdf/1707.03902", "year": 2017}, {"authors": ["Marcin Andrychowicz", "Filip Wolski", "Alex Ray", "Jonas Schneider", "Rachel Fong", "Peter Welinder", "Bob McGrew", "Josh Tobin", "Pieter Abbeel", "Wojciech Zaremba"], "title": "Hindsight Experience Replay", "venue": "[cs.LG]. url: https://arxiv.org/pdf/1707.01495.pdf", "year": 2017}, {"authors": ["OpenAI: Marcin Andrychowicz", "Bowen Baker", "Maciek Chociej", "Rafal J\u00f3zefowicz", "Bob McGrew", "Jakub Pachocki", "Arthur Petron", "Matthias Plappert", "Glenn Powell", "Alex Ray"], "title": "Learning dexterous in-hand manipulation", "venue": "The International Journal of Robotics Research (Nov. 2019),", "year": 1988}, {"authors": ["I. Arel", "C. Liu", "T. Urbanik", "A.G. Kohls"], "title": "Reinforcement learningbased multi-agent system for network traffic signal control", "venue": "IET Intelligent Transport Systems", "year": 2010}, {"authors": ["Alejandro Barredo Arrieta", "Natalia D\u00edaz-Rodr\u00edguez", "Javier Del Ser", "Adrien Bennetot", "Siham Tabik", "Alberto Barbado", "Salvador Garc\u00eda", "Sergio Gil- L\u00f3pez", "Daniel Molina", "Richard Benjamins", "Raja Chatila", "Francisco Herrera"], "title": "Explainable Artificial Intelligence (XAI): Concepts, Taxonomies, Opportunities and Challenges toward Responsible AI", "venue": "[cs.AI]. url: https://arxiv.org/pdf/1910.10045.pdf", "year": 2019}, {"authors": ["Marco Baroni"], "title": "Linguistic generalization and compositionality in modern artificial neural networks", "venue": "Philosophical Transactions of the Royal Society B: Biological Sciences", "year": 2019}, {"authors": ["Peter W. Battaglia", "Jessica B. Hamrick", "Victor Bapst", "Alvaro Sanchez- Gonzalez", "Vinicius Zambaldi", "Mateusz Malinowski", "Andrea Tacchetti", "David Raposo", "Adam Santoro", "Ryan Faulkner", "Caglar Gulcehre", "Francis Song", "Andrew Ballard", "Justin Gilmer", "George Dahl", "Ashish Vaswani", "Kelsey Allen", "Charles Nash", "Victoria Langston", "Chris Dyer", "Nicolas Heess", "Daan Wierstra", "Pushmeet Kohli", "Matt Botvinick", "Oriol Vinyals", "Yujia Li", "Razvan Pascanu"], "title": "Relational inductive biases, deep learning, and graph networks. 2018", "year": 2018}, {"authors": ["Yoshua Bengio", "Aaron Courville", "Pascal Vincent"], "title": "Representation Learning: A Review and New Perspectives", "venue": "[cs.LG]. url: https://arxiv.org/abs/1206.5538", "year": 2012}, {"authors": ["Adrien Bennetot", "Vicky Charisi", "Natalia D\u00edaz-Rodr\u00edguez"], "title": "Should artificial agents ask for help in human-robot collaborative problem-solving?", "venue": "arXiv preprint arXiv:2006.00882", "year": 2020}, {"authors": ["Benjamin Beyret", "Ali Shafti", "Aldo Faisal"], "title": "Dot-to-Dot: Explainable Hierarchical Reinforcement Learning for Robotic Manipulation", "venue": "In: (Apr. 2019)", "year": 1904}, {"authors": ["Tom B. Brown", "Benjamin Mann", "Nick Ryder", "Melanie Subbiah", "Jared Kaplan", "Prafulla Dhariwal", "Arvind Neelakantan", "Pranav Shyam", "Girish Sastry", "Amanda Askell", "Sandhini Agarwal", "Ariel Herbert-Voss", "Gretchen Krueger", "Tom Henighan", "Rewon Child", "Aditya Ramesh", "Daniel M. Ziegler", "Jeffrey Wu", "Clemens Winter", "Christopher Hesse", "Mark Chen", "Eric Sigler", "Mateusz Litwin", "Scott Gray", "Benjamin Chess", "Jack Clark", "Christopher Berner", "Sam McCandlish", "Alec Radford", "Ilya Sutskever", "Dario Amodei"], "title": "Language Models are Few-Shot Learners", "year": 2020}, {"authors": ["Hugo Caselles-Dupr\u00e9", "Michael Garcia Ortiz", "David Filliat"], "title": "Symmetry- Based Disentangled Representation Learning requires Interaction with Environments", "venue": "Advances in Neural Information Processing Systems 32", "year": 2019}, {"authors": ["Hugo Caselles-Dupr\u00e9", "Michael Garcia-Ortiz", "David Filliat"], "title": "Symmetry- Based Disentangled Representation Learning requires Interaction with Environments. 2019", "year": 1904}, {"authors": ["Rahma Chaabouni", "Eugene Kharitonov", "Emmanuel Dupoux", "Marco Baroni"], "title": "Anti-efficient encoding in emergent communication", "venue": "Advances in Neural Information Processing Systems", "year": 2019}, {"authors": ["Xi Chen", "Yan Duan", "Rein Houthooft", "John Schulman", "Ilya Sutskever", "Pieter Abbeel"], "title": "InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets", "year": 2016}, {"authors": ["Maxime Chevalier-Boisvert", "Lucas Willems", "Suman Pal"], "title": "Minimalistic Gridworld Environment for OpenAI Gym. https://github.com/ maximecb/gym-minigrid", "year": 2018}, {"authors": ["Paul Christiano", "Jan Leike", "Tom B. Brown", "Miljan Martic", "Shane Legg", "Dario Amodei"], "title": "Deep reinforcement learning from human preferences. 2017", "venue": "https://arxiv.org/pdf/", "year": 2017}, {"authors": ["Geoffrey Cideron", "Mathieu Seurin", "Florian Strub", "Olivier Pietquin"], "title": "Self-Educated Language Agent With Hindsight Experience Replay For Instruction Following", "venue": "[cs.LG]. url: https://arxiv.org/pdf/1910.09451.pdf", "year": 2019}, {"authors": ["Artur d\u2019Avila Garcez", "Aimore Resende Riquetti Dutra", "Eduardo Alonso"], "title": "Towards Symbolic Reinforcement Learning with Common Sense", "venue": "arXiv e-prints,", "year": 2018}, {"authors": ["Misha Denil", "Sergio G\u00f3mez Colmenarejo", "Serkan Cabi", "David Saxton", "Nando de Freitas"], "title": "Programmable Agents. 2017", "year": 2017}, {"authors": ["Prithviraj Dhar", "Rajat Vikram Singh", "Kuan-Chuan Peng", "Ziyan Wu", "Rama Chellappa"], "title": "Learning without Memorizing", "venue": "[cs.CV]. url: https://arxiv.org/pdf/1811.08051v2.pdf", "year": 2018}, {"authors": ["Natalia D\u00edaz-Rodr\u00edguez", "Vincenzo Lomonaco", "David Filliat", "Davide Maltoni"], "title": "Don\u2019t forget, there is more than forgetting: new metrics for Continual Learning", "venue": "[cs.AI]. url: https: //arxiv.org/pdf/1810.13166", "year": 2018}, {"authors": ["Stephane Doncieux", "Nicolas Bredeche", "L\u00e9ni Le Goff", "Beno\u00eet Girard", "Alexandre Coninx", "Olivier Sigaud", "Mehdi Khamassi", "Natalia D\u00edaz-Rodr\u00edguez", "David Filliat", "Timothy Hospedales", "A. Eiben", "Richard Duro"], "title": "DREAM Architecture: a Developmental Approach to Open-Ended Learning in Robotics", "venue": "[cs.AI]. url: https://arxiv", "year": 2020}, {"authors": ["Stephane Doncieux", "David Filliat", "Natalia D\u00edaz-Rodr\u00edguez", "Timothy Hospedales", "Richard Duro", "Alexandre Coninx", "Diederik M. Roijers", "Beno\u00eet Girard", "Nicolas Perrin", "Olivier Sigaud"], "title": "Open-Ended Learning: A Conceptual Framework Based on Representational Redescription", "venue": "Frontiers in Neurorobotics", "year": 2018}, {"authors": ["Finale Doshi-Velez", "Been Kim"], "title": "Towards A Rigorous Science of Interpretable Machine Learning", "venue": "[stat.ML]. url: https://arxiv.org/pdf/1702.08608.pdf", "year": 2017}, {"authors": ["Yan Duan", "Xi Chen", "Rein Houthooft", "John Schulman", "Pieter Abbeel"], "title": "Benchmarking Deep Reinforcement Learning for Continuous Control", "venue": "[cs.LG]. url: https://arxiv.org/pdf/ 1604.06778.pdf", "year": 2016}, {"authors": ["Chelsea Finn", "Xin Yu Tan", "Yan Duan", "Trevor Darrell", "Sergey Levine", "Pieter Abbeel"], "title": "Deep Spatial Autoencoders for Visuomotor Learning", "venue": "[cs.LG]. url:", "year": 2015}, {"authors": ["Jakob Foerster", "Gregory Farquhar", "Triantafyllos Afouras", "Nantas Nardelli", "Shimon Whiteson"], "title": "Counterfactual Multi-Agent Policy Gradients", "venue": "[cs.AI]. url: https://arxiv.org/pdf/ 1705.08926.pdf", "year": 2017}, {"authors": ["Yarin Gal", "Zoubin Ghahramani"], "title": "Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning", "venue": "[stat.ML]. url: https://arxiv.org/abs/1506.02142", "year": 2015}, {"authors": ["Artur Garcez", "Tarek Besold", "Luc De Raedt", "Peter F\u00f6ldi\u00e1k", "Pascal Hitzler", "Thomas Icard", "Kai-Uwe K\u00fchnberger", "Lu\u00eds Lamb", "Risto Miikkulainen", "Daniel Silver"], "title": "Neural-Symbolic Learning and Reasoning: Contributions and Challenges", "venue": "In: Mar. 2015. doi: 10.13140/2.1.1779.4243", "year": 2015}, {"authors": ["Javier Garc\u00eda", "Fern", "o Fern\u00e1ndez"], "title": "A Comprehensive Survey on Safe Reinforcement Learning", "venue": "Journal of Machine Learning Research", "year": 2015}, {"authors": ["Marta Garnelo", "Kai Arulkumaran", "Murray Shanahan"], "title": "Towards Deep Symbolic Reinforcement Learning", "venue": "[cs.AI]. url: https://arxiv.org/pdf/1609.05518", "year": 2016}, {"authors": ["Marta Garnelo", "Murray Shanahan"], "title": "Reconciling deep learning with symbolic artificial intelligence: representing objects and relations", "venue": "Current Opinion in Behavioral Sciences", "year": 2019}, {"authors": ["Ross Girshick", "Jeff Donahue", "Trevor Darrell", "Jitendra Malik"], "title": "Rich feature hierarchies for accurate object detection and semantic segmentation", "venue": "[cs.CV]. url: https://arxiv.org/pdf/1311", "year": 2013}, {"authors": ["Ian J. Goodfellow", "Jean Pouget-Abadie", "Mehdi Mirza", "Bing Xu", "David Warde-Farley", "Sherjil Ozair", "Aaron Courville", "Yoshua Bengio"], "title": "Generative Adversarial Networks", "venue": "[stat.ML]. url: https://arxiv.org/pdf/1406.2661.pdf", "year": 2014}, {"authors": ["Sam Greydanus", "Anurag Koul", "Jonathan Dodge", "Alan Fern"], "title": "Visualizing and Understanding Atari Agents", "venue": "[cs.AI]. url: https://arxiv.org/pdf/1711.00138", "year": 2017}, {"authors": ["David Gunning", "David W Aha"], "title": "DARPA\u2019s Explainable Artificial Intelligence Program", "venue": "In: AI Magazine", "year": 2019}, {"authors": ["Tuomas Haarnoja", "Vitchyr Pong", "Aurick Zhou", "Murtaza Dalal", "Pieter Abbeel", "Sergey Levine"], "title": "Composable Deep Reinforcement Learning for Robotic Manipulation", "venue": "IEEE International Conference on Robotics and Automation (ICRA) (May 2018)", "year": 2018}, {"authors": ["Tuomas Haarnoja", "Haoran Tang", "Pieter Abbeel", "Sergey Levine"], "title": "Reinforcement Learning with Deep Energy-Based Policies", "year": 2017}, {"authors": ["Joseph Y. Halpern", "Judea Pearl"], "title": "Causes and Explanations: A Structural- Model Approach. Part I: Causes", "venue": "The British Journal for the Philosophy of Science 56.4 (Dec", "year": 2005}, {"authors": ["Dongqi Han", "Kenji Doya", "Jun Tani"], "title": "Emergence of Hierarchy via Reinforcement Learning Using a Multiple Timescale Stochastic RNN", "venue": "CoRR abs/1901.10113", "year": 2019}, {"authors": ["Irina Higgins", "David Amos", "David Pfau", "Sebastien Racaniere", "Loic Matthey", "Danilo Rezende", "Alexander Lerchner"], "title": "Towards a Definition of Disentangled Representations", "venue": "[cs.LG]. url: https: //arxiv.org/abs/1812.02230", "year": 2018}, {"authors": ["Robert R. Hoffman", "Shane T. Mueller", "Gary Klein", "Jordan Litman"], "title": "Metrics for Explainable AI: Challenges and Prospects", "venue": "[cs.AI]. url: https://arxiv.org/pdf/1812.04608", "year": 2018}, {"authors": ["Herke van Hoof", "Nutan Chen", "Maximilian Karl", "Patrick van der Smagt", "Jan Peters"], "title": "Stable reinforcement learning with autoencoders for tactile and visual data", "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)", "year": 2016}, {"authors": ["Ronghang Hu", "Anna Rohrbach", "Trevor Darrell", "Kate Saenko"], "title": "Language- Conditioned Graph Networks for Relational Reasoning. 2019", "venue": "[cs.CV]. url: https://arxiv.org/abs/1905.04405", "year": 1905}, {"authors": ["Sarthak Jain", "Byron C. Wallace"], "title": "Attention is not Explanation", "venue": "[cs.CL]. url: https://arxiv.org/pdf/1902", "year": 2019}, {"authors": ["Rico Jonschkowski", "Oliver Brock"], "title": "Learning state representations with robotic priors", "venue": "Autonomous Robots", "year": 2015}, {"authors": ["Dmitry Kalashnikov", "Alex Irpan", "Peter Pastor", "Julian Ibarz", "Alexander Herzog", "Eric Jang", "Deirdre Quillen", "Ethan Holly", "Mrinal Kalakrishnan", "Vincent Vanhoucke", "Sergey Levine"], "title": "QT-Opt: Scalable Deep Reinforcement Learning for Vision-Based Robotic Manipulation", "venue": "[cs.LG]. url: https://arxiv.org/pdf/1806.10293.pdf", "year": 2018}, {"authors": ["Hiroshi Kawano"], "title": "Hierarchical sub-task decomposition for reinforcement learning of multi-robot delivery mission", "venue": "doi: 10.1109/ICRA.2013.6630669. url:", "year": 2013}, {"authors": ["Eugene Kharitonov", "Marco Baroni"], "title": "Emergent Language Generalization and Acquisition Speed are not tied to Compositionality", "year": 2004}, {"authors": ["Jinkyu Kim", "Suhong Moon", "Anna Rohrbach", "Trevor Darrell", "John Canny"], "title": "Advisable Learning for Self-Driving Vehicles by Internalizing Observation-to-Action Rules", "venue": "The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)", "year": 2020}, {"authors": ["Pieter-Jan Kindermans", "Sara Hooker", "Julius Adebayo", "Maximilian Alber", "Kristof T. Sch\u00fctt", "Sven D\u00e4hne", "Dumitru Erhan", "Been Kim"], "title": "The (Un)reliability of saliency methods", "venue": "[stat.ML]. url: https://arxiv.org/pdf/1711.00867", "year": 2017}, {"authors": ["Diederik P Kingma", "Max Welling"], "title": "Auto-Encoding Variational Bayes", "venue": "[stat.ML]. url: https://arxiv.org/ pdf/1312.6114.pdf", "year": 2013}, {"authors": ["Thomas N. Kipf", "Max Welling"], "title": "Semi-Supervised Classification with Graph Convolutional Networks. 2016", "year": 2016}, {"authors": ["Yann LeCun", "Yoshua Bengio"], "title": "Convolutional networks for images, speech, and time series", "venue": "url: https://www.researchgate. net/publication/2453996_Convolutional_Networks_for_Images_ Speech_and_Time-Series", "year": 1995}, {"authors": ["T. Lesort", "M. Seurin", "X. Li", "N. D\u00edaz-Rodr\u00edguez", "D. Filliat"], "title": "Deep unsupervised state representation learning with robotic priors: a robustness analysis", "venue": "International Joint Conference on Neural Networks (IJCNN)", "year": 2019}, {"authors": ["Timothee Lesort", "Natalia D\u00edaz-Rodr\u00edguez", "Jean-Fran\u00e7ois Goudou", "David Filliat"], "title": "State representation learning for control: An overview", "venue": "Neural Networks", "year": 2018}, {"authors": ["Timoth\u00e9e Lesort", "Vincenzo Lomonaco", "Andrei Stoian", "Davide Maltoni", "David Filliat", "Natalia D\u00edaz Rodr\u00edguez"], "title": "Continual Learning for Robotics", "venue": "ArXiv abs/1907.00182", "year": 2019}, {"authors": ["Zhizhong Li", "Derek Hoiem"], "title": "Learning without Forgetting", "venue": "[cs.CV]. url:", "year": 2016}, {"authors": ["Timothy P. Lillicrap", "Jonathan J. Hunt", "Alexander Pritzel", "Nicolas Heess", "Tom Erez", "Yuval Tassa", "David Silver", "Daan Wierstra"], "title": "Continuous control with deep reinforcement learning", "venue": "[cs.LG]. url: https://arxiv.org/abs/1509.02971", "year": 2015}, {"authors": ["Francesco Locatello", "Stefan Bauer", "Mario Lucic", "Gunnar R\u00e4tsch", "Sylvain Gelly", "Bernhard Sch\u00f6lkopf", "Olivier Bachem"], "title": "Challenging common assumptions in the unsupervised learning of disentangled representations", "venue": "arXiv preprint arXiv:1811.12359", "year": 2018}, {"authors": ["Ryan Lowe", "Yi Wu", "Aviv Tamar", "Jean Harb", "Pieter Abbeel", "Igor Mordatch"], "title": "Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments", "venue": "Neural Information Processing Systems (NIPS)", "year": 2017}, {"authors": ["Scott Lundberg", "Su-In Lee"], "title": "A Unified Approach to Interpreting Model Predictions", "venue": "[cs.AI]. url: https: //arxiv.org/pdf/1705.07874", "year": 2017}, {"authors": ["Bj\u00f6rn L\u00fctjens", "Michael Everett", "Jonathan P. How"], "title": "Safe Reinforcement Learning with Model Uncertainty Estimates", "venue": "[cs.RO]. url: https://arxiv.org/abs/1810.08700", "year": 2018}, {"authors": ["Prashan Madumal", "Tim Miller", "Liz Sonenberg", "Frank Vetere"], "title": "Explainable Reinforcement Learning Through a Causal Lens", "venue": "[cs.LG]. url: https://arxiv.org/pdf/1905.10958.pdf", "year": 2019}, {"authors": ["Hongzi Mao", "Mohammad Alizadeh", "Ishai Menache", "Srikanth Kandula"], "title": "Resource Management with Deep Reinforcement Learning", "venue": "HotNets", "year": 2016}, {"authors": ["Marco Matarese", "Silvia Rossi", "Alessandra Sciutti", "Francesco Rea"], "title": "Towards Transparency of TD-RL Robotic Systems with a Human Teacher", "year": 2020}, {"authors": ["Volodymyr Mnih", "Adri\u00e0 Puigdom\u00e8nech Badia", "Mehdi Mirza", "Alex Graves", "Timothy P. Lillicrap", "Tim Harley", "David Silver", "Koray Kavukcuoglu"], "title": "Asynchronous Methods for Deep Reinforcement Learning", "venue": "[cs.LG]. url:", "year": 2016}, {"authors": ["Volodymyr Mnih", "Koray Kavukcuoglu", "David Silver", "Alex Graves", "Ioannis Antonoglou", "Daan Wierstra", "Martin Riedmiller"], "title": "Playing atari with deep reinforcement learning", "year": 2013}, {"authors": ["Volodymyr Mnih", "Koray Kavukcuoglu", "David Silver", "Andrei A Rusu", "Joel Veness", "Marc G Bellemare", "Alex Graves", "Martin Riedmiller", "Andreas K Fidjeland", "Georg Ostrovski"], "title": "Human-level control through deep reinforcement learning", "venue": "Nature", "year": 2015}, {"authors": ["Jean-Baptiste Mouret", "Jeff Clune"], "title": "Illuminating search spaces by mapping elites", "venue": "[cs.AI]. url: https: //arxiv.org/abs/1504.04909", "year": 2015}, {"authors": ["T. Nathan Mundhenk", "Barry Y. Chen", "Gerald Friedland"], "title": "Efficient Saliency Maps for Explainable AI", "year": 2019}, {"authors": ["Ian Osband", "Charles Blundell", "Alexander Pritzel", "Benjamin Van Roy"], "title": "Deep Exploration via Bootstrapped DQN", "venue": "[cs.LG]. url: https://arxiv.org/abs/1602.04621", "year": 2016}, {"authors": ["Deepak Pathak", "Pulkit Agrawal", "Alexei A. Efros", "Trevor Darrell"], "title": "Curiosity-driven Exploration by Self-supervised Prediction", "venue": "[cs.LG]. url: https://arxiv.org/abs/1705.05363", "year": 2017}, {"authors": ["Thomas Pierrot", "Guillaume Ligner", "Scott Reed", "Olivier Sigaud", "Nicolas Perrin", "Alexandre Laterre", "David Kas", "Karim Beguir", "Nando de Freitas"], "title": "Learning Compositional Neural Programs with Recursive Tree Search and Planning", "venue": "[cs.AI]. url: https: //arxiv.org/pdf/1905.12941", "year": 2019}, {"authors": ["R\u00e9my Portelas", "C\u00e9dric Colas", "Lilian Weng", "Katja Hofmann", "Pierre- Yves Oudeyer"], "title": "Automatic Curriculum Learning For Deep RL: A Short Survey", "venue": "arXiv preprint arXiv:2003.04664", "year": 2020}, {"authors": ["Justin K Pugh", "Lisa B Soros", "Kenneth O Stanley"], "title": "Quality diversity: A new frontier for evolutionary computation", "venue": "Frontiers in Robotics and AI", "year": 2016}, {"authors": ["Antonin Raffin", "Ashley Hill", "Kalifou Ren\u00e9 Traor\u00e9", "Timoth\u00e9e Lesort", "Natalia D\u00edaz Rodr\u00edguez", "David Filliat"], "title": "Decoupling feature extraction from policy learning: assessing benefits of state representation learning in goal based robotics", "venue": "CoRR abs/1901.08651", "year": 2019}, {"authors": ["Antonin Raffin", "Ashley Hill", "Ren\u00e9 Traor\u00e9", "Timoth\u00e9e Lesort", "Natalia D\u00edaz- Rodr\u00edguez", "David Filliat"], "title": "S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning", "venue": "[cs.LG]. url: https://arxiv.org/abs/1809.09369", "year": 2018}, {"authors": ["Marco Tulio Ribeiro", "Sameer Singh", "Carlos Guestrin"], "title": "Why Should I Trust You?\": Explaining the Predictions of Any Classifier", "year": 2016}, {"authors": ["G. Rummery", "Mahesan Niranjan"], "title": "On-Line Q-Learning Using Connectionist Systems", "venue": "Technical Report CUED/F-INFENG/TR", "year": 1994}, {"authors": ["Adam Santoro", "David Raposo", "David G.T. Barrett", "Mateusz Malinowski", "Razvan Pascanu", "Peter Battaglia", "Timothy Lillicrap"], "title": "A simple neural network module for relational reasoning. 2017", "venue": "[cs.CL]. url: https://arxiv.org/pdf/1706.01427", "year": 2017}, {"authors": ["F. Scarselli", "M. Gori", "A.C. Tsoi", "M. Hagenbuchner", "G. Monfardini"], "title": "The Graph Neural Network Model", "venue": "IEEE Transactions on Neural Networks", "year": 2009}, {"authors": ["John Schulman", "Filip Wolski", "Prafulla Dhariwal", "Alec Radford", "Oleg Klimov"], "title": "Proximal Policy Optimization Algorithms", "venue": "[cs.LG]. url: https://arxiv.org/pdf/1707.06347.pdf", "year": 2017}, {"authors": ["Harm van Seijen", "Mehdi Fatemi", "Joshua Romoff", "Romain Laroche", "Tavian Barnes", "Jeffrey Tsang"], "title": "Hybrid Reward Architecture for Reinforcement Learning", "venue": "[cs.LG]. url: https: //arxiv.org/pdf/1706.04208", "year": 2017}, {"authors": ["Ramprasaath R. Selvaraju", "Michael Cogswell", "Abhishek Das", "Ramakrishna Vedantam", "Devi Parikh", "Dhruv Batra"], "title": "Grad-CAM: Visual Explanations from Deep Networks via Gradient-Based Localization", "venue": "In: International Journal of Computer Vision (Oct", "year": 2019}, {"authors": ["Pedro Sequeira", "Melinda Gervasio"], "title": "Interestingness Elements for Explainable Reinforcement Learning: Understanding Agents\u2019 Capabilities and Limitations", "venue": "[cs.LG]. url: https: //arxiv.org/pdf/1912.09007", "year": 2019}, {"authors": ["Pedro Sequeira", "Eric Yeh", "Melinda T. Gervasio"], "title": "Interestingness Elements for Explainable Reinforcement Learning through Introspection", "venue": "https://explainablesystems.comp.nus.edu.sg/", "year": 2019}, {"authors": ["Evan Shelhamer", "Parsa Mahmoudieh", "Max Argus", "Trevor Darrell"], "title": "Loss is its own Reward: Self-Supervision for Reinforcement Learning", "venue": "[cs.LG]. url:", "year": 2016}, {"authors": ["David Silver", "Thomas Hubert", "Julian Schrittwieser", "Ioannis Antonoglou", "Matthew Lai", "Arthur Guez", "Marc Lanctot", "Laurent Sifre", "Dharshan Kumaran", "Thore Graepel", "Timothy Lillicrap", "Karen Simonyan", "Demis Hassabis"], "title": "Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm", "venue": "[cs.AI]. url: https://arxiv.org/pdf/1712.01815.pdf", "year": 2017}, {"authors": ["David Silver", "Julian Schrittwieser", "Karen Simonyan", "Ioannis Antonoglou", "Aja Huang", "Arthur Guez", "Thomas Hubert", "L Robert Baker", "Matthew Lai", "Adrian Bolton", "Yutian chen", "Timothy P. Lillicrap", "Fan Hui", "Laurent Sifre", "George van den Driessche", "Thore Graepel", "Demis Hassabis"], "title": "Mastering the game of Go without human knowledge", "venue": "Nature", "year": 2017}, {"authors": ["Karen Simonyan", "Andrea Vedaldi", "Andrew Zisserman"], "title": "Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps", "venue": "[cs.CV]. url: https: //arxiv.org/pdf/1312.6034.pdf", "year": 2013}, {"authors": ["Mateusz Staniak", "Przemyslaw Biecek"], "title": "Explanations of model predictions with live and breakDown packages", "year": 1804}, {"authors": ["Mukund Sundararajan", "Amir Najmi"], "title": "The many Shapley values for model explanation", "venue": "[cs.AI]. url: https: //arxiv.org/abs/1908.08474", "year": 2019}, {"authors": ["Mukund Sundararajan", "Ankur Taly", "Qiqi Yan"], "title": "Axiomatic Attribution for Deep Networks", "venue": "Proceedings of the 34th International Conference on Machine Learning. Ed. by Doina Precup and Yee Whye Teh", "year": 2017}, {"authors": ["Richard S. Sutton", "Andrew G. Barto"], "title": "Reinforcement Learning: An Introduction. Second", "venue": "url: http://incompleteideas. net/book/the-book-2nd.html", "year": 2018}, {"authors": ["Geraud Nangue Tasse", "Steven James", "Benjamin Rosman"], "title": "A Boolean Task Algebra for Reinforcement Learning", "venue": "[cs.LG]. url: https://arxiv.org/pdf/2001.01394.pdf", "year": 2020}, {"authors": ["Andreas Theodorou", "Robert H. Wortham", "Joanna J. Bryson"], "title": "Designing and implementing transparency for real time inspection of autonomous robots", "venue": "Connection Science", "year": 2017}, {"authors": ["Ren\u00e9 Traor\u00e9", "Hugo Caselles-Dupr\u00e9", "Timoth\u00e9e Lesort", "Te Sun", "Guanghang Cai", "Natalia D\u00edaz Rodr\u00edguez", "David Filliat"], "title": "DISCORL: Continual reinforcement learning via policy distillation", "venue": "arXiv preprint arXiv:1907.05855", "year": 2019}, {"authors": ["Ren\u00e9 Traor\u00e9", "Hugo Caselles-Dupr\u00e9", "Timoth\u00e9e Lesort", "Te Sun", "Guanghang Cai", "Natalia D\u00edaz-Rodr\u00edguez", "David Filliat"], "title": "DisCoRL: Continual Reinforcement Learning via Policy Distillation", "venue": "[cs.LG]. url: https://arxiv.org/abs/1907.05855", "year": 2019}, {"authors": ["Jianhong Wang", "Yuan Zhang", "Tae-Kyun Kim", "Yunjie Gu"], "title": "Shapley Q-value: A Local Reward Approach to Solve Global Reward Games", "year": 1907}, {"authors": ["Tianfu Wu", "Wei Sun", "Xilai Li", "Xi Song", "Bo Li"], "title": "Towards Interpretable R-CNN by Unfolding", "venue": "Latent Structures", "year": 2017}, {"authors": ["Ali Al-Yacoub", "Yuchen Zhao", "Niels Lohse", "Mey Goh", "Peter Kinnell", "Pedro Ferreira", "Ella-Mae Hubbard"], "title": "Symbolic-Based Recognition of Contact States for Learning Assembly Skills", "venue": "Frontiers in Robotics and AI", "year": 2019}, {"authors": ["Vinicius Zambaldi", "David Raposo", "Adam Santoro", "Victor Bapst", "Yujia Li", "Igor Babuschkin", "Karl Tuyls", "David Reichert", "Timothy Lillicrap", "Edward Lockhart", "Murray Shanahan", "Victoria Langston", "Razvan Pascanu", "Matthew Botvinick", "Oriol Vinyals", "Peter Battaglia"], "title": "Relational Deep Reinforcement Learning", "venue": "[cs.LG]. url: https://arxiv.org/pdf/1806.01830", "year": 2018}, {"authors": ["Amy Zhang", "Harsh Satija", "Joelle Pineau"], "title": "Decoupling Dynamics and Reward for Transfer Learning", "venue": "[cs.LG]. url: https://arxiv.org/abs/1804.10689", "year": 2018}, {"authors": ["Quanshi Zhang", "Ruiming Cao", "Feng Shi", "Ying Nian Wu", "Song-Chun Zhu"], "title": "Interpreting CNN Knowledge via an Explanatory Graph. 2017", "venue": "[cs.CV]. url: https://arxiv.org/pdf/1708.01785", "year": 2017}, {"authors": ["Quanshi Zhang", "Ruiming Cao", "Ying Nian Wu", "Song-Chun Zhu"], "title": "Growing Interpretable Part Graphs on ConvNets via Multi-Shot Learning", "venue": "[cs.CV]. url:", "year": 2016}, {"authors": ["Quanshi Zhang", "Song-Chun Zhu"], "title": "Visual Interpretability for Deep Learning: a Survey", "venue": "[cs.CV]. url: https: //arxiv.org/pdf/1802.00614.pdf", "year": 2018}, {"authors": ["Guanjie Zheng", "Fuzheng Zhang", "Zihan Zheng", "Yang Xiang", "Nicholas Yuan", "Xing Xie", "Zhenhui Li"], "title": "DRN: A Deep Reinforcement Learning Framework for News Recommendation", "venue": "(Apr", "year": 2018}, {"authors": ["Zhenpeng Zhou", "Xiaocheng Li", "Richard N. Zare"], "title": "Optimizing Chemical Reactions with Deep Reinforcement Learning", "venue": "ACS Central Science", "year": 2017}, {"authors": ["Brian D Ziebart", "Andrew L Maas", "J Andrew Bagnell", "Anind K Dey"], "title": "Maximum entropy inverse reinforcement learning.", "venue": "url: https://arxiv.org/pdf/1507.04888.pdf", "year": 2008}], "sections": [{"text": "Keywords: Reinforcement Learning, Explainable Artificial Intelligence, Machine Learning, Deep Learning, Responsible Artificial Intelligence, Representation Learning, Hierarchical RL, Saliency maps\n\u2217ENSEIRB-MATMECA, Bordeaux INP, France, aheuillet@enseirb-matmeca.fr, Equal contribution \u2020ENSC, Bordeaux INP, France, fcouthouis@ensc.fr, Equal contribution \u2021ENSTA Paris, Institut Polytechnique Paris, Inria Flowers Team, France, natalia.diaz@enstaparis.fr\nar X\niv :2\n00 8.\n06 69\n3v 2\n[ cs\n.A I]\n2 0"}, {"heading": "1 Introduction", "text": "During the past decade, Artificial Intelligence (AI), and by extension Machine Learning (ML), have seen an unprecedented rise in both industry and research. The progressive improvement of computer hardware associated with the need to process larger and larger amounts of data made these underestimated techniques shine under a new light. Reinforcement Learning (RL) focuses on learning how to map situations to actions, in order to maximize a numerical reward signal [102]. The learner is not told which actions to take, but instead must discover which actions are the most rewarding by trying them. Reinforcement learning addresses the problem of how agents should learn a policy that take actions to maximize the cumulative reward through interaction with the environment [31].\nRecent progress in Deep Learning (DL) for learning feature representations has significantly impacted RL, and the combination of both methods (known as deep RL) has led to remarkable results in a lot of areas. Typically, RL is used to solve optimisation problems when the system has a very large number of states and has a complex stochastic structure. Notable examples include training agents to play Atari games based on raw pixels [75, 76], board games [96, 97], complex real-world robotics problems such as manipulation [8] or grasping [54] and other real-world applications such as resource management in computer clusters [72], network traffic signal control [9], chemical reactions optimization [117] or recommendation systems [116].\nThe success of Deep RL could augur an imminent arrival in the industrial world. However, like many Machine Learning algorithms, RL algorithms suffer from a lack of explainability. This defect can be highly crippling as many promising RL applications (defense, finance, medicine, etc.) need a model that can explain its decisions and actions to human users [42] as a condition to their full acceptation by society. Furthermore, deep RL models are complex to debug for developers, as they rely on many factors: environment (in particular the design of the reward function), observations encoding, large DL models and the algorithm used to train the policy. Thus, an explainable model could aid fixing problems quicker and drastically speed up new development in RL methods. Those last two points are the main arguments in favor of the necessity of explainable reinforcement learning (XRL).\nWhile explainability starts being well developed for standard ML models and neural networks [86, 69, 92], the particular domain of RL has yet many intricacies to be better understood: both in terms of its functioning, and in terms of conveying the decisions of an RL model to different audiences. The difficulty lies in the very recent human-level performance of deep RL algorithms and by their complexity, normally parameterized with thousands if not millions of parameters [16]. The present work intends to provide a non-exhaustive state-of-the-art review on explainable reinforcement learning, highlighting the main methods that we envision most promising. In the following, we will briefly recall some important concepts in XAI."}, {"heading": "1.1 Explainable AI: Audience", "text": "Explaining a Machine Learning model may involve different goals: trustworthiness, causality, transferability, informativeness, fairness, confidence, accessibility, interactivity and privacy awareness. These goals have to be taken into account while explaining a model because the expected type of explanation may differ, depending on the pursued objective. For example, a saliency map explaining what is recognised as a dog on an input image does not tell us much about privacy awareness. In addition, each goal\nmay be a dimension of interest, but only for a certain audience (the public to whom the explanations will be addressed). Indeed, the transferability of a model can be significative for a developer, since he/she can save time by training only one model for different tasks, while the user will not be impacted, if not aware, by this aspect.\nThe understandability of an ML model therefore depends on its transparency (its capacity to be understandable by itself) but also on human understanding. According to these considerations, it is essential to take into account the concept of audience, as the intelligibility and comprehensibility of a model is dependant on the goals and the cognitive skills of its users. Barredo Arrieta et al. [10] discuss these aspects with additional details."}, {"heading": "1.2 Evaluating explanations", "text": "The broad concept of evaluation is based on metrics aiming to compare how well a technique performs compared to another. In the case of model explainability, metrics should evaluate how well a model fits the definition of explainable and how well performs in a certain aspect of explainability.\nExplanation evaluation in XAI has proven to be quite a challenging task. First because the concept of explainability in Machine Learning is not well or uniformly accepted by the community and there is not a clear definition and thus, not a clear consensus on which metrics to use. Secondly because an explanation is relative to a specific audience, which is sometimes difficult to deal with (in particular when this specific audience is composed of domain experts who can be hard to involve in a testing phase). Thirdly, because the quality of an explanation is always qualitative and subjective, since it depends on the audience, the pursued goal and even the human variability as two people can have a different level of understandability for the same explanation. That is why user studies are so popular to evaluate explanations as it makes possible to convert qualitative evaluations into quantitative ones, by asking questions on the accuracy and clarity of the explanation such as \"Does this explanation allow you to understand why the model predicted that this image is a dog? Did the context helped the model?\"... etc. Generally in XAI, there is only a single model to explain at a time; however, it is more complicated in XRL, as we generally want to explain a policy, or \"Why the agent took action x in state s?\".\nDoshi-Velez et al. [30] propose an attempt to formulate some approaches to evaluate XAI methods. The authors introduce three main levels to evaluate the quality of the explanations provided by an XAI method. The table below summarizes them.\nA common example of evaluation of an application level or human level task is to evaluate the quality of the mental model built by the user after seeing the explanation(s). Mental models can be described as internal representations, built upon experiences,\nand which allow to mentally simulate how something works in the real world. Hoffman et al. [48] propose to evaluate mental models by 1. Asking post-task questions on the behaviour of the agent (such as \"How does it work?\" or \"What does it achieve?\") and 2. Asking the participants to make predictions on the agent\u2019s next action. These evaluations are often done using Likert scales."}, {"heading": "2 XAI in RL: State of the art and reviewed literature", "text": "We reviewed the state of the art on XRL and summarized it in Table 5. This table presents, for each paper, the task(s) for which an explanation is provided, the employed RL algorithms (whose Algorithms glossary can be found in the 6), and the provided type of explanations, i.e.: based on images, diagrams (graphical components such as barchart, plot, graph), or text. We also present the level of the provided explanation (local if it explains only predictions, global if it explains the whole model), and the audience concerned by the explanation, as discussed in Section 1.1.\nReference Task/ Environment\nDecision process Algorithm(s) Explanation type (Level) Target\nRelational Deep RL [111]\nPlanning + strategy games (BoxWorld/ Starcraft II) POMDP IMPALA Images (Local)\nExperts\nSymbolic RL with Common Sense [24] Game (object retrieval) POMDP SRL+CS, DQL Images (Global)\nExperts\nDecoupling feature extraction from policy learning [84] Robotics (grasping), and navigation MDP PPO Diagram (state plot & image slider (Local)\nExperts\nExplainable RL via Reward Decomposition [53] Game (grid and landing) MDP HRA, SARSA, Qlearning\nDiagrams (Local) Experts, Users, Executives\nExplainable RL Through a Causal Lens [71]\nGames (OpenAI benchmark and Starcraft II) Both PG, DQN, DDPG, A2C, SARSA\nDiagrams, Text (Local) Experts, Users, Executives\ncontinues on next page\nShapley Q-value: A Local Reward Approach to Solve Global Reward Games [107] Multiagents (Cooperative Navigation, Prey-andPredator and Traffic Junction) POMDP DDPG Diagrams (Local) Experts Dot-to-Dot: Explainable HRL For Robotic Manipulation [15] Robotics (grasping) MDP DDPG, HER, HRL Diagrams (Global) Experts, Developers Self-Educated Language Agent With HER For Instruction Following [23] Instruction Following (MiniGrid) MDP Textual HER Text (Local) Experts, Users, Developers Commonsense and Semantic-guided Navigation [110] Room navigation POMDP - Text (Global) Experts Boolean Task Algebra [103] Game (grid) MDP DQN Diagrams Experts Visualizing and Understanding Atari [41]\nGames (Pong, Breakout, Space Invaders) MDP A3C Images (Global)\nExperts, Users, Developers\nInterestingness Elements for XRL through Introspection [94, 93] Arcade game (Frogger) POMDP QLearning Images (Local)\nUsers\nComposable DRL for Robotic Manipulation [43]\nRobotics (pushing and reaching) MDP Soft Qlearning\nDiagrams (Local) Experts\nSymbolic-Based Recognition of Contact States for Learning Assembly Skills [109] Robotic grasping\nPOMDP HMM, PAA, K-means Diagrams (Local) Experts\ncontinues on next page\nIn Table 5 we summarized the literature focusing on explainable fundamental RL algorithms. However, we also reviewed articles about state of the art XAI techniques that can be used in the context of current RL which we did not include in Table 5. Next, we will describe the main ideas provided by these papers which can help bring explainability in RL. It is possible to classify all recent studies in two main categories: transparent methods and Post-Hoc explainability according to the XAI taxonomies in Barredo Arrieta et al. [10]. On the one hand, inherently transparent algorithms include by definition every algorithm which is understandable by itself, such as a decision-trees. On the other hand, Post-Hoc explainability includes all methods that provide explanations of an RL algorithm after its training, such as SHAP (SHapley Additive exPlanations) [69] or LIME [86] for standard ML models. Reviewed papers are referenced by type of explanation in Figure 2."}, {"heading": "2.1 Transparent algorithms", "text": "Transparent algorithms are well known and used in standard Machine Learning (e.g., linear regression, decision trees or rule-based systems). Their strength lie in the fact that they are designed to have a transparent architecture that makes them explainable by themselves, without the need of any external processing. However, it is quite different for RL, as standard DRL algorithms (e.g., DQN, PPO, DDPG, A2C...) are not transparent by nature. In addition, the large majority of studies related to transparency in XRL chose to build algorithms targeting only a specific task. Nonetheless, most of the time and contrary to standard Machine Learning models, transparent RL algorithms can achieve state of the art performance in these specific tasks [107, 24, 111]."}, {"heading": "2.1.1 Explanation through representation learning", "text": "Representation learning algorithms focuses on learning abstract features that characterize data, in order to make it easier to extract useful information when building predictors [63, 13]. These learned features have the advantage of having low dimensionality, which generally improves training speed and generalization of Deep Learning models [62, 63, 84].\nIn the context of RL, learning representations of states, actions or policy can be useful to explain a RL algorithm, as these representations can bring some clues on the functioning of the algorithm. Indeed, State Representation Learning (SRL) [63] is a particular type of representation learning that aims at building a low-dimensional and meaningful representation of a state space, by processing high-dimensional raw observation data (e.g., learn a position (x, y) from raw image pixels). This enables to capture the variations in the environment influenced by the agent\u2019s actions and thus, extrapolate explanations. SRL can be especially useful in RL for robotics and control [85, 84, 106, 28, 29], and can help to understand how the agent interprets the observations and what is relevant to learn to act, i.e., actionable or controllable features [62]. Indeed, the dimensionality reduction induced by SRL, coupled with the link to the control and possible disentanglement of variation factors, could be highly beneficial to improve our understanding capacity of the decisions made by RL algorithms using a state representation method [63]. For example, SRL can be used to split the state representation [84] according to the different training objectives to be optimized before learning a policy. This allows to allocate room for encoding each necessary objective within the embedding state to be learned (in that case, reward prediction, a reconstruction objective and an inverse model). In this context, tools such as S-RL Toolbox [85] allow sampling from the embedding state space (learned through SRL) to allow a visual interpretation of the model\u2019s internal state, and pairing it with its associated input observation. Comprehensibility is thus enhanced, more easily observing if smoothness is preserved in the state space, as well as whether other invariants related to learning specific control task are guaranteed.\nThere are several approaches employed for SRL: reconstructing the observations using autoencoders [6, 32], training a forward model to predict next state [49, 80], teach to an inverse model how to predict actions from previous state(s) [95, 80] or using prior knowledge to constrain the state space [52, 62].\nAlong the same lines, learning disentangled representations [47, 2, 4, 17] is another interesting idea used for unsupervised learning, which decomposes (or disentangles) each feature into narrowly defined variables and encodes them as separate low-dimensional features (generally using a Variational Autoencoders [59]). It is also possible to make use of this concept, as well as lifelong learning to learn more interpretable representations on unsupervised classification tasks. In addition, one could argue that learning through life would allow compacting and updating old knowledge with new one while preventing catastrophic forgetting [64]. Thus, this is a key concept that could lead to more versatile RL agents, being able to learn new tasks without forgetting the previous ones. Information Maximizing Generative Adversarial Networks (InfoGAN) [20] is another model based on the principles of learning disentangled representations. The noise vector used in traditional GANs is decomposed into two parts: z: incompressible noise; and c: the latent code used to target the salient semantic features of the data distribution. The main idea is to feed z and c to the generator G, to maximize the mutual information between c and G(z, c), in order to assure that the information contained in c is preserved during the generation process. As a result, the InfoGAN\nmodel is able to create an interpretable representation via the latent code c (i.e., the values changing according to shape and features of the input data).\nSome work has been done to learn representations by combining symbolic AI with deep RL in order to facilitate the use of background knowledge, the exploitation of learnt knowledge, and to improve generalization [38, 35, 88, 37] Consequently, it also improves the explainability of the algorithms, while preserving state-of-the-art performance.\nZambaldi et al. [111] propose making use of Inductive Logic Programming and self-attention to represent states, actions and policies using first order logic, using a mechanism similar to graph neural networks and more generally, message passing computations [25, 60, 12, 89]. In these kind of models entity-entity relations are explicitly computed when considering the messages passed between connected nodes of the graph as shown in Fig. 2. Self-attention is used here as a method to compute interactions between these different entities (i.e. relevant pixels in a RGB image for the example from [111]), and thus perform non-local pairwise relational computations. This technique allows an expert to visualize the agent\u2019s attention weights associated to its available actions and interpret how to improve the understanding of its strategy.\nAnother work that aims to incorporate common sense to the agent, in terms of symbolic abstraction to represent the problem, is in [24]. This method subdivides the world state representation into many sub-states, with a degree of associated importance based on how far the object is from the agent. This helps understand the relevance of the actions taken by the agent by determining which sub-states were chosen."}, {"heading": "2.1.2 Simultaneous learning of the explanation and the policy", "text": "While standard DRL algorithms struggle to provide explanations, those can be tweaked to learn simultaneously both policy and explanation. Thus, explanations become a learned component of the model. These methods are recommended on specific problems where it is possible to introduce knowledge, such classifying rewards by types, adding relationships between states, etc... Thus, tweaking the algorithm to introduce some task knowledge and to learn explanations generally also improves performance. A general notion is that the knowledge gained from the auxiliary task objective must be useful for downstream tasks. In this direction, Juozapaitis et al. [53] introduced reward decomposition, whose main principle is to decompose the reward function into a sum of meaningful reward types. Authors used reward decomposition to improve performance on Cliffworld and Starcraft II, where each action can be classified according to its type. This method consists of using a custom decomposed reward DQN by defining a vector-valued reward function, where each component is the reward for a certain type so that actions can be compared in terms of trade-offs among the types. In the same way, the Q-function is also vector valued and each component gives action values that account for only a reward type. The sum of each of those vector-valued functions gives the overall Q or reward function. Learning multiple Q-functions, one for each type of reward, allows the model to learn the best policy while also learning the explanations (i.e. the type of reward that the agent wanted to maximize by his action, illustrated on Fig. 4). They introduce the concept of Reward Difference Explanation (RDX, in Fig. 3) which enables to understand the reasons why an action has an advantage (or disadvantage) over another. They also define Minimal Sufficient Explanations (MSX, See Fig. 4), in order to help humans identify a small set of the most important reasons why the agent choose specific actions over another. MSX+ and MSX- are sets of critical positive and negative reasons (respectively) for the actions preferred by the agent.\nWhile reward decompositions help to understand the agent choice preferences between several actions, minimal sufficient explanations are used to help selecting the most important reward decompositions. Other works that faciliate the explainability of RL models by using reward-based losses for more interpretable RL are in [112, 95, 80].\nIn the same vein, Madumal et al. [71] use the way humans understand and represent knowledge through causal relationships and introduce an action influence model : a causal model which can explain the behaviour agents using causal explanations. Structural causal models [45] represent the world using random variables, some of which might have causal relationships, which can be described thanks to a set of structural equations. In this work, structural causal models are extended to include actions as part of the causal relationships. An action influence model is a tuple represented by the state-actions ensemble and the corresponding set of structural equations. The whole process is divided into 3 phases:\n\u2022 Defining the qualitative causal relationships of variables as an action influence model.\n\u2022 Learning the structural equations (as multivariate regression models during the training phase of the agent).\n\u2022 Generating explanations, called explanans, by traversing the action influence graph (see Figure 5) from the root to the leaf reward node.\nThis kind of models allow encoding cause-effect relations between events (actions and states) as shown by the graph featured in Figure 5. Thus, they can be used to generate explanations of the agent behaviour (\"why\" and \"why not\" questions), based on knowledge about how actions influence the environment. Their method was evaluated through a user study showing that, compared to video game playing without any explanations and relevant variable explanations, this model performs significantly better on 1) task prediction and 2) explanation goodness. However, trust was not shown to be significantly improved.\nAuthors of [70] also learn explanations along with the model policy on pedestrians collision avoidance tasks. In this paper, an ensemble of LSTM networks was trained using Monte Carlo Dropout [34] and bootstrapping [79] to estimate collision probabilities and thus predict uncertainty estimates to detect novel observations. The magnitude of those uncertainty estimates was shown to reveal novel obstacles in a variety of scenarios, indicating that the model knows what it does not know. The result is a collision avoidance policy that can measure the novelty of an observation (via model uncertainty) and cautiously avoids pedestrians that exhibit unseen behavior. Measures of model uncertainty can also be used to identify unseen data during training or testing. Policies during simulation demonstrated to be more robust to novel observations and take safer actions than an uncertainty-unaware baseline. This work also responds to the problem of safe reinforcement learning [36], whose goal is to ensure reasonable system performance and/or respect safety constraints also at the deployment phase.\nSome work has also been made to explain multiagent RL. Wang et al. [107] developed an approach named Shapley Q-values Deep Deterministic Policy Gradient (SQDDPG) to solve global reward games in a multiagent context based on Shapley values and DDPG. The proposed approach relies on distributing the global reward more efficiently across all agents. They show that integrating Shapley values into DDPG enables to share the global reward between all agents according to their contributions: the more the agent contributes, the more reward it will get. This contrasts to the\nclassical shared reward approach, which could cause inefficient learning by assigning rewards to an agent who contributed poorly. The experiments showed that SQDDPG presents faster convergence rate and fairer credit assignment in comparison with other algorithms (i.e. IA2C, IDDPG, COMA and MADDPG). This method allows to plot credit assignment to each agent, which can explain how the global reward is divided during training and what agent contributed the most to obtain the global reward."}, {"heading": "2.1.3 Explanation through hierarchical goals", "text": "Methods based on Hierarchical RL [91] and sub-task decomposition [55] consist of a high level agent dividing the main goal into sub-goals for a low-level agent, which follows them one by one to perform the high-level task. By learning what sub-goals are optimal for the low-level agent, the high-level agent forms a representation of the environment that is interpretable by humans. Often, Hindsight Experience Replay (HER) [7] is used in order to ignore whether or not goals and sub-goals have been reached during an episode and to extract as much information as possible from past experience.\nBeyret et al. [15] used this kind of methods along with HER for robotic manipulation (grasping and moving an item). The high level agent learns which sub-goals can make the low level agent reach the main goal while the low level agent learns to maximise the rewards for these sub-goals. The high-level agent provides a representation of the learned environment and the Q-values associated, which can be represented as heat maps as shown in Fig. 8.\nBased on the same ideas, Cideron et al. [23] proposed Textual Hierarchical Experience Replay (THER) which extends the HER explanation to a natural language setting, allowing to learn from past experiences and to map goals to trajectories without the need of an external expert. The mapping function labels unsuccessful trajectories by automatically predicting a substitute goal. THER is composed of two models: the instruction generator which outputs a language encoding of the final state, and an agent model which picks an action given the last observations and the language-encoded goal.\nThe model learns to encode goals and states via natural language, and thus can be interpreted by a human operator (Fig. 9).\nAnother interesting work finds inspiration in human behaviour to improve generalization on a room navigation task, just like common sense and semantic understanding are used by humans to navigate unseen environments [110]. The entire model is composed of three parts: 1) a semantically grounded navigator used to predict the next action. 2) a common sense planning module, used for route planning. It predicts the next room, based on the observed scene, helps finding intermediate targets, and learns what rooms are near the current one. 3) the semantic grounding module used to recognize rooms; it allows the detection of the current room and incorporates semantic understanding by generating questions about what the agent saw (\u201dDid you see a bathroom?\u201d). Self-supervision is then used for fine tuning on unseen environment. The explainability can be brought from the outputs of all parts of the entire model. We can get information about what room is detected by the agent, what are the next rooms targeted (sub-goals), what are the rooms predicted around the current room and what are the rooms already seen by the agent.\nAn original idea proposed by Tasse et al. [103] consists of making an agent learn basic tasks and then allow it to perform new ones by composing the tasks previously learned in a boolean formula (i.e., with conjunctions, disjunctions and negations). The main strength of this method is that the agent is able to perform new tasks without the necessity of a learning phase. From an XRL point of view, the explainability comes from the fact that the agent is able to express its actions as boolean formulas, which are easily readable by humans."}, {"heading": "2.2 Post-Hoc explainability", "text": "Post-Hoc explainability refers to explainability methods that rely on an analysis done after the RL algorithm finishes its training and execution. In other terms, it is a way of \"enhancing\" the considered RL algorithm from a black box to something that is somewhat explainable. Most Post-Hoc methods encountered were used in a perception context, i.e., when the data manipulated by the RL algorithm consisted of visual input such as images."}, {"heading": "2.2.1 Explanation through saliency maps", "text": "When an RL algorithm is learning from images, it can be useful to know which elements of those images hold the most relevant information (i.e., the salient elements). These elements can be detected using saliency methods that produce saliency maps [92, 78]. In most cases, a saliency or heat map consists of a filter applied to an image that will highlight the areas salient for the agent.\nA major advantage of saliency maps is that it can produce elements that are easily interpretable by humans, even non-experts. Of course, the interpreting difficulty of a saliency map greatly depends on the saliency method used to compute that map and other parameters such as the color scheme or the highlighting technique. A disadvantage is that they are very sensitive to different input variations, and schemes to debug such visual explanation may not be straightforward [51].\nA very interesting example [41], introduces a new perturbation-based saliency computation method that produces crisp and easily interpretable saliency maps for RL agents playing OpenAI Gym environment Atari 2600 games with Asynchronous Actor Critic [74]. The main idea is to apply a perturbation on the considered image that will remove information from a specific pixel without adding new information (by generating an interpolation from a Gaussian blur of the same image). Indeed, this perturbation can be interpreted as adding spatial uncertainty to the region around its point of application. This spatial uncertainty can help understand how removing information in a specific area of the input image affects the agent\u2019s policy, and is quantified with a saliency metric S. The saliency map is then produced by computing S(i, j) for every pixel (i, j) of the input image, leading to images such as those in Fig. 10.\nHowever, saliency methods are not a perfect solution in every situation, as pointed out in [58, 5]. They need to respect a certain number of rules, such as implementation invariance or input invariance in order to be reliable, especially when it comes to their relation with either the model or the input data."}, {"heading": "2.2.2 Explanation through interaction data", "text": "In a more generic way, the behaviour of an agent can be explained by gathering data from its interaction with the environment while running, and analysing it in order to extract key information. For instance, Caselles-Dupr\u00e9 et al demonstrate that symmetry-based disentangled representation learning requires interaction and not only static perception [18].\nThis idea is exploited by Sequeira et al. [93] where interaction is the core basis upon which their Interestingness Framework is built. This framework relies on introspection, conducted by the autonomous RL agents: the agent extracts interestingness elements that denote meaningful interactions from their history of interaction with the environment. This is done using interaction data collected by the agent that is\nanalysed using statistical methods organized in a three-level introspection analysis: level 0: Environment analysis, level 1: Interaction analysis; level 3: Meta-analysis. From these interestingness elements, it is then possible to generate visual explanations (in the form of videos compiling specific highlight situations of interest in the agent\u2019s behaviour), where the different introspection levels and their interconnections provide contextualized explanations.\nThe authors applied their framework to the game Frogger and used it to generate video highlights of agents that were included in a user study. The latter showed that no summarizing technique among those used to generate highlight videos is adapted to all types of agents and scenarios. A related result is that agents having a monotonous, predictable performance will lack the variety of interactions needed by the interestingness framework to generate pertinent explanations. Finally, counterintuitively, highlighting all different aspects of an agent\u2019s interactions is not the best course of action ,as it may confuse users by consecutively showing the best and poorest performances of an agent."}, {"heading": "2.3 Other concepts aiding XRL", "text": "Some studies encountered do not fit in the above categories for the main reason that they are not linked to RL or do not directly provide explanations but nonetheless, they are interesting concepts that could contribute to the creation of new XRL methods in the future."}, {"heading": "2.3.1 Explainability of CNNs", "text": "Although deep neural networks have exhibited superior performance in various tasks, their interpretability is always their Achilles\u2019 heel. Since CNNs are still considered black boxes, many recent research papers focus on providing different levels and notions of explanations to make them more explainable.\nAs many RL models harness visual input DL models (for instance, when processing pixel observations), they could profit from better explainability of these algorithms. That way, the complete block of a CNN associated to learn a policy, would be explainable as whole. In addition, some techniques used in the visual domain, such as representation disentanglement could be relevant to apply in RL. Among the approaches detailed by Zhang et al. [115], one of the most promising aims at creating disentangled\n(interpretable) representations of the conv-layers of these networks [114, 113], as well as end-to-end learning of interpretable networks, working directly with comprehensible patterns, which are also a trending angle [108].\nExplaining when, how, and under which conditions catastrophic forgetting [27] or memorizing of datasets occurs is another relevant aspect of life-long or continual learning [64] in DNNs yet not fully understood. An interesting method towards this vision is Learning Without Memorizing (LwM) [26], an extension of Learning Without Forgetting Multi-Class (LwF-MC) [65] applied to image classification. This model is able to incrementally learn new classes without forgetting classes previously learned and without storing data related them. The main idea is that at each step, a new model, the student, is trained to incrementally learn new classes, while the previous one, the teacher, only has knowledge of the base classes. By improving LwF-MC with the application of a new loss called Attention Distillation loss, LwM tries to preserve base classes knowledge across all models iterations. This new loss produces attention maps that can be studied by a human expert in order to interpret the model\u2019s logic by inspecting the areas that focus its attention.\nAnother approach for scene analysis aimed to build a graph where each node represents an object detected in the scene and is capable of building a context-aware representation of itself by sending messages to the other nodes [50]. This makes it possible for the network to support relational reasoning, allowing it to be effectively transparent. Thus, users are able to make textual inquiries about relationships between objects (e.g., \"Is the plate next to a white bowl?\")."}, {"heading": "2.3.2 Compositionality as a proxy tool to improve understandability", "text": "Compositionality is a universal concept stating that a complex (composed) problem can be decomposed into a set of simpler ones [11]. Thus, in the RL world, this idea can be translated into making an agent solve a complex task by hierarchically completing lesser ones (e.g. by first solving atomic ones as lesser tasks could also be complex) [81]. This provides reusability, enables quick initialization of policies and makes the learning process much faster by training an optimal policy for each reward and later combining them. Haarnoja et al. [43] showed that maximum entropy RL methods can produce much more composable policies. Empirical demonstrations were performed on a Sawyer robot trained to avoid a fix obstacle and to stack Lego blocks with both policies combined. They introduced the Soft Q-learning algorithm, based on maximum entropy RL [118] and energy-based models [44], as well as an extension of this algorithm that enables composition of learned skills. This kind of methods optimizing for compositionality does not provide a direct explanation tool; however compositionality can be qualitatively observed as self organized modules [46] and used to train multiple policies that benefit from being combined. Compositionality may also help better explain each policy along the training evolution in time, or each learned skill separately. However, it is also observed that compositionality may not emerge in the same manner as humans conceptually would understand it or expect it, e.g. based on symbolic abstract functionality modules. Some examples in language emergence in multi-agent RL settings show that generalization and acquisition speed [56] or language do not co-occur with compositionality, or that compositionality may not go hand in hand with language efficiency as in humans communication [19].\nDistillation has also been used to learn task that are closely related and whose learning should improve speed up the learning of near tasks, in DisCoRL model [105], which helps transfer from simulation to real settings in navigation and goal based\nrobotic tasks. We may then be able to further explain each policy along the training evolution timeline, or each learned skill separately."}, {"heading": "2.3.3 Improving trust via imitation learning", "text": "Imitation learning is a way of enabling algorithms to learn from human demonstrations, such as teaching robots to learn assembly skills [109, 1]. While improving training time (compared to more traditional approaches [29]), this method also allows for better understanding of the agent\u2019s behaviour as it learns according to human expert actions [22]. It can also be a way to improve trust in the model, as it behaves seemingly as a human expert operator and can explain the basis of its decisions textually or verbally. Moreover, when encompassing human advice during training, it can be derived into advisable learning which further improves user trust as the model can understand human natural language and yields clear and precise explanations [57]."}, {"heading": "2.3.4 Transparency-oriented explanation building", "text": "Transparency has been given multiple meanings over time, especially in robotics and AI Ethics. Theodorou et al. [104] freshly define it as a mechanism to expose decision making that could allow AI models to be debugged like traditional programs, as they will communicate information about their operation in real time. However, the relevance of this information should adapt to the user\u2019s technological background, from simple progress bars to complex debug logs. An interesting concept is that an AI system could be created using a visual editor that can help communicate which decision will be taken in which situation (very much like decision trees). These concepts have already been successfully implemented in an RL setup using Temporal Difference (TD) error to create an emotional model of an agent [73]."}, {"heading": "3 Discussion", "text": "Despite explainable deep RL being still an emerging research field, we observed that numerous approaches were developed so far, as detailed in Section 2. However, there is no clear-cut method that serves all purposes. Most of the reviewed XRL methods are specifically designed to fit a particular task, often related to games or robotics and with no straight forward extension to other real-world RL applications. Furthermore, those methods cannot be generalized to other tasks or algorithms as they often make specific assumptions (e.g. on the MDP or environment properties). In fact in XRL there can be more than one model (as in Actor-Critic architectures) and different kinds of algorithms (DQN, DDPG, SARSA...) each with its own particularities. Moreover, there exists a wide variety of environments where each brings its own constraints. The necessity to adapt to the considered algorithm and environment means that it is hard to provide a holistic or generic explainability method. Thus, in our opinion, Shapley value-based methods [69, 107] can be considered as an interesting lead to contribute to this goal. Shapley values could be used to explain the roles taken by agents when learning a policy to achieve a collaborative task but also to detect defects in training agents or in the data fed to the network. In addition, as a post-hoc explainability method, it may be possible to generalize Shapley value computation to numerous RL environments and models in the same way it was done with SHAP [69] for other black boxes Deep Learning classifiers or regressors.\nMeanwhile, the research community would benefit if more global-oriented approaches, which do not focus on a particular task or algorithm, were developed in the future, as it has already been done in general XAI, with for instance LIME [86] or SHAP [69].\nMoreover, some promising approaches to bring explainability to RL include representation learning related concepts such as Hindsight Experience Replay, Hierarchical RL and self-attention. However, despite the ability of those concepts to improve performance and interpretability in a mathematical sense (in particular representation learning), they somehow lack concrete explanations targeted to end users, as they mostly target technical domain experts and researchers. This is a key element to further develop and allow the deployment of RL in the real world and to make algorithms more trustable and understandable by the general public.\nThe state of the art shows there is still room for progress to be made to better explain deep RL models in terms of different invariants preservation and other common assumptions of disentangled representation learning [67, 3]."}, {"heading": "4 Conclusion and Future Work", "text": "We reviewed and analyzed different state of the art approaches on RL and how XAI techniques can elucidate and inform their training, debugging and communication to different stakeholder audiences.\nWe focused on agent based RL in this work, however, explainability in RL involving humans (e.g. in collaborative problem solving [14]) should involve explainability methods to better assess when robots are able to perform the requested task, and when uncertainty is an indicator of better relying a task to a human. Equally important is to evaluate and explain other aspects in reinforcement learning, e.g. formally explaining the role of curriculum learning [82], quality diversity or other human-learning inspired aspects of open-ended learning [28, 77, 83]. Thus, more theoretic bases to serve explainable by design DRL are required. The future development of post-hoc XAI techniques should adapt to the requirements to build, train, and convey DRL models. Furthermore, it is worth noting that all presented methods decompose final prediction into additive components attributed to particular features [99], and thus interaction between features should be accounted for, and included in the explanation elaboration. Since most presented strategies to explain RL have mainly considered discrete model interpretations for explaining a model, as advocated in [100], continuous formulations of the proposed approaches (such as Integrated Gradients [101] based on the continuous extension of Shapley value, Aumann-Shapley value cost-sharing technique) should be devised in the future in RL contexts.\nWe believe the reviewed approaches and future extensions tackling the identified issues will likely be critical in the demanding future applications of RL. We advocate for the needs of targeting in the future more diverse audiences (developer, tester, end-user, general public) not yet approached in the development of XAI tools. Only this way we will produce actionable explanations and more comprehensive frameworks for explainable, trustable and responsible RL that can be deployed in practice."}, {"heading": "5 Acknowledgements", "text": "We thank Sam Greydanus, Zoe Juozapaitis, Benjamin Beyret, Prashan Madumal, Pedro Sequiera, Jianhong Wang, Mathieu Seurin and Vinicius Zambaldi for allowing us to use their original images for illustration purposes. We also would like to thank Fr\u00e9d\u00e9ric Herbreteau and Adrien Bennetot for their help and support."}, {"heading": "6 Appendix", "text": ""}, {"heading": "6.1 Glossary", "text": "\u2022 A2C: Asynchronous Actor Critic [74]\n\u2022 AI: Artificial Intelligence\n\u2022 COMA: Counterfactual multi-agent [33]\n\u2022 CNN: Convolutional Neural Network [61]\n\u2022 DDPG: Deep Deterministic Policy Gradient [66]\n\u2022 DL: Deep Learning\n\u2022 DRL: Deep Reinforcement Learning\n\u2022 DQN: Deep Q Network [75]\n\u2022 GAN: Generative Adversarial Network [40]\n\u2022 HER: Hindsight Experience Replay [7]\n\u2022 HMM: Hidden Markov Model\n\u2022 HRA: Hybrid Reward Architecture [91]\n\u2022 HRL: Hierarchical Reinforcement Learning [55]\n\u2022 IDDPG: Independent DDPG [66]\n\u2022 MADDPG: Multiagent DDPG [68]\n\u2022 MDP: Markov Decision Process\n\u2022 Machine Learning: Machine Learning\n\u2022 POMDP: Partialy Observable Markov Decision Process\n\u2022 PPO: Proximal Policy Optimization [90]\n\u2022 R-CNN: Region Convolutionnal Neural Network [39]\n\u2022 RL: Reinforcement Learning\n\u2022 SARSA: State Action Reward State Action [87]\n\u2022 SRL: State Representation Learning [63]\n\u2022 VAE: Variational Auto-Encoder [59]\n\u2022 XAI: Explainable Artificial Intelligence\n\u2022 XRL: Explainable Reinforcement Learning"}], "title": "Explainability in Deep Reinforcement Learning", "year": 2020}
+{
+  "abstractText": "A large set of the explainable Artificial Intelligence (XAI) literature is emerging on feature relevance techniques to explain a deep neural network (DNN) output or explaining models that ingest image source data. However, assessing how XAI techniques can help understand models beyond classification tasks, e.g. for reinforcement learning (RL), has not been extensively studied. We review recent works in the direction to attain Explainable Reinforcement Learning (XRL), a relatively new subfield of Explainable Artificial Intelligence, intended to be used in general public applications, with diverse audiences, requiring ethical, responsible and trustable algorithms. In critical situations where it is essential to justify and explain the agent\u2019s behaviour, better explainability and interpretability of RL models could help gain scientific insight on the inner workings of what is still considered a black box. We evaluate mainly studies directly linking explainability to RL, and split these into two categories according to the way the explanations are generated: transparent algorithms and post-hoc explainaility. We also review the most prominent XAI works from the lenses of how they could potentially enlighten the further deployment of the latest advances in RL, in the demanding present and future of everyday problems.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Alexandre Heuillet"
+    },
+    {
+      "affiliations": [],
+      "name": "Fabien Couthouis"
+    },
+    {
+      "affiliations": [],
+      "name": "Natalia D\u00edaz-Rodr\u00edguez"
+    }
+  ],
+  "id": "SP:4dd83dea672f8aec2f6761b4a3af4126de23c9e4",
+  "references": [
+    {
+      "authors": [
+        "Pieter Abbeel",
+        "Andrew Ng"
+      ],
+      "title": "Apprenticeship Learning via Inverse Reinforcement Learning",
+      "venue": "Proceedings, Twenty-First International Conference on Machine Learning,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Alessandro Achille",
+        "Tom Eccles",
+        "Loic Matthey",
+        "Chris Burgess",
+        "Nicholas Watters",
+        "Alexander Lerchner",
+        "Irina Higgins"
+      ],
+      "title": "Life-Long Disentangled Representation Learning with Cross-Domain Latent Homologies",
+      "venue": "Advances in Neural Information Processing Systems 31",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Alessandro Achille",
+        "Stefano Soatto"
+      ],
+      "title": "A Separation Principle for Control in the Age of Deep Learning",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Alessandro Achille",
+        "Stefano Soatto"
+      ],
+      "title": "Emergence of Invariance and Disentanglement in Deep Representations",
+      "venue": "[cs.LG]. url: https://arxiv.org/abs/1706.01350",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Julius Adebayo",
+        "Justin Gilmer",
+        "Michael Muelly",
+        "Ian Goodfellow",
+        "Moritz Hardt",
+        "Been Kim"
+      ],
+      "title": "Sanity Checks for Saliency Maps",
+      "venue": "[cs.CV]. url: https://arxiv.org/pdf/1810.03292",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Samuel Alvernaz",
+        "Julian Togelius"
+      ],
+      "title": "Autoencoder-augmented Neuroevolution for Visual Doom Playing. 2017",
+      "venue": "[cs.AI]. url: https://arxiv.org/pdf/1707.03902",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Marcin Andrychowicz",
+        "Filip Wolski",
+        "Alex Ray",
+        "Jonas Schneider",
+        "Rachel Fong",
+        "Peter Welinder",
+        "Bob McGrew",
+        "Josh Tobin",
+        "Pieter Abbeel",
+        "Wojciech Zaremba"
+      ],
+      "title": "Hindsight Experience Replay",
+      "venue": "[cs.LG]. url: https://arxiv.org/pdf/1707.01495.pdf",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "OpenAI: Marcin Andrychowicz",
+        "Bowen Baker",
+        "Maciek Chociej",
+        "Rafal J\u00f3zefowicz",
+        "Bob McGrew",
+        "Jakub Pachocki",
+        "Arthur Petron",
+        "Matthias Plappert",
+        "Glenn Powell",
+        "Alex Ray"
+      ],
+      "title": "Learning dexterous in-hand manipulation",
+      "venue": "The International Journal of Robotics Research (Nov. 2019),",
+      "year": 1988
+    },
+    {
+      "authors": [
+        "I. Arel",
+        "C. Liu",
+        "T. Urbanik",
+        "A.G. Kohls"
+      ],
+      "title": "Reinforcement learningbased multi-agent system for network traffic signal control",
+      "venue": "IET Intelligent Transport Systems",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Alejandro Barredo Arrieta",
+        "Natalia D\u00edaz-Rodr\u00edguez",
+        "Javier Del Ser",
+        "Adrien Bennetot",
+        "Siham Tabik",
+        "Alberto Barbado",
+        "Salvador Garc\u00eda",
+        "Sergio Gil- L\u00f3pez",
+        "Daniel Molina",
+        "Richard Benjamins",
+        "Raja Chatila",
+        "Francisco Herrera"
+      ],
+      "title": "Explainable Artificial Intelligence (XAI): Concepts, Taxonomies, Opportunities and Challenges toward Responsible AI",
+      "venue": "[cs.AI]. url: https://arxiv.org/pdf/1910.10045.pdf",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Marco Baroni"
+      ],
+      "title": "Linguistic generalization and compositionality in modern artificial neural networks",
+      "venue": "Philosophical Transactions of the Royal Society B: Biological Sciences",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Peter W. Battaglia",
+        "Jessica B. Hamrick",
+        "Victor Bapst",
+        "Alvaro Sanchez- Gonzalez",
+        "Vinicius Zambaldi",
+        "Mateusz Malinowski",
+        "Andrea Tacchetti",
+        "David Raposo",
+        "Adam Santoro",
+        "Ryan Faulkner",
+        "Caglar Gulcehre",
+        "Francis Song",
+        "Andrew Ballard",
+        "Justin Gilmer",
+        "George Dahl",
+        "Ashish Vaswani",
+        "Kelsey Allen",
+        "Charles Nash",
+        "Victoria Langston",
+        "Chris Dyer",
+        "Nicolas Heess",
+        "Daan Wierstra",
+        "Pushmeet Kohli",
+        "Matt Botvinick",
+        "Oriol Vinyals",
+        "Yujia Li",
+        "Razvan Pascanu"
+      ],
+      "title": "Relational inductive biases, deep learning, and graph networks. 2018",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Yoshua Bengio",
+        "Aaron Courville",
+        "Pascal Vincent"
+      ],
+      "title": "Representation Learning: A Review and New Perspectives",
+      "venue": "[cs.LG]. url: https://arxiv.org/abs/1206.5538",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Adrien Bennetot",
+        "Vicky Charisi",
+        "Natalia D\u00edaz-Rodr\u00edguez"
+      ],
+      "title": "Should artificial agents ask for help in human-robot collaborative problem-solving?",
+      "venue": "arXiv preprint arXiv:2006.00882",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Benjamin Beyret",
+        "Ali Shafti",
+        "Aldo Faisal"
+      ],
+      "title": "Dot-to-Dot: Explainable Hierarchical Reinforcement Learning for Robotic Manipulation",
+      "venue": "In: (Apr. 2019)",
+      "year": 1904
+    },
+    {
+      "authors": [
+        "Tom B. Brown",
+        "Benjamin Mann",
+        "Nick Ryder",
+        "Melanie Subbiah",
+        "Jared Kaplan",
+        "Prafulla Dhariwal",
+        "Arvind Neelakantan",
+        "Pranav Shyam",
+        "Girish Sastry",
+        "Amanda Askell",
+        "Sandhini Agarwal",
+        "Ariel Herbert-Voss",
+        "Gretchen Krueger",
+        "Tom Henighan",
+        "Rewon Child",
+        "Aditya Ramesh",
+        "Daniel M. Ziegler",
+        "Jeffrey Wu",
+        "Clemens Winter",
+        "Christopher Hesse",
+        "Mark Chen",
+        "Eric Sigler",
+        "Mateusz Litwin",
+        "Scott Gray",
+        "Benjamin Chess",
+        "Jack Clark",
+        "Christopher Berner",
+        "Sam McCandlish",
+        "Alec Radford",
+        "Ilya Sutskever",
+        "Dario Amodei"
+      ],
+      "title": "Language Models are Few-Shot Learners",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Hugo Caselles-Dupr\u00e9",
+        "Michael Garcia Ortiz",
+        "David Filliat"
+      ],
+      "title": "Symmetry- Based Disentangled Representation Learning requires Interaction with Environments",
+      "venue": "Advances in Neural Information Processing Systems 32",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Hugo Caselles-Dupr\u00e9",
+        "Michael Garcia-Ortiz",
+        "David Filliat"
+      ],
+      "title": "Symmetry- Based Disentangled Representation Learning requires Interaction with Environments. 2019",
+      "year": 1904
+    },
+    {
+      "authors": [
+        "Rahma Chaabouni",
+        "Eugene Kharitonov",
+        "Emmanuel Dupoux",
+        "Marco Baroni"
+      ],
+      "title": "Anti-efficient encoding in emergent communication",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Xi Chen",
+        "Yan Duan",
+        "Rein Houthooft",
+        "John Schulman",
+        "Ilya Sutskever",
+        "Pieter Abbeel"
+      ],
+      "title": "InfoGAN: Interpretable Representation Learning by Information Maximizing Generative Adversarial Nets",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Maxime Chevalier-Boisvert",
+        "Lucas Willems",
+        "Suman Pal"
+      ],
+      "title": "Minimalistic Gridworld Environment for OpenAI Gym. https://github.com/ maximecb/gym-minigrid",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Paul Christiano",
+        "Jan Leike",
+        "Tom B. Brown",
+        "Miljan Martic",
+        "Shane Legg",
+        "Dario Amodei"
+      ],
+      "title": "Deep reinforcement learning from human preferences. 2017",
+      "venue": "https://arxiv.org/pdf/",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Geoffrey Cideron",
+        "Mathieu Seurin",
+        "Florian Strub",
+        "Olivier Pietquin"
+      ],
+      "title": "Self-Educated Language Agent With Hindsight Experience Replay For Instruction Following",
+      "venue": "[cs.LG]. url: https://arxiv.org/pdf/1910.09451.pdf",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Artur d\u2019Avila Garcez",
+        "Aimore Resende Riquetti Dutra",
+        "Eduardo Alonso"
+      ],
+      "title": "Towards Symbolic Reinforcement Learning with Common Sense",
+      "venue": "arXiv e-prints,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Misha Denil",
+        "Sergio G\u00f3mez Colmenarejo",
+        "Serkan Cabi",
+        "David Saxton",
+        "Nando de Freitas"
+      ],
+      "title": "Programmable Agents. 2017",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Prithviraj Dhar",
+        "Rajat Vikram Singh",
+        "Kuan-Chuan Peng",
+        "Ziyan Wu",
+        "Rama Chellappa"
+      ],
+      "title": "Learning without Memorizing",
+      "venue": "[cs.CV]. url: https://arxiv.org/pdf/1811.08051v2.pdf",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Natalia D\u00edaz-Rodr\u00edguez",
+        "Vincenzo Lomonaco",
+        "David Filliat",
+        "Davide Maltoni"
+      ],
+      "title": "Don\u2019t forget, there is more than forgetting: new metrics for Continual Learning",
+      "venue": "[cs.AI]. url: https: //arxiv.org/pdf/1810.13166",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Stephane Doncieux",
+        "Nicolas Bredeche",
+        "L\u00e9ni Le Goff",
+        "Beno\u00eet Girard",
+        "Alexandre Coninx",
+        "Olivier Sigaud",
+        "Mehdi Khamassi",
+        "Natalia D\u00edaz-Rodr\u00edguez",
+        "David Filliat",
+        "Timothy Hospedales",
+        "A. Eiben",
+        "Richard Duro"
+      ],
+      "title": "DREAM Architecture: a Developmental Approach to Open-Ended Learning in Robotics",
+      "venue": "[cs.AI]. url: https://arxiv",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Stephane Doncieux",
+        "David Filliat",
+        "Natalia D\u00edaz-Rodr\u00edguez",
+        "Timothy Hospedales",
+        "Richard Duro",
+        "Alexandre Coninx",
+        "Diederik M. Roijers",
+        "Beno\u00eet Girard",
+        "Nicolas Perrin",
+        "Olivier Sigaud"
+      ],
+      "title": "Open-Ended Learning: A Conceptual Framework Based on Representational Redescription",
+      "venue": "Frontiers in Neurorobotics",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Finale Doshi-Velez",
+        "Been Kim"
+      ],
+      "title": "Towards A Rigorous Science of Interpretable Machine Learning",
+      "venue": "[stat.ML]. url: https://arxiv.org/pdf/1702.08608.pdf",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Yan Duan",
+        "Xi Chen",
+        "Rein Houthooft",
+        "John Schulman",
+        "Pieter Abbeel"
+      ],
+      "title": "Benchmarking Deep Reinforcement Learning for Continuous Control",
+      "venue": "[cs.LG]. url: https://arxiv.org/pdf/ 1604.06778.pdf",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Chelsea Finn",
+        "Xin Yu Tan",
+        "Yan Duan",
+        "Trevor Darrell",
+        "Sergey Levine",
+        "Pieter Abbeel"
+      ],
+      "title": "Deep Spatial Autoencoders for Visuomotor Learning",
+      "venue": "[cs.LG]. url:",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Jakob Foerster",
+        "Gregory Farquhar",
+        "Triantafyllos Afouras",
+        "Nantas Nardelli",
+        "Shimon Whiteson"
+      ],
+      "title": "Counterfactual Multi-Agent Policy Gradients",
+      "venue": "[cs.AI]. url: https://arxiv.org/pdf/ 1705.08926.pdf",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Yarin Gal",
+        "Zoubin Ghahramani"
+      ],
+      "title": "Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning",
+      "venue": "[stat.ML]. url: https://arxiv.org/abs/1506.02142",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Artur Garcez",
+        "Tarek Besold",
+        "Luc De Raedt",
+        "Peter F\u00f6ldi\u00e1k",
+        "Pascal Hitzler",
+        "Thomas Icard",
+        "Kai-Uwe K\u00fchnberger",
+        "Lu\u00eds Lamb",
+        "Risto Miikkulainen",
+        "Daniel Silver"
+      ],
+      "title": "Neural-Symbolic Learning and Reasoning: Contributions and Challenges",
+      "venue": "In: Mar. 2015. doi: 10.13140/2.1.1779.4243",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Javier Garc\u00eda",
+        "Fern",
+        "o Fern\u00e1ndez"
+      ],
+      "title": "A Comprehensive Survey on Safe Reinforcement Learning",
+      "venue": "Journal of Machine Learning Research",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Marta Garnelo",
+        "Kai Arulkumaran",
+        "Murray Shanahan"
+      ],
+      "title": "Towards Deep Symbolic Reinforcement Learning",
+      "venue": "[cs.AI]. url: https://arxiv.org/pdf/1609.05518",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Marta Garnelo",
+        "Murray Shanahan"
+      ],
+      "title": "Reconciling deep learning with symbolic artificial intelligence: representing objects and relations",
+      "venue": "Current Opinion in Behavioral Sciences",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ross Girshick",
+        "Jeff Donahue",
+        "Trevor Darrell",
+        "Jitendra Malik"
+      ],
+      "title": "Rich feature hierarchies for accurate object detection and semantic segmentation",
+      "venue": "[cs.CV]. url: https://arxiv.org/pdf/1311",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Ian J. Goodfellow",
+        "Jean Pouget-Abadie",
+        "Mehdi Mirza",
+        "Bing Xu",
+        "David Warde-Farley",
+        "Sherjil Ozair",
+        "Aaron Courville",
+        "Yoshua Bengio"
+      ],
+      "title": "Generative Adversarial Networks",
+      "venue": "[stat.ML]. url: https://arxiv.org/pdf/1406.2661.pdf",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Sam Greydanus",
+        "Anurag Koul",
+        "Jonathan Dodge",
+        "Alan Fern"
+      ],
+      "title": "Visualizing and Understanding Atari Agents",
+      "venue": "[cs.AI]. url: https://arxiv.org/pdf/1711.00138",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "David Gunning",
+        "David W Aha"
+      ],
+      "title": "DARPA\u2019s Explainable Artificial Intelligence Program",
+      "venue": "In: AI Magazine",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Tuomas Haarnoja",
+        "Vitchyr Pong",
+        "Aurick Zhou",
+        "Murtaza Dalal",
+        "Pieter Abbeel",
+        "Sergey Levine"
+      ],
+      "title": "Composable Deep Reinforcement Learning for Robotic Manipulation",
+      "venue": "IEEE International Conference on Robotics and Automation (ICRA) (May 2018)",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Tuomas Haarnoja",
+        "Haoran Tang",
+        "Pieter Abbeel",
+        "Sergey Levine"
+      ],
+      "title": "Reinforcement Learning with Deep Energy-Based Policies",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Joseph Y. Halpern",
+        "Judea Pearl"
+      ],
+      "title": "Causes and Explanations: A Structural- Model Approach. Part I: Causes",
+      "venue": "The British Journal for the Philosophy of Science 56.4 (Dec",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "Dongqi Han",
+        "Kenji Doya",
+        "Jun Tani"
+      ],
+      "title": "Emergence of Hierarchy via Reinforcement Learning Using a Multiple Timescale Stochastic RNN",
+      "venue": "CoRR abs/1901.10113",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Irina Higgins",
+        "David Amos",
+        "David Pfau",
+        "Sebastien Racaniere",
+        "Loic Matthey",
+        "Danilo Rezende",
+        "Alexander Lerchner"
+      ],
+      "title": "Towards a Definition of Disentangled Representations",
+      "venue": "[cs.LG]. url: https: //arxiv.org/abs/1812.02230",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Robert R. Hoffman",
+        "Shane T. Mueller",
+        "Gary Klein",
+        "Jordan Litman"
+      ],
+      "title": "Metrics for Explainable AI: Challenges and Prospects",
+      "venue": "[cs.AI]. url: https://arxiv.org/pdf/1812.04608",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Herke van Hoof",
+        "Nutan Chen",
+        "Maximilian Karl",
+        "Patrick van der Smagt",
+        "Jan Peters"
+      ],
+      "title": "Stable reinforcement learning with autoencoders for tactile and visual data",
+      "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Ronghang Hu",
+        "Anna Rohrbach",
+        "Trevor Darrell",
+        "Kate Saenko"
+      ],
+      "title": "Language- Conditioned Graph Networks for Relational Reasoning. 2019",
+      "venue": "[cs.CV]. url: https://arxiv.org/abs/1905.04405",
+      "year": 1905
+    },
+    {
+      "authors": [
+        "Sarthak Jain",
+        "Byron C. Wallace"
+      ],
+      "title": "Attention is not Explanation",
+      "venue": "[cs.CL]. url: https://arxiv.org/pdf/1902",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Rico Jonschkowski",
+        "Oliver Brock"
+      ],
+      "title": "Learning state representations with robotic priors",
+      "venue": "Autonomous Robots",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Dmitry Kalashnikov",
+        "Alex Irpan",
+        "Peter Pastor",
+        "Julian Ibarz",
+        "Alexander Herzog",
+        "Eric Jang",
+        "Deirdre Quillen",
+        "Ethan Holly",
+        "Mrinal Kalakrishnan",
+        "Vincent Vanhoucke",
+        "Sergey Levine"
+      ],
+      "title": "QT-Opt: Scalable Deep Reinforcement Learning for Vision-Based Robotic Manipulation",
+      "venue": "[cs.LG]. url: https://arxiv.org/pdf/1806.10293.pdf",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Hiroshi Kawano"
+      ],
+      "title": "Hierarchical sub-task decomposition for reinforcement learning of multi-robot delivery mission",
+      "venue": "doi: 10.1109/ICRA.2013.6630669. url:",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Eugene Kharitonov",
+        "Marco Baroni"
+      ],
+      "title": "Emergent Language Generalization and Acquisition Speed are not tied to Compositionality",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Jinkyu Kim",
+        "Suhong Moon",
+        "Anna Rohrbach",
+        "Trevor Darrell",
+        "John Canny"
+      ],
+      "title": "Advisable Learning for Self-Driving Vehicles by Internalizing Observation-to-Action Rules",
+      "venue": "The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Pieter-Jan Kindermans",
+        "Sara Hooker",
+        "Julius Adebayo",
+        "Maximilian Alber",
+        "Kristof T. Sch\u00fctt",
+        "Sven D\u00e4hne",
+        "Dumitru Erhan",
+        "Been Kim"
+      ],
+      "title": "The (Un)reliability of saliency methods",
+      "venue": "[stat.ML]. url: https://arxiv.org/pdf/1711.00867",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Diederik P Kingma",
+        "Max Welling"
+      ],
+      "title": "Auto-Encoding Variational Bayes",
+      "venue": "[stat.ML]. url: https://arxiv.org/ pdf/1312.6114.pdf",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Thomas N. Kipf",
+        "Max Welling"
+      ],
+      "title": "Semi-Supervised Classification with Graph Convolutional Networks. 2016",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Yann LeCun",
+        "Yoshua Bengio"
+      ],
+      "title": "Convolutional networks for images, speech, and time series",
+      "venue": "url: https://www.researchgate. net/publication/2453996_Convolutional_Networks_for_Images_ Speech_and_Time-Series",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "T. Lesort",
+        "M. Seurin",
+        "X. Li",
+        "N. D\u00edaz-Rodr\u00edguez",
+        "D. Filliat"
+      ],
+      "title": "Deep unsupervised state representation learning with robotic priors: a robustness analysis",
+      "venue": "International Joint Conference on Neural Networks (IJCNN)",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Timothee Lesort",
+        "Natalia D\u00edaz-Rodr\u00edguez",
+        "Jean-Fran\u00e7ois Goudou",
+        "David Filliat"
+      ],
+      "title": "State representation learning for control: An overview",
+      "venue": "Neural Networks",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Timoth\u00e9e Lesort",
+        "Vincenzo Lomonaco",
+        "Andrei Stoian",
+        "Davide Maltoni",
+        "David Filliat",
+        "Natalia D\u00edaz Rodr\u00edguez"
+      ],
+      "title": "Continual Learning for Robotics",
+      "venue": "ArXiv abs/1907.00182",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Zhizhong Li",
+        "Derek Hoiem"
+      ],
+      "title": "Learning without Forgetting",
+      "venue": "[cs.CV]. url:",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Timothy P. Lillicrap",
+        "Jonathan J. Hunt",
+        "Alexander Pritzel",
+        "Nicolas Heess",
+        "Tom Erez",
+        "Yuval Tassa",
+        "David Silver",
+        "Daan Wierstra"
+      ],
+      "title": "Continuous control with deep reinforcement learning",
+      "venue": "[cs.LG]. url: https://arxiv.org/abs/1509.02971",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Francesco Locatello",
+        "Stefan Bauer",
+        "Mario Lucic",
+        "Gunnar R\u00e4tsch",
+        "Sylvain Gelly",
+        "Bernhard Sch\u00f6lkopf",
+        "Olivier Bachem"
+      ],
+      "title": "Challenging common assumptions in the unsupervised learning of disentangled representations",
+      "venue": "arXiv preprint arXiv:1811.12359",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ryan Lowe",
+        "Yi Wu",
+        "Aviv Tamar",
+        "Jean Harb",
+        "Pieter Abbeel",
+        "Igor Mordatch"
+      ],
+      "title": "Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments",
+      "venue": "Neural Information Processing Systems (NIPS)",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Scott Lundberg",
+        "Su-In Lee"
+      ],
+      "title": "A Unified Approach to Interpreting Model Predictions",
+      "venue": "[cs.AI]. url: https: //arxiv.org/pdf/1705.07874",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Bj\u00f6rn L\u00fctjens",
+        "Michael Everett",
+        "Jonathan P. How"
+      ],
+      "title": "Safe Reinforcement Learning with Model Uncertainty Estimates",
+      "venue": "[cs.RO]. url: https://arxiv.org/abs/1810.08700",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Prashan Madumal",
+        "Tim Miller",
+        "Liz Sonenberg",
+        "Frank Vetere"
+      ],
+      "title": "Explainable Reinforcement Learning Through a Causal Lens",
+      "venue": "[cs.LG]. url: https://arxiv.org/pdf/1905.10958.pdf",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Hongzi Mao",
+        "Mohammad Alizadeh",
+        "Ishai Menache",
+        "Srikanth Kandula"
+      ],
+      "title": "Resource Management with Deep Reinforcement Learning",
+      "venue": "HotNets",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Marco Matarese",
+        "Silvia Rossi",
+        "Alessandra Sciutti",
+        "Francesco Rea"
+      ],
+      "title": "Towards Transparency of TD-RL Robotic Systems with a Human Teacher",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Volodymyr Mnih",
+        "Adri\u00e0 Puigdom\u00e8nech Badia",
+        "Mehdi Mirza",
+        "Alex Graves",
+        "Timothy P. Lillicrap",
+        "Tim Harley",
+        "David Silver",
+        "Koray Kavukcuoglu"
+      ],
+      "title": "Asynchronous Methods for Deep Reinforcement Learning",
+      "venue": "[cs.LG]. url:",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Volodymyr Mnih",
+        "Koray Kavukcuoglu",
+        "David Silver",
+        "Alex Graves",
+        "Ioannis Antonoglou",
+        "Daan Wierstra",
+        "Martin Riedmiller"
+      ],
+      "title": "Playing atari with deep reinforcement learning",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Volodymyr Mnih",
+        "Koray Kavukcuoglu",
+        "David Silver",
+        "Andrei A Rusu",
+        "Joel Veness",
+        "Marc G Bellemare",
+        "Alex Graves",
+        "Martin Riedmiller",
+        "Andreas K Fidjeland",
+        "Georg Ostrovski"
+      ],
+      "title": "Human-level control through deep reinforcement learning",
+      "venue": "Nature",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Jean-Baptiste Mouret",
+        "Jeff Clune"
+      ],
+      "title": "Illuminating search spaces by mapping elites",
+      "venue": "[cs.AI]. url: https: //arxiv.org/abs/1504.04909",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "T. Nathan Mundhenk",
+        "Barry Y. Chen",
+        "Gerald Friedland"
+      ],
+      "title": "Efficient Saliency Maps for Explainable AI",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ian Osband",
+        "Charles Blundell",
+        "Alexander Pritzel",
+        "Benjamin Van Roy"
+      ],
+      "title": "Deep Exploration via Bootstrapped DQN",
+      "venue": "[cs.LG]. url: https://arxiv.org/abs/1602.04621",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Deepak Pathak",
+        "Pulkit Agrawal",
+        "Alexei A. Efros",
+        "Trevor Darrell"
+      ],
+      "title": "Curiosity-driven Exploration by Self-supervised Prediction",
+      "venue": "[cs.LG]. url: https://arxiv.org/abs/1705.05363",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Thomas Pierrot",
+        "Guillaume Ligner",
+        "Scott Reed",
+        "Olivier Sigaud",
+        "Nicolas Perrin",
+        "Alexandre Laterre",
+        "David Kas",
+        "Karim Beguir",
+        "Nando de Freitas"
+      ],
+      "title": "Learning Compositional Neural Programs with Recursive Tree Search and Planning",
+      "venue": "[cs.AI]. url: https: //arxiv.org/pdf/1905.12941",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R\u00e9my Portelas",
+        "C\u00e9dric Colas",
+        "Lilian Weng",
+        "Katja Hofmann",
+        "Pierre- Yves Oudeyer"
+      ],
+      "title": "Automatic Curriculum Learning For Deep RL: A Short Survey",
+      "venue": "arXiv preprint arXiv:2003.04664",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Justin K Pugh",
+        "Lisa B Soros",
+        "Kenneth O Stanley"
+      ],
+      "title": "Quality diversity: A new frontier for evolutionary computation",
+      "venue": "Frontiers in Robotics and AI",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Antonin Raffin",
+        "Ashley Hill",
+        "Kalifou Ren\u00e9 Traor\u00e9",
+        "Timoth\u00e9e Lesort",
+        "Natalia D\u00edaz Rodr\u00edguez",
+        "David Filliat"
+      ],
+      "title": "Decoupling feature extraction from policy learning: assessing benefits of state representation learning in goal based robotics",
+      "venue": "CoRR abs/1901.08651",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Antonin Raffin",
+        "Ashley Hill",
+        "Ren\u00e9 Traor\u00e9",
+        "Timoth\u00e9e Lesort",
+        "Natalia D\u00edaz- Rodr\u00edguez",
+        "David Filliat"
+      ],
+      "title": "S-RL Toolbox: Environments, Datasets and Evaluation Metrics for State Representation Learning",
+      "venue": "[cs.LG]. url: https://arxiv.org/abs/1809.09369",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why Should I Trust You?\": Explaining the Predictions of Any Classifier",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "G. Rummery",
+        "Mahesan Niranjan"
+      ],
+      "title": "On-Line Q-Learning Using Connectionist Systems",
+      "venue": "Technical Report CUED/F-INFENG/TR",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "Adam Santoro",
+        "David Raposo",
+        "David G.T. Barrett",
+        "Mateusz Malinowski",
+        "Razvan Pascanu",
+        "Peter Battaglia",
+        "Timothy Lillicrap"
+      ],
+      "title": "A simple neural network module for relational reasoning. 2017",
+      "venue": "[cs.CL]. url: https://arxiv.org/pdf/1706.01427",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "F. Scarselli",
+        "M. Gori",
+        "A.C. Tsoi",
+        "M. Hagenbuchner",
+        "G. Monfardini"
+      ],
+      "title": "The Graph Neural Network Model",
+      "venue": "IEEE Transactions on Neural Networks",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "John Schulman",
+        "Filip Wolski",
+        "Prafulla Dhariwal",
+        "Alec Radford",
+        "Oleg Klimov"
+      ],
+      "title": "Proximal Policy Optimization Algorithms",
+      "venue": "[cs.LG]. url: https://arxiv.org/pdf/1707.06347.pdf",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Harm van Seijen",
+        "Mehdi Fatemi",
+        "Joshua Romoff",
+        "Romain Laroche",
+        "Tavian Barnes",
+        "Jeffrey Tsang"
+      ],
+      "title": "Hybrid Reward Architecture for Reinforcement Learning",
+      "venue": "[cs.LG]. url: https: //arxiv.org/pdf/1706.04208",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Ramprasaath R. Selvaraju",
+        "Michael Cogswell",
+        "Abhishek Das",
+        "Ramakrishna Vedantam",
+        "Devi Parikh",
+        "Dhruv Batra"
+      ],
+      "title": "Grad-CAM: Visual Explanations from Deep Networks via Gradient-Based Localization",
+      "venue": "In: International Journal of Computer Vision (Oct",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Pedro Sequeira",
+        "Melinda Gervasio"
+      ],
+      "title": "Interestingness Elements for Explainable Reinforcement Learning: Understanding Agents\u2019 Capabilities and Limitations",
+      "venue": "[cs.LG]. url: https: //arxiv.org/pdf/1912.09007",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Pedro Sequeira",
+        "Eric Yeh",
+        "Melinda T. Gervasio"
+      ],
+      "title": "Interestingness Elements for Explainable Reinforcement Learning through Introspection",
+      "venue": "https://explainablesystems.comp.nus.edu.sg/",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Evan Shelhamer",
+        "Parsa Mahmoudieh",
+        "Max Argus",
+        "Trevor Darrell"
+      ],
+      "title": "Loss is its own Reward: Self-Supervision for Reinforcement Learning",
+      "venue": "[cs.LG]. url:",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "David Silver",
+        "Thomas Hubert",
+        "Julian Schrittwieser",
+        "Ioannis Antonoglou",
+        "Matthew Lai",
+        "Arthur Guez",
+        "Marc Lanctot",
+        "Laurent Sifre",
+        "Dharshan Kumaran",
+        "Thore Graepel",
+        "Timothy Lillicrap",
+        "Karen Simonyan",
+        "Demis Hassabis"
+      ],
+      "title": "Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm",
+      "venue": "[cs.AI]. url: https://arxiv.org/pdf/1712.01815.pdf",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "David Silver",
+        "Julian Schrittwieser",
+        "Karen Simonyan",
+        "Ioannis Antonoglou",
+        "Aja Huang",
+        "Arthur Guez",
+        "Thomas Hubert",
+        "L Robert Baker",
+        "Matthew Lai",
+        "Adrian Bolton",
+        "Yutian chen",
+        "Timothy P. Lillicrap",
+        "Fan Hui",
+        "Laurent Sifre",
+        "George van den Driessche",
+        "Thore Graepel",
+        "Demis Hassabis"
+      ],
+      "title": "Mastering the game of Go without human knowledge",
+      "venue": "Nature",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Karen Simonyan",
+        "Andrea Vedaldi",
+        "Andrew Zisserman"
+      ],
+      "title": "Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps",
+      "venue": "[cs.CV]. url: https: //arxiv.org/pdf/1312.6034.pdf",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Mateusz Staniak",
+        "Przemyslaw Biecek"
+      ],
+      "title": "Explanations of model predictions with live and breakDown packages",
+      "year": 1804
+    },
+    {
+      "authors": [
+        "Mukund Sundararajan",
+        "Amir Najmi"
+      ],
+      "title": "The many Shapley values for model explanation",
+      "venue": "[cs.AI]. url: https: //arxiv.org/abs/1908.08474",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Mukund Sundararajan",
+        "Ankur Taly",
+        "Qiqi Yan"
+      ],
+      "title": "Axiomatic Attribution for Deep Networks",
+      "venue": "Proceedings of the 34th International Conference on Machine Learning. Ed. by Doina Precup and Yee Whye Teh",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Richard S. Sutton",
+        "Andrew G. Barto"
+      ],
+      "title": "Reinforcement Learning: An Introduction. Second",
+      "venue": "url: http://incompleteideas. net/book/the-book-2nd.html",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Geraud Nangue Tasse",
+        "Steven James",
+        "Benjamin Rosman"
+      ],
+      "title": "A Boolean Task Algebra for Reinforcement Learning",
+      "venue": "[cs.LG]. url: https://arxiv.org/pdf/2001.01394.pdf",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Andreas Theodorou",
+        "Robert H. Wortham",
+        "Joanna J. Bryson"
+      ],
+      "title": "Designing and implementing transparency for real time inspection of autonomous robots",
+      "venue": "Connection Science",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Ren\u00e9 Traor\u00e9",
+        "Hugo Caselles-Dupr\u00e9",
+        "Timoth\u00e9e Lesort",
+        "Te Sun",
+        "Guanghang Cai",
+        "Natalia D\u00edaz Rodr\u00edguez",
+        "David Filliat"
+      ],
+      "title": "DISCORL: Continual reinforcement learning via policy distillation",
+      "venue": "arXiv preprint arXiv:1907.05855",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ren\u00e9 Traor\u00e9",
+        "Hugo Caselles-Dupr\u00e9",
+        "Timoth\u00e9e Lesort",
+        "Te Sun",
+        "Guanghang Cai",
+        "Natalia D\u00edaz-Rodr\u00edguez",
+        "David Filliat"
+      ],
+      "title": "DisCoRL: Continual Reinforcement Learning via Policy Distillation",
+      "venue": "[cs.LG]. url: https://arxiv.org/abs/1907.05855",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Jianhong Wang",
+        "Yuan Zhang",
+        "Tae-Kyun Kim",
+        "Yunjie Gu"
+      ],
+      "title": "Shapley Q-value: A Local Reward Approach to Solve Global Reward Games",
+      "year": 1907
+    },
+    {
+      "authors": [
+        "Tianfu Wu",
+        "Wei Sun",
+        "Xilai Li",
+        "Xi Song",
+        "Bo Li"
+      ],
+      "title": "Towards Interpretable R-CNN by Unfolding",
+      "venue": "Latent Structures",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Ali Al-Yacoub",
+        "Yuchen Zhao",
+        "Niels Lohse",
+        "Mey Goh",
+        "Peter Kinnell",
+        "Pedro Ferreira",
+        "Ella-Mae Hubbard"
+      ],
+      "title": "Symbolic-Based Recognition of Contact States for Learning Assembly Skills",
+      "venue": "Frontiers in Robotics and AI",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Vinicius Zambaldi",
+        "David Raposo",
+        "Adam Santoro",
+        "Victor Bapst",
+        "Yujia Li",
+        "Igor Babuschkin",
+        "Karl Tuyls",
+        "David Reichert",
+        "Timothy Lillicrap",
+        "Edward Lockhart",
+        "Murray Shanahan",
+        "Victoria Langston",
+        "Razvan Pascanu",
+        "Matthew Botvinick",
+        "Oriol Vinyals",
+        "Peter Battaglia"
+      ],
+      "title": "Relational Deep Reinforcement Learning",
+      "venue": "[cs.LG]. url: https://arxiv.org/pdf/1806.01830",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Amy Zhang",
+        "Harsh Satija",
+        "Joelle Pineau"
+      ],
+      "title": "Decoupling Dynamics and Reward for Transfer Learning",
+      "venue": "[cs.LG]. url: https://arxiv.org/abs/1804.10689",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Quanshi Zhang",
+        "Ruiming Cao",
+        "Feng Shi",
+        "Ying Nian Wu",
+        "Song-Chun Zhu"
+      ],
+      "title": "Interpreting CNN Knowledge via an Explanatory Graph. 2017",
+      "venue": "[cs.CV]. url: https://arxiv.org/pdf/1708.01785",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Quanshi Zhang",
+        "Ruiming Cao",
+        "Ying Nian Wu",
+        "Song-Chun Zhu"
+      ],
+      "title": "Growing Interpretable Part Graphs on ConvNets via Multi-Shot Learning",
+      "venue": "[cs.CV]. url:",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Quanshi Zhang",
+        "Song-Chun Zhu"
+      ],
+      "title": "Visual Interpretability for Deep Learning: a Survey",
+      "venue": "[cs.CV]. url: https: //arxiv.org/pdf/1802.00614.pdf",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Guanjie Zheng",
+        "Fuzheng Zhang",
+        "Zihan Zheng",
+        "Yang Xiang",
+        "Nicholas Yuan",
+        "Xing Xie",
+        "Zhenhui Li"
+      ],
+      "title": "DRN: A Deep Reinforcement Learning Framework for News Recommendation",
+      "venue": "(Apr",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Zhenpeng Zhou",
+        "Xiaocheng Li",
+        "Richard N. Zare"
+      ],
+      "title": "Optimizing Chemical Reactions with Deep Reinforcement Learning",
+      "venue": "ACS Central Science",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Brian D Ziebart",
+        "Andrew L Maas",
+        "J Andrew Bagnell",
+        "Anind K Dey"
+      ],
+      "title": "Maximum entropy inverse reinforcement learning.",
+      "venue": "url: https://arxiv.org/pdf/1507.04888.pdf",
+      "year": 2008
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords: Reinforcement Learning, Explainable Artificial Intelligence, Machine Learning, Deep Learning, Responsible Artificial Intelligence, Representation Learning, Hierarchical RL, Saliency maps\n\u2217ENSEIRB-MATMECA, Bordeaux INP, France, aheuillet@enseirb-matmeca.fr, Equal contribution \u2020ENSC, Bordeaux INP, France, fcouthouis@ensc.fr, Equal contribution \u2021ENSTA Paris, Institut Polytechnique Paris, Inria Flowers Team, France, natalia.diaz@enstaparis.fr\nar X\niv :2\n00 8.\n06 69\n3v 2\n[ cs\n.A I]\n2 0"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "During the past decade, Artificial Intelligence (AI), and by extension Machine Learning (ML), have seen an unprecedented rise in both industry and research. The progressive improvement of computer hardware associated with the need to process larger and larger amounts of data made these underestimated techniques shine under a new light. Reinforcement Learning (RL) focuses on learning how to map situations to actions, in order to maximize a numerical reward signal [102]. The learner is not told which actions to take, but instead must discover which actions are the most rewarding by trying them. Reinforcement learning addresses the problem of how agents should learn a policy that take actions to maximize the cumulative reward through interaction with the environment [31].\nRecent progress in Deep Learning (DL) for learning feature representations has significantly impacted RL, and the combination of both methods (known as deep RL) has led to remarkable results in a lot of areas. Typically, RL is used to solve optimisation problems when the system has a very large number of states and has a complex stochastic structure. Notable examples include training agents to play Atari games based on raw pixels [75, 76], board games [96, 97], complex real-world robotics problems such as manipulation [8] or grasping [54] and other real-world applications such as resource management in computer clusters [72], network traffic signal control [9], chemical reactions optimization [117] or recommendation systems [116].\nThe success of Deep RL could augur an imminent arrival in the industrial world. However, like many Machine Learning algorithms, RL algorithms suffer from a lack of explainability. This defect can be highly crippling as many promising RL applications (defense, finance, medicine, etc.) need a model that can explain its decisions and actions to human users [42] as a condition to their full acceptation by society. Furthermore, deep RL models are complex to debug for developers, as they rely on many factors: environment (in particular the design of the reward function), observations encoding, large DL models and the algorithm used to train the policy. Thus, an explainable model could aid fixing problems quicker and drastically speed up new development in RL methods. Those last two points are the main arguments in favor of the necessity of explainable reinforcement learning (XRL).\nWhile explainability starts being well developed for standard ML models and neural networks [86, 69, 92], the particular domain of RL has yet many intricacies to be better understood: both in terms of its functioning, and in terms of conveying the decisions of an RL model to different audiences. The difficulty lies in the very recent human-level performance of deep RL algorithms and by their complexity, normally parameterized with thousands if not millions of parameters [16]. The present work intends to provide a non-exhaustive state-of-the-art review on explainable reinforcement learning, highlighting the main methods that we envision most promising. In the following, we will briefly recall some important concepts in XAI."
+    },
+    {
+      "heading": "1.1 Explainable AI: Audience",
+      "text": "Explaining a Machine Learning model may involve different goals: trustworthiness, causality, transferability, informativeness, fairness, confidence, accessibility, interactivity and privacy awareness. These goals have to be taken into account while explaining a model because the expected type of explanation may differ, depending on the pursued objective. For example, a saliency map explaining what is recognised as a dog on an input image does not tell us much about privacy awareness. In addition, each goal\nmay be a dimension of interest, but only for a certain audience (the public to whom the explanations will be addressed). Indeed, the transferability of a model can be significative for a developer, since he/she can save time by training only one model for different tasks, while the user will not be impacted, if not aware, by this aspect.\nThe understandability of an ML model therefore depends on its transparency (its capacity to be understandable by itself) but also on human understanding. According to these considerations, it is essential to take into account the concept of audience, as the intelligibility and comprehensibility of a model is dependant on the goals and the cognitive skills of its users. Barredo Arrieta et al. [10] discuss these aspects with additional details."
+    },
+    {
+      "heading": "1.2 Evaluating explanations",
+      "text": "The broad concept of evaluation is based on metrics aiming to compare how well a technique performs compared to another. In the case of model explainability, metrics should evaluate how well a model fits the definition of explainable and how well performs in a certain aspect of explainability.\nExplanation evaluation in XAI has proven to be quite a challenging task. First because the concept of explainability in Machine Learning is not well or uniformly accepted by the community and there is not a clear definition and thus, not a clear consensus on which metrics to use. Secondly because an explanation is relative to a specific audience, which is sometimes difficult to deal with (in particular when this specific audience is composed of domain experts who can be hard to involve in a testing phase). Thirdly, because the quality of an explanation is always qualitative and subjective, since it depends on the audience, the pursued goal and even the human variability as two people can have a different level of understandability for the same explanation. That is why user studies are so popular to evaluate explanations as it makes possible to convert qualitative evaluations into quantitative ones, by asking questions on the accuracy and clarity of the explanation such as \"Does this explanation allow you to understand why the model predicted that this image is a dog? Did the context helped the model?\"... etc. Generally in XAI, there is only a single model to explain at a time; however, it is more complicated in XRL, as we generally want to explain a policy, or \"Why the agent took action x in state s?\".\nDoshi-Velez et al. [30] propose an attempt to formulate some approaches to evaluate XAI methods. The authors introduce three main levels to evaluate the quality of the explanations provided by an XAI method. The table below summarizes them.\nA common example of evaluation of an application level or human level task is to evaluate the quality of the mental model built by the user after seeing the explanation(s). Mental models can be described as internal representations, built upon experiences,\nand which allow to mentally simulate how something works in the real world. Hoffman et al. [48] propose to evaluate mental models by 1. Asking post-task questions on the behaviour of the agent (such as \"How does it work?\" or \"What does it achieve?\") and 2. Asking the participants to make predictions on the agent\u2019s next action. These evaluations are often done using Likert scales."
+    },
+    {
+      "heading": "2 XAI in RL: State of the art and reviewed literature",
+      "text": "We reviewed the state of the art on XRL and summarized it in Table 5. This table presents, for each paper, the task(s) for which an explanation is provided, the employed RL algorithms (whose Algorithms glossary can be found in the 6), and the provided type of explanations, i.e.: based on images, diagrams (graphical components such as barchart, plot, graph), or text. We also present the level of the provided explanation (local if it explains only predictions, global if it explains the whole model), and the audience concerned by the explanation, as discussed in Section 1.1.\nReference Task/ Environment\nDecision process Algorithm(s) Explanation type (Level) Target\nRelational Deep RL [111]\nPlanning + strategy games (BoxWorld/ Starcraft II) POMDP IMPALA Images (Local)\nExperts\nSymbolic RL with Common Sense [24] Game (object retrieval) POMDP SRL+CS, DQL Images (Global)\nExperts\nDecoupling feature extraction from policy learning [84] Robotics (grasping), and navigation MDP PPO Diagram (state plot & image slider (Local)\nExperts\nExplainable RL via Reward Decomposition [53] Game (grid and landing) MDP HRA, SARSA, Qlearning\nDiagrams (Local) Experts, Users, Executives\nExplainable RL Through a Causal Lens [71]\nGames (OpenAI benchmark and Starcraft II) Both PG, DQN, DDPG, A2C, SARSA\nDiagrams, Text (Local) Experts, Users, Executives\ncontinues on next page\nShapley Q-value: A Local Reward Approach to Solve Global Reward Games [107] Multiagents (Cooperative Navigation, Prey-andPredator and Traffic Junction) POMDP DDPG Diagrams (Local) Experts Dot-to-Dot: Explainable HRL For Robotic Manipulation [15] Robotics (grasping) MDP DDPG, HER, HRL Diagrams (Global) Experts, Developers Self-Educated Language Agent With HER For Instruction Following [23] Instruction Following (MiniGrid) MDP Textual HER Text (Local) Experts, Users, Developers Commonsense and Semantic-guided Navigation [110] Room navigation POMDP - Text (Global) Experts Boolean Task Algebra [103] Game (grid) MDP DQN Diagrams Experts Visualizing and Understanding Atari [41]\nGames (Pong, Breakout, Space Invaders) MDP A3C Images (Global)\nExperts, Users, Developers\nInterestingness Elements for XRL through Introspection [94, 93] Arcade game (Frogger) POMDP QLearning Images (Local)\nUsers\nComposable DRL for Robotic Manipulation [43]\nRobotics (pushing and reaching) MDP Soft Qlearning\nDiagrams (Local) Experts\nSymbolic-Based Recognition of Contact States for Learning Assembly Skills [109] Robotic grasping\nPOMDP HMM, PAA, K-means Diagrams (Local) Experts\ncontinues on next page\nIn Table 5 we summarized the literature focusing on explainable fundamental RL algorithms. However, we also reviewed articles about state of the art XAI techniques that can be used in the context of current RL which we did not include in Table 5. Next, we will describe the main ideas provided by these papers which can help bring explainability in RL. It is possible to classify all recent studies in two main categories: transparent methods and Post-Hoc explainability according to the XAI taxonomies in Barredo Arrieta et al. [10]. On the one hand, inherently transparent algorithms include by definition every algorithm which is understandable by itself, such as a decision-trees. On the other hand, Post-Hoc explainability includes all methods that provide explanations of an RL algorithm after its training, such as SHAP (SHapley Additive exPlanations) [69] or LIME [86] for standard ML models. Reviewed papers are referenced by type of explanation in Figure 2."
+    },
+    {
+      "heading": "2.1 Transparent algorithms",
+      "text": "Transparent algorithms are well known and used in standard Machine Learning (e.g., linear regression, decision trees or rule-based systems). Their strength lie in the fact that they are designed to have a transparent architecture that makes them explainable by themselves, without the need of any external processing. However, it is quite different for RL, as standard DRL algorithms (e.g., DQN, PPO, DDPG, A2C...) are not transparent by nature. In addition, the large majority of studies related to transparency in XRL chose to build algorithms targeting only a specific task. Nonetheless, most of the time and contrary to standard Machine Learning models, transparent RL algorithms can achieve state of the art performance in these specific tasks [107, 24, 111]."
+    },
+    {
+      "heading": "2.1.1 Explanation through representation learning",
+      "text": "Representation learning algorithms focuses on learning abstract features that characterize data, in order to make it easier to extract useful information when building predictors [63, 13]. These learned features have the advantage of having low dimensionality, which generally improves training speed and generalization of Deep Learning models [62, 63, 84].\nIn the context of RL, learning representations of states, actions or policy can be useful to explain a RL algorithm, as these representations can bring some clues on the functioning of the algorithm. Indeed, State Representation Learning (SRL) [63] is a particular type of representation learning that aims at building a low-dimensional and meaningful representation of a state space, by processing high-dimensional raw observation data (e.g., learn a position (x, y) from raw image pixels). This enables to capture the variations in the environment influenced by the agent\u2019s actions and thus, extrapolate explanations. SRL can be especially useful in RL for robotics and control [85, 84, 106, 28, 29], and can help to understand how the agent interprets the observations and what is relevant to learn to act, i.e., actionable or controllable features [62]. Indeed, the dimensionality reduction induced by SRL, coupled with the link to the control and possible disentanglement of variation factors, could be highly beneficial to improve our understanding capacity of the decisions made by RL algorithms using a state representation method [63]. For example, SRL can be used to split the state representation [84] according to the different training objectives to be optimized before learning a policy. This allows to allocate room for encoding each necessary objective within the embedding state to be learned (in that case, reward prediction, a reconstruction objective and an inverse model). In this context, tools such as S-RL Toolbox [85] allow sampling from the embedding state space (learned through SRL) to allow a visual interpretation of the model\u2019s internal state, and pairing it with its associated input observation. Comprehensibility is thus enhanced, more easily observing if smoothness is preserved in the state space, as well as whether other invariants related to learning specific control task are guaranteed.\nThere are several approaches employed for SRL: reconstructing the observations using autoencoders [6, 32], training a forward model to predict next state [49, 80], teach to an inverse model how to predict actions from previous state(s) [95, 80] or using prior knowledge to constrain the state space [52, 62].\nAlong the same lines, learning disentangled representations [47, 2, 4, 17] is another interesting idea used for unsupervised learning, which decomposes (or disentangles) each feature into narrowly defined variables and encodes them as separate low-dimensional features (generally using a Variational Autoencoders [59]). It is also possible to make use of this concept, as well as lifelong learning to learn more interpretable representations on unsupervised classification tasks. In addition, one could argue that learning through life would allow compacting and updating old knowledge with new one while preventing catastrophic forgetting [64]. Thus, this is a key concept that could lead to more versatile RL agents, being able to learn new tasks without forgetting the previous ones. Information Maximizing Generative Adversarial Networks (InfoGAN) [20] is another model based on the principles of learning disentangled representations. The noise vector used in traditional GANs is decomposed into two parts: z: incompressible noise; and c: the latent code used to target the salient semantic features of the data distribution. The main idea is to feed z and c to the generator G, to maximize the mutual information between c and G(z, c), in order to assure that the information contained in c is preserved during the generation process. As a result, the InfoGAN\nmodel is able to create an interpretable representation via the latent code c (i.e., the values changing according to shape and features of the input data).\nSome work has been done to learn representations by combining symbolic AI with deep RL in order to facilitate the use of background knowledge, the exploitation of learnt knowledge, and to improve generalization [38, 35, 88, 37] Consequently, it also improves the explainability of the algorithms, while preserving state-of-the-art performance.\nZambaldi et al. [111] propose making use of Inductive Logic Programming and self-attention to represent states, actions and policies using first order logic, using a mechanism similar to graph neural networks and more generally, message passing computations [25, 60, 12, 89]. In these kind of models entity-entity relations are explicitly computed when considering the messages passed between connected nodes of the graph as shown in Fig. 2. Self-attention is used here as a method to compute interactions between these different entities (i.e. relevant pixels in a RGB image for the example from [111]), and thus perform non-local pairwise relational computations. This technique allows an expert to visualize the agent\u2019s attention weights associated to its available actions and interpret how to improve the understanding of its strategy.\nAnother work that aims to incorporate common sense to the agent, in terms of symbolic abstraction to represent the problem, is in [24]. This method subdivides the world state representation into many sub-states, with a degree of associated importance based on how far the object is from the agent. This helps understand the relevance of the actions taken by the agent by determining which sub-states were chosen."
+    },
+    {
+      "heading": "2.1.2 Simultaneous learning of the explanation and the policy",
+      "text": "While standard DRL algorithms struggle to provide explanations, those can be tweaked to learn simultaneously both policy and explanation. Thus, explanations become a learned component of the model. These methods are recommended on specific problems where it is possible to introduce knowledge, such classifying rewards by types, adding relationships between states, etc... Thus, tweaking the algorithm to introduce some task knowledge and to learn explanations generally also improves performance. A general notion is that the knowledge gained from the auxiliary task objective must be useful for downstream tasks. In this direction, Juozapaitis et al. [53] introduced reward decomposition, whose main principle is to decompose the reward function into a sum of meaningful reward types. Authors used reward decomposition to improve performance on Cliffworld and Starcraft II, where each action can be classified according to its type. This method consists of using a custom decomposed reward DQN by defining a vector-valued reward function, where each component is the reward for a certain type so that actions can be compared in terms of trade-offs among the types. In the same way, the Q-function is also vector valued and each component gives action values that account for only a reward type. The sum of each of those vector-valued functions gives the overall Q or reward function. Learning multiple Q-functions, one for each type of reward, allows the model to learn the best policy while also learning the explanations (i.e. the type of reward that the agent wanted to maximize by his action, illustrated on Fig. 4). They introduce the concept of Reward Difference Explanation (RDX, in Fig. 3) which enables to understand the reasons why an action has an advantage (or disadvantage) over another. They also define Minimal Sufficient Explanations (MSX, See Fig. 4), in order to help humans identify a small set of the most important reasons why the agent choose specific actions over another. MSX+ and MSX- are sets of critical positive and negative reasons (respectively) for the actions preferred by the agent.\nWhile reward decompositions help to understand the agent choice preferences between several actions, minimal sufficient explanations are used to help selecting the most important reward decompositions. Other works that faciliate the explainability of RL models by using reward-based losses for more interpretable RL are in [112, 95, 80].\nIn the same vein, Madumal et al. [71] use the way humans understand and represent knowledge through causal relationships and introduce an action influence model : a causal model which can explain the behaviour agents using causal explanations. Structural causal models [45] represent the world using random variables, some of which might have causal relationships, which can be described thanks to a set of structural equations. In this work, structural causal models are extended to include actions as part of the causal relationships. An action influence model is a tuple represented by the state-actions ensemble and the corresponding set of structural equations. The whole process is divided into 3 phases:\n\u2022 Defining the qualitative causal relationships of variables as an action influence model.\n\u2022 Learning the structural equations (as multivariate regression models during the training phase of the agent).\n\u2022 Generating explanations, called explanans, by traversing the action influence graph (see Figure 5) from the root to the leaf reward node.\nThis kind of models allow encoding cause-effect relations between events (actions and states) as shown by the graph featured in Figure 5. Thus, they can be used to generate explanations of the agent behaviour (\"why\" and \"why not\" questions), based on knowledge about how actions influence the environment. Their method was evaluated through a user study showing that, compared to video game playing without any explanations and relevant variable explanations, this model performs significantly better on 1) task prediction and 2) explanation goodness. However, trust was not shown to be significantly improved.\nAuthors of [70] also learn explanations along with the model policy on pedestrians collision avoidance tasks. In this paper, an ensemble of LSTM networks was trained using Monte Carlo Dropout [34] and bootstrapping [79] to estimate collision probabilities and thus predict uncertainty estimates to detect novel observations. The magnitude of those uncertainty estimates was shown to reveal novel obstacles in a variety of scenarios, indicating that the model knows what it does not know. The result is a collision avoidance policy that can measure the novelty of an observation (via model uncertainty) and cautiously avoids pedestrians that exhibit unseen behavior. Measures of model uncertainty can also be used to identify unseen data during training or testing. Policies during simulation demonstrated to be more robust to novel observations and take safer actions than an uncertainty-unaware baseline. This work also responds to the problem of safe reinforcement learning [36], whose goal is to ensure reasonable system performance and/or respect safety constraints also at the deployment phase.\nSome work has also been made to explain multiagent RL. Wang et al. [107] developed an approach named Shapley Q-values Deep Deterministic Policy Gradient (SQDDPG) to solve global reward games in a multiagent context based on Shapley values and DDPG. The proposed approach relies on distributing the global reward more efficiently across all agents. They show that integrating Shapley values into DDPG enables to share the global reward between all agents according to their contributions: the more the agent contributes, the more reward it will get. This contrasts to the\nclassical shared reward approach, which could cause inefficient learning by assigning rewards to an agent who contributed poorly. The experiments showed that SQDDPG presents faster convergence rate and fairer credit assignment in comparison with other algorithms (i.e. IA2C, IDDPG, COMA and MADDPG). This method allows to plot credit assignment to each agent, which can explain how the global reward is divided during training and what agent contributed the most to obtain the global reward."
+    },
+    {
+      "heading": "2.1.3 Explanation through hierarchical goals",
+      "text": "Methods based on Hierarchical RL [91] and sub-task decomposition [55] consist of a high level agent dividing the main goal into sub-goals for a low-level agent, which follows them one by one to perform the high-level task. By learning what sub-goals are optimal for the low-level agent, the high-level agent forms a representation of the environment that is interpretable by humans. Often, Hindsight Experience Replay (HER) [7] is used in order to ignore whether or not goals and sub-goals have been reached during an episode and to extract as much information as possible from past experience.\nBeyret et al. [15] used this kind of methods along with HER for robotic manipulation (grasping and moving an item). The high level agent learns which sub-goals can make the low level agent reach the main goal while the low level agent learns to maximise the rewards for these sub-goals. The high-level agent provides a representation of the learned environment and the Q-values associated, which can be represented as heat maps as shown in Fig. 8.\nBased on the same ideas, Cideron et al. [23] proposed Textual Hierarchical Experience Replay (THER) which extends the HER explanation to a natural language setting, allowing to learn from past experiences and to map goals to trajectories without the need of an external expert. The mapping function labels unsuccessful trajectories by automatically predicting a substitute goal. THER is composed of two models: the instruction generator which outputs a language encoding of the final state, and an agent model which picks an action given the last observations and the language-encoded goal.\nThe model learns to encode goals and states via natural language, and thus can be interpreted by a human operator (Fig. 9).\nAnother interesting work finds inspiration in human behaviour to improve generalization on a room navigation task, just like common sense and semantic understanding are used by humans to navigate unseen environments [110]. The entire model is composed of three parts: 1) a semantically grounded navigator used to predict the next action. 2) a common sense planning module, used for route planning. It predicts the next room, based on the observed scene, helps finding intermediate targets, and learns what rooms are near the current one. 3) the semantic grounding module used to recognize rooms; it allows the detection of the current room and incorporates semantic understanding by generating questions about what the agent saw (\u201dDid you see a bathroom?\u201d). Self-supervision is then used for fine tuning on unseen environment. The explainability can be brought from the outputs of all parts of the entire model. We can get information about what room is detected by the agent, what are the next rooms targeted (sub-goals), what are the rooms predicted around the current room and what are the rooms already seen by the agent.\nAn original idea proposed by Tasse et al. [103] consists of making an agent learn basic tasks and then allow it to perform new ones by composing the tasks previously learned in a boolean formula (i.e., with conjunctions, disjunctions and negations). The main strength of this method is that the agent is able to perform new tasks without the necessity of a learning phase. From an XRL point of view, the explainability comes from the fact that the agent is able to express its actions as boolean formulas, which are easily readable by humans."
+    },
+    {
+      "heading": "2.2 Post-Hoc explainability",
+      "text": "Post-Hoc explainability refers to explainability methods that rely on an analysis done after the RL algorithm finishes its training and execution. In other terms, it is a way of \"enhancing\" the considered RL algorithm from a black box to something that is somewhat explainable. Most Post-Hoc methods encountered were used in a perception context, i.e., when the data manipulated by the RL algorithm consisted of visual input such as images."
+    },
+    {
+      "heading": "2.2.1 Explanation through saliency maps",
+      "text": "When an RL algorithm is learning from images, it can be useful to know which elements of those images hold the most relevant information (i.e., the salient elements). These elements can be detected using saliency methods that produce saliency maps [92, 78]. In most cases, a saliency or heat map consists of a filter applied to an image that will highlight the areas salient for the agent.\nA major advantage of saliency maps is that it can produce elements that are easily interpretable by humans, even non-experts. Of course, the interpreting difficulty of a saliency map greatly depends on the saliency method used to compute that map and other parameters such as the color scheme or the highlighting technique. A disadvantage is that they are very sensitive to different input variations, and schemes to debug such visual explanation may not be straightforward [51].\nA very interesting example [41], introduces a new perturbation-based saliency computation method that produces crisp and easily interpretable saliency maps for RL agents playing OpenAI Gym environment Atari 2600 games with Asynchronous Actor Critic [74]. The main idea is to apply a perturbation on the considered image that will remove information from a specific pixel without adding new information (by generating an interpolation from a Gaussian blur of the same image). Indeed, this perturbation can be interpreted as adding spatial uncertainty to the region around its point of application. This spatial uncertainty can help understand how removing information in a specific area of the input image affects the agent\u2019s policy, and is quantified with a saliency metric S. The saliency map is then produced by computing S(i, j) for every pixel (i, j) of the input image, leading to images such as those in Fig. 10.\nHowever, saliency methods are not a perfect solution in every situation, as pointed out in [58, 5]. They need to respect a certain number of rules, such as implementation invariance or input invariance in order to be reliable, especially when it comes to their relation with either the model or the input data."
+    },
+    {
+      "heading": "2.2.2 Explanation through interaction data",
+      "text": "In a more generic way, the behaviour of an agent can be explained by gathering data from its interaction with the environment while running, and analysing it in order to extract key information. For instance, Caselles-Dupr\u00e9 et al demonstrate that symmetry-based disentangled representation learning requires interaction and not only static perception [18].\nThis idea is exploited by Sequeira et al. [93] where interaction is the core basis upon which their Interestingness Framework is built. This framework relies on introspection, conducted by the autonomous RL agents: the agent extracts interestingness elements that denote meaningful interactions from their history of interaction with the environment. This is done using interaction data collected by the agent that is\nanalysed using statistical methods organized in a three-level introspection analysis: level 0: Environment analysis, level 1: Interaction analysis; level 3: Meta-analysis. From these interestingness elements, it is then possible to generate visual explanations (in the form of videos compiling specific highlight situations of interest in the agent\u2019s behaviour), where the different introspection levels and their interconnections provide contextualized explanations.\nThe authors applied their framework to the game Frogger and used it to generate video highlights of agents that were included in a user study. The latter showed that no summarizing technique among those used to generate highlight videos is adapted to all types of agents and scenarios. A related result is that agents having a monotonous, predictable performance will lack the variety of interactions needed by the interestingness framework to generate pertinent explanations. Finally, counterintuitively, highlighting all different aspects of an agent\u2019s interactions is not the best course of action ,as it may confuse users by consecutively showing the best and poorest performances of an agent."
+    },
+    {
+      "heading": "2.3 Other concepts aiding XRL",
+      "text": "Some studies encountered do not fit in the above categories for the main reason that they are not linked to RL or do not directly provide explanations but nonetheless, they are interesting concepts that could contribute to the creation of new XRL methods in the future."
+    },
+    {
+      "heading": "2.3.1 Explainability of CNNs",
+      "text": "Although deep neural networks have exhibited superior performance in various tasks, their interpretability is always their Achilles\u2019 heel. Since CNNs are still considered black boxes, many recent research papers focus on providing different levels and notions of explanations to make them more explainable.\nAs many RL models harness visual input DL models (for instance, when processing pixel observations), they could profit from better explainability of these algorithms. That way, the complete block of a CNN associated to learn a policy, would be explainable as whole. In addition, some techniques used in the visual domain, such as representation disentanglement could be relevant to apply in RL. Among the approaches detailed by Zhang et al. [115], one of the most promising aims at creating disentangled\n(interpretable) representations of the conv-layers of these networks [114, 113], as well as end-to-end learning of interpretable networks, working directly with comprehensible patterns, which are also a trending angle [108].\nExplaining when, how, and under which conditions catastrophic forgetting [27] or memorizing of datasets occurs is another relevant aspect of life-long or continual learning [64] in DNNs yet not fully understood. An interesting method towards this vision is Learning Without Memorizing (LwM) [26], an extension of Learning Without Forgetting Multi-Class (LwF-MC) [65] applied to image classification. This model is able to incrementally learn new classes without forgetting classes previously learned and without storing data related them. The main idea is that at each step, a new model, the student, is trained to incrementally learn new classes, while the previous one, the teacher, only has knowledge of the base classes. By improving LwF-MC with the application of a new loss called Attention Distillation loss, LwM tries to preserve base classes knowledge across all models iterations. This new loss produces attention maps that can be studied by a human expert in order to interpret the model\u2019s logic by inspecting the areas that focus its attention.\nAnother approach for scene analysis aimed to build a graph where each node represents an object detected in the scene and is capable of building a context-aware representation of itself by sending messages to the other nodes [50]. This makes it possible for the network to support relational reasoning, allowing it to be effectively transparent. Thus, users are able to make textual inquiries about relationships between objects (e.g., \"Is the plate next to a white bowl?\")."
+    },
+    {
+      "heading": "2.3.2 Compositionality as a proxy tool to improve understandability",
+      "text": "Compositionality is a universal concept stating that a complex (composed) problem can be decomposed into a set of simpler ones [11]. Thus, in the RL world, this idea can be translated into making an agent solve a complex task by hierarchically completing lesser ones (e.g. by first solving atomic ones as lesser tasks could also be complex) [81]. This provides reusability, enables quick initialization of policies and makes the learning process much faster by training an optimal policy for each reward and later combining them. Haarnoja et al. [43] showed that maximum entropy RL methods can produce much more composable policies. Empirical demonstrations were performed on a Sawyer robot trained to avoid a fix obstacle and to stack Lego blocks with both policies combined. They introduced the Soft Q-learning algorithm, based on maximum entropy RL [118] and energy-based models [44], as well as an extension of this algorithm that enables composition of learned skills. This kind of methods optimizing for compositionality does not provide a direct explanation tool; however compositionality can be qualitatively observed as self organized modules [46] and used to train multiple policies that benefit from being combined. Compositionality may also help better explain each policy along the training evolution in time, or each learned skill separately. However, it is also observed that compositionality may not emerge in the same manner as humans conceptually would understand it or expect it, e.g. based on symbolic abstract functionality modules. Some examples in language emergence in multi-agent RL settings show that generalization and acquisition speed [56] or language do not co-occur with compositionality, or that compositionality may not go hand in hand with language efficiency as in humans communication [19].\nDistillation has also been used to learn task that are closely related and whose learning should improve speed up the learning of near tasks, in DisCoRL model [105], which helps transfer from simulation to real settings in navigation and goal based\nrobotic tasks. We may then be able to further explain each policy along the training evolution timeline, or each learned skill separately."
+    },
+    {
+      "heading": "2.3.3 Improving trust via imitation learning",
+      "text": "Imitation learning is a way of enabling algorithms to learn from human demonstrations, such as teaching robots to learn assembly skills [109, 1]. While improving training time (compared to more traditional approaches [29]), this method also allows for better understanding of the agent\u2019s behaviour as it learns according to human expert actions [22]. It can also be a way to improve trust in the model, as it behaves seemingly as a human expert operator and can explain the basis of its decisions textually or verbally. Moreover, when encompassing human advice during training, it can be derived into advisable learning which further improves user trust as the model can understand human natural language and yields clear and precise explanations [57]."
+    },
+    {
+      "heading": "2.3.4 Transparency-oriented explanation building",
+      "text": "Transparency has been given multiple meanings over time, especially in robotics and AI Ethics. Theodorou et al. [104] freshly define it as a mechanism to expose decision making that could allow AI models to be debugged like traditional programs, as they will communicate information about their operation in real time. However, the relevance of this information should adapt to the user\u2019s technological background, from simple progress bars to complex debug logs. An interesting concept is that an AI system could be created using a visual editor that can help communicate which decision will be taken in which situation (very much like decision trees). These concepts have already been successfully implemented in an RL setup using Temporal Difference (TD) error to create an emotional model of an agent [73]."
+    },
+    {
+      "heading": "3 Discussion",
+      "text": "Despite explainable deep RL being still an emerging research field, we observed that numerous approaches were developed so far, as detailed in Section 2. However, there is no clear-cut method that serves all purposes. Most of the reviewed XRL methods are specifically designed to fit a particular task, often related to games or robotics and with no straight forward extension to other real-world RL applications. Furthermore, those methods cannot be generalized to other tasks or algorithms as they often make specific assumptions (e.g. on the MDP or environment properties). In fact in XRL there can be more than one model (as in Actor-Critic architectures) and different kinds of algorithms (DQN, DDPG, SARSA...) each with its own particularities. Moreover, there exists a wide variety of environments where each brings its own constraints. The necessity to adapt to the considered algorithm and environment means that it is hard to provide a holistic or generic explainability method. Thus, in our opinion, Shapley value-based methods [69, 107] can be considered as an interesting lead to contribute to this goal. Shapley values could be used to explain the roles taken by agents when learning a policy to achieve a collaborative task but also to detect defects in training agents or in the data fed to the network. In addition, as a post-hoc explainability method, it may be possible to generalize Shapley value computation to numerous RL environments and models in the same way it was done with SHAP [69] for other black boxes Deep Learning classifiers or regressors.\nMeanwhile, the research community would benefit if more global-oriented approaches, which do not focus on a particular task or algorithm, were developed in the future, as it has already been done in general XAI, with for instance LIME [86] or SHAP [69].\nMoreover, some promising approaches to bring explainability to RL include representation learning related concepts such as Hindsight Experience Replay, Hierarchical RL and self-attention. However, despite the ability of those concepts to improve performance and interpretability in a mathematical sense (in particular representation learning), they somehow lack concrete explanations targeted to end users, as they mostly target technical domain experts and researchers. This is a key element to further develop and allow the deployment of RL in the real world and to make algorithms more trustable and understandable by the general public.\nThe state of the art shows there is still room for progress to be made to better explain deep RL models in terms of different invariants preservation and other common assumptions of disentangled representation learning [67, 3]."
+    },
+    {
+      "heading": "4 Conclusion and Future Work",
+      "text": "We reviewed and analyzed different state of the art approaches on RL and how XAI techniques can elucidate and inform their training, debugging and communication to different stakeholder audiences.\nWe focused on agent based RL in this work, however, explainability in RL involving humans (e.g. in collaborative problem solving [14]) should involve explainability methods to better assess when robots are able to perform the requested task, and when uncertainty is an indicator of better relying a task to a human. Equally important is to evaluate and explain other aspects in reinforcement learning, e.g. formally explaining the role of curriculum learning [82], quality diversity or other human-learning inspired aspects of open-ended learning [28, 77, 83]. Thus, more theoretic bases to serve explainable by design DRL are required. The future development of post-hoc XAI techniques should adapt to the requirements to build, train, and convey DRL models. Furthermore, it is worth noting that all presented methods decompose final prediction into additive components attributed to particular features [99], and thus interaction between features should be accounted for, and included in the explanation elaboration. Since most presented strategies to explain RL have mainly considered discrete model interpretations for explaining a model, as advocated in [100], continuous formulations of the proposed approaches (such as Integrated Gradients [101] based on the continuous extension of Shapley value, Aumann-Shapley value cost-sharing technique) should be devised in the future in RL contexts.\nWe believe the reviewed approaches and future extensions tackling the identified issues will likely be critical in the demanding future applications of RL. We advocate for the needs of targeting in the future more diverse audiences (developer, tester, end-user, general public) not yet approached in the development of XAI tools. Only this way we will produce actionable explanations and more comprehensive frameworks for explainable, trustable and responsible RL that can be deployed in practice."
+    },
+    {
+      "heading": "5 Acknowledgements",
+      "text": "We thank Sam Greydanus, Zoe Juozapaitis, Benjamin Beyret, Prashan Madumal, Pedro Sequiera, Jianhong Wang, Mathieu Seurin and Vinicius Zambaldi for allowing us to use their original images for illustration purposes. We also would like to thank Fr\u00e9d\u00e9ric Herbreteau and Adrien Bennetot for their help and support."
+    },
+    {
+      "heading": "6 Appendix",
+      "text": ""
+    },
+    {
+      "heading": "6.1 Glossary",
+      "text": "\u2022 A2C: Asynchronous Actor Critic [74]\n\u2022 AI: Artificial Intelligence\n\u2022 COMA: Counterfactual multi-agent [33]\n\u2022 CNN: Convolutional Neural Network [61]\n\u2022 DDPG: Deep Deterministic Policy Gradient [66]\n\u2022 DL: Deep Learning\n\u2022 DRL: Deep Reinforcement Learning\n\u2022 DQN: Deep Q Network [75]\n\u2022 GAN: Generative Adversarial Network [40]\n\u2022 HER: Hindsight Experience Replay [7]\n\u2022 HMM: Hidden Markov Model\n\u2022 HRA: Hybrid Reward Architecture [91]\n\u2022 HRL: Hierarchical Reinforcement Learning [55]\n\u2022 IDDPG: Independent DDPG [66]\n\u2022 MADDPG: Multiagent DDPG [68]\n\u2022 MDP: Markov Decision Process\n\u2022 Machine Learning: Machine Learning\n\u2022 POMDP: Partialy Observable Markov Decision Process\n\u2022 PPO: Proximal Policy Optimization [90]\n\u2022 R-CNN: Region Convolutionnal Neural Network [39]\n\u2022 RL: Reinforcement Learning\n\u2022 SARSA: State Action Reward State Action [87]\n\u2022 SRL: State Representation Learning [63]\n\u2022 VAE: Variational Auto-Encoder [59]\n\u2022 XAI: Explainable Artificial Intelligence\n\u2022 XRL: Explainable Reinforcement Learning"
+    }
+  ],
+  "title": "Explainability in Deep Reinforcement Learning",
+  "year": 2020
+}

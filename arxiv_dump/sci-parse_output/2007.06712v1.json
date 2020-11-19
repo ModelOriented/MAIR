@@ -1,1 +1,451 @@
-{"abstractText": "Understanding intermediate layers of a deep learning model and discovering the driving features of stimuli have attracted much interest, recently. Explainable artificial intelligence (XAI) provides a new way to open an AI black box and makes a transparent and interpretable decision. This paper proposes a new explainable convolutional neural network (XCNN) which represents important and driving visual features of stimuli in an end-to-end model architecture. This network employs encoder-decoder neural networks in a CNN architecture to represent regions of interest in an image based on its category. The proposed model is trained without localization labels and generates a heat-map as part of the network architecture without extra post-processing steps. The experimental results on the CIFAR-10, Tiny ImageNet, and MNIST datasets showed the success of our algorithm (XCNN) to make CNNs explainable. Based on visual assessment, the proposed model outperforms the current algorithms in class-specific feature representation and interpretable heatmap generation while providing a simple and flexible network architecture. The initial success of this approach warrants further study to enhance weakly supervised localization and semantic segmentation in explainable frameworks.", "authors": [{"affiliations": [], "name": "Amirhossein Tavanaei"}], "id": "SP:ba06e06d3c37e224ff196eabd3fd80a9ee47deca", "references": [{"authors": ["Alex Krizhevsky", "Ilya Sutskever", "Geoffrey E Hinton"], "title": "Imagenet classification with deep convolutional neural networks. In Advances in neural information processing", "year": 2012}, {"authors": ["Waseem Rawat", "Zenghui Wang"], "title": "Deep convolutional neural networks for image classification: A comprehensive review", "venue": "Neural computation,", "year": 2017}, {"authors": ["Zhuwei Qin", "Fuxun Yu", "Chenchen Liu", "Xiang Chen"], "title": "How convolutional neural network see the world-a survey of convolutional neural network visualization methods", "venue": "arXiv preprint arXiv:1804.11191,", "year": 2018}, {"authors": ["Matthew D Zeiler", "Rob Fergus"], "title": "Visualizing and understanding convolutional networks", "venue": "In European conference on computer vision,", "year": 2014}, {"authors": ["Alejandro Barredo Arrieta", "Natalia D\u00edaz-Rodr\u00edguez", "Javier Del Ser", "Adrien Bennetot", "Siham Tabik", "Alberto Barbado", "Salvador Garc\u00eda", "Sergio Gil-L\u00f3pez", "Daniel Molina", "Richard Benjamins"], "title": "Explainable artificial intelligence (xai): Concepts, taxonomies, opportunities and challenges toward responsible ai", "venue": "Information Fusion,", "year": 2020}, {"authors": ["Gr\u00e9goire Montavon", "Wojciech Samek", "Klaus-Robert M\u00fcller"], "title": "Methods for interpreting and understanding deep neural networks", "venue": "Digital Signal Processing,", "year": 2018}, {"authors": ["David Gunning"], "title": "Explainable artificial intelligence (xai)", "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web,", "year": 2017}, {"authors": ["Amina Adadi", "Mohammed Berrada"], "title": "Peeking inside the black-box: A survey on explainable artificial intelligence (xai)", "venue": "IEEE Access,", "year": 2018}, {"authors": ["Jan Ruben Zilke", "Eneldo Loza Menc\u00eda", "Frederik Janssen"], "title": "Deepred\u2013rule extraction from deep neural networks", "venue": "In International Conference on Discovery Science,", "year": 2016}, {"authors": ["Zhengping Che", "Sanjay Purushotham", "Robinder Khemani", "Yan Liu"], "title": "Interpretable deep models for icu outcome prediction", "venue": "In AMIA Annual Symposium Proceedings,", "year": 2016}, {"authors": ["Nicolas Papernot", "Patrick McDaniel"], "title": "Deep k-nearest neighbors: Towards confident, interpretable and robust deep learning", "venue": "arXiv preprint arXiv:1803.04765,", "year": 2018}, {"authors": ["Jayaraman J Thiagarajan", "Bhavya Kailkhura", "Prasanna Sattigeri", "Karthikeyan Natesan Ramamurthy"], "title": "Treeview: Peeking into deep neural networks via feature-space partitioning", "venue": "arXiv preprint arXiv:1611.07429,", "year": 2016}, {"authors": ["Sebastian Bach", "Alexander Binder", "Gr\u00e9goire Montavon", "Frederick Klauschen", "Klaus-Robert M\u00fcller", "Wojciech Samek"], "title": "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation", "venue": "PloS one,", "year": 2015}, {"authors": ["Stephen Bazen", "Xavier Joutard"], "title": "The taylor decomposition: A unified generalization of the oaxaca method to nonlinear models", "year": 2013}, {"authors": ["Gr\u00e9goire Montavon", "Sebastian Lapuschkin", "Alexander Binder", "Wojciech Samek", "Klaus-Robert M\u00fcller"], "title": "Explaining nonlinear classification decisions with deep taylor decomposition", "venue": "Pattern Recognition,", "year": 2017}, {"authors": ["Pieter-Jan Kindermans", "Kristof T Sch\u00fctt", "Maximilian Alber", "Klaus-Robert M\u00fcller", "Dumitru Erhan", "Been Kim", "Sven D\u00e4hne"], "title": "Learning how to explain neural networks: Patternnet and patternattribution", "venue": "arXiv preprint arXiv:1705.05598,", "year": 2017}, {"authors": ["Matthew D Zeiler", "Dilip Krishnan", "Graham W Taylor", "Rob Fergus"], "title": "Deconvolutional networks", "venue": "IEEE Computer Society Conference on computer vision and pattern recognition,", "year": 2010}, {"authors": ["Matthew D Zeiler", "Graham W Taylor", "Rob Fergus"], "title": "Adaptive deconvolutional networks for mid and high level feature learning", "venue": "In 2011 International Conference on Computer Vision,", "year": 2011}, {"authors": ["Aravindh Mahendran", "Andrea Vedaldi"], "title": "Understanding deep image representations by inverting them", "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,", "year": 2015}, {"authors": ["Anh Nguyen", "Alexey Dosovitskiy", "Jason Yosinski", "Thomas Brox", "Jeff Clune"], "title": "Synthesizing the preferred inputs for neurons in neural networks via deep generator networks", "venue": "In Advances in neural information processing systems,", "year": 2016}, {"authors": ["Dumitru Erhan", "Yoshua Bengio", "Aaron Courville", "Pascal Vincent"], "title": "Visualizing higher-layer features of a deep network", "venue": "University of Montreal,", "year": 2009}, {"authors": ["Karen Simonyan", "Andrea Vedaldi", "Andrew Zisserman"], "title": "Deep inside convolutional networks: Visualising image classification models and saliency maps", "venue": "arXiv preprint arXiv:1312.6034,", "year": 2013}, {"authors": ["Loris Bazzani", "Alessandra Bergamo", "Dragomir Anguelov", "Lorenzo Torresani"], "title": "Self-taught object localization with deep networks", "venue": "In 2016 IEEE winter conference on applications of computer vision (WACV),", "year": 2016}, {"authors": ["Maxime Oquab", "L\u00e9on Bottou", "Ivan Laptev", "Josef Sivic"], "title": "Is object localization for free?-weaklysupervised learning with convolutional neural networks", "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,", "year": 2015}, {"authors": ["Jost Tobias Springenberg", "Alexey Dosovitskiy", "Thomas Brox", "Martin Riedmiller"], "title": "Striving for simplicity: The all convolutional net", "venue": "arXiv preprint arXiv:1412.6806,", "year": 2014}, {"authors": ["Bolei Zhou", "Aditya Khosla", "Agata Lapedriza", "Aude Oliva", "Antonio Torralba"], "title": "Learning deep features for discriminative localization", "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,", "year": 2016}, {"authors": ["Ramprasaath R Selvaraju", "Michael Cogswell", "Abhishek Das", "Ramakrishna Vedantam", "Devi Parikh", "Dhruv Batra"], "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization", "venue": "In Proceedings of the IEEE international conference on computer vision,", "year": 2017}, {"authors": ["Quanshi Zhang", "Ying Nian Wu", "Song-Chun Zhu"], "title": "Interpretable convolutional neural networks", "venue": "In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition,", "year": 2018}, {"authors": ["Ian Goodfellow"], "title": "Nips 2016 tutorial: Generative adversarial networks", "venue": "arXiv preprint arXiv:1701.00160,", "year": 2016}, {"authors": ["Phillip Isola", "Jun-Yan Zhu", "Tinghui Zhou", "Alexei A Efros"], "title": "Image-to-image translation with conditional adversarial networks", "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,", "year": 2017}, {"authors": ["Jun-Yan Zhu", "Taesung Park", "Phillip Isola", "Alexei A Efros"], "title": "Unpaired image-to-image translation using cycle-consistent adversarial networks", "venue": "In Proceedings of the IEEE international conference on computer vision,", "year": 2017}, {"authors": ["Naftali Tishby", "Noga Zaslavsky"], "title": "Deep learning and the information bottleneck principle", "venue": "In 2015 IEEE Information Theory Workshop (ITW),", "year": 2015}, {"authors": ["Yann LeCun"], "title": "The mnist database of handwritten digits. http://yann", "venue": "lecun. com/exdb/mnist/,", "year": 1998}, {"authors": ["Alex Krizhevsky", "Geoffrey Hinton"], "title": "Learning multiple layers of features from tiny images", "year": 2009}, {"authors": ["Ya Le", "Xuan Yang"], "title": "Tiny imagenet visual recognition challenge", "venue": "Stanford Uni- versity,", "year": 2015}, {"authors": ["Maximilian Alber", "Sebastian Lapuschkin", "Philipp Seegerer", "Miriam H\u00e4gele", "Kristof T Sch\u00fctt", "Gr\u00e9goire Montavon", "Wojciech Samek", "Klaus-Robert M\u00fcller", "Sven D\u00e4hne", "Pieter-Jan Kindermans"], "title": "innvestigate neural networks", "venue": "Journal of Machine Learning Research,", "year": 2019}, {"authors": ["Yuri Y Boykov", "M-P Jolly"], "title": "Interactive graph cuts for optimal boundary & region segmentation of objects in nd images", "venue": "In Proceedings eighth IEEE international conference on computer vision. ICCV 2001,", "year": 2001}], "sections": [{"heading": "1 Introduction", "text": "Convolutional neural networks (CNNs) have shown remarkable performance in differrent areas of pattern recognition, especially computer vision (1; 2; 3). To understand how CNNs extract discriminative features from unstructured data, recent studies have visualized the receptive fields (convolution kernels) and feature maps of neural layers to better represent the information flow in a hierarchy of convolutional layers (4; 5). However, understanding the intermediate layers of a deep learning model and detecting the driving features of stimuli are challenging and demand new problem statements (6; 7). Explainable artificial intelligence (XAI) helps open the deep learning black box and describe more details about the features extracted in intermediate layers (8; 9). XAI explains the reason behind the prediction by detecting driving features that positively and negatively impact the final neural layer\u2019s activation.\nMore transparent machine learning models such as decision trees are more explainable than high performance, complex deep learning models. Furthermore, reducing the complexity and improving the interpretability of a model may cause significant accuracy drop. The goal is to make the high performance deep learning models more explainable with minimum performance loss and computation cost. A straightforward approach is to improve the deep learning\u2019s explainability by combining the feature extractor components of deep learning with transparent models such as rule based approaches (10), boosting trees (11), deep K-nearest neighbor (KNN) (12), or partitioning the feature\nPreprint. Under review.\nar X\niv :2\n00 7.\n06 71\n2v 1\n[ cs\n.C V\n] 1\n9 Ju\nn 20\nspace in a treeview model architecture (13). Although, hybrid strategies provide more transparent architectures, they do not offer an end-to-end model architecture with consistent components.\nDecomposing a classifier/predictor function to relevance scores of input dimentions has been studied in (14) to develop a pixel-wise, layer-wise relevance propagation model. Relevance propagation can also be performed by an approximation method like the Taylor decomposition (15; 14). The Taylor decomposition describes the decision made by decomposing the system, f(x), as the sum of relevance scores, R (15; 7). Thus, the Taylor decomposition can form an XAI formulation by finding the impact of input elements in a deep learning prediction/classification. Based on the divide-and-conquer concept, (16) proposed the deep Taylor decomposition method in which the deep learning function can be divided into simpler sub-functions representing relevance scores in consecutive neural layers. They used a first-order Taylor expression around the root, x0, where wTx0 = 0. PatternAttribute proposed by (17) extended this model to learn x0 from training data and showed significant improvement in driving features visualization.\nAnother common approach for representing deep neural network layers and explaining the model functionality is based on the deconvolutional operations to construct hierarchical image representations (18; 19). This approach has been employed to understand and visualize image representations in neural network layers and to generate class-specific latency maps (5; 20). A convolutiondeconvolution network architecture was proposed by (21) to generate new images depicting learned features using activation maximization (AM) which identifies the stimulus that maximizes the output neuron\u2019s response (22). In another vein of research, Simonyan et. al. (23) showed that the gradient of a neuron\u2019s activity with respect to the input is similar to the reconstruction of the corresponding layer. Detecting and representing driving features of stimuli in an XAI framework can be used to develop weakly supervised localization and segmentation (24; 25) where the object masks or bounding boxes are not provided. Using the gradient back-propagation through a convolutional network, (23) generated saliency maps corresponding to the object\u2019s features in an image. The saliency maps in (23) were processed to fulfill weakly supervised localization and segmentation tasks. Guided Backprop proposed by (26) is similar to the gradient-based saliancy map generators with modifications in using the rectified linear activation functions in backward pass. Regarding the role of explainable convolutional networks in object localization, Zhou et. al. (27) generated class activity maps (CAM) to indicate the regions of interest using the global average pooling operation over feature maps in the last convolutional layer. Later, (28) proposed the gradient-weighted CAM to use the gradient of target class in the final convolutional layer with a generalized network architecture. The gradient-based approaches mentioned above exhibit the driving features by representing the weight matrices after training. Kindermans et. al. (17) introduced a layer-wise back-propagation, named PatternNet, where the information directions are used in the backward pass instead of the weights.\nIn this paper, we propose a novel end-to-end explainable CNN, named XCNN, trained in a similar way to the conventional CNNs on classification image datasets without bounding box/segmentation information while no post-processing is required after training. Based on the same criteria, (29) proposed an end-to-end explainable CNN which modifies the traditional CNN architecture and the loss functions to minimize the inter-category entropy and the entropy of the spatial distributions of neural responses. However, our explainable CNN uses the traditional CNN architecture and loss function with more convolutional-deconvolutional layers to develop an encoder-decoder component in the model. Hence, the interpretable component is part of the CNN architecture and generates feature heatmaps based on the images\u2019 categories. This encoder-decoder component can be attached to any CNN architecture to enrich its explainability."}, {"heading": "2 Method", "text": "The goal of this study is to develop an explainable CNN architecture to be able to extract and depict the driving spatial features of an image, while classifying or predicting the image, in an end-to-end model. This architecture consists of an encoder-decoder component attached to the beginning of a CNN (discriminator) where the encoder-decoder\u2019s output is the CNN\u2019s input. Figure 1 shows the network architecture equipped with the VGG-16 discriminator."}, {"heading": "2.1 Network Architecture", "text": "This architecture is partially inspired from the conditional and cycle-constraint generative adversarial networks (GANs) (30; 31; 32) where the generator component generates new images based on the training dataset of real images and also the features extracted from the images of another domain (let\u2019s say input images). The input image set specifies the features that are transferred to the training dataset\u2019s domain. The encoder-decoder component (generator) of the XCNN generates a singlechannel image (heatmap) that is fed into a discriminator/classifier, D. Eq. 1 formulates the heatmap (I(x)).\nI(x) = Tanh ( Decode(Encode(x) ) (1)\nThe downsampling operation in the generator part is implemented by the average pooling to smoothly extract features and to preserve localization information. The \u2018Tanh(.)\u2019 activation function in the last layer of the generator normalizes the heatmap in the range [-1,1] and submits positive and negative values to the discriminator component."}, {"heading": "2.2 Information Flow", "text": "The generator loss in a GAN is defined by: Gloss = log ( 1\u2212D ( G(z) )) (2)\nWhich shows how the discriminator (D) is fooled by the fake images (G(z)) generated by G based on the input z. The probability distribution of the generated images gets closer to the probability distribution of training dataset during the learning process. However, in our explainable CNN, the goal is to extract discriminative features that distinguish different image categories. Hence, a classification loss function is used in this algorithm as follows:\nloss = log ( D ( I(x) )) (3)\nWhere, I(x) identifies the heatmap generated by the encoder-decoder (generator) component (Eq. 1). In the other words, the encoder part extracts important features and the decoder part shows the driving features in a new format preserving the spatial information of the driving features in a classification task. According to the information theory in neural networks (33), in an intermediate layer, more uncertainty is removed from the input, x, if the output, y, is known and the mutual information between an intermediate layer (e.g. the heatmap layer) and the output (y) is larger than the mutual information between the input (x) and the output (y).\nInf(I(x), y) > Inf(x, y) (4)\nFigure 3: Incorrectly classified MNIST digits. The actual labels are \u20188 5 5 6 6 2 1 3 8 6\u2019 and the predicted labels are \u20184 3 3 0 4 6 7 5 9 0\u2019, from left to right.\nInf(x, y) = H(x)\u2212H(x|y), H : Entropy (5) Therefore, we obtain more mutual information between I(x) and y while describing the classifier\u2019s (D) decision in a heatmap by localizing the important pixels of the image x."}, {"heading": "3 Experiments and Results", "text": "To evaluate the proposed algorithm, the MNIST (34), CIFAR-10 (35), and Tiny ImageNet (36) datasets were used. The experiments on the MNIST dataset demonstrate the primary success of the XCNN in extracting interpretable heatmaps and warrants further experiments on larger datasets. The results of the model on the two other datasets are compared with the state of the art interpretable CNNs and saliency map generators. The source codes are available at https://github.com/ tavanaei/ExplainableCNN."}, {"heading": "3.1 MNIST Dataset", "text": "The MNIST dataset includes 70, 000 (60k training samples, 10k testing samples) 28\u00d7 28 gray-scale images of handwritten digits. The XCNN developed for this experiment consists of a generator component including 32 feature maps in its encoder1; and 1-16-32-64 convolutional kernels (with 3\u00d7 3 kernel size) followed by a 576-10 fully connected layer2 for the discriminator component. The accuracy rate of the XCNN was almost the same as the accuracy rate of the conventional CNN used in the discriminator component. We expect larger accuracy drops for more complex datasets as a small information loss is experienced by reducing the input channels to one in the heatmap. Figure 2 demonstrates randomly selected MNIST digits from the test set and their corresponding heatmaps (I(x)) generated during the classification task. Figure 3 shows ten incorrectly classified images and explains how driving features pick the predicted class."}, {"heading": "3.2 CIFAR-10 Dataset", "text": "The second experiment involves the CIFAR-10 dataset including 60, 000 images of size 32 \u00d7 32 labeled with ten object categories. The XCNN consists of a generator with 3-128-1 convolutional kernels (feature maps), and the VGG-16 architecture with the input channel of one as discriminator. Figure 4 compares our algorithm with the baselines and recent explainable models and saliency map generators. The XCNN, deep Taylor decomposition, and PatternAttribute methods depict the best object localization and driving feature representation among other models."}, {"heading": "3.3 Tiny ImageNet Dataset", "text": "In this experiment, the MicroImageNet challenge\u2019s (Tiny ImageNet) dataset is used. This dataset contains 100000 images of 200 classes (500 for each class) downsized to 64\u00d7 64 colored images. Similar to the previous experiment, the XCNN consists of a generator with 3-128-1 convolutional kernels, and the VGG-16 architecture with the input channel of one as discriminator. Figure 5 shows\n1The generator\u2019s details: the convolutional blocks explained in Fig. 1 with 3 input channels, 32 features maps (kernels) for the next block, and 1 feature map for the last block.\n2A fully connected layer with 576 input neurons and 10 output neurons.\nthat the XCNN, deep Taylor decomposition, and PatternAttribute methods depict the best object localization and class-specific saliency maps. In the most cases, XCNN\u2019s heatmaps represent more details and better indicate the target object\u2019s pixels than the other models. A number of samples in Figure 5 are complex and include non-target (but similar to the target) objects in the image as well (e.g. a phone next to the beer bottle). The class labels are shown in the rightmost column to see how different models are depicting the target object\u2019s features. The XCNN and PatternAttribute algorithms perform better than the other approaches in picking the target class."}, {"heading": "3.4 Discussions", "text": "The generator component of the XCNN architecture can be utilized in any CNN architecture (discriminator) as it does not change or use the discriminator. The extra layers created in this architecture slightly increase the time and space complexity of the classifier while generating heatmaps in addition to the class prediction in an end-to-end structure. However, the end-to-end architecture of the XCNN does not need extra memory for keeping the gradient of signal in the test/prediction phase. Additionally, generating the heatmaps is part of the classification task and it does not need further information processing.\nThe contrast shown in the XCNN heatmaps supports weakly supervised pixel-wise segmentation and localization after processing the generated heatmaps. Figure 6 shows a number of object localization examples that are obtained simply by thresholding the generated heatmaps. Only thresholding the heatmap is not performing well for general cases. Hence, to improve the localization and segmentation results, a better strategy such as using the GraphCut (38) as explained in (23) is required3.\nRegarding the classification accuracy, the classifier\u2019s input is a heatmap with one channel summarizing the visual features of an input image so that this summarization may cause accuracy reduction in classifying complex image datasets. The training and validation accuracy rates of the XCNN on the CIFAR-10 and the Tiny ImageNet were [0.71% & 2.80%] and [0.45% & 2.77%] less than the original VGG-16, respectively. Although this range of accuracy drop is expected, the accuracy can be improved by adding a Conv1\u00d71 next to the generator component as shown in Figure 7. The modified architecture improved the accuracy rate (about 2% validation accuracy improvement on the CIFAR-10); however, the quality of the interpretable heatmaps (I(x)) were tainted as shown in Figure 8. As our focus in this study is to improve the explainability of convolutional networks, the accuracy loss in the original XCNN is acceptable. Improving the accuracy and using other discriminator architectures are our future work plan."}, {"heading": "4 Conclusion", "text": "Explainability of high performance deep learning models is an important and challenging problem in different research areas, especially computer vision. This paper proposed a new explainable convolutional neural network (XCNN) to represent the driving visual features of stimuli in an end-toend network architecture. The proposed model consists of two consecutive components: 1) a heatmap generator built by encoder-decoder neural layers and 2) a CNN classifier. Experimental results on\n3Will be addressed in our future study\nthe MNIST, CIFAR-10, and Tiny ImageNet datasets showed interpretable heatmaps that visually outperformed the state of the art explainable networks and saliency map generators while offering a simple architecture that can be reapplied to any CNN classifier.\nThe success of the XCNN in discovering main visual features and generating heatmaps warrants further study to utilize this network architecture and generated heatmaps in other computer vision research categories. Our future work seeks to employ the XCNN to develop new weakly supervised localization, semantic segmentation, and object tracking in video streams."}, {"heading": "Acknowledgments", "text": "Special thanks to Dr. Venugopal Vasudevan and Dr. Kelly Anderson at P&G for their constructive comments and support."}], "title": "Embedded Encoder-Decoder in Convolutional Networks Towards Explainable AI", "year": 2020}
+{
+  "abstractText": "Understanding intermediate layers of a deep learning model and discovering the driving features of stimuli have attracted much interest, recently. Explainable artificial intelligence (XAI) provides a new way to open an AI black box and makes a transparent and interpretable decision. This paper proposes a new explainable convolutional neural network (XCNN) which represents important and driving visual features of stimuli in an end-to-end model architecture. This network employs encoder-decoder neural networks in a CNN architecture to represent regions of interest in an image based on its category. The proposed model is trained without localization labels and generates a heat-map as part of the network architecture without extra post-processing steps. The experimental results on the CIFAR-10, Tiny ImageNet, and MNIST datasets showed the success of our algorithm (XCNN) to make CNNs explainable. Based on visual assessment, the proposed model outperforms the current algorithms in class-specific feature representation and interpretable heatmap generation while providing a simple and flexible network architecture. The initial success of this approach warrants further study to enhance weakly supervised localization and semantic segmentation in explainable frameworks.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Amirhossein Tavanaei"
+    }
+  ],
+  "id": "SP:ba06e06d3c37e224ff196eabd3fd80a9ee47deca",
+  "references": [
+    {
+      "authors": [
+        "Alex Krizhevsky",
+        "Ilya Sutskever",
+        "Geoffrey E Hinton"
+      ],
+      "title": "Imagenet classification with deep convolutional neural networks. In Advances in neural information processing",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Waseem Rawat",
+        "Zenghui Wang"
+      ],
+      "title": "Deep convolutional neural networks for image classification: A comprehensive review",
+      "venue": "Neural computation,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Zhuwei Qin",
+        "Fuxun Yu",
+        "Chenchen Liu",
+        "Xiang Chen"
+      ],
+      "title": "How convolutional neural network see the world-a survey of convolutional neural network visualization methods",
+      "venue": "arXiv preprint arXiv:1804.11191,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Matthew D Zeiler",
+        "Rob Fergus"
+      ],
+      "title": "Visualizing and understanding convolutional networks",
+      "venue": "In European conference on computer vision,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Alejandro Barredo Arrieta",
+        "Natalia D\u00edaz-Rodr\u00edguez",
+        "Javier Del Ser",
+        "Adrien Bennetot",
+        "Siham Tabik",
+        "Alberto Barbado",
+        "Salvador Garc\u00eda",
+        "Sergio Gil-L\u00f3pez",
+        "Daniel Molina",
+        "Richard Benjamins"
+      ],
+      "title": "Explainable artificial intelligence (xai): Concepts, taxonomies, opportunities and challenges toward responsible ai",
+      "venue": "Information Fusion,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Gr\u00e9goire Montavon",
+        "Wojciech Samek",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "Methods for interpreting and understanding deep neural networks",
+      "venue": "Digital Signal Processing,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "David Gunning"
+      ],
+      "title": "Explainable artificial intelligence (xai)",
+      "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Amina Adadi",
+        "Mohammed Berrada"
+      ],
+      "title": "Peeking inside the black-box: A survey on explainable artificial intelligence (xai)",
+      "venue": "IEEE Access,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Jan Ruben Zilke",
+        "Eneldo Loza Menc\u00eda",
+        "Frederik Janssen"
+      ],
+      "title": "Deepred\u2013rule extraction from deep neural networks",
+      "venue": "In International Conference on Discovery Science,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Zhengping Che",
+        "Sanjay Purushotham",
+        "Robinder Khemani",
+        "Yan Liu"
+      ],
+      "title": "Interpretable deep models for icu outcome prediction",
+      "venue": "In AMIA Annual Symposium Proceedings,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Nicolas Papernot",
+        "Patrick McDaniel"
+      ],
+      "title": "Deep k-nearest neighbors: Towards confident, interpretable and robust deep learning",
+      "venue": "arXiv preprint arXiv:1803.04765,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Jayaraman J Thiagarajan",
+        "Bhavya Kailkhura",
+        "Prasanna Sattigeri",
+        "Karthikeyan Natesan Ramamurthy"
+      ],
+      "title": "Treeview: Peeking into deep neural networks via feature-space partitioning",
+      "venue": "arXiv preprint arXiv:1611.07429,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Sebastian Bach",
+        "Alexander Binder",
+        "Gr\u00e9goire Montavon",
+        "Frederick Klauschen",
+        "Klaus-Robert M\u00fcller",
+        "Wojciech Samek"
+      ],
+      "title": "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation",
+      "venue": "PloS one,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Stephen Bazen",
+        "Xavier Joutard"
+      ],
+      "title": "The taylor decomposition: A unified generalization of the oaxaca method to nonlinear models",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Gr\u00e9goire Montavon",
+        "Sebastian Lapuschkin",
+        "Alexander Binder",
+        "Wojciech Samek",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "Explaining nonlinear classification decisions with deep taylor decomposition",
+      "venue": "Pattern Recognition,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Pieter-Jan Kindermans",
+        "Kristof T Sch\u00fctt",
+        "Maximilian Alber",
+        "Klaus-Robert M\u00fcller",
+        "Dumitru Erhan",
+        "Been Kim",
+        "Sven D\u00e4hne"
+      ],
+      "title": "Learning how to explain neural networks: Patternnet and patternattribution",
+      "venue": "arXiv preprint arXiv:1705.05598,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Matthew D Zeiler",
+        "Dilip Krishnan",
+        "Graham W Taylor",
+        "Rob Fergus"
+      ],
+      "title": "Deconvolutional networks",
+      "venue": "IEEE Computer Society Conference on computer vision and pattern recognition,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Matthew D Zeiler",
+        "Graham W Taylor",
+        "Rob Fergus"
+      ],
+      "title": "Adaptive deconvolutional networks for mid and high level feature learning",
+      "venue": "In 2011 International Conference on Computer Vision,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Aravindh Mahendran",
+        "Andrea Vedaldi"
+      ],
+      "title": "Understanding deep image representations by inverting them",
+      "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Anh Nguyen",
+        "Alexey Dosovitskiy",
+        "Jason Yosinski",
+        "Thomas Brox",
+        "Jeff Clune"
+      ],
+      "title": "Synthesizing the preferred inputs for neurons in neural networks via deep generator networks",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Dumitru Erhan",
+        "Yoshua Bengio",
+        "Aaron Courville",
+        "Pascal Vincent"
+      ],
+      "title": "Visualizing higher-layer features of a deep network",
+      "venue": "University of Montreal,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Karen Simonyan",
+        "Andrea Vedaldi",
+        "Andrew Zisserman"
+      ],
+      "title": "Deep inside convolutional networks: Visualising image classification models and saliency maps",
+      "venue": "arXiv preprint arXiv:1312.6034,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Loris Bazzani",
+        "Alessandra Bergamo",
+        "Dragomir Anguelov",
+        "Lorenzo Torresani"
+      ],
+      "title": "Self-taught object localization with deep networks",
+      "venue": "In 2016 IEEE winter conference on applications of computer vision (WACV),",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Maxime Oquab",
+        "L\u00e9on Bottou",
+        "Ivan Laptev",
+        "Josef Sivic"
+      ],
+      "title": "Is object localization for free?-weaklysupervised learning with convolutional neural networks",
+      "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Jost Tobias Springenberg",
+        "Alexey Dosovitskiy",
+        "Thomas Brox",
+        "Martin Riedmiller"
+      ],
+      "title": "Striving for simplicity: The all convolutional net",
+      "venue": "arXiv preprint arXiv:1412.6806,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Bolei Zhou",
+        "Aditya Khosla",
+        "Agata Lapedriza",
+        "Aude Oliva",
+        "Antonio Torralba"
+      ],
+      "title": "Learning deep features for discriminative localization",
+      "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Ramprasaath R Selvaraju",
+        "Michael Cogswell",
+        "Abhishek Das",
+        "Ramakrishna Vedantam",
+        "Devi Parikh",
+        "Dhruv Batra"
+      ],
+      "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization",
+      "venue": "In Proceedings of the IEEE international conference on computer vision,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Quanshi Zhang",
+        "Ying Nian Wu",
+        "Song-Chun Zhu"
+      ],
+      "title": "Interpretable convolutional neural networks",
+      "venue": "In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ian Goodfellow"
+      ],
+      "title": "Nips 2016 tutorial: Generative adversarial networks",
+      "venue": "arXiv preprint arXiv:1701.00160,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Phillip Isola",
+        "Jun-Yan Zhu",
+        "Tinghui Zhou",
+        "Alexei A Efros"
+      ],
+      "title": "Image-to-image translation with conditional adversarial networks",
+      "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jun-Yan Zhu",
+        "Taesung Park",
+        "Phillip Isola",
+        "Alexei A Efros"
+      ],
+      "title": "Unpaired image-to-image translation using cycle-consistent adversarial networks",
+      "venue": "In Proceedings of the IEEE international conference on computer vision,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Naftali Tishby",
+        "Noga Zaslavsky"
+      ],
+      "title": "Deep learning and the information bottleneck principle",
+      "venue": "In 2015 IEEE Information Theory Workshop (ITW),",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Yann LeCun"
+      ],
+      "title": "The mnist database of handwritten digits. http://yann",
+      "venue": "lecun. com/exdb/mnist/,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "Alex Krizhevsky",
+        "Geoffrey Hinton"
+      ],
+      "title": "Learning multiple layers of features from tiny images",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Ya Le",
+        "Xuan Yang"
+      ],
+      "title": "Tiny imagenet visual recognition challenge",
+      "venue": "Stanford Uni- versity,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Maximilian Alber",
+        "Sebastian Lapuschkin",
+        "Philipp Seegerer",
+        "Miriam H\u00e4gele",
+        "Kristof T Sch\u00fctt",
+        "Gr\u00e9goire Montavon",
+        "Wojciech Samek",
+        "Klaus-Robert M\u00fcller",
+        "Sven D\u00e4hne",
+        "Pieter-Jan Kindermans"
+      ],
+      "title": "innvestigate neural networks",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Yuri Y Boykov",
+        "M-P Jolly"
+      ],
+      "title": "Interactive graph cuts for optimal boundary & region segmentation of objects in nd images",
+      "venue": "In Proceedings eighth IEEE international conference on computer vision. ICCV 2001,",
+      "year": 2001
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "Convolutional neural networks (CNNs) have shown remarkable performance in differrent areas of pattern recognition, especially computer vision (1; 2; 3). To understand how CNNs extract discriminative features from unstructured data, recent studies have visualized the receptive fields (convolution kernels) and feature maps of neural layers to better represent the information flow in a hierarchy of convolutional layers (4; 5). However, understanding the intermediate layers of a deep learning model and detecting the driving features of stimuli are challenging and demand new problem statements (6; 7). Explainable artificial intelligence (XAI) helps open the deep learning black box and describe more details about the features extracted in intermediate layers (8; 9). XAI explains the reason behind the prediction by detecting driving features that positively and negatively impact the final neural layer\u2019s activation.\nMore transparent machine learning models such as decision trees are more explainable than high performance, complex deep learning models. Furthermore, reducing the complexity and improving the interpretability of a model may cause significant accuracy drop. The goal is to make the high performance deep learning models more explainable with minimum performance loss and computation cost. A straightforward approach is to improve the deep learning\u2019s explainability by combining the feature extractor components of deep learning with transparent models such as rule based approaches (10), boosting trees (11), deep K-nearest neighbor (KNN) (12), or partitioning the feature\nPreprint. Under review.\nar X\niv :2\n00 7.\n06 71\n2v 1\n[ cs\n.C V\n] 1\n9 Ju\nn 20\nspace in a treeview model architecture (13). Although, hybrid strategies provide more transparent architectures, they do not offer an end-to-end model architecture with consistent components.\nDecomposing a classifier/predictor function to relevance scores of input dimentions has been studied in (14) to develop a pixel-wise, layer-wise relevance propagation model. Relevance propagation can also be performed by an approximation method like the Taylor decomposition (15; 14). The Taylor decomposition describes the decision made by decomposing the system, f(x), as the sum of relevance scores, R (15; 7). Thus, the Taylor decomposition can form an XAI formulation by finding the impact of input elements in a deep learning prediction/classification. Based on the divide-and-conquer concept, (16) proposed the deep Taylor decomposition method in which the deep learning function can be divided into simpler sub-functions representing relevance scores in consecutive neural layers. They used a first-order Taylor expression around the root, x0, where wTx0 = 0. PatternAttribute proposed by (17) extended this model to learn x0 from training data and showed significant improvement in driving features visualization.\nAnother common approach for representing deep neural network layers and explaining the model functionality is based on the deconvolutional operations to construct hierarchical image representations (18; 19). This approach has been employed to understand and visualize image representations in neural network layers and to generate class-specific latency maps (5; 20). A convolutiondeconvolution network architecture was proposed by (21) to generate new images depicting learned features using activation maximization (AM) which identifies the stimulus that maximizes the output neuron\u2019s response (22). In another vein of research, Simonyan et. al. (23) showed that the gradient of a neuron\u2019s activity with respect to the input is similar to the reconstruction of the corresponding layer. Detecting and representing driving features of stimuli in an XAI framework can be used to develop weakly supervised localization and segmentation (24; 25) where the object masks or bounding boxes are not provided. Using the gradient back-propagation through a convolutional network, (23) generated saliency maps corresponding to the object\u2019s features in an image. The saliency maps in (23) were processed to fulfill weakly supervised localization and segmentation tasks. Guided Backprop proposed by (26) is similar to the gradient-based saliancy map generators with modifications in using the rectified linear activation functions in backward pass. Regarding the role of explainable convolutional networks in object localization, Zhou et. al. (27) generated class activity maps (CAM) to indicate the regions of interest using the global average pooling operation over feature maps in the last convolutional layer. Later, (28) proposed the gradient-weighted CAM to use the gradient of target class in the final convolutional layer with a generalized network architecture. The gradient-based approaches mentioned above exhibit the driving features by representing the weight matrices after training. Kindermans et. al. (17) introduced a layer-wise back-propagation, named PatternNet, where the information directions are used in the backward pass instead of the weights.\nIn this paper, we propose a novel end-to-end explainable CNN, named XCNN, trained in a similar way to the conventional CNNs on classification image datasets without bounding box/segmentation information while no post-processing is required after training. Based on the same criteria, (29) proposed an end-to-end explainable CNN which modifies the traditional CNN architecture and the loss functions to minimize the inter-category entropy and the entropy of the spatial distributions of neural responses. However, our explainable CNN uses the traditional CNN architecture and loss function with more convolutional-deconvolutional layers to develop an encoder-decoder component in the model. Hence, the interpretable component is part of the CNN architecture and generates feature heatmaps based on the images\u2019 categories. This encoder-decoder component can be attached to any CNN architecture to enrich its explainability."
+    },
+    {
+      "heading": "2 Method",
+      "text": "The goal of this study is to develop an explainable CNN architecture to be able to extract and depict the driving spatial features of an image, while classifying or predicting the image, in an end-to-end model. This architecture consists of an encoder-decoder component attached to the beginning of a CNN (discriminator) where the encoder-decoder\u2019s output is the CNN\u2019s input. Figure 1 shows the network architecture equipped with the VGG-16 discriminator."
+    },
+    {
+      "heading": "2.1 Network Architecture",
+      "text": "This architecture is partially inspired from the conditional and cycle-constraint generative adversarial networks (GANs) (30; 31; 32) where the generator component generates new images based on the training dataset of real images and also the features extracted from the images of another domain (let\u2019s say input images). The input image set specifies the features that are transferred to the training dataset\u2019s domain. The encoder-decoder component (generator) of the XCNN generates a singlechannel image (heatmap) that is fed into a discriminator/classifier, D. Eq. 1 formulates the heatmap (I(x)).\nI(x) = Tanh ( Decode(Encode(x) ) (1)\nThe downsampling operation in the generator part is implemented by the average pooling to smoothly extract features and to preserve localization information. The \u2018Tanh(.)\u2019 activation function in the last layer of the generator normalizes the heatmap in the range [-1,1] and submits positive and negative values to the discriminator component."
+    },
+    {
+      "heading": "2.2 Information Flow",
+      "text": "The generator loss in a GAN is defined by: Gloss = log ( 1\u2212D ( G(z) )) (2)\nWhich shows how the discriminator (D) is fooled by the fake images (G(z)) generated by G based on the input z. The probability distribution of the generated images gets closer to the probability distribution of training dataset during the learning process. However, in our explainable CNN, the goal is to extract discriminative features that distinguish different image categories. Hence, a classification loss function is used in this algorithm as follows:\nloss = log ( D ( I(x) )) (3)\nWhere, I(x) identifies the heatmap generated by the encoder-decoder (generator) component (Eq. 1). In the other words, the encoder part extracts important features and the decoder part shows the driving features in a new format preserving the spatial information of the driving features in a classification task. According to the information theory in neural networks (33), in an intermediate layer, more uncertainty is removed from the input, x, if the output, y, is known and the mutual information between an intermediate layer (e.g. the heatmap layer) and the output (y) is larger than the mutual information between the input (x) and the output (y).\nInf(I(x), y) > Inf(x, y) (4)\nFigure 3: Incorrectly classified MNIST digits. The actual labels are \u20188 5 5 6 6 2 1 3 8 6\u2019 and the predicted labels are \u20184 3 3 0 4 6 7 5 9 0\u2019, from left to right.\nInf(x, y) = H(x)\u2212H(x|y), H : Entropy (5) Therefore, we obtain more mutual information between I(x) and y while describing the classifier\u2019s (D) decision in a heatmap by localizing the important pixels of the image x."
+    },
+    {
+      "heading": "3 Experiments and Results",
+      "text": "To evaluate the proposed algorithm, the MNIST (34), CIFAR-10 (35), and Tiny ImageNet (36) datasets were used. The experiments on the MNIST dataset demonstrate the primary success of the XCNN in extracting interpretable heatmaps and warrants further experiments on larger datasets. The results of the model on the two other datasets are compared with the state of the art interpretable CNNs and saliency map generators. The source codes are available at https://github.com/ tavanaei/ExplainableCNN."
+    },
+    {
+      "heading": "3.1 MNIST Dataset",
+      "text": "The MNIST dataset includes 70, 000 (60k training samples, 10k testing samples) 28\u00d7 28 gray-scale images of handwritten digits. The XCNN developed for this experiment consists of a generator component including 32 feature maps in its encoder1; and 1-16-32-64 convolutional kernels (with 3\u00d7 3 kernel size) followed by a 576-10 fully connected layer2 for the discriminator component. The accuracy rate of the XCNN was almost the same as the accuracy rate of the conventional CNN used in the discriminator component. We expect larger accuracy drops for more complex datasets as a small information loss is experienced by reducing the input channels to one in the heatmap. Figure 2 demonstrates randomly selected MNIST digits from the test set and their corresponding heatmaps (I(x)) generated during the classification task. Figure 3 shows ten incorrectly classified images and explains how driving features pick the predicted class."
+    },
+    {
+      "heading": "3.2 CIFAR-10 Dataset",
+      "text": "The second experiment involves the CIFAR-10 dataset including 60, 000 images of size 32 \u00d7 32 labeled with ten object categories. The XCNN consists of a generator with 3-128-1 convolutional kernels (feature maps), and the VGG-16 architecture with the input channel of one as discriminator. Figure 4 compares our algorithm with the baselines and recent explainable models and saliency map generators. The XCNN, deep Taylor decomposition, and PatternAttribute methods depict the best object localization and driving feature representation among other models."
+    },
+    {
+      "heading": "3.3 Tiny ImageNet Dataset",
+      "text": "In this experiment, the MicroImageNet challenge\u2019s (Tiny ImageNet) dataset is used. This dataset contains 100000 images of 200 classes (500 for each class) downsized to 64\u00d7 64 colored images. Similar to the previous experiment, the XCNN consists of a generator with 3-128-1 convolutional kernels, and the VGG-16 architecture with the input channel of one as discriminator. Figure 5 shows\n1The generator\u2019s details: the convolutional blocks explained in Fig. 1 with 3 input channels, 32 features maps (kernels) for the next block, and 1 feature map for the last block.\n2A fully connected layer with 576 input neurons and 10 output neurons.\nthat the XCNN, deep Taylor decomposition, and PatternAttribute methods depict the best object localization and class-specific saliency maps. In the most cases, XCNN\u2019s heatmaps represent more details and better indicate the target object\u2019s pixels than the other models. A number of samples in Figure 5 are complex and include non-target (but similar to the target) objects in the image as well (e.g. a phone next to the beer bottle). The class labels are shown in the rightmost column to see how different models are depicting the target object\u2019s features. The XCNN and PatternAttribute algorithms perform better than the other approaches in picking the target class."
+    },
+    {
+      "heading": "3.4 Discussions",
+      "text": "The generator component of the XCNN architecture can be utilized in any CNN architecture (discriminator) as it does not change or use the discriminator. The extra layers created in this architecture slightly increase the time and space complexity of the classifier while generating heatmaps in addition to the class prediction in an end-to-end structure. However, the end-to-end architecture of the XCNN does not need extra memory for keeping the gradient of signal in the test/prediction phase. Additionally, generating the heatmaps is part of the classification task and it does not need further information processing.\nThe contrast shown in the XCNN heatmaps supports weakly supervised pixel-wise segmentation and localization after processing the generated heatmaps. Figure 6 shows a number of object localization examples that are obtained simply by thresholding the generated heatmaps. Only thresholding the heatmap is not performing well for general cases. Hence, to improve the localization and segmentation results, a better strategy such as using the GraphCut (38) as explained in (23) is required3.\nRegarding the classification accuracy, the classifier\u2019s input is a heatmap with one channel summarizing the visual features of an input image so that this summarization may cause accuracy reduction in classifying complex image datasets. The training and validation accuracy rates of the XCNN on the CIFAR-10 and the Tiny ImageNet were [0.71% & 2.80%] and [0.45% & 2.77%] less than the original VGG-16, respectively. Although this range of accuracy drop is expected, the accuracy can be improved by adding a Conv1\u00d71 next to the generator component as shown in Figure 7. The modified architecture improved the accuracy rate (about 2% validation accuracy improvement on the CIFAR-10); however, the quality of the interpretable heatmaps (I(x)) were tainted as shown in Figure 8. As our focus in this study is to improve the explainability of convolutional networks, the accuracy loss in the original XCNN is acceptable. Improving the accuracy and using other discriminator architectures are our future work plan."
+    },
+    {
+      "heading": "4 Conclusion",
+      "text": "Explainability of high performance deep learning models is an important and challenging problem in different research areas, especially computer vision. This paper proposed a new explainable convolutional neural network (XCNN) to represent the driving visual features of stimuli in an end-toend network architecture. The proposed model consists of two consecutive components: 1) a heatmap generator built by encoder-decoder neural layers and 2) a CNN classifier. Experimental results on\n3Will be addressed in our future study\nthe MNIST, CIFAR-10, and Tiny ImageNet datasets showed interpretable heatmaps that visually outperformed the state of the art explainable networks and saliency map generators while offering a simple architecture that can be reapplied to any CNN classifier.\nThe success of the XCNN in discovering main visual features and generating heatmaps warrants further study to utilize this network architecture and generated heatmaps in other computer vision research categories. Our future work seeks to employ the XCNN to develop new weakly supervised localization, semantic segmentation, and object tracking in video streams."
+    },
+    {
+      "heading": "Acknowledgments",
+      "text": "Special thanks to Dr. Venugopal Vasudevan and Dr. Kelly Anderson at P&G for their constructive comments and support."
+    }
+  ],
+  "title": "Embedded Encoder-Decoder in Convolutional Networks Towards Explainable AI",
+  "year": 2020
+}

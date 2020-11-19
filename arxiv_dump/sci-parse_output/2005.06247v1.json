@@ -1,1 +1,732 @@
-{"abstractText": "Explainable Artificial Intelligence (XAI), i.e., the development of more transparent and interpretable AI models, has gained increased traction over the last few years. This is due to the fact that, in conjunction with their growth into powerful and ubiquitous tools, AI models exhibit one detrimential characteristic: a performance-transparency trade-off. This describes the fact that the more complex a model\u2019s inner workings, the less clear it is how its predictions or decisions were achieved. But, especially considering Machine Learning (ML) methods like Reinforcement Learning (RL) where the system learns autonomously, the necessity to understand the underlying reasoning for their decisions becomes apparent. Since, to the best of our knowledge, there exists no single work offering an overview of Explainable Reinforcement Learning (XRL) methods, this survey attempts to address this gap. We give a short summary of the problem, a definition of important terms, and offer a classification and assessment of current XRL methods. We found that a) the majority of XRL methods function by mimicking and simplifying a complex model instead of designing an inherently simple one, and b) XRL (and XAI) methods often neglect to consider the human side of the equation, not taking into account research from related fields like psychology or philosophy. Thus, an interdisciplinary effort is needed to adapt the generated explanations to a (non-expert) human user in order to effectively progress in the field of XRL and XAI in general.", "authors": [{"affiliations": [], "name": "Erika Puiutta"}, {"affiliations": [], "name": "Eric MSP Veith"}], "id": "SP:4e25c6223dfc8411334625c5ff0f008251e732e5", "references": [{"authors": ["A. Abdul", "J. Vermeulen", "D. Wang", "B.Y. Lim", "M. Kankanhalli"], "title": "Trends and trajectories for explainable, accountable and intelligible systems", "venue": "Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems - CHI \u201918", "year": 2018}, {"authors": ["A. Adadi", "M. Berrada"], "title": "Peeking inside the black-box: A survey on explainable artificial intelligence (XAI)", "venue": "IEEE Access", "year": 2018}, {"authors": ["J. Andreas", "D. Klein", "S. Levine"], "title": "Modular multitask reinforcement learning with policy sketches", "venue": "Proceedings of the 34th International Conference on Machine Learning - Volume", "year": 2017}, {"authors": ["I. Arel", "C. Liu", "T. Urbanik", "A. Kohls"], "title": "Reinforcement learning-based multi-agent system for network traffic signal control", "venue": "IET Intelligent Transport Systems 4(2),", "year": 2010}, {"authors": ["A.G. Barto", "S. Singh", "N. Chentanez"], "title": "Intrinsically motivated learning of hierarchical collections of skills", "venue": "Proceedings of the 3rd International Conference on Development and Learning. pp", "year": 2004}, {"authors": ["G. Brockman", "V. Cheung", "L. Pettersson", "J. Schneider", "J. Schulman", "J. Tang", "W. Zaremba"], "title": "Openai gym (2016", "year": 2016}, {"authors": ["S. Chakraborty", "R. Tomsett", "R. Raghavendra", "D. Harborne", "M. Alzantot", "F. Cerutti", "M. Srivastava", "A. Preece", "S. Julier", "R.M. Rao", "T.D. Kelley", "D. Braines", "M. Sensoy", "C.J. Willis", "P. Gurram"], "title": "Interpretability of deep learning models: A survey of results", "year": 2017}, {"authors": ["Y. Coppens", "K. Efthymiadis", "T. Lenaerts", "A. Now\u00e9", "T. Miller", "R. Weber", "D. Magazzeni"], "title": "Distilling deep reinforcement learning policies in soft decision trees", "venue": "Proceedings of the IJCAI 2019 Workshop on Explainable Artificial Intelligence", "year": 2019}, {"authors": ["K. Dehghanpour", "Z. Wang", "J. Wang", "Y. Yuan", "F. Bu"], "title": "A survey on state estimation techniques and challenges in smart distribution systems", "venue": "IEEE Transactions on Smart Grid 10(2),", "year": 2018}, {"authors": ["D. Doran", "S. Schulz", "T.R. Besold"], "title": "What does explainable ai really mean? a new conceptualization of perspectives", "year": 2017}, {"authors": ["F. Doshi-Velez", "B. Kim"], "title": "Towards a rigorous science of interpretable machine learning", "year": 2017}, {"authors": ["F.K. Dosilovic", "M. Brcic", "N. Hlupic"], "title": "Explainable artificial intelligence: A survey", "venue": "IEEE (2018),", "year": 2018}, {"authors": ["M. Du", "N. Liu", "X. Hu"], "title": "Techniques for interpretable machine learning", "venue": "Communications of the ACM 63(1),", "year": 2019}, {"authors": ["L. Fischer", "J.M. Memmen", "E.M. Veith", "M. Tr\u00f6schel"], "title": "Adversarial resilience learning\u2014towards systemic vulnerability analysis for large and complex systems", "venue": "The Ninth International Conference on Smart Grids, Green Communications and IT Energy-aware Technologies (ENERGY 2019)", "year": 2019}, {"authors": ["A.A. Freitas"], "title": "Comprehensible classification models", "venue": "ACM SIGKDD Explorations Newsletter 15(1),", "year": 2014}, {"authors": ["Y. Fukuchi", "M. Osawa", "H. Yamakawa", "M. Imai"], "title": "Autonomous selfexplanation of behavior for interactive reinforcement learning agents", "venue": "Proceedings of the 5th International Conference on Human Agent Interaction - HAI \u201917", "year": 2017}, {"authors": ["A. Glass", "D.L. McGuinness", "M. Wolverton"], "title": "Toward establishing trust in adaptive agents. In: Proceedings of the 13th international conference on Intelligent user interfaces - IUI \u201908", "year": 2008}, {"authors": ["B. Goodman", "S. Flaxman"], "title": "European union regulations on algorithmic decision-making and a \u201cright to explanation", "venue": "AI Magazine 38(3),", "year": 2017}, {"authors": ["J.Y. Halpern"], "title": "Causes and explanations: A structural-model approach. part II: Explanations", "venue": "The British Journal for the Philosophy of Science 56(4),", "year": 2005}, {"authors": ["B. Hayes", "J.A. Shah"], "title": "Improving robot controller transparency through autonomous policy explanation", "venue": "Proceedings of the 2017 ACM/IEEE International Conference on Human-Robot Interaction - HRI \u201917", "year": 2017}, {"authors": ["D. Hein", "A. Hentschel", "T. Runkler", "S. Udluft"], "title": "Particle swarm optimization for generating interpretable fuzzy reinforcement learning policies", "venue": "Engineering Applications of Artificial Intelligence", "year": 2017}, {"authors": ["D. Hein", "S. Udluft", "T.A. Runkler"], "title": "Interpretable policies for reinforcement learning by genetic programming", "venue": "Engineering Applications of Artificial Intelligence", "year": 2018}, {"authors": ["J.L. Herlocker", "J.A. Konstan", "J. Riedl"], "title": "Explaining collaborative filtering recommendations", "venue": "Proceedings of the 2000 ACM conference on Computer supported cooperative work - CSCW \u201900", "year": 2000}, {"authors": ["E. Ikonomovska", "J. Gama", "S. D\u017eeroski"], "title": "Learning model trees from evolving data streams. Data Mining and Knowledge Discovery", "year": 2010}, {"authors": ["B.W. Israelsen", "N.R. Ahmed"], "title": "dave...i can assure you ...that it\u2019s going to be all right ...\u201d a definition, case for, and survey of algorithmic assurances in human-autonomy trust relationships", "venue": "ACM Computing Surveys 51(6),", "year": 2019}, {"authors": ["Z. Juozapaitis", "A. Koul", "A. Fern", "M. Erwig", "F. Doshi-Velez"], "title": "Explainable reinforcement learning via reward decomposition", "venue": "Proceedings of the IJCAI 2019 Workshop on Explainable Artificial Intelligence", "year": 2019}, {"authors": ["L.P. Kaelbling", "M.L. Littman", "A.W. Moore"], "title": "Reinforcement learning: A survey", "year": 1996}, {"authors": ["L.P. Kaelbling", "M.L. Littman", "A.R. Cassandra"], "title": "Planning and acting in partially observable stochastic domains", "venue": "Artificial Intelligence 101(1-2),", "year": 1998}, {"authors": ["B. Kim", "R. Khanna", "O.O. Koyejo"], "title": "Examples are not enough, learn to criticize! criticism for interpretability", "venue": "Advances in Neural Information Processing Systems", "year": 2016}, {"authors": ["H. Kimura", "K. Miyazaki", "S. Kobayashi"], "title": "Reinforcement learning in pomdps with function approximation", "venue": "In: ICML", "year": 1997}, {"authors": ["J. Kober", "J.A. Bagnell", "J. Peters"], "title": "Reinforcement learning in robotics: A survey", "venue": "The International Journal of Robotics Research 32(11),", "year": 2013}, {"authors": ["J.H. Lee"], "title": "Complementary reinforcement learning towards explainable agents", "year": 2019}, {"authors": ["Y. Li"], "title": "Deep reinforcement learning", "year": 2018}, {"authors": ["Z.C. Lipton"], "title": "The mythos of model interpretability (2016", "year": 2016}, {"authors": ["Z.C. Lipton"], "title": "The mythos of model interpretability", "venue": "Communications of the ACM 61(10),", "year": 2018}, {"authors": ["M. Littman", "L. Kaelbling"], "title": "Background on pomdps", "venue": "https://cs.brown.edu/research/ai/pomdp/tutorial/pomdp-background.html,", "year": 1999}, {"authors": ["G. Liu", "O. Schulte", "W. Zhu", "Q. Li"], "title": "Toward interpretable deep reinforcement learning with linear model u-trees. In: Machine Learning and Knowledge Discovery in Databases, pp. 414\u2013429", "year": 2019}, {"authors": ["Y. Liu", "K. Gadepalli", "M. Norouzi", "G.E. Dahl", "T. Kohlberger", "A. Boyko", "S. Venugopalan", "A. Timofeev", "P.Q. Nelson", "G.S. Corrado", "J.D. Hipp", "L. Peng", "M.C. Stumpe"], "title": "Detecting cancer metastases on gigapixel pathology images", "year": 2017}, {"authors": ["W.Y. Loh"], "title": "Classification and regression trees. WIREs Data Mining and Knowledge Discovery", "year": 2011}, {"authors": ["P. Madumal", "T. Miller", "L. Sonenberg", "F. Vetere"], "title": "Explainable reinforcement learning through a causal lens", "year": 2019}, {"authors": ["D. Martens", "J. Vanthienen", "W. Verbeke", "B. Baesens"], "title": "Performance of classification models from a user perspective", "venue": "Decision Support Systems", "year": 2011}, {"authors": ["T. Miller"], "title": "Explanation in artificial intelligence: Insights from the social sciences", "venue": "Artificial Intelligence 267,", "year": 2019}, {"authors": ["C. Molar"], "title": "Interpretable machine learning (2018), https://christophm.github.io/interpretable-ml-book/, [Retrieved", "year": 2020}, {"authors": ["G. Montavon", "W. Samek", "K.R. M\u00fcller"], "title": "Methods for interpreting and understanding deep neural networks", "venue": "Digital Signal Processing 73,", "year": 2018}, {"authors": ["A. Nguyen", "J. Yosinski", "J. Clune"], "title": "Deep neural networks are easily fooled: High confidence predictions for unrecognizable images", "venue": "The IEEE Conference on Computer Vision and Pattern Recognition", "year": 2015}, {"authors": ["T.T. Nguyen", "P.M. Hui", "F.M. Harper", "L. Terveen", "J.A. Konstan"], "title": "Exploring the filter bubble", "venue": "Proceedings of the 23rd international conference on World wide web - WWW \u201914", "year": 2014}, {"authors": ["Quinlan", "J.R"], "title": "Learning with continuous classes", "venue": "Australian joint conference on artificial intelligence", "year": 1992}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": "why should i trust you?", "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining - KDD \u201916", "year": 2016}, {"authors": ["C. Rudin"], "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead", "venue": "Nature Machine Intelligence", "year": 2019}, {"authors": ["A.A. Rusu", "S.G. Colmenarejo", "C. Gulcehre", "G. Desjardins", "J. Kirkpatrick", "R. Pascanu", "V. Mnih", "K. Kavukcuoglu", "R. Hadsell"], "title": "Policy distillation", "year": 2015}, {"authors": ["J. Schrittwieser", "I. Antonoglou", "T. Hubert", "K. Simonyan", "L. Sifre", "S. Schmitt", "A. Guez", "E. Lockhart", "D. Hassabis", "T Graepel"], "title": "Mastering ATARI, go, chess and shogi by planning with a learned model", "year": 2019}, {"authors": ["P. Sequeira", "M. Gervasio"], "title": "Interestingness elements for explainable reinforcement learning: Understanding agents\u2019 capabilities and limitations", "year": 2019}, {"authors": ["T. Shu", "C. Xiong", "R. Socher"], "title": "Hierarchical and interpretable skill acquisition in multi-task reinforcement learning", "year": 2017}, {"authors": ["D. Silver", "J. Schrittwieser", "K. Simonyan", "I. Antonoglou", "A. Huang", "A. Guez", "T. Hubert", "L. Baker", "M. Lai", "A Bolton"], "title": "Mastering the game of go without human knowledge", "year": 2017}, {"authors": ["C. Szegedy", "W. Zaremba", "I. Sutskever", "J. Bruna", "D. Erhan", "I. Goodfellow", "R. Fergus"], "title": "Intriguing properties of neural networks", "year": 2013}, {"authors": ["K. Tomzcak", "A. Pelter", "C. Gutierrez", "T. Stretch", "D. Hilf", "B. Donadio", "N.L. Tenhundfeld", "E.J. de Visser", "C.C. Tossell"], "title": "Let tesla park your tesla: Driver trust in a semi-automated car", "year": 2019}, {"authors": ["W.T. Uther", "M.M. Veloso"], "title": "Tree based discretization for continuous state space reinforcement learning", "venue": "In: Aaai/iaai. pp", "year": 1998}, {"authors": ["E. Veith", "L. Fischer", "M. Tr\u00f6schel", "A. Nie\u00dfe"], "title": "Analyzing cyber-physical systems from the perspective of artificial intelligence", "venue": "Proceedings of the 2019 International Conference on Artificial Intelligence, Robotics and Control", "year": 2019}, {"authors": ["E.M. Veith"], "title": "Universal Smart Grid Agent for Distributed Power Generation Management", "venue": "Logos Verlag Berlin GmbH", "year": 2017}, {"authors": ["A. Verma", "V. Murali", "R. Singh", "P. Kohli", "S. Chaudhuri"], "title": "Programmatically interpretable reinforcement learning. PMLR", "year": 2018}, {"authors": ["J. van der Waa", "J. van Diggelen", "K. van den Bosch", "M. Neerincx"], "title": "Contrastive explanations for reinforcement learning in terms of expected consequences", "venue": "Workshop on Explainable AI (XAI)", "year": 2018}, {"authors": ["B. Wymann", "E. Espi\u00e9", "C. Guionneau", "C. Dimitrakakis", "R. Coulom", "A. Sumner"], "title": "Torcs, the open racing car simulator. Software available at http://torcs", "venue": "sourceforge. net 4(6),", "year": 2000}, {"authors": ["T. Zahavy", "N.B. Zrihem", "S. Mannor"], "title": "Graying the black box: Understanding dqns (2016", "year": 2016}], "sections": [{"text": "ar X\niv :2\n00 5.\n06 24\n7v 1\n[ cs\n.L G\n] 1\n3 M\nay 2\nKeywords: Machine Learning \u00b7 Explainable \u00b7 Reinforcement Learning \u00b7 Human-Computer Interaction \u00b7 Interpretable."}, {"heading": "1 Introduction", "text": "Over the past decades, AI has become ubiquitous in many areas of our everyday lives. Especially Machine Learning (ML) as one branch of AI has numerous fields of application, be it transportation [59], advertisement and content recommendation [47], or medicine [39]. Unfortunately, the more powerful and flexible those models are, the more opaque they become, essentially making them black boxes (see figure 1). This trade-off is referred to by different terms in the literature, e.g. readability-performance trade-off [12], accuracy-comprehensibility trade-off [16], or accuracy-interpretability trade-off [50]. This work aims to, first, establish the need for explainable AI in general and explainable RL specifically. After that, the general concept of RL is briefly explained and the most important terms\nrelated to XAI are defined. Then, a classification of XAI models is presented and selected XRL models are sorted into these categories. Since there already is an abundance of sources on XAI but less so about XRL specifically, the focus of this work lies on providing information about and presenting sample methods of XRL models1. Thus, we present one method for each category in more detail and give a critical evaluation over the existing XRL methods."}, {"heading": "1.1 The importance of explainability", "text": "Why is explainability so crucial? First, there is one obvious psychology-related reason: \u2018if the users do not trust a model or a prediction, they will not use it\u2019 [49, p. 1]. Trust is an essential prerequisite of using a model or system [26, 12], and transparency has been identified as one key component both in increasing users\u2019 trust [18], as well as users\u2019 acceptance of a system [24] (for a formal definition of transparency and related terms, see section 1.3). Transparency also justifies a system\u2019s decisions and enables them to be fair and ethical [2]. Thus, in order to confidently use a system, it needs to be trusted, and in order to be trusted, it needs to be transparent and its decisions need to be justifiable.\nSecond, AI technologies have become an essential part in almost all domains of Cyber-Physical Systems (CPSs). Reasons include the thrive for increased efficiency, business model innovations, or the necessity to accommodate volatile parts of today\u2019s critical infrastructures, such as a high share of renewable energy sources. In time, AI technologies evolved from being an additional input to an otherwise soundly defined control system, to increasing the state awareness of\n1 Please note that, while there is a distinction between Reinforcement Learning and Deep Reinforcement Learning (DRL), for the sake of simplicity, we will refer to both as just Reinforcement Learning going forward.\na CPS\u2014e.g., Neural State Estimation [9]\u2014to fully decentralized, but still rulegoverned systems\u2014such as the Universal Smart Grid Agent [62]\u2014, to a system where all behavior originates from machine learning. AlphaGo, AlphaGo Zero, and MuZero are probably being the most widely-known representatives of the last category [55, 52], but for CPS analysis and operation, Adversarial Resilience Learning (ARL) has emerged as a novel methodology based on DRL [15, 61]. It is specifically designed to analyse and control critical infrastructures; obviously, explainability is tantamount here.\nThere is also a legal component to be considered; the EU General Data Protection Regulation (GDPR) [14], which came into effect in May 2018, aims to ensure a \u2018right to explanation\u2019 [19, p. 1] concerning automated decision-making and profiling. It states that \u2018[...] such processing should subject to suitable safeguards, which should include [...] the right to obtain human intervention [...] [and] an explanation of the decision reached after such assessment\u2019 [14, recital 71]. Additionally, the European Commission set out an AI strategy with transparency and accountability as important principles to be respected [57], and in their Guidelines on trustworthy AI [58] they state seven key requirements, with transparency and accountability as two of them.\nFinally, there are important practical reasons to consider; despite the increasing efficiency and versatility of AI, its incomprehensibility reduces its usefulness, since \u2018incomprehensible decision-making can still be effective, but its effectiveness does not mean that it cannot be faulty\u2019 [33, p. 1]. For example, in [56], neural nets successfully learnt to classify pictures but could be led to misclassification by (to humans) nearly imperceptible perturbations, and in [46], deep neural nets classified unrecognizable images with >99% certainty. This shows that a high level of effectiveness (under standard conditions) or even confidence does not imply that the decisions are correct or based on appropriately-learnt data.\nBearing this in mind, and considering the fact that, nowadays, AI can act increasingly autonomous, explaining and justifying the decisions is now more crucial than ever, especially in the domain of RL where an agent learns by itself, without human interaction."}, {"heading": "1.2 Reinforcement Learning", "text": "Reinforcement Learning is a trial-and-error learning algorithm in which an autonomous agent tries to find the optimal solution to a problem through automated learning [53]. Possible applications for the use of RL are teaching neural networks to play games like Go [55], teaching robots to perform certain tasks [32], or intelligent transport systems [4]. RL is usually introduced as a Markov Decision Process (MDP) if it satisfies the Markov property: the next state depends only on the current state and the agent\u2019s action(s), not on past states [28]2.\n2 To be exact, MDPs assume that the complete world state is visible to the agent which is, naturally, not always true. In these cases, a partially observable Markov decision\nThe learning process is initiated by an agent randomly performing an action which leads to a certain environmental state. This state has a reward assigned to it depending on how desirable this outcome is, set by the designer of the task (see also figure 2). The algorithm will then learn a policy, i.e., an action-staterelation, in order to maximize the cumulative reward and be able to select the most optimal action in each situation. For more information on RL, see also [53, 34]."}, {"heading": "1.3 Definition of important terms", "text": "As already mentioned in section 1, the more complex a systems becomes, the less obvious its inner workings become. Additionally, there is no uniform term for this trade-off in the literature; XAI methods use an abundance of related, but distinct terms like transparency, reachability, etc... This inconsistency can be due to one or both of the following reasons: a) different terms are used in the same sense due to a lack of official definition of these terms, or b) different terms are used because the authors (subjectively) draw a distinction between them, without an official accounting of these differences. In any case, a uniform understanding and definition of what it means if a method is described as \u2018interpretable\u2019 or \u2018transparent\u2019 is important in order to clarify the potential, capacity and intention of a model. This is not an easy task, since there is no unique definition for the different terms to be found in the literature; even for \u2018interpretability\u2019, the concept which is most commonly used, \u2018the term [...] holds no agreed upon meaning, and yet machine learning conferences frequently publish papers which\nprocess (POMDP) can be used where, instead of observing the current state directly, we have a probability distribution over the possible states instead [37]. For the sake of simplicity, we do not go into further detail and refer the reader to Kaelbling et al. or Kimura et al. [29, 31] for more information.\nwield the term in a quasi-mathematical way\u2019 [35]. In Doshi-Velez and Kim [11, p. 2], interpretability is \u2019the ability to explain or to present in understandable terms to a human\u2019, however, according to Kim et al. [30, p. 7] \u2018a method is interpretable if a user can correctly and efficiently predict the methods result\u2019. Some authors use transparency as a synonym for interpretability [35], some use comprehensibility as a synonym [16], then again others draw a distinction between the two [10] (for more information on how the different terms are used in the literature, we refer the reader to [35, 36, 11, 16, 30, 10, 45, 7]). If we tackle this issue in a more fundamental way, we can look at the definition of \u2018to interpret\u2019 or \u2018interpretation\u2019. The Oxford Learners Dictionary3 defines it as follows:\n\u2022 to explain the meaning of something \u2022 to decide that something has a particular meaning and to understand it in this way \u2022 to translate one language into another as it is spoken \u2022 the particular way in which something is understood or explained\nSeeing that, according to the definition, interpretation contains an explanation, we can look at the definition for \u2018to explain\u2019/\u2018explanation\u2019:\n\u2022 to tell somebody about something in a way that makes it easy to understand \u2022 to give a reason, or be a reason, for something \u2022 a statement, fact, or situation that tells you why something happened \u2022 a statement or piece of writing that tells you how something works or makes something easier to understand\nBoth definitions share the notion of conveying the reason and meaning of something in order to make someone understand, but while an explanation is focused on what to explain, an interpretation has the additional value of considering how to explain something; it translates and conveys the information in a way that is more easily understood. And that is, in our opinion, essential in the frame of XAI/XRL: not only extracting the necessary information, but also presenting it in an appropriate manner, translating it from the \u2018raw data\u2019 into something humans and especially laypersons can understand.\nSo, because we deem a shared consensus on the nomenclature important, we suggest the use of this one uniform term, interpretability, to refer to the ability to not only extract or generate explanations for the decisions of the model, but also to present this information in a way that is understandable by human (non-expert) users to, ultimately, enable them to predict a model\u2019s behaviour."}, {"heading": "2 XAI Taxonomy", "text": "XAI methods can be categorized based on two factors; first, based on when the information is extracted, the method can be intrinsic or post-hoc, and second, the scope can be either global or local (see figure 3, and figure 4 for examples).\n3 https://www.oxfordlearnersdictionaries.com/\nGlobal and local interpretability refer to the scope of the explanation; global models explain the entire, general model behaviour, while local models offer explanations for a specific decision [44]. Global models try to explain the whole logic of a model by inspecting the structures of the model [2, 13]. Local explanations try to answer the question: \u2018Why did the model make a certain prediction/decision for an instance/for a group of instances?\u2019 [44, 2]. They also try to identify the contributions of each feature in the input towards a specific output [13]. Additionally, global interpretability techniques lead to users trusting a model, while local techniques lead to trusting a prediction [13].\nIntrinsic vs. post-hoc interpretability depend on the time when the explanation is extracted/generated; An intrinsic model is a ML model that is constructed to be inherently interpretable or self-explanatory at the time of training by restricting the complexity of the model [13]. Decision trees, for example, have a simple structure and can be easily understood [44]. Post-hoc interpretability, in contrast, is achieved by analyzing the model after training by creating a second, simpler model, to provide explanations for the original model [13, 44]. Surrogate models or saliency maps are examples for this type [2]. Post-hoc interpretation models can be applied to intrinsic interpretation models, but not necessarily vice versa. Just like the models themselves, these interpretability models also suffer from a transparency-accuracy-trade-off; intrinsic models usually offer accurate explanations, but, due to their simplicity, their prediction performance suffers. Post-hoc interpretability models, in contrast, usually keep the accuracy of the original model intact, but are harder to derive satisfying and simple explanations from [13].\nAnother distinction, which usually coincides with the classification into intrinsic and post-hoc interpretability, is the classification into model-specific or model-agnostic. Techniques are model-specific if they are limited to a specific model or model class [44], and they are model-agnostic if they can be used on any model [44]. As you can also see in figure 3, intrinsic models are model-specific, while post-hoc interpretability models are usually model-agnostic.\nAdadi and Berrada [2] offer an overview of common explainability techniques and their rough (i.e., neither mutually exclusive nor exhaustive) classifications into these categories. In section 3, we follow their example and provide classifications for a list of selected XRL method papers."}, {"heading": "3 Non-exhaustive list of XRL methods", "text": "A literature review was conducted using the database Google Scholar. Certain combinations of keywords were used to select papers; first, \u2018explainable reinforcement learning\u2019, and \u2018XRL\u2019 together with \u2018reinforcement learning\u2019 and \u2018machine learning\u2019 were used. Then, we substituted \u2018explainable\u2019 for common variations used in literature like \u2018explainable\u2019, \u2018transparent\u2019, and \u2018understandable\u2019. We then scanned the papers for relevance and consulted their citations and reference lists for additional papers. Because we only wanted to focus on current methods, we\nrestricted the search to papers from 2010-2020. Table 1 shows the list of selected papers and their classification according to section 2 based on our understanding.\nFor a more extensive demonstration of the different approaches, we chose the latest paper of each quadrant 4 and explain them in more detail in the following sections as an example for the different XRL methods."}, {"heading": "3.1 Method A: Programmatically Interpretable Reinforcement Learning", "text": "Verma et al. [63] have developed \u2018PIRL\u2019, a Programmatically Interpretable Reinforcement Learning framework, as an alternative to DRL. In DRL, the policies are represented by neural networks, making them very hard (if not impossible) to interpret. The policies in PIRL, on the other hand, while still mimicking the ones from the DRL model, are represented using a high-level, human-readable programming language. Here, the problem stays the same as in traditional RL (i.e., finding a policy that maximises the long-term reward), but in addition, they restrict the vast amount of target policies with the help of a (policy) sketch. To find these policies, they employ a framework which was inspired by imitation learning, called Neurally Directed Program Search (NDPS). This framework first uses DRL to compute a policy which is used as a neural \u2018oracle\u2019 to direct the policy search for a policy that is as close as possible to the neural oracle. Doing this, the performances of the resulting policies are not as high than the ones from the\n4 With the exception of method C in section 3.3 where we present a Linear Model U-Tree method although another paper with a different, but related method was published slightly later. See the last paragraph of that section for our reasoning for this decision.\nDRL, but they are still satisfactory and, additionally, more easily interpretable. They evaluate this framework by comparing its performance with, among others, a traditional DRL framework in The Open Racing Car Simulator (TORCS) [65]. Here, the controller has to set five parameters (acceleration, brake, clutch, gear and steering of the car) to steer a car around a race track as fast as possible. Their results show that, while the DRL leads to quicker lap time, the NDPS still outperforms this for several reasons: it shows much smoother driving (i.e., less steering actions) and is less perturbed by noise and blocked sensors. It also is easier to interpret and is better at generalization, i.e., it performs better in situations (in this case, tracks) not encountered during training than a DRL model. Concerning restrictions of this method, it is worth noting that the authors only considered environments with symbolic inputs, not perceptual, in their experiments. They also only considered deterministic policies, not stochastic policies."}, {"heading": "3.2 Method B: Hierarchical and Interpretable Skill Acquisition in Multi-task Reinforcement Learning", "text": "Shu et al.[54] proposed a new framework for multi-task RL using hierarchical policies that addressed the issue of solving complex tasks that require different\nskills and are composed of several (simpler) subtasks. It is based on and extends multi-task RL with modular policy design through a two-layer hierarchical policy [3] by incorporating less assumptions, and, thus, less restrictions. They trained and evaluated their model with object manipulation tasks in a Minecraft game setting (e.g. finding, getting, or stacking blocks of a certain color), employing advantage actor-critic as policy optimization using off-policy learning. The model is hierarchical because each top-level policy (e.g., \u2018stack x\u2019) consists of several lower levels of actions (\u2018find x\u2019\u2192 \u2018get x\u2019\u2192 \u2018put x\u2019, see also figure 5). The novelty of this method is the fact that each task is described by a human instruction (e.g. \u2018stack blue\u2019), and agents can only access learnt skills through these descriptions, making its policies and decisions inherently human-interpretable.\nAdditionally, a key idea of their framework is that a complex task could be decomposed into several simpler subtasks. If these sub-tasks could be fulfilled by employing an already learnt \u2018base policy\u2019, no new skill had to be learnt; otherwise, it would learn a new skill and perform a different, novel action. To boost efficiency and accuracy, the framework also incorporated a stochastic temporal grammar model that was used to model temporal relationships and priorities of\ntasks (e.g., before stacking a block on top of another block, you must first obtain said block).\nThe resulting framework could efficiently learn hierarchical policies and representations in multi-task RL, only needing weak human supervision during training to decide which skills to learn. Compared to a flat policy that directly maps the state and instruction to an action, the hierarchical model showed a higher learning efficiency, could generalize well in new environments, and was inherently interpretable."}, {"heading": "3.3 Method C: Toward Interpretable Deep Reinforcement Learning with Linear Model U-Trees", "text": "In Liu et al. [38], a mimic learning framework based on stochastic gradient descent is introduced. This framework approximates the predictions of an accurate, but complex model by mimicking the model\u2019s Q-function using Linear Model UTrees (LMUTs). LMUTs are an extension of Continuous U-Trees (CUTs) which were developed to approximate continuous functions [60]. The difference between CUTs and LMUTs is that, instead of constants, LMUTs have a linear model at each leaf node which also improves its generalization ability. They also generally have fewer leaves and are therefore simpler and more easily understandable. The novelty of this method lies in the fact that other tree representations used for interpretations were only developed for supervised learning, not for DRL.\nThe framework can be used to analyze the importance of input features, extract rules, and calculate \u2018super-pixels\u2019 (\u2018contiguous patch[es] of similar pixels\u2019 [49, p. 1]) in image inputs (see table 2 and figure 6 for an example). It has two\napproaches to generate data and mimic the Q-function; the first one is an experience training setting which records and generates data during the training process for batch training. It records the state-action pairs and the resulting Q-values as \u2018soft supervision labels\u2019 [38, p. 1] during training. In cases where the mimic learning model cannot be applied to the training process, the second approach can be used: active play setting, which generates mimic data by applying the mature DRL to interact with the environment. Here, an online algorithm is required which uses stochastic gradient descent to dynamically update the linear models as more data is generated.\nThey evaluate the framework in three benchmark environments: Mountain Car, Cart Pole, and Flappy Bird, all simulated by the OpenAI Gym toolkit [6]. Mountain Car and Cart Pole have a discrete action space and a continuous\nfeature space, while Flappy Bird has two discrete actions and four consecutive images as inputs which result in 80x80 pixels each, so 6400 features. The LMUT method is compared to five other tree methods: a CART regression tree [40], M5 trees [48] with regression tree options (M5-RT) and with model tree options (M5-MT), and Fast Incremental Model Trees (FIMT, [25]) in the basic version, and in the advanced version with adaptive filters (FIMT-AF). The two parameters fidelity (how well the predictions of the mimic model match those from the mimicked model) and play performance (how well the average return in the mimic model matches that of the mimicked model) are used as evaluation metrics. Compared to CART and FIMT (-AF), the LMUT model showed higher fidelity with fewer leaves. For the Cart Pole environment, LMUT showed the higest fidelity, while the M5 trees showed higher performance for the other two environments, although LMUT was comparable. Concerning the play performance, the LMUT model performs best out of all the models. This was likely due to the fact that, contrary to the LMUTs, the M5 and CART trees fit equally over the whole training experience which includes sub-optimal actions in the beginning of training, while the FIMT only adapts to the most recent input and thus cannot build linear models appropriately. In their work, this is represented by sorting the methods on an axis between \u2018data coverage\u2019 (when the mimic model matches the mimicked model on a large section of the state space) and \u2018data optimality\u2019 (when it matches the states most important for performance) with the LMUT at the, as they call it, \u2018sweet spot between optimality and coverage\u2019 (p. 12, see also figure 7).\nThere is a similar, newer tree method that uses Soft Decision Trees (SDTs) to extract DRL polices [8]. This method was not presented in this paper because, for one thing, it is less versatile (not offering rule extraction, for example), and for another, it was not clear whether the SDTs actually adequately explained the underlying, mimicked policy for their used benchmark."}, {"heading": "3.4 Method D: Explainable RL Through a Causal Lens", "text": "According to Madumal et al. [41], not only is it important for a RL agent to explain itself and its actions, but also to bear in mind the human user at the receiving end of this explanation. Thus, they took advantage of the prominent theory that humans develop and deploy causal models to explain the world around them, and have adapted a structural causal model (SCM) based on Halpern [20] to mimic this for model-free RL. SCMs represent the world with random exogenous (external) and endogenous (internal) variables, some of which might exert a causal influence over others. These influences can be described with a set of structural equations.\nSince Madumal et al. [41] focused on providing explanations for an agent\u2019s behaviour based on the knowledge of how its actions influence the environment, they extend the SCM to include the agent\u2019s actions, making it an action influence model. More specifically, they offer \u2018actuals\u2019 and \u2018counterfactuals\u2019, that is, their explanations answer \u2018Why?\u2019 as well as \u2018Why not?\u2019 questions (e.g. \u2018Why (not) action A?\u2019). This is noticeable because, contrary to most XAI models, it not only considers actual events occured, but also hypothetical events that did not happen, but could have.\nIn more detail, the process of generating explanations consists of three phases; first, an action influence model in the form of a directed acyclic graph (DAG) is required (see figure 8 for an example). Next, since it is difficult to uncover the true structural equations describing the relationships between the variables, this problem is circumvented by only approximating the equations so that they are exact enough to simulate the counterfactuals. In Madumal et al. [41], this is done by multivariate regression models during the training of the RL agent, but any regression learner can be used. The last phase is generating the explanations, more specifically, minimally complete contrastive explanations. This means that, first, instead of including the vectors of variables of ALL nodes in the explanation, it only includes the absolute minimum variables necessary. Moreover, it explains the actual (e.g. \u2018Why action A?\u2019) by simulating the counterfactual (e.g. \u2018Why not action B?\u2019) through the structural equations and finding the differences between the two. The explanation can then be obtained through a simple NLP template (for an example of an explanation, again, see figure 8).\nMadumal et al. [41]\u2019s evaluations of the action influence model show promising results; in a comparison between six RL benchmark domains measuring accuracy (\u2018Can the model accurately predict what the agent will do next?\u2019) and performance (training time), the model shows reasonable task prediction accuracy and negligible training time. In a human study, comparing the action influence model with two different models that have learnt how to play Starcraft II ( a real-time strategy game), they assessed task prediction by humans, explanation satisfaction, and trust in the model. Results showed that the action influence model performs significantly better for task prediction and explanation satisfaction, but not for trust. The authors propose that, in order to increase trust, further interaction might be needed. In the future, advancements to the model\ncan be made including extending the model to continuous domains or targeting the explanations to users with different levels of knowledge."}, {"heading": "4 Discussion", "text": "In this paper, inspired by the current interest in and demand for XAI, we focused on a particular field of AI: Reinforcement Learning. Since most XAI methods are tailored for supervised learning, we wanted to give an overview of methods employed only on RL algorithms, since, to the best of our knowledge, there is no work present at the current point in time addressing this.\nFirst, we gave an overview over XAI, its importance and issues, and explained related terms. We stressed the importance of a uniform terminology and have thus suggested and defined a term to use from here on out. The focus, however, lay on collecting and providing an overview over the aforementioned XRL methods. Based on Adadi and Berrada [2]\u2019s work, we have sorted selected methods according to the scope of the method and the time of information extraction. We then chose four methods, one for each possible combination of those categorizations, to be presented in detail.\nLooking at the collected XRL methods, it becomes clear that post-hoc interpretability models are much more prevalent than intrinsic models. This makes sense, considering the fact that RL models were developed to solve tasks without human supervision that were too difficult for un-/supervised learning and\nare thus highly complex; it is, apparently, easier to simplify an already existing, complex model than it is to construct it to be simple in the first place. It seems that the performance-interpretability trade-off is present not only for the AI methods themselves, but also for the explainability models applied to them.\nThe allocation to global vs. local scope, however, seems to be more or less balanced. Of course, the decision to develop a global or a local method is greatly dependent on the complexity of the model and the task being solved, but one should also address the question if one of the two is more useful or preferable to human users. In van der Waa et al.\u2019s study [64], for example, \u2018human users tend to favor explanations about policy rather than about single actions\u2019 (p. 1).\nIn general, the form of the explanation and the consideration of the intended target audience is a very important aspect in the development of XAI/XRL methods that is too often neglected [1]. XAI methods need to exhibit contextawareness : adapting to environmental and user changes like the level of experience, cultural or educational differences, domain knowledge, etc., in order to be more human-centric [2]. The form and presentation of the explanation is essential as XAI \u2018can benefit from existing models of how people define, generate, select, present, and evaluate explanations\u2019 [43, p. 59]. For example, research shows that (causal) explanations are contrastive, i.e., humans answer a \u2018Why X?\u2019 question through the answer to the -often only implied- counterfactual \u2018Why not Y instead?\u2019. This is due to the fact that a complete explanation for a certain event (instead of an explanation against the counterevent) involves a higher cognititve load [43]. Not only that, but a layperson also seems to be more receptive to a contrastive explanation, finding it \u2018more intuitive and more valuable\u2019 [43, p. 20]).\nOut of the papers covered in this work, we highlight Madumal et al.\u2019s work [41], but also Sequeira and Gervasio [53] and van der Waa et al. [64]; of all thirteen selected XRL methods, only five evaluate (non-expert) user satisfaction and/or utility of a method [53, 27, 64, 17, 41], and only three of these offer contrastive explanations [41, 53, 64]. So, of all selected papers, only these free provide a combination of both, not only offering useful contrastive explanations, but also explicitly bearing in mind the human user at the end of an explanation."}, {"heading": "4.1 Conclusion", "text": "For practical, legal, and psychological reasons, XRL (and XAI) is a quickly advancing field in research that has to address some key challenges to prove even more beneficial and useful. In order to have a common understanding about the goals and capabilities of an XAI/XRL model, a ubiquitous terminology is important; due to this, we suggest the term interpretability to be used from here on out and have defined it as \u2018the ability to not only extract or generate explanations for the decisions of the model, but also to present this information in a way that is understandable by human (non-expert) users to, ultimately, enable them to predict a model\u2019s behaviour\u2019. Different approaches are possible to achieve this interpretability, depending on the scope (global vs. local) and the time of information extraction (intrinsic vs. post-hoc). Due to the complexity of a RL model, post-hoc interpretability seems to be easier to achieve than intrinsic\ninterpretability: simplifying the original model (for example with the use of a surrogate model) instead of developing a simple model in the first place seems to be easier to achieve, but comes at the cost of accuracy/performance.\nWhat many models lack, however, is to consider the human user at the receiving end of an explanation and to adapt the model to them for maximum benefit. Research shows that contrastive explanations are more intuitive and valuable [43], and there is evidence that human users favor a global approach over a local one [64]. A context-aware system design is also important in order to cater to users with different characteristics, goals, and needs [2]. Especially considering the growing role of AI in critical infrastructures (for example analyzing and controlling power grids with models such as ARL [15, 61]), where the AI model might have to act autonomously or in cooperation with a human user, being able to explain and justify the model\u2019s decisions is crucial.\nTo achieve this and be able to develop human-centered models for optimal and efficient human-computer interaction and cooperation, a bigger focus on interdisciplinary work is necessary, combining efforts from the fields of AI/ML, psychology, philosophy, and human-computer interaction."}, {"heading": "5 Acknowledgements", "text": "This work was supported by the German Research Foundation under the grant GZ: JI 140/7-1. We thank our colleagues Stephan Balduin, Johannes Gerster, Lasse Hammer, Daniel Lange and Nils Wenninghoff for their helpful comments and contributions."}], "title": "Explainable Reinforcement Learning: A Survey", "year": 2020}
+{
+  "abstractText": "Explainable Artificial Intelligence (XAI), i.e., the development of more transparent and interpretable AI models, has gained increased traction over the last few years. This is due to the fact that, in conjunction with their growth into powerful and ubiquitous tools, AI models exhibit one detrimential characteristic: a performance-transparency trade-off. This describes the fact that the more complex a model\u2019s inner workings, the less clear it is how its predictions or decisions were achieved. But, especially considering Machine Learning (ML) methods like Reinforcement Learning (RL) where the system learns autonomously, the necessity to understand the underlying reasoning for their decisions becomes apparent. Since, to the best of our knowledge, there exists no single work offering an overview of Explainable Reinforcement Learning (XRL) methods, this survey attempts to address this gap. We give a short summary of the problem, a definition of important terms, and offer a classification and assessment of current XRL methods. We found that a) the majority of XRL methods function by mimicking and simplifying a complex model instead of designing an inherently simple one, and b) XRL (and XAI) methods often neglect to consider the human side of the equation, not taking into account research from related fields like psychology or philosophy. Thus, an interdisciplinary effort is needed to adapt the generated explanations to a (non-expert) human user in order to effectively progress in the field of XRL and XAI in general.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Erika Puiutta"
+    },
+    {
+      "affiliations": [],
+      "name": "Eric MSP Veith"
+    }
+  ],
+  "id": "SP:4e25c6223dfc8411334625c5ff0f008251e732e5",
+  "references": [
+    {
+      "authors": [
+        "A. Abdul",
+        "J. Vermeulen",
+        "D. Wang",
+        "B.Y. Lim",
+        "M. Kankanhalli"
+      ],
+      "title": "Trends and trajectories for explainable, accountable and intelligible systems",
+      "venue": "Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems - CHI \u201918",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Adadi",
+        "M. Berrada"
+      ],
+      "title": "Peeking inside the black-box: A survey on explainable artificial intelligence (XAI)",
+      "venue": "IEEE Access",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Andreas",
+        "D. Klein",
+        "S. Levine"
+      ],
+      "title": "Modular multitask reinforcement learning with policy sketches",
+      "venue": "Proceedings of the 34th International Conference on Machine Learning - Volume",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "I. Arel",
+        "C. Liu",
+        "T. Urbanik",
+        "A. Kohls"
+      ],
+      "title": "Reinforcement learning-based multi-agent system for network traffic signal control",
+      "venue": "IET Intelligent Transport Systems 4(2),",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "A.G. Barto",
+        "S. Singh",
+        "N. Chentanez"
+      ],
+      "title": "Intrinsically motivated learning of hierarchical collections of skills",
+      "venue": "Proceedings of the 3rd International Conference on Development and Learning. pp",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "G. Brockman",
+        "V. Cheung",
+        "L. Pettersson",
+        "J. Schneider",
+        "J. Schulman",
+        "J. Tang",
+        "W. Zaremba"
+      ],
+      "title": "Openai gym (2016",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "S. Chakraborty",
+        "R. Tomsett",
+        "R. Raghavendra",
+        "D. Harborne",
+        "M. Alzantot",
+        "F. Cerutti",
+        "M. Srivastava",
+        "A. Preece",
+        "S. Julier",
+        "R.M. Rao",
+        "T.D. Kelley",
+        "D. Braines",
+        "M. Sensoy",
+        "C.J. Willis",
+        "P. Gurram"
+      ],
+      "title": "Interpretability of deep learning models: A survey of results",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Coppens",
+        "K. Efthymiadis",
+        "T. Lenaerts",
+        "A. Now\u00e9",
+        "T. Miller",
+        "R. Weber",
+        "D. Magazzeni"
+      ],
+      "title": "Distilling deep reinforcement learning policies in soft decision trees",
+      "venue": "Proceedings of the IJCAI 2019 Workshop on Explainable Artificial Intelligence",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Dehghanpour",
+        "Z. Wang",
+        "J. Wang",
+        "Y. Yuan",
+        "F. Bu"
+      ],
+      "title": "A survey on state estimation techniques and challenges in smart distribution systems",
+      "venue": "IEEE Transactions on Smart Grid 10(2),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D. Doran",
+        "S. Schulz",
+        "T.R. Besold"
+      ],
+      "title": "What does explainable ai really mean? a new conceptualization of perspectives",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "F. Doshi-Velez",
+        "B. Kim"
+      ],
+      "title": "Towards a rigorous science of interpretable machine learning",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "F.K. Dosilovic",
+        "M. Brcic",
+        "N. Hlupic"
+      ],
+      "title": "Explainable artificial intelligence: A survey",
+      "venue": "IEEE (2018),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Du",
+        "N. Liu",
+        "X. Hu"
+      ],
+      "title": "Techniques for interpretable machine learning",
+      "venue": "Communications of the ACM 63(1),",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L. Fischer",
+        "J.M. Memmen",
+        "E.M. Veith",
+        "M. Tr\u00f6schel"
+      ],
+      "title": "Adversarial resilience learning\u2014towards systemic vulnerability analysis for large and complex systems",
+      "venue": "The Ninth International Conference on Smart Grids, Green Communications and IT Energy-aware Technologies (ENERGY 2019)",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A.A. Freitas"
+      ],
+      "title": "Comprehensible classification models",
+      "venue": "ACM SIGKDD Explorations Newsletter 15(1),",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Y. Fukuchi",
+        "M. Osawa",
+        "H. Yamakawa",
+        "M. Imai"
+      ],
+      "title": "Autonomous selfexplanation of behavior for interactive reinforcement learning agents",
+      "venue": "Proceedings of the 5th International Conference on Human Agent Interaction - HAI \u201917",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Glass",
+        "D.L. McGuinness",
+        "M. Wolverton"
+      ],
+      "title": "Toward establishing trust in adaptive agents. In: Proceedings of the 13th international conference on Intelligent user interfaces - IUI \u201908",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "B. Goodman",
+        "S. Flaxman"
+      ],
+      "title": "European union regulations on algorithmic decision-making and a \u201cright to explanation",
+      "venue": "AI Magazine 38(3),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J.Y. Halpern"
+      ],
+      "title": "Causes and explanations: A structural-model approach. part II: Explanations",
+      "venue": "The British Journal for the Philosophy of Science 56(4),",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "B. Hayes",
+        "J.A. Shah"
+      ],
+      "title": "Improving robot controller transparency through autonomous policy explanation",
+      "venue": "Proceedings of the 2017 ACM/IEEE International Conference on Human-Robot Interaction - HRI \u201917",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Hein",
+        "A. Hentschel",
+        "T. Runkler",
+        "S. Udluft"
+      ],
+      "title": "Particle swarm optimization for generating interpretable fuzzy reinforcement learning policies",
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Hein",
+        "S. Udluft",
+        "T.A. Runkler"
+      ],
+      "title": "Interpretable policies for reinforcement learning by genetic programming",
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J.L. Herlocker",
+        "J.A. Konstan",
+        "J. Riedl"
+      ],
+      "title": "Explaining collaborative filtering recommendations",
+      "venue": "Proceedings of the 2000 ACM conference on Computer supported cooperative work - CSCW \u201900",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "E. Ikonomovska",
+        "J. Gama",
+        "S. D\u017eeroski"
+      ],
+      "title": "Learning model trees from evolving data streams. Data Mining and Knowledge Discovery",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "B.W. Israelsen",
+        "N.R. Ahmed"
+      ],
+      "title": "dave...i can assure you ...that it\u2019s going to be all right ...\u201d a definition, case for, and survey of algorithmic assurances in human-autonomy trust relationships",
+      "venue": "ACM Computing Surveys 51(6),",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Z. Juozapaitis",
+        "A. Koul",
+        "A. Fern",
+        "M. Erwig",
+        "F. Doshi-Velez"
+      ],
+      "title": "Explainable reinforcement learning via reward decomposition",
+      "venue": "Proceedings of the IJCAI 2019 Workshop on Explainable Artificial Intelligence",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L.P. Kaelbling",
+        "M.L. Littman",
+        "A.W. Moore"
+      ],
+      "title": "Reinforcement learning: A survey",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "L.P. Kaelbling",
+        "M.L. Littman",
+        "A.R. Cassandra"
+      ],
+      "title": "Planning and acting in partially observable stochastic domains",
+      "venue": "Artificial Intelligence 101(1-2),",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "B. Kim",
+        "R. Khanna",
+        "O.O. Koyejo"
+      ],
+      "title": "Examples are not enough, learn to criticize! criticism for interpretability",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "H. Kimura",
+        "K. Miyazaki",
+        "S. Kobayashi"
+      ],
+      "title": "Reinforcement learning in pomdps with function approximation",
+      "venue": "In: ICML",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "J. Kober",
+        "J.A. Bagnell",
+        "J. Peters"
+      ],
+      "title": "Reinforcement learning in robotics: A survey",
+      "venue": "The International Journal of Robotics Research 32(11),",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "J.H. Lee"
+      ],
+      "title": "Complementary reinforcement learning towards explainable agents",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Y. Li"
+      ],
+      "title": "Deep reinforcement learning",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Z.C. Lipton"
+      ],
+      "title": "The mythos of model interpretability (2016",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Z.C. Lipton"
+      ],
+      "title": "The mythos of model interpretability",
+      "venue": "Communications of the ACM 61(10),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Littman",
+        "L. Kaelbling"
+      ],
+      "title": "Background on pomdps",
+      "venue": "https://cs.brown.edu/research/ai/pomdp/tutorial/pomdp-background.html,",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "G. Liu",
+        "O. Schulte",
+        "W. Zhu",
+        "Q. Li"
+      ],
+      "title": "Toward interpretable deep reinforcement learning with linear model u-trees. In: Machine Learning and Knowledge Discovery in Databases, pp. 414\u2013429",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Y. Liu",
+        "K. Gadepalli",
+        "M. Norouzi",
+        "G.E. Dahl",
+        "T. Kohlberger",
+        "A. Boyko",
+        "S. Venugopalan",
+        "A. Timofeev",
+        "P.Q. Nelson",
+        "G.S. Corrado",
+        "J.D. Hipp",
+        "L. Peng",
+        "M.C. Stumpe"
+      ],
+      "title": "Detecting cancer metastases on gigapixel pathology images",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "W.Y. Loh"
+      ],
+      "title": "Classification and regression trees. WIREs Data Mining and Knowledge Discovery",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "P. Madumal",
+        "T. Miller",
+        "L. Sonenberg",
+        "F. Vetere"
+      ],
+      "title": "Explainable reinforcement learning through a causal lens",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Martens",
+        "J. Vanthienen",
+        "W. Verbeke",
+        "B. Baesens"
+      ],
+      "title": "Performance of classification models from a user perspective",
+      "venue": "Decision Support Systems",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "T. Miller"
+      ],
+      "title": "Explanation in artificial intelligence: Insights from the social sciences",
+      "venue": "Artificial Intelligence 267,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Molar"
+      ],
+      "title": "Interpretable machine learning (2018), https://christophm.github.io/interpretable-ml-book/, [Retrieved",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "G. Montavon",
+        "W. Samek",
+        "K.R. M\u00fcller"
+      ],
+      "title": "Methods for interpreting and understanding deep neural networks",
+      "venue": "Digital Signal Processing 73,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Nguyen",
+        "J. Yosinski",
+        "J. Clune"
+      ],
+      "title": "Deep neural networks are easily fooled: High confidence predictions for unrecognizable images",
+      "venue": "The IEEE Conference on Computer Vision and Pattern Recognition",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "T.T. Nguyen",
+        "P.M. Hui",
+        "F.M. Harper",
+        "L. Terveen",
+        "J.A. Konstan"
+      ],
+      "title": "Exploring the filter bubble",
+      "venue": "Proceedings of the 23rd international conference on World wide web - WWW \u201914",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Quinlan",
+        "J.R"
+      ],
+      "title": "Learning with continuous classes",
+      "venue": "Australian joint conference on artificial intelligence",
+      "year": 1992
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "why should i trust you?",
+      "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining - KDD \u201916",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "C. Rudin"
+      ],
+      "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+      "venue": "Nature Machine Intelligence",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A.A. Rusu",
+        "S.G. Colmenarejo",
+        "C. Gulcehre",
+        "G. Desjardins",
+        "J. Kirkpatrick",
+        "R. Pascanu",
+        "V. Mnih",
+        "K. Kavukcuoglu",
+        "R. Hadsell"
+      ],
+      "title": "Policy distillation",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "J. Schrittwieser",
+        "I. Antonoglou",
+        "T. Hubert",
+        "K. Simonyan",
+        "L. Sifre",
+        "S. Schmitt",
+        "A. Guez",
+        "E. Lockhart",
+        "D. Hassabis",
+        "T Graepel"
+      ],
+      "title": "Mastering ATARI, go, chess and shogi by planning with a learned model",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P. Sequeira",
+        "M. Gervasio"
+      ],
+      "title": "Interestingness elements for explainable reinforcement learning: Understanding agents\u2019 capabilities and limitations",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "T. Shu",
+        "C. Xiong",
+        "R. Socher"
+      ],
+      "title": "Hierarchical and interpretable skill acquisition in multi-task reinforcement learning",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Silver",
+        "J. Schrittwieser",
+        "K. Simonyan",
+        "I. Antonoglou",
+        "A. Huang",
+        "A. Guez",
+        "T. Hubert",
+        "L. Baker",
+        "M. Lai",
+        "A Bolton"
+      ],
+      "title": "Mastering the game of go without human knowledge",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Szegedy",
+        "W. Zaremba",
+        "I. Sutskever",
+        "J. Bruna",
+        "D. Erhan",
+        "I. Goodfellow",
+        "R. Fergus"
+      ],
+      "title": "Intriguing properties of neural networks",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "K. Tomzcak",
+        "A. Pelter",
+        "C. Gutierrez",
+        "T. Stretch",
+        "D. Hilf",
+        "B. Donadio",
+        "N.L. Tenhundfeld",
+        "E.J. de Visser",
+        "C.C. Tossell"
+      ],
+      "title": "Let tesla park your tesla: Driver trust in a semi-automated car",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "W.T. Uther",
+        "M.M. Veloso"
+      ],
+      "title": "Tree based discretization for continuous state space reinforcement learning",
+      "venue": "In: Aaai/iaai. pp",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "E. Veith",
+        "L. Fischer",
+        "M. Tr\u00f6schel",
+        "A. Nie\u00dfe"
+      ],
+      "title": "Analyzing cyber-physical systems from the perspective of artificial intelligence",
+      "venue": "Proceedings of the 2019 International Conference on Artificial Intelligence, Robotics and Control",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "E.M. Veith"
+      ],
+      "title": "Universal Smart Grid Agent for Distributed Power Generation Management",
+      "venue": "Logos Verlag Berlin GmbH",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Verma",
+        "V. Murali",
+        "R. Singh",
+        "P. Kohli",
+        "S. Chaudhuri"
+      ],
+      "title": "Programmatically interpretable reinforcement learning. PMLR",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. van der Waa",
+        "J. van Diggelen",
+        "K. van den Bosch",
+        "M. Neerincx"
+      ],
+      "title": "Contrastive explanations for reinforcement learning in terms of expected consequences",
+      "venue": "Workshop on Explainable AI (XAI)",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "B. Wymann",
+        "E. Espi\u00e9",
+        "C. Guionneau",
+        "C. Dimitrakakis",
+        "R. Coulom",
+        "A. Sumner"
+      ],
+      "title": "Torcs, the open racing car simulator. Software available at http://torcs",
+      "venue": "sourceforge. net 4(6),",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "T. Zahavy",
+        "N.B. Zrihem",
+        "S. Mannor"
+      ],
+      "title": "Graying the black box: Understanding dqns (2016",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "text": "ar X\niv :2\n00 5.\n06 24\n7v 1\n[ cs\n.L G\n] 1\n3 M\nay 2\nKeywords: Machine Learning \u00b7 Explainable \u00b7 Reinforcement Learning \u00b7 Human-Computer Interaction \u00b7 Interpretable."
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Over the past decades, AI has become ubiquitous in many areas of our everyday lives. Especially Machine Learning (ML) as one branch of AI has numerous fields of application, be it transportation [59], advertisement and content recommendation [47], or medicine [39]. Unfortunately, the more powerful and flexible those models are, the more opaque they become, essentially making them black boxes (see figure 1). This trade-off is referred to by different terms in the literature, e.g. readability-performance trade-off [12], accuracy-comprehensibility trade-off [16], or accuracy-interpretability trade-off [50]. This work aims to, first, establish the need for explainable AI in general and explainable RL specifically. After that, the general concept of RL is briefly explained and the most important terms\nrelated to XAI are defined. Then, a classification of XAI models is presented and selected XRL models are sorted into these categories. Since there already is an abundance of sources on XAI but less so about XRL specifically, the focus of this work lies on providing information about and presenting sample methods of XRL models1. Thus, we present one method for each category in more detail and give a critical evaluation over the existing XRL methods."
+    },
+    {
+      "heading": "1.1 The importance of explainability",
+      "text": "Why is explainability so crucial? First, there is one obvious psychology-related reason: \u2018if the users do not trust a model or a prediction, they will not use it\u2019 [49, p. 1]. Trust is an essential prerequisite of using a model or system [26, 12], and transparency has been identified as one key component both in increasing users\u2019 trust [18], as well as users\u2019 acceptance of a system [24] (for a formal definition of transparency and related terms, see section 1.3). Transparency also justifies a system\u2019s decisions and enables them to be fair and ethical [2]. Thus, in order to confidently use a system, it needs to be trusted, and in order to be trusted, it needs to be transparent and its decisions need to be justifiable.\nSecond, AI technologies have become an essential part in almost all domains of Cyber-Physical Systems (CPSs). Reasons include the thrive for increased efficiency, business model innovations, or the necessity to accommodate volatile parts of today\u2019s critical infrastructures, such as a high share of renewable energy sources. In time, AI technologies evolved from being an additional input to an otherwise soundly defined control system, to increasing the state awareness of\n1 Please note that, while there is a distinction between Reinforcement Learning and Deep Reinforcement Learning (DRL), for the sake of simplicity, we will refer to both as just Reinforcement Learning going forward.\na CPS\u2014e.g., Neural State Estimation [9]\u2014to fully decentralized, but still rulegoverned systems\u2014such as the Universal Smart Grid Agent [62]\u2014, to a system where all behavior originates from machine learning. AlphaGo, AlphaGo Zero, and MuZero are probably being the most widely-known representatives of the last category [55, 52], but for CPS analysis and operation, Adversarial Resilience Learning (ARL) has emerged as a novel methodology based on DRL [15, 61]. It is specifically designed to analyse and control critical infrastructures; obviously, explainability is tantamount here.\nThere is also a legal component to be considered; the EU General Data Protection Regulation (GDPR) [14], which came into effect in May 2018, aims to ensure a \u2018right to explanation\u2019 [19, p. 1] concerning automated decision-making and profiling. It states that \u2018[...] such processing should subject to suitable safeguards, which should include [...] the right to obtain human intervention [...] [and] an explanation of the decision reached after such assessment\u2019 [14, recital 71]. Additionally, the European Commission set out an AI strategy with transparency and accountability as important principles to be respected [57], and in their Guidelines on trustworthy AI [58] they state seven key requirements, with transparency and accountability as two of them.\nFinally, there are important practical reasons to consider; despite the increasing efficiency and versatility of AI, its incomprehensibility reduces its usefulness, since \u2018incomprehensible decision-making can still be effective, but its effectiveness does not mean that it cannot be faulty\u2019 [33, p. 1]. For example, in [56], neural nets successfully learnt to classify pictures but could be led to misclassification by (to humans) nearly imperceptible perturbations, and in [46], deep neural nets classified unrecognizable images with >99% certainty. This shows that a high level of effectiveness (under standard conditions) or even confidence does not imply that the decisions are correct or based on appropriately-learnt data.\nBearing this in mind, and considering the fact that, nowadays, AI can act increasingly autonomous, explaining and justifying the decisions is now more crucial than ever, especially in the domain of RL where an agent learns by itself, without human interaction."
+    },
+    {
+      "heading": "1.2 Reinforcement Learning",
+      "text": "Reinforcement Learning is a trial-and-error learning algorithm in which an autonomous agent tries to find the optimal solution to a problem through automated learning [53]. Possible applications for the use of RL are teaching neural networks to play games like Go [55], teaching robots to perform certain tasks [32], or intelligent transport systems [4]. RL is usually introduced as a Markov Decision Process (MDP) if it satisfies the Markov property: the next state depends only on the current state and the agent\u2019s action(s), not on past states [28]2.\n2 To be exact, MDPs assume that the complete world state is visible to the agent which is, naturally, not always true. In these cases, a partially observable Markov decision\nThe learning process is initiated by an agent randomly performing an action which leads to a certain environmental state. This state has a reward assigned to it depending on how desirable this outcome is, set by the designer of the task (see also figure 2). The algorithm will then learn a policy, i.e., an action-staterelation, in order to maximize the cumulative reward and be able to select the most optimal action in each situation. For more information on RL, see also [53, 34]."
+    },
+    {
+      "heading": "1.3 Definition of important terms",
+      "text": "As already mentioned in section 1, the more complex a systems becomes, the less obvious its inner workings become. Additionally, there is no uniform term for this trade-off in the literature; XAI methods use an abundance of related, but distinct terms like transparency, reachability, etc... This inconsistency can be due to one or both of the following reasons: a) different terms are used in the same sense due to a lack of official definition of these terms, or b) different terms are used because the authors (subjectively) draw a distinction between them, without an official accounting of these differences. In any case, a uniform understanding and definition of what it means if a method is described as \u2018interpretable\u2019 or \u2018transparent\u2019 is important in order to clarify the potential, capacity and intention of a model. This is not an easy task, since there is no unique definition for the different terms to be found in the literature; even for \u2018interpretability\u2019, the concept which is most commonly used, \u2018the term [...] holds no agreed upon meaning, and yet machine learning conferences frequently publish papers which\nprocess (POMDP) can be used where, instead of observing the current state directly, we have a probability distribution over the possible states instead [37]. For the sake of simplicity, we do not go into further detail and refer the reader to Kaelbling et al. or Kimura et al. [29, 31] for more information.\nwield the term in a quasi-mathematical way\u2019 [35]. In Doshi-Velez and Kim [11, p. 2], interpretability is \u2019the ability to explain or to present in understandable terms to a human\u2019, however, according to Kim et al. [30, p. 7] \u2018a method is interpretable if a user can correctly and efficiently predict the methods result\u2019. Some authors use transparency as a synonym for interpretability [35], some use comprehensibility as a synonym [16], then again others draw a distinction between the two [10] (for more information on how the different terms are used in the literature, we refer the reader to [35, 36, 11, 16, 30, 10, 45, 7]). If we tackle this issue in a more fundamental way, we can look at the definition of \u2018to interpret\u2019 or \u2018interpretation\u2019. The Oxford Learners Dictionary3 defines it as follows:\n\u2022 to explain the meaning of something \u2022 to decide that something has a particular meaning and to understand it in this way \u2022 to translate one language into another as it is spoken \u2022 the particular way in which something is understood or explained\nSeeing that, according to the definition, interpretation contains an explanation, we can look at the definition for \u2018to explain\u2019/\u2018explanation\u2019:\n\u2022 to tell somebody about something in a way that makes it easy to understand \u2022 to give a reason, or be a reason, for something \u2022 a statement, fact, or situation that tells you why something happened \u2022 a statement or piece of writing that tells you how something works or makes something easier to understand\nBoth definitions share the notion of conveying the reason and meaning of something in order to make someone understand, but while an explanation is focused on what to explain, an interpretation has the additional value of considering how to explain something; it translates and conveys the information in a way that is more easily understood. And that is, in our opinion, essential in the frame of XAI/XRL: not only extracting the necessary information, but also presenting it in an appropriate manner, translating it from the \u2018raw data\u2019 into something humans and especially laypersons can understand.\nSo, because we deem a shared consensus on the nomenclature important, we suggest the use of this one uniform term, interpretability, to refer to the ability to not only extract or generate explanations for the decisions of the model, but also to present this information in a way that is understandable by human (non-expert) users to, ultimately, enable them to predict a model\u2019s behaviour."
+    },
+    {
+      "heading": "2 XAI Taxonomy",
+      "text": "XAI methods can be categorized based on two factors; first, based on when the information is extracted, the method can be intrinsic or post-hoc, and second, the scope can be either global or local (see figure 3, and figure 4 for examples).\n3 https://www.oxfordlearnersdictionaries.com/\nGlobal and local interpretability refer to the scope of the explanation; global models explain the entire, general model behaviour, while local models offer explanations for a specific decision [44]. Global models try to explain the whole logic of a model by inspecting the structures of the model [2, 13]. Local explanations try to answer the question: \u2018Why did the model make a certain prediction/decision for an instance/for a group of instances?\u2019 [44, 2]. They also try to identify the contributions of each feature in the input towards a specific output [13]. Additionally, global interpretability techniques lead to users trusting a model, while local techniques lead to trusting a prediction [13].\nIntrinsic vs. post-hoc interpretability depend on the time when the explanation is extracted/generated; An intrinsic model is a ML model that is constructed to be inherently interpretable or self-explanatory at the time of training by restricting the complexity of the model [13]. Decision trees, for example, have a simple structure and can be easily understood [44]. Post-hoc interpretability, in contrast, is achieved by analyzing the model after training by creating a second, simpler model, to provide explanations for the original model [13, 44]. Surrogate models or saliency maps are examples for this type [2]. Post-hoc interpretation models can be applied to intrinsic interpretation models, but not necessarily vice versa. Just like the models themselves, these interpretability models also suffer from a transparency-accuracy-trade-off; intrinsic models usually offer accurate explanations, but, due to their simplicity, their prediction performance suffers. Post-hoc interpretability models, in contrast, usually keep the accuracy of the original model intact, but are harder to derive satisfying and simple explanations from [13].\nAnother distinction, which usually coincides with the classification into intrinsic and post-hoc interpretability, is the classification into model-specific or model-agnostic. Techniques are model-specific if they are limited to a specific model or model class [44], and they are model-agnostic if they can be used on any model [44]. As you can also see in figure 3, intrinsic models are model-specific, while post-hoc interpretability models are usually model-agnostic.\nAdadi and Berrada [2] offer an overview of common explainability techniques and their rough (i.e., neither mutually exclusive nor exhaustive) classifications into these categories. In section 3, we follow their example and provide classifications for a list of selected XRL method papers."
+    },
+    {
+      "heading": "3 Non-exhaustive list of XRL methods",
+      "text": "A literature review was conducted using the database Google Scholar. Certain combinations of keywords were used to select papers; first, \u2018explainable reinforcement learning\u2019, and \u2018XRL\u2019 together with \u2018reinforcement learning\u2019 and \u2018machine learning\u2019 were used. Then, we substituted \u2018explainable\u2019 for common variations used in literature like \u2018explainable\u2019, \u2018transparent\u2019, and \u2018understandable\u2019. We then scanned the papers for relevance and consulted their citations and reference lists for additional papers. Because we only wanted to focus on current methods, we\nrestricted the search to papers from 2010-2020. Table 1 shows the list of selected papers and their classification according to section 2 based on our understanding.\nFor a more extensive demonstration of the different approaches, we chose the latest paper of each quadrant 4 and explain them in more detail in the following sections as an example for the different XRL methods."
+    },
+    {
+      "heading": "3.1 Method A: Programmatically Interpretable Reinforcement Learning",
+      "text": "Verma et al. [63] have developed \u2018PIRL\u2019, a Programmatically Interpretable Reinforcement Learning framework, as an alternative to DRL. In DRL, the policies are represented by neural networks, making them very hard (if not impossible) to interpret. The policies in PIRL, on the other hand, while still mimicking the ones from the DRL model, are represented using a high-level, human-readable programming language. Here, the problem stays the same as in traditional RL (i.e., finding a policy that maximises the long-term reward), but in addition, they restrict the vast amount of target policies with the help of a (policy) sketch. To find these policies, they employ a framework which was inspired by imitation learning, called Neurally Directed Program Search (NDPS). This framework first uses DRL to compute a policy which is used as a neural \u2018oracle\u2019 to direct the policy search for a policy that is as close as possible to the neural oracle. Doing this, the performances of the resulting policies are not as high than the ones from the\n4 With the exception of method C in section 3.3 where we present a Linear Model U-Tree method although another paper with a different, but related method was published slightly later. See the last paragraph of that section for our reasoning for this decision.\nDRL, but they are still satisfactory and, additionally, more easily interpretable. They evaluate this framework by comparing its performance with, among others, a traditional DRL framework in The Open Racing Car Simulator (TORCS) [65]. Here, the controller has to set five parameters (acceleration, brake, clutch, gear and steering of the car) to steer a car around a race track as fast as possible. Their results show that, while the DRL leads to quicker lap time, the NDPS still outperforms this for several reasons: it shows much smoother driving (i.e., less steering actions) and is less perturbed by noise and blocked sensors. It also is easier to interpret and is better at generalization, i.e., it performs better in situations (in this case, tracks) not encountered during training than a DRL model. Concerning restrictions of this method, it is worth noting that the authors only considered environments with symbolic inputs, not perceptual, in their experiments. They also only considered deterministic policies, not stochastic policies."
+    },
+    {
+      "heading": "3.2 Method B: Hierarchical and Interpretable Skill Acquisition in Multi-task Reinforcement Learning",
+      "text": "Shu et al.[54] proposed a new framework for multi-task RL using hierarchical policies that addressed the issue of solving complex tasks that require different\nskills and are composed of several (simpler) subtasks. It is based on and extends multi-task RL with modular policy design through a two-layer hierarchical policy [3] by incorporating less assumptions, and, thus, less restrictions. They trained and evaluated their model with object manipulation tasks in a Minecraft game setting (e.g. finding, getting, or stacking blocks of a certain color), employing advantage actor-critic as policy optimization using off-policy learning. The model is hierarchical because each top-level policy (e.g., \u2018stack x\u2019) consists of several lower levels of actions (\u2018find x\u2019\u2192 \u2018get x\u2019\u2192 \u2018put x\u2019, see also figure 5). The novelty of this method is the fact that each task is described by a human instruction (e.g. \u2018stack blue\u2019), and agents can only access learnt skills through these descriptions, making its policies and decisions inherently human-interpretable.\nAdditionally, a key idea of their framework is that a complex task could be decomposed into several simpler subtasks. If these sub-tasks could be fulfilled by employing an already learnt \u2018base policy\u2019, no new skill had to be learnt; otherwise, it would learn a new skill and perform a different, novel action. To boost efficiency and accuracy, the framework also incorporated a stochastic temporal grammar model that was used to model temporal relationships and priorities of\ntasks (e.g., before stacking a block on top of another block, you must first obtain said block).\nThe resulting framework could efficiently learn hierarchical policies and representations in multi-task RL, only needing weak human supervision during training to decide which skills to learn. Compared to a flat policy that directly maps the state and instruction to an action, the hierarchical model showed a higher learning efficiency, could generalize well in new environments, and was inherently interpretable."
+    },
+    {
+      "heading": "3.3 Method C: Toward Interpretable Deep Reinforcement Learning with Linear Model U-Trees",
+      "text": "In Liu et al. [38], a mimic learning framework based on stochastic gradient descent is introduced. This framework approximates the predictions of an accurate, but complex model by mimicking the model\u2019s Q-function using Linear Model UTrees (LMUTs). LMUTs are an extension of Continuous U-Trees (CUTs) which were developed to approximate continuous functions [60]. The difference between CUTs and LMUTs is that, instead of constants, LMUTs have a linear model at each leaf node which also improves its generalization ability. They also generally have fewer leaves and are therefore simpler and more easily understandable. The novelty of this method lies in the fact that other tree representations used for interpretations were only developed for supervised learning, not for DRL.\nThe framework can be used to analyze the importance of input features, extract rules, and calculate \u2018super-pixels\u2019 (\u2018contiguous patch[es] of similar pixels\u2019 [49, p. 1]) in image inputs (see table 2 and figure 6 for an example). It has two\napproaches to generate data and mimic the Q-function; the first one is an experience training setting which records and generates data during the training process for batch training. It records the state-action pairs and the resulting Q-values as \u2018soft supervision labels\u2019 [38, p. 1] during training. In cases where the mimic learning model cannot be applied to the training process, the second approach can be used: active play setting, which generates mimic data by applying the mature DRL to interact with the environment. Here, an online algorithm is required which uses stochastic gradient descent to dynamically update the linear models as more data is generated.\nThey evaluate the framework in three benchmark environments: Mountain Car, Cart Pole, and Flappy Bird, all simulated by the OpenAI Gym toolkit [6]. Mountain Car and Cart Pole have a discrete action space and a continuous\nfeature space, while Flappy Bird has two discrete actions and four consecutive images as inputs which result in 80x80 pixels each, so 6400 features. The LMUT method is compared to five other tree methods: a CART regression tree [40], M5 trees [48] with regression tree options (M5-RT) and with model tree options (M5-MT), and Fast Incremental Model Trees (FIMT, [25]) in the basic version, and in the advanced version with adaptive filters (FIMT-AF). The two parameters fidelity (how well the predictions of the mimic model match those from the mimicked model) and play performance (how well the average return in the mimic model matches that of the mimicked model) are used as evaluation metrics. Compared to CART and FIMT (-AF), the LMUT model showed higher fidelity with fewer leaves. For the Cart Pole environment, LMUT showed the higest fidelity, while the M5 trees showed higher performance for the other two environments, although LMUT was comparable. Concerning the play performance, the LMUT model performs best out of all the models. This was likely due to the fact that, contrary to the LMUTs, the M5 and CART trees fit equally over the whole training experience which includes sub-optimal actions in the beginning of training, while the FIMT only adapts to the most recent input and thus cannot build linear models appropriately. In their work, this is represented by sorting the methods on an axis between \u2018data coverage\u2019 (when the mimic model matches the mimicked model on a large section of the state space) and \u2018data optimality\u2019 (when it matches the states most important for performance) with the LMUT at the, as they call it, \u2018sweet spot between optimality and coverage\u2019 (p. 12, see also figure 7).\nThere is a similar, newer tree method that uses Soft Decision Trees (SDTs) to extract DRL polices [8]. This method was not presented in this paper because, for one thing, it is less versatile (not offering rule extraction, for example), and for another, it was not clear whether the SDTs actually adequately explained the underlying, mimicked policy for their used benchmark."
+    },
+    {
+      "heading": "3.4 Method D: Explainable RL Through a Causal Lens",
+      "text": "According to Madumal et al. [41], not only is it important for a RL agent to explain itself and its actions, but also to bear in mind the human user at the receiving end of this explanation. Thus, they took advantage of the prominent theory that humans develop and deploy causal models to explain the world around them, and have adapted a structural causal model (SCM) based on Halpern [20] to mimic this for model-free RL. SCMs represent the world with random exogenous (external) and endogenous (internal) variables, some of which might exert a causal influence over others. These influences can be described with a set of structural equations.\nSince Madumal et al. [41] focused on providing explanations for an agent\u2019s behaviour based on the knowledge of how its actions influence the environment, they extend the SCM to include the agent\u2019s actions, making it an action influence model. More specifically, they offer \u2018actuals\u2019 and \u2018counterfactuals\u2019, that is, their explanations answer \u2018Why?\u2019 as well as \u2018Why not?\u2019 questions (e.g. \u2018Why (not) action A?\u2019). This is noticeable because, contrary to most XAI models, it not only considers actual events occured, but also hypothetical events that did not happen, but could have.\nIn more detail, the process of generating explanations consists of three phases; first, an action influence model in the form of a directed acyclic graph (DAG) is required (see figure 8 for an example). Next, since it is difficult to uncover the true structural equations describing the relationships between the variables, this problem is circumvented by only approximating the equations so that they are exact enough to simulate the counterfactuals. In Madumal et al. [41], this is done by multivariate regression models during the training of the RL agent, but any regression learner can be used. The last phase is generating the explanations, more specifically, minimally complete contrastive explanations. This means that, first, instead of including the vectors of variables of ALL nodes in the explanation, it only includes the absolute minimum variables necessary. Moreover, it explains the actual (e.g. \u2018Why action A?\u2019) by simulating the counterfactual (e.g. \u2018Why not action B?\u2019) through the structural equations and finding the differences between the two. The explanation can then be obtained through a simple NLP template (for an example of an explanation, again, see figure 8).\nMadumal et al. [41]\u2019s evaluations of the action influence model show promising results; in a comparison between six RL benchmark domains measuring accuracy (\u2018Can the model accurately predict what the agent will do next?\u2019) and performance (training time), the model shows reasonable task prediction accuracy and negligible training time. In a human study, comparing the action influence model with two different models that have learnt how to play Starcraft II ( a real-time strategy game), they assessed task prediction by humans, explanation satisfaction, and trust in the model. Results showed that the action influence model performs significantly better for task prediction and explanation satisfaction, but not for trust. The authors propose that, in order to increase trust, further interaction might be needed. In the future, advancements to the model\ncan be made including extending the model to continuous domains or targeting the explanations to users with different levels of knowledge."
+    },
+    {
+      "heading": "4 Discussion",
+      "text": "In this paper, inspired by the current interest in and demand for XAI, we focused on a particular field of AI: Reinforcement Learning. Since most XAI methods are tailored for supervised learning, we wanted to give an overview of methods employed only on RL algorithms, since, to the best of our knowledge, there is no work present at the current point in time addressing this.\nFirst, we gave an overview over XAI, its importance and issues, and explained related terms. We stressed the importance of a uniform terminology and have thus suggested and defined a term to use from here on out. The focus, however, lay on collecting and providing an overview over the aforementioned XRL methods. Based on Adadi and Berrada [2]\u2019s work, we have sorted selected methods according to the scope of the method and the time of information extraction. We then chose four methods, one for each possible combination of those categorizations, to be presented in detail.\nLooking at the collected XRL methods, it becomes clear that post-hoc interpretability models are much more prevalent than intrinsic models. This makes sense, considering the fact that RL models were developed to solve tasks without human supervision that were too difficult for un-/supervised learning and\nare thus highly complex; it is, apparently, easier to simplify an already existing, complex model than it is to construct it to be simple in the first place. It seems that the performance-interpretability trade-off is present not only for the AI methods themselves, but also for the explainability models applied to them.\nThe allocation to global vs. local scope, however, seems to be more or less balanced. Of course, the decision to develop a global or a local method is greatly dependent on the complexity of the model and the task being solved, but one should also address the question if one of the two is more useful or preferable to human users. In van der Waa et al.\u2019s study [64], for example, \u2018human users tend to favor explanations about policy rather than about single actions\u2019 (p. 1).\nIn general, the form of the explanation and the consideration of the intended target audience is a very important aspect in the development of XAI/XRL methods that is too often neglected [1]. XAI methods need to exhibit contextawareness : adapting to environmental and user changes like the level of experience, cultural or educational differences, domain knowledge, etc., in order to be more human-centric [2]. The form and presentation of the explanation is essential as XAI \u2018can benefit from existing models of how people define, generate, select, present, and evaluate explanations\u2019 [43, p. 59]. For example, research shows that (causal) explanations are contrastive, i.e., humans answer a \u2018Why X?\u2019 question through the answer to the -often only implied- counterfactual \u2018Why not Y instead?\u2019. This is due to the fact that a complete explanation for a certain event (instead of an explanation against the counterevent) involves a higher cognititve load [43]. Not only that, but a layperson also seems to be more receptive to a contrastive explanation, finding it \u2018more intuitive and more valuable\u2019 [43, p. 20]).\nOut of the papers covered in this work, we highlight Madumal et al.\u2019s work [41], but also Sequeira and Gervasio [53] and van der Waa et al. [64]; of all thirteen selected XRL methods, only five evaluate (non-expert) user satisfaction and/or utility of a method [53, 27, 64, 17, 41], and only three of these offer contrastive explanations [41, 53, 64]. So, of all selected papers, only these free provide a combination of both, not only offering useful contrastive explanations, but also explicitly bearing in mind the human user at the end of an explanation."
+    },
+    {
+      "heading": "4.1 Conclusion",
+      "text": "For practical, legal, and psychological reasons, XRL (and XAI) is a quickly advancing field in research that has to address some key challenges to prove even more beneficial and useful. In order to have a common understanding about the goals and capabilities of an XAI/XRL model, a ubiquitous terminology is important; due to this, we suggest the term interpretability to be used from here on out and have defined it as \u2018the ability to not only extract or generate explanations for the decisions of the model, but also to present this information in a way that is understandable by human (non-expert) users to, ultimately, enable them to predict a model\u2019s behaviour\u2019. Different approaches are possible to achieve this interpretability, depending on the scope (global vs. local) and the time of information extraction (intrinsic vs. post-hoc). Due to the complexity of a RL model, post-hoc interpretability seems to be easier to achieve than intrinsic\ninterpretability: simplifying the original model (for example with the use of a surrogate model) instead of developing a simple model in the first place seems to be easier to achieve, but comes at the cost of accuracy/performance.\nWhat many models lack, however, is to consider the human user at the receiving end of an explanation and to adapt the model to them for maximum benefit. Research shows that contrastive explanations are more intuitive and valuable [43], and there is evidence that human users favor a global approach over a local one [64]. A context-aware system design is also important in order to cater to users with different characteristics, goals, and needs [2]. Especially considering the growing role of AI in critical infrastructures (for example analyzing and controlling power grids with models such as ARL [15, 61]), where the AI model might have to act autonomously or in cooperation with a human user, being able to explain and justify the model\u2019s decisions is crucial.\nTo achieve this and be able to develop human-centered models for optimal and efficient human-computer interaction and cooperation, a bigger focus on interdisciplinary work is necessary, combining efforts from the fields of AI/ML, psychology, philosophy, and human-computer interaction."
+    },
+    {
+      "heading": "5 Acknowledgements",
+      "text": "This work was supported by the German Research Foundation under the grant GZ: JI 140/7-1. We thank our colleagues Stephan Balduin, Johannes Gerster, Lasse Hammer, Daniel Lange and Nils Wenninghoff for their helpful comments and contributions."
+    }
+  ],
+  "title": "Explainable Reinforcement Learning: A Survey",
+  "year": 2020
+}

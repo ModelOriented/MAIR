@@ -1,1 +1,259 @@
-{"abstractText": "Concrete is the most widely used engineered material in the world with more than 10 billion tons produced annually. Unfortunately, with that scale comes a significant burden in terms of energy, water, and release of greenhouse gases and other pollutants. As such, there is interest in creating concrete formulas that minimize this environmental burden, while satisfying engineering performance requirements. Recent advances in artificial intelligence have enabled machines to generate highly plausible artifacts, such as images of realistic looking faces. Semi-supervised generative models allow generation of artifacts with specific, desired characteristics. In this work, we use Conditional Variational Autoencoders (CVAE), a type of semi-supervised generative model, to discover concrete formulas with desired properties. Our model is trained using open data from the UCI Machine Learning Repository joined with environmental impact data computed using a web-based tool. We demonstrate CVAEs can design concrete formulas with lower emissions and natural resource usage while meeting design requirements. To ensure fair comparison between extant and generated formulas, we also train regression models to predict the environmental impacts and strength of discovered formulas. With these results, a construction engineer may create a formula that meets structural needs and best addresses local environmental concerns.", "authors": [{"affiliations": [], "name": "Xiou Ge"}, {"affiliations": [], "name": "Richard T. Goodwin"}, {"affiliations": [], "name": "Jeremy R. Gregory"}, {"affiliations": [], "name": "Randolph E. Kirchain"}, {"affiliations": [], "name": "Joana Maria"}, {"affiliations": [], "name": "Lav R. Varshney"}], "id": "SP:b085da848946130a689da62987588962b0aa7a22", "references": [{"authors": ["P.V. Balachandran", "D. Xue", "J. Theiler", "J. Hogden", "T. Lookman"], "title": "Adaptive strategies for materials design using uncertainties", "venue": "Scientific Rep. 6(19660).", "year": 2016}, {"authors": ["T.R. Besold", "M. Schorlemmer", "A. Smaill"], "title": "Computational Creativity Research: Towards Creative Machines", "venue": "Springer.", "year": 2015}, {"authors": ["S.R. Bowman", "L. Vilnis", "O. Vinyals", "A.M. Dai", "R. J\u00f3zefowicz", "S. Bengio"], "title": "Generating sentences from a continuous space", "venue": "arXiv:1511.06349", "year": 2015}, {"authors": ["J.-S. Chou", "C.-F. Tsai", "A.-D. Pham", "Y.-H. Lu"], "title": "Machine learning in concrete strength simulations: Multination data analytics", "venue": "Construction and Building Materials 73:771\u2013780.", "year": 2014}, {"authors": ["C. Doersch"], "title": "Tutorial on Variational Autoencoders", "venue": "arXiv:1606.05908 [stat.ML].", "year": 2016}, {"authors": ["R. G\u00f3mez-Bombarelli", "D.K. Duvenaud", "J.M. Hern\u00e1ndezLobato", "J. Aguilera-Iparraguirre", "T.D. Hirzel", "R.P. Adams", "A. Aspuru-Guzik"], "title": "Automatic chemical design using a data-driven continuous representation of molecules", "venue": "arXiv:1610.02415 [cs.LG].", "year": 2016}, {"authors": ["L. Itti", "P. Baldi"], "title": "Bayesian surprise attracts human attention", "venue": "Advances in Neural Information Processing Systems 18. 547\u2013554.", "year": 2006}, {"authors": ["A. Jain", "S.P. Ong", "G. Hautier", "W. Chen", "W.D. Richards", "S. Dacek", "S. Cholia", "D. Gunter", "D. Skinner", "G. Ceder", "K. a. Persson"], "title": "The Materials Project: A materials genome approach to accelerating materials innovation", "venue": "APL Mater. 1(1):011002.", "year": 2013}, {"authors": ["D.P. Kingma", "M. Welling"], "title": "Auto-Encoding Variational Bayes", "venue": "arXiv:1312.6114 [stat.ML].", "year": 2013}, {"authors": ["P. Mehta", "P. Mehta"], "title": "Concrete: Structure, Properties, and Materials", "venue": "Prentice-Hall.", "year": 1986}, {"authors": ["L. Rampasek", "D. Hidru", "P. Smirnov", "B. Haibe-Kains", "A. Goldenberg"], "title": "Dr.VAE: Drug Response Variational Autoencoder", "year": 2017}, {"authors": ["K. Sohn", "H. Lee", "X. Yan"], "title": "Learning structured output representation using deep conditional generative models", "venue": "Advances in Neural Information Processing Systems 28. 3483\u20133491.", "year": 2015}, {"authors": ["S. Suh", "S. Choi"], "title": "Gaussian Copula Variational Autoencoders for Mixed Data", "venue": "arXiv:1604.04960 [stat.ML].", "year": 2016}, {"authors": ["L.R. Varshney"], "title": "Dimensions, Bits, and Wows in Accelerating Materials Discovery", "venue": "Cham: Springer International Publishing. 1\u201314.", "year": 2018}, {"authors": ["K.L. Wagstaff", "N.L. Lanza", "D.R. Thompson", "T.G. Dietterich", "M.S. Gilmore"], "title": "Guiding scientific discovery with explanations using demud", "venue": "Proc. 27th AAAI Conf. Artif. Intell., 905\u2013911. AAAI Press.", "year": 2013}, {"authors": ["X. Yan", "J. Yang", "K. Sohn", "H. Lee"], "title": "Attribute2image: Conditional image generation from visual attributes", "venue": "Computer Vision \u2013 ECCV 2016, 776\u2013791. Cham: Springer International Publishing.", "year": 2016}, {"authors": ["Yeh", "I.-C."], "title": "Modeling of strength of high-performance concrete using artificial neural networks", "venue": "Cem. Concr. Res. 28(12):1797\u20131808.", "year": 1998}], "sections": [{"heading": "Introduction", "text": "The building sector accounts for a significant proportion of overall energy consumption and pollution worldwide. Concrete, including its primary ingredient, cement, is one of the most energy intensive and polluting building materials to fabricate. Building environmental-friendly infrastructure and reducing pollution due to rapid urbanization are two of the Sustainable Development Goals (SDGs) to be achieved by 2030. Given a desire for more sustainable development, there is growing interest in discovering concrete formulas that minimize pollution. As an example, using low carbon footprint concrete will lead to improvements in Indicator 9.4.1 of the SDG,1 which evaluates the world\u2019s progress to the SDG target by measuring CO2 emission from unit economic activities.\n1https://sustainabledevelopment.un.org/sdg9\nIn the automated material discovery domain, the Materials Project,2 a main program of the Materials Genome Initiative (Jain et al., 2013), is a web-based platform that provides both open source data sets and data analysis tools for researchers to design novel materials. The tool has a relatively large and comprehensive database and interactive tools for materials such as inorganic compounds, nonporous materials, electrodes, etc. However, the Materials Project has not extended to the concrete mixture design domain which we think is equally important.\nTo this end, the Cement Sustainability Initiative (CSI) developed the Environmental Product Declaration (EPD) tool to facilitate the generation of sector-specific EPDs for cement and concrete but also for clinker, lime, and plaster.3 EPD is a voluntary declaration that provides quantitative information about the environmental impact of a product, using life-cycle assessment (LCA) methodology and verified by an independent third party. The cloud-based tool was designed to be easy-to-use, to facilitate the process overall, and to reduce the costs of preparing cement and concrete EPDs. In this work, we join this with data from the open UCI repository.\nFurthermore, recent advances in artificial intelligence have enabled machines to generate highly plausible artifacts, such as images of realistic looking faces (Yan et al., 2016), and natural language (Bowman et al., 2015). In this work, we use Conditional Variational Autoencoders (CVAE), a type of semi-supervised generative model, to generate concrete formulas with desired properties. We demonstrate CVAEs can design concrete formulas with lower emissions and natural resource usage while meeting design requirements. To ensure fair comparison between extant and generated formulas, we also train regression models to predict the environmental impacts and strength of generated formulas. With these results, a construction engineer may create a formula that meets structural needs and best addresses local environmental concerns.\nThe rest of this paper is organized as follows. We first survey some past work on applying data science to scientific discovery. We then move on to describe the data set and the CVAE model details. Next we give results, first show-\n2https://www.materialsproject.org/ 3http://wbcsdcement.org/epd-tool-1\nar X\niv :1\n90 5.\n08 22\n2v 1\n[ cs\n.A I]\n2 0\nM ay\n2 01\n9\ning the average percentage reduction environmental impact achieved by generated better-performing concrete formulas. We then show strength spectrum plots in the 3D environmental impact space which could be turned into a visualization tool for concrete designers. Lastly, we evaluate the performance of strength conditioned generation of the trained model."}, {"heading": "Related Work", "text": "Data science has been applied to scientific discovery for some time but is now gaining popularity. Within materials discovery, the Discovery through Eigenbasis Modeling of Uninteresting Data (DEMUD) algorithm proposed by Wagstaff et al. (2013) guides scientific discovery by prioritizing the data point that carries more information to investigate and backing up with an explanation for novelty, using dimensionality reduction techniques. Varshney (2018) proposes to use Bayesian surprise (Itti and Baldi, 2006) as an objective to select the most interesting data point for investigation. Balachandran et al. (2016) use a regressor-selector pair to locate the desired material in the least number of iterations by alternating between exploration and exploitation strategies.\nRecently, deep generative models have been applied in materials and molecules discovery. Go\u0301mez-Bombarelli et al. (2016) use variational autoencoders (VAEs) based on recurrent neural networks (RNNs) for chemical design in which molecules are encoded as strings. Rampasek et al. (2017) use VAEs to improve the accuracy of drug response predictions. Moreover, semi-supervised generative models allow generation of artifacts with specific, desired characteristics (Yan et al., 2016). We transfer this idea to the concrete formulation generation task to make the synthesis controllable.\nComprehensive physics-based models that predict concrete performance from formulas have been elusive for a century (Mehta and Mehta, 1986). Recently, discriminative machine learning models have been applied to predict the compressive strength of concrete and demonstrated good performance (Chou et al., 2014). However, the environmental impacts of concrete have never been considered in terms of predictive machine learning models. Moreover, the success of deep generative models in generating realistic visual and audio data have given hope to generate other artifacts such as concrete formulas. Here we develop a novel generative machine learning model\u2014a form of computational creativity or accelerated discovery (Besold, Schorlemmer, and Smaill, 2015)\u2014with the capability to design environmentfriendly concrete that may help in meeting sustainable development targets.\nApproach"}, {"heading": "Data set", "text": "We train our model using the Concrete Compressive Strength Data Set (Yeh, 1998) openly available from the UCI Machine Learning Repository. It has 1,030 training examples, with seven continuous features describing the amount of constituent material such as cement, aggregates, and water. Compressive strength, after a particular curing time\n(age), of each concrete formula is also given. In addition, we use the CSI EPD tool to estimate the environmental impact of each concrete formula. The EPD tool produces 12 continuous features characterizing the concrete environmental impact. Among these, we largely focus on global warming potential (GWP), acidification potential (AP), and concrete batching water (CBW) consumption."}, {"heading": "Generative Model", "text": "Our model is based on a variant of the VAE (Kingma and Welling, 2013) called CVAE (Sohn, Lee, and Yan, 2015) as shown in Fig. 1. Like other generative models, the goal is to estimate the data distribution p(y) and to generate realistic new samples from that distribution (Doersch, 2016). What makes CVAE different from VAE is that instead of merely generating realistic samples from the data distribution p(y) randomly, we generate from the conditional distribution p(y|x) which give us control over the underlying properties of generated data by conditioning on different values of x.\nWe interpret the variables in the conditional generative model as follows: x represents the side information of a formula including the strength, age, and environmental impacts, y represents the constituent material amount of a formula, and z is the latent variable. Like the VAE, a CVAE consists of an encoder q\u03c6(z|x, y) that maps the data points to latent codes and a decoder p\u03b8(y|x, z) that reconstructs the data points from latent codes. The decoder and encoder are implemented as neural networks where \u03c6 and \u03b8 are the respective network parameters. Since the goal is to generate realistic concrete samples with desired properties, we want to maximize the log likelihood of the data distribution model log p\u03b8(y\n(i)|x(i)). Since the data distribution p\u03b8(y|x) and the posterior distribution p\u03b8(z|x, y) are both intractable, we maximize the Evidence Lower Bound (ELBO), L, instead. The loss function of CVAE is:\nlog p\u03b8(y (i)|x(i)) \u2265 Ez\u223cq\u03c6(z|x,y)[log p\u03b8(y (i)|z, x(i))]\n\u2212DKL(q\u03c6(z|x(i), y(i)) || p\u03b8(z|x(i))) = L (1)"}, {"heading": "Implementation Details", "text": "In our model, the encoder network consists of four fullyconnected layers with 25 neurons on the first layer, 20 neurons on the second layer, followed by two parallel layers with two neurons on each which represent the mean\nand log variance respectively. The prior is set to be an isotropic Gaussian distribution with zero mean and unit variance p(z) = N (0, I). The reparameterization trick is performed to make the sampling step differentiable and enable backpropagation for training. The decoder network consists of two fully-connected layers with 20 neurons on the first layer and 25 neurons on the second layer. ReLU activation functions are applied to all layers except the output layer of the decoder, where we use sigmoid activation since we scale our data to [0, 1]. The model is trained end to end with Adam optimizer with learning rate of 0.001 and batch size of 10."}, {"heading": "Property Predictors", "text": "We also trained neural network-based regression models as shown in Fig. 2 using the data set that we described above to predict the environmental impact and strength of concrete formulas. Since the compressive strength is dependent on the age of concrete, we trained separate compressive strength predictors for each age group. The purpose of the predictors is twofold. First, we can measure how well the properties of generated samples match the desired properties given as conditioning variables during data generation. Second, we can make fair comparisons between extant and generated concrete formulas in terms of the environmental impact. We experimented with three different types of regression models, namely linear regression, decision tree regression, and neural network regression. Although linear regression can achieve comparable performance with decision tree regression and neural network regression, it often predicts far-out-of-range values for newly generated concrete formulas. The neural network regression has slightly better performance than the decision tree regression and therefore we use the former for prediction tasks. The performance of the neural network regression models for global warming potential (GWP), acidification potential (AP), and concrete batching water (CBW) consumption are shown in Table 1. The performance of the strength predictors are shown in Table 2."}, {"heading": "Results", "text": "Generating environmental impact reducing concrete formulas To demonstrate that the generative algorithm discovers new concrete formulas with reduced environmental impacts, we compared the GWP, AP, and CBW values between extant concrete formulas and generated formulas with the same age and similar strength. For each concrete age group, we generate 60,000 concrete formulas. Both the strength and the environmental impact inputs to the generator are produced by randomly sampling from the standard uniform distribution whereas the latent code input is produced by randomly sampling from the standard bivariate normal distribution. We then use the trained environmental impact predictor and strength predictor for the corresponding age group to evaluate environmental impact and strength of the newly generated formulas. We count the number of generated samples having lower environmental impact than the best observed\nvalues for extant samples in all 3 dimensions. We also measured the average percentage reduction in environmental impact for the better-performing samples as compared to extant samples.\nResults shown in Table 3 indicate that there is significant opportunity to reduce environmental impact. We constructed an approximated convex hull that encloses a majority of the better performing points in the 3D space as shown in Fig. 3. From the diagram we can also see that there is an opportunity to trade off different types of environmental impact. In Table 4, we show one specific generated concrete formula that is nearest neighbor to one of the extremal points used to construct the convex hull, for strength of 30\u00b11 MPa and 40\u00b11 MPa respectively."}, {"heading": "Visualization for concrete designers", "text": "On top of the 3D environmental impact design space that we mentioned earlier, we also color each data point based on the predicted strength of the corresponding formula. Fig. 4 shows the strength spectrum of the newly generated concrete formulas plotted in the environmental impact space for each concrete curing time group. These plots could serve as a visualization tool for the concrete designers to quickly select newly generated formulas that meet the design requirements."}, {"heading": "Strength-conditioned progression generation", "text": "Attribute-conditioned image progression has been experimented by Sohn, Lee, and Yan (2015). In the experiment, one of the attribute dimension values such as gender, facial expression, or hair color is modified by interpolating between the minimum and maximum attribute value, i.e. x = [x\u03b1, xrest], where x\u03b1 = (1 \u2212 \u03b1) \u00b7 xmin + \u03b1 \u00b7 xmax. Indeed, one can visualize that the attribute of generated images change progressively with the change in conditioning\nattribute values. To further demonstrate our concrete generator can produce concrete designs with desired properties, we perform similar experiments. For the purpose of illustration, we limit our conditioning variables to strength and curing time of the concrete. We again generate 10,000 samples for each curing time group, by uniformly sampling from [xmin, xmax]. Fig. 5 shows how well the predicted strength of generated formulations match with the desired strength given as conditioning variable during generation. The performance varies across different curing time groups. RMSE is computed to evaluate the performance quantitatively. The better performing model should have the contour of the scattered dots to cover the diagonal line. The result shows that the generator seems to work the best for concrete curing time of 7 days."}, {"heading": "Conclusion", "text": "We have demonstrated that with the data obtained from an open source database and cloud-based tools, we are able to train a CVAE model and discover new concrete formulations with reduced environmental impact. However, there is still room for improving our model. Our data contains both continuous and categorical values, but CVAE may not be the best for capturing such mixed categorical and continuous data. The VAE-ROC model proposed by Suh and Choi (2016) is said to be better at handling mixed data. We hope by modifying the CVAE model in line with specifics of the VAE-ROC, the generator would synthesize more realistic concrete designs and achieve better performance in\nattribute-conditioned generation. Experimental verification by actually making newly discovered concrete formulations also remains."}], "title": "Accelerated Discovery of Sustainable Building Materials", "year": 2019}
+{
+  "abstractText": "Concrete is the most widely used engineered material in the world with more than 10 billion tons produced annually. Unfortunately, with that scale comes a significant burden in terms of energy, water, and release of greenhouse gases and other pollutants. As such, there is interest in creating concrete formulas that minimize this environmental burden, while satisfying engineering performance requirements. Recent advances in artificial intelligence have enabled machines to generate highly plausible artifacts, such as images of realistic looking faces. Semi-supervised generative models allow generation of artifacts with specific, desired characteristics. In this work, we use Conditional Variational Autoencoders (CVAE), a type of semi-supervised generative model, to discover concrete formulas with desired properties. Our model is trained using open data from the UCI Machine Learning Repository joined with environmental impact data computed using a web-based tool. We demonstrate CVAEs can design concrete formulas with lower emissions and natural resource usage while meeting design requirements. To ensure fair comparison between extant and generated formulas, we also train regression models to predict the environmental impacts and strength of discovered formulas. With these results, a construction engineer may create a formula that meets structural needs and best addresses local environmental concerns.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Xiou Ge"
+    },
+    {
+      "affiliations": [],
+      "name": "Richard T. Goodwin"
+    },
+    {
+      "affiliations": [],
+      "name": "Jeremy R. Gregory"
+    },
+    {
+      "affiliations": [],
+      "name": "Randolph E. Kirchain"
+    },
+    {
+      "affiliations": [],
+      "name": "Joana Maria"
+    },
+    {
+      "affiliations": [],
+      "name": "Lav R. Varshney"
+    }
+  ],
+  "id": "SP:b085da848946130a689da62987588962b0aa7a22",
+  "references": [
+    {
+      "authors": [
+        "P.V. Balachandran",
+        "D. Xue",
+        "J. Theiler",
+        "J. Hogden",
+        "T. Lookman"
+      ],
+      "title": "Adaptive strategies for materials design using uncertainties",
+      "venue": "Scientific Rep. 6(19660).",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T.R. Besold",
+        "M. Schorlemmer",
+        "A. Smaill"
+      ],
+      "title": "Computational Creativity Research: Towards Creative Machines",
+      "venue": "Springer.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S.R. Bowman",
+        "L. Vilnis",
+        "O. Vinyals",
+        "A.M. Dai",
+        "R. J\u00f3zefowicz",
+        "S. Bengio"
+      ],
+      "title": "Generating sentences from a continuous space",
+      "venue": "arXiv:1511.06349",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "J.-S. Chou",
+        "C.-F. Tsai",
+        "A.-D. Pham",
+        "Y.-H. Lu"
+      ],
+      "title": "Machine learning in concrete strength simulations: Multination data analytics",
+      "venue": "Construction and Building Materials 73:771\u2013780.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "C. Doersch"
+      ],
+      "title": "Tutorial on Variational Autoencoders",
+      "venue": "arXiv:1606.05908 [stat.ML].",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "R. G\u00f3mez-Bombarelli",
+        "D.K. Duvenaud",
+        "J.M. Hern\u00e1ndezLobato",
+        "J. Aguilera-Iparraguirre",
+        "T.D. Hirzel",
+        "R.P. Adams",
+        "A. Aspuru-Guzik"
+      ],
+      "title": "Automatic chemical design using a data-driven continuous representation of molecules",
+      "venue": "arXiv:1610.02415 [cs.LG].",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Itti",
+        "P. Baldi"
+      ],
+      "title": "Bayesian surprise attracts human attention",
+      "venue": "Advances in Neural Information Processing Systems 18. 547\u2013554.",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "A. Jain",
+        "S.P. Ong",
+        "G. Hautier",
+        "W. Chen",
+        "W.D. Richards",
+        "S. Dacek",
+        "S. Cholia",
+        "D. Gunter",
+        "D. Skinner",
+        "G. Ceder",
+        "K. a. Persson"
+      ],
+      "title": "The Materials Project: A materials genome approach to accelerating materials innovation",
+      "venue": "APL Mater. 1(1):011002.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "D.P. Kingma",
+        "M. Welling"
+      ],
+      "title": "Auto-Encoding Variational Bayes",
+      "venue": "arXiv:1312.6114 [stat.ML].",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "P. Mehta",
+        "P. Mehta"
+      ],
+      "title": "Concrete: Structure, Properties, and Materials",
+      "venue": "Prentice-Hall.",
+      "year": 1986
+    },
+    {
+      "authors": [
+        "L. Rampasek",
+        "D. Hidru",
+        "P. Smirnov",
+        "B. Haibe-Kains",
+        "A. Goldenberg"
+      ],
+      "title": "Dr.VAE: Drug Response Variational Autoencoder",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "K. Sohn",
+        "H. Lee",
+        "X. Yan"
+      ],
+      "title": "Learning structured output representation using deep conditional generative models",
+      "venue": "Advances in Neural Information Processing Systems 28. 3483\u20133491.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S. Suh",
+        "S. Choi"
+      ],
+      "title": "Gaussian Copula Variational Autoencoders for Mixed Data",
+      "venue": "arXiv:1604.04960 [stat.ML].",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L.R. Varshney"
+      ],
+      "title": "Dimensions, Bits, and Wows in Accelerating Materials Discovery",
+      "venue": "Cham: Springer International Publishing. 1\u201314.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "K.L. Wagstaff",
+        "N.L. Lanza",
+        "D.R. Thompson",
+        "T.G. Dietterich",
+        "M.S. Gilmore"
+      ],
+      "title": "Guiding scientific discovery with explanations using demud",
+      "venue": "Proc. 27th AAAI Conf. Artif. Intell., 905\u2013911. AAAI Press.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "X. Yan",
+        "J. Yang",
+        "K. Sohn",
+        "H. Lee"
+      ],
+      "title": "Attribute2image: Conditional image generation from visual attributes",
+      "venue": "Computer Vision \u2013 ECCV 2016, 776\u2013791. Cham: Springer International Publishing.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Yeh",
+        "I.-C."
+      ],
+      "title": "Modeling of strength of high-performance concrete using artificial neural networks",
+      "venue": "Cem. Concr. Res. 28(12):1797\u20131808.",
+      "year": 1998
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Introduction",
+      "text": "The building sector accounts for a significant proportion of overall energy consumption and pollution worldwide. Concrete, including its primary ingredient, cement, is one of the most energy intensive and polluting building materials to fabricate. Building environmental-friendly infrastructure and reducing pollution due to rapid urbanization are two of the Sustainable Development Goals (SDGs) to be achieved by 2030. Given a desire for more sustainable development, there is growing interest in discovering concrete formulas that minimize pollution. As an example, using low carbon footprint concrete will lead to improvements in Indicator 9.4.1 of the SDG,1 which evaluates the world\u2019s progress to the SDG target by measuring CO2 emission from unit economic activities.\n1https://sustainabledevelopment.un.org/sdg9\nIn the automated material discovery domain, the Materials Project,2 a main program of the Materials Genome Initiative (Jain et al., 2013), is a web-based platform that provides both open source data sets and data analysis tools for researchers to design novel materials. The tool has a relatively large and comprehensive database and interactive tools for materials such as inorganic compounds, nonporous materials, electrodes, etc. However, the Materials Project has not extended to the concrete mixture design domain which we think is equally important.\nTo this end, the Cement Sustainability Initiative (CSI) developed the Environmental Product Declaration (EPD) tool to facilitate the generation of sector-specific EPDs for cement and concrete but also for clinker, lime, and plaster.3 EPD is a voluntary declaration that provides quantitative information about the environmental impact of a product, using life-cycle assessment (LCA) methodology and verified by an independent third party. The cloud-based tool was designed to be easy-to-use, to facilitate the process overall, and to reduce the costs of preparing cement and concrete EPDs. In this work, we join this with data from the open UCI repository.\nFurthermore, recent advances in artificial intelligence have enabled machines to generate highly plausible artifacts, such as images of realistic looking faces (Yan et al., 2016), and natural language (Bowman et al., 2015). In this work, we use Conditional Variational Autoencoders (CVAE), a type of semi-supervised generative model, to generate concrete formulas with desired properties. We demonstrate CVAEs can design concrete formulas with lower emissions and natural resource usage while meeting design requirements. To ensure fair comparison between extant and generated formulas, we also train regression models to predict the environmental impacts and strength of generated formulas. With these results, a construction engineer may create a formula that meets structural needs and best addresses local environmental concerns.\nThe rest of this paper is organized as follows. We first survey some past work on applying data science to scientific discovery. We then move on to describe the data set and the CVAE model details. Next we give results, first show-\n2https://www.materialsproject.org/ 3http://wbcsdcement.org/epd-tool-1\nar X\niv :1\n90 5.\n08 22\n2v 1\n[ cs\n.A I]\n2 0\nM ay\n2 01\n9\ning the average percentage reduction environmental impact achieved by generated better-performing concrete formulas. We then show strength spectrum plots in the 3D environmental impact space which could be turned into a visualization tool for concrete designers. Lastly, we evaluate the performance of strength conditioned generation of the trained model."
+    },
+    {
+      "heading": "Related Work",
+      "text": "Data science has been applied to scientific discovery for some time but is now gaining popularity. Within materials discovery, the Discovery through Eigenbasis Modeling of Uninteresting Data (DEMUD) algorithm proposed by Wagstaff et al. (2013) guides scientific discovery by prioritizing the data point that carries more information to investigate and backing up with an explanation for novelty, using dimensionality reduction techniques. Varshney (2018) proposes to use Bayesian surprise (Itti and Baldi, 2006) as an objective to select the most interesting data point for investigation. Balachandran et al. (2016) use a regressor-selector pair to locate the desired material in the least number of iterations by alternating between exploration and exploitation strategies.\nRecently, deep generative models have been applied in materials and molecules discovery. Go\u0301mez-Bombarelli et al. (2016) use variational autoencoders (VAEs) based on recurrent neural networks (RNNs) for chemical design in which molecules are encoded as strings. Rampasek et al. (2017) use VAEs to improve the accuracy of drug response predictions. Moreover, semi-supervised generative models allow generation of artifacts with specific, desired characteristics (Yan et al., 2016). We transfer this idea to the concrete formulation generation task to make the synthesis controllable.\nComprehensive physics-based models that predict concrete performance from formulas have been elusive for a century (Mehta and Mehta, 1986). Recently, discriminative machine learning models have been applied to predict the compressive strength of concrete and demonstrated good performance (Chou et al., 2014). However, the environmental impacts of concrete have never been considered in terms of predictive machine learning models. Moreover, the success of deep generative models in generating realistic visual and audio data have given hope to generate other artifacts such as concrete formulas. Here we develop a novel generative machine learning model\u2014a form of computational creativity or accelerated discovery (Besold, Schorlemmer, and Smaill, 2015)\u2014with the capability to design environmentfriendly concrete that may help in meeting sustainable development targets.\nApproach"
+    },
+    {
+      "heading": "Data set",
+      "text": "We train our model using the Concrete Compressive Strength Data Set (Yeh, 1998) openly available from the UCI Machine Learning Repository. It has 1,030 training examples, with seven continuous features describing the amount of constituent material such as cement, aggregates, and water. Compressive strength, after a particular curing time\n(age), of each concrete formula is also given. In addition, we use the CSI EPD tool to estimate the environmental impact of each concrete formula. The EPD tool produces 12 continuous features characterizing the concrete environmental impact. Among these, we largely focus on global warming potential (GWP), acidification potential (AP), and concrete batching water (CBW) consumption."
+    },
+    {
+      "heading": "Generative Model",
+      "text": "Our model is based on a variant of the VAE (Kingma and Welling, 2013) called CVAE (Sohn, Lee, and Yan, 2015) as shown in Fig. 1. Like other generative models, the goal is to estimate the data distribution p(y) and to generate realistic new samples from that distribution (Doersch, 2016). What makes CVAE different from VAE is that instead of merely generating realistic samples from the data distribution p(y) randomly, we generate from the conditional distribution p(y|x) which give us control over the underlying properties of generated data by conditioning on different values of x.\nWe interpret the variables in the conditional generative model as follows: x represents the side information of a formula including the strength, age, and environmental impacts, y represents the constituent material amount of a formula, and z is the latent variable. Like the VAE, a CVAE consists of an encoder q\u03c6(z|x, y) that maps the data points to latent codes and a decoder p\u03b8(y|x, z) that reconstructs the data points from latent codes. The decoder and encoder are implemented as neural networks where \u03c6 and \u03b8 are the respective network parameters. Since the goal is to generate realistic concrete samples with desired properties, we want to maximize the log likelihood of the data distribution model log p\u03b8(y\n(i)|x(i)). Since the data distribution p\u03b8(y|x) and the posterior distribution p\u03b8(z|x, y) are both intractable, we maximize the Evidence Lower Bound (ELBO), L, instead. The loss function of CVAE is:\nlog p\u03b8(y (i)|x(i)) \u2265 Ez\u223cq\u03c6(z|x,y)[log p\u03b8(y (i)|z, x(i))]\n\u2212DKL(q\u03c6(z|x(i), y(i)) || p\u03b8(z|x(i))) = L (1)"
+    },
+    {
+      "heading": "Implementation Details",
+      "text": "In our model, the encoder network consists of four fullyconnected layers with 25 neurons on the first layer, 20 neurons on the second layer, followed by two parallel layers with two neurons on each which represent the mean\nand log variance respectively. The prior is set to be an isotropic Gaussian distribution with zero mean and unit variance p(z) = N (0, I). The reparameterization trick is performed to make the sampling step differentiable and enable backpropagation for training. The decoder network consists of two fully-connected layers with 20 neurons on the first layer and 25 neurons on the second layer. ReLU activation functions are applied to all layers except the output layer of the decoder, where we use sigmoid activation since we scale our data to [0, 1]. The model is trained end to end with Adam optimizer with learning rate of 0.001 and batch size of 10."
+    },
+    {
+      "heading": "Property Predictors",
+      "text": "We also trained neural network-based regression models as shown in Fig. 2 using the data set that we described above to predict the environmental impact and strength of concrete formulas. Since the compressive strength is dependent on the age of concrete, we trained separate compressive strength predictors for each age group. The purpose of the predictors is twofold. First, we can measure how well the properties of generated samples match the desired properties given as conditioning variables during data generation. Second, we can make fair comparisons between extant and generated concrete formulas in terms of the environmental impact. We experimented with three different types of regression models, namely linear regression, decision tree regression, and neural network regression. Although linear regression can achieve comparable performance with decision tree regression and neural network regression, it often predicts far-out-of-range values for newly generated concrete formulas. The neural network regression has slightly better performance than the decision tree regression and therefore we use the former for prediction tasks. The performance of the neural network regression models for global warming potential (GWP), acidification potential (AP), and concrete batching water (CBW) consumption are shown in Table 1. The performance of the strength predictors are shown in Table 2."
+    },
+    {
+      "heading": "Results",
+      "text": "Generating environmental impact reducing concrete formulas To demonstrate that the generative algorithm discovers new concrete formulas with reduced environmental impacts, we compared the GWP, AP, and CBW values between extant concrete formulas and generated formulas with the same age and similar strength. For each concrete age group, we generate 60,000 concrete formulas. Both the strength and the environmental impact inputs to the generator are produced by randomly sampling from the standard uniform distribution whereas the latent code input is produced by randomly sampling from the standard bivariate normal distribution. We then use the trained environmental impact predictor and strength predictor for the corresponding age group to evaluate environmental impact and strength of the newly generated formulas. We count the number of generated samples having lower environmental impact than the best observed\nvalues for extant samples in all 3 dimensions. We also measured the average percentage reduction in environmental impact for the better-performing samples as compared to extant samples.\nResults shown in Table 3 indicate that there is significant opportunity to reduce environmental impact. We constructed an approximated convex hull that encloses a majority of the better performing points in the 3D space as shown in Fig. 3. From the diagram we can also see that there is an opportunity to trade off different types of environmental impact. In Table 4, we show one specific generated concrete formula that is nearest neighbor to one of the extremal points used to construct the convex hull, for strength of 30\u00b11 MPa and 40\u00b11 MPa respectively."
+    },
+    {
+      "heading": "Visualization for concrete designers",
+      "text": "On top of the 3D environmental impact design space that we mentioned earlier, we also color each data point based on the predicted strength of the corresponding formula. Fig. 4 shows the strength spectrum of the newly generated concrete formulas plotted in the environmental impact space for each concrete curing time group. These plots could serve as a visualization tool for the concrete designers to quickly select newly generated formulas that meet the design requirements."
+    },
+    {
+      "heading": "Strength-conditioned progression generation",
+      "text": "Attribute-conditioned image progression has been experimented by Sohn, Lee, and Yan (2015). In the experiment, one of the attribute dimension values such as gender, facial expression, or hair color is modified by interpolating between the minimum and maximum attribute value, i.e. x = [x\u03b1, xrest], where x\u03b1 = (1 \u2212 \u03b1) \u00b7 xmin + \u03b1 \u00b7 xmax. Indeed, one can visualize that the attribute of generated images change progressively with the change in conditioning\nattribute values. To further demonstrate our concrete generator can produce concrete designs with desired properties, we perform similar experiments. For the purpose of illustration, we limit our conditioning variables to strength and curing time of the concrete. We again generate 10,000 samples for each curing time group, by uniformly sampling from [xmin, xmax]. Fig. 5 shows how well the predicted strength of generated formulations match with the desired strength given as conditioning variable during generation. The performance varies across different curing time groups. RMSE is computed to evaluate the performance quantitatively. The better performing model should have the contour of the scattered dots to cover the diagonal line. The result shows that the generator seems to work the best for concrete curing time of 7 days."
+    },
+    {
+      "heading": "Conclusion",
+      "text": "We have demonstrated that with the data obtained from an open source database and cloud-based tools, we are able to train a CVAE model and discover new concrete formulations with reduced environmental impact. However, there is still room for improving our model. Our data contains both continuous and categorical values, but CVAE may not be the best for capturing such mixed categorical and continuous data. The VAE-ROC model proposed by Suh and Choi (2016) is said to be better at handling mixed data. We hope by modifying the CVAE model in line with specifics of the VAE-ROC, the generator would synthesize more realistic concrete designs and achieve better performance in\nattribute-conditioned generation. Experimental verification by actually making newly discovered concrete formulations also remains."
+    }
+  ],
+  "title": "Accelerated Discovery of Sustainable Building Materials",
+  "year": 2019
+}

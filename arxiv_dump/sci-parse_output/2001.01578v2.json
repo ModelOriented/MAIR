@@ -1,1 +1,353 @@
-{"abstractText": "Interpreting the behaviors of Deep Neural Networks (usually considered as a black box) is critical especially when they are now being widely adopted over diverse aspects of human life. Taking the advancements from Explainable Artificial Intelligent, this paper proposes a novel technique called Auto DeepVis to dissect catastrophic forgetting in continual learning. A new method to deal with catastrophic forgetting named critical freezing is also introduced upon investigating the dilemma by Auto DeepVis. Experiments on a captioning model meticulously present how catastrophic forgetting happens, particularly showing which components are forgetting or changing. The effectiveness of our technique is then assessed; and more precisely, critical freezing claims the best performance on both previous and coming tasks over baselines, proving the capability of the investigation. Our techniques could not only be supplementary to existing solutions for completely eradicating catastrophic forgetting for life-long learning but also explainable.", "authors": [{"affiliations": [], "name": "Giang Nguyen"}, {"affiliations": [], "name": "Shuan Chen"}, {"affiliations": [], "name": "Thao Do"}, {"affiliations": [], "name": "Tae Joon Jun"}, {"affiliations": [], "name": "Ho-Jin Choi"}, {"affiliations": [], "name": "Daeyoung Kim"}], "id": "SP:97c2bc8db3793d18c0bddf74d3d97fb6dd75a48e", "references": [{"authors": ["Z. Che", "S. Purushotham", "R. Khemani", "Y. Liu"], "title": "Interpretable deep models for icu outcome prediction", "venue": "In AMIA Annual Symposium Proceedings,", "year": 2016}, {"authors": ["P. Dabkowski", "Y. Gal"], "title": "Real time image saliency for black box classifiers", "venue": "In Advances in Neural Information Processing Systems,", "year": 2017}, {"authors": ["I.J. Goodfellow", "M. Mirza", "D. Xiao", "A. Courville", "Y. Bengio"], "title": "An empirical investigation of catastrophic forgetting in gradient-based neural networks", "venue": "arXiv preprint arXiv:1312.6211,", "year": 2013}, {"authors": ["K. He", "X. Zhang", "S. Ren", "J. Sun"], "title": "Deep residual learning for image recognition", "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,", "year": 2016}, {"authors": ["G. Hinton", "O. Vinyals", "J. Dean"], "title": "Distilling the knowledge in a neural network", "venue": "arXiv preprint arXiv:1503.02531,", "year": 2015}, {"authors": ["S. Hou", "X. Pan", "C. Change Loy", "Z. Wang", "D. Lin"], "title": "Lifelong learning via progressive distillation and retrospection", "venue": "In Proceedings of the European Conference on Computer Vision (ECCV),", "year": 2018}, {"authors": ["R. Kemker", "M. McClure", "A. Abitino", "T.L. Hayes", "C. Kanan"], "title": "Measuring catastrophic forgetting in neural networks", "venue": "In Thirty-second AAAI conference on artificial intelligence,", "year": 2018}, {"authors": ["J. Kirkpatrick", "R. Pascanu", "N. Rabinowitz", "J. Veness", "G. Desjardins", "A.A. Rusu", "K. Milan", "J. Quan", "T. Ramalho", "A Grabska-Barwinska"], "title": "Overcoming catastrophic forgetting in neural networks", "venue": "Proceedings of the national academy of sciences,", "year": 2017}, {"authors": ["Lee", "S.-W", "Kim", "J.-H", "J. Jun", "Ha", "J.-W", "B.T. Zhang"], "title": "Overcoming catastrophic forgetting by incremental moment matching", "venue": "In Advances in neural information processing systems,", "year": 2017}, {"authors": ["Z. Li", "D. Hoiem"], "title": "Learning without forgetting", "venue": "IEEE transactions on pattern analysis and machine intelligence,", "year": 2017}, {"authors": ["C.X. Ling", "T. Bohn"], "title": "A unified framework for lifelong learning in deep neural networks", "venue": "arXiv preprint arXiv:1911.09704,", "year": 2019}, {"authors": ["M. McCloskey", "N.J. Cohen"], "title": "Catastrophic interference in connectionist networks: The sequential learning problem", "venue": "In Psychology of learning and motivation,", "year": 1989}, {"authors": ["U. Michieli", "P. Zanuttigh"], "title": "Incremental learning techniques for semantic segmentation", "venue": "In Proceedings of the IEEE International Conference on Computer Vision Workshops,", "year": 2019}, {"authors": ["C.V. Nguyen", "A. Achille", "M. Lam", "T. Hassner", "V. Mahadevan", "S. Soatto"], "title": "Toward understanding catastrophic forgetting in continual learning", "venue": "arXiv preprint arXiv:1908.01091,", "year": 2019}, {"authors": ["G. Nguyen", "T.J. Jun", "T. Tran", "D. Kim"], "title": "Contcap: A comprehensive framework for continual image captioning", "venue": "arXiv preprint arXiv:1909.08745,", "year": 2019}, {"authors": ["M. Robnik-\u0160ikonja", "I. Kononenko"], "title": "Explaining classifications for individual instances", "venue": "IEEE Transactions on Knowledge and Data Engineering,", "year": 2008}, {"authors": ["K. Shmelkov", "C. Schmid", "K. Alahari"], "title": "Incremental learning of object detectors without catastrophic forgetting", "venue": "In Proceedings of the IEEE International Conference on Computer Vision,", "year": 2017}, {"authors": ["K. Simonyan", "A. Vedaldi", "A. Zisserman"], "title": "Deep inside convolutional networks: Visualising image classification models and saliency maps", "venue": "arXiv preprint arXiv:1312.6034,", "year": 2013}, {"authors": ["O. Tasar", "Y. Tarabalka", "P. Alliez"], "title": "Incremental learning for semantic segmentation of large-scale remote sensing data", "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing,", "year": 2019}, {"authors": ["M. Toneva", "A. Sordoni", "Combes", "R.T. d", "A. Trischler", "Y. Bengio", "G.J. Gordon"], "title": "An empirical study of example forgetting during deep neural network learning", "venue": "arXiv preprint arXiv:1812.05159,", "year": 2018}, {"authors": ["J. Yosinski", "J. Clune", "A. Nguyen", "T. Fuchs", "H. Lipson"], "title": "Understanding neural networks through deep visualization", "venue": "arXiv preprint arXiv:1506.06579,", "year": 2015}, {"authors": ["M.D. Zeiler", "R. Fergus"], "title": "Visualizing and understanding convolutional networks", "venue": "In European conference on computer vision,", "year": 2014}, {"authors": ["F. Zenke", "B. Poole", "S. Ganguli"], "title": "Continual learning through synaptic intelligence", "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume", "year": 2017}, {"authors": ["M. Zhai", "L. Chen", "F. Tung", "J. He", "M. Nawhal", "G. Mori"], "title": "Lifelong gan: Continual learning for conditional image generation", "venue": "In Proceedings of the IEEE International Conference on Computer Vision,", "year": 2019}, {"authors": ["L.M. Zintgraf", "T.S. Cohen", "T. Adel", "M. Welling"], "title": "Visualizing deep neural network decisions: Prediction difference analysis", "venue": "arXiv preprint arXiv:1702.04595,", "year": 2017}], "sections": [{"heading": "1. Introduction", "text": "Regarding human evolution, life-long learning has been considered as one of the most crucial abilities, helping us develop more complicated skills throughout our lifetime. The idea of this learning strategy is hence deployed extensively in deep learning community. Life-long learning (or continual learning) enables machine learning models to perceive new knowledge while simultaneously exposing backwardforward transfer, non-forgetting, or few-show learning (Ling & Bohn, 2019). While the aforementioned properties are the ultimate goals for life-long learning systems, catastrophic forgetting or semantic drift naturally occurs in deep neural networks (DNNs) because they are mostly updated upon gradient descent algorithm (Goodfellow et al., 2013).\nMany attempts have been succeeded to address the forgetting problem in generative models (Zhai et al., 2019), object detection (Shmelkov et al., 2017), semantic segmentation\n(Tasar et al., 2019), or captioning (Nguyen et al., 2019b). However, algorithms tend to rely on external factors (e.g., input data, network structure) while ignoring why catastrophic forgetting happens internally. If we have the picture of the forgetting process and understand how this problem affects models, it would be one step towards learning without forgetting.\nContemporary interpretability methods give us advantages to understand the decision-making process of deep neural networks, ranging from visualizing saliency maps (Simonyan et al., 2013; Dabkowski & Gal, 2017) to transforming models into human-friendly structures (Che et al., 2016). Interpreting the activation of a neuron or a layer in networks helps us categorize the specific role of each block, layer, or even a node. It has been proven that the earlier layers extract the basic features, such as edges or colors; while deeper layers are responsible for detecting distinctive characteristics. Prediction Difference Analysis (PDA) (Zintgraf et al., 2017), even more specifically, highlights pixels that support or counteract a certain class, indicating which features are positive or negative to a prediction.\nAlthough catastrophic forgetting is tough and undesirable, research to understand this problem is rare amongst AI community. The interest in understanding or measuring catastrophic forgetting does not correlate with the number of research to deal with this problem. (Kemker et al., 2018) develop new metrics to help compare continual learning techniques fairly and directly. (Nguyen et al., 2019a) study which properties cause the hardness for the learning process. By modeling the chosen properties using task space, they can estimate how much a model forgets in a sequential learning scenario, shedding light on factors affecting the error rate on a task sequence. However, they can not explain what is being forgotten or which components are forgetting inside the model, but showing what properties of tasks trigger catastrophic forgetting. In comparison, our work focuses on study which components of a network are most likely to change corresponding to a given sequence of tasks.\nThis research introduces a novel approach to dissect catastrophic forgetting by visualizing hidden layers in classincremental learning (considered as the hardest learning\nar X\niv :2\n00 1.\n01 57\n8v 2\n[ cs\n.L G\n] 7\nJ an\n2 02\n0\nscenario in continual learning). In this learning paradigm, rehearsal strategies using previous data are prohibited and samples of the incoming tasks are unseen so far. We propose a tool named Auto DeepVis which leverages the prediction difference analysis from (Zintgraf et al., 2017). This tool automates the dissection of catastrophic forgetting, exactly pointing out which components in a model are causing the forgetting. By using Intersection over Union (IoU), the degree of forgetting is measured after each class is added, thus giving us an intuition how forgetting happens on a given part of the network.\nIn the first step, our tool observes the evidence and against for a prediction. If the evidence for a given image changes, we argue that the model is forgetting what it needs to look. IoUs between the previous and current evidence are taken into account to determine the degree of forgetting. We automate this procedure on representative samples of trained classes, followed by a generalization step to figure out the main culprits of forgetting. The algorithm is outlined in Algorithm 1.\nIn our thorough analysis of the model, it is necessary to pick the appropriate components in a block to visualize the changes. For instance, in ResNet-50 (He et al., 2016), there are 5 convolutional blocks, thus interpreting the activation of all filters in the whole 5 blocks will take a large amount of time. We propose to choose the filter having the highest IoU value with the ground truth segmentation. This choice is sufficient because although some filters may be blocked by activation function, ranking the importance of the remaining filters over a convolutional block is impossible. As a result, the biggest-IoU filter can be the representative for a given block.\nA work from (Kemker et al., 2018) conducts experiments on state-of-the-art continual learning techniques that address catastrophic forgetting. It is demonstrated that although the algorithms work, but only on weak constrains and unfair baselines, thus the forgetting problem is not yet fully solved. They insist on the infeasibility of using toy datasets, such as MNIST (Kirkpatrick et al., 2017) or CIFAR (Zenke et al., 2017) in continual learning. Consequently, we choose Split MS-COCO (Nguyen et al., 2019b) to measure the forgetting on deep neural networks. From the results of the dissection, we simply freeze the most plastic components in the network to protect the accumulated information. In addition to visualization on Convolutional Neural Network (CNN), we also briefly study how the decoder which consists of Recurrent Neural Network (RNN) changes in continual learning.\nWe summarize the contributions of this work as follows: First, we propose a novel and pioneering method to analyze catastrophic forgetting in continual learning. Auto DeepVis automatically points out the forgetting components in a network while learning a task sequence. Second,\nwe introduce a new approach to mitigate catastrophic forgetting based on findings. Our techniques could play a complementary role in the step towards eradicating catastrophic forgetting."}, {"heading": "2. Related Work", "text": "Feature Visualization To understand how a model forgets the features learned before, we need to visualize how the model processes the input image. To do this, the layerwise visualization of the model is performed. The old model (or original model) is the model we have obtained so far, denoting acquired knowledge on past tasks. On the other hand, the new model (or current model) is the network facing the new incoming tasks and should avoid catastrophic forgetting.\nThere are several works trying to visualize convolutional neural networks by various kinds of means. (Zeiler & Fergus, 2014) make use of multi-layered deconvolutional networks (deconvnet), using switches to record the local max value of the original input images. Deconvnet allows us to recognize which features are expected by a specific part of a network or what properties of image excite a chosen neuron the most. Instead of feeding an input image to diagnose, (Yosinski et al., 2015) attempt to generate a synthetic image which maximizes the activation of a given neuron by gradient descent algorithm.\nAnother broadly used approach called saliency maps by (Simonyan et al., 2013), presenting a gradient-based technique to measure how the classification score is sensitively changed due to the small changes from pixels. This work shows a generalized version of deconvolution layers. A similar approach has been proposed by (Robnik-S\u030cikonja & Kononenko, 2008), which completely removes input pixels instead of calculating the gradient of those pixels. A variant of the above-mentioned work called PDA is proposed by (Zintgraf et al., 2017). They utilize conditional sampling that sweeps away patches of connected pixels instead of removing one single pixel at a time, which eventually shows better visualization results. However, this tool only generates the computer vision, leaving the conclusion for users. This manual process can not ensure the quality of the observation when we can have hundreds or even thousands of feature maps in a convolutional block. In this work, PDA is adopted to build an automatic tool for visualizing catastrophic forgetting.\nCatastrophic Forgetting Catastrophic forgetting has been introduced for the first time by (McCloskey & Cohen, 1989) in connectionist networks. Very recently, (Toneva et al., 2018) reframe the definition of forgetting as when the prediction of a model on a sample is shifted during the learning process, from correctly to incorrectly. Going deeply into\nthe model, we can argue that the values of neurons have changed drastically, thus possibly resulting in a different answer for the same input image.\nElastic Weight Consolidation - EWC (Kirkpatrick et al., 2017) uses Fisher information matrix to help model mimic the synaptic consolidation mechanism of the human brain. Important parameters for the performance of the old task are protected while others are updated to minimize the loss on the new dataset. By comparison, the significance of each synapse (or weight) in the neural network is computed locally in (Zenke et al., 2017). When the distribution interference appears, synaptic states keep and estimate the importance of synapses by an online estimation and crucial synapses are prevented from changing. Learning without Forgetting - LwF (Li & Hoiem, 2017) generates pseudo labels on incoming data to help capture the previous distribution. In training, knowledge distillation (Hinton et al., 2015) turns the pseudo labels into soft targets and a warmup step is applied. Based on Bayesian neural networks, (Lee et al., 2017) match the moment of posteriors on both two tasks to guide the new network to a common low-error region. Knowledge distillation from the old model and an expert feature extractor is conducted in (Hou et al., 2018), complemented by a retrospection on a trivial fraction of old data. (Rusu et al., 2016) dynamically expand the network by specialized sub-networks to absorb new knowledge while the old modules are frozen.\nCatastrophic forgetting can be generally addressed by regularization, data replay or altering network architecture. In this research, we show that only by simply freezing the fragile blocks of a network, we can significantly improve the generalization performance."}, {"heading": "3. Methodology", "text": "Although (Nguyen et al., 2019a) show an interest in understanding catastrophic forgetting, they focus on how task properties influence the hardness of sequential learning. Hence, they are explaining based on the input data. In comparison, our work attempts to explain how the forgetting happens over time based on the computer vision of models. (Zintgraf et al., 2017) present response from a network to a given image in which we can clarify which features support or counteract the prediction. We leverage this tool for visualizing the computer vision, but extend to an automatic version - Auto DeepVis to efficiently dissect the forgetting dilemma. The ultimate goal of this tool is to figure out the most plastic layers or blocks in a network. Plasticity means low degree of stiffness or easy to change. Moreover, continual learning techniques have been proposed to alleviate catastrophic forgetting, but none of them are devised based on the findings from Explainable AI. Critical freezing is built on the top of Auto DeepVis\u2019 investigation to provide an interpretable yet effective approach to acquire the life-long learning ability for deep learning models. In the learning process, the stable state of the old model is employed to initialize the new network. This way really mimics the working mechanism of the human brain."}, {"heading": "3.1. Auto DeepVis", "text": "To dissect the model, we visualize the hidden layers to understand the forgetting effect inside a model after being trained on different tasks. (Zintgraf et al., 2017) claim that different features of the objects being dissected could be captured and visualized by particular feature maps in different layers. By looking into every response maps in one convolutional block, we realize diverse features, such as eyes, face shape, car wheels, or background are isolatedly recognized by different channels. Unfortunately, finding each feature map manually by human eyes might be inefficient. To solve this issue, we only compare the computer vision with the ground truth segmentation rather than small details. In general, we do not look for the answer that what features are being forgotten, but which layers are now forgetting.\nAssume the semantic segmentation label of MS-COCO dataset (Lin et al., 2014) is what human sees, we compare this segmentation with the computer vision of the model, particularly concentrating on positive evidence for a prediction. The IoU value between the segmentation and evidence is calculated as shown in Fig. 1 (a). The red dots in the map describe the positive evidence while the blue points represent the against. The scheme of Auto DeepVis is illustrated in Fig. 2.\nHaving the m-th feature map (FM) in the l-th layer of a model M and the ground truth segmentation GT, the IoU is\ncomputed as:\nIoUM,GT (l,m) = FM(m, l) \u2229GT FM(m, l) \u222aGT\n(1)\nTo select the feature map having the largest overlap with the ground truth in each convolutional block, the representative feature map (RM) with the best IoU is denoted as RMM,GT :\nRMM,GT (l) = argmaxm(IoUM,GT (l,m)) (2)\nTo understand how the computer vision change over the training process, we compared the RM in the new model with the RM of original network RMMO,GT Fig. 1 (b). The forgetting effect of each trained model is measured by the IoU between the original model MO and new model MN :\nIoUMN ,MO (l,m) = FM(m) \u2229RMMO,GT FM(m) \u222aRMMO,GT\n(3)\nSimilar to the method of finding out the best map fitting with ground truth, the feature map representing the best memory of the original feature map is denoted as RMMN ,MO in Equation 4. In the same block of both the old and new model, the role of a filter can be adjusted. For instance, the 50th filter in the 2nd block of the old model detects the eyes, but the same filter in the same block of the new model will consider the face. The way we propose to pick RMMN ,MO sounds heuristically sufficient.\nRMMN ,MO (l) = argmaxm(IoUMN ,MO (l,m)) (4)\nThe pipeline of our method is depicted in Algorithm 1. The sample set S is particularized in Section 4, and K is the number of the convolutional blocks in the network. By inputting image by image from S, we get the visualization of filters over the whole network by PDA. Next, we iterate\nAlgorithm 1 Auto DeepVis Input: Sample set S, segmentation ground truth GT , old model MO, new model MN , number of blocks K Output: Forgetting layers F i = 0 \u0141 = \u00d8 repeat\nI = S[i] IoUs = \u00d8 RM = \u00d8 FM = PDA(I) for j = 1 to K do RMMO,GT \u2190 FM with highest IoUMO,GT RMMO,MN \u2190 FM with highest IoUMO,MN Append(IoUs,max(IoUMO,MN )) Append(RM,RMMO,MN ) end for b\u2190 block with highest drop in IoUs Append(\u0141, b) i = i + 1\nuntil i = size(S) F\u2190 Most frequent block in \u0141\nthrough the blocks to obtain the fragile block against a given image, then the indexOf gets the most forgetting block. Finally, we generalize on S to return the most forgetting component F."}, {"heading": "3.2. Critical Freezing", "text": "Using the investigation from Auto DeepVis, we freeze or apply a tiny learning rate on the most plastic layer in a deep learning model. Take Resnet-50 including 5 convolutional blocks as an example, if we find the 3rd convolutional layer fragile, this layers should be slightly updated or completely frozen in the training process of the next task. The objective function is the standard cross-entropy loss for\nimage captioning, in which V is the size of the vocabulary.\nL = LCE = \u2212 V\u2211\ni=1\nY ik log Y\u0302 i k (5)\nThe proposed technique can accompany various existing solutions. For instance, when using knowledge distillation for continual semantic segmentation in (Michieli & Zanuttigh, 2019), progressively adding classes alters the evolution of the model, misleading the network to a local optimum. By knowing which regions are needed to be intact, the performance on the old task could be largely improved. Our tool could also benefits other continual learning approaches, ranging from regularization to dynamic architecture."}, {"heading": "4. Experiments", "text": "When using PDA (Zintgraf et al., 2017), the optimal window size for the best visualization is k = 5. We use a tweaked dataset called Split MS-COCO from (Nguyen et al., 2019b) to reproduce catastrophic forgetting. The dataset contains over 47k images for training and over 23k images for validation and testing. For incremental learning setup, at one time step, a new class will arrive. Notably, data balancing is not applied yet; as a result, this technique could be left for future work to increase the overall performance.\nExperiments are performed on a multi-modal task (captioning) combining both CNN and RNN in the architecture, obeying the sequential scenario from (Nguyen et al., 2019b). We initially train 19 classes to acquire the original model, then adding 5 classes incrementally. Obviously, if the investigation from our tool makes the chosen task work, the findings could be also deployed on object detection, classification or segmentation. The captioning model is divided into an encoder followed by a decoder. Therefore, the orig-\ninal structure should be transformed into a two-head network so that we can get the prediction of the CNN and the sentence generated from the decoder simultaneously. We add one more output layer as a classifier after the encoder, and our proposed architecture is presented in Fig. 3. The encoder is the ResNet-50, and the decoder includes an embedding layer, a single-layer LSTM, and a fully-connected layer producing a word at a time step.\nAs our tool works on a single image, running multiple times on different and diverse input images is needed, helping us generalize the forgetting. We choose a sample set S (bicycle, car, motorcycle, airplane, bus, train, bird, cat, dog, horse, sheep, and cow) from 19 trained classes.\nTo evaluate critical freezing, there are baselines, such as fine-tuning or heuristically freezing. In fine-tuning, The old model initializes the new model and training is done to minimize the loss on the new task. As the network contains two parts, encoder and decoder, we freeze them separately. The traditional scores for image captioning are considered in evaluating the superiority of critical freezing over the baselines."}, {"heading": "4.1. Auto DeepVis to Dissect CNNs", "text": "To dissect which parts in the encoder are forgetting the most, we first apply Auto DeepVis to elaborate the IoU of each layer comparing with the ground truth and the original computer vision seen by layers of the original model M19 (trained on 19 classes). After adding a new class, we obtain M20, and Mn is the model when n classes are witnessed. In Fig. 4, the visualized results show that the first and second block of ResNet-50 can overall capture the outline of objects. Computer vision turns to represent more detailed features from the objects and other background features to determine the class of the input image.\nSubsequently, the IoUs of different blocks in each model, comparing with ground truth, are calculated by equation 1 and 2. The results reveal that although different models show different levels of performance of classification, the IoUMn,GT (n > 19) values are roughly similar at all the layers, which implies that no matter the how good the performance is, the level of matching between feature maps of each model and the human vision is preserved (Fig. 5).\nTo quantitatively measure how the forgetting occurs in the encoder, we compute IoUs by equation 3 and 4. As shown in\nFig 6, it is clear that the IoU between M20 and M19 is much higher than the figure for M24 and M19 in every block. For M20, the IoUM20,M19 is always 1.00 at the first block of the network, showing that a very trivial forgetting happens here. The IoUM20,M19 starts to drop along the blocks because the later feature maps are constructed by the previous maps. The forgetting effect persists and does not show which block is forgetting the most."}, {"heading": "M24 Quill Quill Thimble Quill Tray", "text": "For M24, the first block of the model still gets a high IoU comparing with M19 and the values decrease from the second block. Unlike the stably decreasing trend seen in M20, the decreasing rate of IoUM24,M19 fluctuates through the blocks and a severe drop at block 3 is observed in all the test-\ning input, suggesting that the forgetting effect might happen the most in this block. After the 3rd block, almost instances show a continuous IoU decline at block 4. Iterating this procedure on all images of the set S reinforces that the most dramatically forgetting is happening at block 3 and block 4 in ResNet-50.\nFreezing the mentioned blocks means the feature extraction stays unchanged. We conduct a qualitative analysis to observe the response of the encoder while critical freezing is adopted in Table. 2. The prediction keeps virtually the same with the output of the original model. The only misclassifcation in the Table. 2 is from American eagle and Crane; however, they are still from the bird family. While two naive approaches of freezing in (Nguyen et al., 2019b) are also implemented (partially freezing), we devise critical freezing based on findings, which only freezes the most plastic layers. As shown in Table. 1, precisely freezing helps learning on both the new and old tasks more effectively."}, {"heading": "4.2. Decoder Dissection", "text": "In addition to dissecting CNN, we also want to inspect and visualize the changes of the decoder. However, to the best of our knowledge, there is still no work done in revealing how RNNs visually see or sense the input. Therefore, in this work, we simply freeze each component of the decoder in learning the new task and observe the effect of freezing. We also keep the encoder frozen from M19 to see how the synthetic caption depends on an individual layer of the decoder. Table 3 suggests the significance of the LSTM network in the sentence generation process while the linear layer can be trainable over a task series."}, {"heading": "5. Conclusion", "text": "As the presence of catastrophic forgetting hinders the lifelong learning, understanding how this phenomenon happens in computer vision is extremely significant. We introduce Auto DeepVis to grasp catastrophic forgetting. From knowing where the forgetting issue is coming from, a technique has been proposed focusing on plastic components of a model to moderate the information loss. The results indicate the superiority of critical freezing over the baselines. We also try knowledge distillation on plastic layers but it does not help much because the discrepancy of teacher and student is accumulated over time, leading to a difficulty\nfor teaching. To the best of our knowledge, no work has been done for mitigating catastrophic forgetting based on Explainable AI. This work shows a satisfying result from the investigation. Auto DeepVis gives good observation on the forgetting layer, and freezing critical layers helps the model mitigate catastrophic forgetting and could play as a supplement to other techniques to completely address catastrophic forgetting.\nThere are future works following our paper. First and foremost, a deeper, cleaner, and effort-free version of our tool should be taken into consideration to give a better insight into catastrophic forgetting. At this time, we only consider the filter having the highest IoU. Although this assumption is appropriate, it is still crude, thus looking into other filters in one convolutional block might be necessary as well. Scaling this work for other tasks can better validate the feasibility of the proposed continual learning algorithm. Last but not least, RNN is now being overlooked and not understood fully via interpretability methods. RNN dissection requires efforts but would open the door to understanding the nature of this network."}], "title": "Dissecting Catastrophic Forgetting in  Continual Learning by Deep Visualization", "year": 2020}
+{
+  "abstractText": "Interpreting the behaviors of Deep Neural Networks (usually considered as a black box) is critical especially when they are now being widely adopted over diverse aspects of human life. Taking the advancements from Explainable Artificial Intelligent, this paper proposes a novel technique called Auto DeepVis to dissect catastrophic forgetting in continual learning. A new method to deal with catastrophic forgetting named critical freezing is also introduced upon investigating the dilemma by Auto DeepVis. Experiments on a captioning model meticulously present how catastrophic forgetting happens, particularly showing which components are forgetting or changing. The effectiveness of our technique is then assessed; and more precisely, critical freezing claims the best performance on both previous and coming tasks over baselines, proving the capability of the investigation. Our techniques could not only be supplementary to existing solutions for completely eradicating catastrophic forgetting for life-long learning but also explainable.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Giang Nguyen"
+    },
+    {
+      "affiliations": [],
+      "name": "Shuan Chen"
+    },
+    {
+      "affiliations": [],
+      "name": "Thao Do"
+    },
+    {
+      "affiliations": [],
+      "name": "Tae Joon Jun"
+    },
+    {
+      "affiliations": [],
+      "name": "Ho-Jin Choi"
+    },
+    {
+      "affiliations": [],
+      "name": "Daeyoung Kim"
+    }
+  ],
+  "id": "SP:97c2bc8db3793d18c0bddf74d3d97fb6dd75a48e",
+  "references": [
+    {
+      "authors": [
+        "Z. Che",
+        "S. Purushotham",
+        "R. Khemani",
+        "Y. Liu"
+      ],
+      "title": "Interpretable deep models for icu outcome prediction",
+      "venue": "In AMIA Annual Symposium Proceedings,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "P. Dabkowski",
+        "Y. Gal"
+      ],
+      "title": "Real time image saliency for black box classifiers",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "I.J. Goodfellow",
+        "M. Mirza",
+        "D. Xiao",
+        "A. Courville",
+        "Y. Bengio"
+      ],
+      "title": "An empirical investigation of catastrophic forgetting in gradient-based neural networks",
+      "venue": "arXiv preprint arXiv:1312.6211,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "K. He",
+        "X. Zhang",
+        "S. Ren",
+        "J. Sun"
+      ],
+      "title": "Deep residual learning for image recognition",
+      "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "G. Hinton",
+        "O. Vinyals",
+        "J. Dean"
+      ],
+      "title": "Distilling the knowledge in a neural network",
+      "venue": "arXiv preprint arXiv:1503.02531,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S. Hou",
+        "X. Pan",
+        "C. Change Loy",
+        "Z. Wang",
+        "D. Lin"
+      ],
+      "title": "Lifelong learning via progressive distillation and retrospection",
+      "venue": "In Proceedings of the European Conference on Computer Vision (ECCV),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R. Kemker",
+        "M. McClure",
+        "A. Abitino",
+        "T.L. Hayes",
+        "C. Kanan"
+      ],
+      "title": "Measuring catastrophic forgetting in neural networks",
+      "venue": "In Thirty-second AAAI conference on artificial intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Kirkpatrick",
+        "R. Pascanu",
+        "N. Rabinowitz",
+        "J. Veness",
+        "G. Desjardins",
+        "A.A. Rusu",
+        "K. Milan",
+        "J. Quan",
+        "T. Ramalho",
+        "A Grabska-Barwinska"
+      ],
+      "title": "Overcoming catastrophic forgetting in neural networks",
+      "venue": "Proceedings of the national academy of sciences,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Lee",
+        "S.-W",
+        "Kim",
+        "J.-H",
+        "J. Jun",
+        "Ha",
+        "J.-W",
+        "B.T. Zhang"
+      ],
+      "title": "Overcoming catastrophic forgetting by incremental moment matching",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Z. Li",
+        "D. Hoiem"
+      ],
+      "title": "Learning without forgetting",
+      "venue": "IEEE transactions on pattern analysis and machine intelligence,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C.X. Ling",
+        "T. Bohn"
+      ],
+      "title": "A unified framework for lifelong learning in deep neural networks",
+      "venue": "arXiv preprint arXiv:1911.09704,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. McCloskey",
+        "N.J. Cohen"
+      ],
+      "title": "Catastrophic interference in connectionist networks: The sequential learning problem",
+      "venue": "In Psychology of learning and motivation,",
+      "year": 1989
+    },
+    {
+      "authors": [
+        "U. Michieli",
+        "P. Zanuttigh"
+      ],
+      "title": "Incremental learning techniques for semantic segmentation",
+      "venue": "In Proceedings of the IEEE International Conference on Computer Vision Workshops,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C.V. Nguyen",
+        "A. Achille",
+        "M. Lam",
+        "T. Hassner",
+        "V. Mahadevan",
+        "S. Soatto"
+      ],
+      "title": "Toward understanding catastrophic forgetting in continual learning",
+      "venue": "arXiv preprint arXiv:1908.01091,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "G. Nguyen",
+        "T.J. Jun",
+        "T. Tran",
+        "D. Kim"
+      ],
+      "title": "Contcap: A comprehensive framework for continual image captioning",
+      "venue": "arXiv preprint arXiv:1909.08745,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Robnik-\u0160ikonja",
+        "I. Kononenko"
+      ],
+      "title": "Explaining classifications for individual instances",
+      "venue": "IEEE Transactions on Knowledge and Data Engineering,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "K. Shmelkov",
+        "C. Schmid",
+        "K. Alahari"
+      ],
+      "title": "Incremental learning of object detectors without catastrophic forgetting",
+      "venue": "In Proceedings of the IEEE International Conference on Computer Vision,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "K. Simonyan",
+        "A. Vedaldi",
+        "A. Zisserman"
+      ],
+      "title": "Deep inside convolutional networks: Visualising image classification models and saliency maps",
+      "venue": "arXiv preprint arXiv:1312.6034,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "O. Tasar",
+        "Y. Tarabalka",
+        "P. Alliez"
+      ],
+      "title": "Incremental learning for semantic segmentation of large-scale remote sensing data",
+      "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Toneva",
+        "A. Sordoni",
+        "Combes",
+        "R.T. d",
+        "A. Trischler",
+        "Y. Bengio",
+        "G.J. Gordon"
+      ],
+      "title": "An empirical study of example forgetting during deep neural network learning",
+      "venue": "arXiv preprint arXiv:1812.05159,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Yosinski",
+        "J. Clune",
+        "A. Nguyen",
+        "T. Fuchs",
+        "H. Lipson"
+      ],
+      "title": "Understanding neural networks through deep visualization",
+      "venue": "arXiv preprint arXiv:1506.06579,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M.D. Zeiler",
+        "R. Fergus"
+      ],
+      "title": "Visualizing and understanding convolutional networks",
+      "venue": "In European conference on computer vision,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "F. Zenke",
+        "B. Poole",
+        "S. Ganguli"
+      ],
+      "title": "Continual learning through synaptic intelligence",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Zhai",
+        "L. Chen",
+        "F. Tung",
+        "J. He",
+        "M. Nawhal",
+        "G. Mori"
+      ],
+      "title": "Lifelong gan: Continual learning for conditional image generation",
+      "venue": "In Proceedings of the IEEE International Conference on Computer Vision,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L.M. Zintgraf",
+        "T.S. Cohen",
+        "T. Adel",
+        "M. Welling"
+      ],
+      "title": "Visualizing deep neural network decisions: Prediction difference analysis",
+      "venue": "arXiv preprint arXiv:1702.04595,",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Introduction",
+      "text": "Regarding human evolution, life-long learning has been considered as one of the most crucial abilities, helping us develop more complicated skills throughout our lifetime. The idea of this learning strategy is hence deployed extensively in deep learning community. Life-long learning (or continual learning) enables machine learning models to perceive new knowledge while simultaneously exposing backwardforward transfer, non-forgetting, or few-show learning (Ling & Bohn, 2019). While the aforementioned properties are the ultimate goals for life-long learning systems, catastrophic forgetting or semantic drift naturally occurs in deep neural networks (DNNs) because they are mostly updated upon gradient descent algorithm (Goodfellow et al., 2013).\nMany attempts have been succeeded to address the forgetting problem in generative models (Zhai et al., 2019), object detection (Shmelkov et al., 2017), semantic segmentation\n(Tasar et al., 2019), or captioning (Nguyen et al., 2019b). However, algorithms tend to rely on external factors (e.g., input data, network structure) while ignoring why catastrophic forgetting happens internally. If we have the picture of the forgetting process and understand how this problem affects models, it would be one step towards learning without forgetting.\nContemporary interpretability methods give us advantages to understand the decision-making process of deep neural networks, ranging from visualizing saliency maps (Simonyan et al., 2013; Dabkowski & Gal, 2017) to transforming models into human-friendly structures (Che et al., 2016). Interpreting the activation of a neuron or a layer in networks helps us categorize the specific role of each block, layer, or even a node. It has been proven that the earlier layers extract the basic features, such as edges or colors; while deeper layers are responsible for detecting distinctive characteristics. Prediction Difference Analysis (PDA) (Zintgraf et al., 2017), even more specifically, highlights pixels that support or counteract a certain class, indicating which features are positive or negative to a prediction.\nAlthough catastrophic forgetting is tough and undesirable, research to understand this problem is rare amongst AI community. The interest in understanding or measuring catastrophic forgetting does not correlate with the number of research to deal with this problem. (Kemker et al., 2018) develop new metrics to help compare continual learning techniques fairly and directly. (Nguyen et al., 2019a) study which properties cause the hardness for the learning process. By modeling the chosen properties using task space, they can estimate how much a model forgets in a sequential learning scenario, shedding light on factors affecting the error rate on a task sequence. However, they can not explain what is being forgotten or which components are forgetting inside the model, but showing what properties of tasks trigger catastrophic forgetting. In comparison, our work focuses on study which components of a network are most likely to change corresponding to a given sequence of tasks.\nThis research introduces a novel approach to dissect catastrophic forgetting by visualizing hidden layers in classincremental learning (considered as the hardest learning\nar X\niv :2\n00 1.\n01 57\n8v 2\n[ cs\n.L G\n] 7\nJ an\n2 02\n0\nscenario in continual learning). In this learning paradigm, rehearsal strategies using previous data are prohibited and samples of the incoming tasks are unseen so far. We propose a tool named Auto DeepVis which leverages the prediction difference analysis from (Zintgraf et al., 2017). This tool automates the dissection of catastrophic forgetting, exactly pointing out which components in a model are causing the forgetting. By using Intersection over Union (IoU), the degree of forgetting is measured after each class is added, thus giving us an intuition how forgetting happens on a given part of the network.\nIn the first step, our tool observes the evidence and against for a prediction. If the evidence for a given image changes, we argue that the model is forgetting what it needs to look. IoUs between the previous and current evidence are taken into account to determine the degree of forgetting. We automate this procedure on representative samples of trained classes, followed by a generalization step to figure out the main culprits of forgetting. The algorithm is outlined in Algorithm 1.\nIn our thorough analysis of the model, it is necessary to pick the appropriate components in a block to visualize the changes. For instance, in ResNet-50 (He et al., 2016), there are 5 convolutional blocks, thus interpreting the activation of all filters in the whole 5 blocks will take a large amount of time. We propose to choose the filter having the highest IoU value with the ground truth segmentation. This choice is sufficient because although some filters may be blocked by activation function, ranking the importance of the remaining filters over a convolutional block is impossible. As a result, the biggest-IoU filter can be the representative for a given block.\nA work from (Kemker et al., 2018) conducts experiments on state-of-the-art continual learning techniques that address catastrophic forgetting. It is demonstrated that although the algorithms work, but only on weak constrains and unfair baselines, thus the forgetting problem is not yet fully solved. They insist on the infeasibility of using toy datasets, such as MNIST (Kirkpatrick et al., 2017) or CIFAR (Zenke et al., 2017) in continual learning. Consequently, we choose Split MS-COCO (Nguyen et al., 2019b) to measure the forgetting on deep neural networks. From the results of the dissection, we simply freeze the most plastic components in the network to protect the accumulated information. In addition to visualization on Convolutional Neural Network (CNN), we also briefly study how the decoder which consists of Recurrent Neural Network (RNN) changes in continual learning.\nWe summarize the contributions of this work as follows: First, we propose a novel and pioneering method to analyze catastrophic forgetting in continual learning. Auto DeepVis automatically points out the forgetting components in a network while learning a task sequence. Second,\nwe introduce a new approach to mitigate catastrophic forgetting based on findings. Our techniques could play a complementary role in the step towards eradicating catastrophic forgetting."
+    },
+    {
+      "heading": "2. Related Work",
+      "text": "Feature Visualization To understand how a model forgets the features learned before, we need to visualize how the model processes the input image. To do this, the layerwise visualization of the model is performed. The old model (or original model) is the model we have obtained so far, denoting acquired knowledge on past tasks. On the other hand, the new model (or current model) is the network facing the new incoming tasks and should avoid catastrophic forgetting.\nThere are several works trying to visualize convolutional neural networks by various kinds of means. (Zeiler & Fergus, 2014) make use of multi-layered deconvolutional networks (deconvnet), using switches to record the local max value of the original input images. Deconvnet allows us to recognize which features are expected by a specific part of a network or what properties of image excite a chosen neuron the most. Instead of feeding an input image to diagnose, (Yosinski et al., 2015) attempt to generate a synthetic image which maximizes the activation of a given neuron by gradient descent algorithm.\nAnother broadly used approach called saliency maps by (Simonyan et al., 2013), presenting a gradient-based technique to measure how the classification score is sensitively changed due to the small changes from pixels. This work shows a generalized version of deconvolution layers. A similar approach has been proposed by (Robnik-S\u030cikonja & Kononenko, 2008), which completely removes input pixels instead of calculating the gradient of those pixels. A variant of the above-mentioned work called PDA is proposed by (Zintgraf et al., 2017). They utilize conditional sampling that sweeps away patches of connected pixels instead of removing one single pixel at a time, which eventually shows better visualization results. However, this tool only generates the computer vision, leaving the conclusion for users. This manual process can not ensure the quality of the observation when we can have hundreds or even thousands of feature maps in a convolutional block. In this work, PDA is adopted to build an automatic tool for visualizing catastrophic forgetting.\nCatastrophic Forgetting Catastrophic forgetting has been introduced for the first time by (McCloskey & Cohen, 1989) in connectionist networks. Very recently, (Toneva et al., 2018) reframe the definition of forgetting as when the prediction of a model on a sample is shifted during the learning process, from correctly to incorrectly. Going deeply into\nthe model, we can argue that the values of neurons have changed drastically, thus possibly resulting in a different answer for the same input image.\nElastic Weight Consolidation - EWC (Kirkpatrick et al., 2017) uses Fisher information matrix to help model mimic the synaptic consolidation mechanism of the human brain. Important parameters for the performance of the old task are protected while others are updated to minimize the loss on the new dataset. By comparison, the significance of each synapse (or weight) in the neural network is computed locally in (Zenke et al., 2017). When the distribution interference appears, synaptic states keep and estimate the importance of synapses by an online estimation and crucial synapses are prevented from changing. Learning without Forgetting - LwF (Li & Hoiem, 2017) generates pseudo labels on incoming data to help capture the previous distribution. In training, knowledge distillation (Hinton et al., 2015) turns the pseudo labels into soft targets and a warmup step is applied. Based on Bayesian neural networks, (Lee et al., 2017) match the moment of posteriors on both two tasks to guide the new network to a common low-error region. Knowledge distillation from the old model and an expert feature extractor is conducted in (Hou et al., 2018), complemented by a retrospection on a trivial fraction of old data. (Rusu et al., 2016) dynamically expand the network by specialized sub-networks to absorb new knowledge while the old modules are frozen.\nCatastrophic forgetting can be generally addressed by regularization, data replay or altering network architecture. In this research, we show that only by simply freezing the fragile blocks of a network, we can significantly improve the generalization performance."
+    },
+    {
+      "heading": "3. Methodology",
+      "text": "Although (Nguyen et al., 2019a) show an interest in understanding catastrophic forgetting, they focus on how task properties influence the hardness of sequential learning. Hence, they are explaining based on the input data. In comparison, our work attempts to explain how the forgetting happens over time based on the computer vision of models. (Zintgraf et al., 2017) present response from a network to a given image in which we can clarify which features support or counteract the prediction. We leverage this tool for visualizing the computer vision, but extend to an automatic version - Auto DeepVis to efficiently dissect the forgetting dilemma. The ultimate goal of this tool is to figure out the most plastic layers or blocks in a network. Plasticity means low degree of stiffness or easy to change. Moreover, continual learning techniques have been proposed to alleviate catastrophic forgetting, but none of them are devised based on the findings from Explainable AI. Critical freezing is built on the top of Auto DeepVis\u2019 investigation to provide an interpretable yet effective approach to acquire the life-long learning ability for deep learning models. In the learning process, the stable state of the old model is employed to initialize the new network. This way really mimics the working mechanism of the human brain."
+    },
+    {
+      "heading": "3.1. Auto DeepVis",
+      "text": "To dissect the model, we visualize the hidden layers to understand the forgetting effect inside a model after being trained on different tasks. (Zintgraf et al., 2017) claim that different features of the objects being dissected could be captured and visualized by particular feature maps in different layers. By looking into every response maps in one convolutional block, we realize diverse features, such as eyes, face shape, car wheels, or background are isolatedly recognized by different channels. Unfortunately, finding each feature map manually by human eyes might be inefficient. To solve this issue, we only compare the computer vision with the ground truth segmentation rather than small details. In general, we do not look for the answer that what features are being forgotten, but which layers are now forgetting.\nAssume the semantic segmentation label of MS-COCO dataset (Lin et al., 2014) is what human sees, we compare this segmentation with the computer vision of the model, particularly concentrating on positive evidence for a prediction. The IoU value between the segmentation and evidence is calculated as shown in Fig. 1 (a). The red dots in the map describe the positive evidence while the blue points represent the against. The scheme of Auto DeepVis is illustrated in Fig. 2.\nHaving the m-th feature map (FM) in the l-th layer of a model M and the ground truth segmentation GT, the IoU is\ncomputed as:\nIoUM,GT (l,m) = FM(m, l) \u2229GT FM(m, l) \u222aGT\n(1)\nTo select the feature map having the largest overlap with the ground truth in each convolutional block, the representative feature map (RM) with the best IoU is denoted as RMM,GT :\nRMM,GT (l) = argmaxm(IoUM,GT (l,m)) (2)\nTo understand how the computer vision change over the training process, we compared the RM in the new model with the RM of original network RMMO,GT Fig. 1 (b). The forgetting effect of each trained model is measured by the IoU between the original model MO and new model MN :\nIoUMN ,MO (l,m) = FM(m) \u2229RMMO,GT FM(m) \u222aRMMO,GT\n(3)\nSimilar to the method of finding out the best map fitting with ground truth, the feature map representing the best memory of the original feature map is denoted as RMMN ,MO in Equation 4. In the same block of both the old and new model, the role of a filter can be adjusted. For instance, the 50th filter in the 2nd block of the old model detects the eyes, but the same filter in the same block of the new model will consider the face. The way we propose to pick RMMN ,MO sounds heuristically sufficient.\nRMMN ,MO (l) = argmaxm(IoUMN ,MO (l,m)) (4)\nThe pipeline of our method is depicted in Algorithm 1. The sample set S is particularized in Section 4, and K is the number of the convolutional blocks in the network. By inputting image by image from S, we get the visualization of filters over the whole network by PDA. Next, we iterate\nAlgorithm 1 Auto DeepVis Input: Sample set S, segmentation ground truth GT , old model MO, new model MN , number of blocks K Output: Forgetting layers F i = 0 \u0141 = \u00d8 repeat\nI = S[i] IoUs = \u00d8 RM = \u00d8 FM = PDA(I) for j = 1 to K do RMMO,GT \u2190 FM with highest IoUMO,GT RMMO,MN \u2190 FM with highest IoUMO,MN Append(IoUs,max(IoUMO,MN )) Append(RM,RMMO,MN ) end for b\u2190 block with highest drop in IoUs Append(\u0141, b) i = i + 1\nuntil i = size(S) F\u2190 Most frequent block in \u0141\nthrough the blocks to obtain the fragile block against a given image, then the indexOf gets the most forgetting block. Finally, we generalize on S to return the most forgetting component F."
+    },
+    {
+      "heading": "3.2. Critical Freezing",
+      "text": "Using the investigation from Auto DeepVis, we freeze or apply a tiny learning rate on the most plastic layer in a deep learning model. Take Resnet-50 including 5 convolutional blocks as an example, if we find the 3rd convolutional layer fragile, this layers should be slightly updated or completely frozen in the training process of the next task. The objective function is the standard cross-entropy loss for\nimage captioning, in which V is the size of the vocabulary.\nL = LCE = \u2212 V\u2211\ni=1\nY ik log Y\u0302 i k (5)\nThe proposed technique can accompany various existing solutions. For instance, when using knowledge distillation for continual semantic segmentation in (Michieli & Zanuttigh, 2019), progressively adding classes alters the evolution of the model, misleading the network to a local optimum. By knowing which regions are needed to be intact, the performance on the old task could be largely improved. Our tool could also benefits other continual learning approaches, ranging from regularization to dynamic architecture."
+    },
+    {
+      "heading": "4. Experiments",
+      "text": "When using PDA (Zintgraf et al., 2017), the optimal window size for the best visualization is k = 5. We use a tweaked dataset called Split MS-COCO from (Nguyen et al., 2019b) to reproduce catastrophic forgetting. The dataset contains over 47k images for training and over 23k images for validation and testing. For incremental learning setup, at one time step, a new class will arrive. Notably, data balancing is not applied yet; as a result, this technique could be left for future work to increase the overall performance.\nExperiments are performed on a multi-modal task (captioning) combining both CNN and RNN in the architecture, obeying the sequential scenario from (Nguyen et al., 2019b). We initially train 19 classes to acquire the original model, then adding 5 classes incrementally. Obviously, if the investigation from our tool makes the chosen task work, the findings could be also deployed on object detection, classification or segmentation. The captioning model is divided into an encoder followed by a decoder. Therefore, the orig-\ninal structure should be transformed into a two-head network so that we can get the prediction of the CNN and the sentence generated from the decoder simultaneously. We add one more output layer as a classifier after the encoder, and our proposed architecture is presented in Fig. 3. The encoder is the ResNet-50, and the decoder includes an embedding layer, a single-layer LSTM, and a fully-connected layer producing a word at a time step.\nAs our tool works on a single image, running multiple times on different and diverse input images is needed, helping us generalize the forgetting. We choose a sample set S (bicycle, car, motorcycle, airplane, bus, train, bird, cat, dog, horse, sheep, and cow) from 19 trained classes.\nTo evaluate critical freezing, there are baselines, such as fine-tuning or heuristically freezing. In fine-tuning, The old model initializes the new model and training is done to minimize the loss on the new task. As the network contains two parts, encoder and decoder, we freeze them separately. The traditional scores for image captioning are considered in evaluating the superiority of critical freezing over the baselines."
+    },
+    {
+      "heading": "4.1. Auto DeepVis to Dissect CNNs",
+      "text": "To dissect which parts in the encoder are forgetting the most, we first apply Auto DeepVis to elaborate the IoU of each layer comparing with the ground truth and the original computer vision seen by layers of the original model M19 (trained on 19 classes). After adding a new class, we obtain M20, and Mn is the model when n classes are witnessed. In Fig. 4, the visualized results show that the first and second block of ResNet-50 can overall capture the outline of objects. Computer vision turns to represent more detailed features from the objects and other background features to determine the class of the input image.\nSubsequently, the IoUs of different blocks in each model, comparing with ground truth, are calculated by equation 1 and 2. The results reveal that although different models show different levels of performance of classification, the IoUMn,GT (n > 19) values are roughly similar at all the layers, which implies that no matter the how good the performance is, the level of matching between feature maps of each model and the human vision is preserved (Fig. 5).\nTo quantitatively measure how the forgetting occurs in the encoder, we compute IoUs by equation 3 and 4. As shown in\nFig 6, it is clear that the IoU between M20 and M19 is much higher than the figure for M24 and M19 in every block. For M20, the IoUM20,M19 is always 1.00 at the first block of the network, showing that a very trivial forgetting happens here. The IoUM20,M19 starts to drop along the blocks because the later feature maps are constructed by the previous maps. The forgetting effect persists and does not show which block is forgetting the most."
+    },
+    {
+      "heading": "M24 Quill Quill Thimble Quill Tray",
+      "text": "For M24, the first block of the model still gets a high IoU comparing with M19 and the values decrease from the second block. Unlike the stably decreasing trend seen in M20, the decreasing rate of IoUM24,M19 fluctuates through the blocks and a severe drop at block 3 is observed in all the test-\ning input, suggesting that the forgetting effect might happen the most in this block. After the 3rd block, almost instances show a continuous IoU decline at block 4. Iterating this procedure on all images of the set S reinforces that the most dramatically forgetting is happening at block 3 and block 4 in ResNet-50.\nFreezing the mentioned blocks means the feature extraction stays unchanged. We conduct a qualitative analysis to observe the response of the encoder while critical freezing is adopted in Table. 2. The prediction keeps virtually the same with the output of the original model. The only misclassifcation in the Table. 2 is from American eagle and Crane; however, they are still from the bird family. While two naive approaches of freezing in (Nguyen et al., 2019b) are also implemented (partially freezing), we devise critical freezing based on findings, which only freezes the most plastic layers. As shown in Table. 1, precisely freezing helps learning on both the new and old tasks more effectively."
+    },
+    {
+      "heading": "4.2. Decoder Dissection",
+      "text": "In addition to dissecting CNN, we also want to inspect and visualize the changes of the decoder. However, to the best of our knowledge, there is still no work done in revealing how RNNs visually see or sense the input. Therefore, in this work, we simply freeze each component of the decoder in learning the new task and observe the effect of freezing. We also keep the encoder frozen from M19 to see how the synthetic caption depends on an individual layer of the decoder. Table 3 suggests the significance of the LSTM network in the sentence generation process while the linear layer can be trainable over a task series."
+    },
+    {
+      "heading": "5. Conclusion",
+      "text": "As the presence of catastrophic forgetting hinders the lifelong learning, understanding how this phenomenon happens in computer vision is extremely significant. We introduce Auto DeepVis to grasp catastrophic forgetting. From knowing where the forgetting issue is coming from, a technique has been proposed focusing on plastic components of a model to moderate the information loss. The results indicate the superiority of critical freezing over the baselines. We also try knowledge distillation on plastic layers but it does not help much because the discrepancy of teacher and student is accumulated over time, leading to a difficulty\nfor teaching. To the best of our knowledge, no work has been done for mitigating catastrophic forgetting based on Explainable AI. This work shows a satisfying result from the investigation. Auto DeepVis gives good observation on the forgetting layer, and freezing critical layers helps the model mitigate catastrophic forgetting and could play as a supplement to other techniques to completely address catastrophic forgetting.\nThere are future works following our paper. First and foremost, a deeper, cleaner, and effort-free version of our tool should be taken into consideration to give a better insight into catastrophic forgetting. At this time, we only consider the filter having the highest IoU. Although this assumption is appropriate, it is still crude, thus looking into other filters in one convolutional block might be necessary as well. Scaling this work for other tasks can better validate the feasibility of the proposed continual learning algorithm. Last but not least, RNN is now being overlooked and not understood fully via interpretability methods. RNN dissection requires efforts but would open the door to understanding the nature of this network."
+    }
+  ],
+  "title": "Dissecting Catastrophic Forgetting in  Continual Learning by Deep Visualization",
+  "year": 2020
+}

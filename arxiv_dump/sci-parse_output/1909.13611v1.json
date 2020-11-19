@@ -1,1 +1,430 @@
-{"abstractText": "Being able to interpret, or explain, the predictions made by a machine learning model is of fundamental importance. This is especially true when there is interest in deploying data-driven models to make high-stakes decisions, e.g. in healthcare. While recent years have seen an increasing interest in interpretable machine learning research, this field is currently lacking an agreed-upon definition of interpretability, and some researchers have called for a more active conversation towards a rigorous approach to interpretability. Joining this conversation, we claim in this paper that the difficulty of interpreting a complex model stems from the existing interactions among features. We argue that by enforcing monotonicity between features and outputs, we are able to reason about the effect of a single feature on an output independently from other features, and consequently better understand the model. We show how to structurally introduce this constraint in deep learning models by adding new simple layers. We validate our model on benchmark datasets, and compare our results with previously proposed interpretable models.", "authors": [{"affiliations": [], "name": "An-phi Nguyen"}, {"affiliations": [], "name": "Mar\u00eda Rodr\u00edguez Mart\u00ednez"}], "id": "SP:f3c19d82f05190505b1b2ee77d7de61f2947a36b", "references": [{"authors": ["Zachary C. Lipton"], "title": "The mythos of model interpretability", "venue": "ISSN 1542-7730", "year": 2018}, {"authors": ["Rebecca Wexler"], "title": "Opinion | When a Computer Program Keeps You in Jail", "venue": "URL https://www.nytimes.com/2017/06/13/opinion/ how-computers-are-harming-criminal-justice.html", "year": 2018}, {"authors": ["Finale Doshi-Velez", "Been Kim"], "title": "Towards a rigorous science of interpretable machine learning", "venue": "arXiv preprint arXiv:1702.08608,", "year": 2017}, {"authors": ["Elaine Angelino", "Nicholas Larus-Stone", "Daniel Alabi", "Margo Seltzer", "Cynthia Rudin"], "title": "Learning certifiably optimal rule lists for categorical data", "venue": "The Journal of Machine Learning Research,", "year": 2017}, {"authors": ["Hongyu Yang", "Cynthia Rudin", "Margo Seltzer"], "title": "Scalable bayesian rule lists", "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume", "year": 2017}, {"authors": ["David Alvarez Melis", "Tommi Jaakkola"], "title": "Towards robust interpretability with self-explaining neural networks", "venue": "In Advances in Neural Information Processing Systems,", "year": 2018}, {"authors": ["Marco Tulio Ribeiro", "Sameer Singh", "Carlos Guestrin"], "title": "Anchors: High-precision modelagnostic explanations", "venue": "In Thirty-Second AAAI Conference on Artificial Intelligence,", "year": 2018}, {"authors": ["Scott M Lundberg", "Su-In Lee"], "title": "A unified approach to interpreting model predictions", "venue": "In Advances in Neural Information Processing Systems,", "year": 2017}, {"authors": ["Marco Ancona", "Enea Ceolini", "Cengiz \u00d6ztireli", "Markus Gross"], "title": "Towards better understanding of gradient-based attribution methods for deep neural networks", "venue": "In 6th International Conference on Learning Representations,", "year": 2018}, {"authors": ["Mukund Sundararajan", "Ankur Taly", "Qiqi Yan"], "title": "Axiomatic attribution for deep networks", "venue": "In Proceedings of the 34th International Conference on Machine Learning - Volume 70,", "year": 2017}, {"authors": ["Avanti Shrikumar", "Peyton Greenside", "Anshul Kundaje"], "title": "Learning important features through propagating activation differences", "venue": "In Proceedings of the 34th International Conference on Machine Learning - Volume 70,", "year": 2017}, {"authors": ["Marco Tulio Ribeiro", "Sameer Singh", "Carlos Guestrin"], "title": "why should i trust you?\": Explaining the predictions of any classifier", "venue": "In Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD", "year": 2016}, {"authors": ["R.R. Selvaraju", "M. Cogswell", "A. Das", "R. Vedantam", "D. Parikh", "D. Batra"], "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization", "venue": "IEEE International Conference on Computer Vision (ICCV),", "year": 2017}, {"authors": ["Sebastian Bach", "Alexander Binder", "Gr\u00e9goire Montavon", "Frederick Klauschen", "Klaus-Robert M\u00fcller", "Wojciech Samek"], "title": "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation", "venue": "PLOS ONE, 10(7):1\u201346,", "year": 2015}, {"authors": ["Karen Simonyan", "Andrea Vedaldi", "Andrew Zisserman"], "title": "Deep inside convolutional networks: Visualising image classification models and saliency", "venue": "maps. CoRR,", "year": 2013}, {"authors": ["David Alvarez-Melis", "Tommi Jaakkola"], "title": "A causal framework for explaining the predictions of black-box sequence-to-sequence models", "venue": "In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing,", "year": 2017}, {"authors": ["Oscar Li", "Hao Liu", "Chaofan Chen", "Cynthia Rudin"], "title": "Deep Learning for Case-Based Reasoning through Prototypes: A Neural Network that Explains Its Predictions", "venue": "In The Thirty-Second AAAI Conference on Artificial Intelligence", "year": 2017}, {"authors": ["Jason Yosinski", "Jeff Clune", "Anh Mai Nguyen", "Thomas J. Fuchs", "Hod Lipson"], "title": "Understanding neural networks through deep visualization", "venue": "CoRR, abs/1506.06579,", "year": 2015}, {"authors": ["David Alvarez-Melis", "Tommi S. Jaakkola"], "title": "On the robustness of interpretability methods", "year": 2018}, {"authors": ["Leilani Henrina Gilpin", "David Bau", "Ben Ze Yuan", "Ayesha Bajwa", "Michael A. Specter", "Lalana Kagal"], "title": "Explaining explanations: An overview of interpretability of machine learning", "venue": "IEEE 5th International Conference on Data Science and Advanced Analytics (DSAA),", "year": 2018}, {"authors": ["Zachary C Lipton"], "title": "The doctor just won\u2019t accept that", "venue": "arXiv preprint arXiv:1711.08037,", "year": 2017}, {"authors": ["Tim Miller"], "title": "Explanation in artificial intelligence: Insights from the social sciences", "venue": "Artificial Intelligence,", "year": 2018}, {"authors": ["Robert Tibshirani"], "title": "Regression Shrinkage and Selection via the Lasso", "venue": "Journal of the Royal Statistical Society. Series B (Methodological),", "year": 1996}, {"authors": ["J.R. Quinlan"], "title": "Induction of decision trees", "venue": "Machine Learning,", "year": 1986}, {"authors": ["Benjamin Letham", "Cynthia Rudin", "Tyler H McCormick", "David Madigan"], "title": "Interpretable classifiers using rules and bayesian analysis: Building a better stroke prediction model", "venue": "The Annals of Applied Statistics,", "year": 2015}, {"authors": ["Berk Ustun", "Cynthia Rudin"], "title": "Learning optimized risk scores on large-scale datasets", "venue": "arXiv preprint arXiv:1610.00168,", "year": 2016}, {"authors": ["Ruey-Hsia Li", "Geneva G. Belford"], "title": "Instability of decision tree classification algorithms", "venue": "In Proceedings of the Eighth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,", "year": 2002}, {"authors": ["Christoph Molnar"], "title": "Interpretable Machine Learning. 2019", "venue": "https://christophm.github. io/interpretable-ml-book/", "year": 2019}, {"authors": ["Ruth C Fong", "Andrea Vedaldi"], "title": "Interpretable explanations of black boxes by meaningful perturbation", "venue": "In Proceedings of the IEEE International Conference on Computer Vision,", "year": 2017}, {"authors": ["Christian Wachinger", "Benjam\u00edn Guti\u00e9rrez-Becker", "Anna Rieckmann"], "title": "Detect, quantify, and incorporate dataset bias: A neuroimaging analysis on", "venue": "individuals. CoRR,", "year": 2018}, {"authors": ["Sarah Tan", "Rich Caruana", "Giles Hooker", "Yin Lou"], "title": "Detecting bias in black-box models using transparent model distillation", "year": 2017}, {"authors": ["Hennie Daniels", "Marina Velikova"], "title": "Monotone and partially monotone neural networks", "venue": "IEEE Transactions on Neural Networks,", "year": 2010}, {"authors": ["Kurt Hornik"], "title": "Approximation capabilities of multilayer feedforward networks", "venue": "Neural Networks,", "year": 1991}, {"authors": ["Matthew D. Zeiler", "Rob Fergus"], "title": "Visualizing and understanding convolutional networks", "venue": "Computer Vision \u2013 European Conference on Computer Vision", "year": 2014}, {"authors": ["Berk Ustun", "Cynthia Rudin"], "title": "Optimized Risk Scores", "venue": "In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining", "year": 2017}], "sections": [{"heading": "1 Introduction", "text": "State-of-the-art deep learning networks are achieving strong predictive power, but the gain in accuracy often comes at the price of transparency, and the decision reached lacks interpretability. Being able to interpret, or explain, the predictions made by a machine learning model is of fundamental importance, especially in sensitive domains, such as healthcare, crime recidivism or finance. If users do not trust a model, they will not use it, or even worse, they will use it and be inadvertently exposed to hidden biases [1, 2]. On the other hand, if the system can explain its reasoning, then the soundness of the reasoning can be examined [3].\nIt then comes as no surprise that an increasing number of researchers are focusing on either creating accurate models that are already interpretable (ante-hoc interpretability) [4\u20136] or models that can a posteriori provide explanations for already-trained black-box models (post-hoc interpretability) [7\u201315]. However, requiring the model itself to be completely transparent can be too restrictive and may result in a model becoming too complex to be understood. On the other hand, a posteriori methods often derive local explanations, e.g. valid only around a particular example, due to the lack of access to the inner workings of the model. Furthermore, these methods often suffer from problems related to the definition of locality [16], identifiability [17], computational cost [18] and instability [19] (see Section 2).\nWhile a number of authors have made important contributions to this field, the community has still not agreed on a definition of interpretability [3, 20], with consequent lack of standards to evaluate different methods. These shortcomings are difficult to tackle and have prompted many researchers to ask for a discussion between all the stakeholders [21] and including perspectives from different fields [22]. Joining this discussion, this work aims to contribute towards finding a definition of\nPreprint. Under review.\nar X\niv :1\n90 9.\n13 61\n1v 1\n[ cs\n.L G\n] 3\n0 Se\np 20\ninterpretability that many can agree on. In this paper we propose a set of necessary conditions that an interpretable model should abide to. One of these conditions is what Lipton [1] refers to as algorithmic transparency, the opposite of opacity or blackbox-ness; it implies some level of understanding the mechanism by which the model works. (Human) Simulatability is another important property of interpretable models, i.e. the ability of a person to simulate a model and get the correct output for a given input. The notion of simulatability is inspired by sparse linear models, as produced by lasso regression [23], which are more interpretable than dense linear models learned on the same inputs."}, {"heading": "2 Related work", "text": "As mentioned previously, recently there has been an increasing volume of work in interpretable machine learning research. To understand the main advantages and drawbacks of the existing algorithms, we can categorize them in two classes: global and local methods.\nGlobal models Global models are models that are fully transparent in the sense that they provide the user with an overview of the whole decision process in terms of (possibly high-level) features, model weights and model parameters. Ideally, by having access to this information, a human should be able to completely simulate the decision process of the global model (simulatability). Some examples of global models are decision trees [24], rule lists [25] or risk score models [26]. These methods suffer from two main drawbacks. Firstly, faced with a difficult learning problem, accurate models may become too complex to understand (e.g. decision trees that become too deep). Secondly, some algorithms may suffer from a stability problem. For example, it is well known that decision trees are difficult to train since small perturbations in the training data may lead to different trees [27, 28].\nLocal models Local methods, on the other hand, aim to provide explanations that are valid only for the single sample at hand. From a human user perspective, local explanations are arguably more easily understood, since they usually involve only a few features at once. Examples of these models are backpropagation-like methods [10, 11, 9] and perturbation-based methods, such as LIME and anchors [12, 7]. The main problem with these methods is implementational. Backpropagation-like models can be used only on neural networks (or other differentiable models) with known architectures, and are therefore not suitable to try to interpret black-box models. Perturbation-based methods, while intuitive at first sight, may actually be cumbersome to use. In fact, they require the user to understand the topology of the input space in order to define an appropriate neighborhood of a sample so as to find meaningful perturbations [29, 30]."}, {"heading": "3 Problem formulation", "text": ""}, {"heading": "3.1 The scope of interpretability", "text": "In order to properly design an interpretable model, it is necessary to first define the goals of interpretability. In what follows, we propose that any interpretable model should aim to achieve two main goals: Goal 1. Understanding a decision process. While opaqueness concerning machine behaviour might not always be a problem, in high-stakes scenarios such as healthcare, model interpretability, e.g. providing explanations about the clinical and biological factors that are driving the predictions, is crucial to gain the trust of users and third parties affected by the prediction, e.g. clinicians and patients. Goal 2. Bias identification. Many real-world datasets contain biases, e.g. Wachinger et al. [31]. An interpretable model can potentially unveil biases in these datasets (as in the work of Tan et al. [32]), or in a deployed model (in a post-hoc scenario). This is important in matters of ethics, fairness, and safety among others."}, {"heading": "3.2 Desiderata for an interpretable model", "text": "Simultaneous transparency and simulatability Based on the drawbacks of previous models for interpretability reported in Section 2, we argue that a model, to be interpretable by a human user,\nshould produce a prediction based on an easily understood and complete set of rules (transparency) involving as few features as possible (so it can be easily simulated by the human user). If this is not possible, (still understandable) high-level features have to be inferred. This is needed for Goal 1.\nExpressiveness In order to identify biases in a dataset or in other models (Goal 2), the interpretable model should be unbiased, i.e. an universal approximator. To understand this, consider, for example, a dataset used for prediction of violent crimes with a strong bias towards a certain ethnicity. If an interpretable model has an a priori (inductive) bias towards objects held in hands, then it would not be able to detect the (unfair) bias characterizing this dataset. On the other hand, if we use an unbiased interpretable model, it could learn the correlation between ethnicity and crimes inherent in the dataset. By inspecting the explanations provided by the interpretable model, we would then be able to identify this dataset bias."}, {"heading": "3.3 The case for monotonicity-constrained networks", "text": "In this paper we claim that the two desiderata in Section 3.2 can be achieved by a special class of neural networks, where the layers from the input to a chosen hidden layer (say k) are left unconstrained, while the layers from k to the output are built to enforce a monotonic relationship between the layer k and the output layer (where monotinicity is defined as in Definition 3.2). This construction allows the layer k to learn arbitrary high-level features. We argue that these features are in a certain sense interpretable.\nOur argumentation is based on the comparison of linear classifiers to nonlinear ones. Linear classifiers are generally regarded as interpretable methods because users can trivially understand if an output increases or decreases when a predictor is changed. On the other hand, in nonlinear classifiers the possible correlations among input variables makes it difficult to predict how the output would change if a single variable changes. Enforcing monotonicity allows us to reason about the behavior of the output w.r.t. a single predictor independently from the others, granting us a certain degree of intuition about the model predictions."}, {"heading": "3.4 Notation and definitions", "text": "We represent vectors with lowercase boldface letters, e.g. x, and matrices with uppercase boldface letters, e.g. W. Elements of vectors and matrices are denoted with lowercase subscripts. The i-th element of vector x is xi and the element in row i and column j of matrix W is Wij . Given a function y = f(x), we denote by \u2202yi\u2202xj the partial derivative of the i-th component of y w.r.t. the j-th component of x.\nIn this work we focus on multilayer perceptrons (MLPs). Let the function y = f(x) implement a MLP with L+ 1 layers. We denote a layer k of the network by h(k) for k = 0, . . . , L. In particular, the input x and the output y correspond, respectively, to h(0) and h(L). As is customary, we represent a nonlinearity as \u03c3(\u00b7). We can therefore write h(k+1) = \u03c3(W(k)h(k) + b(k)), where W(k) is the weight matrix and b(k) is the bias.\nSince there are multiple ways of defining an order in Rn, we shall clarify which notion of monotonicity we are working with.\nDefinition 3.1. A function f : Rn \u2192 R is called monotonically increasing (or non-decreasing) if for all i = 1, . . . , n the (univariate) restriction f |i: xi 7\u2192 y = f(x\u03031, . . . , xi, . . . , x\u0303n), obtained by fixing all the components except the i-th, is monotonically increasing for every fixed value x\u0303j \u2200j = 1, . . . , n and j 6= i, in the usual sense of monotonicity for univariate functions. The definition for monotonically decreasing functions is analogous.\nDefinition 3.2. A multivalued function f : Rn \u2192 Rm is called monotonically increasing if every component fi with i = 1, . . . ,m is monotonic according to Definition 3.1."}, {"heading": "4 Monotonic Features", "text": "Suppose that we want to interpret the prediction of an MLP withL+1 layers w.r.t. its k-th layer. In this section we present a way to constrain the N (k) units of the chosen interpretable layer h(k) \u2208 RN(k)\nto be monotonic w.r.t. the units of the output layer y \u2208 RN(L) . As mentioned before, in this work we focus only on MLPs. However, our strategy can be easily extended to different architectures. We refer to our neural network model with monotonicity constraints as MonoNet."}, {"heading": "4.1 Monotonically increasing layers", "text": "The first step in our construction is building monotonically increasing layers. We follow the same idea as in [33, 34]. As discussed in 3.4, the h(k+1) layer can be computed from the elements of layer h(k) as h(k+1) = \u03c3(W(k)h(k) + b(k)). We can now compute the partial derivatives of this relationship as:\n\u2202h (k+1) i\n\u2202h (k) j\n= \u03c3\u2032 (N(k)\u2211\nt=1\nW (k) it h (k) t + b (k) i ) \ufe38 \ufe37\ufe37 \ufe38\n\u22650\nW (k) ij . (1)\nThe most commonly used nonlinearities are non-decreasing functions, whose derivatives are always non-negative. Hence, the partial derivative in (1) will be non-negative if and only if W (k)ij \u2265 0. That is, h(k+1) will be monotonically non-decreasing w.r.t. h(k) if and only if the weight matrix has only non-negative entries. A way to impose this constraint is to apply to the weights a function with range in the positive numbers, such as the exponential function:\nh(k+1) = \u03c3 ( exp(W(k))h(k) + b(k) ) . (2)\nSince the compositions of monotonically non-decreasing functions are also monotonically nondecreasing, we are guaranteed that, by stacking such layers, the last layer y = h(L) is monotonically non-decreasing w.r.t. the interpretable layer h(k)."}, {"heading": "4.2 Allowing arbitrary monotonicity", "text": "The construction in the previous section enabled us to ensure a monotonically non-decreasing relationship between a chosen interpretable layer and the output. However, we would like each component of the interpretable layer h(k) to have an arbitrary monotonic behavior (i.e. either increasing or decreasing) w.r.t. each component of the output y. This can be achieved by componentwise rescaling of both h(k) and y. To see this let us introduce the auxiliary layers h\u0303(k) and y\u0303 so that\nh\u0303(k) = \u03b1 h(k), y = \u03b2 y\u0303, (3)\nwhere \u03b1 \u2208 RN(k) , \u03b2 \u2208 RN(L) , and denotes a component-wise multiplication. If we stack monotonic layers from h\u0303(k) to y\u0303 as explained in Section 4.1, we find that the partial derivatives are\n\u2202hi \u2202yj = \u2202h\u0303i \u2202y\u0303j\ufe38\ufe37\ufe37\ufe38 \u22650 1 \u03b1i\u03b2j , (4)\nwhere the partial derivatives in terms of the auxiliary layers are positive.\nFigure 1 graphically summarizes the construction of a MonoNet."}, {"heading": "4.3 On the representational power of monotone networks", "text": "Daniels and Velikova [33] proved an analogue of the universal approximation theorem [35] for monotonically non-decreasing functions. It has to be noted that the definition of monotonicity used by Daniels and Velikova [33] is more relaxed than ours. Therefore their theorem is valid in particular for our definition of monotonicity (Definition 3.1). Since any monotonically non-increasing function can be obtained by changing the sign of a monotonically non-decreasing function, the result can be extended to monotonically non-increasing functions.\nNow the question is, given a MonoNet with L + 1 layers, do we still retain the same universal approximation capabilities of neural networks by constraining the output layer y to be monotonic w.r.t.\nh(k)? The answer is yes. This can be understood with a somewhat extreme example. The last layer of deep learning architectures is always monotonic (either linear or with known nonlinearity given by the activation function) according to Definition 3.2, and hence can be potentially approximated by our monotonic construction. This means that the apparently-constrained MonoNet can in fact approximate any function that a classic (unconstrained) neural network that has the same first k \u2212 1 layers can approximate. However, this is not the use-case of interest. Instead, our model becomes useful when an inference problem can be solved by learning a hidden representation that has an arbitrary nonlinear monotonic relationship w.r.t. the output."}, {"heading": "4.4 Towards interpretability", "text": "While we argued that monotonicity can improve our understanding of a model, we are still not able to fully interpret a model just by learning monotonic features. Ideally, we would like to understand the behavior of the MonoNet w.r.t. the original input. In Section 5 we show that, by computing simple statistics, it is still possible to get an approximate idea of how the monotonic features relate to the input space."}, {"heading": "4.5 On hierarchical monotonic features", "text": "In the previous sections we presented how to impose a monotonicity constraint between the output layer and a chosen hidden layer. It can be noticed though that it is possible to stack several monotone (sub-)networks to form a hierarchy of monotonic features. Note, however, that monotonicity is satisfied only for layers directly connected by a single monotone sub-network. Nonetheless, such hierarchy could help us to think about the learned features in a modular way, similarly to how we would inspect a decision tree level-by-level. The hope is to learn a hierarchy of increasingly complex representations like in classic neural networks [36] with the advantage of better interpretability given by the monotonicity constraint. Furthermore, with this construction we may be able to get to a closer interpretation w.r.t. the input space (Section 4.4)."}, {"heading": "5 Experimental validation", "text": ""}, {"heading": "5.1 Understanding the interpretable features", "text": "As mentioned in Section 4.4, MonoNets are not directly interpretable w.r.t. to the input space. It is however possible to get an approximate idea of the patterns in the input space that most (or least) activate a unit of the interpretable layer h(k). To see this, let us consider, for example, the unit h(k)i of h(k) and assume that a certain unit yj of the output layer y (which could represent, for instance, the probability of one class or a regressed value) is increasing w.r.t. h(k)i . This means that if we order the training samples according to the values of h(k)i we can potentially \u201cunveil\u201d a feature that positively correlates with yj . In this work, we try to unveil these features by analysing the top and bottom distributions of the samples ranked according to the interpretable features. In Section 5.2.1, we present a working example of this concept."}, {"heading": "5.2 Interpreting Risk Score Prediction", "text": "We compare our model against models that are regarded as interpretable: risk-slim [26, 37] and decision trees [24]. Given a dataset, risk-slim computes a score for each predictor (e.g. Table 2a). At inference time, for each sample a total score S is computed by summing the scores of the features characterising the sample. The probability for y = 1 (which denotes the \u201crisk\u201d) is then computed as:\nP(y = 1) = 1\n1 + e\u2212(offset+S) , (5)\nwhere the offset is learned in conjunction with the feature scores.We benchmark the models on risk score prediction datasets provided by Ustun and Rudin [26].1 Table 1 shows that our model performs similarly to the other models on these risk scores prediction datasets.\n5.2.1 Interpretable features: comparison against risk-slim\nWe report the decision rules learned by the risk score models and our model in Table 2 on the income and the mushroom datasets. For our model, we build bottom and top distributions for each interpretable feature, as explained in Section 5.1 and report the 4 predictors with the biggest gap between the distributions\u2019 means.\nIn the income dataset, each sample is an adult with demographics information, such as gender, working hours, education. The task is to predict whether the person is earning more than 50K dollars. In the mushroom dataset, the task is to predict if a mushroom is poisonous using some of its features, e.g. smell, shape, colour. In both datasets, predictors and outcomes are binary.2\nFrom the name of the features in the income dataset, it is reasonable to believe that many predictors are strongly correlated, e.g. married vs. not married . Indeed, a correlation analysis confirms this hypothesis. Interestingly, MonoNet was able to learn a feature (top row in Table 2c) that consistently ranks the samples according to gender and marital status (top distribution: never married females, bottom distribution: married males). That is, when ranking the training samples according to the value they assume in the first unit h(k)1 of the interpretable layer, most of the samples with high h (k) 1 value are females that never married. Conversely, most of the samples with low h(k)1 are married males. According to our model, this feature is negatively correlated with the outcome, implicating that MonoNet gives married men a higher probability of earning more than 50K dollars. This is consistent with the results provided by risk-slim. In fact, MonoNet seems to uncover features similar to the decision rules learned by risk-slim (Table 2c vs. Table 2a).\nFor the mushroom dataset, both models agree that the odor (foul vs. none) of the mushroom is an important feature. A deeper analysis reveals that population_eq_several is correlated with gill_size_eq_broad (\u03c1 = \u22120.5064) according to the Spearman rank correlation coefficient [38]. However, the two models seem to disagree on the importance of other predictors. The apparent disagreement might be simply explained by the fact that MonoNet performs worse (Table 1) than risk-slim on the mushroom dataset, and this might actually be because of poorly learned decision rules.\n1https://github.com/ustunb/risk-slim/tree/master/examples/data 2Please refer to the website provided for further information about the datasets, such as feature names."}, {"heading": "5.3 Understanding a model with hierarchical monotone features", "text": "Here we illustrate how a model could be interpreted using hierarchical monotonic features (Section 4.5) with a study on the MNIST dataset. The idea is to enforce the monotonicity constraint between the convolutional filters and a hidden interpretable layer, which is monotonic w.r.t. to the output. To facilitate the interpretation of the hidden features w.r.t. the filters, we summarize the activation maps generated by each filter in a single number per filter using a max-pooling operation. These \u201csummaries\u201d will form the first layer of hierarchical interpretable features. The architecture is shown in Figure 2.\nFigure 3a shows a sample that a trained model (with the architecture presented above) misclassified. To understand why this happened, we can inspect the features that are monotonically increasing w.r.t. the wrong class (Figure 3b). Iteratively, to understand why such a feature might have been \u201cactivated\u201d, we focus on those filters that are monotonically increasing w.r.t. it (e.g. Figure 3c). Finally, we can identify which part of the image contributed to the wrong classification by examining the activation map of the filter.\nWe stress the fact that this seemingly trivial reasoning to unveil the decision process of the network was possible because of the monotonicity constraint. This allowed us to reason about particular features, independently from the other features (assuming that they are kept fixed, see Definition 3.1). In an unconstrained neural network, we would need to know the actual values of the other features to know if a feature of interest is contributing positively or negatively towards a prediction.\nAs a final remark, we note that one might be tempted to modify the original image around the region detected on the activation map of a filter. This, however, would have unpredictable results since the input space itself is not monotone w.r.t. the output."}, {"heading": "6 Discussion", "text": "Summary In this work we proposed some desiderata for an interpretable model. Based on these assumptions, we suggested that learning monotonic features in a neural network can lead to models that can be considered interpretable to a certain extent. We demonstrated how monotic features can be obtained by structurally constraining a MLP. Our model, MonoNet, shows promising results. However, it is not yet \u201cfully\u201d interpretable: while the monotonicity constraint helps us to interpret predictions in terms of the learned hidden features, we would ultimately like to interpret the predictions w.r.t. the input space. We proposed and experimentally validated two approaches towards solving this issue: ranking w.r.t. monotonic features values and hierarchical monotonic features.\nComparison with self-explaining neural networks (SENN) Melis and Jaakkola [6] recently proposed another neural network architecture with built-in interpretability. Their work is similar in spirit to ours. They also design an architecture able to learn high level features that are monotonically related to the output. However, this monotonic relation is restricted to being additively separable. In this regard, our work can be considered as an extension of theirs. The advantage of their method, though, is that for each high-level feature, they are able to learn an importance score. This score is learned by imposing a \u201clocal explainability\u201d constraint during training. This, together with the additive separability condition mentioned above, may however introduce a bias in their model, which we have claimed is not desirable for an interpretable method."}], "title": "MonoNet: Towards Interpretable Models by Learning Monotonic Features", "year": 2019}
+{
+  "abstractText": "Being able to interpret, or explain, the predictions made by a machine learning model is of fundamental importance. This is especially true when there is interest in deploying data-driven models to make high-stakes decisions, e.g. in healthcare. While recent years have seen an increasing interest in interpretable machine learning research, this field is currently lacking an agreed-upon definition of interpretability, and some researchers have called for a more active conversation towards a rigorous approach to interpretability. Joining this conversation, we claim in this paper that the difficulty of interpreting a complex model stems from the existing interactions among features. We argue that by enforcing monotonicity between features and outputs, we are able to reason about the effect of a single feature on an output independently from other features, and consequently better understand the model. We show how to structurally introduce this constraint in deep learning models by adding new simple layers. We validate our model on benchmark datasets, and compare our results with previously proposed interpretable models.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "An-phi Nguyen"
+    },
+    {
+      "affiliations": [],
+      "name": "Mar\u00eda Rodr\u00edguez Mart\u00ednez"
+    }
+  ],
+  "id": "SP:f3c19d82f05190505b1b2ee77d7de61f2947a36b",
+  "references": [
+    {
+      "authors": [
+        "Zachary C. Lipton"
+      ],
+      "title": "The mythos of model interpretability",
+      "venue": "ISSN 1542-7730",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Rebecca Wexler"
+      ],
+      "title": "Opinion | When a Computer Program Keeps You in Jail",
+      "venue": "URL https://www.nytimes.com/2017/06/13/opinion/ how-computers-are-harming-criminal-justice.html",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Finale Doshi-Velez",
+        "Been Kim"
+      ],
+      "title": "Towards a rigorous science of interpretable machine learning",
+      "venue": "arXiv preprint arXiv:1702.08608,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Elaine Angelino",
+        "Nicholas Larus-Stone",
+        "Daniel Alabi",
+        "Margo Seltzer",
+        "Cynthia Rudin"
+      ],
+      "title": "Learning certifiably optimal rule lists for categorical data",
+      "venue": "The Journal of Machine Learning Research,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Hongyu Yang",
+        "Cynthia Rudin",
+        "Margo Seltzer"
+      ],
+      "title": "Scalable bayesian rule lists",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "David Alvarez Melis",
+        "Tommi Jaakkola"
+      ],
+      "title": "Towards robust interpretability with self-explaining neural networks",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Anchors: High-precision modelagnostic explanations",
+      "venue": "In Thirty-Second AAAI Conference on Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Scott M Lundberg",
+        "Su-In Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Marco Ancona",
+        "Enea Ceolini",
+        "Cengiz \u00d6ztireli",
+        "Markus Gross"
+      ],
+      "title": "Towards better understanding of gradient-based attribution methods for deep neural networks",
+      "venue": "In 6th International Conference on Learning Representations,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Mukund Sundararajan",
+        "Ankur Taly",
+        "Qiqi Yan"
+      ],
+      "title": "Axiomatic attribution for deep networks",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning - Volume 70,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Avanti Shrikumar",
+        "Peyton Greenside",
+        "Anshul Kundaje"
+      ],
+      "title": "Learning important features through propagating activation differences",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning - Volume 70,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "why should i trust you?\": Explaining the predictions of any classifier",
+      "venue": "In Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "R.R. Selvaraju",
+        "M. Cogswell",
+        "A. Das",
+        "R. Vedantam",
+        "D. Parikh",
+        "D. Batra"
+      ],
+      "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization",
+      "venue": "IEEE International Conference on Computer Vision (ICCV),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Sebastian Bach",
+        "Alexander Binder",
+        "Gr\u00e9goire Montavon",
+        "Frederick Klauschen",
+        "Klaus-Robert M\u00fcller",
+        "Wojciech Samek"
+      ],
+      "title": "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation",
+      "venue": "PLOS ONE, 10(7):1\u201346,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Karen Simonyan",
+        "Andrea Vedaldi",
+        "Andrew Zisserman"
+      ],
+      "title": "Deep inside convolutional networks: Visualising image classification models and saliency",
+      "venue": "maps. CoRR,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "David Alvarez-Melis",
+        "Tommi Jaakkola"
+      ],
+      "title": "A causal framework for explaining the predictions of black-box sequence-to-sequence models",
+      "venue": "In Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Oscar Li",
+        "Hao Liu",
+        "Chaofan Chen",
+        "Cynthia Rudin"
+      ],
+      "title": "Deep Learning for Case-Based Reasoning through Prototypes: A Neural Network that Explains Its Predictions",
+      "venue": "In The Thirty-Second AAAI Conference on Artificial Intelligence",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jason Yosinski",
+        "Jeff Clune",
+        "Anh Mai Nguyen",
+        "Thomas J. Fuchs",
+        "Hod Lipson"
+      ],
+      "title": "Understanding neural networks through deep visualization",
+      "venue": "CoRR, abs/1506.06579,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "David Alvarez-Melis",
+        "Tommi S. Jaakkola"
+      ],
+      "title": "On the robustness of interpretability methods",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Leilani Henrina Gilpin",
+        "David Bau",
+        "Ben Ze Yuan",
+        "Ayesha Bajwa",
+        "Michael A. Specter",
+        "Lalana Kagal"
+      ],
+      "title": "Explaining explanations: An overview of interpretability of machine learning",
+      "venue": "IEEE 5th International Conference on Data Science and Advanced Analytics (DSAA),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Zachary C Lipton"
+      ],
+      "title": "The doctor just won\u2019t accept that",
+      "venue": "arXiv preprint arXiv:1711.08037,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Tim Miller"
+      ],
+      "title": "Explanation in artificial intelligence: Insights from the social sciences",
+      "venue": "Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Robert Tibshirani"
+      ],
+      "title": "Regression Shrinkage and Selection via the Lasso",
+      "venue": "Journal of the Royal Statistical Society. Series B (Methodological),",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "J.R. Quinlan"
+      ],
+      "title": "Induction of decision trees",
+      "venue": "Machine Learning,",
+      "year": 1986
+    },
+    {
+      "authors": [
+        "Benjamin Letham",
+        "Cynthia Rudin",
+        "Tyler H McCormick",
+        "David Madigan"
+      ],
+      "title": "Interpretable classifiers using rules and bayesian analysis: Building a better stroke prediction model",
+      "venue": "The Annals of Applied Statistics,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Berk Ustun",
+        "Cynthia Rudin"
+      ],
+      "title": "Learning optimized risk scores on large-scale datasets",
+      "venue": "arXiv preprint arXiv:1610.00168,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Ruey-Hsia Li",
+        "Geneva G. Belford"
+      ],
+      "title": "Instability of decision tree classification algorithms",
+      "venue": "In Proceedings of the Eighth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Christoph Molnar"
+      ],
+      "title": "Interpretable Machine Learning. 2019",
+      "venue": "https://christophm.github. io/interpretable-ml-book/",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ruth C Fong",
+        "Andrea Vedaldi"
+      ],
+      "title": "Interpretable explanations of black boxes by meaningful perturbation",
+      "venue": "In Proceedings of the IEEE International Conference on Computer Vision,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Christian Wachinger",
+        "Benjam\u00edn Guti\u00e9rrez-Becker",
+        "Anna Rieckmann"
+      ],
+      "title": "Detect, quantify, and incorporate dataset bias: A neuroimaging analysis on",
+      "venue": "individuals. CoRR,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Sarah Tan",
+        "Rich Caruana",
+        "Giles Hooker",
+        "Yin Lou"
+      ],
+      "title": "Detecting bias in black-box models using transparent model distillation",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Hennie Daniels",
+        "Marina Velikova"
+      ],
+      "title": "Monotone and partially monotone neural networks",
+      "venue": "IEEE Transactions on Neural Networks,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Kurt Hornik"
+      ],
+      "title": "Approximation capabilities of multilayer feedforward networks",
+      "venue": "Neural Networks,",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "Matthew D. Zeiler",
+        "Rob Fergus"
+      ],
+      "title": "Visualizing and understanding convolutional networks",
+      "venue": "Computer Vision \u2013 European Conference on Computer Vision",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Berk Ustun",
+        "Cynthia Rudin"
+      ],
+      "title": "Optimized Risk Scores",
+      "venue": "In Proceedings of the 23rd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "State-of-the-art deep learning networks are achieving strong predictive power, but the gain in accuracy often comes at the price of transparency, and the decision reached lacks interpretability. Being able to interpret, or explain, the predictions made by a machine learning model is of fundamental importance, especially in sensitive domains, such as healthcare, crime recidivism or finance. If users do not trust a model, they will not use it, or even worse, they will use it and be inadvertently exposed to hidden biases [1, 2]. On the other hand, if the system can explain its reasoning, then the soundness of the reasoning can be examined [3].\nIt then comes as no surprise that an increasing number of researchers are focusing on either creating accurate models that are already interpretable (ante-hoc interpretability) [4\u20136] or models that can a posteriori provide explanations for already-trained black-box models (post-hoc interpretability) [7\u201315]. However, requiring the model itself to be completely transparent can be too restrictive and may result in a model becoming too complex to be understood. On the other hand, a posteriori methods often derive local explanations, e.g. valid only around a particular example, due to the lack of access to the inner workings of the model. Furthermore, these methods often suffer from problems related to the definition of locality [16], identifiability [17], computational cost [18] and instability [19] (see Section 2).\nWhile a number of authors have made important contributions to this field, the community has still not agreed on a definition of interpretability [3, 20], with consequent lack of standards to evaluate different methods. These shortcomings are difficult to tackle and have prompted many researchers to ask for a discussion between all the stakeholders [21] and including perspectives from different fields [22]. Joining this discussion, this work aims to contribute towards finding a definition of\nPreprint. Under review.\nar X\niv :1\n90 9.\n13 61\n1v 1\n[ cs\n.L G\n] 3\n0 Se\np 20\ninterpretability that many can agree on. In this paper we propose a set of necessary conditions that an interpretable model should abide to. One of these conditions is what Lipton [1] refers to as algorithmic transparency, the opposite of opacity or blackbox-ness; it implies some level of understanding the mechanism by which the model works. (Human) Simulatability is another important property of interpretable models, i.e. the ability of a person to simulate a model and get the correct output for a given input. The notion of simulatability is inspired by sparse linear models, as produced by lasso regression [23], which are more interpretable than dense linear models learned on the same inputs."
+    },
+    {
+      "heading": "2 Related work",
+      "text": "As mentioned previously, recently there has been an increasing volume of work in interpretable machine learning research. To understand the main advantages and drawbacks of the existing algorithms, we can categorize them in two classes: global and local methods.\nGlobal models Global models are models that are fully transparent in the sense that they provide the user with an overview of the whole decision process in terms of (possibly high-level) features, model weights and model parameters. Ideally, by having access to this information, a human should be able to completely simulate the decision process of the global model (simulatability). Some examples of global models are decision trees [24], rule lists [25] or risk score models [26]. These methods suffer from two main drawbacks. Firstly, faced with a difficult learning problem, accurate models may become too complex to understand (e.g. decision trees that become too deep). Secondly, some algorithms may suffer from a stability problem. For example, it is well known that decision trees are difficult to train since small perturbations in the training data may lead to different trees [27, 28].\nLocal models Local methods, on the other hand, aim to provide explanations that are valid only for the single sample at hand. From a human user perspective, local explanations are arguably more easily understood, since they usually involve only a few features at once. Examples of these models are backpropagation-like methods [10, 11, 9] and perturbation-based methods, such as LIME and anchors [12, 7]. The main problem with these methods is implementational. Backpropagation-like models can be used only on neural networks (or other differentiable models) with known architectures, and are therefore not suitable to try to interpret black-box models. Perturbation-based methods, while intuitive at first sight, may actually be cumbersome to use. In fact, they require the user to understand the topology of the input space in order to define an appropriate neighborhood of a sample so as to find meaningful perturbations [29, 30]."
+    },
+    {
+      "heading": "3 Problem formulation",
+      "text": ""
+    },
+    {
+      "heading": "3.1 The scope of interpretability",
+      "text": "In order to properly design an interpretable model, it is necessary to first define the goals of interpretability. In what follows, we propose that any interpretable model should aim to achieve two main goals: Goal 1. Understanding a decision process. While opaqueness concerning machine behaviour might not always be a problem, in high-stakes scenarios such as healthcare, model interpretability, e.g. providing explanations about the clinical and biological factors that are driving the predictions, is crucial to gain the trust of users and third parties affected by the prediction, e.g. clinicians and patients. Goal 2. Bias identification. Many real-world datasets contain biases, e.g. Wachinger et al. [31]. An interpretable model can potentially unveil biases in these datasets (as in the work of Tan et al. [32]), or in a deployed model (in a post-hoc scenario). This is important in matters of ethics, fairness, and safety among others."
+    },
+    {
+      "heading": "3.2 Desiderata for an interpretable model",
+      "text": "Simultaneous transparency and simulatability Based on the drawbacks of previous models for interpretability reported in Section 2, we argue that a model, to be interpretable by a human user,\nshould produce a prediction based on an easily understood and complete set of rules (transparency) involving as few features as possible (so it can be easily simulated by the human user). If this is not possible, (still understandable) high-level features have to be inferred. This is needed for Goal 1.\nExpressiveness In order to identify biases in a dataset or in other models (Goal 2), the interpretable model should be unbiased, i.e. an universal approximator. To understand this, consider, for example, a dataset used for prediction of violent crimes with a strong bias towards a certain ethnicity. If an interpretable model has an a priori (inductive) bias towards objects held in hands, then it would not be able to detect the (unfair) bias characterizing this dataset. On the other hand, if we use an unbiased interpretable model, it could learn the correlation between ethnicity and crimes inherent in the dataset. By inspecting the explanations provided by the interpretable model, we would then be able to identify this dataset bias."
+    },
+    {
+      "heading": "3.3 The case for monotonicity-constrained networks",
+      "text": "In this paper we claim that the two desiderata in Section 3.2 can be achieved by a special class of neural networks, where the layers from the input to a chosen hidden layer (say k) are left unconstrained, while the layers from k to the output are built to enforce a monotonic relationship between the layer k and the output layer (where monotinicity is defined as in Definition 3.2). This construction allows the layer k to learn arbitrary high-level features. We argue that these features are in a certain sense interpretable.\nOur argumentation is based on the comparison of linear classifiers to nonlinear ones. Linear classifiers are generally regarded as interpretable methods because users can trivially understand if an output increases or decreases when a predictor is changed. On the other hand, in nonlinear classifiers the possible correlations among input variables makes it difficult to predict how the output would change if a single variable changes. Enforcing monotonicity allows us to reason about the behavior of the output w.r.t. a single predictor independently from the others, granting us a certain degree of intuition about the model predictions."
+    },
+    {
+      "heading": "3.4 Notation and definitions",
+      "text": "We represent vectors with lowercase boldface letters, e.g. x, and matrices with uppercase boldface letters, e.g. W. Elements of vectors and matrices are denoted with lowercase subscripts. The i-th element of vector x is xi and the element in row i and column j of matrix W is Wij . Given a function y = f(x), we denote by \u2202yi\u2202xj the partial derivative of the i-th component of y w.r.t. the j-th component of x.\nIn this work we focus on multilayer perceptrons (MLPs). Let the function y = f(x) implement a MLP with L+ 1 layers. We denote a layer k of the network by h(k) for k = 0, . . . , L. In particular, the input x and the output y correspond, respectively, to h(0) and h(L). As is customary, we represent a nonlinearity as \u03c3(\u00b7). We can therefore write h(k+1) = \u03c3(W(k)h(k) + b(k)), where W(k) is the weight matrix and b(k) is the bias.\nSince there are multiple ways of defining an order in Rn, we shall clarify which notion of monotonicity we are working with.\nDefinition 3.1. A function f : Rn \u2192 R is called monotonically increasing (or non-decreasing) if for all i = 1, . . . , n the (univariate) restriction f |i: xi 7\u2192 y = f(x\u03031, . . . , xi, . . . , x\u0303n), obtained by fixing all the components except the i-th, is monotonically increasing for every fixed value x\u0303j \u2200j = 1, . . . , n and j 6= i, in the usual sense of monotonicity for univariate functions. The definition for monotonically decreasing functions is analogous.\nDefinition 3.2. A multivalued function f : Rn \u2192 Rm is called monotonically increasing if every component fi with i = 1, . . . ,m is monotonic according to Definition 3.1."
+    },
+    {
+      "heading": "4 Monotonic Features",
+      "text": "Suppose that we want to interpret the prediction of an MLP withL+1 layers w.r.t. its k-th layer. In this section we present a way to constrain the N (k) units of the chosen interpretable layer h(k) \u2208 RN(k)\nto be monotonic w.r.t. the units of the output layer y \u2208 RN(L) . As mentioned before, in this work we focus only on MLPs. However, our strategy can be easily extended to different architectures. We refer to our neural network model with monotonicity constraints as MonoNet."
+    },
+    {
+      "heading": "4.1 Monotonically increasing layers",
+      "text": "The first step in our construction is building monotonically increasing layers. We follow the same idea as in [33, 34]. As discussed in 3.4, the h(k+1) layer can be computed from the elements of layer h(k) as h(k+1) = \u03c3(W(k)h(k) + b(k)). We can now compute the partial derivatives of this relationship as:\n\u2202h (k+1) i\n\u2202h (k) j\n= \u03c3\u2032 (N(k)\u2211\nt=1\nW (k) it h (k) t + b (k) i ) \ufe38 \ufe37\ufe37 \ufe38\n\u22650\nW (k) ij . (1)\nThe most commonly used nonlinearities are non-decreasing functions, whose derivatives are always non-negative. Hence, the partial derivative in (1) will be non-negative if and only if W (k)ij \u2265 0. That is, h(k+1) will be monotonically non-decreasing w.r.t. h(k) if and only if the weight matrix has only non-negative entries. A way to impose this constraint is to apply to the weights a function with range in the positive numbers, such as the exponential function:\nh(k+1) = \u03c3 ( exp(W(k))h(k) + b(k) ) . (2)\nSince the compositions of monotonically non-decreasing functions are also monotonically nondecreasing, we are guaranteed that, by stacking such layers, the last layer y = h(L) is monotonically non-decreasing w.r.t. the interpretable layer h(k)."
+    },
+    {
+      "heading": "4.2 Allowing arbitrary monotonicity",
+      "text": "The construction in the previous section enabled us to ensure a monotonically non-decreasing relationship between a chosen interpretable layer and the output. However, we would like each component of the interpretable layer h(k) to have an arbitrary monotonic behavior (i.e. either increasing or decreasing) w.r.t. each component of the output y. This can be achieved by componentwise rescaling of both h(k) and y. To see this let us introduce the auxiliary layers h\u0303(k) and y\u0303 so that\nh\u0303(k) = \u03b1 h(k), y = \u03b2 y\u0303, (3)\nwhere \u03b1 \u2208 RN(k) , \u03b2 \u2208 RN(L) , and denotes a component-wise multiplication. If we stack monotonic layers from h\u0303(k) to y\u0303 as explained in Section 4.1, we find that the partial derivatives are\n\u2202hi \u2202yj = \u2202h\u0303i \u2202y\u0303j\ufe38\ufe37\ufe37\ufe38 \u22650 1 \u03b1i\u03b2j , (4)\nwhere the partial derivatives in terms of the auxiliary layers are positive.\nFigure 1 graphically summarizes the construction of a MonoNet."
+    },
+    {
+      "heading": "4.3 On the representational power of monotone networks",
+      "text": "Daniels and Velikova [33] proved an analogue of the universal approximation theorem [35] for monotonically non-decreasing functions. It has to be noted that the definition of monotonicity used by Daniels and Velikova [33] is more relaxed than ours. Therefore their theorem is valid in particular for our definition of monotonicity (Definition 3.1). Since any monotonically non-increasing function can be obtained by changing the sign of a monotonically non-decreasing function, the result can be extended to monotonically non-increasing functions.\nNow the question is, given a MonoNet with L + 1 layers, do we still retain the same universal approximation capabilities of neural networks by constraining the output layer y to be monotonic w.r.t.\nh(k)? The answer is yes. This can be understood with a somewhat extreme example. The last layer of deep learning architectures is always monotonic (either linear or with known nonlinearity given by the activation function) according to Definition 3.2, and hence can be potentially approximated by our monotonic construction. This means that the apparently-constrained MonoNet can in fact approximate any function that a classic (unconstrained) neural network that has the same first k \u2212 1 layers can approximate. However, this is not the use-case of interest. Instead, our model becomes useful when an inference problem can be solved by learning a hidden representation that has an arbitrary nonlinear monotonic relationship w.r.t. the output."
+    },
+    {
+      "heading": "4.4 Towards interpretability",
+      "text": "While we argued that monotonicity can improve our understanding of a model, we are still not able to fully interpret a model just by learning monotonic features. Ideally, we would like to understand the behavior of the MonoNet w.r.t. the original input. In Section 5 we show that, by computing simple statistics, it is still possible to get an approximate idea of how the monotonic features relate to the input space."
+    },
+    {
+      "heading": "4.5 On hierarchical monotonic features",
+      "text": "In the previous sections we presented how to impose a monotonicity constraint between the output layer and a chosen hidden layer. It can be noticed though that it is possible to stack several monotone (sub-)networks to form a hierarchy of monotonic features. Note, however, that monotonicity is satisfied only for layers directly connected by a single monotone sub-network. Nonetheless, such hierarchy could help us to think about the learned features in a modular way, similarly to how we would inspect a decision tree level-by-level. The hope is to learn a hierarchy of increasingly complex representations like in classic neural networks [36] with the advantage of better interpretability given by the monotonicity constraint. Furthermore, with this construction we may be able to get to a closer interpretation w.r.t. the input space (Section 4.4)."
+    },
+    {
+      "heading": "5 Experimental validation",
+      "text": ""
+    },
+    {
+      "heading": "5.1 Understanding the interpretable features",
+      "text": "As mentioned in Section 4.4, MonoNets are not directly interpretable w.r.t. to the input space. It is however possible to get an approximate idea of the patterns in the input space that most (or least) activate a unit of the interpretable layer h(k). To see this, let us consider, for example, the unit h(k)i of h(k) and assume that a certain unit yj of the output layer y (which could represent, for instance, the probability of one class or a regressed value) is increasing w.r.t. h(k)i . This means that if we order the training samples according to the values of h(k)i we can potentially \u201cunveil\u201d a feature that positively correlates with yj . In this work, we try to unveil these features by analysing the top and bottom distributions of the samples ranked according to the interpretable features. In Section 5.2.1, we present a working example of this concept."
+    },
+    {
+      "heading": "5.2 Interpreting Risk Score Prediction",
+      "text": "We compare our model against models that are regarded as interpretable: risk-slim [26, 37] and decision trees [24]. Given a dataset, risk-slim computes a score for each predictor (e.g. Table 2a). At inference time, for each sample a total score S is computed by summing the scores of the features characterising the sample. The probability for y = 1 (which denotes the \u201crisk\u201d) is then computed as:\nP(y = 1) = 1\n1 + e\u2212(offset+S) , (5)\nwhere the offset is learned in conjunction with the feature scores.We benchmark the models on risk score prediction datasets provided by Ustun and Rudin [26].1 Table 1 shows that our model performs similarly to the other models on these risk scores prediction datasets.\n5.2.1 Interpretable features: comparison against risk-slim\nWe report the decision rules learned by the risk score models and our model in Table 2 on the income and the mushroom datasets. For our model, we build bottom and top distributions for each interpretable feature, as explained in Section 5.1 and report the 4 predictors with the biggest gap between the distributions\u2019 means.\nIn the income dataset, each sample is an adult with demographics information, such as gender, working hours, education. The task is to predict whether the person is earning more than 50K dollars. In the mushroom dataset, the task is to predict if a mushroom is poisonous using some of its features, e.g. smell, shape, colour. In both datasets, predictors and outcomes are binary.2\nFrom the name of the features in the income dataset, it is reasonable to believe that many predictors are strongly correlated, e.g. married vs. not married . Indeed, a correlation analysis confirms this hypothesis. Interestingly, MonoNet was able to learn a feature (top row in Table 2c) that consistently ranks the samples according to gender and marital status (top distribution: never married females, bottom distribution: married males). That is, when ranking the training samples according to the value they assume in the first unit h(k)1 of the interpretable layer, most of the samples with high h (k) 1 value are females that never married. Conversely, most of the samples with low h(k)1 are married males. According to our model, this feature is negatively correlated with the outcome, implicating that MonoNet gives married men a higher probability of earning more than 50K dollars. This is consistent with the results provided by risk-slim. In fact, MonoNet seems to uncover features similar to the decision rules learned by risk-slim (Table 2c vs. Table 2a).\nFor the mushroom dataset, both models agree that the odor (foul vs. none) of the mushroom is an important feature. A deeper analysis reveals that population_eq_several is correlated with gill_size_eq_broad (\u03c1 = \u22120.5064) according to the Spearman rank correlation coefficient [38]. However, the two models seem to disagree on the importance of other predictors. The apparent disagreement might be simply explained by the fact that MonoNet performs worse (Table 1) than risk-slim on the mushroom dataset, and this might actually be because of poorly learned decision rules.\n1https://github.com/ustunb/risk-slim/tree/master/examples/data 2Please refer to the website provided for further information about the datasets, such as feature names."
+    },
+    {
+      "heading": "5.3 Understanding a model with hierarchical monotone features",
+      "text": "Here we illustrate how a model could be interpreted using hierarchical monotonic features (Section 4.5) with a study on the MNIST dataset. The idea is to enforce the monotonicity constraint between the convolutional filters and a hidden interpretable layer, which is monotonic w.r.t. to the output. To facilitate the interpretation of the hidden features w.r.t. the filters, we summarize the activation maps generated by each filter in a single number per filter using a max-pooling operation. These \u201csummaries\u201d will form the first layer of hierarchical interpretable features. The architecture is shown in Figure 2.\nFigure 3a shows a sample that a trained model (with the architecture presented above) misclassified. To understand why this happened, we can inspect the features that are monotonically increasing w.r.t. the wrong class (Figure 3b). Iteratively, to understand why such a feature might have been \u201cactivated\u201d, we focus on those filters that are monotonically increasing w.r.t. it (e.g. Figure 3c). Finally, we can identify which part of the image contributed to the wrong classification by examining the activation map of the filter.\nWe stress the fact that this seemingly trivial reasoning to unveil the decision process of the network was possible because of the monotonicity constraint. This allowed us to reason about particular features, independently from the other features (assuming that they are kept fixed, see Definition 3.1). In an unconstrained neural network, we would need to know the actual values of the other features to know if a feature of interest is contributing positively or negatively towards a prediction.\nAs a final remark, we note that one might be tempted to modify the original image around the region detected on the activation map of a filter. This, however, would have unpredictable results since the input space itself is not monotone w.r.t. the output."
+    },
+    {
+      "heading": "6 Discussion",
+      "text": "Summary In this work we proposed some desiderata for an interpretable model. Based on these assumptions, we suggested that learning monotonic features in a neural network can lead to models that can be considered interpretable to a certain extent. We demonstrated how monotic features can be obtained by structurally constraining a MLP. Our model, MonoNet, shows promising results. However, it is not yet \u201cfully\u201d interpretable: while the monotonicity constraint helps us to interpret predictions in terms of the learned hidden features, we would ultimately like to interpret the predictions w.r.t. the input space. We proposed and experimentally validated two approaches towards solving this issue: ranking w.r.t. monotonic features values and hierarchical monotonic features.\nComparison with self-explaining neural networks (SENN) Melis and Jaakkola [6] recently proposed another neural network architecture with built-in interpretability. Their work is similar in spirit to ours. They also design an architecture able to learn high level features that are monotonically related to the output. However, this monotonic relation is restricted to being additively separable. In this regard, our work can be considered as an extension of theirs. The advantage of their method, though, is that for each high-level feature, they are able to learn an importance score. This score is learned by imposing a \u201clocal explainability\u201d constraint during training. This, together with the additive separability condition mentioned above, may however introduce a bias in their model, which we have claimed is not desirable for an interpretable method."
+    }
+  ],
+  "title": "MonoNet: Towards Interpretable Models by Learning Monotonic Features",
+  "year": 2019
+}

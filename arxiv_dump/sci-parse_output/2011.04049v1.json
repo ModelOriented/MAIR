@@ -1,1 +1,810 @@
-{"abstractText": "The pervasive application of algorithmic decision-making is raising concerns on the risk of unintended bias in AI systems deployed in critical settings such as healthcare. The detection and mitigation of biased models is a very delicate task which should be tackled with care and involving domain experts in the loop. In this paper we introduce FairLens, a methodology for discovering and explaining biases. We show how our tool can be used to audit a fictional commercial black-box model acting as a clinical decision support system. In this scenario, the healthcare facility experts can use FairLens on their own historical data to discover the model\u2019s biases before incorporating it into the clinical decision flow. FairLens first stratifies the available patient data according to attributes such as age, ethnicity, gender and insurance; it then assesses the model performance on such subgroups of patients identifying those in need of expert evaluation. Finally, building on recent state-of-the-art XAI (eXplainable Artificial Intelligence) techniques, FairLens explains which elements in patients\u2019 clinical history drive the model error in the selected subgroup. Therefore, FairLens allows experts to investigate whether to trust the model and to spotlight group-specific biases that might constitute potential fairness issues.", "authors": [{"affiliations": [], "name": "Cecilia Panigutti"}, {"affiliations": [], "name": "Alan Perotti"}, {"affiliations": [], "name": "Andr\u00e8 Panisson"}, {"affiliations": [], "name": "Paolo Bajardi"}, {"affiliations": [], "name": "Dino Pedreschi"}], "id": "SP:eb13f0432d64c01e88c78135b80bd643412b5330", "references": [{"authors": ["H. Abdollahpouri", "R. Burke", "B. Mobasher"], "title": "Controlling popularity bias in learning-to-rank recommendation", "venue": "Proceedings of the Eleventh ACM Conference on Recommender Systems. pp. 42\u201346", "year": 2017}, {"authors": ["M.D. Abr\u00e0moff", "P.T. Lavin", "M. Birch", "N. Shah", "J.C. Folk"], "title": "Pivotal trial of an autonomous ai-based diagnostic system for detection of diabetic retinopathy in primary care offices", "venue": "NPJ digital medicine 1(1), 1\u20138", "year": 2018}, {"authors": ["Adebayo", "J.A"], "title": "FairML: ToolBox for diagnosing bias in predictive modeling", "venue": "Ph.D. thesis, Massachusetts Institute of Technology", "year": 2016}, {"authors": ["A. Avati", "K. Jung", "S. Harman", "L. Downing", "A. Ng", "N.H. Shah"], "title": "Improving palliative care with deep learning", "venue": "BMC medical informatics and decision making 18(4), 122", "year": 2018}, {"authors": ["B.E. Bejnordi", "M. Veta", "P.J. Van Diest", "B. Van Ginneken", "N. Karssemeijer", "G. Litjens", "J.A. Van Der Laak", "M. Hermsen", "Q.F. Manson", "M Balkenhol"], "title": "Diagnostic assessment of deep learning algorithms for detection of lymph node metastases in women with breast cancer", "venue": "Jama 318(22), 2199\u20132210", "year": 2017}, {"authors": ["R.K. Bellamy", "K. Dey", "M. Hind", "S.C. Hoffman", "S. Houde", "K. Kannan", "P. Lohia", "J. Martino", "S. Mehta", "A Mojsilovic"], "title": "Ai fairness 360: An extensible 12 C", "venue": "Panigutti et al. toolkit for detecting, understanding, and mitigating unwanted algorithmic bias. arXiv preprint arXiv:1810.01943", "year": 2018}, {"authors": ["D. Capper", "D.T. Jones", "M. Sill", "V. Hovestadt", "D. Schrimpf", "D. Sturm", "C. Koelsche", "F. Sahm", "L. Chavez", "Reuss", "D.E"], "title": "Dna methylation-based classification of central nervous system tumours", "venue": "Nature 555(7697), 469\u2013474", "year": 2018}, {"authors": ["Z. Che", "S. Purushotham", "K. Cho", "D. Sontag", "Y. Liu"], "title": "Recurrent neural networks for multivariate time series with missing values", "venue": "Scientific reports 8(1), 1\u201312", "year": 2018}, {"authors": ["I.Y. Chen", "E. Pierson", "S. Rose", "S. Joshi", "K. Ferryman", "M. Ghassemi"], "title": "Ethical machine learning in health", "venue": "arXiv preprint arXiv:2009.10576", "year": 2020}, {"authors": ["I.Y. Chen", "P. Szolovits", "M. Ghassemi"], "title": "Can ai help reduce disparities in general medical and mental health care? AMA journal of ethics", "year": 2019}, {"authors": ["M. Chen", "Y. Hao", "K. Hwang", "L. Wang", "L. Wang"], "title": "Disease prediction by machine learning over big data from healthcare communities", "venue": "Ieee Access 5, 8869\u20138879", "year": 2017}, {"authors": ["S. Chilamkurthy", "R. Ghosh", "S. Tanamala", "M. Biviji", "N.G. Campeau", "V.K. Venugopal", "V. Mahajan", "P. Rao", "P. Warier"], "title": "Deep learning algorithms for detection of critical findings in head ct scans: a retrospective study", "venue": "The Lancet 392(10162), 2388\u20132396", "year": 2018}, {"authors": ["E. Choi", "M.T. Bahadori", "A. Schuetz", "W.F. Stewart", "J. Sun"], "title": "Doctor ai: Predicting clinical events via recurrent neural networks", "venue": "Machine Learning for Healthcare Conference. pp. 301\u2013318", "year": 2016}, {"authors": ["A. Chouldechova"], "title": "Fair prediction with disparate impact: A study of bias in recidivism prediction instruments", "venue": "Big data 5(2), 153\u2013163", "year": 2017}, {"authors": ["N. Coudray", "P.S. Ocampo", "T. Sakellaropoulos", "N. Narula", "M. Snuderl", "D. Feny\u00f6", "A.L. Moreira", "N. Razavian", "A. Tsirigos"], "title": "Classification and mutation prediction from non\u2013small cell lung cancer histopathology images using deep learning", "venue": "Nature medicine 24(10), 1559\u20131567", "year": 2018}, {"authors": ["C.M. Cutillo", "K.R. Sharma", "L. Foschini", "S. Kundu", "M. Mackintosh", "K.D. Mandl"], "title": "Machine intelligence in healthcare\u2014perspectives on trustworthiness, explainability, usability, and transparency", "venue": "NPJ Digital Medicine 3(1), 1\u20135", "year": 2020}, {"authors": ["T. Davenport", "R. Kalakota"], "title": "The potential for artificial intelligence in healthcare", "venue": "Future healthcare journal 6(2), 94", "year": 2019}, {"authors": ["C. Dwork", "M. Hardt", "T. Pitassi", "O. Reingold", "R. Zemel"], "title": "Fairness through awareness", "venue": "Proceedings of the 3rd innovations in theoretical computer science conference. pp. 214\u2013226", "year": 2012}, {"authors": ["B. Edizel", "F. Bonchi", "S. Hajian", "A. Panisson", "T. Tassa"], "title": "Fairecsys: Mitigating algorithmic bias in recommender systems", "venue": "International Journal of Data Science and Analytics 9(2), 197\u2013213", "year": 2020}, {"authors": ["A. Esteva", "B. Kuprel", "R.A. Novoa", "J. Ko", "S.M. Swetter", "H.M. Blau", "S. Thrun"], "title": "Dermatologist-level classification of skin cancer with deep neural networks", "venue": "nature 542(7639), 115\u2013118", "year": 2017}, {"authors": ["M. Feldman", "S.A. Friedler", "J. Moeller", "C. Scheidegger", "S. Venkatasubramanian"], "title": "Certifying and removing disparate impact", "venue": "proceedings of the 21th ACM SIGKDD international conference on knowledge discovery and data mining. pp. 259\u2013268", "year": 2015}, {"authors": ["A.L. Goldberger", "L.A. Amaral", "L. Glass", "J.M. Hausdorff", "P.C. Ivanov", "R.G. Mark", "J.E. Mietus", "G.B. Moody", "C.K. Peng", "H.E. Stanley"], "title": "Physiobank, physiotoolkit, and physionet: components of a new research resource for complex physiologic signals", "venue": "circulation 101(23), e215\u2013e220", "year": 2000}, {"authors": ["R. Guidotti", "A. Monreale", "S. Ruggieri", "F. Turini", "F. Giannotti", "D. Pedreschi"], "title": "A survey of methods for explaining black box models", "venue": "ACM computing surveys (CSUR) 51(5), 1\u201342", "year": 2018}, {"authors": ["V. Gulshan", "L. Peng", "M. Coram", "M.C. Stumpe", "D. Wu", "A. Narayanaswamy", "S. Venugopalan", "K. Widner", "T. Madams", "J Cuadros"], "title": "Development and validation of a deep learning algorithm for detection of diabetic retinopathy in retinal fundus photographs", "venue": "Jama 316(22), 2402\u20132410", "year": 2016}, {"authors": ["D. Gunning"], "title": "Explainable artificial intelligence (xai)", "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web 2", "year": 2017}, {"authors": ["H.A. Haenssle", "C. Fink", "R. Schneiderbauer", "F. Toberer", "T. Buhl", "A. Blum", "A. Kalloo", "A.B.H. Hassen", "L. Thomas", "A Enk"], "title": "Man against machine: diagnostic performance of a deep learning convolutional neural network for dermoscopic melanoma recognition in comparison to 58 dermatologists", "venue": "Annals of Oncology 29(8), 1836\u20131842", "year": 2018}, {"authors": ["S. Hajian", "F. Bonchi", "C. Castillo"], "title": "Algorithmic bias: From discrimination discovery to fairness-aware data mining", "venue": "Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining. pp. 2125\u20132126", "year": 2016}, {"authors": ["M. Hardt", "E. Price", "N. Srebro"], "title": "Equality of opportunity in supervised learning", "venue": "Advances in neural information processing systems. pp. 3315\u20133323", "year": 2016}, {"authors": ["F. Jiang", "Y. Jiang", "H. Zhi", "Y. Dong", "H. Li", "S. Ma", "Y. Wang", "Q. Dong", "H. Shen", "Y. Wang"], "title": "Artificial intelligence in healthcare: past, present and future", "venue": "Stroke and vascular neurology 2(4), 230\u2013243", "year": 2017}, {"authors": ["A. Johnson", "L. Bulgarelli", "T. Pollard", "S. Horng", "L.A. Celi", "M. Roger"], "title": "Mimic-iv (version 0.4)", "venue": "PhysioNet (2020),", "year": 2020}, {"authors": ["A.E. Johnson", "T.J. Pollard", "L. Shen", "H.L. Li-wei", "M. Feng", "M. Ghassemi", "B. Moody", "P. Szolovits", "L.A. Celi", "R.G. Mark"], "title": "Mimic-iii, a freely accessible critical care database", "venue": "Scientific data 3, 160035", "year": 2016}, {"authors": ["M. Kearns", "S. Neel", "A. Roth", "Z.S. Wu"], "title": "Preventing fairness gerrymandering: Auditing and learning for subgroup fairness", "venue": "International Conference on Machine Learning. pp. 2564\u20132572", "year": 2018}, {"authors": ["J. Kleinberg", "S. Mullainathan", "M. Raghavan"], "title": "Inherent trade-offs in the fair determination of risk scores", "venue": "arXiv preprint arXiv:1609.05807", "year": 2016}, {"authors": ["R. Lindsey", "A. Daluiski", "S. Chopra", "A. Lachapelle", "M. Mozer", "S. Sicular", "D. Hanel", "M. Gardner", "A. Gupta", "R Hotchkiss"], "title": "Deep neural network improves fracture detection by clinicians", "venue": "Proceedings of the National Academy of Sciences 115(45), 11591\u201311596", "year": 2018}, {"authors": ["S.M. Lundberg", "S.I. Lee"], "title": "A unified approach to interpreting model predictions", "venue": "Advances in neural information processing systems. pp. 4765\u20134774", "year": 2017}, {"authors": ["B.T. Luong", "S. Ruggieri", "F. Turini"], "title": "k-nn as an implementation of situation testing for discrimination discovery and prevention", "venue": "Proceedings of the 17th ACM SIGKDD international conference on Knowledge discovery and data mining. pp. 502\u2013510", "year": 2011}, {"authors": ["A. Madani", "R. Arnaout", "M. Mofrad", "R. Arnaout"], "title": "Fast and accurate view classification of echocardiograms using deep learning", "venue": "NPJ digital medicine 1(1), 1\u20138", "year": 2018}, {"authors": ["L. Moja", "H.P. Friz", "M. Capobussi", "K. Kwag", "R. Banzi", "F. Ruggiero", "M. Gonz\u00e1lezLorenzo", "E.G. Liberati", "M. Mangia", "P Nyberg"], "title": "Effectiveness of a hospital-based computerized decision support system on clinician recommendations and patient outcomes: A randomized clinical trial", "venue": "JAMA network open 2(12), e1917094\u2013e1917094", "year": 2019}, {"authors": ["J.G. Nam", "S. Park", "E.J. Hwang", "J.H. Lee", "K.N. Jin", "K.Y. Lim", "T.H. Vu", "J.H. Sohn", "S. Hwang", "Goo", "J.M"], "title": "Development and validation of deep learning\u2013 based automatic detection algorithm for malignant pulmonary nodules on chest radiographs", "venue": "Radiology 290(1), 218\u2013228", "year": 2019}, {"authors": ["B. Norgeot", "B.S. Glicksberg", "A.J. Butte"], "title": "A call for deep-learning healthcare", "venue": "Nature medicine 25(1), 14\u201315", "year": 2019}, {"authors": ["Z. Obermeyer", "B. Powers", "C. Vogeli", "S. Mullainathan"], "title": "Dissecting racial bias in an algorithm used to manage the health of populations", "venue": "Science 366(6464), 447\u2013453", "year": 2019}, {"authors": ["K.J. O\u2019malley", "K.F. Cook", "M.D. Price", "K.R. Wildes", "J.F. Hurdle", "C.M. Ashton"], "title": "Measuring diagnoses: Icd code accuracy", "venue": "Health services research 40(5p2), 1620\u2013 1639", "year": 2005}, {"authors": ["C. Panigutti", "A. Perotti", "D. Pedreschi"], "title": "Doctor xai: an ontology-based approach to black-box sequential data classification explanations", "venue": "Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency. pp. 629\u2013639", "year": 2020}, {"authors": ["D. Pedreschi", "S. Ruggieri", "F. Turini"], "title": "Discrimination-aware data mining", "venue": "Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining. pp. 560\u2013568", "year": 2008}, {"authors": ["A. Rajkomar", "E. Oren", "K. Chen", "A.M. Dai", "N. Hajaj", "M. Hardt", "P.J. Liu", "X. Liu", "J. Marcus", "M Sun"], "title": "Scalable and accurate deep learning with electronic health records", "venue": "NPJ Digital Medicine 1(1), 18", "year": 2018}, {"authors": ["M.T. Ribeiro", "S. Singh", "C. Guestrin"], "title": " why should i trust you?\u201d explaining the predictions of any classifier", "venue": "Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining. pp. 1135\u20131144", "year": 2016}, {"authors": ["C. Rudin"], "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead", "venue": "Nature Machine Intelligence 1(5), 206\u2013215", "year": 2019}, {"authors": ["S. Ruggieri", "D. Pedreschi", "F. Turini"], "title": "Data mining for discrimination discovery", "venue": "ACM Transactions on Knowledge Discovery from Data (TKDD) 4(2), 1\u201340", "year": 2010}, {"authors": ["P. Saleiro", "B. Kuester", "L. Hinkson", "J. London", "A. Stevens", "A. Anisfeld", "K.T. Rodolfa", "R. Ghani"], "title": "Aequitas: A bias and fairness audit toolkit", "venue": "arXiv preprint arXiv:1811.05577", "year": 2018}, {"authors": ["M. Setzu", "R. Guidotti", "A. Monreale", "F. Turini"], "title": "Global explanations with local scoring", "venue": "Joint European Conference on Machine Learning and Knowledge Discovery in Databases. pp. 159\u2013171. Springer", "year": 2019}, {"authors": ["K. Shameer", "K.W. Johnson", "A. Yahi", "R. Miotto", "L. Li", "D. Ricks", "J. Jebakaran", "P. Kovatch", "P.P. Sengupta", "S Gelijns"], "title": "Predictive modeling of hospital readmission rates using electronic medical record-wide machine learning: a casestudy using mount sinai heart failure cohort", "venue": "PACIFIC SYMPOSIUM ON BIOCOMPUTING 2017. pp. 276\u2013287. World Scientific", "year": 2017}, {"authors": ["J.J. Titano", "M. Badgeley", "J. Schefflein", "M. Pain", "A. Su", "M. Cai", "N. Swinburne", "J. Zech", "J. Kim", "J Bederson"], "title": "Automated deep-neural-network surveillance of cranial images for acute neurologic events", "venue": "Nature medicine 24(9), 1337\u20131341", "year": 2018}, {"authors": ["E.J. Topol"], "title": "High-performance medicine: the convergence of human and artificial intelligence", "venue": "Nature medicine 25(1), 44\u201356", "year": 2019}, {"authors": ["F. Tramer", "V. Atlidakis", "R. Geambasu", "D. Hsu", "J.P. Hubaux", "M. Humbert", "A. Juels", "H. Lin"], "title": "Fairtest: Discovering unwarranted associations in data-driven applications", "venue": "2017 IEEE European Symposium on Security and Privacy (EuroS&P). pp. 401\u2013416. IEEE", "year": 2017}, {"authors": ["C. Xiao", "E. Choi", "J. Sun"], "title": "Opportunities and challenges in developing deep learning models using electronic health records data: a systematic review", "venue": "Journal of the American Medical Informatics Association 25(10), 1419\u20131428", "year": 2018}, {"authors": ["K.H. Yu", "A.L. Beam", "I.S. Kohane"], "title": "Artificial intelligence in healthcare", "venue": "Nature biomedical engineering 2(10), 719\u2013731", "year": 2018}, {"authors": ["R. Zemel", "Y. Wu", "K. Swersky", "T. Pitassi", "C. Dwork"], "title": "Learning fair representations", "venue": "International Conference on Machine Learning. pp. 325\u2013333", "year": 2013}, {"authors": ["J. Zhang", "S. Gajjala", "P. Agrawal", "G.H. Tison", "L.A. Hallock", "L. Beussink-Nelson", "M.H. Lassen", "E. Fan", "M.A. Aras", "C Jordan"], "title": "Fully automated echocardiogram interpretation in clinical practice: feasibility and diagnostic accuracy", "venue": "Circulation 138(16), 1623\u20131635", "year": 2018}], "sections": [{"text": "Keywords: Clinical decision support systems, Fairness and bias in machine learning systems, eXplainable Artificial Intelligence.\n? PB, AP and AP acknowledge partial support from Research Project \u201dCasa Nel Parco\u201d (POR FESR14/20 - CANP - Cod. 320 - 16 - Piattaforma Tecnologica \u201dSalute e Benessere\u201d) fundedby Regione Piemonte in the context of the Regional Platform on Health and Wellbeing and from Intesa Sanpaolo Innovation Center. The funders had no role in study design,data collection and analysis, decision to publish, or preparation of the manuscript\nar X\niv :2\n01 1.\n04 04\n9v 1\n[ cs\n.L G\n] 8"}, {"heading": "1 Introduction", "text": "The growing availability of Electronic Health Records (EHR) and the constantly increasing predictive power of Machine Learning (ML) models are boosting both research advances and the creation of business opportunities to deploy clinical decision support systems (DSS) in healthcare facilities [29,17,38]. Since such models are still not equipped to differentiate between correlation and causation, they might leverage spurious correlations and undesired biases to boost their performance. While there is an increasing interest of the AI community to commit to interdisciplinary endeavors to define, investigate and provide guidelines to tackle biases and fairness-related issues [44,49,41], quantitative and systematic auditing for real-world datasets and ML models is still in its infancy. In this work, we investigate the potential biases in ML models trained on patients\u2019 clinical history represented as diagnostic codes. This type of structured data allows for a machine-ready representation of the patient\u2019s clinical history and is commonly used in longitudinal ML modeling for phenotyping, multi-morbidity diagnosis classification and sequential clinical events prediction [55,13,8]. The implicit assumption behind the use of ICD codes in this kind of ML applications is that these codes are a good proxy for the patient\u2019s actual health status. However, ICD codes can misrepresent such status because of many potential sources of error in translating the patient\u2019s actual disease into the respective code [42,10]. Data quality assessment for the secondary use of health data is of pivotal importance to ease the transition of ML-based DSS from academic prototypes into real-world clinical practice. This is particularly true when ICD codes are fed into black-box ML models, i.e., models whose internal decision-making process is opaque.\nIn this paper we introduce FairLens, a methodology to discover and explain biases for ML models trained on ICD structured healthcare data. We take bias analysis a step further by explaining the reasons behind the bad model\u2019s performance on specific subgroups. FairLens embeds explainability techniques in order to explain the reasons behind model mistakes instead of simply explaining model predictions. The presented methodology is designed to be applied to any sequential ML model trained on ICD codes. FairLens first stratifies patients according to attributes of interest such as age, gender, ethnicity, and insurance type; it then applies an appropriate metric to identify patients subgroups where the model performs poorly. Lastly, FairLens identifies the clinical conditions that are most frequently misclassified for the selected subgroup and explains which elements in the patients\u2019 clinical histories are influencing the misclassification. We also present a use case for our methodology using the most recent update of one of the largest freely available ICU datasets, the MIMIC-IV dataset [30]. In this scenario, MIMIC-IV acts as the healthcare facility\u2019s historical medical database. We show how a domain expert can use FairLens to audit a multilabel clinical DSS [13] acting as a fictional commercial black-box model. We believe that applied research and quantitative tools to perform systematic audits specific to healthcare data are very much needed in order to establish and reinforce trust\nin the application of AI-based systems in such a high-stakes domain. FairLens is a first step to make fairness and bias auditing a standard procedure for clinical DSS. We envision such a procedure to be used to monitor bias and fairness issues in all clinical DSSs\u2019 life-cycle stages."}, {"heading": "2 Background and Related Work", "text": "Advances in artificial intelligence (AI) in healthcare offer groundbreaking opportunities to enhance patient outcomes, reduce costs, and impact population health [56,53]. Unprecedented results have been achieved leveraging deep neural networks for pattern recognition to help interpret medical scans [34,39,12,52], pathology slides [5,15,7], skin lesions [20,26], retinal images [24,2] and electrocardiograms [37,58] to name few examples. The ability to predict key outcomes can also be exploited to improve clinical practice by training DSSs with electronic health records [45,4,51,40,11].\nBesides the technological challenges, the various stakeholders involved with the healthcare ecosystem (clinicians, patients/ patient advocate, researchers, federal agencies and industry) identified the following urgent priorities for healthcare applications: trustworthiness, explainability, usability, transparency and fairness [16]. Many efforts have been devoted to detecting and measuring discrimination in model decisions [48,57,27]. Several definitions and methodologies have been proposed to measure bias and fairness [44,18,36,28]; however, despite the effort, a general consensus on such measures is still missing. Generally speaking, the most prevalent approach to fairness in machine learning is to solicit for approximate parity of some statistics of the predictions (such as false negative rate) across pre-defined subgroups [33,32,14]. Moreover, there are very few available general-purposes resources to operationalize them [3,54,6,49]. The majority of such research has focused on binary or multi-class classification problems to prevent discrimination based on sensitive attributes [21], and a few studies focus specifically on multi-label classification problems, with many concentrating on fairness in ranking and recommendation systems [1,19]. In the context of medical applications, a recent paper [9] suggested that the post-deployment inspection of model performance on groups and outcomes should be one out of five ethical pillars for equitable ML in the advancement of health care.\nAnother staple of this paper is the research field of eXplainable Artificial Intelligence (XAI) [25]. XAI techniques have the goal to explain (i.e., present in human-understandable terms) the decision-making process of an AI system. The need for this kind of technique stems from the fact that the internal decisionmaking process of many state-of-the-art AI systems is opaque. This can happen either because the source code of the algorithm is proprietary software and can not be directly inspected, or because the model implements a subsymbolic (numerical) representation of knowledge, often paired with highly non-linear correlations, or both. Recently, several state-of-the-art XAI techniques have been\nproposed to provide post-hoc explanations of the model behaviour [46,35,23,43]. The post-hoc approach to model explanation have recently faced criticism [47], however they remain the only available solution in case of proprietary software."}, {"heading": "3 FairLens: Pipeline", "text": "This Section describes the FairLens methodology. A bird\u2019s-eye view of the pipeline is depicted in Figure 1.\nLet BB be a sequential black-box ML model trained on ICD data. The model can be available as an on-premise-installed software or it could be integrated via SaaS (software as a service).\nLet pi = (p att i , p ch i ) be the patients represented by a set of attributes p att i such as ethnicity, gender, and insurance type, and by a clinical history pchi = {vi,1, \u00b7 \u00b7 \u00b7 vi,V } represented as a sequence of visits. In turn, each visit is represented by a set of ICD codes. Let P = {p1, \u00b7 \u00b7 \u00b7 pN} be the set of patients.\nLet vBBi,j = BB({vi,1, \u00b7 \u00b7 \u00b7 vi,j\u22121}) be the prediction of the black-box for the j \u2212 th visit of patient pi.\nStratification The first step of our methodology is depicted in Figure 1(a). Since we aim to check whether the ML model performs equally well across groups, we stratify our patients set P according to a set of conditions c on the set of attributes patt, e.g. c = {age \u2264 40, insurance = Medicaid}. We define a group G as the set of visits of each patients whose attributes match the conditions in s:\nGj = {pi | pi \u2208 P, patti \u2208 cj}\nThe stratification process produces a set of groups G1, .., GM . The black-box model is then applied on such patients obtaining a prediction for each of the selected visits.\nA domain expert might suggest specific condition sets to isolate a given subcohort of known interest, whereas a technician might opt for building a lattice of all possible combinations of constraints. We also remark that some patients might not occur in any group or occur in more than one, depending on the provided conditions.\nPerformance evaluation and ranking A disparity function d : Gj \u2192 sj maps every group Gj to a disparity score sj . FairLens includes a number of disparity functions, such as the standard classification metrics (accuracy, F1-score, etc.) and distribution-comparison functions like the Wasserstein distance. Custom disparity functions can be used, as long as their results can be used for ranking. Given a disparity function, FairLens computes the score sj for each group Gj , which represents the performance of the BB on that specific set of patients. Once each group has been scored, FairLens ranks the groups, as depicted in Figure 1(b). The ranking highlights groups where the BB performs relatively poorly, signaling them to domain experts for further inspection. Alternatively, the domain experts might arbitrarily select one subgroup for further inspection, regardless of their scores, due to the cohort\u2019s known peculiarities or clinical-dependent reasons.\nInspection Given a specific group Gj flagged for further inspection by the group ranking function, FairLens compares the black-box prediction vBBi,j with the ground truth vi,j for each visit in Gj . The goal of this step is to check for systematic bias of the BB on the group of patients. For each ICD code, the relative frequencies in the predicted and true values are computed and we define the misdiagnosis score the difference between these two values. Ranking the codes by misdiagnosis scores allows to highlight which ICD codes are particularly overor under-predicted (high and low difference values respectively). FairLens thus displays the top three over- and under-represented codes to the domain expert who can ask for an explanation for the highlighted conditions that might result in producing or reinforcing systematic over- or under-treatment. In Figure 1(c), we have labelled the true visit value as GT (for ground truth); in the mock example it can be observed that the code \u03b2 is over-represented.\nExplanation In order to extract an explanation for the mislabeled code, FairLens first assigns binary labels on the visits of the group of interest. Suppose the domain expert wants to understand what elements of the group clinical histories are most influencing the over-representation of ICD code \u03b2 in the inspected group Gj , then at each visit vi,j \u2208 Gj will be assigned a binary label in the following way:\nl(vBBi,j ) = { 1 if \u03b2 \u2208 vBBi,j 0 if \u03b2 /\u2208 vBBi,j\nBy doing so, FairLens assigns to the clinical history pchi = vi,1, \u00b7 \u00b7 \u00b7 , vi,j of each patient a binary label representing patient misclassification w.r.t \u03b2. Then,\nit selects all the misclassified clinical histories and explains them using a local XAI technique for sequential healthcare data.It is worth noting that while this kind of techniques are usually employed to explain the reasons behind a blackbox decision, thanks to the binarisation process, FairLens uses them to explain the reasons behind a specific mislabelling. Furthermore, the use of a post-hoc XAI technique that is agnostic w.r.t. the black-box allows FairLens to audit any model without having access to its internal structure or parameters.\nReporting Finally, FairLens combines the explanations of each mislabelled patient in the group and shows the most common ICD codes occurring as patients\u2019 explanations. In this context, several local explanations of mislabelled visits related to patients of the same group are aggregated to provide the domain expert with a pointer to specific clinical conditions that systematically drive the BB error. Typically the local model-agnostic post-hoc explanations provides local decision rules. Each condition of the rule premise follows the pattern\nICD code \u2277 threshold value\nWhere the threshold value contains a temporal information about the visits containing the ICD code, being past clinical conditions predictive of future outcomes. In the aggregation process FairLens aggregate the occurrences of each ICD found in the selected group explanations and highlight the most common ones."}, {"heading": "4 Use Case: auditing a medical decision support system", "text": "In this section we show how a domain expert can use FairLens on the historical data available at her healthcare facility to audit a fictional commercial clinical decision support system (DSS). We imagine that the domain expert has no access to the source code of the DSS, i.e. it can be considered a black-box. We use the MIMIC-IV (see Subsection 4.1) database of electronic health records as the fictitious historical database of the facility and DoctorAI (see Subsection 4.2) as the fictional clinical DSS. We split the dataset in training (29276 patients, 67%), validation (4759 patients, 11%) and test set (9662, 22%). We used the training and validation set to train DoctorAI and the patients in the test set as the historical database used in the auditing process. We exploit DoctorXAI (Subsection 4.3) as the backbone of our explainer."}, {"heading": "4.1 Dataset: MIMIC-IV", "text": "The MIMIC (Medical Information Mart for Intensive Care) [22,31] database is a single-center freely available database containing de-identified clinical data of patients admitted to the ICU (intensive care unit) of the Beth Israel Deaconess Medical Center in Boston. Its most recent update, MIMIC-IV [30], contains information of 383,220 patients collected between 2008 and 2019 for a total\nof 524,520 hospital admissions. The database includes patient\u2019s demographics, clinical measurements and diagnoses and procedures codes of each admission. We focused our analysis on hospital admissions coded with ICD-9 billing codes and on patients having at least two admissions to the hospital, reducing the number of patients to 43,697 and the number of admission to the hospital to 164,411 (see table 1)."}, {"heading": "4.2 Clinical DSS: Doctor AI", "text": "Doctor AI by [13] is a Recurrent Neural Network (RNN) with Gated Recurrent Units (GRU) that predicts the patient\u2019s next clinical event\u2019s time, diagnoses and medications. For the purpose of the use-case, we focused only on ICD diagnoses prediction. We trained the algorithm on MIMIC-IV using the training and validation set as defined in Subsection 4.1 using default hyperparameters.\nDoctor AI can be trained to predict patient\u2019s future clinical event in terms of either CCS (Clinical Classifications Software) or ICD codes. CCS codes are used to group ICD codes into smaller number of clinically meaningful categories. As suggested in [13] we trained Doctor AI to predict CCS codes.\nIn order to test its performance we used Recall@n with n = 10, 20, 30. Originally, the authors trained their model on 260.000 patients of the EHRs database of Sutter Health Palo Alto Medical Foundation. We consider the performance declared in the original paper as the DSS performance declared by the manufacturer. We show the performance on the original dataset compared to those on MIMIC-IV in table 2. We highlight how this is the first step that a domain expert would do to check if the clinical DSS is suitable on the healthcare facility dataset."}, {"heading": "4.3 Explainer: DoctorXAI", "text": "DoctorXAI by [43] is a post-hoc explainer that can deal with any multi-label sequential model. Since it is agnostic w.r.t. the model, i.e. it does not use any of its internal parameter in the explanation process, it is suitable for our methodology which considers the clinical DSS as a commercial black-box. Furthermore, DoctorXAI exploits medical ontologies in the explanation process, in our case we\nexploited the ICD-9 ontology. The explanations provided by DoctorXAI are local decision rules, which means that they provide the rationale for one particular classification.\nIn our scenario, we want to provide an explanation for a over- or underdiagnosis observed in a group of patients, therefore FairLens binarizes the blackbox labels and it combines the explanations as described in the Explanation and Reporting paragraphs of Section 3."}, {"heading": "4.4 Auditing DoctorAI on MIMIC", "text": "Assess the DSS performance on the healthcare facility data The first step that any domain expert would perform before deploying the clinical DSS on her dataset is to measure its global performance and compare it with the one declared by the manufacturer. In our scenario a domain expert would obtain the results in table 2.\nIdentify problematic groups of patients Once the global performance has been assessed and it is considered good enough, the domain expert can apply FairLens to discover potential biases learned by the model. The domain expert would start by deciding which attributes to use to stratify the patients.For the purpose of our fictional scenario, we consider the following attributes occurring in the auditing data:\n\u2013 Gender: 54 % Female, 46 % Male.\n\u2013 Ethnicity: 69 % White, 18 % Black, 7 % Hispanic/Latino, 3 % Asian, 3 % Other. \u2013 Age groups: 0.5 % infants (age=0), 3.2 % age 15-25, 18.3 % age 25-45, 36 % age 45-65, 42 % over 65. \u2013 Insurance type: 41% Medicare, 12% Medicaid, 47% Other.\nOnce these attributes are selected, FairLens computes the disparities across groups. In our scenario, the black-box is a sequential multi-label model that predicts the set of codes diagnosed in the next visit in terms of CCS codes. In this multi-label case, the disparity is evaluated using the Wasserstein distance. This metric measures the distance between two probability distributions: for each group of interest, the distance between the CCS codes\u2019 distribution in the black-box output and the same distribution in the ground truth. The domain expert can decide to either explore a specific group of interest or to have a comprehensive view of the biases of the DSS on all possible groups. In the latter option, the output of this computation is a set of scatter plots similar to those shown in Figure 2.\nThe scatter plots show the relationship between the group size and its disparity measure. Each point is a combination of attributes, considering all possible combinations of values FairLens obtains 432 groups. The highest variability in terms of disparities is observed in the smaller groups. This would inform the domain expert that fairness issues might be present in relatively rare patients treated in her healthcare facility. On the contrary, different operational strategies should be implemented if the larger disparities were observed over large groups. The color-coding allows to explore the disparities of each intersectional identity. Data points labelled and color-coded as all of the above correspond to groups that do not represent a specific value for the stratification feature: for instance, the group (male, medicare) includes patients of all ages and ethnicities.\nThe main insights that the user can draw from the scatter plot in this specific case is that the DSS works very well on the infant patients, and there is a tendency of the DSS to misdiagnose patients over 65 years old (Figure 2.age).\nFurthermore, Medicaid patients seems to be more frequently misdiagnosed than Medicare patients.\nIdentifying systematic sources of error in the selected subgroup The domain expert auditing the system can further select a specific group for a more in-depth investigation. Suppose she decides to focus on the groups with the highest disparity (outliers highlighted with a red rectangle in Figure 2). In this case, FairLens compares the ground truth clinical conditions with the codes predicted by the DSS of these groups, and it isolates the most over- and under-diagnosed CCS codes by the DSS, obtaining the results reported in Table 3 (only the top 4 groups by disparity scores are shown, and only the top/bottom codes ranked by misdiagnosis scores are reported). This analysis tells the domain expert that the group with the highest disparity is young (15-25 y.o.) male black patients with Medicaid. For this group, the clinical DSS tends to overdiagnose Mood disorders, Essential Hypertension and Anxiety disorders while it tends to under-diagnose Schizophrenia, Substance-related disorders and Administrative admission. A similar consideration can be drawn for other patient groups.\nObtaining explanations for systematic misclassifications Once the groups with the highest disparities are identified, the domain expert can use FairLens to obtain an explanation for one particular misclassification. Consider, for example, the over-diagnosis of Mood Disorder (CCS code 657) for young black patients with Medicaid. FairLens uses DoctorXAI to discover which elements in the patients\u2019 clinical history drive this over-representation of that specific CCS. This is done by first projecting the black box\u2019s multi-label output on the single label 657 (as explained in Section 3), then calling DoctorXAI to explain the binarized outcome. Highlighting the most common ICD-9 conditions emerging from the group explanations, FairLens shows the domain expert Figure 3.\nThe bars\u2019 magnitude shows the observed frequency of that code in the group explanations, while the color and the direction of the bar show if the condition associated with that code was its presence or absence in the clinical history.\nThe explainability report given by FairLens should be read like this: the top 3 ICD-9 codes driving the DDS\u2019s over-diagnosis of Mood Disorders in young black patients with Medicaid are Syringomyelia and Syringobulbia (ICD-9 code 336.0), Suicidal ideation (ICD-9 code V62.84) and Outcome of delivery, single liveborn (ICD-9 code V27.0). In particular, the DSS over-diagnoses Mood Disorders when Syringomyelia and Syringobulbia are not observed in the patient\u2019s clinical history and when Suicidal ideation and Outcome of delivery are present in the patient\u2019s clinical history."}, {"heading": "5 Conclusions and Future Work", "text": "Fairness and explainability are key features to gain trust from patients and clinicians. As black-box ML-based clinical decision support systems will be deployed in real-world healthcare settings, systematic auditing procedures must be\nin place. In this paper we proposed FairLens, an algorithmic pipeline to inspect clinical DSS and we showed how to use it to spot fairness issues in patients\u2019 subgroups, and to further investigate potential over-/under-diagnosed conditions. Moreover, the proposed methodology is able to drive domain expert to investigate the reason behind the systematic black-box misclassification by pointing to the most common causes of error within groups through XAI techniques. Future work will be devoted to test FairLens on different black-box and to include additional disparity scores with the aid of domain experts to increase the tool usability. Moreover, we aim at providing a more structured local-to-global explanation [50] of the BB error. Finally, additional experiments to generate counterfactual examples will be implemented to increase FairLens adoption from domain experts."}], "title": "FairLens: Auditing Black-box Clinical Decision Support Systems", "year": 2020}
+{
+  "abstractText": "The pervasive application of algorithmic decision-making is raising concerns on the risk of unintended bias in AI systems deployed in critical settings such as healthcare. The detection and mitigation of biased models is a very delicate task which should be tackled with care and involving domain experts in the loop. In this paper we introduce FairLens, a methodology for discovering and explaining biases. We show how our tool can be used to audit a fictional commercial black-box model acting as a clinical decision support system. In this scenario, the healthcare facility experts can use FairLens on their own historical data to discover the model\u2019s biases before incorporating it into the clinical decision flow. FairLens first stratifies the available patient data according to attributes such as age, ethnicity, gender and insurance; it then assesses the model performance on such subgroups of patients identifying those in need of expert evaluation. Finally, building on recent state-of-the-art XAI (eXplainable Artificial Intelligence) techniques, FairLens explains which elements in patients\u2019 clinical history drive the model error in the selected subgroup. Therefore, FairLens allows experts to investigate whether to trust the model and to spotlight group-specific biases that might constitute potential fairness issues.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Cecilia Panigutti"
+    },
+    {
+      "affiliations": [],
+      "name": "Alan Perotti"
+    },
+    {
+      "affiliations": [],
+      "name": "Andr\u00e8 Panisson"
+    },
+    {
+      "affiliations": [],
+      "name": "Paolo Bajardi"
+    },
+    {
+      "affiliations": [],
+      "name": "Dino Pedreschi"
+    }
+  ],
+  "id": "SP:eb13f0432d64c01e88c78135b80bd643412b5330",
+  "references": [
+    {
+      "authors": [
+        "H. Abdollahpouri",
+        "R. Burke",
+        "B. Mobasher"
+      ],
+      "title": "Controlling popularity bias in learning-to-rank recommendation",
+      "venue": "Proceedings of the Eleventh ACM Conference on Recommender Systems. pp. 42\u201346",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M.D. Abr\u00e0moff",
+        "P.T. Lavin",
+        "M. Birch",
+        "N. Shah",
+        "J.C. Folk"
+      ],
+      "title": "Pivotal trial of an autonomous ai-based diagnostic system for detection of diabetic retinopathy in primary care offices",
+      "venue": "NPJ digital medicine 1(1), 1\u20138",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Adebayo",
+        "J.A"
+      ],
+      "title": "FairML: ToolBox for diagnosing bias in predictive modeling",
+      "venue": "Ph.D. thesis, Massachusetts Institute of Technology",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Avati",
+        "K. Jung",
+        "S. Harman",
+        "L. Downing",
+        "A. Ng",
+        "N.H. Shah"
+      ],
+      "title": "Improving palliative care with deep learning",
+      "venue": "BMC medical informatics and decision making 18(4), 122",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "B.E. Bejnordi",
+        "M. Veta",
+        "P.J. Van Diest",
+        "B. Van Ginneken",
+        "N. Karssemeijer",
+        "G. Litjens",
+        "J.A. Van Der Laak",
+        "M. Hermsen",
+        "Q.F. Manson",
+        "M Balkenhol"
+      ],
+      "title": "Diagnostic assessment of deep learning algorithms for detection of lymph node metastases in women with breast cancer",
+      "venue": "Jama 318(22), 2199\u20132210",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "R.K. Bellamy",
+        "K. Dey",
+        "M. Hind",
+        "S.C. Hoffman",
+        "S. Houde",
+        "K. Kannan",
+        "P. Lohia",
+        "J. Martino",
+        "S. Mehta",
+        "A Mojsilovic"
+      ],
+      "title": "Ai fairness 360: An extensible 12 C",
+      "venue": "Panigutti et al. toolkit for detecting, understanding, and mitigating unwanted algorithmic bias. arXiv preprint arXiv:1810.01943",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D. Capper",
+        "D.T. Jones",
+        "M. Sill",
+        "V. Hovestadt",
+        "D. Schrimpf",
+        "D. Sturm",
+        "C. Koelsche",
+        "F. Sahm",
+        "L. Chavez",
+        "Reuss",
+        "D.E"
+      ],
+      "title": "Dna methylation-based classification of central nervous system tumours",
+      "venue": "Nature 555(7697), 469\u2013474",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Z. Che",
+        "S. Purushotham",
+        "K. Cho",
+        "D. Sontag",
+        "Y. Liu"
+      ],
+      "title": "Recurrent neural networks for multivariate time series with missing values",
+      "venue": "Scientific reports 8(1), 1\u201312",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "I.Y. Chen",
+        "E. Pierson",
+        "S. Rose",
+        "S. Joshi",
+        "K. Ferryman",
+        "M. Ghassemi"
+      ],
+      "title": "Ethical machine learning in health",
+      "venue": "arXiv preprint arXiv:2009.10576",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "I.Y. Chen",
+        "P. Szolovits",
+        "M. Ghassemi"
+      ],
+      "title": "Can ai help reduce disparities in general medical and mental health care? AMA journal of ethics",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Chen",
+        "Y. Hao",
+        "K. Hwang",
+        "L. Wang",
+        "L. Wang"
+      ],
+      "title": "Disease prediction by machine learning over big data from healthcare communities",
+      "venue": "Ieee Access 5, 8869\u20138879",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Chilamkurthy",
+        "R. Ghosh",
+        "S. Tanamala",
+        "M. Biviji",
+        "N.G. Campeau",
+        "V.K. Venugopal",
+        "V. Mahajan",
+        "P. Rao",
+        "P. Warier"
+      ],
+      "title": "Deep learning algorithms for detection of critical findings in head ct scans: a retrospective study",
+      "venue": "The Lancet 392(10162), 2388\u20132396",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "E. Choi",
+        "M.T. Bahadori",
+        "A. Schuetz",
+        "W.F. Stewart",
+        "J. Sun"
+      ],
+      "title": "Doctor ai: Predicting clinical events via recurrent neural networks",
+      "venue": "Machine Learning for Healthcare Conference. pp. 301\u2013318",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Chouldechova"
+      ],
+      "title": "Fair prediction with disparate impact: A study of bias in recidivism prediction instruments",
+      "venue": "Big data 5(2), 153\u2013163",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "N. Coudray",
+        "P.S. Ocampo",
+        "T. Sakellaropoulos",
+        "N. Narula",
+        "M. Snuderl",
+        "D. Feny\u00f6",
+        "A.L. Moreira",
+        "N. Razavian",
+        "A. Tsirigos"
+      ],
+      "title": "Classification and mutation prediction from non\u2013small cell lung cancer histopathology images using deep learning",
+      "venue": "Nature medicine 24(10), 1559\u20131567",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C.M. Cutillo",
+        "K.R. Sharma",
+        "L. Foschini",
+        "S. Kundu",
+        "M. Mackintosh",
+        "K.D. Mandl"
+      ],
+      "title": "Machine intelligence in healthcare\u2014perspectives on trustworthiness, explainability, usability, and transparency",
+      "venue": "NPJ Digital Medicine 3(1), 1\u20135",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "T. Davenport",
+        "R. Kalakota"
+      ],
+      "title": "The potential for artificial intelligence in healthcare",
+      "venue": "Future healthcare journal 6(2), 94",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Dwork",
+        "M. Hardt",
+        "T. Pitassi",
+        "O. Reingold",
+        "R. Zemel"
+      ],
+      "title": "Fairness through awareness",
+      "venue": "Proceedings of the 3rd innovations in theoretical computer science conference. pp. 214\u2013226",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "B. Edizel",
+        "F. Bonchi",
+        "S. Hajian",
+        "A. Panisson",
+        "T. Tassa"
+      ],
+      "title": "Fairecsys: Mitigating algorithmic bias in recommender systems",
+      "venue": "International Journal of Data Science and Analytics 9(2), 197\u2013213",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Esteva",
+        "B. Kuprel",
+        "R.A. Novoa",
+        "J. Ko",
+        "S.M. Swetter",
+        "H.M. Blau",
+        "S. Thrun"
+      ],
+      "title": "Dermatologist-level classification of skin cancer with deep neural networks",
+      "venue": "nature 542(7639), 115\u2013118",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Feldman",
+        "S.A. Friedler",
+        "J. Moeller",
+        "C. Scheidegger",
+        "S. Venkatasubramanian"
+      ],
+      "title": "Certifying and removing disparate impact",
+      "venue": "proceedings of the 21th ACM SIGKDD international conference on knowledge discovery and data mining. pp. 259\u2013268",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "A.L. Goldberger",
+        "L.A. Amaral",
+        "L. Glass",
+        "J.M. Hausdorff",
+        "P.C. Ivanov",
+        "R.G. Mark",
+        "J.E. Mietus",
+        "G.B. Moody",
+        "C.K. Peng",
+        "H.E. Stanley"
+      ],
+      "title": "Physiobank, physiotoolkit, and physionet: components of a new research resource for complex physiologic signals",
+      "venue": "circulation 101(23), e215\u2013e220",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "R. Guidotti",
+        "A. Monreale",
+        "S. Ruggieri",
+        "F. Turini",
+        "F. Giannotti",
+        "D. Pedreschi"
+      ],
+      "title": "A survey of methods for explaining black box models",
+      "venue": "ACM computing surveys (CSUR) 51(5), 1\u201342",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "V. Gulshan",
+        "L. Peng",
+        "M. Coram",
+        "M.C. Stumpe",
+        "D. Wu",
+        "A. Narayanaswamy",
+        "S. Venugopalan",
+        "K. Widner",
+        "T. Madams",
+        "J Cuadros"
+      ],
+      "title": "Development and validation of a deep learning algorithm for detection of diabetic retinopathy in retinal fundus photographs",
+      "venue": "Jama 316(22), 2402\u20132410",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "D. Gunning"
+      ],
+      "title": "Explainable artificial intelligence (xai)",
+      "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web 2",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "H.A. Haenssle",
+        "C. Fink",
+        "R. Schneiderbauer",
+        "F. Toberer",
+        "T. Buhl",
+        "A. Blum",
+        "A. Kalloo",
+        "A.B.H. Hassen",
+        "L. Thomas",
+        "A Enk"
+      ],
+      "title": "Man against machine: diagnostic performance of a deep learning convolutional neural network for dermoscopic melanoma recognition in comparison to 58 dermatologists",
+      "venue": "Annals of Oncology 29(8), 1836\u20131842",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Hajian",
+        "F. Bonchi",
+        "C. Castillo"
+      ],
+      "title": "Algorithmic bias: From discrimination discovery to fairness-aware data mining",
+      "venue": "Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining. pp. 2125\u20132126",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Hardt",
+        "E. Price",
+        "N. Srebro"
+      ],
+      "title": "Equality of opportunity in supervised learning",
+      "venue": "Advances in neural information processing systems. pp. 3315\u20133323",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "F. Jiang",
+        "Y. Jiang",
+        "H. Zhi",
+        "Y. Dong",
+        "H. Li",
+        "S. Ma",
+        "Y. Wang",
+        "Q. Dong",
+        "H. Shen",
+        "Y. Wang"
+      ],
+      "title": "Artificial intelligence in healthcare: past, present and future",
+      "venue": "Stroke and vascular neurology 2(4), 230\u2013243",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Johnson",
+        "L. Bulgarelli",
+        "T. Pollard",
+        "S. Horng",
+        "L.A. Celi",
+        "M. Roger"
+      ],
+      "title": "Mimic-iv (version 0.4)",
+      "venue": "PhysioNet (2020),",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A.E. Johnson",
+        "T.J. Pollard",
+        "L. Shen",
+        "H.L. Li-wei",
+        "M. Feng",
+        "M. Ghassemi",
+        "B. Moody",
+        "P. Szolovits",
+        "L.A. Celi",
+        "R.G. Mark"
+      ],
+      "title": "Mimic-iii, a freely accessible critical care database",
+      "venue": "Scientific data 3, 160035",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Kearns",
+        "S. Neel",
+        "A. Roth",
+        "Z.S. Wu"
+      ],
+      "title": "Preventing fairness gerrymandering: Auditing and learning for subgroup fairness",
+      "venue": "International Conference on Machine Learning. pp. 2564\u20132572",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Kleinberg",
+        "S. Mullainathan",
+        "M. Raghavan"
+      ],
+      "title": "Inherent trade-offs in the fair determination of risk scores",
+      "venue": "arXiv preprint arXiv:1609.05807",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "R. Lindsey",
+        "A. Daluiski",
+        "S. Chopra",
+        "A. Lachapelle",
+        "M. Mozer",
+        "S. Sicular",
+        "D. Hanel",
+        "M. Gardner",
+        "A. Gupta",
+        "R Hotchkiss"
+      ],
+      "title": "Deep neural network improves fracture detection by clinicians",
+      "venue": "Proceedings of the National Academy of Sciences 115(45), 11591\u201311596",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "S.I. Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "Advances in neural information processing systems. pp. 4765\u20134774",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B.T. Luong",
+        "S. Ruggieri",
+        "F. Turini"
+      ],
+      "title": "k-nn as an implementation of situation testing for discrimination discovery and prevention",
+      "venue": "Proceedings of the 17th ACM SIGKDD international conference on Knowledge discovery and data mining. pp. 502\u2013510",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "A. Madani",
+        "R. Arnaout",
+        "M. Mofrad",
+        "R. Arnaout"
+      ],
+      "title": "Fast and accurate view classification of echocardiograms using deep learning",
+      "venue": "NPJ digital medicine 1(1), 1\u20138",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "L. Moja",
+        "H.P. Friz",
+        "M. Capobussi",
+        "K. Kwag",
+        "R. Banzi",
+        "F. Ruggiero",
+        "M. Gonz\u00e1lezLorenzo",
+        "E.G. Liberati",
+        "M. Mangia",
+        "P Nyberg"
+      ],
+      "title": "Effectiveness of a hospital-based computerized decision support system on clinician recommendations and patient outcomes: A randomized clinical trial",
+      "venue": "JAMA network open 2(12), e1917094\u2013e1917094",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J.G. Nam",
+        "S. Park",
+        "E.J. Hwang",
+        "J.H. Lee",
+        "K.N. Jin",
+        "K.Y. Lim",
+        "T.H. Vu",
+        "J.H. Sohn",
+        "S. Hwang",
+        "Goo",
+        "J.M"
+      ],
+      "title": "Development and validation of deep learning\u2013 based automatic detection algorithm for malignant pulmonary nodules on chest radiographs",
+      "venue": "Radiology 290(1), 218\u2013228",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "B. Norgeot",
+        "B.S. Glicksberg",
+        "A.J. Butte"
+      ],
+      "title": "A call for deep-learning healthcare",
+      "venue": "Nature medicine 25(1), 14\u201315",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Z. Obermeyer",
+        "B. Powers",
+        "C. Vogeli",
+        "S. Mullainathan"
+      ],
+      "title": "Dissecting racial bias in an algorithm used to manage the health of populations",
+      "venue": "Science 366(6464), 447\u2013453",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K.J. O\u2019malley",
+        "K.F. Cook",
+        "M.D. Price",
+        "K.R. Wildes",
+        "J.F. Hurdle",
+        "C.M. Ashton"
+      ],
+      "title": "Measuring diagnoses: Icd code accuracy",
+      "venue": "Health services research 40(5p2), 1620\u2013 1639",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "C. Panigutti",
+        "A. Perotti",
+        "D. Pedreschi"
+      ],
+      "title": "Doctor xai: an ontology-based approach to black-box sequential data classification explanations",
+      "venue": "Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency. pp. 629\u2013639",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "D. Pedreschi",
+        "S. Ruggieri",
+        "F. Turini"
+      ],
+      "title": "Discrimination-aware data mining",
+      "venue": "Proceedings of the 14th ACM SIGKDD international conference on Knowledge discovery and data mining. pp. 560\u2013568",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "A. Rajkomar",
+        "E. Oren",
+        "K. Chen",
+        "A.M. Dai",
+        "N. Hajaj",
+        "M. Hardt",
+        "P.J. Liu",
+        "X. Liu",
+        "J. Marcus",
+        "M Sun"
+      ],
+      "title": "Scalable and accurate deep learning with electronic health records",
+      "venue": "NPJ Digital Medicine 1(1), 18",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": " why should i trust you?\u201d explaining the predictions of any classifier",
+      "venue": "Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining. pp. 1135\u20131144",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "C. Rudin"
+      ],
+      "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+      "venue": "Nature Machine Intelligence 1(5), 206\u2013215",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Ruggieri",
+        "D. Pedreschi",
+        "F. Turini"
+      ],
+      "title": "Data mining for discrimination discovery",
+      "venue": "ACM Transactions on Knowledge Discovery from Data (TKDD) 4(2), 1\u201340",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "P. Saleiro",
+        "B. Kuester",
+        "L. Hinkson",
+        "J. London",
+        "A. Stevens",
+        "A. Anisfeld",
+        "K.T. Rodolfa",
+        "R. Ghani"
+      ],
+      "title": "Aequitas: A bias and fairness audit toolkit",
+      "venue": "arXiv preprint arXiv:1811.05577",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Setzu",
+        "R. Guidotti",
+        "A. Monreale",
+        "F. Turini"
+      ],
+      "title": "Global explanations with local scoring",
+      "venue": "Joint European Conference on Machine Learning and Knowledge Discovery in Databases. pp. 159\u2013171. Springer",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Shameer",
+        "K.W. Johnson",
+        "A. Yahi",
+        "R. Miotto",
+        "L. Li",
+        "D. Ricks",
+        "J. Jebakaran",
+        "P. Kovatch",
+        "P.P. Sengupta",
+        "S Gelijns"
+      ],
+      "title": "Predictive modeling of hospital readmission rates using electronic medical record-wide machine learning: a casestudy using mount sinai heart failure cohort",
+      "venue": "PACIFIC SYMPOSIUM ON BIOCOMPUTING 2017. pp. 276\u2013287. World Scientific",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J.J. Titano",
+        "M. Badgeley",
+        "J. Schefflein",
+        "M. Pain",
+        "A. Su",
+        "M. Cai",
+        "N. Swinburne",
+        "J. Zech",
+        "J. Kim",
+        "J Bederson"
+      ],
+      "title": "Automated deep-neural-network surveillance of cranial images for acute neurologic events",
+      "venue": "Nature medicine 24(9), 1337\u20131341",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "E.J. Topol"
+      ],
+      "title": "High-performance medicine: the convergence of human and artificial intelligence",
+      "venue": "Nature medicine 25(1), 44\u201356",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "F. Tramer",
+        "V. Atlidakis",
+        "R. Geambasu",
+        "D. Hsu",
+        "J.P. Hubaux",
+        "M. Humbert",
+        "A. Juels",
+        "H. Lin"
+      ],
+      "title": "Fairtest: Discovering unwarranted associations in data-driven applications",
+      "venue": "2017 IEEE European Symposium on Security and Privacy (EuroS&P). pp. 401\u2013416. IEEE",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Xiao",
+        "E. Choi",
+        "J. Sun"
+      ],
+      "title": "Opportunities and challenges in developing deep learning models using electronic health records data: a systematic review",
+      "venue": "Journal of the American Medical Informatics Association 25(10), 1419\u20131428",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "K.H. Yu",
+        "A.L. Beam",
+        "I.S. Kohane"
+      ],
+      "title": "Artificial intelligence in healthcare",
+      "venue": "Nature biomedical engineering 2(10), 719\u2013731",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R. Zemel",
+        "Y. Wu",
+        "K. Swersky",
+        "T. Pitassi",
+        "C. Dwork"
+      ],
+      "title": "Learning fair representations",
+      "venue": "International Conference on Machine Learning. pp. 325\u2013333",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "J. Zhang",
+        "S. Gajjala",
+        "P. Agrawal",
+        "G.H. Tison",
+        "L.A. Hallock",
+        "L. Beussink-Nelson",
+        "M.H. Lassen",
+        "E. Fan",
+        "M.A. Aras",
+        "C Jordan"
+      ],
+      "title": "Fully automated echocardiogram interpretation in clinical practice: feasibility and diagnostic accuracy",
+      "venue": "Circulation 138(16), 1623\u20131635",
+      "year": 2018
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords: Clinical decision support systems, Fairness and bias in machine learning systems, eXplainable Artificial Intelligence.\n? PB, AP and AP acknowledge partial support from Research Project \u201dCasa Nel Parco\u201d (POR FESR14/20 - CANP - Cod. 320 - 16 - Piattaforma Tecnologica \u201dSalute e Benessere\u201d) fundedby Regione Piemonte in the context of the Regional Platform on Health and Wellbeing and from Intesa Sanpaolo Innovation Center. The funders had no role in study design,data collection and analysis, decision to publish, or preparation of the manuscript\nar X\niv :2\n01 1.\n04 04\n9v 1\n[ cs\n.L G\n] 8"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "The growing availability of Electronic Health Records (EHR) and the constantly increasing predictive power of Machine Learning (ML) models are boosting both research advances and the creation of business opportunities to deploy clinical decision support systems (DSS) in healthcare facilities [29,17,38]. Since such models are still not equipped to differentiate between correlation and causation, they might leverage spurious correlations and undesired biases to boost their performance. While there is an increasing interest of the AI community to commit to interdisciplinary endeavors to define, investigate and provide guidelines to tackle biases and fairness-related issues [44,49,41], quantitative and systematic auditing for real-world datasets and ML models is still in its infancy. In this work, we investigate the potential biases in ML models trained on patients\u2019 clinical history represented as diagnostic codes. This type of structured data allows for a machine-ready representation of the patient\u2019s clinical history and is commonly used in longitudinal ML modeling for phenotyping, multi-morbidity diagnosis classification and sequential clinical events prediction [55,13,8]. The implicit assumption behind the use of ICD codes in this kind of ML applications is that these codes are a good proxy for the patient\u2019s actual health status. However, ICD codes can misrepresent such status because of many potential sources of error in translating the patient\u2019s actual disease into the respective code [42,10]. Data quality assessment for the secondary use of health data is of pivotal importance to ease the transition of ML-based DSS from academic prototypes into real-world clinical practice. This is particularly true when ICD codes are fed into black-box ML models, i.e., models whose internal decision-making process is opaque.\nIn this paper we introduce FairLens, a methodology to discover and explain biases for ML models trained on ICD structured healthcare data. We take bias analysis a step further by explaining the reasons behind the bad model\u2019s performance on specific subgroups. FairLens embeds explainability techniques in order to explain the reasons behind model mistakes instead of simply explaining model predictions. The presented methodology is designed to be applied to any sequential ML model trained on ICD codes. FairLens first stratifies patients according to attributes of interest such as age, gender, ethnicity, and insurance type; it then applies an appropriate metric to identify patients subgroups where the model performs poorly. Lastly, FairLens identifies the clinical conditions that are most frequently misclassified for the selected subgroup and explains which elements in the patients\u2019 clinical histories are influencing the misclassification. We also present a use case for our methodology using the most recent update of one of the largest freely available ICU datasets, the MIMIC-IV dataset [30]. In this scenario, MIMIC-IV acts as the healthcare facility\u2019s historical medical database. We show how a domain expert can use FairLens to audit a multilabel clinical DSS [13] acting as a fictional commercial black-box model. We believe that applied research and quantitative tools to perform systematic audits specific to healthcare data are very much needed in order to establish and reinforce trust\nin the application of AI-based systems in such a high-stakes domain. FairLens is a first step to make fairness and bias auditing a standard procedure for clinical DSS. We envision such a procedure to be used to monitor bias and fairness issues in all clinical DSSs\u2019 life-cycle stages."
+    },
+    {
+      "heading": "2 Background and Related Work",
+      "text": "Advances in artificial intelligence (AI) in healthcare offer groundbreaking opportunities to enhance patient outcomes, reduce costs, and impact population health [56,53]. Unprecedented results have been achieved leveraging deep neural networks for pattern recognition to help interpret medical scans [34,39,12,52], pathology slides [5,15,7], skin lesions [20,26], retinal images [24,2] and electrocardiograms [37,58] to name few examples. The ability to predict key outcomes can also be exploited to improve clinical practice by training DSSs with electronic health records [45,4,51,40,11].\nBesides the technological challenges, the various stakeholders involved with the healthcare ecosystem (clinicians, patients/ patient advocate, researchers, federal agencies and industry) identified the following urgent priorities for healthcare applications: trustworthiness, explainability, usability, transparency and fairness [16]. Many efforts have been devoted to detecting and measuring discrimination in model decisions [48,57,27]. Several definitions and methodologies have been proposed to measure bias and fairness [44,18,36,28]; however, despite the effort, a general consensus on such measures is still missing. Generally speaking, the most prevalent approach to fairness in machine learning is to solicit for approximate parity of some statistics of the predictions (such as false negative rate) across pre-defined subgroups [33,32,14]. Moreover, there are very few available general-purposes resources to operationalize them [3,54,6,49]. The majority of such research has focused on binary or multi-class classification problems to prevent discrimination based on sensitive attributes [21], and a few studies focus specifically on multi-label classification problems, with many concentrating on fairness in ranking and recommendation systems [1,19]. In the context of medical applications, a recent paper [9] suggested that the post-deployment inspection of model performance on groups and outcomes should be one out of five ethical pillars for equitable ML in the advancement of health care.\nAnother staple of this paper is the research field of eXplainable Artificial Intelligence (XAI) [25]. XAI techniques have the goal to explain (i.e., present in human-understandable terms) the decision-making process of an AI system. The need for this kind of technique stems from the fact that the internal decisionmaking process of many state-of-the-art AI systems is opaque. This can happen either because the source code of the algorithm is proprietary software and can not be directly inspected, or because the model implements a subsymbolic (numerical) representation of knowledge, often paired with highly non-linear correlations, or both. Recently, several state-of-the-art XAI techniques have been\nproposed to provide post-hoc explanations of the model behaviour [46,35,23,43]. The post-hoc approach to model explanation have recently faced criticism [47], however they remain the only available solution in case of proprietary software."
+    },
+    {
+      "heading": "3 FairLens: Pipeline",
+      "text": "This Section describes the FairLens methodology. A bird\u2019s-eye view of the pipeline is depicted in Figure 1.\nLet BB be a sequential black-box ML model trained on ICD data. The model can be available as an on-premise-installed software or it could be integrated via SaaS (software as a service).\nLet pi = (p att i , p ch i ) be the patients represented by a set of attributes p att i such as ethnicity, gender, and insurance type, and by a clinical history pchi = {vi,1, \u00b7 \u00b7 \u00b7 vi,V } represented as a sequence of visits. In turn, each visit is represented by a set of ICD codes. Let P = {p1, \u00b7 \u00b7 \u00b7 pN} be the set of patients.\nLet vBBi,j = BB({vi,1, \u00b7 \u00b7 \u00b7 vi,j\u22121}) be the prediction of the black-box for the j \u2212 th visit of patient pi.\nStratification The first step of our methodology is depicted in Figure 1(a). Since we aim to check whether the ML model performs equally well across groups, we stratify our patients set P according to a set of conditions c on the set of attributes patt, e.g. c = {age \u2264 40, insurance = Medicaid}. We define a group G as the set of visits of each patients whose attributes match the conditions in s:\nGj = {pi | pi \u2208 P, patti \u2208 cj}\nThe stratification process produces a set of groups G1, .., GM . The black-box model is then applied on such patients obtaining a prediction for each of the selected visits.\nA domain expert might suggest specific condition sets to isolate a given subcohort of known interest, whereas a technician might opt for building a lattice of all possible combinations of constraints. We also remark that some patients might not occur in any group or occur in more than one, depending on the provided conditions.\nPerformance evaluation and ranking A disparity function d : Gj \u2192 sj maps every group Gj to a disparity score sj . FairLens includes a number of disparity functions, such as the standard classification metrics (accuracy, F1-score, etc.) and distribution-comparison functions like the Wasserstein distance. Custom disparity functions can be used, as long as their results can be used for ranking. Given a disparity function, FairLens computes the score sj for each group Gj , which represents the performance of the BB on that specific set of patients. Once each group has been scored, FairLens ranks the groups, as depicted in Figure 1(b). The ranking highlights groups where the BB performs relatively poorly, signaling them to domain experts for further inspection. Alternatively, the domain experts might arbitrarily select one subgroup for further inspection, regardless of their scores, due to the cohort\u2019s known peculiarities or clinical-dependent reasons.\nInspection Given a specific group Gj flagged for further inspection by the group ranking function, FairLens compares the black-box prediction vBBi,j with the ground truth vi,j for each visit in Gj . The goal of this step is to check for systematic bias of the BB on the group of patients. For each ICD code, the relative frequencies in the predicted and true values are computed and we define the misdiagnosis score the difference between these two values. Ranking the codes by misdiagnosis scores allows to highlight which ICD codes are particularly overor under-predicted (high and low difference values respectively). FairLens thus displays the top three over- and under-represented codes to the domain expert who can ask for an explanation for the highlighted conditions that might result in producing or reinforcing systematic over- or under-treatment. In Figure 1(c), we have labelled the true visit value as GT (for ground truth); in the mock example it can be observed that the code \u03b2 is over-represented.\nExplanation In order to extract an explanation for the mislabeled code, FairLens first assigns binary labels on the visits of the group of interest. Suppose the domain expert wants to understand what elements of the group clinical histories are most influencing the over-representation of ICD code \u03b2 in the inspected group Gj , then at each visit vi,j \u2208 Gj will be assigned a binary label in the following way:\nl(vBBi,j ) = { 1 if \u03b2 \u2208 vBBi,j 0 if \u03b2 /\u2208 vBBi,j\nBy doing so, FairLens assigns to the clinical history pchi = vi,1, \u00b7 \u00b7 \u00b7 , vi,j of each patient a binary label representing patient misclassification w.r.t \u03b2. Then,\nit selects all the misclassified clinical histories and explains them using a local XAI technique for sequential healthcare data.It is worth noting that while this kind of techniques are usually employed to explain the reasons behind a blackbox decision, thanks to the binarisation process, FairLens uses them to explain the reasons behind a specific mislabelling. Furthermore, the use of a post-hoc XAI technique that is agnostic w.r.t. the black-box allows FairLens to audit any model without having access to its internal structure or parameters.\nReporting Finally, FairLens combines the explanations of each mislabelled patient in the group and shows the most common ICD codes occurring as patients\u2019 explanations. In this context, several local explanations of mislabelled visits related to patients of the same group are aggregated to provide the domain expert with a pointer to specific clinical conditions that systematically drive the BB error. Typically the local model-agnostic post-hoc explanations provides local decision rules. Each condition of the rule premise follows the pattern\nICD code \u2277 threshold value\nWhere the threshold value contains a temporal information about the visits containing the ICD code, being past clinical conditions predictive of future outcomes. In the aggregation process FairLens aggregate the occurrences of each ICD found in the selected group explanations and highlight the most common ones."
+    },
+    {
+      "heading": "4 Use Case: auditing a medical decision support system",
+      "text": "In this section we show how a domain expert can use FairLens on the historical data available at her healthcare facility to audit a fictional commercial clinical decision support system (DSS). We imagine that the domain expert has no access to the source code of the DSS, i.e. it can be considered a black-box. We use the MIMIC-IV (see Subsection 4.1) database of electronic health records as the fictitious historical database of the facility and DoctorAI (see Subsection 4.2) as the fictional clinical DSS. We split the dataset in training (29276 patients, 67%), validation (4759 patients, 11%) and test set (9662, 22%). We used the training and validation set to train DoctorAI and the patients in the test set as the historical database used in the auditing process. We exploit DoctorXAI (Subsection 4.3) as the backbone of our explainer."
+    },
+    {
+      "heading": "4.1 Dataset: MIMIC-IV",
+      "text": "The MIMIC (Medical Information Mart for Intensive Care) [22,31] database is a single-center freely available database containing de-identified clinical data of patients admitted to the ICU (intensive care unit) of the Beth Israel Deaconess Medical Center in Boston. Its most recent update, MIMIC-IV [30], contains information of 383,220 patients collected between 2008 and 2019 for a total\nof 524,520 hospital admissions. The database includes patient\u2019s demographics, clinical measurements and diagnoses and procedures codes of each admission. We focused our analysis on hospital admissions coded with ICD-9 billing codes and on patients having at least two admissions to the hospital, reducing the number of patients to 43,697 and the number of admission to the hospital to 164,411 (see table 1)."
+    },
+    {
+      "heading": "4.2 Clinical DSS: Doctor AI",
+      "text": "Doctor AI by [13] is a Recurrent Neural Network (RNN) with Gated Recurrent Units (GRU) that predicts the patient\u2019s next clinical event\u2019s time, diagnoses and medications. For the purpose of the use-case, we focused only on ICD diagnoses prediction. We trained the algorithm on MIMIC-IV using the training and validation set as defined in Subsection 4.1 using default hyperparameters.\nDoctor AI can be trained to predict patient\u2019s future clinical event in terms of either CCS (Clinical Classifications Software) or ICD codes. CCS codes are used to group ICD codes into smaller number of clinically meaningful categories. As suggested in [13] we trained Doctor AI to predict CCS codes.\nIn order to test its performance we used Recall@n with n = 10, 20, 30. Originally, the authors trained their model on 260.000 patients of the EHRs database of Sutter Health Palo Alto Medical Foundation. We consider the performance declared in the original paper as the DSS performance declared by the manufacturer. We show the performance on the original dataset compared to those on MIMIC-IV in table 2. We highlight how this is the first step that a domain expert would do to check if the clinical DSS is suitable on the healthcare facility dataset."
+    },
+    {
+      "heading": "4.3 Explainer: DoctorXAI",
+      "text": "DoctorXAI by [43] is a post-hoc explainer that can deal with any multi-label sequential model. Since it is agnostic w.r.t. the model, i.e. it does not use any of its internal parameter in the explanation process, it is suitable for our methodology which considers the clinical DSS as a commercial black-box. Furthermore, DoctorXAI exploits medical ontologies in the explanation process, in our case we\nexploited the ICD-9 ontology. The explanations provided by DoctorXAI are local decision rules, which means that they provide the rationale for one particular classification.\nIn our scenario, we want to provide an explanation for a over- or underdiagnosis observed in a group of patients, therefore FairLens binarizes the blackbox labels and it combines the explanations as described in the Explanation and Reporting paragraphs of Section 3."
+    },
+    {
+      "heading": "4.4 Auditing DoctorAI on MIMIC",
+      "text": "Assess the DSS performance on the healthcare facility data The first step that any domain expert would perform before deploying the clinical DSS on her dataset is to measure its global performance and compare it with the one declared by the manufacturer. In our scenario a domain expert would obtain the results in table 2.\nIdentify problematic groups of patients Once the global performance has been assessed and it is considered good enough, the domain expert can apply FairLens to discover potential biases learned by the model. The domain expert would start by deciding which attributes to use to stratify the patients.For the purpose of our fictional scenario, we consider the following attributes occurring in the auditing data:\n\u2013 Gender: 54 % Female, 46 % Male.\n\u2013 Ethnicity: 69 % White, 18 % Black, 7 % Hispanic/Latino, 3 % Asian, 3 % Other. \u2013 Age groups: 0.5 % infants (age=0), 3.2 % age 15-25, 18.3 % age 25-45, 36 % age 45-65, 42 % over 65. \u2013 Insurance type: 41% Medicare, 12% Medicaid, 47% Other.\nOnce these attributes are selected, FairLens computes the disparities across groups. In our scenario, the black-box is a sequential multi-label model that predicts the set of codes diagnosed in the next visit in terms of CCS codes. In this multi-label case, the disparity is evaluated using the Wasserstein distance. This metric measures the distance between two probability distributions: for each group of interest, the distance between the CCS codes\u2019 distribution in the black-box output and the same distribution in the ground truth. The domain expert can decide to either explore a specific group of interest or to have a comprehensive view of the biases of the DSS on all possible groups. In the latter option, the output of this computation is a set of scatter plots similar to those shown in Figure 2.\nThe scatter plots show the relationship between the group size and its disparity measure. Each point is a combination of attributes, considering all possible combinations of values FairLens obtains 432 groups. The highest variability in terms of disparities is observed in the smaller groups. This would inform the domain expert that fairness issues might be present in relatively rare patients treated in her healthcare facility. On the contrary, different operational strategies should be implemented if the larger disparities were observed over large groups. The color-coding allows to explore the disparities of each intersectional identity. Data points labelled and color-coded as all of the above correspond to groups that do not represent a specific value for the stratification feature: for instance, the group (male, medicare) includes patients of all ages and ethnicities.\nThe main insights that the user can draw from the scatter plot in this specific case is that the DSS works very well on the infant patients, and there is a tendency of the DSS to misdiagnose patients over 65 years old (Figure 2.age).\nFurthermore, Medicaid patients seems to be more frequently misdiagnosed than Medicare patients.\nIdentifying systematic sources of error in the selected subgroup The domain expert auditing the system can further select a specific group for a more in-depth investigation. Suppose she decides to focus on the groups with the highest disparity (outliers highlighted with a red rectangle in Figure 2). In this case, FairLens compares the ground truth clinical conditions with the codes predicted by the DSS of these groups, and it isolates the most over- and under-diagnosed CCS codes by the DSS, obtaining the results reported in Table 3 (only the top 4 groups by disparity scores are shown, and only the top/bottom codes ranked by misdiagnosis scores are reported). This analysis tells the domain expert that the group with the highest disparity is young (15-25 y.o.) male black patients with Medicaid. For this group, the clinical DSS tends to overdiagnose Mood disorders, Essential Hypertension and Anxiety disorders while it tends to under-diagnose Schizophrenia, Substance-related disorders and Administrative admission. A similar consideration can be drawn for other patient groups.\nObtaining explanations for systematic misclassifications Once the groups with the highest disparities are identified, the domain expert can use FairLens to obtain an explanation for one particular misclassification. Consider, for example, the over-diagnosis of Mood Disorder (CCS code 657) for young black patients with Medicaid. FairLens uses DoctorXAI to discover which elements in the patients\u2019 clinical history drive this over-representation of that specific CCS. This is done by first projecting the black box\u2019s multi-label output on the single label 657 (as explained in Section 3), then calling DoctorXAI to explain the binarized outcome. Highlighting the most common ICD-9 conditions emerging from the group explanations, FairLens shows the domain expert Figure 3.\nThe bars\u2019 magnitude shows the observed frequency of that code in the group explanations, while the color and the direction of the bar show if the condition associated with that code was its presence or absence in the clinical history.\nThe explainability report given by FairLens should be read like this: the top 3 ICD-9 codes driving the DDS\u2019s over-diagnosis of Mood Disorders in young black patients with Medicaid are Syringomyelia and Syringobulbia (ICD-9 code 336.0), Suicidal ideation (ICD-9 code V62.84) and Outcome of delivery, single liveborn (ICD-9 code V27.0). In particular, the DSS over-diagnoses Mood Disorders when Syringomyelia and Syringobulbia are not observed in the patient\u2019s clinical history and when Suicidal ideation and Outcome of delivery are present in the patient\u2019s clinical history."
+    },
+    {
+      "heading": "5 Conclusions and Future Work",
+      "text": "Fairness and explainability are key features to gain trust from patients and clinicians. As black-box ML-based clinical decision support systems will be deployed in real-world healthcare settings, systematic auditing procedures must be\nin place. In this paper we proposed FairLens, an algorithmic pipeline to inspect clinical DSS and we showed how to use it to spot fairness issues in patients\u2019 subgroups, and to further investigate potential over-/under-diagnosed conditions. Moreover, the proposed methodology is able to drive domain expert to investigate the reason behind the systematic black-box misclassification by pointing to the most common causes of error within groups through XAI techniques. Future work will be devoted to test FairLens on different black-box and to include additional disparity scores with the aid of domain experts to increase the tool usability. Moreover, we aim at providing a more structured local-to-global explanation [50] of the BB error. Finally, additional experiments to generate counterfactual examples will be implemented to increase FairLens adoption from domain experts."
+    }
+  ],
+  "title": "FairLens: Auditing Black-box Clinical Decision Support Systems",
+  "year": 2020
+}

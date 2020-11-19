@@ -1,1 +1,490 @@
-{"abstractText": "Current discussions of \"Explainable AI\" (XAI) do not much consider the role of abduction in explanatory reasoning (see Mueller, et al., 2018). It might be worthwhile to pursue this, to develop intelligent systems that allow for the observation and analysis of abductive reasoning and the assessment of abductive reasoning as a learnable skill. Abductive inference has been defined in many ways. For example, it has been defined as the achievement of insight. Most often abduction is taken as a single, punctuated act of syllogistic reasoning, like making a deductive or inductive inference from given premises. In contrast, the originator of the concept of abduction\u2014the American scientist/philosopher Charles Sanders Peirce\u2014regarded abduction as an exploratory activity. In this regard, Peirce's insights about reasoning align with conclusions from modern psychological research. Since abduction is often defined as \"inferring the best explanation,\" the challenge of implementing abductive reasoning and the challenge of automating the explanation process are closely linked. We explore these linkages in this report. This analysis provides a theoretical framework for understanding what the XAI researchers are already doing, it explains why some XAI projects are succeeding (or might succeed), and it leads to design advice. Explanation as an Exploratory Process: The Peircean Abduction Model \"Precisely how much of the business of thinking a machine could possibly be made to perform, and what part of it must be left for the living mind, is a question not without considerable practical importance.\" C.S. Peirce, 1887, p. 165", "authors": [{"affiliations": [], "name": "R.R. Hoffman"}, {"affiliations": [], "name": "William J. Clancey"}, {"affiliations": [], "name": "Shane T. Mueller"}], "id": "SP:df50123b8d1e843edd843aa32d59db4dd0291807", "references": [{"authors": ["A. Aliseda"], "title": "Abductive reasoning: Challenges ahead", "venue": "Theoria, 60, 261-270.", "year": 2007}, {"authors": ["K. van den Bosch", "M.M. de Beer"], "title": "Playing a winning game: An implementation of critical thinking training", "venue": "In R. Hoffman (Ed.), Expertise out of context (pp. 177-198)", "year": 2007}, {"authors": ["J. Bruner"], "title": "On teaching thinking: An afterthought", "venue": "S.F. Chipman, J.W. Segal and R. Glaser (Eds.), Thinking and learning skills, Vol. 2: Research and open questions (pp. 597-608). Hillsdale, NJ: Erlbaum.", "year": 1985}, {"authors": ["T. Bylander", "D. Allemang", "M.C. Tanner", "J.R. Josephson"], "title": "The computational complexity of abduction", "venue": "Artificial Intelligence, 49, 25-60.", "year": 1991}, {"authors": ["M.T.H. Chi", "M. Roy", "R.G. Hausmann"], "title": "Observing tutorial dialogs collaboratively: Insights about human tutoring effectiveness from vicarious learning", "venue": "Cognitive Science, 32, 301-341.", "year": 2008}, {"authors": ["M.T.H. Chu", "S.A. Siler", "H. Jewong", "T. Yamauchi", "R.G. Hausmann"], "title": "Learning from human tutoring", "venue": "Cognitive Science, 25, 471-533.", "year": 2001}, {"authors": ["A. Collins"], "title": "Teaching reasoning skills", "venue": "S.F. Chipman, J.W. Segal and R. Glaser (Eds.), Thinking and learning skills, Vol. 2: Research and open questions (pp. 579-608). Hillsdale, NJ: Erlbaum.", "year": 1985}, {"authors": ["A.A. diSessa"], "title": "Toward an epistemology of physics", "venue": "Cognition and Instruction,", "year": 1993}, {"authors": ["A.A. diSessa"], "title": "A friendly introduction to \"Knowledge in Pieces\": Modeling Types of knowledge and their roles in learning", "venue": "Invited Lectures from the 13th International Congress on Mathematical Education,ICME-13 Monographs", "year": 2018}, {"authors": ["K. van Dongen", "J.M. Schraagen", "A. Eikelboom", "G. te Brake"], "title": "Supporting decision making by a critical thinking tool", "venue": "In Proceedings of the Human Factors and Ergonomics Society 49th Annual Meeting (pp. 517-521)", "year": 2003}, {"authors": ["I. Douven"], "title": "Abduction", "venue": "Stanford Encyclopedia of Philosophy. Retrieved from https://plato.stanford.edu/entries/abduction/", "year": 2011}, {"authors": ["P.A. Facione", "N.C. Facione"], "title": "The California critical thinking skills test and manual", "venue": "Millbrae, CA: Academic Press. [http://www.insightassessment.com]", "year": 1992}, {"authors": ["K.T. Fann"], "title": "Peirce's theory of abduction", "venue": "The Hague: Nijhoff.", "year": 1970}, {"authors": ["T. Finin", "G. Morris"], "title": "Abductive reasoning in multiple fault diagnosis.\" Technical Report, Department of Computer and Information Science, University of Pennsylvania [https://repository.upenn.edu/cgi/viewcontent.cgi?referer=https://www.google.com/andhttpsredir=1andarticle=1730 andcontext=cis_reports", "year": 1988}, {"authors": ["J.M. Fraser"], "title": "Errors in abductive reasoning", "venue": "IEEE International Conference on Systems, Man and Cybernetics (pp. 1136-1141)", "year": 1989}, {"authors": ["R. Glaser"], "title": "Education and thinking", "venue": "American Psychologist, 39, 93-104.", "year": 1984}, {"authors": ["B.D. Haig"], "title": "An abductive theory of scientific explanation", "venue": "Psychological Methods, 10, 371-388.", "year": 2005}, {"authors": ["G.F. Harman"], "title": "Inference to the best explanation", "venue": "Philosophical Review, 74, 88-95.", "year": 1965}, {"authors": ["M.H.G. Hoffmann"], "title": "Diagrams as scaffolds for abductive insights", "venue": "Proceedings of the Twenty-Fourth AAAI Conference on Artificial Intelligence. [https://aaai.org/ocs/index.php/WS/AAAIW10/paper/view/2027].", "year": 2010}, {"authors": ["M.H.G. Hoffmann"], "title": "Theoretic Transformations\" and a new classification of abductive inferences", "venue": "Transactions of the Charles S. Peirce Society, 46, 570-590.", "year": 2011}, {"authors": ["D. Hume"], "title": "A treatise of human nature", "venue": "[http://www.gutenberg.org/ebooks/4705].", "year": 1740}, {"authors": ["J.R. Josephson", "S.G. Josephson"], "title": "Abductive inference: Computation, philosophy, technology", "year": 1995}, {"authors": ["G. Klein"], "title": "The recognition-primed decision model: Looking back, looking forward", "venue": "In. C. Zsambok and G. Klein (Eds.), Naturalistic decision making (pp. 285-292). Mahwah, NJ: Erlbaum.", "year": 1993}, {"authors": ["G. Klein", "B. Moon", "R.R. Hoffman"], "title": "November/December). Making sense of sensemaking 2: A macrocognitive model", "venue": "IEEE Intelligent Systems,", "year": 2006}, {"authors": ["G. Klein", "R.R. Hoffman", "S.T. Mueller"], "title": "The Plausibility Cycle: A Model of Self-Explaining How AI Systems work.\" Report from Task area 2, DARPA Explainable AI Program", "year": 2019}, {"authors": ["D.B. Lenat"], "title": "Ontology alignment of learner models and domain models", "venue": "R.A. Sottilare, A. Graesser, A.C.. Hu, X., and H. Holden (Eds.) Design recommendations for intelligent tutoring systems, vol. 1 (pp. 49-)56. Adelphi, MD: U.S. Army Research Laboratory.", "year": 2013}, {"authors": ["P. Lipton"], "title": "Inference to the best explanation", "venue": "New York: Routledge.", "year": 2004}, {"authors": ["T. Lombrozo"], "title": "Explanation and abductive inference", "venue": "K.J. Holyoak and R.G. Morroison (Eds.), Oxford handbook of thinking and reasoning (pp. 260-276). Oxford: Oxford University Press.", "year": 2012}, {"authors": ["M. Makatchev", "P.W. Jordan", "K. VanLehn"], "title": "Abductive proofs as models of students' reasoning about qualitative physics", "venue": "Proceedings of the International Conference on Cognitive Modelling (ICCM 2004) (pp. 166171). International Conferences on Cognitive Modeling.", "year": 2004}, {"authors": ["M. Makatchev", "P.W. Jordan", "K. VanLehn"], "title": "Abductive theorem proving for analyzing student explanations to guide feedback in intelligent tutoring systems", "venue": "Journal of Automated Reasoning, 32, 187-226.", "year": 2004}, {"authors": ["G. Minnameier"], "title": "the logicality of abduction, deduction, and induction", "venue": "N. Bergman, S. Pavolva, A.-V. Pietarinen and H. Rydenfelt (Eds.) Ideas in action: Proceedings of the Applying Peirce Conference (pp. 239-251). Helsinki: Nordic Pragmatism Network.", "year": 2010}, {"authors": ["R.J. Mooney"], "title": "Integrating abduction and Induction in Machine Learning", "year": 2000}, {"authors": ["A. Moore", "P. Malinowski"], "title": "Meditation, mindfulness and cognitive flexibility", "venue": "Consciousness and cognition, 18, 176-186.", "year": 2009}, {"authors": ["S.T. Mueller", "R.R. Hoffman", "W. Clancey", "A. Emrey", "G. Klein"], "title": "Explanation in Human-AI Systems: A Literature Meta-Review, Synopsis of Key Ideas and Publications, and Bibliography for Explainable AI.", "venue": "Report on Award No. FA8650-17-2-7711,", "year": 2018}, {"authors": ["S.G. Nummedal"], "title": "Developing reasoning skills in college students", "venue": "D.E. Berger, K. Pezdek, and W.P.", "year": 1987}, {"authors": ["K. Pfeiffer", "G. Feinberg", "S. Gelber"], "title": "Teaching productive problems solving attitudes", "venue": "D.E. Berger, K. Pezdek, and W.P. Banks (Eds.), Applications of cognitive psychology: Problem solving, education, and computing (pp. 99-107). Hillsdale, NJ: Erlbaum.", "year": 1987}, {"authors": ["C.S. Peirce"], "title": "Logical machines", "venue": "The American Journal of Psychology, 1, 165-170", "year": 1887}, {"authors": ["C.S. Peirce"], "title": "Harvard Lectures on Pragmatism (CP 5, 171-174)", "venue": "Cambridge, MA: Robin Catalog, Harvard University.", "year": 1903}, {"authors": ["R.C. Schank"], "title": "Teaching Minds: How Cognitive Science Can Save Our Schools", "venue": "New York: Teachers College Press.", "year": 2011}, {"authors": ["R. Schank"], "title": "Explanation patterns: Understanding mechanically and creatively", "venue": "Hillsdale, NJ: Lawrence Erlbaum.", "year": 1986}, {"authors": ["G. Schurz"], "title": "Patterns of abduction", "venue": "Synthese, 164, 201-234", "year": 2008}, {"authors": ["G. Schank"], "title": "The extraordinary powers of abductive reasoning", "venue": "Theory and Psychology, 8 (6), 841-860.", "year": 1998}, {"authors": ["O. Selz"], "title": "Versuche zur Hebung des Intelligenzniveaus: Ein Beittrag zur Theoriet der Ingelligenz und ihrer erziehlichen Beeinflussung", "venue": "(Experiments for increased intelligence level: A contribution to the theory of intelligence and its educational impact.) Zeitschrift f\u00fcr Psuychologie, 134, 236-301.", "year": 1935}, {"authors": ["D. Sleeman", "J.S. Brown"], "title": "Intelligent tutoring systems", "year": 1982}, {"authors": ["J.P. Smith", "A.A. diSessa", "J. Roschelle"], "title": "Misconceptions reconceived: A constructivist analysis of knowledge in transition", "venue": "Journal of the Learning Sciences,", "year": 1993}, {"authors": ["M. Stickel"], "title": "A prolog-like inference system for computing minimum-cost abductive explanations in natural language interpretation", "venue": "Annals of Mathematics and Artificial Intelligence, 4, 89-105.", "year": 1991}, {"authors": ["A. Tomar", "R.D. Nielsen"], "title": "Affective-Behavioral-Cognitive (ABC) learner modeling", "venue": "Adelphi, MD: U.S. Army Research Laboratory", "year": 2013}], "sections": [{"heading": "Explanation as an Exploratory Process: The Peircean Abduction Model", "text": "\"Precisely how much of the business of thinking a machine could possibly be made to perform, and what part of it must be left for the living mind, is a question not without considerable practical importance.\" C.S. Peirce, 1887, p. 165"}, {"heading": "Introduction", "text": "Abductive inference remains a significant challenge for the field of artificial intelligence. Indeed, it is possible to formalize a number of classes of abductive problems (e.g., abductions involving\npremises that have no incompatibilities). (For a review of formal models of abduction see Bylander, et al., 1991). Many philosophers and psychologists have discussed abduction (hypothesis formation and testing) as basic to scientific reasoning (e.g., Bruner, 1985; Collins, 1985; Glaser, 1984; Haig, 2005; Pfeiffer, et al., 1987; Nummedal, 1987; Schurz, 2008; Selz, 1935). Abduction has been cited as an aspect of, or even a central aspect of critical thinking, cognitive flexibility, fluid intelligence, and creativity (e.g., Douven, 2011; Moore and Malinowski, 2009). Diverse definitions of abduction can be found in the pertinent literatures. Some reports consider abduction as \"not a logically sound deduction or proof.\" In some reports, what is referred to as abduction is actually a form of induction (see Lenat, 2013, p. 54). This includes inductive generalizations from sets of cases in case-based reasoning. Abduction has been defined as the achievement of \"insight\" (e.g., Hoffmann, 2010, 2011). Abduction has been defined variously as an accomplishment, an ability, a skill, and as an amalgam of component skills such as evaluating evidence, forming mental models, recognizing cues, or other hypothetical cognitive processes. Scholars have proposed various patterns of abductive explanation (as many as 15 of them), such as \"existential abduction, \"factual abduction,\" \"analogic abduction,\" \"diagrammatic abduction,\" and \"theoretic abduction\" (Schurz, 2008). It makes sense that there are indeed distinguishable patterns of explanatory arguments. Different things can be inferred (e.g., concepts, laws, models, belief systems) and things can be inferred in different ways (e.g., by selecting hypotheses from memory or by creating new hypotheses). But such elaborations and taxonomies have triggered considerable disagreement about what does and does not count as abduction. In situations such as this we like to start by looking at the seminal definition and anchor the discussion there. Our goal in this essay is to attempt some clarification by revisiting Charles Sanders Peirce's original description, and then trying to see how far modern scientists have gone in implementing it. Is abduction a single, punctuated act of reasoning, like making a logical inference from given premises? Is the property of \"being an explanation\" a property of propositions? Since abduction is often defined as \"inferring the best explanation,\" these two questions are closely linked. We explore them in this essay. We begin by talking a theoretical/scientific perspective, centered (unabashedly) on the community of philosophers, psychologists, and computer scientists who write and think about abduction. We then attempt to make contact with the world of Explainable AI (XAI) and Intelligent Tutoring Systems (ITS), culminating in some extrapolations in the concluding section."}, {"heading": "Peirce the Logician", "text": "The concept we call abduction might actually be traced to Aristotle. In Prior Analytics (69a 20ff; Smith, 1989), Aristotle discussed what he called \"reduction\"\u00bethe transformation of the subjectpredicate relations in the major and minor premises of a syllogism (e.g., Socrates is mortal, Socrates is a man), so that each of the four basic types (or \"figures\") of syllogisms could be expressed as a type in which the conclusion is an explanatory rule, or we might say, an assertion about a class (e.g., All men are mortal). Despite this historical precedent, most discussions attribute the concept of abduction to the early American philosopher/psychologist/logician Charles Sanders Peirce.\nIn classical formal logics, deduction and induction are completely defined as sets of a few assertions, one of which must be a generalization (that is, an assertion about a class). In contrast, abduction depends on the reasoner's knowledge\u2014propositions that come from beyond the given the observation(s) and premises. Hence, abduction is not the same as inductive enumeration. Nonetheless, to philosophers abduction is a form of inference (Douven, 2011; Harman, 1956; Lipton, 2004). In writings spanning 1867-1902, Peirce referred to abduction as \"hypothetic inference\"\u2014the inferring of a hypothetical explanation from an observed circumstance. More than this, abduction involves justification. A proposed explanation is \u201cbest\u201d because if it were correct the observed circumstance would necessarily occur. In this view, abduction would be distinct from both deduction and induction. Indeed, it would be a third basic or fundamental type of inference. This would seem to retain abduction in the mold of classical logic. In his discussion of the concept of logical machines, Peirce (1887) restricted himself primarily to the conduct of syllogistic inferences in machines designed to go from selected sets of affirmative and negative premises. But Peirce thought of inference in a way that differed from the classical logics of causation of scholars such as Aristotle and David Hume (1740, Part III). Peirce did not seem to mean that abduction was a third classical type (in addition to deduction and induction), rather, to Peirce one single type covers the classical forms. RULE (All men are mortal) Case 1 (Socrates is a man) ___________________________ Case 1 falls under the rule (Socrates is mortal). Induction is looking at a number of cases and having an expectation of what you would find for future cases. Thus, it can be said that induction is the same thing as generalization, and it is always relative to some bounded set or limiting parameters. Of course the difficulty here is that since any given case will have an unbounded number of hypothetical features (potential premises) about which one might form rules, one can have an unbounded number of rules (see Douven, 2011). While this is a distinct problem for logic, it does not seem to have been a concern for the Peirce the pragmaticist. Recent philosophy has maintained this linkage to classical logic. To Gary Shank (1998, p.847848), abduction is \"rendering what might be thought of as a unique experience into an instance of a more general phenomenon.\u201d John and Susan Josephson and Josephson (1995) also described abduction in a formal way (see also Aliseda, 2007; Haig, 2005; Minnameier, 2010): D is a collection of facts, observations, or \u201cgivens,\u201d H explains D, that is, H would, if true, explain D, No other hypothesis can explain D as well as H does, Therefore, H is probably true.\nIn this definition we find an explicit linkage of the fuzzy concept of abduction to the fuzzy concept of explanation. Peirce the logician presented a stronger claim, asking whether abduction is really a third fundamental type of inference. In some of his discussions of abduction (e.g., 1903) he seems to have considered it as a hybrid, that is, abductive reasoning episodes also involve induction and deduction. As Peirce put it, \"abduction can partake of the nature of induction\" (CP 6.522-8). But Peirce's definition was psychological (i.e., reliant on the notion of explanation) as well as logical (representing abductive inferences formally). To Peirce, the match between a set of data and a preferred explanatory frame is more plausible than the match to some other explanatory frame or frames, and so we accept the preferred frame as the likely explanation. An abductive inference (an hypothesis) is maintained until contradicted by experience, or until experience suggests a better (simpler, more general, more plausible, etc.) hypothesis. The following Table integrates the things Peirce said about abduction in his various writings (see also Fann, 1970)."}, {"heading": "4. Resolving the explanation. The plausibility judgment typically (though not necessarily) results in", "text": ""}, {"heading": "2. Generation of one or more possible explanations for some", "text": "theory\" (see row 2, above) and all but one of them is rejected Proctor (2008)."}, {"heading": "5. Extending the explanation. The determination of a preferred explanation is always tentative, that", "text": "is, subject to disconfirmation by further inquiry even though there is an assumption that further instances will conform to the preferred explanation.\nIt is noteworthy that these requirements are consistent with the logic-inspired views of Harman (1965), Josephson and Josephson (1995), and Lipton (2004), and the psychology-inspired views of Proctor (2008) and Lombrozo (2012). \"The process of explaining recruits prior beliefs and a host of explanatory preferences, such as unification and simplicity, that jointly constrain subsequent processing\" (Lombrozo, 2012, p. 260). This suggests a reconciliation of the logical view and the psychological view."}, {"heading": "Reconciling the Logical and the Psychological", "text": "There is a tendency for discourses on abduction to either define it philosophically in terms of other fuzzy concepts (e.g., critical thinking, explanation, etc.) or to define it logically as a form of inference based on a set of premises. But there is an alternative, in which abduction is understood as exploratory modelling; a constructive reasoning activity that is highly dependent on knowledge. Tania Lombrozo, a leading psychologist in the area of explanatory reasoning, regards explanation and abduction as separate phenomena: And as we pointed out above, the reliance on propositions that are external to the abductive syllogism (no matter how many premises it begins with) is central in the Peircean definition of abduction. Referring to the Table 1, the reasoner's motivation for creating a model is that the observed event or phenomenon is interesting or surprising. And the observed event or phenomenon is at least non-trivial, that is, it is complex and involves interactions whose properties (structure/behaviors) are not understood. To Peirce, abduction is an accomplishment, a name for an exploratory activity that begins with some information (data, assumptions, hypotheses, partial models, etc.) about some system of interest and produces a more complete model of that system, one that is consistent with the given information. In this exploratory modelling view, one might avoid invoking the concept of explanation entirely. This is because an explanation is, after all, itself a modelling activity. One might say something like \"If H is a correct characterization (model) of the system of interest, then the collection or assertions D is logically consistent with H\u2019s structure/processes, i.e., D is modeled by H; H models D.\" More important for present purposes is Peirce's notion that abduction as an activity involves going beyond model formation to active exploration. This allows for the discovery and description of new or novel experiences, and the rule is tested for plausibility by characterizing the new experiences. As a search for a satisfying explanation, abduction has an aesthetic component or aspect. As a search for a satisfying explanation, abduction has the aspect of a plausibility judgment. Abduction is an activity that is extended in time, having its own structure\nand processes, often requiring representational tools. It is not a single act of \u201creasoning\u201d like making a logical inference. To Peirce the abductive derivation of a rule is a creative act. Hence, we come full circle to consider the relation of abduction to other psychological processes, such as sensemaking, creativity, and critical thinking."}, {"heading": "Abduction and Sensemaking", "text": "As is indicated in row 2 in Table 1, the notion that abduction is inference to the \"best\" hypothesis presumes that the reasoner has more than one hypothesis in mind. But on this matter, Peirce himself muddied the water. Peirce referred to the phenomenon in which an explanation pops out in the reasoner's awareness. \"...the suggestion comes to us like a flash\" (Peirce, 1891; (CP 5.542, 5.544-5, 5-157). In other words, the very act of perceiving something\u2014the categorizing of it\u2014is a type of hypothesis formation, albeit an extreme case, as Peirce says. Is that moment to be regarded as an act of inference? If so, it is not of a classical form. In contrast, it hearkens to insight, or the \"Eureka\" phenomenon. In psychological theory, this is \"recognition-primed decision making\" (Klein, 1993), in which the expert rapidly apprehends a situation and immediately conceives the best possible course of immediate action without any deliberation over alternative courses of action. There is no form of utility analysis. So, while abduction to a \"best\" explanation\" forces a consideration of the evaluative comparison of explanations\u2014in the logical approach\u2014it does not force it in the psychological approach. Neither recognition of an anomaly nor the evaluation of plausibility requires that abduction is solely an act of recognition or the realization of a single explanation. It is the use of the word \"best\" that implies that more than one explanation is in mind. Peirce did not use that word. He referred to observations that are \"interesting\" or surprising.\" That said, in the full Peircean model there is a consideration of more than one possible causal model, and an evaluation or comparison of those alternative models leads to a plausibility judgment, (i.e., one of them is \"best\") In other words, abduction must be more often like sensemaking than recognition-primed decision making, even though the formation of an initial mental model might be very rapid. To pursue this more specifically, the Peircean model of abduction is consistent with the Data/Frame model of sensemaking (Klein, et al., 2006), which derived from studies of domain experts. The D/F model asserts that sensemaking involves the formation of an initial mental model, or frame. The frame raises questions and allows the reasoner to know when to recognize anomalies. The frame is evaluated for its plausibility and is explored in a search for confirming and disconfirming evidence; it might be adjusted, or discarded altogether. Referring to Table 1:\n\u2022 Abduction involves the observation of something that is surprising (row 1). \u2022 Abduction depends on the reasoner's knowledge, not just on a set of given premises (row\n2). \u2022 Abduction involves a plausibility judgment (rows 3 and 4). \u2022 The abduction is extended by a search for additional information (row 5).\nThe key difference between the Peircean model and the Data/Frame model is that the Peircean model seems more like a linear narrative, whereas the Data/Frame model is entirely closed loop (the data suggest a frame, but at the same time, the frame determines what counts as additional data). This difference aside, it is noteworthy that modern research on \"naturalistic decision making\" has led to models that are consistent with Peirce's model of abduction. This includes consistency with the \"Plausibility Cycle\" model of self-explanation (Klein, et al., 2019). The premise of XAI is that the XAI system would generate explanations and present them to the user. Psychological research on causal reasoning about complex \"real world\" events and complex systems contexts has shed light on how that people actively engage in self-explanation. Some sort of surprising event (or \"trigger\") leads to a process of story building. But then plausibility gaps are revealed and an attempt is made to fill those gaps. Finally, the explanatory narrative is tested, sometimes leading to insights that resolve the initial surprise. In other words, from the psychological perspective the full Peircean model of abduction is consistent with models of explanatory reasoning that have emerged in recent years in the field of applied cognitive psychology and the study of naturalistic decision making. These conceptual models are all getting at (more or less) the same things. Another psychological coherence involves the relation of abduction and critical thinking."}, {"heading": "Abduction and Critical Thinking", "text": "Apparently little research has been done on the skill or capacity for generating plausible bestguess hypotheses (Lombrozo, 2012). That said, some researchers have demonstrated success at teaching critical thinking skills defined in such as way at to embrace the concept of abduction (e.g., Schank, 2011). Kees van Dongen and colleagues (2003) conducted critical thinking training using an intelligent tutoring system that encouraged trainees to list multiple alternative hypotheses and then list both the confirming and disconfirming evidence for each hypothesis. The manifest purpose of the training tool was to mitigate confirmation bias, but the tutoring involved practice on deciding which of a set of alternative hypotheses was the best hypothesis. Another study that relied on a conceptual model that approximates the Peircean concept of abduction is one by Karel van den Bosch and Marlous de Beer (2007) on training for decision making. The researchers described two elements of critical thinking:\n\u2022 Building a story. Explaining a situation, integrating assumptions and uncertainties. This corresponds to rows 1 and 2 in Table 1, above. \u2022 Testing and Evaluating a Story. Identifying incomplete and contradictory information; evaluating the plausibility of the story. This corresponds to rows 3 and 4 in the Table above.\nTo Peirce the abductive derivation of a rule is a motivated attempt to understand. Hence, we come full circle to consider the relation of abduction to explanation."}, {"heading": "Abduction and Explanation", "text": "In the field of AI, broadly, it has been recognized for quite some time that explanation is an exploratory process. Hence, it comes as no sur[rise that schemes for explanatory systems hearken to elements of the Peircean model. For instance, Roger Schank (1986) said:\n... understanding means finding an extant knowledge structure in memory and placing the information being processed within that structure... Explanations that are critical to learning are those that are intended to add knowledge by the process of explanation... (p. 27). The interesting case is one in which we find ourselves initially failing to comprehend something and then being able to construct what we consider to be a fairly plausible explanation that at least momentarily leaves us believing that we have now understood what was at first incomprehensible. In a sense being told an answer can often be a waste of time. the process of constructing an explanation forces learning to occur by causing certain questions to be generated that may continue to be asked for a long time... (p. 228).\nSchank's analysis includes these Peircean elements: (1) Some sort of surprise or anomaly is observed, (2) the learner is reminded of some existing knowledge structure that seems relevant, then (3) questions are asked in a deliberative exploratory process. In the literatures on medical diagnostic systems, abduction has been referenced as the process of inferring causal processes based on observations (e.g., symptoms) (see Finin and Morris, 1998). Similar ideas have been applied in Intelligent Tutoring Systems (ITS) research, in which observed student behaviors are attributed to the student\u2019s reasoning and beliefs, often called the program\u2019s \u201cstudent model.\u201d Indeed, ITS would seem to be an ideal venue for attempting to develop computational models of abductive reasoning, in the full Peircean sense. However, the fuzziness of the concept of abduction manifests itself in the ITS literature. Indeed, computer scientists have proposed \"new forms of abduction\" (e.g., Stickel, 1988) that are not obviously tied to a Peircean notion at all. Although the term abduction is sometimes invoked in research on intelligent systems, it actually does little heavy lifting, either in cognitive modeling or in implementations. For example, in the field of machine learning, Mooney (1998) defined abduction as the process of revising a knowledge base in order to fit the data. He defined abduction formally as the inductive inference across multiple cases of an explanatory hypothesis (cause-effect relation), such that its conjunction with observations of a particular case is true, and its conjunction with background knowledge is also true. Mooney's linkage of abduction to induction accords with Peirce's assertion that \"abduction partakes of the nature of induction,\" but that's as far as it goes. Another partial alignment with Peircean abduction is the work by Fraser, et al. (1989), who sought to develop an ITS for antibody identification in immunohematology. To do that, they conducted knowledge elicitation interviews with a domain expert. The interviews focused on the recall of critical incidents, in which an initial diagnosis proved wrong. The researchers' primary\nintent was to pin diagnostic errors on one or another cognitive bias (e.g., overestimating the likelihood of a given hypothesis). (While the researchers were able to do this, they also learned that the expert was aware of possible biases, and performed checks on her probabilistic reasoning, by such means as examining base rates.) The expert hematologist's process of inferring a diagnosis based on the evidence available was referred to as abduction, but otherwise the concept of abduction (as an act of inference) played no role in the research. That said, the description of the hematologist's process for testing hypotheses fits with the Peircean model, that is, there was an attempt to find converging or disconfirming evidence: an explicit check on the lab technician's process for performing the test. The physics problem solving ITS developed by Maxim Makatchev and his colleagues (2004a,b) comes closer to the Peircean model. Given that a learner's mental model of complex systems is likely to be incomplete and inconsistent (DiSessa, 1993, 2018), the ITS of Makatchev, et al. was intended to help students recognize and correct gaps, illogical relations, and misconceptions in their reasoning. In the implementation, student essays about physics problems were rendered as sets of propositions. \"[T]he student essay is viewed as a fragmentary, incomplete, and possibly incorrect proof. Our task is to complete that proof insofar as possible.\" (p.193). The \"proofs\" were demonstrably coherent arguments that represent the student's mental model. In the implementation, it was the ITS (not the learner) who engaged in abductive reasoning, inferring the best proof in order to guide the tutoring process. That said, the implementation approximates the Peircean scheme in certain respects. First, the implementation included plausibility analysis (by assigning weights for alternative explanations) (see row 3 in Table 1). Second, while it might be asserted that abduction involves inferring explanations from observations, it might also be said that observations are made as a consequence of the explanations (see row 5 in Table 1). The work by Makatchev et al. illustrates the importance of drawing a distinction between abduction (of a sort) that is the program's process of constructing model of student\u2019s reasoning, and abduction by the student in the sense of producing the observed behavior that is being modeled. In 1970s and most of 1980s, the ITS community equated the program's model of the student's knowledge with the student\u2019s knowledge (Sleeman and Brown, 1982). While equating a model of the student's knowledge with the student's mental process may be functionally useful for implementation and testing, with respect to being a psychological explanation of student behavior, it is on shaky grounds. In other words, while we see elements of the concept of abduction in the ITS work\u2014abduction as Peirce described it\u2014there is still a ways to go. Indeed, according to Bylander, et al. (1991) discovery of a best explanation that is plausible, parsimonious (no subset of the premises is sufficient), and complete (i.e., it explains all the data) is an intractable (NP-hard) problem. \"... choosing between incompatible hypotheses, reasoning about cancellation effects among hypotheses, and satisfying the minimal plausibility requirement are major factors leading to intractability\" (p. 25) (see also Hoffmann, 2011)."}, {"heading": "So What?", "text": "What are the implications for XAI system design?\nThe concepts of abduction\u2014ranging from Peirce's philosophical psychology to modern intelligent systems implementations\u2014all speak to the necessity of regarding explanation as an exploratory process. XAI systems that automatically generate \"explanations\" and then spoon feed them to users might have some value, but it will necessarily be limited. The property of \"being an explanation\" is not a property of statements, images, displays, or any of that. Rather, it characterizes an activity, usually interactive and sometimes mixed-initiative, with the source information (i.e., the explainer/instructor) asking questions and seeking explanations from the learner as well.\nDoes the present analysis explain why some XAI projects are succeeding (or might succeed) more than others?\nYes. Most explanations offered by XAI systems are entirely local. They do not explain \"how it works\"\u2014the methods used by the AI program. They do not allow (or help) the learner to actively explore the boundaries of when and why the AI program works well and when and why it works poorly.\nIs this a theoretical framework for understanding what the XAI researchers are already doing?\nWhile some researchers in the area of Explainable AI have understood that the XAI system must possess (or create) a model of the learner's mental model, most XAI research sidesteps this challenge, just as it seems to have sidestepped the decades-old work on intelligent tutoring systems. In practice, it seems a bridge too far to load onto the core challenge of XAI such additional challenges as robust inference over world knowledge, natural language understanding, and the creation of meaningful dialog systems. As a long-term area of research, XAI is a nexus for many of the fundamental problems in the field of AI.\nDoes the present analysis lead to design advice?\nYes: An explanation capability should include tools to that enable users/learners to discover heuristics for when the AI system works well (and why) and when it doesn't work well (and why). The XAI system should allow users to share their discoveries and form a community in which the self-explaining of individuals can result in sharable knowledge."}, {"heading": "Acknowledgement and Disclaimer", "text": "This material is approved for public release. Distribution is unlimited. This research was developed with funding from the Defense Advanced Research Projects Agency (DARPA) under agreement number FA8650-17-2-7711. The U.S. Government is authorized to reproduce and distribute reprints for Governmental purposes notwithstanding any copyright notation thereon.\nThe views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of AFRL or the U.S. Government."}, {"heading": "Mooney, R.J., (2000). Integrating abduction and Induction in Machine Learning. In P. Flach and A. Kakas (Eds.)", "text": "Abduction and induction (pp, 181-191). Kluwer Academic Publishers. Moore, A. and Malinowski, P. (2009). Meditation, mindfulness and cognitive flexibility. Consciousness and cognition, 18, 176-186."}, {"heading": "Mueller, S.T., Hoffman, R.R., Clancey, W., Emrey, A., and Klein, G. (2018). \"Explanation in Human-AI Systems:", "text": ""}, {"heading": "A Literature Meta-Review, Synopsis of Key Ideas and Publications, and Bibliography for Explainable AI.\" Report on Award No. FA8650-17-2-7711, DARPA XAI Program. DTIC accession number AD1073994.", "text": "Nummedal, S.G. (1987). Developing reasoning skills in college students. In D.E. Berger, K. Pezdek, and W.P.\nBanks (Eds.), Applications of cognitive psychology: Problem solving, education, and computing (pp. 87-97). Hillsdale, NJ: Erlbaum. Pfeiffer, K., Feinberg, G., and Gelber, S. (1987). Teaching productive problems solving attitudes. In D.E. Berger, K. Pezdek, and W.P. Banks (Eds.), Applications of cognitive psychology: Problem solving, education, and computing (pp. 99-107). Hillsdale, NJ: Erlbaum. Peirce, C.S. (1887). Logical machines. The American Journal of Psychology, 1, 165-170 Peirce, C.S. (1891). Review of William James's Principles of Psychology, Nation, 53, p.32. Peirce, C.S. (1903). Harvard Lectures on Pragmatism (CP 5, 171-174). Cambridge, MA: Robin Catalog, Harvard University. Schank, R.C. (2011). Teaching Minds: How Cognitive Science Can Save Our Schools. New York: Teachers College Press. Schank, R. (1986). Explanation patterns: Understanding mechanically and creatively. Hillsdale, NJ: Lawrence Erlbaum. Schurz, G. (2008). Patterns of abduction. Synthese, 164, 201-234 Schank, G. (1998). The extraordinary powers of abductive reasoning. Theory and Psychology, 8 (6), 841-860. Selz, O. (1935). Versuche zur Hebung des Intelligenzniveaus: Ein Beittrag zur Theoriet der Ingelligenz und ihrer erziehlichen Beeinflussung. (Experiments for increased intelligence level: A contribution to the theory of intelligence and its educational impact.) Zeitschrift f\u00fcr Psuychologie, 134, 236-301. Sleeman, D., and Brown, J.S. (Eds.) (1982). Intelligent tutoring systems. New York: Academic Press. Smith, J. P., diSessa, A. A., and Roschelle, J. (1993). Misconceptions reconceived: A constructivist analysis of knowledge in transition. Journal of the Learning Sciences, 3, 115\u2013163. Stickel, M. (1991). A prolog-like inference system for computing minimum-cost abductive explanations in natural language interpretation. Annals of Mathematics and Artificial Intelligence, 4, 89-105. Tomar, A., and Nielsen, R.D. (2013) Affective-Behavioral-Cognitive (ABC) learner modeling. In R.A. Sottilare, A. Graesser, X. Hu, and H. Holden (Eds.) Design recommendations for intelligent tutoring systems, vol. 1 (pp. 75-85). Adelphi, MD: U.S. Army Research Laboratory."}], "title": "Abduction and Explanation_Hoffman-2Sep20", "year": 2020}
+{
+  "abstractText": "Current discussions of \"Explainable AI\" (XAI) do not much consider the role of abduction in explanatory reasoning (see Mueller, et al., 2018). It might be worthwhile to pursue this, to develop intelligent systems that allow for the observation and analysis of abductive reasoning and the assessment of abductive reasoning as a learnable skill. Abductive inference has been defined in many ways. For example, it has been defined as the achievement of insight. Most often abduction is taken as a single, punctuated act of syllogistic reasoning, like making a deductive or inductive inference from given premises. In contrast, the originator of the concept of abduction\u2014the American scientist/philosopher Charles Sanders Peirce\u2014regarded abduction as an exploratory activity. In this regard, Peirce's insights about reasoning align with conclusions from modern psychological research. Since abduction is often defined as \"inferring the best explanation,\" the challenge of implementing abductive reasoning and the challenge of automating the explanation process are closely linked. We explore these linkages in this report. This analysis provides a theoretical framework for understanding what the XAI researchers are already doing, it explains why some XAI projects are succeeding (or might succeed), and it leads to design advice. Explanation as an Exploratory Process: The Peircean Abduction Model \"Precisely how much of the business of thinking a machine could possibly be made to perform, and what part of it must be left for the living mind, is a question not without considerable practical importance.\" C.S. Peirce, 1887, p. 165",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "R.R. Hoffman"
+    },
+    {
+      "affiliations": [],
+      "name": "William J. Clancey"
+    },
+    {
+      "affiliations": [],
+      "name": "Shane T. Mueller"
+    }
+  ],
+  "id": "SP:df50123b8d1e843edd843aa32d59db4dd0291807",
+  "references": [
+    {
+      "authors": [
+        "A. Aliseda"
+      ],
+      "title": "Abductive reasoning: Challenges ahead",
+      "venue": "Theoria, 60, 261-270.",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "K. van den Bosch",
+        "M.M. de Beer"
+      ],
+      "title": "Playing a winning game: An implementation of critical thinking training",
+      "venue": "In R. Hoffman (Ed.), Expertise out of context (pp. 177-198)",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "J. Bruner"
+      ],
+      "title": "On teaching thinking: An afterthought",
+      "venue": "S.F. Chipman, J.W. Segal and R. Glaser (Eds.), Thinking and learning skills, Vol. 2: Research and open questions (pp. 597-608). Hillsdale, NJ: Erlbaum.",
+      "year": 1985
+    },
+    {
+      "authors": [
+        "T. Bylander",
+        "D. Allemang",
+        "M.C. Tanner",
+        "J.R. Josephson"
+      ],
+      "title": "The computational complexity of abduction",
+      "venue": "Artificial Intelligence, 49, 25-60.",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "M.T.H. Chi",
+        "M. Roy",
+        "R.G. Hausmann"
+      ],
+      "title": "Observing tutorial dialogs collaboratively: Insights about human tutoring effectiveness from vicarious learning",
+      "venue": "Cognitive Science, 32, 301-341.",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "M.T.H. Chu",
+        "S.A. Siler",
+        "H. Jewong",
+        "T. Yamauchi",
+        "R.G. Hausmann"
+      ],
+      "title": "Learning from human tutoring",
+      "venue": "Cognitive Science, 25, 471-533.",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "A. Collins"
+      ],
+      "title": "Teaching reasoning skills",
+      "venue": "S.F. Chipman, J.W. Segal and R. Glaser (Eds.), Thinking and learning skills, Vol. 2: Research and open questions (pp. 579-608). Hillsdale, NJ: Erlbaum.",
+      "year": 1985
+    },
+    {
+      "authors": [
+        "A.A. diSessa"
+      ],
+      "title": "Toward an epistemology of physics",
+      "venue": "Cognition and Instruction,",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "A.A. diSessa"
+      ],
+      "title": "A friendly introduction to \"Knowledge in Pieces\": Modeling Types of knowledge and their roles in learning",
+      "venue": "Invited Lectures from the 13th International Congress on Mathematical Education,ICME-13 Monographs",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "K. van Dongen",
+        "J.M. Schraagen",
+        "A. Eikelboom",
+        "G. te Brake"
+      ],
+      "title": "Supporting decision making by a critical thinking tool",
+      "venue": "In Proceedings of the Human Factors and Ergonomics Society 49th Annual Meeting (pp. 517-521)",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "I. Douven"
+      ],
+      "title": "Abduction",
+      "venue": "Stanford Encyclopedia of Philosophy. Retrieved from https://plato.stanford.edu/entries/abduction/",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "P.A. Facione",
+        "N.C. Facione"
+      ],
+      "title": "The California critical thinking skills test and manual",
+      "venue": "Millbrae, CA: Academic Press. [http://www.insightassessment.com]",
+      "year": 1992
+    },
+    {
+      "authors": [
+        "K.T. Fann"
+      ],
+      "title": "Peirce's theory of abduction",
+      "venue": "The Hague: Nijhoff.",
+      "year": 1970
+    },
+    {
+      "authors": [
+        "T. Finin",
+        "G. Morris"
+      ],
+      "title": "Abductive reasoning in multiple fault diagnosis.\" Technical Report, Department of Computer and Information Science, University of Pennsylvania [https://repository.upenn.edu/cgi/viewcontent.cgi?referer=https://www.google.com/andhttpsredir=1andarticle=1730 andcontext=cis_reports",
+      "year": 1988
+    },
+    {
+      "authors": [
+        "J.M. Fraser"
+      ],
+      "title": "Errors in abductive reasoning",
+      "venue": "IEEE International Conference on Systems, Man and Cybernetics (pp. 1136-1141)",
+      "year": 1989
+    },
+    {
+      "authors": [
+        "R. Glaser"
+      ],
+      "title": "Education and thinking",
+      "venue": "American Psychologist, 39, 93-104.",
+      "year": 1984
+    },
+    {
+      "authors": [
+        "B.D. Haig"
+      ],
+      "title": "An abductive theory of scientific explanation",
+      "venue": "Psychological Methods, 10, 371-388.",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "G.F. Harman"
+      ],
+      "title": "Inference to the best explanation",
+      "venue": "Philosophical Review, 74, 88-95.",
+      "year": 1965
+    },
+    {
+      "authors": [
+        "M.H.G. Hoffmann"
+      ],
+      "title": "Diagrams as scaffolds for abductive insights",
+      "venue": "Proceedings of the Twenty-Fourth AAAI Conference on Artificial Intelligence. [https://aaai.org/ocs/index.php/WS/AAAIW10/paper/view/2027].",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "M.H.G. Hoffmann"
+      ],
+      "title": "Theoretic Transformations\" and a new classification of abductive inferences",
+      "venue": "Transactions of the Charles S. Peirce Society, 46, 570-590.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "D. Hume"
+      ],
+      "title": "A treatise of human nature",
+      "venue": "[http://www.gutenberg.org/ebooks/4705].",
+      "year": 1740
+    },
+    {
+      "authors": [
+        "J.R. Josephson",
+        "S.G. Josephson"
+      ],
+      "title": "Abductive inference: Computation, philosophy, technology",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "G. Klein"
+      ],
+      "title": "The recognition-primed decision model: Looking back, looking forward",
+      "venue": "In. C. Zsambok and G. Klein (Eds.), Naturalistic decision making (pp. 285-292). Mahwah, NJ: Erlbaum.",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "G. Klein",
+        "B. Moon",
+        "R.R. Hoffman"
+      ],
+      "title": "November/December). Making sense of sensemaking 2: A macrocognitive model",
+      "venue": "IEEE Intelligent Systems,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "G. Klein",
+        "R.R. Hoffman",
+        "S.T. Mueller"
+      ],
+      "title": "The Plausibility Cycle: A Model of Self-Explaining How AI Systems work.\" Report from Task area 2, DARPA Explainable AI Program",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D.B. Lenat"
+      ],
+      "title": "Ontology alignment of learner models and domain models",
+      "venue": "R.A. Sottilare, A. Graesser, A.C.. Hu, X., and H. Holden (Eds.) Design recommendations for intelligent tutoring systems, vol. 1 (pp. 49-)56. Adelphi, MD: U.S. Army Research Laboratory.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "P. Lipton"
+      ],
+      "title": "Inference to the best explanation",
+      "venue": "New York: Routledge.",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "T. Lombrozo"
+      ],
+      "title": "Explanation and abductive inference",
+      "venue": "K.J. Holyoak and R.G. Morroison (Eds.), Oxford handbook of thinking and reasoning (pp. 260-276). Oxford: Oxford University Press.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "M. Makatchev",
+        "P.W. Jordan",
+        "K. VanLehn"
+      ],
+      "title": "Abductive proofs as models of students' reasoning about qualitative physics",
+      "venue": "Proceedings of the International Conference on Cognitive Modelling (ICCM 2004) (pp. 166171). International Conferences on Cognitive Modeling.",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "M. Makatchev",
+        "P.W. Jordan",
+        "K. VanLehn"
+      ],
+      "title": "Abductive theorem proving for analyzing student explanations to guide feedback in intelligent tutoring systems",
+      "venue": "Journal of Automated Reasoning, 32, 187-226.",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "G. Minnameier"
+      ],
+      "title": "the logicality of abduction, deduction, and induction",
+      "venue": "N. Bergman, S. Pavolva, A.-V. Pietarinen and H. Rydenfelt (Eds.) Ideas in action: Proceedings of the Applying Peirce Conference (pp. 239-251). Helsinki: Nordic Pragmatism Network.",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "R.J. Mooney"
+      ],
+      "title": "Integrating abduction and Induction in Machine Learning",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "A. Moore",
+        "P. Malinowski"
+      ],
+      "title": "Meditation, mindfulness and cognitive flexibility",
+      "venue": "Consciousness and cognition, 18, 176-186.",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "S.T. Mueller",
+        "R.R. Hoffman",
+        "W. Clancey",
+        "A. Emrey",
+        "G. Klein"
+      ],
+      "title": "Explanation in Human-AI Systems: A Literature Meta-Review, Synopsis of Key Ideas and Publications, and Bibliography for Explainable AI.",
+      "venue": "Report on Award No. FA8650-17-2-7711,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S.G. Nummedal"
+      ],
+      "title": "Developing reasoning skills in college students",
+      "venue": "D.E. Berger, K. Pezdek, and W.P.",
+      "year": 1987
+    },
+    {
+      "authors": [
+        "K. Pfeiffer",
+        "G. Feinberg",
+        "S. Gelber"
+      ],
+      "title": "Teaching productive problems solving attitudes",
+      "venue": "D.E. Berger, K. Pezdek, and W.P. Banks (Eds.), Applications of cognitive psychology: Problem solving, education, and computing (pp. 99-107). Hillsdale, NJ: Erlbaum.",
+      "year": 1987
+    },
+    {
+      "authors": [
+        "C.S. Peirce"
+      ],
+      "title": "Logical machines",
+      "venue": "The American Journal of Psychology, 1, 165-170",
+      "year": 1887
+    },
+    {
+      "authors": [
+        "C.S. Peirce"
+      ],
+      "title": "Harvard Lectures on Pragmatism (CP 5, 171-174)",
+      "venue": "Cambridge, MA: Robin Catalog, Harvard University.",
+      "year": 1903
+    },
+    {
+      "authors": [
+        "R.C. Schank"
+      ],
+      "title": "Teaching Minds: How Cognitive Science Can Save Our Schools",
+      "venue": "New York: Teachers College Press.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "R. Schank"
+      ],
+      "title": "Explanation patterns: Understanding mechanically and creatively",
+      "venue": "Hillsdale, NJ: Lawrence Erlbaum.",
+      "year": 1986
+    },
+    {
+      "authors": [
+        "G. Schurz"
+      ],
+      "title": "Patterns of abduction",
+      "venue": "Synthese, 164, 201-234",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "G. Schank"
+      ],
+      "title": "The extraordinary powers of abductive reasoning",
+      "venue": "Theory and Psychology, 8 (6), 841-860.",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "O. Selz"
+      ],
+      "title": "Versuche zur Hebung des Intelligenzniveaus: Ein Beittrag zur Theoriet der Ingelligenz und ihrer erziehlichen Beeinflussung",
+      "venue": "(Experiments for increased intelligence level: A contribution to the theory of intelligence and its educational impact.) Zeitschrift f\u00fcr Psuychologie, 134, 236-301.",
+      "year": 1935
+    },
+    {
+      "authors": [
+        "D. Sleeman",
+        "J.S. Brown"
+      ],
+      "title": "Intelligent tutoring systems",
+      "year": 1982
+    },
+    {
+      "authors": [
+        "J.P. Smith",
+        "A.A. diSessa",
+        "J. Roschelle"
+      ],
+      "title": "Misconceptions reconceived: A constructivist analysis of knowledge in transition",
+      "venue": "Journal of the Learning Sciences,",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "M. Stickel"
+      ],
+      "title": "A prolog-like inference system for computing minimum-cost abductive explanations in natural language interpretation",
+      "venue": "Annals of Mathematics and Artificial Intelligence, 4, 89-105.",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "A. Tomar",
+        "R.D. Nielsen"
+      ],
+      "title": "Affective-Behavioral-Cognitive (ABC) learner modeling",
+      "venue": "Adelphi, MD: U.S. Army Research Laboratory",
+      "year": 2013
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Explanation as an Exploratory Process: The Peircean Abduction Model",
+      "text": "\"Precisely how much of the business of thinking a machine could possibly be made to perform, and what part of it must be left for the living mind, is a question not without considerable practical importance.\" C.S. Peirce, 1887, p. 165"
+    },
+    {
+      "heading": "Introduction",
+      "text": "Abductive inference remains a significant challenge for the field of artificial intelligence. Indeed, it is possible to formalize a number of classes of abductive problems (e.g., abductions involving\npremises that have no incompatibilities). (For a review of formal models of abduction see Bylander, et al., 1991). Many philosophers and psychologists have discussed abduction (hypothesis formation and testing) as basic to scientific reasoning (e.g., Bruner, 1985; Collins, 1985; Glaser, 1984; Haig, 2005; Pfeiffer, et al., 1987; Nummedal, 1987; Schurz, 2008; Selz, 1935). Abduction has been cited as an aspect of, or even a central aspect of critical thinking, cognitive flexibility, fluid intelligence, and creativity (e.g., Douven, 2011; Moore and Malinowski, 2009). Diverse definitions of abduction can be found in the pertinent literatures. Some reports consider abduction as \"not a logically sound deduction or proof.\" In some reports, what is referred to as abduction is actually a form of induction (see Lenat, 2013, p. 54). This includes inductive generalizations from sets of cases in case-based reasoning. Abduction has been defined as the achievement of \"insight\" (e.g., Hoffmann, 2010, 2011). Abduction has been defined variously as an accomplishment, an ability, a skill, and as an amalgam of component skills such as evaluating evidence, forming mental models, recognizing cues, or other hypothetical cognitive processes. Scholars have proposed various patterns of abductive explanation (as many as 15 of them), such as \"existential abduction, \"factual abduction,\" \"analogic abduction,\" \"diagrammatic abduction,\" and \"theoretic abduction\" (Schurz, 2008). It makes sense that there are indeed distinguishable patterns of explanatory arguments. Different things can be inferred (e.g., concepts, laws, models, belief systems) and things can be inferred in different ways (e.g., by selecting hypotheses from memory or by creating new hypotheses). But such elaborations and taxonomies have triggered considerable disagreement about what does and does not count as abduction. In situations such as this we like to start by looking at the seminal definition and anchor the discussion there. Our goal in this essay is to attempt some clarification by revisiting Charles Sanders Peirce's original description, and then trying to see how far modern scientists have gone in implementing it. Is abduction a single, punctuated act of reasoning, like making a logical inference from given premises? Is the property of \"being an explanation\" a property of propositions? Since abduction is often defined as \"inferring the best explanation,\" these two questions are closely linked. We explore them in this essay. We begin by talking a theoretical/scientific perspective, centered (unabashedly) on the community of philosophers, psychologists, and computer scientists who write and think about abduction. We then attempt to make contact with the world of Explainable AI (XAI) and Intelligent Tutoring Systems (ITS), culminating in some extrapolations in the concluding section."
+    },
+    {
+      "heading": "Peirce the Logician",
+      "text": "The concept we call abduction might actually be traced to Aristotle. In Prior Analytics (69a 20ff; Smith, 1989), Aristotle discussed what he called \"reduction\"\u00bethe transformation of the subjectpredicate relations in the major and minor premises of a syllogism (e.g., Socrates is mortal, Socrates is a man), so that each of the four basic types (or \"figures\") of syllogisms could be expressed as a type in which the conclusion is an explanatory rule, or we might say, an assertion about a class (e.g., All men are mortal). Despite this historical precedent, most discussions attribute the concept of abduction to the early American philosopher/psychologist/logician Charles Sanders Peirce.\nIn classical formal logics, deduction and induction are completely defined as sets of a few assertions, one of which must be a generalization (that is, an assertion about a class). In contrast, abduction depends on the reasoner's knowledge\u2014propositions that come from beyond the given the observation(s) and premises. Hence, abduction is not the same as inductive enumeration. Nonetheless, to philosophers abduction is a form of inference (Douven, 2011; Harman, 1956; Lipton, 2004). In writings spanning 1867-1902, Peirce referred to abduction as \"hypothetic inference\"\u2014the inferring of a hypothetical explanation from an observed circumstance. More than this, abduction involves justification. A proposed explanation is \u201cbest\u201d because if it were correct the observed circumstance would necessarily occur. In this view, abduction would be distinct from both deduction and induction. Indeed, it would be a third basic or fundamental type of inference. This would seem to retain abduction in the mold of classical logic. In his discussion of the concept of logical machines, Peirce (1887) restricted himself primarily to the conduct of syllogistic inferences in machines designed to go from selected sets of affirmative and negative premises. But Peirce thought of inference in a way that differed from the classical logics of causation of scholars such as Aristotle and David Hume (1740, Part III). Peirce did not seem to mean that abduction was a third classical type (in addition to deduction and induction), rather, to Peirce one single type covers the classical forms. RULE (All men are mortal) Case 1 (Socrates is a man) ___________________________ Case 1 falls under the rule (Socrates is mortal). Induction is looking at a number of cases and having an expectation of what you would find for future cases. Thus, it can be said that induction is the same thing as generalization, and it is always relative to some bounded set or limiting parameters. Of course the difficulty here is that since any given case will have an unbounded number of hypothetical features (potential premises) about which one might form rules, one can have an unbounded number of rules (see Douven, 2011). While this is a distinct problem for logic, it does not seem to have been a concern for the Peirce the pragmaticist. Recent philosophy has maintained this linkage to classical logic. To Gary Shank (1998, p.847848), abduction is \"rendering what might be thought of as a unique experience into an instance of a more general phenomenon.\u201d John and Susan Josephson and Josephson (1995) also described abduction in a formal way (see also Aliseda, 2007; Haig, 2005; Minnameier, 2010): D is a collection of facts, observations, or \u201cgivens,\u201d H explains D, that is, H would, if true, explain D, No other hypothesis can explain D as well as H does, Therefore, H is probably true.\nIn this definition we find an explicit linkage of the fuzzy concept of abduction to the fuzzy concept of explanation. Peirce the logician presented a stronger claim, asking whether abduction is really a third fundamental type of inference. In some of his discussions of abduction (e.g., 1903) he seems to have considered it as a hybrid, that is, abductive reasoning episodes also involve induction and deduction. As Peirce put it, \"abduction can partake of the nature of induction\" (CP 6.522-8). But Peirce's definition was psychological (i.e., reliant on the notion of explanation) as well as logical (representing abductive inferences formally). To Peirce, the match between a set of data and a preferred explanatory frame is more plausible than the match to some other explanatory frame or frames, and so we accept the preferred frame as the likely explanation. An abductive inference (an hypothesis) is maintained until contradicted by experience, or until experience suggests a better (simpler, more general, more plausible, etc.) hypothesis. The following Table integrates the things Peirce said about abduction in his various writings (see also Fann, 1970)."
+    },
+    {
+      "heading": "4. Resolving the explanation. The plausibility judgment typically (though not necessarily) results in",
+      "text": ""
+    },
+    {
+      "heading": "2. Generation of one or more possible explanations for some",
+      "text": "theory\" (see row 2, above) and all but one of them is rejected Proctor (2008)."
+    },
+    {
+      "heading": "5. Extending the explanation. The determination of a preferred explanation is always tentative, that",
+      "text": "is, subject to disconfirmation by further inquiry even though there is an assumption that further instances will conform to the preferred explanation.\nIt is noteworthy that these requirements are consistent with the logic-inspired views of Harman (1965), Josephson and Josephson (1995), and Lipton (2004), and the psychology-inspired views of Proctor (2008) and Lombrozo (2012). \"The process of explaining recruits prior beliefs and a host of explanatory preferences, such as unification and simplicity, that jointly constrain subsequent processing\" (Lombrozo, 2012, p. 260). This suggests a reconciliation of the logical view and the psychological view."
+    },
+    {
+      "heading": "Reconciling the Logical and the Psychological",
+      "text": "There is a tendency for discourses on abduction to either define it philosophically in terms of other fuzzy concepts (e.g., critical thinking, explanation, etc.) or to define it logically as a form of inference based on a set of premises. But there is an alternative, in which abduction is understood as exploratory modelling; a constructive reasoning activity that is highly dependent on knowledge. Tania Lombrozo, a leading psychologist in the area of explanatory reasoning, regards explanation and abduction as separate phenomena: And as we pointed out above, the reliance on propositions that are external to the abductive syllogism (no matter how many premises it begins with) is central in the Peircean definition of abduction. Referring to the Table 1, the reasoner's motivation for creating a model is that the observed event or phenomenon is interesting or surprising. And the observed event or phenomenon is at least non-trivial, that is, it is complex and involves interactions whose properties (structure/behaviors) are not understood. To Peirce, abduction is an accomplishment, a name for an exploratory activity that begins with some information (data, assumptions, hypotheses, partial models, etc.) about some system of interest and produces a more complete model of that system, one that is consistent with the given information. In this exploratory modelling view, one might avoid invoking the concept of explanation entirely. This is because an explanation is, after all, itself a modelling activity. One might say something like \"If H is a correct characterization (model) of the system of interest, then the collection or assertions D is logically consistent with H\u2019s structure/processes, i.e., D is modeled by H; H models D.\" More important for present purposes is Peirce's notion that abduction as an activity involves going beyond model formation to active exploration. This allows for the discovery and description of new or novel experiences, and the rule is tested for plausibility by characterizing the new experiences. As a search for a satisfying explanation, abduction has an aesthetic component or aspect. As a search for a satisfying explanation, abduction has the aspect of a plausibility judgment. Abduction is an activity that is extended in time, having its own structure\nand processes, often requiring representational tools. It is not a single act of \u201creasoning\u201d like making a logical inference. To Peirce the abductive derivation of a rule is a creative act. Hence, we come full circle to consider the relation of abduction to other psychological processes, such as sensemaking, creativity, and critical thinking."
+    },
+    {
+      "heading": "Abduction and Sensemaking",
+      "text": "As is indicated in row 2 in Table 1, the notion that abduction is inference to the \"best\" hypothesis presumes that the reasoner has more than one hypothesis in mind. But on this matter, Peirce himself muddied the water. Peirce referred to the phenomenon in which an explanation pops out in the reasoner's awareness. \"...the suggestion comes to us like a flash\" (Peirce, 1891; (CP 5.542, 5.544-5, 5-157). In other words, the very act of perceiving something\u2014the categorizing of it\u2014is a type of hypothesis formation, albeit an extreme case, as Peirce says. Is that moment to be regarded as an act of inference? If so, it is not of a classical form. In contrast, it hearkens to insight, or the \"Eureka\" phenomenon. In psychological theory, this is \"recognition-primed decision making\" (Klein, 1993), in which the expert rapidly apprehends a situation and immediately conceives the best possible course of immediate action without any deliberation over alternative courses of action. There is no form of utility analysis. So, while abduction to a \"best\" explanation\" forces a consideration of the evaluative comparison of explanations\u2014in the logical approach\u2014it does not force it in the psychological approach. Neither recognition of an anomaly nor the evaluation of plausibility requires that abduction is solely an act of recognition or the realization of a single explanation. It is the use of the word \"best\" that implies that more than one explanation is in mind. Peirce did not use that word. He referred to observations that are \"interesting\" or surprising.\" That said, in the full Peircean model there is a consideration of more than one possible causal model, and an evaluation or comparison of those alternative models leads to a plausibility judgment, (i.e., one of them is \"best\") In other words, abduction must be more often like sensemaking than recognition-primed decision making, even though the formation of an initial mental model might be very rapid. To pursue this more specifically, the Peircean model of abduction is consistent with the Data/Frame model of sensemaking (Klein, et al., 2006), which derived from studies of domain experts. The D/F model asserts that sensemaking involves the formation of an initial mental model, or frame. The frame raises questions and allows the reasoner to know when to recognize anomalies. The frame is evaluated for its plausibility and is explored in a search for confirming and disconfirming evidence; it might be adjusted, or discarded altogether. Referring to Table 1:\n\u2022 Abduction involves the observation of something that is surprising (row 1). \u2022 Abduction depends on the reasoner's knowledge, not just on a set of given premises (row\n2). \u2022 Abduction involves a plausibility judgment (rows 3 and 4). \u2022 The abduction is extended by a search for additional information (row 5).\nThe key difference between the Peircean model and the Data/Frame model is that the Peircean model seems more like a linear narrative, whereas the Data/Frame model is entirely closed loop (the data suggest a frame, but at the same time, the frame determines what counts as additional data). This difference aside, it is noteworthy that modern research on \"naturalistic decision making\" has led to models that are consistent with Peirce's model of abduction. This includes consistency with the \"Plausibility Cycle\" model of self-explanation (Klein, et al., 2019). The premise of XAI is that the XAI system would generate explanations and present them to the user. Psychological research on causal reasoning about complex \"real world\" events and complex systems contexts has shed light on how that people actively engage in self-explanation. Some sort of surprising event (or \"trigger\") leads to a process of story building. But then plausibility gaps are revealed and an attempt is made to fill those gaps. Finally, the explanatory narrative is tested, sometimes leading to insights that resolve the initial surprise. In other words, from the psychological perspective the full Peircean model of abduction is consistent with models of explanatory reasoning that have emerged in recent years in the field of applied cognitive psychology and the study of naturalistic decision making. These conceptual models are all getting at (more or less) the same things. Another psychological coherence involves the relation of abduction and critical thinking."
+    },
+    {
+      "heading": "Abduction and Critical Thinking",
+      "text": "Apparently little research has been done on the skill or capacity for generating plausible bestguess hypotheses (Lombrozo, 2012). That said, some researchers have demonstrated success at teaching critical thinking skills defined in such as way at to embrace the concept of abduction (e.g., Schank, 2011). Kees van Dongen and colleagues (2003) conducted critical thinking training using an intelligent tutoring system that encouraged trainees to list multiple alternative hypotheses and then list both the confirming and disconfirming evidence for each hypothesis. The manifest purpose of the training tool was to mitigate confirmation bias, but the tutoring involved practice on deciding which of a set of alternative hypotheses was the best hypothesis. Another study that relied on a conceptual model that approximates the Peircean concept of abduction is one by Karel van den Bosch and Marlous de Beer (2007) on training for decision making. The researchers described two elements of critical thinking:\n\u2022 Building a story. Explaining a situation, integrating assumptions and uncertainties. This corresponds to rows 1 and 2 in Table 1, above. \u2022 Testing and Evaluating a Story. Identifying incomplete and contradictory information; evaluating the plausibility of the story. This corresponds to rows 3 and 4 in the Table above.\nTo Peirce the abductive derivation of a rule is a motivated attempt to understand. Hence, we come full circle to consider the relation of abduction to explanation."
+    },
+    {
+      "heading": "Abduction and Explanation",
+      "text": "In the field of AI, broadly, it has been recognized for quite some time that explanation is an exploratory process. Hence, it comes as no sur[rise that schemes for explanatory systems hearken to elements of the Peircean model. For instance, Roger Schank (1986) said:\n... understanding means finding an extant knowledge structure in memory and placing the information being processed within that structure... Explanations that are critical to learning are those that are intended to add knowledge by the process of explanation... (p. 27). The interesting case is one in which we find ourselves initially failing to comprehend something and then being able to construct what we consider to be a fairly plausible explanation that at least momentarily leaves us believing that we have now understood what was at first incomprehensible. In a sense being told an answer can often be a waste of time. the process of constructing an explanation forces learning to occur by causing certain questions to be generated that may continue to be asked for a long time... (p. 228).\nSchank's analysis includes these Peircean elements: (1) Some sort of surprise or anomaly is observed, (2) the learner is reminded of some existing knowledge structure that seems relevant, then (3) questions are asked in a deliberative exploratory process. In the literatures on medical diagnostic systems, abduction has been referenced as the process of inferring causal processes based on observations (e.g., symptoms) (see Finin and Morris, 1998). Similar ideas have been applied in Intelligent Tutoring Systems (ITS) research, in which observed student behaviors are attributed to the student\u2019s reasoning and beliefs, often called the program\u2019s \u201cstudent model.\u201d Indeed, ITS would seem to be an ideal venue for attempting to develop computational models of abductive reasoning, in the full Peircean sense. However, the fuzziness of the concept of abduction manifests itself in the ITS literature. Indeed, computer scientists have proposed \"new forms of abduction\" (e.g., Stickel, 1988) that are not obviously tied to a Peircean notion at all. Although the term abduction is sometimes invoked in research on intelligent systems, it actually does little heavy lifting, either in cognitive modeling or in implementations. For example, in the field of machine learning, Mooney (1998) defined abduction as the process of revising a knowledge base in order to fit the data. He defined abduction formally as the inductive inference across multiple cases of an explanatory hypothesis (cause-effect relation), such that its conjunction with observations of a particular case is true, and its conjunction with background knowledge is also true. Mooney's linkage of abduction to induction accords with Peirce's assertion that \"abduction partakes of the nature of induction,\" but that's as far as it goes. Another partial alignment with Peircean abduction is the work by Fraser, et al. (1989), who sought to develop an ITS for antibody identification in immunohematology. To do that, they conducted knowledge elicitation interviews with a domain expert. The interviews focused on the recall of critical incidents, in which an initial diagnosis proved wrong. The researchers' primary\nintent was to pin diagnostic errors on one or another cognitive bias (e.g., overestimating the likelihood of a given hypothesis). (While the researchers were able to do this, they also learned that the expert was aware of possible biases, and performed checks on her probabilistic reasoning, by such means as examining base rates.) The expert hematologist's process of inferring a diagnosis based on the evidence available was referred to as abduction, but otherwise the concept of abduction (as an act of inference) played no role in the research. That said, the description of the hematologist's process for testing hypotheses fits with the Peircean model, that is, there was an attempt to find converging or disconfirming evidence: an explicit check on the lab technician's process for performing the test. The physics problem solving ITS developed by Maxim Makatchev and his colleagues (2004a,b) comes closer to the Peircean model. Given that a learner's mental model of complex systems is likely to be incomplete and inconsistent (DiSessa, 1993, 2018), the ITS of Makatchev, et al. was intended to help students recognize and correct gaps, illogical relations, and misconceptions in their reasoning. In the implementation, student essays about physics problems were rendered as sets of propositions. \"[T]he student essay is viewed as a fragmentary, incomplete, and possibly incorrect proof. Our task is to complete that proof insofar as possible.\" (p.193). The \"proofs\" were demonstrably coherent arguments that represent the student's mental model. In the implementation, it was the ITS (not the learner) who engaged in abductive reasoning, inferring the best proof in order to guide the tutoring process. That said, the implementation approximates the Peircean scheme in certain respects. First, the implementation included plausibility analysis (by assigning weights for alternative explanations) (see row 3 in Table 1). Second, while it might be asserted that abduction involves inferring explanations from observations, it might also be said that observations are made as a consequence of the explanations (see row 5 in Table 1). The work by Makatchev et al. illustrates the importance of drawing a distinction between abduction (of a sort) that is the program's process of constructing model of student\u2019s reasoning, and abduction by the student in the sense of producing the observed behavior that is being modeled. In 1970s and most of 1980s, the ITS community equated the program's model of the student's knowledge with the student\u2019s knowledge (Sleeman and Brown, 1982). While equating a model of the student's knowledge with the student's mental process may be functionally useful for implementation and testing, with respect to being a psychological explanation of student behavior, it is on shaky grounds. In other words, while we see elements of the concept of abduction in the ITS work\u2014abduction as Peirce described it\u2014there is still a ways to go. Indeed, according to Bylander, et al. (1991) discovery of a best explanation that is plausible, parsimonious (no subset of the premises is sufficient), and complete (i.e., it explains all the data) is an intractable (NP-hard) problem. \"... choosing between incompatible hypotheses, reasoning about cancellation effects among hypotheses, and satisfying the minimal plausibility requirement are major factors leading to intractability\" (p. 25) (see also Hoffmann, 2011)."
+    },
+    {
+      "heading": "So What?",
+      "text": "What are the implications for XAI system design?\nThe concepts of abduction\u2014ranging from Peirce's philosophical psychology to modern intelligent systems implementations\u2014all speak to the necessity of regarding explanation as an exploratory process. XAI systems that automatically generate \"explanations\" and then spoon feed them to users might have some value, but it will necessarily be limited. The property of \"being an explanation\" is not a property of statements, images, displays, or any of that. Rather, it characterizes an activity, usually interactive and sometimes mixed-initiative, with the source information (i.e., the explainer/instructor) asking questions and seeking explanations from the learner as well.\nDoes the present analysis explain why some XAI projects are succeeding (or might succeed) more than others?\nYes. Most explanations offered by XAI systems are entirely local. They do not explain \"how it works\"\u2014the methods used by the AI program. They do not allow (or help) the learner to actively explore the boundaries of when and why the AI program works well and when and why it works poorly.\nIs this a theoretical framework for understanding what the XAI researchers are already doing?\nWhile some researchers in the area of Explainable AI have understood that the XAI system must possess (or create) a model of the learner's mental model, most XAI research sidesteps this challenge, just as it seems to have sidestepped the decades-old work on intelligent tutoring systems. In practice, it seems a bridge too far to load onto the core challenge of XAI such additional challenges as robust inference over world knowledge, natural language understanding, and the creation of meaningful dialog systems. As a long-term area of research, XAI is a nexus for many of the fundamental problems in the field of AI.\nDoes the present analysis lead to design advice?\nYes: An explanation capability should include tools to that enable users/learners to discover heuristics for when the AI system works well (and why) and when it doesn't work well (and why). The XAI system should allow users to share their discoveries and form a community in which the self-explaining of individuals can result in sharable knowledge."
+    },
+    {
+      "heading": "Acknowledgement and Disclaimer",
+      "text": "This material is approved for public release. Distribution is unlimited. This research was developed with funding from the Defense Advanced Research Projects Agency (DARPA) under agreement number FA8650-17-2-7711. The U.S. Government is authorized to reproduce and distribute reprints for Governmental purposes notwithstanding any copyright notation thereon.\nThe views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies or endorsements, either expressed or implied, of AFRL or the U.S. Government."
+    },
+    {
+      "heading": "Mooney, R.J., (2000). Integrating abduction and Induction in Machine Learning. In P. Flach and A. Kakas (Eds.)",
+      "text": "Abduction and induction (pp, 181-191). Kluwer Academic Publishers. Moore, A. and Malinowski, P. (2009). Meditation, mindfulness and cognitive flexibility. Consciousness and cognition, 18, 176-186."
+    },
+    {
+      "heading": "Mueller, S.T., Hoffman, R.R., Clancey, W., Emrey, A., and Klein, G. (2018). \"Explanation in Human-AI Systems:",
+      "text": ""
+    },
+    {
+      "heading": "A Literature Meta-Review, Synopsis of Key Ideas and Publications, and Bibliography for Explainable AI.\" Report on Award No. FA8650-17-2-7711, DARPA XAI Program. DTIC accession number AD1073994.",
+      "text": "Nummedal, S.G. (1987). Developing reasoning skills in college students. In D.E. Berger, K. Pezdek, and W.P.\nBanks (Eds.), Applications of cognitive psychology: Problem solving, education, and computing (pp. 87-97). Hillsdale, NJ: Erlbaum. Pfeiffer, K., Feinberg, G., and Gelber, S. (1987). Teaching productive problems solving attitudes. In D.E. Berger, K. Pezdek, and W.P. Banks (Eds.), Applications of cognitive psychology: Problem solving, education, and computing (pp. 99-107). Hillsdale, NJ: Erlbaum. Peirce, C.S. (1887). Logical machines. The American Journal of Psychology, 1, 165-170 Peirce, C.S. (1891). Review of William James's Principles of Psychology, Nation, 53, p.32. Peirce, C.S. (1903). Harvard Lectures on Pragmatism (CP 5, 171-174). Cambridge, MA: Robin Catalog, Harvard University. Schank, R.C. (2011). Teaching Minds: How Cognitive Science Can Save Our Schools. New York: Teachers College Press. Schank, R. (1986). Explanation patterns: Understanding mechanically and creatively. Hillsdale, NJ: Lawrence Erlbaum. Schurz, G. (2008). Patterns of abduction. Synthese, 164, 201-234 Schank, G. (1998). The extraordinary powers of abductive reasoning. Theory and Psychology, 8 (6), 841-860. Selz, O. (1935). Versuche zur Hebung des Intelligenzniveaus: Ein Beittrag zur Theoriet der Ingelligenz und ihrer erziehlichen Beeinflussung. (Experiments for increased intelligence level: A contribution to the theory of intelligence and its educational impact.) Zeitschrift f\u00fcr Psuychologie, 134, 236-301. Sleeman, D., and Brown, J.S. (Eds.) (1982). Intelligent tutoring systems. New York: Academic Press. Smith, J. P., diSessa, A. A., and Roschelle, J. (1993). Misconceptions reconceived: A constructivist analysis of knowledge in transition. Journal of the Learning Sciences, 3, 115\u2013163. Stickel, M. (1991). A prolog-like inference system for computing minimum-cost abductive explanations in natural language interpretation. Annals of Mathematics and Artificial Intelligence, 4, 89-105. Tomar, A., and Nielsen, R.D. (2013) Affective-Behavioral-Cognitive (ABC) learner modeling. In R.A. Sottilare, A. Graesser, X. Hu, and H. Holden (Eds.) Design recommendations for intelligent tutoring systems, vol. 1 (pp. 75-85). Adelphi, MD: U.S. Army Research Laboratory."
+    }
+  ],
+  "title": "Abduction and Explanation_Hoffman-2Sep20",
+  "year": 2020
+}
