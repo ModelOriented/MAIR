@@ -1,0 +1,120 @@
+{
+  "abstractText": "CHI\u201920 Workshop on Human-Centered Approaches to Fair and Responsible AI , 26th of April, 2020, Honolulu, HI, USA. Copyright is held by the authors. Abstract Algorithmic fairness for artificial intelligence has become increasingly relevant as these systems become more pervasive in society. One realm of AI, recommender systems, presents unique challenges for fairness due to trade offs between optimizing accuracy for users and fairness to providers. But what is fair in the context of recommendation\u2013 particularly when there are multiple stakeholders? In an initial exploration of this problem, we ask users what their ideas of fair treatment in recommendation might be, and why. We analyze what might cause discrepancies or changes between user\u2019s opinions towards fairness to eventually help inform the design of fairer and more transparent recommendation algorithms.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Jessie Smith"
+    }
+  ],
+  "id": "SP:d387df0f93e2072388b05c04da1da5ba4e0cd59f",
+  "references": [
+    {
+      "authors": [
+        "Himan Abdollahpouri",
+        "Gediminas Adomavicius",
+        "Robin Burke",
+        "Ido Guy",
+        "Dietmar Jannach",
+        "Toshihiro Kamishima",
+        "Jan Krasnodebski",
+        "Luiz Pizzato"
+      ],
+      "title": "Multistakeholder recommendation: Survey and research directions. User Modeling and User-Adapted Interaction 1, Article",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Solon Barocas",
+        "Moritz Hardt",
+        "Arvind Narayanan"
+      ],
+      "title": "Fairness and Machine Learning. fairmlbook.org. http://www.fairmlbook.org",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Reuben Binns",
+        "Max Van Kleek",
+        "Michael Veale",
+        "Ulrik Lyngs",
+        "Jun Zhao",
+        "Nigel Shadbolt"
+      ],
+      "title": "\u00e2\u0102IJIt\u2019s Reducing a Human Being to a Percentage\": Perceptions of Justice in Algorithmic Decisions",
+      "venue": "In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems (CHI \u201918)",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Virginia Braun",
+        "Victoria Clarke"
+      ],
+      "title": "Using thematic analysis in psychology",
+      "venue": "Qualitative Research in Psychology 3,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Pratik Gajane",
+        "Mykola Pechenizkiy"
+      ],
+      "title": "On Formalizing Fairness in Prediction with Machine Learning",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Weiwen Liu",
+        "Jun Guo",
+        "Nasim Sonboli",
+        "Robin Burke",
+        "Shengyu Zhang"
+      ],
+      "title": "Personalized fairness-aware re-ranking for microlending",
+      "venue": "In Proceedings of the 13th ACM Conference on Recommender Systems",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Emma Pierson"
+      ],
+      "title": "Gender differences in beliefs about algorithmic fairness",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Elisabeth Reichert"
+      ],
+      "title": "Human Rights: An Examination of Universalism and Cultural Relativism",
+      "venue": "Journal of Comparative Social Welfare 22,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Andrew D. Selbst",
+        "Danah Boyd",
+        "Sorelle A. Friedler",
+        "Suresh Venkatasubramanian",
+        "Janet Vertesi"
+      ],
+      "title": "Fairness and Abstraction in Sociotechnical Systems. In Proceedings of the Conference on Fairness, Accountability, and Transparency (FAT* \u201919)",
+      "venue": "Association for Computing Machinery,",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "text": "arXiv:2003.06461v2 [cs.IR] 17 Apr 2020\nJessie Smith\nDepartment of Information\nScience, University of Colorado\nBoudler, CO\njessie.smith-1@colorado.edu\nCasey Fiesler\nDepartment of Information\nScience, University of Colorado\nBoudler, CO\ncasey.fiesler@colorado.edu\nNasim Sonboli\nDepartment of Information\nScience, University of Colorado\nBoudler, CO\nnasim.sonboli@colorado.edu\nRobin Burke\nDepartment of Information\nScience, University of Colorado\nBoudler, CO\nrobin.burke@colorado.edu\nCHI\u201920 Workshop on Human-Centered Approaches to Fair and Responsible AI , 26th\nof April, 2020, Honolulu, HI, USA. Copyright is held by the authors.\nincreasingly relevant as these systems become more per-\nvasive in society. One realm of AI, recommender systems,\npresents unique challenges for fairness due to trade offs\nbetween optimizing accuracy for users and fairness to\nproviders. But what is fair in the context of recommendation\u2013\nparticularly when there are multiple stakeholders? In an\ninitial exploration of this problem, we ask users what their\nideas of fair treatment in recommendation might be, and\nwhy. We analyze what might cause discrepancies or changes\nbetween user\u2019s opinions towards fairness to eventually help\ninform the design of fairer and more transparent recom-\nmendation algorithms.\nAuthor Keywords fairness; multistakeholder recommendation algorithms; con-\nsumers; providers; trust; bias; transparency; explanation;\nuser study;\nIntroduction Historically the term fairness has been difficult to define.\nPeople\u2019s opinions of what constitutes fair or unfair treat-\nment differ between cultures and throughout time [9]. As\nalgorithms become more deeply embedded into social con-\ntexts like education, healthcare, policy, and the internet, the\nissue of defining fair treatment is also increasingly interdis-"
+    },
+    {
+      "text": "ciplinary. In the discipline of computer science - and more\nspecifically machine learning - researchers have begun to\ntackle these problems.\nPrevious work has made an effort to turn philosophical def-\ninitions of fairness into metrics that machine learning mod-\nels can optimize for [5, 2]; however, these definitions may\nnot be sufficient for diverse users and groups [10]. In this\nproject we focus on one specific realm of machine learn-\ning, recommender systems with multiple stakeholders, as\nwe explore what it means for these algorithms to be fair or\nunfair - from the viewpoint of those who consume the rec-\nommendation. Multistakeholder recommender systems are\nunique to issues of fairness, because of an inherent tradeoff\nfor fairness between multiple sets of users [1]. For example,\ntwo types of users for a multistakeholder recommendation\nalgorithm could be (1) those who provide items to be rec-\nommended (providers), and (2) those who consume the\nrecommended items (consumers).\nP15: \"If Zillow is systemat-\nically recommending that\ncertain subgroups of the\npopulation rent houses in\ndangerous neighborhoods...\nan obvious disadvantage\nfor that group of people. If\nindeed.com is recommend-\ning jobs for me that are not\nreflective of my full potential\nas a candidate and it is be-\ncause of some bias in their\nrecommendation system,\nthat\u2019s not fair to whatever\nperson is receiving these job\nalerts... I think that those are\nall things that have larger\nconsequences than what\nmovie you watched tonight or\nwhat song you listened to on\nyour iPhone.\"\nP11-1: \"That changes my\nviews a little bit based on the\ngoals of the company and\nwhat they are trying to get\nout of these recommendation\nalgorithms, because I think\nnonprofits are more about\njust trying to connect you to\nthe things that would interest\nyou more... as opposed to\ncompanies trying to generate\nmore money based on your\npreferences and your views.\"\nIn the case of a company like Kiva, a micro-lending plat-\nform, the providers would be borrowers who are seeking\nfunding for their loans, and the consumers would be those\nwho are looking to lend money to others. If Kiva began to\nprovide loan recommendations for consumers, there would\nneed to be a decision for how fair the recommender sys-\ntem should be for the providers. In this example, provider-\nfairness is a type of recommendation diversity. As recom-\nmendations represent a more diverse set of providers (e.g.,\nboth over-funded and under-funded borrowers on Kiva),\nthey tend to become less personalized (less accurate) for\nthe consumer [7]. Thus, recommendation algorithms with\nmultiple stakeholders will need to draw a line between how\ndiverse versus how personalized the system should be. It\nis apparent that consumers and providers will have differ-\nent opinions about where this line should be drawn. In this\nwork, we ask the consumers for their opinion.\nWhat do the Consumers Think is Fair? For this exploratory study, we conducted interviews with 30\nparticipants (majority college students) in which we asked\nthem to reflect on fairness issues in the context of recom-\nmender systems, using both systems they are familiar with\n(e.g., Netflix, Amazon) and Kiva as examples. We analyzed\nour data using thematic analysis [4], and arrived at a num-\nber of overarching themes, a subset of which we discuss\nhere.\nI. Consequences of the System\nFirst, participants tended to want more provider-fairness\n(diversity) and less accuracy (personalization) when they\nrecognized that recommendations could have a notice-\nable, harmful effect on certain stakeholders in the system.\nThough most participants preferred less personalization\nas provider risk became higher, none indicated wanting to\ncompletely omit personalization. In the context of recom-\nmendations, this viewpoint makes sense on platforms like\nNetflix or Spotify, where the user expects some level of per-\nsonalization to derive utility from the platform. However,\nmost participants still expected accuracy for recommen-\ndations that do not always require personalization, such\nas popular/trending items, which struggle with issues of\nprovider-fairness as well.\nMany participants expressed that certain kinds of recom-\nmendations (such as housing, job recommendations, health-\ncare, or finances) should include fairness as a central goal,\ndue to potential for harmful consequences in an unfair sys-\ntem. For example, P15 contrasted Netflix and Spotify with\nZillow and Indeed.com, noting that for the former it doesn\u2019t\nreally \"matter,\" but it would, e.g., for housing or employment\n(see sidebar)."
+    },
+    {
+      "text": "II. Nonprofits Versus For-Profit Companies\nAnother important influence was the kind of organization\nthat was providing recommendations. Specifically, partici-\npants tended to trust nonprofit fairness goals (e.g., Kiva\u2019s)\nmore than for-profit companies, which led them to indicate\na preference for less personalization and more diversity on\nnonprofit platforms. For example, multiple participants de-\nscribed differences between for-profit companies and non-\nprofits, in terms of both motives and consequences (see\nsidebar for examples from P11-1 and P8).\nP8: \"Kiva has really big\nconsequences if someone\ndoesn\u2019t get that funding,\nyou know, versus Amazon\ndoesn\u2019t have as big of a con-\nsequence cause Amazon\u2019s\nmore detached thoroughly.\nLike if you buy it, that\u2019s great,\nthey get more money. But if\nyou don\u2019t buy it... they\u2019re still\ngetting money. Versus Kiva, if\nyou buy it, that\u2019s great, some-\nbody gets clean water, if you\ndon\u2019t buy it, somebody is not\ngetting clean water.\"\nP22: \"I feel like right now,\nthe way things are, it\u2019s kind\nof capitalistic and promotes\nthe wealthy getting wealthier.\nAnd people who are strug-\ngling to start off a business,\nand maybe failing - with a\nfairness goal it would be\nbetter.\"\nP11-2: \"I think a fair algo-\nrithm, if such a thing is even\npossible, would be some-\nthing that really, I guess is\nnon-biased. But of course,\neverything\u2019s biased in some\nway.\"\nIII. Bias in Prioritization for Multistakeholder Systems\nJust as philosophers have debated how values and defini-\ntions of fair treatment differ between communities [6], re-\nsearchers too have discovered that people who come from\ndifferent backgrounds have different opinions towards algo-\nrithmic fairness [8]. In this study, we noticed that the varying\ndegrees in which participants were willing to give up per-\nsonalization for provider-fairness were heavily influenced by\ntheir personal biases or predispositions. For example, P22\n- who had experience as a provider selling items on Etsy -\nempathized more with other sellers and thus wanted more\nprovider-fairness over personalization (see sidebar). In one\ncase, P11-2 alluded that stakeholder bias might be the ulti-\nmate obstacle in creating a fully fair recommendation algo-\nrithm (see sidebar). It is of course inevitable that designers\nof fairness-aware recommender systems will tend to include\ntheir own personal biases into decisions concerning their\nplatform\u2019s fairness goals.\nMultiple participants expressed discomfort when choosing\nwhether to prioritize the consumer or the provider for rec-\nommendations on the Kiva platform, where the risk was\nmuch higher. For example, on Kiva\u2019s microlending platform\nchoosing more personalization for recommendations could\nincrease consumer biases (e.g., implicit bias in lending se-\nlection), but choosing greater diversity could increase the\npotential for algorithmic bias (e.g., popularity bias leaving\ncertain borrowers consistently underfunded). P12-1 ex-\nplained their desire to utilize platform design to understand\nand combat their own personal biases (see sidebar).\nIV. Transparency / Explanations\nExplanation also plays a role in opinions towards fair treat-\nment in recommendations. Recent work has highlighted\nthat people\u2019s perceptions of algorithmic justice are altered\nwhen the algorithm\u2019s decisions are explained in different\nways [3], and in our study participants indicated that while\nthey would like to have some transparency through expla-\nnation when recommendations are altered for provider-\nfairness, they did not want the explanations to be meant to\nconvince the consumer to change their mind, as described\nby P12-2 (see sidebar).\nConclusion and Future Work Overall, this work is a starting point to build a better un-\nderstanding of where to draw the line between recom-\nmendation personalization and provider-fairness in multi-\nstakeholder recommender systems. While it is important\nto keep in mind the preferences of the consumer, as this\nstudy has done, future work could dive into the preferences\nof providers (such as Spotify musicians or Amazon sellers),\nas well as the preferences of the designers of these sys-\ntems. In multistakeholder environments, it is very important\nto appropriately balance the interests of every member of\nthe system in order to build trust, maintain accuracy, and\npromote equality. The indication that many consumers have\ndifferent preferences for recommendation fairness is some-\nwhat alarming, but also important evidence that this work\nis necessary to ensure greater fairness in the future, and to\nunderstand the necessary tradeoffs. A greater understand-\ning of what stakeholder\u2019s preferences are will allow for more"
+    },
+    {
+      "text": "transparency of these tradeoffs in the future, to ensure that\nevery stakeholder\u2019s interests in recommender systems are\ntaken into consideration.\nP12-1: \"I think that it would\nbe more successful if recom-\nmendations were defaulted\nto fairness with the choice to\nundo it. I think it can really\nhelp people understand their\nown bias as well. And being\nmore aware, like, oh, I do\nwant to spend my money\non this instead of this, like I\noriginally thought...So I think\ncommunicating to people\nwhy it\u2019s happening would be\nreally helpful.\"\nP12-2: \"I think [explanations]\ncan definitely push people to\nmake decisions they weren\u2019t\nexpecting to make. Some-\ntimes that can be good if\nthat\u2019s creating equity for the\nusers and the sellers on the\nwebsite. But if there is not\nfairness built into an algorithm\nand it\u2019s pushing you to make\nthese decisions, it can almost\nbrainwash you into thinking a\ncertain way without knowing\nit. That\u2019s the scary part.\"\nREFERENCES [1] Himan Abdollahpouri, Gediminas Adomavicius, Robin\nBurke, Ido Guy, Dietmar Jannach, Toshihiro\nKamishima, Jan Krasnodebski, and Luiz Pizzato.\n2020. Multistakeholder recommendation: Survey and\nresearch directions. User Modeling and User-Adapted\nInteraction 1, Article 1 (2020), 32 pages. DOI:\nhttp://dx.doi.org/10.1007/s11257-019-09256-1\n[2] Solon Barocas, Moritz Hardt, and Arvind Narayanan.\n2019. Fairness and Machine Learning. fairmlbook.org.\nhttp://www.fairmlbook.org.\n[3] Reuben Binns, Max Van Kleek, Michael Veale, Ulrik\nLyngs, Jun Zhao, and Nigel Shadbolt. 2018. \u00e2A\u0306IJIt\u2019s\nReducing a Human Being to a Percentage\":\nPerceptions of Justice in Algorithmic Decisions. In\nProceedings of the 2018 CHI Conference on Human\nFactors in Computing Systems (CHI \u201918). Association\nfor Computing Machinery, New York, NY, USA, Article\nPaper 377, 14 pages. DOI:\nhttp://dx.doi.org/10.1145/3173574.3173951\n[4] Virginia Braun and Victoria Clarke. 2006. Using\nthematic analysis in psychology. Qualitative Research\nin Psychology 3, 2 (2006), 77\u2013101. DOI:\nhttp://dx.doi.org/10.1191/1478088706qp063oa\n[5] Pratik Gajane and Mykola Pechenizkiy. 2017. On\nFormalizing Fairness in Prediction with Machine\nLearning. (2017).\n[6] Eirik Lang Harris. 2018. Owen Flanagan, The\nGeography of Morals: Varieties of Moral Possibility\n(New York: Oxford University Press, 2017), pp. x 362. Utilitas 30, 3 (2018), 379\u00e2A\u0306S\u0327382. DOI:\nhttp://dx.doi.org/10.1017/S0953820817000310\n[7] Weiwen Liu, Jun Guo, Nasim Sonboli, Robin Burke,\nand Shengyu Zhang. 2019. Personalized\nfairness-aware re-ranking for microlending. In\nProceedings of the 13th ACM Conference on\nRecommender Systems. 467\u2013471.\n[8] Emma Pierson. 2017. Gender differences in beliefs\nabout algorithmic fairness. CoRR abs/1712.09124\n(2017). http://arxiv.org/abs/1712.09124\n[9] Elisabeth Reichert. 2006. Human Rights: An\nExamination of Universalism and Cultural Relativism.\nJournal of Comparative Social Welfare 22, 1 (2006),\n23\u201336. DOI:\nhttp://dx.doi.org/10.1080/17486830500522997\n[10] Andrew D. Selbst, Danah Boyd, Sorelle A. Friedler,\nSuresh Venkatasubramanian, and Janet Vertesi. 2019.\nFairness and Abstraction in Sociotechnical Systems. In\nProceedings of the Conference on Fairness,\nAccountability, and Transparency (FAT* \u201919).\nAssociation for Computing Machinery, New York, NY,\nUSA, 59\u00e2A\u0306S\u032768. DOI:\nhttp://dx.doi.org/10.1145/3287560.3287598"
+    }
+  ],
+  "title": "Exploring User Opinions of Fairness in Recommender Systems",
+  "year": 2020
+}

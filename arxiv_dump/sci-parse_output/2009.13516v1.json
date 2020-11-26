@@ -1,0 +1,546 @@
+{
+  "abstractText": "Artificial intelligence nowadays plays an increasingly prominent role in our life since decisions that were once made by humans are now delegated to automated systems. A machine learning algorithm trained based on biased data, however, tends to make unfair predictions. Developing classification algorithms that are fair with respect to protected attributes of the data thus becomes an important problem. Motivated by concerns surrounding the fairness effects of sharing and few-shot machine learning tools, such as the Model Agnostic Meta-Learning [1] framework, we propose a novel fair fast-adapted few-shot metalearning approach that efficiently mitigates biases during metatrain by ensuring controlling the decision boundary covariance that between the protected variable and the signed distance from the feature vectors to the decision boundary. Through extensive experiments on two real-world image benchmarks over three state-of-the-art meta-learning algorithms, we empirically demonstrate that our proposed approach efficiently mitigates biases on model output and generalizes both accuracy and fairness to unseen tasks with a limited amount of training samples.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Chen Zhao"
+    },
+    {
+      "affiliations": [],
+      "name": "Changbin Li"
+    },
+    {
+      "affiliations": [],
+      "name": "Jincheng Li"
+    },
+    {
+      "affiliations": [],
+      "name": "Feng Chen"
+    }
+  ],
+  "id": "SP:020003d0dbb17062f98ea44e799f5bdea7e484ab",
+  "references": [
+    {
+      "authors": [
+        "C. Finn",
+        "P. Abbeel",
+        "S. Levine"
+      ],
+      "title": "Model-agnostic meta-learning for fast adaptation of deep networks",
+      "venue": "Proceedings of the 34th International Conference on Machine Learning (ICML), 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Barr"
+      ],
+      "title": "Google mistakenly tags black people as gorillas, showing limits of algorithms",
+      "venue": "The Wall Street Journal, 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "D. Ingold",
+        "S. Soper"
+      ],
+      "title": "Amazon doesnt consider the race of its customers. should it?",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "R. Zemel",
+        "Y. Wu",
+        "K. Swersky",
+        "T. Pitassi",
+        "C. Dwork"
+      ],
+      "title": "Learning fair representations",
+      "venue": "International Conference on Machine Learning (ICML), 2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "J. Liu",
+        "S. Ji",
+        "J. Ye"
+      ],
+      "title": "Multi-task feature learning via efficient l21norm minimization.",
+      "venue": "Conference on Uncertainty in Artificial Intelligence (UAI),",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "S. Ruder"
+      ],
+      "title": "An overview of multi-task learning in deep neural networks.",
+      "venue": "arXiv preprint arXiv:1706.05098,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Zhang",
+        "Q. Yang"
+      ],
+      "title": "An overview of multi-task learning.",
+      "venue": "National Science Review,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C. Zhao",
+        "F. Chen"
+      ],
+      "title": "Rank-based multi-task learning for fair regression",
+      "venue": "Proceedings of the IEEE International Conference on Data Mining (ICDM), pp. 916\u2013925, 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "N. Dong",
+        "E.P. Xing"
+      ],
+      "title": "Domain adaption in one-shot learning.",
+      "venue": "In Joint European Conference on Machine Learning and Knowledge Discovery in Databases (ECML PKDD),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Y.-C. Hsu",
+        "Z. Lv",
+        "Z. Kira"
+      ],
+      "title": "Learning to cluster in order to transfer across domains and tasks.",
+      "venue": "In Proceedings of the International Conference on Learning Representations (ICLR),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Y. Ganin",
+        "V. Lempitsky"
+      ],
+      "title": "Unsupervised domain adaptation by backpropagation.",
+      "venue": "In Proceedings of the International Conference on Machine Learning (ICML),",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S.J. Pan",
+        "Q. Yang"
+      ],
+      "title": "A survey on transfer learning.",
+      "venue": "IEEE Transactions on Knowledge and Data Engineering (TKDE),",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "M.B. Zafar",
+        "I. Valera",
+        "M.G. Rodriguez",
+        "K.P. Gummadi"
+      ],
+      "title": "Fairness constraints: Mechanisms for fair classification",
+      "venue": "Proceedings of the 20th International Conference on Artificial Intelligence and Statistics (AISTATS), 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Feldman",
+        "S. Friedler",
+        "J. Moeller",
+        "C. Scheidegger",
+        "S. Venkatasubramanian"
+      ],
+      "title": "Certifying and removing disparate impact.",
+      "venue": "In Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD),",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M. Hardt",
+        "E. Price",
+        "N. Srebro"
+      ],
+      "title": "Equality of opportunity in supervised learning.",
+      "venue": "30th Conference on Neural Information Processing Systems (NIPS),",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T. Kamishima",
+        "S. Akaho",
+        "H. Asoh",
+        "J. Sakuma"
+      ],
+      "title": "Model-based and actual independence for fairness-aware classification.",
+      "venue": "Data Mining and Knowledge Discovery,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Agarwal",
+        "A. Beygelzimer",
+        "M. Dudk",
+        "J. Langford",
+        "H. Wallach"
+      ],
+      "title": "A reductions approach to fair classification",
+      "venue": "International Conference on Machine Learning (ICML), 03 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "L. Oneto",
+        "M. Doninini",
+        "A. Elders",
+        "M.A. Pontil"
+      ],
+      "title": "Taking advantage of multitask learning for fair classification.",
+      "venue": "AAAI/ACM Conference (AIES),",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Z. Wang",
+        "B. Dong",
+        "Y. Lin",
+        "Y. Wang",
+        "M.S. Islam",
+        "L. Khan"
+      ],
+      "title": "Corepresentation learning framework for the open-set data classification",
+      "venue": "2019 IEEE International Conference on Big Data (Big Data). IEEE, 2019, pp. 239\u2013244.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "T. Calders",
+        "A. Karim",
+        "F. Kamiran",
+        "W. Ali",
+        "X. Zhang"
+      ],
+      "title": "Controlling attribute effect in linear regression",
+      "venue": "IEEE International Conference on Data Mining (ICDM), 2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "R. Berk",
+        "H. Heidari",
+        "S. Jabbari",
+        "M. Joseph",
+        "M. Kearns",
+        "J. Morgenstern",
+        "S. Neel",
+        "A. Roth"
+      ],
+      "title": "A convex framework for fair regression.",
+      "venue": "In Proceedings of the Conference on Fairness, Accountability, and Transparency (FAT),",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "J. Komiyama",
+        "A. Takeda",
+        "J. Honda",
+        "H. Shimao"
+      ],
+      "title": "Nonconvex optimization for regression with fairness constraints.",
+      "venue": "In Proceedings of the 35th International Conference on Machine Learning (ICML),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Prez-Suay",
+        "V. Laparra",
+        "G. Mateo-Garca",
+        "J. Muoz-Mar",
+        "L. Gmez- Chova",
+        "G. Camps-Valls"
+      ],
+      "title": "Fair kernel learning.",
+      "venue": "In Joint European Conference on Machine Learning and Knowledge Discovery in Databases (ECML PKDD),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Gondek",
+        "T. Hofmann"
+      ],
+      "title": "Non-redundant data clustering.",
+      "venue": "In Proceedings of the IEEE International Conference on Data Mining (ICDM),",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "D. Gondek",
+        "T. Hofman"
+      ],
+      "title": "Non-redundant clustering with conditional ensembles.",
+      "venue": "In Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD),",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "T. Kamishima",
+        "S. Akaho",
+        "H. Asoh",
+        "I. Sato"
+      ],
+      "title": "Model-based approaches for independence-enhanced recommendation.",
+      "venue": "The IEEE 16th International Conference on Data Mining Workshops (ICDMW),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "T. Kamishima",
+        "S. Akaho"
+      ],
+      "title": "Considerations on recommendation independence for a find-good-items task.",
+      "venue": "In Workshop on Responsible Recommendation,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Singh",
+        "T. Joachims"
+      ],
+      "title": "Fairness of exposure in rankings.",
+      "venue": "In Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "T. Bolukbasi",
+        "K.-W. Chang",
+        "J. Zou",
+        "V. Saligrama",
+        "A. Kalai"
+      ],
+      "title": "Man is to computer programmer as woman is to homemaker? debiasing word embeddings.",
+      "venue": "[cs.CL],",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "I. Zliobaite"
+      ],
+      "title": "A survey on measuring indirect discrimination in machine learning.",
+      "venue": "arXiv preprint arXiv:1511.00148,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "A.D.S. Barocas"
+      ],
+      "title": "Selbst, \u201cBig data\u2019s disparate impact.",
+      "venue": "California Law Review",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J. Zhang",
+        "E. Bareinboim"
+      ],
+      "title": "Fairness in decision-making the causal explanation formula.",
+      "venue": "Association for the Advancement of Artificial Intelligence (AAAI),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "O. Vinyals",
+        "C. Blundell",
+        "T. Lillicrap",
+        "K. Kavukcuoglu",
+        "D. Wierstra"
+      ],
+      "title": "Matching networks for one shot learning",
+      "venue": "30th Conference on Neural Information Processing Systems (NIPS), 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J. Snell",
+        "K. Swersky",
+        "R. Zemel"
+      ],
+      "title": "Prototypical networks for few-shot learning",
+      "venue": "31th Conference on Neural Information Processing Systems (NIPS), 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Ravi",
+        "H. Larochelle"
+      ],
+      "title": "Optimization as a model for few-shot learning",
+      "venue": "International Conference for Learning Representations (ICLR), 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Finn",
+        "K. Xu",
+        "S. Levine"
+      ],
+      "title": "Probabilistic model-agnostic metalearning",
+      "venue": "Advances in Neural Information Processing Systems (NIPS), 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Nichol",
+        "J. Schulman"
+      ],
+      "title": "Reptile: a scalable metalearning algorithm",
+      "venue": "arXiv preprint arXiv:1803.02999, 2018.",
+      "year": 1803
+    },
+    {
+      "authors": [
+        "A.A. Rusu",
+        "D. Rao",
+        "J. Sygnowski",
+        "O. Vinyals",
+        "R. Pascanu",
+        "S. Osindero",
+        "R. Hadsell"
+      ],
+      "title": "Meta-learning with latent embedding optimization",
+      "venue": "Proceedings of the International Conference on Learning Representations (ICLR), 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Antoniou",
+        "H. Edwards",
+        "A. Storkey"
+      ],
+      "title": "How to train your maml",
+      "venue": "International Conference for Learning Representations (ICLR), 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Biddle"
+      ],
+      "title": "Adverse impact and test validation: A practitioner\u2019s guide to valid and defensible employment testing.",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "A. Fallah",
+        "A. Mokhtari",
+        "A. Ozdaglar"
+      ],
+      "title": "On the convergence theory of gradient-based model-agnostic meta-learning algorithms.",
+      "venue": "In the proceedings of the 23rd International Conference of Artificial Intelligence and Statistics (AISTATS),",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "B.M. Lake",
+        "R. Salakhutdinov",
+        "J. Gross",
+        "J.B. Tenenbaum"
+      ],
+      "title": "One shot learning of simple visual concepts",
+      "venue": "The 41st Annual Meeting of the Cognitive Science Society (CogSci), 2011.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "S. Ioffe",
+        "C. Szegedy"
+      ],
+      "title": "Batch normalization: Accelerating deep network training by reducing internal covariate shift.",
+      "venue": "arXiv preprint arXiv:1502.03167,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "G. Koch",
+        "R. Zemel",
+        "R. Salakhutdinov"
+      ],
+      "title": "Siamese neural networks for one-shot image recognition.",
+      "venue": "Proceedings of the 32nd International Conference on Machine Learning (ICML),",
+      "year": 2015
+    }
+  ],
+  "sections": [
+    {
+      "text": "Fair Meta-Learning For Few-Shot Classification Chen Zhao, Changbin Li, Jincheng Li, Feng Chen\nDepartment of Computer Science The University of Texas at Dallas\nRichardson Texas, USA {chen.zhao, changbin.li, jincheng.li, feng.chen}@utdallas.edu\nAbstract\u2014Artificial intelligence nowadays plays an increasingly prominent role in our life since decisions that were once made by humans are now delegated to automated systems. A machine learning algorithm trained based on biased data, however, tends to make unfair predictions. Developing classification algorithms that are fair with respect to protected attributes of the data thus becomes an important problem. Motivated by concerns surrounding the fairness effects of sharing and few-shot machine learning tools, such as the Model Agnostic Meta-Learning [1] framework, we propose a novel fair fast-adapted few-shot metalearning approach that efficiently mitigates biases during metatrain by ensuring controlling the decision boundary covariance that between the protected variable and the signed distance from the feature vectors to the decision boundary. Through extensive experiments on two real-world image benchmarks over three state-of-the-art meta-learning algorithms, we empirically demonstrate that our proposed approach efficiently mitigates biases on model output and generalizes both accuracy and fairness to unseen tasks with a limited amount of training samples.\nIndex Terms\u2014decision boundary covariance, statistical parity ,few-shot, meta-learning\nI. INTRODUCTION\nIn data mining and machine learning, the information system is becoming increasingly reliant on statistical inference and learning to give automated prediction and decision-making to solve regression and classification problems. Biased historical data or data containing biases, however, are often learned and thus lead to results with undesirability, inaccuracy, and even illegality. In recent years, there are increasing numbers of news reported that human bias is revealed in an artificial intelligence system applied by high-tech companies. [2] reported that a picture of two African Americans was automatically tagged as \u201cGorillas\u201d by Google Photos. A 2016 study [3] found that the data-driven system developed by Amazon that used to determine the neighborhoods in which to offer free same-day delivery is highly biased and unfair to African American communities due to the stark disparities in the demographic makeup of neighborhoods: white residents were more than twice as likely as African American residents to live in one of the qualifying neighborhoods. Critics have voiced that human bias potentially has an influence on nowadays technology, which leads to outcomes with unfairness. Another example for biased image classification problem is shown in Figure 1: a dog classifier is trained with images of dogs lying on the grass. The training process goes through a feature\nextractor, but the captured features used for classifier training are not totally concentrated on target objects (i.e. dogs). As a consequence, the decision-making accuracy for testing images does not turn out well. To investigate the reason, we deduce that there is a non-negligible relationship between the predicted outcome and the protected feature (i.e. grass in this example), which leads to an unfair result.\nTo ameliorate this unfairness problem, one may attempt to make the automated decision-maker blind to the protected attributes [4]. This however, is difficult, as many attributes may be correlated with the protected one [5]. With biased input, the main goal of training an unbiased model is to make the output fair. In other words, the predicted outcomes are statistically independent on protected variables. Statistical parity, also known as group fairness, ensures that the overall proportion of members in a protected group receiving predictions (i.e. positive/negative classification) are identical to the proportion of the population as a whole.\nTo the best of our knowledge, unfortunately, the majority of existing fairness-aware machine learning algorithms are under the assumption of giving abundant training examples. Learning quickly, however, is another significant hallmark of\nar X\niv :2\n00 9.\n13 51\n6v 1\n[ cs\n.L G\n] 2\n3 Se\np 20\n20\nhuman intelligence. In meta-learning, also known as learning to learn, the goal of trained model is to quickly learn a new task from a small amount of new data (i.e. few-shot), and the model is trained by the meta-leaner to be able to learn on a large number of different tasks [1]. In contrast to traditional machine learning algorithms, such as multi-task learning [6]\u2013 [9] and transfer learning [10]\u2013[13], meta-learning framework has advantages: (1) it learns across tasks where each task takes one or few samples as input; (2) it therefore efficiently speeds up model adaptation (3) and generalizes accuracy to unseen tasks.\nThe overall idea of existing methods of meta-learning, however, is to train a model which is capability of generalizing accuracy, rather than fairness, to unseen data tasks. But techniques for unfairness prevention and bias control in the fewshot meta-learning study are challenging and rarely touched. To ensure prediction without biases, the main contribution to this paper is that we feed each support set of a task with unified group fairness constraints and minimize meta-loss overall episodes. Specifically, we mitigate biases in each episode during meta-training by controlling the decision boundary covariance [14] which is defined as the covariance between the protected attribute and the signed distance from the feature vectors to the decision boundary. A value of zero signifying no dependency or attribute effect. Our experimental results demonstrate our approach is capability of controlling bias and decreasing loss as well as generalizing both to unseen tasks. In the context of classification, for example, as shown in Figure 2, each support set of a task used for training contains images sampled from 5 different classes (N = 5 ways) and each class includes 5 images (K = 5 shots). By giving an unified meta-initialization for each task, a task specific local model parameter is learned through one or few steps gradient update of the loss function that is constrained by fairness condition. To update the meta-parameter, the generalization error, i.e. the summation of the query loss across all tasks, is minimized. In summary, the main contributions of this paper are listed:\n\u2022 For the first time the issue of bias control in meta-\nlearning multi-class classification problem is applied to image data sets. We mitigate biases by controlling the decision boundary covariance. \u2022 We develop a novel algorithm to solve this constrained classification problem under the Model Agnostic MetaLearning (MAML) few-shot framework. \u2022 We validate the performance of our proposed approach of controlling biases on three state-of-the-art meta-learning techniques through extensive experiments based on realworld data sets. Our results demonstrate the proposed approach is capability of mitigating biases and generalizing both accuracy and fairness to unseen tasks, with the input training data is minimal.\nIn Section 2, some related works are referred. In Section 3, we see how unfairness is important in a machine learning model by introducing a simple causal based knowledge graph and how a statistical parity constraint, i.e. decision boundary covariance, is able to be used for bias-control in a single task. In Section 4, the fair few-shot meta-learning problem is formulated and how to solve it by applying the ModelAgnostics Meta-Learning framework is presented in detail. In Section 5, to validate the proposed approach, we conduct experiments by using two real-world benchmarks and three cutting-edge techniques, and we conclude this paper in Section 6."
+    },
+    {
+      "heading": "II. RELATED WORK",
+      "text": "In recent years, researches involving processing biased data became increasingly significant. Fairness-aware in data mining is classified into unfairness discovery and prevention. Based on the taxonomy by tasks, it can be further categorized to classification [14]\u2013[22], regression [9], [23]\u2013[26], clustering [27], [28], recommendation [29]\u2013[31] and dimension reduction [32]."
+    },
+    {
+      "heading": "A. Unfairness Prevention in Classification",
+      "text": "Majority of works in unfairness prevention is concentrated on data classification. According to approaches studied in\nfairness, bias-prevention in classification is subcategorized into pre-processing [15], in-processing [14], [16] and postprocessing [17]\u2013[19]. Recent works [20] and [21] developed new approaches resulting in increasing the binary classification accuracy through reduction of fair classification to a sequence of cost-sensitive problems and applications of multi-task techniques with convex fairness constraints, respectively.\nNon-discrimination (unfairness-free) can be defined as follows: (1) people that are similar in terms of non-sensitive characteristics should receive similar predictions, and (2) differences in predictions across groups of people can only be as large as justified by non-sensitive characteristics [33]. The first condition is related to direct discrimination. The second condition ensures that there is no indirect discrimination, also referred to as redlining. These types of discrimination (direct and indirect) are supported by two legal frameworks applied in large bodies of cases, disparate treatment and disparate impact [34]. The disparate treatment framework enforces procedural fairness, namely, the equality of treatments that prohibits the use of the protected attribute in the decision process. The disparate impact framework guarantees outcome fairness, namely, the equality of outcomes among protected groups [35]. Many of the prior studies, however, suffer from one or more of the following limitations: (i) they are restricted to a narrow range of classifiers, (ii) they only accommodate a single, binary sensitive attribute, and (iii) they cannot eliminate disparate treatment and disparate impact simultaneously. To overcome such limitations, in this paper, we consider the measure of decision boundary fairness [14], which enables us to ensure fairness with respect to one or more sensitive attributes, in terms of both disparate treatment and disparate impact."
+    },
+    {
+      "heading": "B. Few-shot Meta-learning",
+      "text": "To the best of our knowledge, the majority of existing fairness-aware machine learning algorithms are under the assumption of giving abundant training examples. Learning quickly, however, is another significant hallmark of human intelligence. Much efforts have been devoted to overcome the data efficiency issue. One popular category of few-shot learning techniques is distance metric learning based method, which addresses the few-shot classification problem by \u201clearning to compare. The intuition is that if a model can determine the similarity of two images, it can classify an unseen input image with the labeled instances. [36] introduced Matching Networks which employed ideas from k-nearest neighbors algorithm and metric learning based on a bidirectional LongShort Term Memory (LSTM) to encode in the context of the support set. Prototypical networks [37] learn a metric space in which classification is able to be performed by computing Euclidean distances to prototype representations of each class. In addition, gradient descent based algorithms, such as [1], [38]\u2013[42], aim to learn good model initialization so that the meta-loss is minimum.\nThe overall idea of these state-of-the-art is to train a metalearning model which is capability of generalizing accuracy,\nbut less attention on fairness generalization to unseen data tasks. In this paper, our proposed approach makes up for this regret of unfairness prevention using few-shot meta-learning techniques in multi-class classification problems."
+    },
+    {
+      "heading": "III. MODELING OF FAIRNESS BASED ON CAUSAL KNOWLEDGE GRAPH",
+      "text": "In this section, we first present how unfairness/bias affects decision-making by introducing a simple causal knowledge graph and then explain the mechanism of mitigating bias in a single task using the decision boundary covariance."
+    },
+    {
+      "heading": "A. Causation in Fairness Learning",
+      "text": "To understand how past decisions may bias a prediction model, we must first understand how the protected attribute may have affected the outcome by answering such questions: What would this outcome have been under different protected values? How would the outcome change if the protected attribute were changed, all else being equal? These questions are core to the mission of learning fair systems which aim to inform decision-making.\nUnfairness can be broadly partitioned into two types: direct and indirect. The directed bias is concerned with settings where individuals received less favorable treatments on the basis of the protected attribute. The indirect one is concerned with individuals who receive treatments on the basis of inadequately justified factors that are somewhat related with the protected attribute [35].\nFor simplicity, we consider one binary protected attribute (e.g. white and black) in this work. However, our ideas can be easily extended to many protected attributes with multiple levels. Let Z = X \u00d7 S \u00d7 Y be the data space, where X \u2282 Rn is an input space, S = {0, 1} is a protected space, and Y = {1, 2, ..., N} is an output space for multi-class classification where N is the number of classes. We consider a single task data D = {(xi, yi, si)}hi=1, i = 1, ...h, where xi \u2208 Rn denotes the i-th observation, yi denotes the corresponding output, si \u2208 {s+, s\u2212} represents the binary protected attribute, and h is the number of observations in each task. A practical definition of fair causality is:\nDefinition 1 (Fair Causality and Causal Effect). X causes Y if and only if changing X leads to a change in Y , while keeping everything else (i.e. S) constant. Causal effect is defined as the magnitude by which Y is changed by a unit change in X .\nTherefore, a fair prediction, shown in Figure 3, indicates there is no either direct (S \u2192 Y ) or indirect (S \u2192 X \u2192 Y ) dependency effect of outcome on the protected attribute. These types of discrimination (direct and indirect) are supported by two legal frameworks applied in large bodies of cases throughout the disparate treatment and disparate impact [34]. The disparate treatment framework enforces procedural fairness, namely, the equality of treatments that prohibits the use of the protected attribute in the decision process. The disparate impact framework guarantees outcome fairness, namely, the equality of outcomes among protected groups [35].\nTo comply with disparate treatment criterion we specify that sensitive attributes are not used in decision making, i.e. {xi}hi=1 and {si}hi=1 consist of disjoint feature sets. As discussed in [14], our definition of disparate impact leverages the 80%-rule [43]. A decision boundary satisfies the 80%-rule if the ratio between the percentage of users with a particular protected attribute value having d\u03b1(x) \u2265 0, where \u03b1 is the decision boundary parameter, and the percentage of users without that value having d\u03b1(x) \u2265 0 is no less than 0.8 [14].\nmin (P (d\u03b1(x) \u2265 0|s = 1) P (d\u03b1(x) \u2265 0|s = 0) , P (d\u03b1(x) \u2265 0|s = 0) P (d\u03b1(x) \u2265 0|s = 1) ) \u2265 0.8\n(1)"
+    },
+    {
+      "heading": "B. Decision Boundary Covariance in Statistical Parity",
+      "text": "In this section, we introduce a measure of decision boundary fairness, which enables us to ensure fairness with respect to one or more protected attributes, in terms of both disparate treatment and disparate impact. The decision boundary covariance (DBC) which measures the decision boundary (un)fairness is defined as\nDefinition 2 (Decision Boundary Covariance [14]). The covariance between the protected variables s = {si}hi=1 and the signed distance from the feature vectors to the decision boundary, d\u03b1(x) = {d\u03b1(xi)}hi=1, where \u03b1 is the decision boundary parameter.\nDBC(s, d\u03b1(x)) = E[(s\u2212 s\u0304)d\u03b1(x)]\u2212 E[s\u2212 s\u0304]d\u0304\u03b1(x)\n\u2248 1 h h\u2211 i=1 (si \u2212 s\u0304)d\u03b1(x) (2)\nwhere E[s\u2212 s\u0304]d\u0304\u03b1(x) is cancels out since E[s\u2212 s\u0304] = 0. Taking linear model as an example, the decision boundary is simply the hyperplane defined by \u03b1Tx = 0. Then the DBC reduces to 1h \u2211h i=1(si \u2212 s\u0304)\u03b1Tx.\nAn example of fair binary classification with a linear decision boundary is given in Figure 4. Red markers represent the protected group (i.e. s = 1) and blue ones are the unprotected group (i.e. s = 0). In the left of Figure 4, we calculate P (d\u03b1(x) \u2265 0|s = 1) = 1/4 = 0.25, where d\u03b1(x) \u2265 0\nindicates the triangle class and P (d\u03b1(x) \u2265 0|s = 0) = 7/(16 \u2212 4) = 0.583. By applying the 80%-rule indicated in Eq.(1), the disparate impact value of the left classifier is 0.25/0.583 = 0.43, which is lower than the threshold of 0.8 and returns an unfair classification prediction. Similarly, in the right case of Figure 4, however, P (d\u03b1(x) \u2265 0|s = 1) = P (d\u03b1(x) \u2265 0|s = 0) = 0.5 and thus the disparate impact is 1.0. Note that, if a decision boundary satisfies the 100%-rule, i.e.\nP (d\u03b1(x) \u2265 0|s = 1) = P (d\u03b1(x) \u2265 0|s = 0)\nthen the empirical covariance will be approximately zero for a sufficiently large training set."
+    },
+    {
+      "heading": "IV. FAIR META-LEARNING",
+      "text": "Meta-learning for few-shot learning aims to train a metalearner which is able to learn on a large number of various tasks from a small amount of data. MAML (Model-Agnostic Meta-Learning) proposed by [1] is one of the popular gradient based meta-learning frameworks, which leads to state-ofthe-art performance and fast adaptation to unseen tasks. To generalize fairness in a classification problem with minimal samples, we propose a novel approach by modifying MAML in which we uniformly control DBC for each task. The goal of the proposed approach is to estimate a good meta-parameter such that the summation of empirical risks for each task is minimized and meanwhile each task is fair."
+    },
+    {
+      "heading": "A. Settings",
+      "text": "In this work, we consider a collection of supervised learning tasks T = {(DSj ,D Q j )}Tj=1 which distributions over Z and T is denoted as the number of tasks. T is often referred to as a meta-training set as well as an episode (DSj ,D Q j ) explicitly contains a pair of a support DSj and a query D Q j data sets. For each task j \u2208 {1, 2, ..., T}, we let {xj,i, yj,i, sj,i}mi=1 \u2208 (X \u00d7 Y \u00d7 S) be the corresponding task data and m is the number of datapoints in the support set. For example, standard few-shot learning benchmarks evaluate model in N -way Kshot classification tasks and thus m = N \u00d7 K indicates, in the support set of the j-th task, it contains N categories and each consists of K datapoints. We emphasize that we need to sample without replacement, i.e., DSj \u2229 D Q j = \u2205.\nIn a general meta-learning setting, it consists of meta-train and meta-test partitions where each contains a number of minibatches of episodes (see Figure 2). We consider a distribution over tasks p(T ) that we want our model to be able to adapt to. In a N -way-K-shot learning setting, a task Tj is sampled from p(T ), where the subscript j represents the j-th task of a mini-batch. In the supervised learning setting, supposing the meta-model is a parameterized function f\u03c6 with parameters \u03c6. In a general meta-learning model, the goal is to learn an optimized \u03c6 so that the summation of query losses lTj (f\u03c6) over all meta-training tasks is minimum. During meta-training, \u03c6 is updated iteratively.\n\u03c6\u2217 = arg min \u03c6 ET \u223cp(T )lT (f\u03c6) (3)"
+    },
+    {
+      "heading": "B. Model-Agnostic Meta-Learning with convex constraints",
+      "text": "Meta-learning approaches for few-shot learning are often assumed that the support and query sets of a task are sampled from the same distribution. In our work, for each single task, the objective is to minimize the predictive error Linner(DSj , \u03c6) such that it is constrained by a function gj(\u03c6).\nmin \u03c6j\nLinner(DSj , \u03c6) (4)\nsubject to gj(\u03c6) \u2264 0\nwhere Linner : Rn \u2192 R is a loss function, such as crossentropy for classification, and g : Rn \u2192 R is an appropriate complexity function ensuring the existence and the uniqueness of the above minimizer. A point \u03c6 in the domain of the problem is feasible if it satisfies the constraint gj(\u03c6) \u2264 0. Specifically, gj(\u03c6) is defined by the definition of decision boundary covariance in Eq.(2), i.e.\ngj(\u03c6) = \u2223\u2223\u2223\u2223\u2223\u2223 1N \u00d7K \u2211\nsi,xi\u223cTj\n(si \u2212 s\u0304)d\u03b1(xi) \u2223\u2223\u2223\u2223\u2223\u2223\u2212 c (5) where c is a small positive fairness relaxation, d\u03b1(xi) \u2248 max{pn \u2208 [0, 1]N} and p denotes the class probabilities of xi. Here, for a N -way-K-shot classification task, we include N \u00d7K data points in the support set DS of each task Tj .\nTo solve the optimization problem, we thus introduce an unified Lagrange multiplier \u03bb \u2265 0 for all tasks and the Lagrange function LTj (\u03c6, \u03bb) for each task is defined by\nLTj (\u03c6, \u03bb) = Linner(\u03c6) + \u03bb(gj(\u03c6)) (6)\nTherefore the original problem can be finally seen by minimizing LTj (\u03c6, \u03bb) for each task and thus mitigates dependency of prediction on the protected attribute. The goal of training a single task is to output a local parameter \u03c6j given the metaparameter \u03c6 such that it minimizes the task loss Linner subject to the task constraint gj(\u03c6) \u2264 0. Next, to update the metaparameter, we minimize the generalization error Lmeta using query sets across every task in the batch such that the query\nconstraints are satisfied. Formally, the learning objective across all tasks is\nmin \u03c6 Lmeta( T\u2211 j=1 DQj , \u03c6) = T\u2211 j=1 Linner(DQj , \u03c6j) (7)\nwhere \u03c6j = arg min\u03c6j ,gj(\u03c6)\u22640 Linner is the local optimum for each task. A step-by-step learning algorithm for unfairness prevention in few-shot regression is proposed in Algorithm 1.\nAlgorithm 1 Unfairness Prevention in Few-Shot Classification. Require: p(T ): distribution over tasks. Require: \u03b1, \u03b2: step size hyperparameters. Require: q: inner gradient update steps.\n1: Randomly initialize \u03c6 2: while not done do 3: Sample batch of tasks Tj 4: for all Tj = {DSj ,DQj } do 5: Sample N -way-K-shot datapoints from DSj = {xj , yj , sj} 6: \u03c6j \u2190 \u03c6 7: for q = 1, 2, ... do 8: Evaluate \u2207\u03c6jLTj (\u03c6j , \u03bb) using DSj 9: Compute adapted local parameter \u03c6j \u2190 \u03c6j \u2212 \u03b1\u2207\u03c6jLTj (\u03c6j , \u03bb) 10: end for 11: Sample datapoints from DQj = {xj , yj , sj} 12: Evaluate query loss lTj (\u03c6j) and query fairness\ngTj (\u03c6j) using DQj 13: end for 14: Update \u03c6\u2190 \u03c6\u2212 \u03b2\u2207\u03c6 \u2211 Tj\u223cp(T ) lTj (\u03c6j) 15: Evaluate training fairness mean(gTj (\u03c6j)) 16: end while"
+    },
+    {
+      "heading": "C. Algorithm Analysis",
+      "text": "Since the proposed Algorithm 1 is modified following [1], the convergence is guaranteed and detailed analysis is stated in [44]. Accessing to sufficient samples, the running time of the algorithm is O(n \u00b7 b \u00b7 q) , where n is the number of outer iterations, b is batch-size, and q is gradient steps of inner loop. For a N -way-K-shot learning, the best accuracy is achieved when ||\u2207\u03c6|| \u2264 O(\u03c3\u0303/ \u221a NK), where \u03c6 = ET \u223cp(T )lT (f\u03c6), \u03c3 is a bound on the standard deviation of \u2207LTj (\u03c6j , \u03bb) from its mean \u2207LT (\u03c6, \u03bb), and \u03c3\u0303 is a bound on the standard deviation of estimating \u2207LTj (\u03c6j , \u03bb) using a single data point."
+    },
+    {
+      "heading": "V. EXPERIMENTS",
+      "text": "To validate our approach of unfairness prevention in fewshot meta-learning models, we conduct experiments with two real-world image data sets."
+    },
+    {
+      "heading": "A. Data",
+      "text": "Omniglot [45] is a data set of 1623 handwritten characters collected from 50 alphabets. To avoid overfitting, data augmentation is used on images in the form of rotations of 90 degrees increments, i.e. 90, 180, and 270 degrees. Rotated class samples are considered new classes and thus we have 1623\u00d74 classes in total. We shuffle all character classes and randomly split the data set into three sets, 1150\u00d74 for the training set, 50\u00d74 for validation, and 423\u00d74 for testing. We follow the procedure of [36] by resizing the grayscale images to 28\u00d728. In order to study fairness, an arbitrary probability p(x|s = 1) is assigned to each class and thus each image sample is given a protected attribute s \u2208 {0, 1}.\nmini-ImageNet is originally proposed by [36]. It consists of 60,000 color images scaled down to 84\u00d784 divided into 100 classes with 600 examples each. We use the split proposed in [38], which consists of 64 classes for training, 12 classes for validation and 24 classes for testing. The protected attribute is randomly added following the same procedure stated in our Omniglot settings."
+    },
+    {
+      "heading": "B. Parameter Tuning",
+      "text": "In order to provide a fair comparison for all methods, our embedding architecture mirrors that used by [36]. It consists of four modules and each comprises a 64-filter 3\u00d73 convolution, batch normalization layer [46], a ReLU nonlinearity and a 2\u00d72 max-pooling layer. For Omniglot, since each image is resized to 28\u00d728, it results in a 64-dimensional output space. Due to the increased size of images in mini-ImageNet, the resulting feature map is 1600-dimensional. All models are trained with Adam optimizer.\nFor N -way, K-shot classification, each gradient is computed using a batch size of N \u00d7K examples. For Omniglot, the 5- way convolutional model is trained with 1 gradient step with step size of \u03b1 = 0.4, and a meta batch-size of 32 tasks. The\nnetwork is evaluated using 3 gradient steps with the same step size \u03b1 = 0.4. The 20-way convolutional model is trained and evaluated with 5 gradient steps with step size of \u03b1 = 0.1. During training, the meta batch-size is set to 16 tasks. For MiniImagenet, the model is trained using 5 gradient steps of size \u03b1 = 0.01, and evaluated using 10 gradient steps at test time. Following [38], 15 examples per class are used for evaluating the post-update meta-gradient. We used a meta batch-size of 4 and 2 tasks for 1-shot and 5-shot training respectively. All model are trained for 60000 iterations.\nBesides, to comply with disparate treatment criterion, we specify that protected attributes are not used in the decision making, i.e. protected and explanatory attributes consist of disjoint feature sets. Key characteristics for all data set are listed in Table I."
+    },
+    {
+      "heading": "C. Baseline Methods",
+      "text": "We compared our work with three well known metalearning state-of-the-arts, MAML [1], Matching Networks [36], and Prototypical Networks [37]. These methods apply the same meta-learning framework but differ in their strategies to make predictions conditioned on the support set. MAML is a gradient based meta-learning algorithm, where each support set is used to adapt a uniformed initialized model parameters using one or few gradient steps. After several updates, the meta-loss reaches the minimum along with each episode loss reaching its local minimum.\nFor both Matching and Prototypical Networks (i.e. MatchingNet and ProtoNet), the prediction of the samples in a query set is based on comparing the distance between embedded query feature and support feature within each class. MatchingNet was the first to both train and test on N -way-K-shot tasks. The appeal of this is training and evaluating on the same tasks lets us optimise for the target task in an end-toend fashion. Different from earlier approaches such as siamese networks [47], MatchingNet combines both embedding and classification to form an end-to-end differentiable nearest neighbours classifier. Specifically, it applied a bidirectional Long-Short Term Memory (LSTM) to encode in the context of the support set and compares cosine distance between the query feature and each support feature.\nIn Prototypical Networks, the authors apply a compelling inductive bias in the form of class prototypes to achieve impressive few-shot performance that exceeds Matching Networks without the complication of full context embeddings or FCE for short. The key assumption is that there exists an embedding in which samples from each class cluster around a single prototypical representation which is simply the mean of the individual samples. This idea streamlines K-shot classification in the case of K > 1 as classification is simply performed by taking the label of the closest class prototype.\nIn order to output fair predictions, fairness constraints are applied. Experimental results shown with prefix \u201cFair-\u201d in the front indicate models adjusted using our proposed approach."
+    },
+    {
+      "heading": "D. Experimental Results",
+      "text": "Table II showcases results experimented through three cutting-edge meta-learning methods and those associated with our proposed unfairness prevention approach (noted with \u201cFair-\u201d), which examined with two real-world image data sets, i.e. Omniglot [45] and mini-ImageNet [36]. The problem of N -way classification is set up as follows: select N unseen classes, provide the model with K different instances of each of the N classes, and evaluate the models ability to classify new instances within the N classes.\nIn order to check the generalized fairness of these stateof-the-arts on unseen tasks, we produce local replications labeled with superscript \u2021 that are used to compare with the results reported in the original paper labeled with \u2217. Note that for local replication methods, input images are slightly different, where in this paper we additionally consider the protected attribute as one of the input features. Besides, in the proposed unfairness prevention approach (labeled with the prefix \u201cFair-\u201d in Table II), cross-entropy losses are calculated with using images without the protected attribute, as the fairness constraint is applied to control the covariance between the protected variable and the signed distance from the feature vectors to the decision boundary.\nBesides, our approaches (Fair-MAML, Fair-MatchingNet, and Fair-ProtoNet) are outperformed than the original methods and the gap between all methods is narrowing as the number of training data increases (i.e. from 1-shot to 5-shot). However,\nin Omniglot data, as more image classes are considered in the experiment, accuracy decreases. Even in the 20-way classification problem, our approach is able to control the decision boundary covariance efficiently.\nOur proposed approach is empirically shown to reduce DBC and thus improve outcome fairness in multi-class decisionmaking for all selected meta-learning methods. Another notable observation is that decreasing unfairness is brought at the sacrifice of classification accuracy in a bit. This comes down to the trade-off between accuracy and fairness. In summary, our approach significantly controls biases for few-shot metalearning models and generalizes to unseen tasks."
+    },
+    {
+      "heading": "VI. CONCLUSION AND FUTURE WORK",
+      "text": "In this paper, for the first time we develop deep into the few-shot supervised meta-learning classification model and propose a bias-control approach by adding statistical parity constraint, namely decision boundary covariance, which significantly mitigates dependence of prediction on the protected variable in each task and generalize both accuracy and fairness to unseen tasks. Experimental results on two real-world image data sets indicate the proposed approach works for three cutting-edge few-shot meta-learning models with multi-class classification problems. Further research in this area can make multitask parameters a standard ingredient in deep fairness learning."
+    },
+    {
+      "heading": "ACKNOWLEDGEMENT",
+      "text": "This work is supported by the National Science Foundation (NSF) under Grant No #1815696 and #1750911."
+    }
+  ],
+  "title": "Fair Meta-Learning For Few-Shot Classification",
+  "year": 2020
+}

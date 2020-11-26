@@ -1,0 +1,513 @@
+{
+  "abstractText": "As machine learning systems become democratized, it becomes increasingly important to help users easily debug their models. However, current data tools are still primitive when it comes to helping users trace model performance problems all the way to the data. We focus on the particular problem of slicing data to identify subsets of the validation data where the model performs poorly. This is an important problem in model validation because the overall model performance can fail to reflect that of the smaller subsets, and slicing allows users to analyze the model performance on a more granular-level. Unlike general techniques (e.g., clustering) that can find arbitrary slices, our goal is to find interpretable slices (which are easier to take action compared to arbitrary subsets) that are problematic and large. We propose Slice Finder, which is an interactive framework for identifying such slices using statistical techniques. Applications include diagnosing model fairness and fraud detection, where identifying slices that are interpretable to humans is crucial. This research is part of a larger trend of Big data and Artificial Intelligence (AI) integration and opens many opportunities for new research.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Yeounoh Chung"
+    },
+    {
+      "affiliations": [],
+      "name": "Tim Kraska"
+    },
+    {
+      "affiliations": [],
+      "name": "Neoklis Polyzotis"
+    },
+    {
+      "affiliations": [],
+      "name": "Ki Hyun Tae"
+    },
+    {
+      "affiliations": [],
+      "name": "Steven Euijong Whang"
+    }
+  ],
+  "id": "SP:8d9962d0e9a4e563bc0e1bd97e05703857b6d8f2",
+  "references": [
+    {
+      "authors": [
+        "D. Baylor",
+        "E. Breck",
+        "H.-T. Cheng",
+        "N. Fiedel",
+        "C.Y. Foo",
+        "Z. Haque",
+        "S. Haykal",
+        "M. Ispir",
+        "V. Jain",
+        "L. Koc"
+      ],
+      "title": "Tfx: A tensorflow-based production-scale machine learning platform",
+      "venue": "KDD, 2017, pp. 1387\u20131395.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "F. Doshi-Velez",
+        "B. Kim"
+      ],
+      "title": "Towards A Rigorous Science of Interpretable Machine Learning",
+      "venue": "ArXiv e-prints, Feb. 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Lichman"
+      ],
+      "title": "UCI machine learning repository",
+      "venue": "2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "H.B. McMahan",
+        "G. Holt",
+        "D. Sculley",
+        "M. Young",
+        "D. Ebner",
+        "J. Grady",
+        "L. Nie",
+        "T. Phillips",
+        "E. Davydov",
+        "D. Golovin"
+      ],
+      "title": "Ad click prediction: a view from the trenches",
+      "venue": "KDD, 2013, pp. 1222\u2013 1230.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "M. Kahng",
+        "D. Fang",
+        "D.H.P. Chau"
+      ],
+      "title": "Visual exploration of machine learning results using data cube analysis",
+      "venue": "HILDA. ACM, 2016, p. 1.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "S. Krishnan",
+        "E. Wu"
+      ],
+      "title": "Palm: Machine learning explanations for iterative debugging",
+      "venue": "HILDA, 2017, pp. 4:1\u20134:6.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "why should I trust you?\u201d: Explaining the predictions of any classifier",
+      "venue": "KDD, 2016, pp. 1135\u20131144.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "\u2014\u2014"
+      ],
+      "title": "Anchors: High-precision model-agnostic explanations",
+      "venue": "AAAI, 2018, pp. 1527\u20131535.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Y. Benjamini",
+        "Y. Hochberg"
+      ],
+      "title": "Controlling the false discovery rate: A practical and powerful approach to multiple testing",
+      "venue": "Journal of the Royal Statistical Society Series B (Methodological), no. 1, pp. 289\u2013300."
+    },
+    {
+      "authors": [
+        "N. Polyzotis",
+        "S. Roy",
+        "S.E. Whang",
+        "M. Zinkevich"
+      ],
+      "title": "Data lifecycle challenges in production machine learning: A survey",
+      "venue": "SIGMOD Rec., vol. 47, no. 2, pp. 17\u201328, Jun. 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "\u2014\u2014"
+      ],
+      "title": "Data management challenges in production machine learning",
+      "venue": "SIGMOD, 2017, pp. 1723\u20131726.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Chung",
+        "T. Kraska",
+        "N. Polyzotis",
+        "K.H. Tae",
+        "S.E. Whang"
+      ],
+      "title": "Slice finder: Automated data slicing for model validation",
+      "venue": "ICDE, 2019.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Y. Chung",
+        "T. Kraska",
+        "N. Polyzotis",
+        "S.E. Whang"
+      ],
+      "title": "Slice finder: Automated data slicing for model interpretability",
+      "venue": "SysML Conference, 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "G.M. Sullivan",
+        "R. Feinn"
+      ],
+      "title": "Using effect sizeor why the p value is not enough",
+      "venue": "Journal of Graduate Medical Education, vol. 4, no. 3, pp. 279\u2013282, 2012.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "J. Cohen"
+      ],
+      "title": "Statistical power analysis for the behavioral sciences.",
+      "year": 1988
+    },
+    {
+      "authors": [
+        "W. McKinney"
+      ],
+      "title": "pandas: a foundational python library for data analysis and statistics",
+      "venue": "Python for High Performance and Scientific Computing, pp. 1\u20139, 2011.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "D. Foster",
+        "B. Stine"
+      ],
+      "title": "Alpha-investing: A procedure for sequential control of expected false discoveries",
+      "venue": "Journal of the Royal Statistical Society Series B (Methodological), vol. 70, no. 2, pp. 429\u2013 444, 2008.",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Z. Zhao",
+        "L.D. Stefani",
+        "E. Zgraggen",
+        "C. Binnig",
+        "E. Upfal",
+        "T. Kraska"
+      ],
+      "title": "Controlling false discoveries during interactive data exploration",
+      "venue": "SIGMOD, 2017, pp. 527\u2013540.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A.A. Freitas"
+      ],
+      "title": "Comprehensible classification models: A position paper",
+      "venue": "SIGKDD Explor. Newsl., vol. 15, no. 1, pp. 1\u201310, Mar. 2014.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "A. Srivastava",
+        "E.-H. Han",
+        "V. Kumar",
+        "V. Singh"
+      ],
+      "title": "Parallel formulations of decision-tree classification algorithms",
+      "venue": "High Performance Data Mining. Springer, 1999, pp. 237\u2013261.",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "M. Hardt",
+        "E. Price",
+        "N. Srebro"
+      ],
+      "title": "Equality of opportunity in supervised learning",
+      "venue": "NIPS, 2016, pp. 3315\u20133323.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Ghassemi",
+        "T. Naumann",
+        "F. Doshi-Velez",
+        "N. Brimmer",
+        "R. Joshi",
+        "A. Rumshisky",
+        "P. Szolovits"
+      ],
+      "title": "Unfolding physiological state: Mortality modelling in intensive care units",
+      "venue": "KDD, 2014, pp. 75\u201384.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "S. Barocas",
+        "M. Hardt"
+      ],
+      "title": "Fairness in machine learning",
+      "venue": "NIPS Tutorial, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Dwork",
+        "M. Hardt",
+        "T. Pitassi",
+        "O. Reingold",
+        "R. Zemel"
+      ],
+      "title": "Fairness through awareness",
+      "venue": "ITCS, 2012, pp. 214\u2013226.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "J.M. Kleinberg",
+        "S. Mullainathan",
+        "M. Raghavan"
+      ],
+      "title": "Inherent trade-offs in the fair determination of risk scores",
+      "venue": "ITCS, 2017, pp. 43:1\u201343:23.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Feldman",
+        "S.A. Friedler",
+        "J. Moeller",
+        "C. Scheidegger",
+        "S. Venkatasubramanian"
+      ],
+      "title": "Certifying and removing disparate impact",
+      "venue": "KDD, 2015, pp. 259\u2013268. 13",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "R. Kohavi"
+      ],
+      "title": "Scaling up the accuracy of naive-bayes classifiers: A decision-tree hybrid.",
+      "venue": "in KDD, vol",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "A. Dal Pozzolo",
+        "O. Caelen",
+        "R.A. Johnson",
+        "G. Bontempi"
+      ],
+      "title": "Calibrating probability with undersampling for unbalanced classification",
+      "venue": "SSCI. IEEE, 2015, pp. 159\u2013166.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M. Joglekar",
+        "H. Garcia-Molina",
+        "A. Parameswaran"
+      ],
+      "title": "Interactive data exploration with smart drill-down",
+      "venue": "ICDE. IEEE, 2016, pp. 906\u2013917.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "G. Sathe",
+        "S. Sarawagi"
+      ],
+      "title": "Intelligent rollups in multidimensional olap data",
+      "venue": "VLDB, 2001, pp. 531\u2013540.",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "P. Tamagnini",
+        "J. Krause",
+        "A. Dasgupta",
+        "E. Bertini"
+      ],
+      "title": "Interpreting black-box classifiers using instance-level visual explanations",
+      "venue": "HILDA, 2017, pp. 6:1\u20136:6.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "O. Bastani",
+        "C. Kim",
+        "H. Bastani"
+      ],
+      "title": "Interpreting blackbox models via model extraction",
+      "venue": "CoRR, vol. abs/1705.08504, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "H. Lakkaraju",
+        "E. Kamar",
+        "R. Caruana",
+        "J. Leskovec"
+      ],
+      "title": "Interpretable & explorable approximations of black box models",
+      "venue": "CoRR, vol. abs/1707.01154, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "P.W. Koh",
+        "P. Liang"
+      ],
+      "title": "Understanding black-box predictions via influence functions",
+      "venue": "ICML, 2017, pp. 1885\u20131894.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Charikar",
+        "V. Guruswami",
+        "R. Kumar",
+        "S. Rajagopalan",
+        "A. Sahai"
+      ],
+      "title": "Combinatorial feature selection problems",
+      "venue": "Foundations of Computer Science, 2000, pp. 631\u2013640.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "I. Guyon",
+        "A. Elisseeff"
+      ],
+      "title": "An introduction to variable and feature selection",
+      "venue": "Journal of machine learning research, vol. 3, no. Mar, pp. 1157\u20131182, 2003.",
+      "year": 2003
+    }
+  ],
+  "sections": [
+    {
+      "text": "Index Terms\u2014data slicing, model validation, model analysis\nF"
+    },
+    {
+      "heading": "1 INTRODUCTION",
+      "text": "MACHINE learning systems [1] are becoming moreprevalent thanks to a vast number of success stories. However, the data tools for interpreting and debugging models have not caught up yet, and many important challenges exist to improve our model understanding after training [2]. One such key problem is to understand if a model performs poorly on certain parts of the data, hereafter referred to as a slice.\nExample 1. Consider a Random Forest classifier that predicts whether a person\u2019s income is above or below $50,000 (UCI Census data [3]). Looking at Table 1, the overall metrics may be considered acceptable, since the overall log loss (a widely-used loss metric for binary classification problem) is low for all the data (see the \u201cAll\u201d row). However, the individual slices tell a different story. When slicing data by gender, the model is more accurate for Female than Male (the effect size defined in Section 2 captures this relation by measuring the normalized loss metric difference between the Male slice and its counterpart, the Female slice). The Prof-specialty slice is interesting because the average loss metric is on par with Male, but the effect size is much smaller. A small effect size means that the loss metric on Prof-specialty is similar to the loss metric on other demographics (defined as counterparts in Section 2). Hence, if the log loss of a slice and that of the counterpart are not acceptable, then it is likely that the model is bad overall, not just on a particular subset. Lastly, we see that people with higher education degrees (Bachelors < Masters < Doctorate) suffer from worse model performance, and their losses are higher than\n\u2022 Y. Chung is with Apple Inc. Work done at Google Research. E-mail: yeounoh chung@brown.edu \u2022 T. Kraska is with MIT. E-mail: kraska@mit.edu \u2022 N. Polyzotis is with Google Research. E-mail: npolyzotis@google.com \u2022 K. Tae is with KAIST. E-mail: kihyun.tae@kaist.ac.kr \u2022 S. E. Whang is with KAIST. Work done at Google Research and KAIST.\nE-mail: swhang@kaist.ac.kr \u2022 Corresponding author: S. E. Whang\ntheir counterparts and thus have higher error concentration. Thus, slices with high effect size are important for model validation, to make sure that the model does not underperform on certain parts of the data.\nThe problem is that the overall model performance can fail to reflect that of smaller data slices. Thus, it is important that the performance of a model is analyzed on a more granular level. While a well-known problem [4], current techniques to determine underperforming slices largely rely on domain experts to define important sub-populations (or at least specify a feature dimension to slice by) [5], [6]. Unfortunately, machine learning practitioners do not necessary have the domain expertise to know all important underperforming slices in advance, even after spending a significant amount of time exploring the data. An underlying assumption here is that the dataset is large to the extent that enumerating all possible data slices and validating model performance for each is not practical due to the sheer number of possible slices. Worse yet, simply searching for the most underperforming slices can be misleading because the model performance on smaller slices can be noisy, and without any safeguard, this leads to slices that are too small for meaningful impact on the model quality or that are false discoveries (i.e., non-problematic slices appearing as problematic). Ideally, we want to identify the largest and ar X\niv :1\n80 7.\n06 06\n8v 3\n[ cs\n.D B\n] 7\nJ an\n2 01\n9\n2 true problematic slices from the smaller slices that are not fully reflected on by the overall model performance metric.\nThere are more generic clustering-based algorithms in model understanding [7]\u2013[9] that group similar examples together as clusters and analyze model behavior locally within each cluster. Similarly, we can cluster similar examples and treat each cluster as an arbitrary data slice; if a model underperforms on any of the slices, then the user can analyze the examples within. However, clusters of similar examples can still have high variance and high cardinality of feature values, which are hard to summarize and interpret. In comparison, a data slice with a few common feature values (e.g., the Female slice contains all examples with Sex = Female) is much easier to interpret. In practice, validating and reporting model performance on interpretable slices are much more useful than validating on arbitrary noninterpretable slices (e.g., a cluster of similar examples with mixed properties).\nA good technique to detect problematic slices for model validation thus needs to find easy-to-understand subsets of data and ensure that the model performance on the subsets is meaningful and not attributed to chance. Each problematic slice should be immediately understandable to a human without the guesswork. The problematic slices should also be large enough so that their impact on the overall model quality is non-negligible. Since the model may have a high variance in its prediction quality, we also need to be careful not to choose slices that are false discoveries. Finally, since the slices have an exponentially large search space, it is infeasible to manually go though each slice. Instead, we would like to guide the user to a handful of slices that satisfy the conditions above. In this paper we propose Slice Finder, which efficiently discovers large possibly-overlapping slices that are both interpretable and problematic.\nA slice is defined as a conjunction of feature-value pairs where having fewer pairs is considered more interpretable. A problematic slice is identified based on testing of a significant difference of model performance metrics (e.g., loss function) of the slice and its counterpart. That is, we treat each problematic slice as a hypothesis and check that the difference is statistically significant, and the magnitude of the difference is large enough according to the effect size. We discuss the details in Section 2. One problem with performing many statistical tests (due to a large number of candidate slices) is an increased number of false positives. This is what is also known as Multiple Comparisons Problem (MCP) [10]: imagine a test of Type-I error (false positive: recommending a non-problematic slice as problematic) rate of 0.05 (a common \u03b1-level for statistical significance testing); the probability of having any false positives blows up exponentially with the number of comparisons (e.g., 1 \u2212 (1 \u2212 0.05)8 = 0.34, even for just 8 tests, but then, we may end up exploring hundreds and thousands of slices even for a modest number of examples). We address this issue in Section 3.2.\nIn addition to testing, the slices found by Slice Finder can be used to evaluate model fairness or in applications such as fraud detection, business analytics, and anomaly detection, to name a few. While there are many definitions for fairness, a common one is that a model performs poorly (e.g., lower accuracy) on certain sensitive features (which\ndefine the slices), but not on others. Fraud detection also involves identifying classes of activities where a model is not performing as well as it previously did. For example, some fraudsters may have gamed the system with unauthorized transactions. In business analytics, finding the most promising marketing cohorts can be viewed as a data slicing problem. Although Slice Finder evaluates each slice based on its losses on a model, we can also generalize the data slicing problem where we assume a general scoring function to assess the significance of a slice. For example, data validation is the process of identifying training or validation examples that contain errors (e.g., values are out of range, features are missing, and so on). By scoring each slice based on the number or type of errors it contains, we can summarize the data errors through a few interpretable slices rather than showing users an exhaustive list of all erroneous examples.\nThe main contribution of this paper is applying data management techniques to the model validation problem in machine learning. This application is part of a larger integration of the areas of Big data and Artificial Intelligence (AI) where data management plays a role in almost all aspects of machine learning [11], [12]. This paper extends our previous work on Slice Finder [13], [14]. In particular, we provide a full description of the slice finding algorithms and provide extensive experiments.\nIn summary, we make the following contributions:\n\u2022 We define the data slicing problem and the use of hypothesis testing for problematic slice identification (Section 2) and false discovery control (Section 3.2). \u2022 We describe the Slice Finder system and propose three\nautomated data slicing approaches, including a na\u0131\u0308ve clustering-based approach as a baseline for automated data slicing (Section 3). \u2022 We present model fairness as a potential use case for\nSlice Finder (Section 4). \u2022 We evaluate the automated data slicing approaches us-\ning real and synthetic datasets (Section 5)."
+    },
+    {
+      "heading": "2 DATA SLICING PROBLEM",
+      "text": ""
+    },
+    {
+      "heading": "2.1 Preliminaries",
+      "text": "We assume a dataset D with n examples and a model h that needs to be tested. Following common practice, we assume that each example x(i)F contains features F = {F1, F2, ..., Fm} where each feature Fj (e.g., country) has a list of values (e.g., {US, DE}) or discretized numeric value ranges (e.g., {[0, 50), [50, 100)}). We also have a ground truth label y(i) for each example, such that D = {(x(1)F , y(1)), (x\n(2) F , y (2)), ..., (x (n) F , y (n))}. The test model h is an arbitrary function that maps an input example to a prediction using F , and the goal is to validate if h is working properly for different subsets of the data. For ease of exposition, we focus on a binary classification problem (e.g., UCI Census income classification) with h that takes an example x(i)F and outputs a prediction h(x(i)F ) of the true label y\n(i) \u2208 {0, 1} (e.g., a person\u2019s income is above or below $50,000). Without loss of generality, we also assume that the model uses all the features in F for classification.\n3 A slice S is a subset of examples in D with common features and can be described as a predicate that is a conjunction of literals \u2227 j Fj op vj where the Fj \u2019s are distinct (e.g., country = DE \u2227 gender = Male), and op can be one of =, 6=, <, \u2264, \u2265, or >. For numeric features, we can discretize their values (e.g., quantiles or equi-height bins) and generate ranges so that they are effectively categorical features (e.g., age = [20,30)). Numeric features with large domains tend to have fewer examples per value, and hence do not appear as significant. By discretizing numeric features into a set of continuous ranges, we can effectively avoid searching through tiny slices of minimal impact on model quality and group them to more sizable and meaningful slices.\nWe also assume a classification loss function \u03c8(S, h) that returns a performance score for a set of examples by comparing h\u2019s prediction h(x(i)F ) with the true label y\n(i). A common classification loss function is logarithmic loss (log loss), which in case of binary classification is defined as:\n\u2212 1 n \u2211 (x\n(i) F ,y (i))\u2208S\n[y(i) ln h(x (i) F ) + (1\u2212 y (i)) ln (1\u2212 h(x(i)F ))]\nThe log loss is non-negative and grows with the number of classification errors. A perfect classifier h would have log loss of zero, and a random-guesser (h(x) = 0.5) log loss of \u2212ln(0.5) = 0.693. Also note that our techniques and the problem setup can easily generalize to other machine learning problem types (e.g., multi-class classification, regression, etc.) with proper loss functions/performance metrics."
+    },
+    {
+      "heading": "2.2 Model Validation",
+      "text": "We consider the model validation scenario of pointing the user to \u201cproblematic\u201d slices where a single model performs relatively poorly on. That is, we would like to find slices where the loss function returns a significantly higher loss than the rest of the examples in D. At the same time, we prefer these slices to be large as well. For example, the slice country = DE may be too large for a model to perform significantly worse than other countries. On the other hand, the slice country = DE \u2227 gender = Male \u2227 age = 30 may have a high loss, but may also be too specific and thus small to have much impact on the overall performance of the model. Finally, we would like the slices to be interpretable in the sense that they can be expressed with a few literals. For example, country = DE is more interpretable than country = DE \u2227 age = 20-40 \u2227 zip = 12345.\nA straightforward extension of this scenario is to compare two models on the same data and point out if certain slices would experience a degrade in performance if the second model would be used. For example, a user may be using an existing model and wants to determine if a newlytrained model is safe to push to production. Here we can consider the two models as a single model where the loss is defined as the loss of the second model minus the loss of the first model. Since the extension does not fundamentally change the problem, for the rest of the paper, we focus on the original scenario of validating a single model.\nFinding the most problematic slices is challenging because it requires a balance between how significant the difference in loss is and how large the slice is. Simply finding\na slice with many classification errors will not work because there may also be many correct classifications within the same slice (recall that a slice is always of the form\u2227\nj Fj op vj). Another solution would be to score each slice based on some weighted sum of its size and difference in average losses. However, this weighting function is hard to tune by the user because it is not clear how size relates to loss. Instead, we envision the user to either fix the significance or size."
+    },
+    {
+      "heading": "2.3 Problematic Slice as Hypothesis",
+      "text": "We now discuss what we mean by significance in more detail. For each slice S, we define its counterpart S\u2032 asD\u2212S, which is the rest of the examples. We then compute the relative loss as the difference \u03c8(S, h)\u2212\u03c8(S\u2032, h). Without loss of generality, we only look for positive differences where the loss of S is higher than that of S\u2032.\nA key question is how to determine if a slice S has a significantly higher loss than S\u2032. Our solution is to treat each slice as a hypothesis and perform two tests: determine if the difference in loss is statistically significant and if the effect size [15] of the difference is large enough. Using both tests is a common practice [16] and necessary because statistical significance measures the existence of an effect (i.e., the slice indeed has a higher loss than its counterpart) while the effect size complements statistical significance by measuring the magnitude of the effect (i.e., how large the difference is).\nTo measure the statistical significance, we use the hypothesis testing with the following null (Ho) and alternative (Ha) hypotheses:\nHo : \u03c8(S, h) \u2264 \u03c8(S\u2032, h)\nHa : \u03c8(S, h) > \u03c8(S \u2032, h)\nHere both S and S\u2032 should be viewed as samples of all the possible examples in the world, including the training data and even the examples that the model might serve in the future. We then use Welch\u2019s t-test [17], which is used to test the hypothesis that two populations have equal means and is defined as follows:\nt = \u00b5S \u2212 \u00b5S\u2032\u221a\n\u03c32S/|S|+ \u03c32S\u2032/|S\u2032|\nwhere \u00b5S is the average loss of S, \u03c3S is the variance of the individual example losses in S, and |S| is the size of S. In comparison to Student\u2019s t-test, Welch\u2019s t-test is more reliable when the two samples have unequal variances and unequal sample sizes, which fits our setting.\nTo measure the magnitude of the difference between the distributions of losses of S and S\u2032, we compute the effect size [15] \u03c6, which is defined as follows:\n\u03c6 = \u221a 2\u00d7 \u03c8(S, h)\u2212 \u03c8(S \u2032, h)\u221a \u03c32S + \u03c3 2 S\u2032\nIntuitively, if the effect size is 1.0, we know that the two distributions differ by one standard deviation. According to Cohen\u2019s rule of thumb [18], an effect size of 0.2 is considered small, 0.5 is medium, 0.8 is large, and 1.3 is very large.\n4"
+    },
+    {
+      "heading": "2.4 Problem Definition",
+      "text": "For two slices S and S\u2032, we say that S \u227a S\u2032 if S precedes S\u2032 when ordering the slices by increasing number of literals, decreasing slice size, and decreasing effect size. Then the goal of Slice Finder is to identify problematic slices as follows:\nDefinition 1. Given a positive integer k, an effect size threshold T , and a significance level \u03b1, find the top-k slices sorted by the ordering \u227a such that: (a) Each slice S has an effect size at least T , (b) The slice is statistically significant, (c) No slice can be replaced with one that has a strict subset of\nliterals and satisfies the above two conditions.\nThe top-k slices do not have to be distinct, e.g., country = DE and education = Bachelors overlap in the demographic of Germany with a Bachelors degree. In a user\u2019s point of view, setting the effect size threshold T may be challenging, so Slice Finder provides a slider for T that can be used to explore slices with different degrees of problematicness (see Section 3.3)."
+    },
+    {
+      "heading": "3 SYSTEM ARCHITECTURE",
+      "text": "Underlying the Slice Finder system is an extensible architecture (Figure 1) that combines automated data slicing and interactive visualization tools. Slice Finder loads the validation data set into a Pandas DataFrame [19]. The DataFrame supports indexing individual examples, and each data slice keeps a subset of indices instead of a copy of the actual data examples. Slice Finder provides basic slice operators (e.g., intersect) based on the indices; only when evaluating the machine learning model on a given slice does Slice Finder access the actual data by the indices to test the model. The Pandas library also provides a number of options to deal with dirty data and missing values. For example, one can drop NaN (missing values) or any values that deviate from the column types as necessary.\nOnce the data is loaded into a DataFrame, Slice Finder processes it to identify the problematic slices and allows the user to explore them. Slice Finder searches for problematic slices either by training a CART decision tree around\nmisclassified examples or by performing a more exhaustive search on a lattice of slices. Both search strategies progress in a top-down manner until they find the top-k problematic slices. The decision tree approach materializes the tree model and traverses the tree to find problematic slices. In lattice searching, Slice Finder traverses a lattice of slices to find the slices. This top-down approach allows Slice Finder to quickly respond to new request queries that use different k, as described in Section 3.3. As Slice Finder searches through a large number of slices, some slices might appear problematic by chance (i.e., multiple comparisons problem [20]). Slice Finder controls such a risk by applying a marginal false discovery rate (mFDR) controlling procedure called \u03b1-investing [20], [21] in order to find statistically significant slices among a stream of slices. Lastly, even a handful of problematic slices can be overwhelming to the user, since she may need to take action (e.g., deeper analyses or model debugging) on each slice. Hence, it is important to enable the user to quickly browse through the slices by slice size and effect size. To this end, Slice Finder provides interactive visualization tools for the user to explore the recommended slices.\nThe following subsections describe the Slice Finder components in detail. Section 3.1 introduces the automated data slicing approaches without false discovery control, Section 3.2 discusses the false discovery control, and Section 3.3 describes the interactive visualization."
+    },
+    {
+      "heading": "3.1 Automated Data Slicing",
+      "text": "As mentioned earlier, the goal of this component is to automatically identify problematic slices for model validation. To motivate the development of the two techniques that we mentioned (decision tree and lattice searching), let us first consider a simple baseline approach that identifies the problematic slices through clustering. And then, we discuss two automated data slicing approaches used in Slice Finder that improve on the clustering approach."
+    },
+    {
+      "heading": "3.1.1 Clustering",
+      "text": "The idea is to cluster similar examples together and take each cluster as an arbitrary data slice. If a test model fails on any of the slices, then the user can examine the data examples within or run a more complex analysis to fix the problem. This is an intuitive way to understand the model and its behavior (e.g., predictions) [7]\u2013[9]; we can take a similar approach to the automated data slicing problem. The hope is that similar examples would behave similarly even in terms of data or model issues.\nClustering is a reasonable baseline due to its ease of use, but it has major drawbacks: first, it is hard to cluster and explain high dimensional data. We can reduce the dimensionality using principled component analysis (PCA) before clustering, but many features of clustered examples (in its original feature vector) still have high variance or high cardinality of values. Unlike an actual data slice filtered by certain features, this is hard to interpret unless the user can manually go through the examples and summarize the data in a meaningful way. Second, the user has to specify the number of clusters, which affects crucially the quality of clusters in both metrics and size. As we want slices that\n5 Sex=Male All Sex=Female Edu=Bachelors Edu=Doctorate ...\nSex=Female \u22c0 Edu=Bachelors\n...\nSex=Female \u22c0 Edu=Doctorate Sex=Male \u22c0 Edu=Bachelors Sex=Male \u22c0 Edu=Doctorate\n... ...\n...\nFig. 2: A lattice hierarchy of slices. In contrast with a decision tree, the search is more exhaustive and covers all possible feature combinations.\nare problematic and large (more impact for model quality), this is a key parameter, which is hard to tune. The two techniques that we present next overcome these deficiencies."
+    },
+    {
+      "heading": "3.1.2 Decision Tree Training",
+      "text": "To identify more interpretable problematic slices, we train a decision tree that can classify which slices are problematic. The output is a partitioning of the examples into the slices defined by the tree. For example, a decision tree could produce the slices {A > v, A \u2264 v\u2227B > w, A \u2264 v\u2227B \u2264 w}. For numeric features, this kind of partitioning is natural. For categorical features, a common approach is to use one-hot encoding where all possible values are mapped to columns, and the selected value results in the corresponding column to have a value 1. We can also directly handle categorical features by splitting a node using tests of the form A = v and A 6= v.\nTo use a decision tree, we start from the root slice (i.e., the entire dataset) and go down the decision tree to find the top-k problematic slices in a breadth-first traversal. The decision tree can be expanded one level at a time where each leaf node is split into two children that minimize impurity. The slices of each level are sorted by the \u227a ordering and then filtered based on whether they have large-enough effect sizes and are statistically significant. The details of the filtering are similar to lattice searching, which we describe in Section 3.1.3. The searching terminates when either k slices are found or there are no more slices to explore.\nThe decision tree approach has the advantage that it has a natural interpretation, since the leaves directly correspond to slices. In addition, if the decision tree only needs to be expanded a few levels to find the top-k problematic slices, then the slice searching can be efficient. On the other hand, the decision tree approach optimizes on the classification results and may not find all problematic slices according to Definition 1. For example, if some feature is split on the root node, then it will be difficult to find single-feature slices for other features. In addition, a decision tree always partitions the data, so even if there are two problematic slices that overlap, at most one of them will be found. Another downside is that, if a decision tree gets too deep with many levels, then it starts to become uninterpretable as well [22]."
+    },
+    {
+      "heading": "3.1.3 Lattice Searching",
+      "text": "The lattice searching approach considers a larger search space where the slices form a lattice, and problematic slices\nAlgorithm 1: Lattice Searching Algorithm Input : Lattice root R, max. number of slices to return k,\neffect size threshold T , significance level \u03b1 Output: Problematic slices S\n1 S = [] 2 C = PriorityQueue() /* candidates for\nsignificance testing sorted by \u227a */ 3 N = [] /* non-problematic slices */ 4 L = 1 /* number of literals */ 5 E = ExpandSlices({R}, L) /* expand root slice */ 6 W = \u03b1 /* initialize \u03b1 wealth */ 7 while True do 8 for slice \u2208 E do 9 if EffectSize(slice) \u2265 T then\n10 C.push(slice) 11 else 12 N .append(slice) 13 while C not empty do 14 slice = C.pop() 15 if IsSignificant(slice, W ) then 16 S.append(slice) 17 if |S| = k then 18 return S 19 W = UpdateWealth(W , 1) 20 else 21 N .append(slice) 22 W = UpdateWealth(W , 0) 23 L += 1 24 E = ExpandSlices(N , L) 25 if E is empty then 26 break 27 return S\ncan overlap with one another. We assume that slices only have equality literals, i.e., \u2227 i Fi = vi. In contrast to the decision tree training approach, lattice searching can be more expensive because it searches overlapping slices.\nFigure 2 illustrates how slices can be organized as a lattice. Lattice searching performs a breadth-first search and efficiently identifies problematic slices as shown in Algorithm 1. As a pre-processing step, Slice Finder takes the training data and discretizes numeric features. For categorical features that contain too many values (e.g., IDs are unique for each example), Slice Finder uses a heuristic where it considers up to the N most frequent values and places the rest into an \u201cother values\u201d bucket. The possible slices of these features form a lattice where a slice S is a parent of every S with one more literal.\nSlice Finder finds the top-k interpretable and large problematic slices sorted by the \u227a order by traversing the slice lattice in a breadth-first manner, one level at a time. Initially Slice Finder considers the slices that are defined with one literal. For each slice, Slice Finder checks if it has an effect size at least T (using the EffectSize function) and adds it to the priority queue C , which contains candidate slices that are sorted by the \u227a order. Next, Slice Finder pops slices from C and tests for statistical significance using the IsSignificant function. The testing can be done using \u03b1investing, which we discuss in Section 3.2. Sorting the slices in the middle of the process using C is important for the \u03b1-investing policy used by Slice Finder as we explain later.\nEach slice that has both a large enough effect size and\n6 is statistically significant is added to N and later expanded using the ExpandSlices function where we generate each new slice by adding a literal, only if the resulting slice is not subsumed by a previously-identified problematic slice. The intuition is that any subsumed (expanded) slice contains a subset of the examples of its parent and is smaller with more filter predicates (less interpretable); thus, we do not expand larger and already problematic slices. By starting from the slices whose predicates are single literals and expanding only non-problematic slices with one additional literal at a time (i.e., top-down search from lower order slices to higher order slices), we can generate a superset of all candidate slices. Depending on whether each slice satisfies the two conditions, Slice Finder updates the \u03b1-wealth accordingly using the UpdateWealth function (details on the updating strategy are discussed in Section 3.2).\nExample 2. Suppose there are three features A, B, and C with the possible values {a1}, {b1, b2}, and {c1}, respectively. Also say k = 2, and the effect size threshold is T . Initially, the root slice is expanded to the slices A = a1, B = b1, B = b2, and C = c1, which are inserted into E. Among them, suppose that only A = a1 has an effect size at least T while the others do not. Then A = a1 is added to C for significance testing while the rest are added to N . Next, A = a1 is popped from C and is tested for statistical significance. Suppose the slice is significant and is thus added to S. Since C is now empty, the slices in N are expanded to B = b1 \u2227 C = c1 and B = b2 \u2227 C = c1, which are not subsumed by the problematic slice A = a1. If B = b1 \u2227 C = c1 is larger and has both an effect size at least T and is statistically significant, then the final result is [A = a1, B = b1 \u2227 C = c1].\nThe following theorem formalizes the correctness of this algorithm for the slice-identification problem. The proof is a straightforward proof-by-contradiction and is omitted.\nTheorem 1. The Slice Finder slices identified by Algorithm 1 satisfy Definition 1."
+    },
+    {
+      "heading": "3.1.4 Scalability",
+      "text": "Slice Finder optimizes its search by expanding the filter predicate by one literal at a time. Unfortunately, this strategy does not solve the scalability issue of the data slicing problem completely, and Slice Finder could still search through an exponential number of slices, especially for large highdimensional data sets. To this end, Slice Finder also takes the following two approaches for speeding up search. Parallelization: For lattice searching, evaluating a given model on a large number of slices one-by-one (sequentially) can be very expensive. In particular, computing the effect sizes is the performance bottleneck. So instead, Slice Finder can distribute effect size evaluation jobs (lines 8\u201312 in Algorithm 1) by keeping separate priority queues Ed for the different number of literals d. The idea is that workers take slices from the current E in a round-robin fashion and evaluate them asynchronously; the workers push slices that have high effect sizes to the C priority queue (for hypothesis testing) as they finish evaluating the slices. The significance testing on the slices in C can be done by a single worker because the slices have already been filtered by effect size, and the significance testing can be done efficiently. In addition, the added memory and communication overheads\nare negligible compared to the time for computing the effect sizes. If C is empty, but |S| < k, Slice Finder moves onto the next queue Ed+1 and continues searching until |S| = k.\nFor DT, our current implementation does not support parallel learning algorithms for constructing trees. However, there exist a number of highly parallelizable learning processes for decision trees [23], which Slice Finder could implement to make DT more scalable. Sampling: Slice Finder can also scale by running on a sample of the entire dataset. The runtime of Slice Finder is proportional to the sample size, assuming that the runtime for the test model is constant for each example. By taking a sample, however, we also run the risk of false positives (non-problematic slices that appear problematic) and false negatives (problematic slices that appear non-problematic or completely disappear from the sample) due to a decreased number of examples. Since we are interested in large slices that are more impactful to model quality, we can disregard smaller false negatives that may have disappeared from the sample. In Section 5.5, we show that even for small sample sizes, most of the problematic slices can still be found. In Section 3.2, we perform significance testing to filter slices that falsely appear as problematic or non-problematic."
+    },
+    {
+      "heading": "3.2 False Discovery Control",
+      "text": "As Slice Finder finds more slices for testing, there is also the danger of finding more \u201cfalse positives\u201d (Type-1 errors), which are slices that are not statistically significant. Slice Finder controls false positives in a principled fashion using \u03b1-investing [20]. Given an \u03b1-wealth (overall Type I error rate) \u03b1, \u03b1-investing spends this over multiple comparisons, while increasing the budget \u03b1 towards the subsequent tests with each rejected hypothesis. This so called pay-out (increase in \u03b1) helps the procedure become less conservative and puts more weight on more likely to be faulty null hypotheses. More specifically, an alpha-investing rule determines the wealth for the next test in a sequence of tests. This effectively controls marginal false discovery rate at level \u03b1:\nE(V ) E(R) \u2264 \u03b1\nHere, V is the number of false discoveries andR the number of total discoveries returned by the procedure. Slice Finder uses \u03b1-investing, mainly because it allows more interactive multiple hypothesis error control with an unspecified number of tests in any order. On the contrary, more restricted multiple hypothesis error control techniques, such as Bonferroni correction and Benjamini-Hochberg procedure [10] fall short as they require the total number of tests m in advance or become too conservative as m grows large.\nWhile there are different \u03b1-investing policies [21] for testing a sequence of hypotheses, we use a policy called Bestfoot-forward. Recall our exploration strategy orders slices by decreasing slice size and effect size. As a result, the initial slices also tend to be statistically significant as well. The Best-foot-forward policy also assumes that many of the true discoveries are found early on and aggressively invests all \u03b1-wealth on each hypothesis instead of saving some for subsequent hypotheses.\n7 C\nD\nBA\nFig. 3: The Slice Finder GUI helps users quickly browse through problematic slices by effect size and slice size on a scatter plot (A) and see a slice summary by hovering over any point (B); the user can sort slices by any metric and select on the scatter plot or table view. The selections are highlighted on the linked views (C). The user can also explore the top-k large problematic slices by varying the effect size threshold using the slider (min eff size) on the bottom left corner (D)."
+    },
+    {
+      "heading": "3.3 Interactive Visualization Tool",
+      "text": "Slice Finder interacts with users through the GUI in Figure 3. A: On the left side is a scatter plot that shows the (size, effect size) coordinates of all slices. This gives an overview of the top-k problematic slices, which allows the user to quickly browse through large and also problematic slices and compare slices to each other. B: Whenever the user hovers a mouse over a dot, the slice description, size, effect size, and metric (e.g., log loss) are displayed next to it. If a set of slices are selected, their details appear on the table on the right-hand side, C: On the table view, the user can sort slices by any metrics on the table. On the bottom, D: Slice Finder provides configurable sliders for adjusting k and T . Slice Finder materializes all the problematic slices (\u03c6 \u2265 T ) as well as the non-problematic slices (\u03c6 < T ) searched already. If T decreases, we just need to reiterate the slices explored until now to find the top-k slices. If T increases, then the current slices may not be sufficient, depending on k, so we continue searching the slice tree or lattice. This interaction is possible because Slice Finder looks for the top-k slices in a top-down manner.\n4 USING Slice Finder FOR MODEL FAIRNESS In this section, we look at model fairness as a potential use case of Slice Finder where identifying problematic slices can be a preprocessing step before more sophisticated analyses on fairness on the slices. As machine learning models are increasingly used in sensitive applications, such as predicting whether individuals will default on loans [24], commit crime [25], or survive intensive hospital care [26], it is essential to make sure the model performs equally well for all demographics to avoid discrimination. However, models\nmay fail this property for various reasons: bias in data collection, insufficient data for certain slices, limitations in the model training, to name a few cases.\nModel fairness has various definitions depending on the application and is thus non-trivial to formalize [27]. While many metrics have been proposed [24], [28]\u2013[30], there is no widely-accepted standard, and some definitions are even at odds. In this paper, we focus on a relatively common definition, which is to find the data where the model performs relatively worse using some of these metrics, which fits into the Slice Finder framework.\nUsing our definition of fairness, Slice Finder can be used to quickly identify interpretable slices that have fairness issues without having to specify the sensitive features in advance. Here, we demonstrate how Slice Finder can be used to find any unfairness of the model with equalized odds [24]. Namely, we explain how our definition of a problematic slice using effect size also conforms to the definition of equalized odds. Slice Finder is also generic and supports any fairness metric that can be expressed as a scoring function. Any subsequent analysis of fairness on these slices can be done afterwards.\nEqualized odds requires a predictor Y\u0302 (e.g., a classification model h in our case) to be independent of protected or sensitive feature values A \u2208 {0, 1} (e.g., gender = Male or gender = Female) conditional on the true outcome Y [24]. In binary classification (y \u2208 {0, 1}), this is equivalent to:\nPr{Y\u0302 = 1|A = 0, Y = y} = Pr{Y\u0302 = 1|A = 1, Y = y}\nNotice that equalized odds is essentially matching true positive rates (tpr) in case of y = 1 or false negative rates (fnr) otherwise.\n8 Slice Finder can be used to identify slices where the model is potentially discriminatory; a machine learning practitioner can easily identify feature dimensions of the data, without having to manually consider all feature value pair combinations, on which a deeper analysis and potential model fairness adjustments are needed. The problematic slices with \u03c6 \u2265 T suffer from higher loss (lower model accuracy in case of log loss) compared to the counterparts. If one group is enjoying a better rate of accuracy over the other, then it is a good indication that the model is biased. Namely, accuracy is a weighted sum of tpr and fnr by their proportions, and thus, a difference in accuracy means there are differences in tpr and false positive rate (fpr = 1 \u2212 tpr), assuming there are any positive examples. As equalized odds requires matching tpr and fpr between the two demographics (a slice and its counterpart), Slice Finder using \u03c8 can identify slices to show that the model is potentially discriminatory. In case of the gender = Male slice above, we flag this as a signal for discriminatory model behavior because the slice is defined over a sensitive feature and has a high effect size.\nThere are other standards, but equalized odds ensures that the prediction is non-discriminatory with respect to a specified protected attribute (e.g., gender), without sacrificing the target utility (i.e., maximizing model performance) too much [24]."
+    },
+    {
+      "heading": "5 EXPERIMENTS",
+      "text": "In this section, we compare the two Slice Finder approaches (decision tree and lattice search) with the baseline (clustering). For the clustering approach, we use the k-means algorithm. We address the following key questions: \u2022 How accurate and efficient is Slice Finder? \u2022 What are the trade-offs between the slicing techniques? \u2022 What is the impact of adjusting the effect size thresh-\nold T ? \u2022 Are the identified slices interpretable enough to under-\nstand the model\u2019s performance? \u2022 How effective is false discovery control using \u03b1-\ninvesting?"
+    },
+    {
+      "heading": "5.1 Experimental Setup",
+      "text": "We used the following two problems with different datasets and models to compare how the three different slicing techniques \u2013 lattice search (LS), decision tree (DT), and clustering (CL) \u2013 perform in terms of recommended slice quality as well as their interpretability. \u2022 Census Income Classification: We trained a random forest\nclassifier (Example 1) to predict whether the income exceeds $50K/yr based on the UCI census data [31]. There are 15 features and 30K examples. \u2022 Credit Card Fraud Detection: We trained a random forest\nclassifier to predict fraudulent transactions among credit card transactions [32]. This dataset contains transactions that occurred over two days, where we have 492 frauds out of 284k transactions (examples), each with 29 features. Because the data set is heavily imbalanced, we first undersample non-fraudulent transactions to balance\nthe data. This leaves a total of 984 transactions in the balanced dataset. As we shall see, the two datasets \u2013 Census Income and Credit Card Fraud \u2013 have different characteristics and are thus useful for comparing the behaviors of the decision tree and lattice search algorithms. In addition, we also use a synthetic dataset when necessary. The main advantage of using synthetic data is that it gives us more insights into the operations of Slice Finder. In Sections 5.2\u20135.6, we assume that all slices are statistically significant for simplicity and separately evaluate statistical significance in Section 5.7. Accuracy Measure: Since problematic slices may overlap, we define precision to be the fraction of examples in the union of the slices identified by the algorithm being evaluated that also appear in actual problematic slices. Similarly, recall is defined as the fraction of the examples in the union of actual problematic slices that are also in the identified slices. Finally, accuracy is the harmonic mean of precision and recall."
+    },
+    {
+      "heading": "5.2 Problematic Slice Identification",
+      "text": "An important question to answer is whether Slice Finder can indeed find the most problematic slices, in the user\u2019s point of view. Unfortunately for the real datasets, we do not know what are the true problematic slices, which makes our evaluation challenging. Instead, we add new problematic slices by randomly perturbing labels and focus on finding those slices. While Slice Finder may find both new and existing problematic slices, our evaluation will only be whether Slice Finder finds the new problematic slices.\nWe first experiment on a synthetic dataset and compare the performances of LS, DT, and CL. We then experiment on the real datasets and show similar results."
+    },
+    {
+      "heading": "5.2.1 Synthetic Data",
+      "text": "We generate a simple synthetic dataset where the generated examples have two discretized features F1 and F2 and can be classified into two classes \u2013 0 and 1 \u2013 perfectly. We make the model use this decision boundary and do not change it further. Then we add problematic slices by choosing random possibly-overlapping slices of the form F1 = A, F2 = B, or F1 = A \u2227 F2 = B. For each slice, we flip the labels of the examples with 50% probability. Note that this perturbation results in the worst model accuracy possible.\nFigure 4(a) shows the accuracy comparison of LS, DT, and CL on synthetic data. As the number of recommendations increases, LS consistently has a higher accuracy than DT because LS is able to better pinpoint the problematic slices including overlapping ones while DT is limited in the sense that it only searches non-overlapping slices. For CL, we only evaluated the clusters with effect sizes at least T . Even so, the accuracy is much lower than those of LS and DT."
+    },
+    {
+      "heading": "5.2.2 Real Data",
+      "text": "We also perform a similar experiment using the Census Income dataset where we generate new problematic slices on top of the existing data by randomly choosing slices and flipping labels with 50% probability. Compared to the synthetic data, the existing data may also have problematic\n9 0 10 20 30 40 Numb. of Recommendations 0.0 0.2 0.4 0.6 0.8 1.0 Ac cu ra cy LS DT CL\n(a) Synthetic Data\n0 20 40 60 80 100 Numb. of Recommendations\n0.0\n0.2\n0.4\n0.6\n0.8\nAc cu\nra cy LS\nDT CL\n(b) Census Income Data\nFig. 4: Accuracy comparison of finding problematic slices using (a) synthetic data and (b) real data.\n2 4 6 8 10 Numb. of Recommendations\n0.0\n0.2\n0.4\n0.6\n0.8\nAv g.\nE ffe\nct S\nize\nLS DT CL\n(a) Census Income Data\n2 4 6 8 10 Numb. of Recommendations\n0.0\n0.1\n0.2\n0.3\n0.4\n0.5\nAv g.\nE ffe\nct S\nize\nLS DT CL\n(b) Credit Card Fraud Data\nFig. 5: Effect size comparisons between different data slicing approaches (T = 0.4).\nslices, which we do not evaluate because we do not know what they are. Figure 4(b) shows similar comparison results between LS, DT, and CL. The accuracies of LS and DT are lower than those in the synthetic data experiments because some of the identified slices may be problematic slices in the existing data, but are considered incorrect when evaluated."
+    },
+    {
+      "heading": "5.3 Large Problematic Slices",
+      "text": "Figures 5 and 6 show how LS and DT outperform CL in terms of average slice size and average effect size on the real datasets. CL starts with the entire dataset where the number of clusters (i.e., recommendations) is 1. CL produces large clusters that have very low effect sizes where the average is around 0.0 and sometimes even negative, which means some slices are not problematic. The CL results show that grouping similar examples does not necessarily guide users to problematic slices. In comparison, LS and DT find smaller slices with effect sizes above the threshold T = 0.4.\nLS and DT show different behaviors depending on the given dataset. When running on the Census Income data, both LS and DT are able to easily find up to k = 10 problematic slices with similar effect sizes. Since LS generally has a larger search space than DT where it also considers overlapping slices, it is able to find larger slices as a result. When running on the Credit Card Fraud data, DT has a harder time finding enough problematic slices. The reason is that DT initially finds a large problematic slice, but then needs to generate many levels of the decision tree to find additional problematic slices because it only considers non-overlapping slices. Since a decision tree is designed to partition data to minimize impurity, the slices found deeper\n2 4 6 8 10 Numb. of Recommendations\n5\n10\n15\n20\n25\n30\nAv g.\nSi ze\n(th ou\nsa nd\ns)\nLS DT CL\n(a) Census Income Data\n2 4 6 8 10 Numb. of Recommendations\n0.0\n0.2\n0.4\n0.6\n0.8\n1.0\nAv g.\nSi ze\n(th ou\nsa nd\ns)\nLS DT CL\n(b) Credit Card Fraud Data\nFig. 6: Average slice size (unit is 1000) comparisons between different data slicing approaches (T = 0.4).\ndown the tree tend to be smaller and \u201cpurer,\u201d which means the problematic ones have higher effect sizes. Lastly, DT could not find more than 7 problematic slices because the leaf nodes were too small to split further. These results show that, while DT may search a level of a decision tree faster than LS searching a level of a lattice, it may have to search more levels of the tree to make the same number of recommendations."
+    },
+    {
+      "heading": "5.4 Adjusting Effect Size Threshold T",
+      "text": "Figure 7 shows the impact of adjusting the effect size threshold T on LS and DT. For a low T value, there are more slices that can be problematic. Looking at the Census Income data, LS indeed finds larger slices than those found by DT, although they have relatively smaller effect sizes as a result. As T increases, LS is forced to search smaller slices that have high-enough effect sizes. Since LS still has a higher search space than DT, it does find slices with higher effect sizes when T is at least 0.4. The Credit Card Fraud data shows a rather different comparison. For small T values, recall that DT initially finds a large problematic slice, which means the average size is high, and the effect size small. As T increases, DT has to search many levels of the decision tree to find additional problematic slices. These additional slices are much smaller, which is why there is an abrupt drop in average slice size. However, the slices have higher effect sizes, which is why there is also a corresponding jump in the average effect size."
+    },
+    {
+      "heading": "5.5 Scalability",
+      "text": "We evaluate the scalabilities of LS and DT against different sample fractions, degree of parallelization, and the number of top-k slices to recommend. All experiments were performed on the Census Income dataset.\nFigure 8 shows how the runtimes of LS and DT change versus the sampling fraction. For both algorithms, the runtime increases almost linearly with the sample size. We also measure the relative accuracy of the two algorithms where we compare the slices found in a sample with the slices found in the full dataset. For a sample fraction of 1/128, both LS and DT maintain a high relative accuracy of 0.88. These results show that it is possible to find most of the problematic slices using a fraction of the data, about two orders of magnitude faster.\n10\nFigure 9(a) illustrates how Slice Finder can scale with parallelization. LS can distribute the evaluation (e.g., effect size computation) of the slices with the same number of filter predicates to multiple workers. As a result, for the full Census Income data, increasing the number of workers results in better runtime. Notice that the marginal runtime improvement decreases as we add more workers. The results for DT are not shown here because the current implementation does not support parallel DT model training.\nFigure 9(b) compares the runtimes of LS and DT when the number of top-k recommendations increase. For small k values less than 5, DT is faster because it searchers fewer slices to find k problematic ones. However, as k increases, DT needs to search through many levels of a decision tree and starts to run relatively slower than LS. Meanwhile, LS only searches the next level of the lattice if k is at least 70 at which point DT is again relatively faster. Thus, whether LS or DT is faster depends on k and how frequently problematic slices occur."
+    },
+    {
+      "heading": "5.6 Interpretability",
+      "text": "An important feature of Slice Finder is that it can find interpretable slices that can help a user understand and describe the model\u2019s behavior using a few common features. A user without Slice Finder may have to go through all the misclassified examples (or clusters of them) manually to see if the model is biased or failing.\nTable 2 shows top-5 problematic slices from the two datasets using LS and DT. Looking at the top-5 slices found by LS from the Census Income data, the slices are easy to interpret with a few number of common features. We see that the Marital Status = Married-civ-spouse slice has the largest size as well as a large effect size, which indicates that the model can be improved for this slice. It is also interesting to see that the model fails for the people who are husbands or wives, but not for other relationships: own-child, not-infamily, other-relative, and unmarried. We also see slices with high capital gains tend to be problematic in comparison to the common case where the value is 0. In addition, the top-5 slices found by DT from the Census Income data can also be interpreted in a straightforward way, although having more literals makes the interpretation more tedious. Finally, the top-5 slices from the Credit Card Fraud data are harder (but still reasonable) to interpret because many feature names are anonymized (e.g., V14)."
+    },
+    {
+      "heading": "5.7 False Discovery Control",
+      "text": "Even for a small data set (or sample), there can be an overwhelming number of problematic slices. The goal of\n11\nSlice # Literals Size Effect Size LS slices from Census Income data\nMarital Status = Married-civ-spouse 1 14065 0.58 Relationship = Husband 1 12463 0.52 Relationship = Wife 1 1406 0.46 Capital Gain = 3103 1 94 0.87 Capital Gain = 4386 1 67 0.94 DT slices from Census Income data Marital Status = Married-civ-spouse 1 14065 0.58 Marital Status 6= Married-civ-spouse\u2192 Capital Gain \u2265 7298\u2192 Capital Gain < 8614\u2192 Education-Num < 13 4 7 0.58 Marital Status 6= Married-civ-spouse\u2192 Capital Gain < 7298\u2192 Education-Num \u2265 13\u2192 Age \u2265 28 . . . 5 855 0.43 \u2192 Hours per week \u2265 44 Marital Status 6= Married-civ-spouse\u2192 Capital Gain < 7298\u2192 Education-Num \u2265 13\u2192 Age < 28 . . . 5 5 1.07 \u2192 Capital Loss \u2265 2231 Marital Status 6= Married-civ-spouse\u2192 Capital Gain < 7298\u2192 Education-Num \u2265 13\u2192 Age \u2265 28 . . . 6 101 0.47 \u2192 Hours per week < 44\u2192 Education-Num \u2265 15 LS slices from Credit Card Fraud data V14 = -3.69 \u2013 -1.00 2 98 0.45 V7 = 0.94 \u2013 23.48 \u2227 V10 = -2.16 \u2013 -0.87 3 29 0.41 V1 = 1.13 \u2013 1.74 \u2227 V25 = 0.48 \u2013 0.71 4 28 0.54 V7 = 0.94 \u2013 23.48 \u2227 Amount = 270.54 \u2013 4248.34 4 28 0.53 V10 = -2.16 \u2013 -0.87 \u2227 V17 = 0.92 \u2013 6.74 5 27 0.44 DT slices from Credit Card Fraud data V14 < \u22122.17\u2192 V10 \u2265 \u22121.52 2 31 0.60 V14 \u2265 \u22122.17\u2192 V4 \u2265 0.76\u2192 V12 < \u22120.42 3 59 0.48 V14 \u2265 \u22122.17\u2192 V4 < 0.76\u2192 V14 < \u22120.93\u2192 V2 < 1.04 4 23 0.42 V14 \u2265 \u22122.17\u2192 V4 < 0.76\u2192 V14 \u2265 \u22120.93\u2192 Amount \u2265 320 4 18 0.52 V14 \u2265 \u22122.17\u2192 V4 \u2265 0.76\u2192 V12 \u2265 \u22120.42\u2192 Amount \u2265 1\u2192 V17 \u2265 1.68 5 6 0.63\nTABLE 2: Top-5 slices found by LS and DT from the Census Income and Credit Card Fraud datasets. When denoting a slice from a decision tree, we use the\u2192 notation to order the literals by level.\nSlice Finder is to bring the user\u2019s attention to a handful of large problematic slices; however, if the sample size is small, most slices would contain fewer examples, and thus, it is likely that many slices and their effect size measures are seen by chance. In such a case, it is important to prevent false discoveries (e.g., non-problematic slices appear as problematic where \u03c6 \u2265 T due to sampling bias). For evaluation, we use the Census Income data and compare the results of Bonferroni correction (BF), the BenjaminiHochberg procedure (BH), and \u03b1-investing (AI) using two standard measures: false discovery rate, which was described in Section 5.7, and power [21], which is the probability that the tests correctly reject the null hypothesis.\nThe results in Figure 10 show that, as the \u03b1-value (or wealth when using AI) increases up to 0.01, AI and BH have higher FDR results than BH, but higher power results as well. When measuring the accuracy of slices, AI slightly outperforms both BH and BF because it invests its \u03b1more effectively using the Best-foot-forward policy. In comparison, BF is conservative and has a high false-discovery rate (which results in lower accuracy), and BH does not exploit the fact that the earlier slices are more likely to be problematic as AI does. The more important advantage of AI is that it is the only technique that works in an interactive setting."
+    },
+    {
+      "heading": "6 RELATED WORK",
+      "text": "In practice, the overall performance metrics can mask the issues on a more granular-level, and it is important to validate the model accordingly on smaller subsets/sub-populations of data (slices). While a well-known problem, the existing tools are still primitive in that they rely on domain experts to pre-define important slices. State-of-art tools for machine learning model validation include Facets [33], which can\nbe used to discover bias in the data, TensorFlow Model Analysis (TFMA), which slices data by an input feature dimension for a more granular performance analysis [6], and MLCube [5], which provides manual exploration of slices and can both evaluate a single model or compare two models. While the above tools are manual, Slice Finder complements them by automatically finding slices useful for model validation.\nThere are several other lines of work related to this problem, and we list the most relevant work to Slice Finder. Data Exploration: Online Analytical Processing (OLAP) has been tackling the problem of slicing data for analysis, and the techniques deal with the problem of large search space (i.e., how to efficiently identify data slices with certain properties). For example, Smart Drilldown [34] proposes an OLAP drill down process that returns the top-k most \u201cinteresting\u201d rules such that the rules cover as many records as possible while being as specific as possible. Intelligent rollups [35] goes the other direction where the goal is to find the broadest cube that share the same characteristics of a problematic record. In comparison, Slice Finder finds slices, on which the model underperforms, without having to evaluate the model on all the possible slices. This is different from general OLAP operations based on cubes with pre-summarized aggregates, and the OLAP algorithms cannot be directly used. Model Understanding: Understanding a model and its behavior is a broad topic that is being studied extensively [8], [9], [22], [36]\u2013[38]. For example, LIME [8] trains interpretable linear models on local data and random noise to see which feature are prominent. Anchors [9] are high-precision rules that provide local and sufficient conditions for a black-box model to make predictions. In comparison, Slice Finder is a complementary tool to provide part of the data where the\n12\nmodel is performing relatively worse than other parts. As a result, there are certain applications (e.g., model fairness) that benefit more from slices. PALM [7] isolates a small set of training examples that have the greatest influence on the prediction by approximating a complex model into an interpretable meta-model that partitions the training data and a set of sub-models that approximate the patterns within each pattern. PALM expects as input the problematic example and a set of features that are explainable to the user. In comparison, Slice Finder finds large, significant, and interpretable slices without requiring user input. Influence functions [39] have been used to compute how each example affects model behavior. In comparison, Slice Finder identifies interpretable slices instead of individual examples. An interesting research direction is to extend influence functions to slices and quantify the impact of slices on the overall model quality. Feature Selection: Slice Finder is a model validation tool, which comes after model training. It is important to note that this is different from feature selection [40], [41] in model training, where the goal is often to identify and (re-)train on the most correlated features (dimensions) to the target label (i.e., finding representative features that best explain model predictions). Instead, Slice Finder identifies a few common feature values that describe subsets of data with significantly high error concentration for a given model; this, in turn, could help the user to interpret hidden model performance issues that are masked by good overall model performance metrics."
+    },
+    {
+      "heading": "7 CONCLUSION",
+      "text": "We have proposed Slice Finder as a tool for efficiently and accurately finding large, significant, and interpretable slices. The techniques are relevant to model validation in general, but also to model fairness and fraud detection where human interpretability is critical to understand model behavior. We have proposed two complementing approaches for slice finding: decision tree training, which finds non-overlapping slices, and lattice searching, which finds possibly-overlapping slices. We also provide an interactive visualization front-end to help users quickly browse through a handful of problematic slices.\nIn the future, we would like to improve Slice Finder to better discretize numeric features and support the merging and summarization of slices. We would also like to deploy Slice Finder to production machine learning platforms and conduct a user study on how helpful the slices are for explaining and debugging models."
+    },
+    {
+      "heading": "ACKNOWLEDGMENTS",
+      "text": "Steven Euijong Whang and Ki Hyun Tae were supported by a Google AI Focused Research Award and by the Engineering Research Center Program through the National Research Foundation of Korea (NRF) funded by the Korean Government MSIT (NRF-2018R1A5A1059921)."
+    }
+  ],
+  "title": "Automated Data Slicing for Model Validation: A Big data - AI Integration Approach",
+  "year": 2019
+}

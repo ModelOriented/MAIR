@@ -1,0 +1,600 @@
+{
+  "abstractText": "Predicting compound-protein affinity is critical for accelerating drug discovery. Recent progress made by machine learning focuses on accuracy but leaves much to be desired for interpretability. Through molecular contacts underlying affinities, our large-scale interpretability assessment finds commonly-used attention mechanisms inadequate. We thus formulate a hierarchical multi-objective learning problem whose predicted contacts form the basis for predicted affinities. We further design a physicsinspired deep relational network, DeepRelations, with intrinsically explainable architecture. Specifically, various atomic-level contacts or \u201crelations\u201d lead to molecular-level 1 ar X iv :1 91 2. 12 55 3v 1 [ qbi o. B M ] 2 9 D ec 2 01 9 affinity prediction. And the embedded attentions are regularized with predicted structural contexts and supervised with partially available training contacts. DeepRelations shows superior interpretability to the state-of-the-art: without compromising affinity prediction, it boosts the AUPRC of contact prediction 9.5, 16.9, 19.3 and 5.7-fold for the test, compound-unique, protein-unique, and both-unique sets, respectively. Our study represents the first dedicated model development and systematic model assessment for interpretable machine learning of compound-protein affinity.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Mostafa Karimi"
+    },
+    {
+      "affiliations": [],
+      "name": "Di Wu"
+    },
+    {
+      "affiliations": [],
+      "name": "Zhangyang Wang"
+    },
+    {
+      "affiliations": [],
+      "name": "Yang Shen"
+    }
+  ],
+  "id": "SP:5b6184ce19fd7db4704e3f1ee45552cee7e9882f",
+  "references": [
+    {
+      "authors": [
+        "R. Santos",
+        "O. Ursu",
+        "A. Gaulton",
+        "A.P. Bento",
+        "R.S. Donadi",
+        "C.G. Bologa",
+        "A. Karlsson",
+        "B. Al-Lazikani",
+        "A. Hersey",
+        "T. I Oprea"
+      ],
+      "title": "A comprehensive map of molecular drug targets",
+      "venue": "Nature reviews Drug discovery 2017,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "R.S. Bohacek",
+        "C. McMartin",
+        "W.C. Guida"
+      ],
+      "title": "The art and practice of structure-based drug design: A molecular modeling perspective",
+      "venue": "Medicinal Research Reviews 1996,",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "E.A. Ponomarenko",
+        "E.V. Poverennaya",
+        "E.V. Ilgisonis",
+        "M.A. Pyatnitskiy",
+        "A.T. Kopylov",
+        "V.G. Zgoda",
+        "A.V. Lisitsa",
+        "A.I. Archakov"
+      ],
+      "title": "The Size of the Human Proteome: The Width and Depth",
+      "venue": "Int J Anal Chem 2016,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "R Aebersold"
+      ],
+      "title": "How many human proteoforms are there",
+      "venue": "Nat. Chem. Biol. 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "I. Wallach",
+        "M. Dzamba",
+        "A. Heifets"
+      ],
+      "title": "AtomNet: a deep convolutional neural network for bioactivity prediction in structure-based drug discovery",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "J. Gomes",
+        "B. Ramsundar",
+        "E.N. Feinberg",
+        "V.S. Pande"
+      ],
+      "title": "Atomic convolutional networks for predicting protein-ligand binding affinity",
+      "venue": "arXiv preprint",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J. Jim\u00e9nez",
+        "M. \u0160kali\u010d",
+        "G. Mart\u0301\u0131nez-Rosell",
+        "G. De Fabritiis"
+      ],
+      "title": "KDEEP: ProteinLigand Absolute Binding Affinity Prediction via 3D-Convolutional Neural Networks",
+      "venue": "Journal of Chemical Information and Modeling 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "W. Torng",
+        "R.B. Altman"
+      ],
+      "title": "Graph Convolutional Neural Networks for Predicting DrugTarget Interactions",
+      "venue": "Journal of Chemical Information and Modeling 2019,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Karimi",
+        "D. Wu",
+        "Z. Wang",
+        "Y. Shen"
+      ],
+      "title": "DeepAffinity: Interpretable Deep Learning of Compound-Protein Affinity through Unified Recurrent and Convolutional Neural Networks",
+      "venue": "arXiv preprint",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "H. \u00d6zt\u00fcrk",
+        "A. \u00d6zg\u00fcr",
+        "E. Ozkirimli"
+      ],
+      "title": "DeepDTA: deep drug\u2013target binding affinity prediction",
+      "venue": "Bioinformatics 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Q. Feng",
+        "E.V. Dueva",
+        "A. Cherkasov",
+        "M. Ester"
+      ],
+      "title": "PADME: A Deep Learning-based Framework for Drug-Target Interaction Prediction",
+      "venue": "CoRR",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "K.Y. Gao",
+        "A. Fokoue",
+        "H. Luo",
+        "A. Iyengar",
+        "S. Dey",
+        "P. Zhang"
+      ],
+      "title": "Interpretable Drug Target Prediction",
+      "venue": "Using Deep Neural Representation. IJCAI",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "X. Li",
+        "X. Yan",
+        "Q. Gu",
+        "H. Zhou",
+        "D. Wu",
+        "J. Xu"
+      ],
+      "title": "DeepChemStable: Chemical Stability Prediction with an Attention-Based Graph Convolution Network",
+      "venue": "Journal of chemical information and modeling 2019,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M.R. Uddin",
+        "S. Mahbub",
+        "M.S. Rahman",
+        "M.S. Bayzid"
+      ],
+      "title": "SAINT: Self-Attention Augmented Inception-Inside-Inception Network Improves Protein Secondary Structure Prediction",
+      "venue": "bioRxiv",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. McCloskey",
+        "A. Taly",
+        "F. Monti",
+        "M.P. Brenner",
+        "L.J. Colwell"
+      ],
+      "title": "Using attribution to decode binding mechanism in neural network models for chemistry",
+      "venue": "Proceedings of the National Academy of Sciences",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Bahdanau",
+        "K. Cho",
+        "Y. Bengio"
+      ],
+      "title": "Neural machine translation by jointly learning to align and translate",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "J. Lu",
+        "J. Yang",
+        "D. Batra",
+        "D. Parikh"
+      ],
+      "title": "Hierarchical question-image co-attention for visual question answering",
+      "venue": "Advances In Neural Information Processing Systems",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "K. Xu",
+        "J. Ba",
+        "R. Kiros",
+        "K. Cho",
+        "A. Courville",
+        "R. Salakhudinov",
+        "R. Zemel",
+        "Y. Bengio"
+      ],
+      "title": "Show, attend and tell: Neural image caption generation with visual attention",
+      "venue": "International conference on machine learning",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "E. Choi",
+        "M.T. Bahadori",
+        "J. Sun",
+        "J. Kulas",
+        "A. Schuetz",
+        "W. Stewart"
+      ],
+      "title": "Retain: An interpretable predictive model for healthcare using reverse time attention mechanism",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Das",
+        "H. Agrawal",
+        "L. Zitnick",
+        "D. Parikh",
+        "D. Batra"
+      ],
+      "title": "Human attention in visual question answering: Do humans and deep networks look at the same regions",
+      "venue": "Computer Vision and Image Understanding 2017,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "F. Doshi-Velez",
+        "B. Kim"
+      ],
+      "title": "Towards A Rigorous Science of Interpretable Machine Learning",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "K. Dill",
+        "S. Bromberg"
+      ],
+      "title": "Molecular driving forces: statistical thermodynamics in biology, chemistry, physics, and nanoscience",
+      "venue": "Garland Science,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "M.K. Gilson",
+        "H.-X. Zhou"
+      ],
+      "title": "Calculation of protein-ligand binding affinities",
+      "venue": "Annu. Rev. Biophys. Biomol. Struct. 2007,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "A.M. Brzozowski",
+        "A.C. Pike",
+        "Z. Dauter",
+        "R.E. Hubbard",
+        "T. Bonn",
+        "O. Engstr\u00f6m",
+        "L. \u00d6hman",
+        "G.L. Greene",
+        "J.-\u00c5. Gustafsson",
+        "M. Carlquist"
+      ],
+      "title": "Molecular basis of agonism and antagonism in the oestrogen receptor",
+      "venue": "Nature",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "M. Congreve",
+        "C.W. Murray",
+        "T.L. Blundell"
+      ],
+      "title": "Keynote review: Structural biology and drug discovery",
+      "venue": "Drug discovery today 2005,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "A. Wlodawer",
+        "J. Vondrasek"
+      ],
+      "title": "Inhibitors of HIV-1 protease: a major success of structureassisted drug design. Annual review of biophysics and biomolecular structure",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "A. Brik",
+        "C.-H. Wong"
+      ],
+      "title": "HIV-1 protease: mechanism and drug discovery",
+      "venue": "Organic & biomolecular chemistry 2003,",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "F. Yang",
+        "M. Du",
+        "X. Hu"
+      ],
+      "title": "Evaluating explanation without ground truth in interpretable machine learning",
+      "year": 1907
+    },
+    {
+      "authors": [
+        "A. Santoro",
+        "D. Raposo",
+        "D.G. Barrett",
+        "M. Malinowski",
+        "R. Pascanu",
+        "P. Battaglia",
+        "T. Lillicrap"
+      ],
+      "title": "A simple neural network module for relational reasoning",
+      "venue": "Advances in neural information processing systems",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Lu",
+        "R. Krishna",
+        "M. Bernstein",
+        "L. Fei-Fei"
+      ],
+      "title": "Visual relationship detection with language priors",
+      "venue": "European Conference on Computer Vision",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "P. Battaglia",
+        "R. Pascanu",
+        "M. Lai",
+        "D. J Rezende"
+      ],
+      "title": "Interaction networks for learning about objects, relations and physics",
+      "venue": "Advances in neural information processing systems",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Hoshen",
+        "Y. Vain"
+      ],
+      "title": "Attentional multi-agent predictive modeling",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "T. Liu",
+        "Y. Lin",
+        "X. Wen",
+        "R.N. Jorissen",
+        "M.K. Gilson"
+      ],
+      "title": "BindingDB: a web-accessible database of experimentally determined protein\u2013ligand binding affinities",
+      "venue": "Nucleic acids research 2006,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "P.A. Thiessen",
+        "B Yu"
+      ],
+      "title": "PubChem 2019 update: improved access to chemical data",
+      "venue": "Nucleic acids research 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "H.M. Berman",
+        "J. Westbrook",
+        "Z. Feng",
+        "G. Gilliland",
+        "T.N. Bhat",
+        "H. Weissig",
+        "I.N. Shindyalov",
+        "P.E. Bourne"
+      ],
+      "title": "The protein data bank",
+      "venue": "Nucleic acids research",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "J. lo\u0144ska",
+        "L. Pravda",
+        "R.S. Va\u0159ekov\u00e1",
+        "J.M. Thornton"
+      ],
+      "title": "PDBsum: Structural summaries of PDB entries",
+      "venue": "Protein Science 2018,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Cheng",
+        "A.Z. Randall",
+        "M.J. Sweredoski",
+        "P. Baldi"
+      ],
+      "title": "SCRATCH: a protein structure and structural feature prediction server",
+      "venue": "Nucleic acids research 2005,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "C.N. Magnan",
+        "P. Baldi"
+      ],
+      "title": "SSpro/ACCpro 5: almost perfect prediction of protein secondary structure and relative solvent accessibility using profiles, machine learning and structural similarity",
+      "venue": "Bioinformatics 2014,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "S. Wang",
+        "S. Sun",
+        "Z. Li",
+        "R. Zhang",
+        "J. Xu"
+      ],
+      "title": "Accurate de novo prediction of protein contact map by ultra-deep learning model",
+      "venue": "PLoS computational biology 2017,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "I. Lee",
+        "J. Keum",
+        "H. Nam"
+      ],
+      "title": "DeepConv-DTI: Prediction of drug-target interactions via deep learning with convolution on protein sequences",
+      "venue": "PLoS computational biology 2019,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "T.H. Trinh",
+        "A.M. Dai",
+        "M.-T. Luong",
+        "Q.V. Le"
+      ],
+      "title": "Learning longer-term dependencies in rnns with auxiliary losses",
+      "venue": "arXiv preprint",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "T.N. Kipf",
+        "M. Welling"
+      ],
+      "title": "Semi-supervised classification with graph convolutional networks",
+      "venue": "arXiv preprint",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "K. Xu",
+        "W. Hu",
+        "J. Leskovec",
+        "S. Jegelka"
+      ],
+      "title": "How powerful are graph neural networks",
+      "venue": "arXiv preprint",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "B. Weisfeiler",
+        "A.A. Lehman"
+      ],
+      "title": "A reduction of a graph to a canonical form and an algebra arising during this reduction",
+      "venue": "Nauchno-Technicheskaya Informatsia 1968,",
+      "year": 1968
+    },
+    {
+      "authors": [
+        "Z. Yang",
+        "D. Yang",
+        "C. Dyer",
+        "X. He",
+        "A. Smola",
+        "E. Hovy"
+      ],
+      "title": "Hierarchical attention networks for document classification",
+      "venue": "Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Z. Wang",
+        "S. Chang",
+        "Y. Yang",
+        "D. Liu",
+        "T.S. Huang"
+      ],
+      "title": "Studying very low resolution recognition using deep networks",
+      "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "text": "Predicting compound-protein affinity is critical for accelerating drug discovery. Recent progress made by machine learning focuses on accuracy but leaves much to be desired for interpretability. Through molecular contacts underlying affinities, our large-scale interpretability assessment finds commonly-used attention mechanisms inadequate. We thus formulate a hierarchical multi-objective learning problem whose predicted contacts form the basis for predicted affinities. We further design a physicsinspired deep relational network, DeepRelations, with intrinsically explainable architecture. Specifically, various atomic-level contacts or \u201crelations\u201d lead to molecular-level\nar X\niv :1\naffinity prediction. And the embedded attentions are regularized with predicted structural contexts and supervised with partially available training contacts. DeepRelations shows superior interpretability to the state-of-the-art: without compromising affinity prediction, it boosts the AUPRC of contact prediction 9.5, 16.9, 19.3 and 5.7-fold for the test, compound-unique, protein-unique, and both-unique sets, respectively. Our study represents the first dedicated model development and systematic model assessment for interpretable machine learning of compound-protein affinity."
+    },
+    {
+      "heading": "Introduction",
+      "text": "Current drug-target interactions are predominantly represented by the interactions between small-molecule compounds as drugs and proteins as targets.1 The enormous chemical space to screen compounds is estimated to contain 1060 drug-like compounds.2 And these compounds act in biological systems of millions or more protein species or \u201cproteoforms\u201d (considering genetic mutations, alternative splicing, and post-translation modifications of proteins).3,4 Facing such a combinatorial explosion of compound-protein pairs, drug discovery calls for efficient characterization of compound efficacy and toxicity, and computational prediction of compound-protein interactions (CPI) addresses the need.\nRecently computational CPI prediction has made major progress beyond predicting whether compounds and proteins interact. Indeed, thanks to increasingly abundant molecular data and advanced deep-learning techniques, compound-protein affinity prediction is reaching unprecedented accuracy, with inputs of compound-protein structures,5\u20137 compound identities (such as SMILES and graphs) and protein structures (see a relevant problem of binding classification8,9), or even just compound-protein identities.10\u201312 As previously summarized,10 structure-based affinity-prediction methods are limited in applicability due to the often-unavailable structures of compound-protein pairs or even proteins alone, whereas structure-free methods, being broadly applicable, could be limited in interpretability.\nInterpretability remains a major gap between the capability of current compound-affinity\npredictors and the demand of rational drug discovery. The central question about interpretability is whether and how methods (including machine learning models) could explain why they make certain predictions (affinity level for any compound-protein pair in our context). This important topic is rarely addressed for affinity prediction. DeepAffinity10 has embedded joint attentions over compound-protein component pairs and uses such joint attentions to assess origins of affinities (binding sites) or specificities. Additionally, attention mechanisms have been used for predictions of CPI,13 chemical stability14 and protein secondary structures.15 Assessment of interpretability for all these studies was either lacking or limited to few case studies. We note a recent work proposing post-hoc attribution-based test to determine whether a model learns binding mechanisms.16\nWe raise reasonable concerns on how much attention mechanisms can reproduce natural contacts in compound-protein interactions. Attention mechanisms were originally developed to boost the performance of seq2seq models for neural machine translations.17 And they have gained popularity for interpreting deep learning models in visual question answering,18 natural language processing19 and healthcare.20 However, they were also found to work differently from human attentions in visual question answering.21\nRepresenting the first effort dedicated to interpretability of compound-protein affinity predictors, our study is focused on how to define, assess, and enhance such interpretability as follows.\nHow to define interpretability for affinity prediction. Interpretable machine learning is increasingly becoming a necessity22 for fields beyond drug discovery. Unlike interpretability in a generic case,22 what interpretability actually means and how it should be evaluated is much less ambiguous for compound-protein affinity prediction. So that explanations conform with scientific knowledge, human understanding, and drug-discovery needs, we define interpretability of affinity prediction as the ability to explain predicted affinity through underlying atomic interactions (or contacts). Specifically, atomic contacts of various types are known to constitute the physical basis of intermolecular interactions,23 modeled in force fields\nto estimate interaction energies,24 needed to explain mechanisms of actions for drugs,25,26 and relied upon to guide structure-activity research in drug discovery.27,28 We emphasize that simultaneous prediction of affinity and contacts does not necessarily make the affinity predictors intrinsically interpretable unless predicted contacts form the basis for predicted affinities.\nHow to assess interpretability for affinity prediction. Once interpretability of affinity predictors is defined through atomic contacts, it can be readily assessed against ground truth known in compound-protein structures, which overcomes the barrier for interpretable machine learning without ground truth.29 In our study, we have curated a dataset of compoundprotein pairs, all of which are labeled with Kd values and some of which with contact details; and we have split them into training, test, compound-unique, protein-unique, and both-unique (or double-unique) sets. We measure the accuracy of contact prediction over various sets using area under the precision-recall curve (AUPRC) which is suitable for binary classification (contacts/non-contacts) with imbalanced classes (far less contacts than non-contacts). We have performed large-scale assessments of attention mechanisms in various molecular data representations (protein amino-acid sequences and structure-property annotated sequences10 as well as compound SMILES and graphs) and corresponding neural network architectures (convolutional and recurrent neural networks [CNN and RNN] as well as graph convolutional and isomorphism networks [GCN and GIN]). And we have found that current attention mechanisms inadequate for interpretable affinity prediction, as their AUPRCs were merely 50% more than chance.\nHow to enhance interpretability for affinity prediction. We have made three main contri-\nbutions to enhance interpretability.\nThe first contribution, found to be the most impactful, is to design intrinsic explainability into the architecture of a deep \u201crelational\u201d network. Inspired by physics, we explicitly model and learn various types of atomic interactions (or \u201crelations\u201d) through deep neural networks and embed attentions at the levels of residue-atom pairs and relation types. This was\nmotivated by relational neural networks first introduced to learn to reason in computer vision30,31 and subsequent interaction networks to learn the relations and interactions of complex objects and their dynamics.32,33 Moreover, we combine such deep relational modules in hierarchy to progressively focus attention from putative protein surfaces, binding-site kmers and residues, to putative residue-atom binding pairs.\nThe second contribution is to incorporate physical constraints into data representations, model architectures, and model training. (1) To respect the sequence nature of protein inputs and to overcome the computational bottlenecks of RNNs, inspired by protein folding principles, we represent protein sequences as hierarchical k-mers and model them with hierarchical attention networks (HANs). (2) To respect the structural contexts of proteins, we predict from protein sequences solvent exposure over residues and contact maps over residue pairs; and we introduce novel structure-aware regularizations for structured sparsity of model attentions.\nThe third contribution is to supervise attentions with partially available contact data and train models accordingly. For interpretable and accurate affinity prediction, we have formulated a hierarchical multi-objective optimization problem where contact predictions form the basis for affinity prediction. We utilize contact data available to a minority (around 7.5%) of training compound-protein pairs and design hierarchical training strategies accordingly.\nThe rest of the paper is organized as follows. The aforementioned contributions in defining, measuring, and enhancing intepretable affinity prediction will be detailed in Methods. In Results, compared to state-of-the-art first, the resulting framework of DeepRelations is found to drastically boost interpretability robustly over default test, protein-unique, compoundunique, and double-unique sets, without sacrificing accuracy. Ablation studies then reveal the most contributing methodological contribution \u2014 the intrinsically explainable model architecture of our deep \u201crelational\u201d networks. Case studies provide further insights into the pattern of interpreted contacts."
+    },
+    {
+      "heading": "Methods",
+      "text": "Toward genome-wide prediction of compound-protein interactions (CPI), we assume that proteins are only available in 1D amino-acid sequences, whereas compounds are available in 1D SMILES or 2D chemical graphs. We start the section with the curation of a dataset of compound-protein pairs with known pKd values, a subset of which is of known intermolecular contacts. We will introduce the state-of-the-art and our newly-adopted neural networks to predict from such molecular data. These neural networks will be first adopted in our previous framework of DeepAffinity10 (supervised learning with joint attention) so that the interpretability of attention mechanisms can be systematically assessed in CPI prediction. We will then describe our physics-inspired, intrinsically explainable architecture of deep relational networks where aforementioned neural networks are used as basis models. With carefully designed regularization terms, we will explain multi-stage deep relational networks that increasingly focus attention on putative binding-site k-mers, binding-site residues, and residue-atom interactions, for the prediction and interpretation of compound-protein affinity. We will also explain how the resulting model can be trained using compound-protein pairs with affinity values but not necessarily with atomic interaction details."
+    },
+    {
+      "heading": "Curation of a CPI Relational Benchmark Set",
+      "text": "We have previously curated affinity-labeled compound-protein pairs10 based on BindingDB.34 The compound data were in the format of canonical SMILES as provided in PubChem35 and the protein data are in the format of FASTA sequences. In this study, we used those data with amino-acid sequences no more than 300 from the pKd-labeled set, 10 which corresponds to 1,926 compound-protein pairs. We also converted SMILES to graphs with RDKit.36\nThe pKd-labeled data only shows the affinity strength between proteins and compounds, but it lacks the details on where and how the pairs interact. We have thus curated a subset of the pKd-labeled data with atomic-level intermolecular contacts (or \u201crelations\u201d) derived from\ncompound-protein co-crystal structures in PDB,37 as ground truth for the interpretablity of affinity prediction. Specifically, we cross-referenced aforementioned compound-protein pairs in PDBsum38 and used its LigPlot service to collect high-resolution atomic contacts or relations. These relations are given in the form of contact types (hydrogen bond or hydrophobic contact), atomic pairs, and atomic distances.\nThe resulting dataset of 1,926 pKd-labeled compound-protein pairs (including 144 pairs with atomic-contact data) corresponds to 137 proteins and 1,376 compounds. We randomly split them into four folds where fold 1 do not overlap with fold 2 in compounds, do not do so with fold 3 in proteins, and do not do so with fold 4 in either compounds or proteins. Folds 2, 3, and 4 are referred to as compound-unique, protein-unique, and double unique sets for generalization tests; and they contain 201(19), 191(14), and 192(10) compound pairs (including those with contact details in the parentheses). Fold 1 was randomly split into training (70%) and test (30%) sets where 10% of the training set was set aside as the validation or development set. The training (including validation) and test sets contain 974(74) and 368(27) compound-protein pairs (with contact details). The split of the whole dataset is illustrated in Figure 1 below.\nAlthough monomer structures of proteins are often unavailable, their structural features can be predicted from protein sequences alone with reasonable accuracy. We have predicted the secondary structure and solvent accessibility of each residue using the latest SCRATCH39,40 and contact maps for residue pairs using RaptorX-contact.41 These data provide additional structural information to regularize our machine learning models. If protein structures are available, actual rather than predicted such data can be used instead."
+    },
+    {
+      "heading": "Data Representation and Corresponding Basis Neural Networks",
+      "text": "Baseline: CNN and RNN for 1D protein and compound sequences.\nWhen molecular data are given in 1D sequences, these inputs are often processed by convolutional neural networks (CNN)11,42 and by recurrent neural networks (RNN) that are more\nprotein-unique, and double unique sets with compound-protein counts provided (including\nthose with contact details in parentheses).\nsuitable for sequence data with long-term interactions.10\nChallenges remain in RNN for compound strings or protein sequences. For compounds in SMILES strings, the descriptive power of such strings can be limited. In this study, we overcome the challenge by representing compounds in chemical formulae (2D graphs) and using two types of graph neural networks (GNN). For proteins in amino-acid sequences, the often-large lengths demand deep RNNs that are hard to be trained effectively (gradient vanishing or exploding and non-parallel training).43 We previously overcame the second challenge by predicting structure properties from amino-acid sequences and representing proteins as a much shorter structure property sequences where each 4-letter tuple corresponds to a secondary structure.10 This treatment however limits the resolution of interpretability to be at the level of protein secondary structures (multiple neighboring residues) rather than individual residues. In this study, we overcome the second challenge while achieving residue-level interpretability by using biologically-motivated hierarchical RNN (HRNN)."
+    },
+    {
+      "heading": "Proposed: GCN and GIN for 2D compound graphs.",
+      "text": "Compared to 1D SMILES strings, chemical formulae (2D graphs) of compounds have more descriptive power and are increasingly used as inputs to predictive models.10,12\u201314,44 In this study, compounds are represented as 2D graphs in which vertices are atoms and edges are covalent bonds between atoms. Suppose that n is the maximum number of atoms in our compound set (compounds with smaller number of atoms are padded to reach size n). Let\u2019s consider a graph G = (V ,X , E ,A), where V = {vj}nj=1 is the set of n vertices (each with dg features), X \u2208 Rn\u00d7dg that of vertex features, E that of edges, and A \u2208 {0, 1}n\u00d7n is unweighted symmetric adjacency matrix. Let A\u0302 = A + I and D\u0302 be the degree matrix (the diagonals of A\u0302).\nWe used Graph Convolutional Network (GCN)45 and Graph Isomorphism Network (GIN)46\nwhich are the state of art for graph embedding and inference. GCN consists of multiple layers and at layer l the model can be written as:\nH(l) = ReLU(D\u0302\u2212 1 2 A\u0302D\u0302\u2212 1 2H(l\u22121)\u0398(l)), (1)\nwhere H(l) \u2208 Rn\u00d7d (l) g is the output, \u0398(l) \u2208 Rd (l\u22121) g \u00d7d (l) g the trainable parameters, and d (l) g the number of features, all at layer l. Initial conditions (when l = 0) are H(0) = X and d(0)g = dg.\nGIN is the most powerful graph neural network in theory: its discriminative or representational power is equal to that of the Weisfeiler-Lehman graph isomorphism test.47 Similar to GCN, GIN consists of multiple layers and at layer l the model can be written as a multi-layer perceptron (MLP):\nH(l) = MLP(l)(A\u0304(l) H(l\u22121)), (2)\nwhere A\u0304(l) = A+ (l)I, (l) can be either a trainable parameter or a fixed hyper-parameter. Each GIN layer has several nonlinear layers compared to GCN layer with just a ReLU per layer, which might improve predictions but suffer in interpretability.\nThe final representation for a compound is Y = H(L) if GCN or GIN has L layers. In\nthis study, vertex features are as in,14 with few additional features detailed later for physicsinspired relational modules.\nProposed: HRNN for 1D protein sequences.\nWe aim to keep the use of RNN that respects the sequence nature of protein data and mitigate the difficulty of training RNN for long sequences. To that end, inspired by the hierarchy of protein structures, we model protein sequences using hierarchical attention networks (HANs). Specifically, during protein folding, sequence segments may fold separately into secondary structures and the secondary structures can then collectively pack into a tertiary structure needed for protein functions. We exploit such hierarchical nature by representing a protein sequence of length easily in thousands as tens or hundreds of k-mers (consecutive sequence segments) of length k (k = 15 in this study). Accordingly we process the hierarchical data with hierarchical attention networks (HANs)48 which have been proposed for natural language processing. We also refer to it as hierarchical RNN (HRNN).\nGiven a protein sequence x with maximum length m (shorter sequences are padded to reach length m) partitioned into T groups of k-mers, we use two types of RNNs (specifically, LSTMs here) in hierarchy for modeling within and across k-mers. We first use an embedding layer to represent the ith residue in tth k-mer as a vector xit. And we use a shared LSTM for all k-mers for the latent representation of the residue: hit = LSTM(xit) (t = 1, . . . , T ). We then summarize each k-mer as kt with an intra-k-mer attention mechanism:\nuit = v1tanh(\u03981hit + b1) \u2200 i, t u\u2032it = exp(uit)\u2211 i\u2032 exp(ui\u2032t) \u2200 i, t\nkt = \u2211 i u\u2032ithit \u2200 t\n(3)\nThen we use another LSTM for for kt and reach ht = LSTM(kt) (t = 1, . . . , T ).\nThe final representation for a protein sequence is the collection of ht.\nJoint attention over protein-compound atomic pairs for interpretability.\nOnce the representation of protein sequences (ht where t = 1, . . . , T is the index of protein k-mer) and that of compound sequences or graphs (yj where j = 1, . . . , n is the index of compound atom) are defined, they are processed with a joint k-mer\u2013atom attention mechanism to interpret any downstream prediction:\nNtj = tanh(ht\u03982yj) \u2200 t, j\nW \u2032tj = exp(Ntj)\u2211\nt\u2032,j\u2032 exp(Nt\u2032j\u2032) \u2200 t, j\n(4)\nWith W \u2032tj, the joint attention between the tth k-mer and the jth atom, we can combine it with the intra-k-mer attention over each residue i in the tth k-mer and reach Wij, the joint attention between the ith protein residue and the jth compound atom:\nWij = u\u2032itW \u2032tj \u2200 i, j (5)\nThis joint attention mechanism is an extension of our previous work10 where a protein sequence was represented as a single, \u201cflat\u201d RNN rather than multiple, hierarchical RNNs."
+    },
+    {
+      "heading": "DeepRelations",
+      "text": ""
+    },
+    {
+      "heading": "Overall architecture.",
+      "text": "We have developed an end-to-end \u201cby-design\u201d interpretable architecture named DeepRelations for joint prediction and interpretation of compound-protein affinity. The overall architecture is shown in Figure 2.\nThere are three relational modules (Rel-CPI) corresponding to three stages. Their attentions are trained to progressively focus on putative binding k-mers, residues, and pairs; and earlier-stage attentions guide those in the next stage through regularization. In each Rel-CPI module, there are six types of atomic \u201crelations\u201d or interactions (including elec-\ntrostaics as the non-negative linear combination of four sub-types). And each (sub)type of relation is modelled by aforementioned neural network pairs with joint attentions. For instance, the first Rel-CPI uses HRNN-GCN (HRNN for protein sequences and GCN for compound graphs) and the next two use CNN-GCN (dilated causal CNN for proteins and GCN for compounds). And the non-negative linear combination of six individual relations\u2019 attention matrices Wi (where i corresponds to the six relation types) gives the overall joint attention matrix Wfinal (or W in short) in each module."
+    },
+    {
+      "heading": "Physics-inspired relational modules",
+      "text": "The relational modules are inspired by physics. Specifically, atomic \u201crelations\u201d or interactions constitute the physical bases and explanations of compound-protein interaction affinities and are often explicitly modelled in force fields. We have considered the following six types relations with attentions paid on and additional input data defined for.\n\u2022 Electrostatic interactions : A non-negative linear combination of four subtypes of compound-\nprotein interactions through attentions: 1) charge-charge, 2) charge-dipole, 3) dipole-\ncharge, and 4) dipole-dipole interactions. The input feature for the charge of a protein residue or a compound atom is the CHARMM27 parameter and the atomic formal charge, respectively. That for the dipole of a protein residue or a compound atom is the residue being polar/nonpolar or the Gasteiger atomic partial charge.\n\u2022 Hydrogen bond : Non-covalent interaction between an electronegative atom as a hydro-\ngen \u201cacceptor\u201d and a hydrogen atom that is covalently bonded to an electronegative atom called a hydrogen \u201cdonor\u201d. Therefore, if a protein residue or compound atom could provide a hydrogen acceptor/donor, its hydrogen-bond feature is -1/+1; otherwise the feature value is 0. A protein residue is allowed to be both hydrogen-bond donor and acceptor.\n\u2022 Halogen bond : A halogen bond is very similar to hydrogen bond except that a halogen\n(rather than hydrogen) atom (often found in drug compounds) is involved in such interactions. If a protein residue or a compound atom has/is a halogen atom such as iodine, bromine, chlorine and fluorine, its halogen-bond feature is assigned +4, +3, +2 and +1, respectively, for decreasing halogen-bonding strength. If it can be a halogen acceptor, the feature is -1. If it can be neither, the feature is simply set at 0.\n\u2022 Hydrophobic interactions : The interactions between hydrophobic protein residues and\ncompound atoms contribute significantly to the binding energy between them. If a protein residue is hydrophobic, it is represented as 1 and otherwise as 0. Moreover, the non-polar atoms are represented as 1 and the polar one as -1.\n\u2022 Aromatic interactions : Aromatic rings in tryptophans, phenylalanines, and tyrosines\nparticipate in \u201cstacking\u201d interactions with aromatic moieties of a compound (\u03c0-\u03c0 stacking). Therefore, if a protein residue has an aromatic ring, its aromatic feature is set at 1 and otherwise at 0. Similarly, if a compound atom is part of a ring, the feature is set at 1 and otherwise at 0.\n\u2022 VdW interactions : Van der Waals are weaker interactions compared to others. But\nthe large amount of these interactions contribute significantly to the overall binding energy between a protein and a compound. We consider the amino-acid type and the atom element as their features and use an embedding layer to derive their continuous representations.\nFor each (sub)type of atomic relations, corresponding protein and compound features are fed into basis neural network models such as HRNN for protein sequences and GNN for compound graphs. All features are made available to baseline methods (DeepAffinity+ variants) as well for fair comparison."
+    },
+    {
+      "heading": "Physical constraints as regularization.",
+      "text": "The joint attention matrices W in each Rel-CPI module, for individual relations or overall, are regularized with the following two types of physical constraints.\nFocusing regularization In the first regularization, a constraint input is given as a matrix T \u2208 [0, 1]m\u00d7n to penalize the attention matrices Wi for all the 10 (sub)types of relations if they focus on the undesired regions of proteins. In addition, an L1 sparsity regularization is on the attention matrices Wi for all relations to promote interpretability as a small portion of protein residues interact with compounds. Therefore, this \u201cfocusing\u201d penalty can be formalized as:\nR1(W) = \u03bbrelation 10\u2211 i=1 ||(1\u2212 T ) Wi||2 + \u03bbL1 10\u2211 i=1 ||Wi||1, (6)\nwhere the T term, a parameter, can be considered as soft thresholding and its penalty only incurs when Tij = 0.\nThe first regularization is used for all three Rel-CPI modules or stages with increasingly focusing T . Let T [k] be the constraint matrix and W [k] the learned attention matrix for a\ngiven relation in the kth stage. In the first stage, T [1]ij is one only for any residue i predicted to be solvent-exposed in order to focus on surfaces. In the second stage, T [2]ij = maxj\u2032W [1] ij\u2032 to focus on putative binding residues hierarchically learned for k-mers and residues in stage 1. In the last stage, T [3]ij = W [2] ij focuses on putative contacts between protein residues and compound atoms. The focusing regularization is enforced on attentions for every relation (sub)type in the current implementation and can be done only for given (sub)types in future.\nStructure-aware sparsity regularization over protein contact maps We further develop a structure aware sparsity constraints based on known or RaptorX-predicted contact maps of the unbound protein. As sequentially distant residues might be close in 3D and form binding sites for compounds, we define overlapping groups of residues where each group consists of a residue and its spatially close neighboring residues. Just in the second stage, we introduce Group Lasso for spatial groups and the Fused Sparse Group Lasso (FSGL) for sequential groups on the overall, joint attention matrix W :\nR2(W) = \u03bbgroup||W||group + \u03bbfused||W||fused + \u03bbL1\u2212overall||W||1. (7)\nThe group Lasso penalty will encourage a structured group-level sparsity so that few clusters of spatially close residues share similar attentions within individual clusters. The fused sparsity will encourage local smoothness of the attention matrix so that sequentially close residues share similar attentions with compound atoms. The L1 term maintains the sparsity of the overall attention matrix W , since the L1 sparsity of attention matrices Wi for individual relations do not guarantee that their linear combination remains sparse."
+    },
+    {
+      "heading": "Supervised attention.",
+      "text": "It has been shown in visual question answering that attention mechanisms in deep learning can differ from human attentions.21 As will be revealed in our results, they do not necessarily focus on actual atomic interactions (relations) in compound-protein interactions either.\nWe have thus curated a relational subset of our compound-protein pairs with affinities, for which known ground-truth atomic contacts or relations are available. We summarize actual contacts of a pair in a matrix Wtrue of length m\u00d7n (m and n are actual numbers of protein residues and compound atoms, respectively, for a given pair), which is a binary pairwise interaction matrix normalized by the total number of nonzero entries. We have accordingly introduced a third regularization term to supervise W , the non-padded submatrix of attention matrix W , in the second stage:\nR3(W) = \u03bbbind c ||W \u2212W true||2F , (8)\nwhere c is a normalization constant across batches. Suppose that, in any batch, a given pair\u2019s actual interaction matrix is of size m1 \u00d7 n1 and the smallest such size across all batches is mmin \u00d7 nmin. Then c = mmin\u00d7nminm1\u00d7n1 for this pair.\nTraining strategy for hierarchical multi-objectives\nAccuracy and interpretability are the two objectives we pursue at the same time. In our case, the two objectives are hierarchical: compound-protein affinity originates from atomic-level interactions (or \u201crelations\u201d) and better interpretation in the latter potentially contributes to better prediction of the former.\nChallenges remain in solving the hierarchical multi-objective optimization problem. First, optimizing for both objectives simultaneously (for instance, through weighted sum of them) does not respect that the two objectives do no perfectly align with each other and are of different sensitivities to model parameters. Second, ground-truth data for interpretability of affinity prediction, i.e., compound-protein contacts, is rare. In fact, merely 7.5% of our compound-protein pairs labeled with Kd affinities are with contact data.\nTo overcome the aforementioned challenges, we consider the problem as multi-label machine learning facing missing labels. And we design hierarchical training strategies to solve\nthe corresponding hierarchical multi-objective optimization problem. The whole DeepRelations model, including the three Rel-CPI modules, are trained end-to-end.49 In the first stage, we \u201cpre-trained\u201d DeepRelations to minimize mean squared error (MSE) of pKd regression alone, with physical constraints turned on; in other words, attentions were regularized (through R1(\u00b7) and R2(\u00b7)) but not supervised in this stage. We tuned combinations of all hyperparameters except \u03bbbind in the discrete set of {10\u22125, 10\u22124, . . . , , 10\u22121}, with 400 epochs at the learning rate of 0.001. Over the validation set, we recorded the lowest RMSE for affinity prediction and chose the hyperparameter combination with the highest AUPRC for contact prediction subjective to that the corresponding affinity RMSE (root mean square error) does not deteriorate from the lowest by more than 10%.\nIn the second stage, with the optimal values of all hyperparameters but \u03bbbind fixed, we loaded the corresponding optimized model in the first stage and \u201cfine-tuned\u201d the model to minimize MSE additionally regularized by supervised attentions (through R1(\u00b7), R2(\u00b7), and R3(\u00b7)). As only 7.5% training examples are with known contacts, we used the their average and ignored the other examples for R3(\u00b7) in each batch. We used a slower learning rate (0.0001) and less training epochs (200) in the fine-tuning stage; and we tuned \u03bbbind in the set of {10\u22121, 10\u22124, . . . , , 10\u22125} following the same strategy as in the pre-training stage.\nIn the end, we chose \u03bbrelation = 10 \u22123, \u03bbL1 = 10 \u22125, \u03bbgroup = 10 \u22122, \u03bbfused = 10 \u22123, \u03bbL1\u2212overall =\n10\u22125 and \u03bbbind = 10 1 for DeepRelations.\nWe did similarly for hyper-parameter tuning while constraining (and supervising) attentions to make DeepAffinity+ variants. For HRNN-GCN cstr (modeling protein sequences with HRNN and compound graph with GCN, regularized by physical constraints in R2(\u00b7)), we chose \u03bbgroup = 10 \u22125, \u03bbfused = 10 \u22124, and \u03bbL1\u2212overall = 10 \u22125; and for its supervised version HRNN-GCN cstr sup, the additional \u03bbbind = 10 4. For HRNN-GIN cstr (modeling protein sequences with HRNN and compound graph with GIN, regularized by physical constraints in R2(\u00b7)), we chose \u03bbgroup = 10\u22123,\u03bbfused = 10\u22124, and \u03bbL1\u2212overall = 10\u22124; and for its supervised version HRNN-GIN cstr sup, the additional \u03bbbind = 10 4. R1(\u00b7) was for attentions on indi-\nvidual relations in DeepRelations and not applicable for DeepAffinity+ variants, although a surface-focusing regularization on overall attentions could be introduced."
+    },
+    {
+      "heading": "Results",
+      "text": "Attentions alone are inadequate for interpreting compound-protein\naffinity prediction\nOur first task is to systematically assess the adequacy of attention mechanisms for interpreting model-predicted compound-protein affinities. To that end, we adopt various data representations and corresponding state-of-the-art neural network architectures in our framework of DeepAffinity. To model proteins, we have adopted RNN using protein SPS10 as input data as well as CNN and newly developed HRNN using protein amino-acid sequences. To model compounds, we have adopted RNN using SMILES as input data as well as GCN and GIN using compound graphs with node features and edge adjacency.14 In the end, we have tested six DeepAffinity variants for protein-compound pairs, including RNN-RNN, RNNGCN, CNN-GCN, HRNN-RNN, HRNN-GCN, and HRNN-GIN. The first two (RNN-RNN and RNN-GCN), where protein SPS sequences are modeled by RNN and compound SMILES or graphs are modeled by RNN or GCN, are essentially our previous models10 except that no unsupervised pretraining is used in this study. Whereas these two models\u2019 attentions on proteins are at the secondary structure levels (thus not assessed for interpretability here), the rest have joint attentions at the level of pairs of protein residues and compound atoms.\nThe accuracy of affinity prediction, measured by RMSE (root mean squared error) in pKd, is summarized for the DeepAffinity variants in the top panel of Figure 3. Overall, all variants have shown pKd error between 1.1 and 1.3, a level competitively comparable even to the state-of-the-art affinity predictor using compound-protein co-crystal structures.7 These models have robust accuracy profiles across the default, compound-unique, protein-unique, and double-unique test sets, suggesting their generalizability beyond training compounds or\nproteins. Modeling compound SMILES with RNN seems to have slightly worse performance compared to modeling compound graphs with GCN or GIN, although less features are used for SMILES strings compared to node features for compound graphs.\nThe interpretability of affinity prediction is assessed against ground truth of contacts, as in the bottom panel of Figure 3. Specifically, we use joint attention scores to classify all possible residue-atom pairs into contacts or non-contacts. As contacts only represent a tiny portion (0.0061\u00b10.0023 in our dataset) of all possible pairs, we use the area under the precision-recall curve (AUPRC), instead of the area under the receiver operating characteristic curve (AUROC), to assess such binary classification. Here AUPRC is averaged over all pairs involved in the corresponding set. Interestingly, compared to chance (AUPRC=0.0061), modeling protein amino-acid sequences through CNN or modeling compound SMILES through RNN had comparable or even worse contact prediction (or interpretability here). Modeling protein amino-acid sequences through hierarchical RNN and compound graphs as GNN (GCN or GIN here) would improve the AUPRC by around 50% for all test sets except the protein-unique one. However, even with 50% relative improvement,\nthe absolute accuracy level of contact prediction, or the absolute level of model interpretability, remains low (AUPRC around 0.01). Moreover, unlike the case of affinity accuracy, the interpretability results have shown some sensitivity to training data, especially when the test proteins are not contained in the training set.\nFrom the results above, we conclude that attention mechanisms alone are inadequate for the interpretability of compound-protein affinity predictors, regardless of the choice of commonly used, generic neural network architectures.\nRegularizing attentions with physical constraints modestly improves\ninterpretability.\nOur next task is to enhance the interpretability of compound-protein affinity prediction beyond the level achieved by attention mechanisms alone. The first idea is to incorporate domain-specific physical constraints into model training. The rationale is that, by bringing in the (predicted) structural contexts of proteins and protein-compound interactions, attentions can be guided in their sparsity patterns accordingly for better interpretability.\nWe start with the two best-performing DeepAffinity variants so far (HRNN-GCN and HRNN-GIN) where protein amino-acid sequences are modeled by hierarchical RNN and compound graphs by various GNNs (including GCN and GIN). And we introduce structureaware sparsity regularization R2(\u00b7) to the two models to make \u201cDeepAffinity+\u201d variants. The resulting HRNN-GCN cstr and HRNN-GIN cstr models with physical constraints are assessed in Figure 4. Compared to the the non-regularized counterparts in Figure 3, both models achieved similar accuracy levels across various test sets for affinity prediction, but their interpretability improved. Specifically, HRNN-GCN after constraints, compared to that before constraints, had AUPRC improvement of 5.7%, 2.9%, 19.2%, and 20.0% for default test, protein-unique, compound-unique, and double-unique sets, respectively. However, the interpretability improvements from physical constraints were modest especially when the absolute level of AUPRC remained around 0.01. These results suggest that incorporating\nphysical constraints to structurally regularize the sparsity of attentions is useful for improving interpretability but may not be enough.\nSupervising attentions significantly improves interpretability.\nAs regularizing attentions with physical constraints was not enough to enhance interpretability, our next idea is to additionally supervise attentions with ground-truth contact data available to some but not all training examples. Again we introduce \u201cDeepAffinity+\u201d models starting with HRNN-GCN and HRNN-GIN, by both regularizing and supervising attentions (using R2(\u00b7) and R3(\u00b7)).\nThe performances of resulting HRNN-GCN cstr sup and HRNN-GIN cstr sup models are shown in Figure 4. Importantly, HRNN-GCN cstr sup (light blue) significantly improves interpretability of affinity prediction without the sacrifice of accuracy. The average AUPRC improved to 0.0455, 0.0106, 0.0883, and 0.0175 for the default test, protein-unique, compound-unique, and double-unique test sets, representing a relative improvement of 309%\n(645%), 92% (73%), 600% (1347%), and 46% (186%), respectively, compared to the constrained counterparts (chance). Interestingly, supervising attentions in HRNN-GIN did not see as significant improvement in interpretability.\nBuilding explainability into DeepRelations architecture further dras-\ntically improves interpretability.\nToward better interpretability, besides regularizing and supervising attentions, we have further developed an explainable, deep relational neural network named DeepRelations. Here atomic \u201crelations\u201d constituting physical bases and explanations of compound-protein affinities are explicitly modeled in the architecture with multi-stage gradual \u201czoom-in\u201d to focus attentions. In other words, the model architecture itself is intrinsically explainable by design.\nThe superior performances of the resulting DeepRelations (with both regularized and supervised attentions) are shown in Figure 4 (yellow-green \u201cDeepRelations cstr sup\u201d). With equally competitive accuracy in affinity prediction as all previous models, DeepRelations achieved drastic improvements in interpretability. Strikingly, the average AUPRC further improved to 0.0996, 0.1350, 0.1754, and 0.0571 for the default test, protein-unique, compoundunique, and double-unique test sets, representing a relative improvement of 121% (1532%), 1173% (2113%), 98% (2775%), and 226% (836%), respectively, compared to the previous best DeepAffinity+ variant (chance).\nWe further assessed contact prediction (or interpretability) of DeepAffinity+ variants and DeepRelations using the precision, sensitivity, and odds ratio (or enrichment factor) of their top K predictions (where K ranged from 5 to 50). Figure 5 shows that DeepRelations drastically outperforms other methods in all assessment measures considered. The precision and sensitivity levels may not appear impressive, largely due to the very strict definition of \u201ctrue contacts\u201d in our study, as will be revealed in a case study. Note that all atomic-level contact predictions were made with the inputs of protein sequences and compound graphs alone.\nFor fair comparison, all DeepAffinity+ variants and DeepRelations were using the same set of features. A negative control experiment in the subsequent ablation study further validated this. Therefore, the architecture of DeepRelations, being intrinsically explainable, is the major contributor to its superior interpretability. From the machine learning perspective, DeepAffinity+ variants have various molecular features lumped into general-purpose neural networks, which makes it very hard to learn governing physics laws from the molecular affinity data. Instead, DeepRelations directly builds the physics laws into its model architecture and carefully structure various features into corresponding atomic relations and eventually the overall binding affinity."
+    },
+    {
+      "heading": "Ablation study for DeepRelations",
+      "text": "To disentangle various components of DeepRelations and understand their relative contributions to DeepRelations\u2019 superior interpretability, we removed components from DeepRelations and made \u201cDeepRelations-\u201d variants. Besides regularized and supervised attentions, we believe that the main contributions in the architecture itself are (1) the multi-stage \u201czoom-\nin\u201d mechanisms that progressively focus attentions from surface, binding k-mers, binding residues to binding residue-atom pairs; and (2) the explicit modeling of atomic relations that can explain the structure feature-affinity mappings consistently with physics principles. We thus made three DeepRelations- variants: DeepRelations without multi-stage focusing, without explicit atomic relations, or without both.\nWe compared the three intermediate \u201cDeepRelations-\u201d versions with the best DeepAffinity+ (regularized and supervised HRNN-GCN) and DeepRelations in Figure 6. Consistent with our conjecture, we found that, the explicit modeling of atomic relations was the main reason for DeepRelations\u2019 superior interpretability, as the removal of this component alone reduced the average AUPRC down to a similar level of the best DeepAffinity+ (except for the protein-unique case). Removing both components essentially reproduced the best DeepAffinity+ (again, except that it still outperforms the latter in the protein-unique case), which served well as a \u201cnegative control\u201d case here."
+    },
+    {
+      "heading": "Case Study",
+      "text": "Now that we have established how drastically DeepRelations improves the interpretability of compound-protein affinity prediction and explained why it achieves so by design, we went on to examine the pattern in which DeepRelations contact prediction outperforms the best DeepAffinity variant HRNN-GCN (and leaves room for further improvement). We thus randomly chose a compound-protein test pair with known contacts for case study: carbonic anhydrase II inhibitor with its compound AL1 (PDB ID:1BNN).\nAs shown in Figure 7, DeepRelations (middle) not only made more correct contact predictions than HRNN-GCN (left) but also showed much improved contact pattern. In particular, HRNN-GCN could focus attention on residue-atom pairs that are actually as far as above 20A\u030a away, and the attended residues could be dispersed at two sides of a protein. In contrast, DeepRelations predictions were correctly focused in the binding site of the protein and many of its \u201cincorrect\u201d predictions may correspond to residue-atom pairs within 10A\u030a or less, which could be partially attributed to the physical constraints introduced as regularization.\nTo further examine the possible benefit of explicitly modeled atomic relations, we examined the overall attention matrix and found that the most contributions originate from electrostatic relations. We therefore examined the top-10 predicted electrostatic contacts according to the electrostatic attention matrix alone and found four true electrostatic interactions associated with the same protein residue (Hisidine 94).\nWe extended the analysis of the patterns of predicted contacts over all test cases. Considering that the true contacts are defined rather strictly, we assess distance-distributions of residue-atom pairs predicted by HRNN-GCN, HRNN-GCN with regularized attention, HRNN-GCN with regularized and supervised attention, and DeepRelations (also with regularized and supervised attention). As seen in Figure 8, DeepRelations outperforms competitors in all distance ranges over all test sets (except the 4A\u030a\u223c10A\u030a range for the seemingly most challenging protein-unique case). Impressively, among top-50 contacts predicted by DeepRelations, around 33%, 39%, 27%, and 33% were actually within 10A\u030ain the default\ntest, compound-unique, protein-unique, and double-unique test sets, respectively."
+    },
+    {
+      "heading": "Conclusions",
+      "text": "Toward accurate and interpretable machine learning of compound-protein affinity, we have curated an affinity-labeled dataset with partially annotated contact details, assessed the adequacy of current attention-based deep learning models for both accuracy and interpretability, and developed novel machine-learning models and training strategies to drastically enhance interpretability without sacrificing accuracy. This is the first study with dedicated model development and systematic model assessment for interpretability in affinity prediction.\nOur study has found that commonly-used attention mechanisms alone, although better than chance in most cases, are not satisfying in interpretability: the most attended contacts in affinity prediction do not reveal true contacts underlying affinities at a useful level. We have tackled the challenge with three innovative, methodological advances. First, we in-\ntroduce domain-specific physical constraints to regularize attentions (or guide their sparsity patterns), in which structural contexts such as sequence-predicted protein surfaces and protein contact maps are utilized. Second, we exploit partially available ground-truth contacts to supervise attentions. Lastly, we build intrinsically explainable model architecture where various atomic relations, reflecting physics laws, are explicitly modeled and aggregated for affinity prediction. Joint attentions are embedded over residue-atom pairs for individual and overall relations. And a multi-stage hierarchy, trained end-to-end, progressively focuses attentions on protein surfaces, binding k-mers and residues, and residue-atom contact pairs.\nEmpirical results demonstrate the superiority of DeepRelations in interpretability without sacrificing accuracy. Compared to the best DeepAffinity variant with joint attention (HRNN-GCN), the AUPRC for contact prediction was boosted to 9.48, 16.86, 19.28, and\n5.71-fold for the default test, compound-unique, protein-unique, and double-unique cases. Importantly, the interpretability of DeepRelations proves robust and generalizable, as the margins of improvement were even higher when compounds or/and proteins are not present in the training set. Ablation studies demonstrate that the explainable relational network architecture was the major contributor to such performances. Case studies suggest that DeepRelations predict not only more correct but also more well-patterned contacts. And many \u201cincorrect\u201d predictions due to the strict definition of contacts were within reasonable ranges \u2014 in fact, around one third of the top-50 predicted contacts correspond to residueatom pairs within 10A\u030a.\nAn additional benefit of DeepRelations is its broad applicability toward the vast chemical and proteomic spaces. It does not rely on 3D structures of compound-protein complexes or even protein monomers when such structures are often unavailable. The only inputs needed are protein sequences and compound graphs. Meanwhile, it adopts the latest technology to predict structural contexts for protein sequences (such as surfaces, secondary structures, and residue-contact maps) and incorporatea such structural contexts into affinity and contact predictions. When structure data are available, DeepRelations can readily integrate such data by using actual rather than predicted structural contexts.\nOur study demonstrates that, it is much more effective to directly build explainability into machine learning model architectures (as DeepRelations models underlying atomic relations explicitly) than to infer explainability from general-purpose architectures (as DeepRelations variants learn attentions from data alone). In other words, designing intrinsically interpretable machine learning models, although more difficult, can be much more desired than pursuing interpretability in a post hoc manner."
+    },
+    {
+      "heading": "Acknowledgement",
+      "text": "This work was supported by the National Institutes of Health (R35GM124952 to Y.S.).\nPart of the computing time was provided by the Texas A&M High Performance Research Computing."
+    }
+  ],
+  "title": "Explainable Deep Relational Networks for Predicting Compound-Protein Affinities and Contacts",
+  "year": 2020
+}

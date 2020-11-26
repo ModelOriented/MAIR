@@ -1,0 +1,363 @@
+{
+  "abstractText": "Tsetlin Machines (TMs) capture patterns using conjunctive clauses in propositional logic, thus facilitating interpretation. However, recent TM-based approaches mainly rely on inspecting the full range of clauses individually. Such inspection does not necessarily scale to complex prediction problems that require a large number of clauses. In this paper, we propose closed-form expressions for understanding why a TM model makes a specific prediction (local interpretability). Additionally, the expressions capture the most important features of the model overall (global interpretability). We further introduce expressions for measuring the importance of feature value ranges for continuous features. The expressions are formulated directly from the conjunctive clauses of the TM, making it possible to capture the role of features in real-time, also during the learning process as the model evolves. Additionally, from the closed-form expressions, we derive a novel data clustering algorithm for visualizing high-dimensional data in three dimensions. Finally, we compare our proposed approach against SHAP and state-of-the-art interpretable machine learning techniques. For both classification and regression, our evaluation show correspondence with SHAP as well as competitive prediction accuracy in comparison with XGBoost, Explainable Boosting Machines, and Neural Additive Models.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "A PREPRINT"
+    },
+    {
+      "affiliations": [],
+      "name": "Christian D. Blakely"
+    },
+    {
+      "affiliations": [],
+      "name": "Ole-Christoffer Granmo"
+    }
+  ],
+  "id": "SP:a406957fb560f371d04a72ddc895c858568ba780",
+  "references": [
+    {
+      "authors": [
+        "Cynthia Rudin"
+      ],
+      "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+      "venue": "Nature Machine Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Scott Lundberg",
+        "Su-In Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions, 2017",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why Should I Trust You?\u201d: Explaining the Predictions of Any Classifier",
+      "venue": "arXiv e-prints, page arXiv:1602.04938,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Rishabh Agarwal",
+        "Nicholas Frosst",
+        "Xuezhou Zhang",
+        "Rich Caruana",
+        "Geoffrey E. Hinton"
+      ],
+      "title": "Neural additive models: Interpretable machine learning with neural nets",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Dylan Slack",
+        "Sophie Hilgard",
+        "Emily Jia",
+        "Sameer Singh",
+        "Himabindu Lakkaraju"
+      ],
+      "title": "Fooling LIME and SHAP: Adversarial Attacks on Post hoc Explanation Methods",
+      "venue": "arXiv e-prints, page arXiv:1911.02508,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Christian Blakely",
+        "Tayebeh Razmi",
+        "Bahar Sateli",
+        "Christian Westermann"
+      ],
+      "title": "Five practical steps to make Artificial Intelligence (AI) interpretable",
+      "venue": "(accessed July",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ole-Christoffer Granmo"
+      ],
+      "title": "The Tsetlin Machine - A Game Theoretic Bandit Driven Approach to Optimal Pattern Recognition with Propositional Logic",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Geir Thore Berge",
+        "Ole-Christoffer Granmo",
+        "Tor Oddbj\u00f8rn Tveit",
+        "Morten Goodwin",
+        "Lei Jiao",
+        "Bernt Viggo Matheussen"
+      ],
+      "title": "Using the Tsetlin Machine to Learn Human-Interpretable Rules for High-Accuracy Text Categorization with Medical Applications",
+      "venue": "IEEE Access,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Darshana Abeyrathna",
+        "Ole-Christoffer Granmo",
+        "Xuan Zhang",
+        "Lei Jiao",
+        "Morten Goodwin"
+      ],
+      "title": "The Regression Tsetlin Machine - A Novel Approach to Interpretable Non-Linear Regression",
+      "venue": "Philosophical Transactions of the Royal Society A,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Adrian Wheeldon",
+        "Rishad Shafik",
+        "Tousif Rahman",
+        "Jie Lei",
+        "Alex Yakovlev",
+        "Ole-Christoffer Granmo"
+      ],
+      "title": "Learning Automata based Energy-efficient AI Hardware Design for IoT",
+      "venue": "Philosophical Transactions of the Royal Society A,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "K S Narendra",
+        "M A L Thathachar"
+      ],
+      "title": "Learning Automata: An Introduction",
+      "year": 1989
+    },
+    {
+      "authors": [
+        "John Von Neumann",
+        "Oskar Morgenstern"
+      ],
+      "title": "Theory of games and economic behavior (commemorative edition)",
+      "venue": "Princeton university press,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Vegard Haugland",
+        "Marius Kj\u00f8lleberg",
+        "Svein-Erik Larsen",
+        "Ole-Christoffer Granmo"
+      ],
+      "title": "A two-armed bandit collective for hierarchical examplar based mining of frequent itemsets with applications to intrusion detection",
+      "venue": "Transactions on Computational Collective Intelligence XIV,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Ole-Christoffer Granmo",
+        "B. John Oommen",
+        "Svein Arild Myrer",
+        "Morten Goodwin Olsen"
+      ],
+      "title": "Learning Automatabased Solutions to the Nonlinear Fractional Knapsack Problem with Applications to Optimal Resource Allocation",
+      "venue": "IEEE Transactions on Systems, Man, and Cybernetics, Part B,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Adrian Phoulady",
+        "Ole-Christoffer Granmo",
+        "Saeed Rahimi Gorji",
+        "Hady Ahmady Phoulady"
+      ],
+      "title": "The Weighted Tsetlin Machine: Compressed Representations with Weighted Clauses, 2019",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Saeed Gorji",
+        "Ole Christoffer Granmo",
+        "Sondre Glimsdal",
+        "Jonathan Edwards",
+        "Morten Goodwin"
+      ],
+      "title": "Increasing the Inference and Learning Speed of Tsetlin Machines with Clause Indexing",
+      "venue": "In International Conference on Industrial, Engineering and Other Applications of Applied Intelligent Systems. Springer,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Saeed Rahimi Gorji",
+        "Ole-Christoffer Granmo",
+        "Adrian Phoulady",
+        "Morten Goodwin"
+      ],
+      "title": "A Tsetlin Machine with Multigranular Clauses",
+      "venue": "In Lecture Notes in Computer Science: Proceedings of the Thirty-ninth International Conference on Innovative Techniques and Applications of Artificial Intelligence (SGAI-2019),",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Darshana Abeyrathna",
+        "Ole-Christoffer Granmo",
+        "Xuan Zhang",
+        "Morten Goodwin"
+      ],
+      "title": "A Scheme for Continuous Input to the Tsetlin Machine with Applications to Forecasting Disease Outbreaks, 2019",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Darshana Abeyrathna",
+        "Ole-Christoffer Granmo",
+        "Morten Goodwin"
+      ],
+      "title": "Extending the Tsetlin Machine With Integer-Weighted Clauses for Increased Interpretability",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "B John Oommen"
+      ],
+      "title": "Stochastic searching on the line and its applications to parameter learning in nonlinear optimization",
+      "venue": "IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics),",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "Rishad Shafik",
+        "Adrian Wheeldon",
+        "Alex Yakovlev"
+      ],
+      "title": "Explainability and Dependability Analysis of Learning Automata based AI Hardware",
+      "venue": "In IEEE 26th International Symposium on On-Line Testing and Robust System Design (IOLTS). IEEE,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Michael Lvovitch Tsetlin"
+      ],
+      "title": "On behaviour of finite automata in random medium",
+      "venue": "Avtomat. i Telemekh,",
+      "year": 1961
+    },
+    {
+      "authors": [
+        "Andrea Dal Pozzolo",
+        "Gianluca Bontempi"
+      ],
+      "title": "Adaptive machine learning for credit card fraud detection",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Kelley Pace",
+        "Ronald Barry"
+      ],
+      "title": "Sparse spatial autoregressions",
+      "venue": "Statistics and Probability Letters,",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "Clara Higuera",
+        "Katheleen Gardiner",
+        "Krzysztof Cios"
+      ],
+      "title": "Self-organizing feature maps identify proteins critical to learning in a mouse model of down syndrome",
+      "venue": "PloS one, 10:e0129126,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Abubakar Abid",
+        "Vivek Kumar Bagaria",
+        "Martin Jinye Zhang",
+        "James Y. Zou"
+      ],
+      "title": "Contrastive principal component analysis",
+      "venue": "ArXiv,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Christian D. Blakely",
+        "Ole-Christoffer Granmo"
+      ],
+      "title": "A Tsetlin Machine Approach for Learning and Prediction in Multivariate Time Series",
+      "year": 2020
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "Computational predictive modelling is becoming increasingly complicated in order to handle the deluge of highdimensional data in machine learning and data science-driven industries. With rising complexity, not understanding why a model makes a particular prediction is becoming one of the most significant risks [1]. To overcome this risk and to give insights into how a model is making predictions given the underlying data, several efforts over the past few years have provided methodologies for explaining so-called black-box models3. The purpose is to offer performance enhancements over more simplistic, but transparent and interpretable models, such as linear models, logistic regression, and decision trees. Prominent efforts include SHAP [2], LIME [3], and modifications or enhancements to neural networks, such as in Neural Additive Models [4]. Typical approaches either create post hoc approximations of how models make a decision or build local surrogate models. As such, they require additional computation time and are not \u2217Author\u2019s status: Head of Artificial Intelligence and Real-Time Analytics, PwC Switzerland. Any statements, ideas, and/or opinions expressed in this paper are strictly those of the author and do not necessarily reflect those of PwC Switzerland. The author can be contacted at: PwC Switzerland, Zurich, Switzerland 8004. E-mail: christian.blakely@ch.pwc.com. \u2020Author\u2019s status: Professor. The author can be contacted at: Centre for Artificial Intelligence Research (https://cair.uia.no), University of Agder, Grimstad, Norway. E-mail: ole.granmo@uia.no. 3We will understand black-box models as models which lack intrinsic interpretability features, such as ensemble approaches, neural networks, and random forests.\nar X\niv :2\n00 7.\n13 88\n5v 1\n[ cs\n.L G\n] 2\nintrinsic to the data modelling or learning itself. In fact, in the recent paper [5], it was demonstrated how easy it is to fool such approximations.\nApart from increased trust, attaining interpretability in machine learning is essential for several reasons. For example, it can be useful when forging an analytical driver that provides insight into how a model may be improved, from both a feature standpoint and also a validation standpoint. It can also support understanding the model learning process and how the underlying data is supporting the prediction process [6]. Additionally, interpretability can be used when reducing the dimensionality of the input features.\nThis paper introduces an alternative methodology for high-accuracy interpretable predictive modelling. Our goal is to combine competitive accuracy with closed-form expressions for both global and local interpretability, without requiring any additional local linear explanation layers or inference from any other surrogate models. That is, we intend to provide accessibility to feature strength insights that are intrinsic to the model, at any point during a learning phase. To this end, the methodology we propose enhances the intrinsic interpretability of the recently introduced Tsetlin Machines (TMs) [7], which have obtained competitive results in terms of accuracy [8, 9, 10], memory footprint [10, 11], energy [11], and learning speed [10, 11] on diverse benchmarks (image classification, regression and natural language understanding).\nTMs are a novel machine learning approach that combines elements of reinforcement learning, learning automata [12], and game theory [13] to obtain intricate pattern recognition systems. They use frequent pattern mining [14] and resource allocation principles [15] to extract common patterns in the data, rather than relying on minimizing output error, which is prone to overfitting. Unlike the intertwined nature of pattern representation in neural networks, a TM decomposes problems into self-contained patterns, expressed as conjunctive clauses in propositional logic (e.g., in the form if X satisfies condition A and not condition B then Y = 1). The clause outputs, in turn, are combined into a classification decision through summation and thresholding, akin to a logistic regression function, however, with binary weights and a unit step output function [8]. Being based on disjunctive normal form (DNF), like Karnaugh maps, the TM can map an exponential number of input feature value combinations to an appropriate output [16].\nRecent progress on TMs. Recent research reports several distinct TM properties. The TM can be used in convolution, providing competitive performance on MNIST, Fashion-MNIST, and Kuzushiji-MNIST, in comparison with CNNs, K-Nearest Neighbor, Support Vector Machines, Random Forests, Gradient Boosting, BinaryConnect, Logistic Circuits and ResNet [10]. The TM has also achieved promising results in text classification using the conjunctive clauses to capture textual patterns [8]. Further, by introducing real-valued clause weights, the number of clauses can be reduced by up to 50\u00d7 without loss of accuracy [16]. Being based on logical inference, indexing the clauses on the features that falsify them increases inference- and learning speed by up to an order of magnitude [17]. The hyper-parameter search of a TM involves three hyper-parameters. Multi-granular clauses simplify the hyper-parameter search by eliminating the pattern specificity parameter [18]. Recently, the Regression TM compared favorably with Regression Trees, Random Forest Regression, and Support Vector Regression [9, 19]. In [20], stochastic searching on the line (SSL) automata [21] learn integer clause weights, performing competitively against Random Forest, Gradient Boosting, Explainable Boosting Machines, as well as the standard TM. Finally, [22] shows that TMs can be fault-tolerant, completely masking stuck-at faults.\nPaper Contributions. Interpretability in all of the above TM-based approaches relies on inspecting the full range of clauses individually. Such inspection does not necessarily scale to complex pattern recognition problems that require a large number of clauses, e.g., in the thousands. A principled interface for accessing different types of interpretability at various scales is thus currently missing. In this paper, we introduce closed-form expressions for local and global TM interpretability. We formulate these expressions at both an overall feature importance level and a feature range level, namely, which ranges of the data yield the most influence in making predictions. Secondly, we evaluate performance on several industry-standard benchmark data sets, contrasting against other interpretable machine learning methodologies. We further compare the interpretability results in terms of global feature importance. Finally, we provide an application of our interpretability approach by deriving a clustering method from the local feature importance of the model. Such clustering could be used for visualizing high-dimensional tabular data in two or three dimensions, for example."
+    },
+    {
+      "heading": "2 Tsetlin Machine Basics",
+      "text": ""
+    },
+    {
+      "heading": "2.1 Classification",
+      "text": "A TM takes a vector X = (x1, . . . , xo) of Boolean features as input (Figure 1), to be classified into one of two classes, y = 0 or y = 1. Together with their negated counterparts, x\u0304k = \u00acxk = 1 \u2212 xk, the features form a literal set L = {x1, . . . , xo, x\u03041, . . . , x\u0304o}. In the following, we will use the notation Ij to refer to the indexes of the non-negated features in Lj and I\u0304j to refer to the indexes of the negated features.\nA TM pattern is formulated as a conjunctive clause Cj , formed by ANDing a subset Lj \u2286 L of the literal set: Cj(X) = \u2227\nlk\u2208Lj\nlk = \u220f\nlk\u2208Lj\nlk. (1)\nE.g., the clause Cj(X) = x1 \u2227 x2 = x1x2 consists of the literals Lj = {x1, x2} and outputs 1 iff x1 = x2 = 1. The number of clauses employed is a user set parameter m. Half of the clauses are assigned positive polarity. The other half is assigned negative polarity. In this paper, we will indicate clauses with positive polarity with odd indices and negative polarity with even indices 4. The clause outputs, in turn, are combined into a classification decision through summation and thresholding using the unit step function u(v) = 1 if v \u2265 0 else 0:\ny\u0302 = u  \u2211 j=1,3,...,m\u22121 Cj(X)\u2212 \u2211 j=2,4,...,m Cj(X)  . (2) Namely, classification is performed based on a majority vote, with the positive clauses voting for y = 1 and the negative for y = 0. The classifier y\u0302 = u (x1x\u03042 + x\u03041x2 \u2212 x1x2 \u2212 x\u03041x\u03042), e.g., captures the XOR-relation."
+    },
+    {
+      "heading": "2.2 Learning",
+      "text": "A clause Cj(X) is composed by a team of Tsetlin Automata [23], each Tsetlin Automaton deciding to Include or Exclude a specific literal lk in the clause (see Figure 1). Learning which literals to include is based on reinforcement: Type I feedback produces frequent patterns, while Type II feedback increases the discrimination power of the patterns.\nA TM learns on-line, processing one training example (X, y) at a time.\nType I feedback is given stochastically to clauses with positive polarity when y = 1 and to clauses with negative polarity when y = 0. An afflicted clause, in turn, reinforces each of its Tsetlin Automata based on:\n1. The clause output Cj(X); 2. The action of the targeted Tsetlin Automaton \u2013 Include or Exclude; and 3. The value of the literal lk assigned to the automaton.\nTwo rules govern Type I feedback:\n\u2022 Include is rewarded and Exclude is penalized with probability s\u22121s if Cj(X) = 1 and lk = 1. This reinforcement is strong (triggered with high probability) and makes the clause remember and refine the pattern it recognizes in X .\n4Any systematic division of clauses can be used as long as the cardinality of the positive and negative polarity sets are equal.\n\u2022 Include is penalized and Exclude is rewarded with probability 1s if Cj(X) = 0 or lk = 0. This reinforcement is weak (triggered with low probability) and coarsens infrequent patterns, making them frequent.\nAbove, s is a hyperparameter that controls the frequency of the patterns produced.\nType II feedback is given stochastically to clauses with positive polarity when y = 0 and to clauses with negative polarity when y = 1. It penalizes Exclude with probability 1 if Cj(X) = 1 and lk = 0. This feedback is strong and produces candidate literals for discriminating between y = 0 and y = 1.\nResource allocation dynamics ensure that clauses distribute themselves across the frequent patterns, rather than missing some and overconcentrating on others. That is, for any input X , the probability of reinforcing a clause gradually drops to zero as the clause output sum\nv = \u2211\nj=1,3,...,m\u22121 Cj(X)\u2212 \u2211 j=2,4,...,m Cj(X) (3)\napproaches a user-set target T for y = 1 (and \u2212T for y = 0). To exemplify, Figure 2 plots the probability of reinforcing a clause when T = 4 for different clause output sums v, per class y. If a clause is not reinforced, it does not give feedback to its Tsetlin Automata, and these are thus left unchanged. In the extreme, when the voting sum v equals or exceeds the target T (the TM has successfully recognized the input X , no clauses are reinforced. Accordingly, they are free to learn new patterns, naturally balancing the pattern representation resources. See [7] for further details."
+    },
+    {
+      "heading": "3 Tsetlin Machine Interpretability",
+      "text": "In this section, we first introduce the current notion of TM interpretability, before we propose novel expressions for understanding a TM model from the viewpoint of the encoded input features and their prediction strength. Because the TM represents patterns as self-contained conjunctive clauses in propositional logic, the method naturally leads to straightforward interpretability. However, as is the consensus in the machine learning literature, a model is fully interpretable only if it is possible to understand how the underlying data features impact the predictions of the model, both from a global perspective (entire model) and at the individual sample level. For example, a model that predicts housing prices in California should give much emphasis on specific latitude/longitude coordinates, as well as the age of the neighbouring houses (and perhaps other factors such as proximity at the beach). For individual sample data points, the model interpretation should show which features (such as house age, proximity to the beach) had the most positive (or negative) impact in expression the prediction. Before we present how closed-form expressions for both\nglobal and local interpretability can be derived intrinsically from any TM model, we first define some basic notation on the encoding of the features to a Boolean representation and feature inclusion sets, a critical first step in TM modeling."
+    },
+    {
+      "heading": "3.1 Boolean Representation",
+      "text": "We first assume that the input features to any TM can be booleanized into a bit encoded representation. Each bit represents a Boolean variable that is either False or True (0 or 1). To map continuous values to a Boolean representation, we use the encoding scheme proposed in [19], adapted as follows. Let Iu = [au, bu] be some interval on the real line representing a possible range of continuous values of feature fu. Consider l > 0 unique values u1, . . . , ul \u2208 Iu. We encode any v \u2208 Iu into an l-bit representation [{0, 1}]l where the ith bit is given as 1 if v \u2265 ui, and 0 otherwise. We will denote v \u2208 Iu of a feature fu as Xfu := [x1, . . . , xl] where any xi := v \u2265 ui. For example, suppose Iu = [0, 10] with u1 = 1, u2 = 2, . . . , u10 = 10. Then v = 5.5 is encoded as [1, 1, 1, 1, 1, 0, 0, 0, 0, 0], while any v <= 0 becomes [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], and any v >= 10 becomes [1, 1, 1, 1, 1, 1, 1, 1, 1, 1].\nThe choice of l > 0 and the values u1, . . . , ul \u2208 Iu should typically be chosen according to the properties of the empirical distribution of the underlying feature. If the values of feature fu are relatively uniform across Iu, then a uniform choice of u1, . . . , ul \u2208 Iu would seem appropriate. Otherwise the grid should be chosen to accompany the underlying density of the data, with a finer grid choice near higher densities."
+    },
+    {
+      "heading": "3.2 Global Interpretability",
+      "text": "Global interpretability is interested in understanding the most salient (important) features of the model, namely to what degree and strength a certain feature impacts predictions overall. We now introduce multiple output variables yi \u2208 {y1, y2, . . . , yn}, yi = {0, 1} and the upper index i, which refers to a particular output variable. For simplicity in exposition, we assume that the corresponding literal index sets Iij , I\u0304 i j , for each output variable, i = 1, . . . , n, and clause, j = 1, . . . ,m, have been found under some performance criteria of the learning procedure, described in Section 2. With these sets fixed, we can now assemble the closed form expressions.\nGlobal Feature Strength. For global feature strength we make direct use of the indexed inclusion sets Iij , I\u0304ij , which are governed by the actions of the Tsetlin Automata. Specifically, we compute positive (negative) feature strength for a given output variable yi and kth bit of feature fu as follows:\ng[k]\u2190 1 m \u2211 j\u2208{1,3,...,m\u22121} {1 if k \u2208 Iij}, g\u0304[k]\u2190 1 m \u2211 j\u2208{1,3,...,m\u22121} {1 if k \u2208 I\u0304ij}. (4)\nIn other words, for any given feature index k \u2208 [1, . . . , o], the frequency of its inclusion across all clauses, restricted to positive polarity, governs its global importance score g[k]. This score thus reflects how often the feature is part of a pattern that is important to making a certain class prediction yi. Notice that we are only interested in indices pertaining to the positive polarity clauses Cij(X) since these are the clauses that contain references to features that are beneficial for predicting the ith class index.\nThe g[k] and g\u0304[k] scores give positive and negative importance at the bit level for each feature. To get the total strength for a feature fu itself, we simply aggregate over each bit k based on Eqn. 4, restricted to the given feature fu:\n\u03c6(fu)\u2190 \u2211\nk|xk\u2208Xfu\ng[k], \u03c6\u0304(fu)\u2190 \u2211\nk|xk\u2208Xfu\ng\u0304[k]. (5)\nAbove, Xfu should be understood as the bit encoded features representing feature fu. The functions \u03c6(\u00b7) accordingly measure the general importance of a feature when it comes to predicting a given class label yi. As we shall see empirically in the next section, this measure defines the most relevant features of a model.\nRemark: Due to the fact that the above expression can be trivially computed given any inclusion sets derived from the clauses, the feature importance can be observed in real-time during the online training procedure of TMs, to see how the feature importance evolves with new unseen date training samples. Such a feature is not available in typical batch machine learning methodologies utilizing frameworks such as SHAP.\nGlobal Continuous Feature Range Strength. One additional global feature importance representation that we can derive for continuous input feature ranges is measuring the importance of a feature in terms of ranges of values. To do this, we can make use of the inclusion of features and negated features to construct a mapping of the important ranges for a given class. Based on our Boolean representation of continuous features, we define the allowable range for fu as follows:\nR(fu) := [mink\u2208I\u0304ijfu(xk),maxk\u2208Iijfu(xk)]. (6)\nNotice that according to the literal xk, maxk\u2208Iijfu(xk), gives the largest uk \u2208 Iu such that v \u2265 uk was an influential feature for an input v. Similarly, mink\u2208I\u0304ijfu(xk) yields the smallest uk \u2208 Iu such that \u00ac(v \u2265 uk), or v < uk, was a relevant feature for yi.\nSo now do we not only know the most salient features in making a certain prediction, but we know the range of the influential values as well for every feature fu given prediction class yi. Again, these can all be computed in real-time during the learning of the model, giving full insight into the modeling procedure."
+    },
+    {
+      "heading": "3.3 Local Interpretability",
+      "text": "Local interpretability is interested in understanding to what degree features positively (or negatively) impact individual predictions. Due to the transparent nature of the clause structures, it is relatively straightforward to extract the driving features of a given input sample. If we assume again the bit representation X = [x1, x2, . . . , xo] is a concatenation of the bit representation of all features fuj , and we suppose i is the predicted class index of X , then we define\nl[k,X]\u2190 \u2211\nj\u2208{1,3,...,m\u22121}\n{Cij(X) |xk = 1, k \u2208 Iij} (7)\nwhich give positive importance at the bit level for each feature. To get the total predictive impact for each feature we again aggregate over the individual bits of the feature:\n\u03c6(fu, X)\u2190 \u2211\nk | xk\u2208Xfu\nl[k,X], \u03c6\u0304(fu, X)\u2190 \u2211\nk | xk\u2208Xfu\nl\u0304[k,X]. (8)\nIn other words, for a given input, all the combined clauses act as a lookup table of important features, from which the strength of each feature in a prediction can be determined."
+    },
+    {
+      "heading": "3.4 Data Dimension Reduction and Clustering",
+      "text": "In this section, we demonstrate a direct application of our closed-form expressions for global and local interpretability, namely, clustering and visualization of high dimensional data. To this end, we use both the global and local expressions, Eqn. 5 and Eqn. 7, respectively. In Algorithm 1, we outline the basic procedure, and then go line by line on what each step is doing. The algorithm begins by assuming a collection of TM clauses have been learned on certain subset of the data, paired with its respective labels. In going forward, we will assume these labels are in the form of indices from C different classes, and that we have K different features of any data sample x \u2208 X.\nAlgorithm 1 Data dimension reduction and clustering 1: procedure CLUSTER(X) 2: Input: Class index C 3: Input: m \u2264 K number of features 4: Generate m centroids o1, . . .om in [0, 1]n 5: Rank all features ui according to Eqn. 5 6: Associate each oi with ui 7: for each x \u2208 X do 8: Compute binarization of x giving fu := (fu1 , . . . , fun) 9: Evaluate \u03c6(fui) \u2208 fu for all i 10: for each oi, i < m do 11: If ui is largest contributing feature 12: Then set x|ui := oi 13: for each oi do 14: for each x|ui do 15: For j largest factor uj of x, shift x|ui in direction of oj by \u2016oi\u2212oj\u20162 j 16: Repeat for all observations over all features 17: return x|u1 for all x \u2208 X\nThe algorithm begins by allocating m \u2264 K centroids, namely points of reference, in [0, 1]n. The dimension n is typically taken as 2 or 3. In line 5 we are ranking all the K features according to the global importance expression (Eqn. 5). The centroid o1 is associated with the highest ranking feature, and the o2 centroid is associated with the\nsecond highest ranking features, and so forth. For each data sample, we compute the binarization encoding into bits, and evaluate the local interpretability expression (Eqn. 8). Taking the feature with the highest importance, say ui, we then map the sample to the centroid oi, which we will refer to as x|oi . Taking the second feature with the highest importance, say uj , we then translate x|oi in the direction of uj by a scale of the Euclidian distance between the two centroids. We can repeat this procedure one or two more times, and then continue the same procedure over all samples in consideration. Eventually, all samples are attributed to a neighborhood of some localized independent centroid, and all samples are also in the vicinity of other samples which share very similar characteristics in regards to their local interpretability. So not only has the dimension of the data been reduced to 2 or 3 dimensions, and all the data has been clustered together in a visually meaningful and interpretable way, but one can understand various distribution properties of the data as well, for example, how biased it is towards a particular feature."
+    },
+    {
+      "heading": "4 Empirical Evaluation and Applications",
+      "text": "In order to evaluate the capability of our expressions for global and local TM interpretability, we will now consider two types of data sets: 1) Data sets which have an intuitive set of features which are already quite interpretable without model insight and 2) Data sets which will be more data driven, with features that are not necessarily understood by humans. We will further compare our results with other interpretable approaches to gain insight into the properties of our closed-form expressions. We further demonstrate that the TM can compete accuracy-wise with black-box methods, while simultaneously remaining relatively transparent.\nThroughout the section, we will be using the Integer Weighted Tsetlin Machine (IWTM) proposed in [20], a recent extension of the classical TM summarized in Section 2."
+    },
+    {
+      "heading": "4.1 Comparison with SHAP",
+      "text": "We first compare our feature strength scores, as defined in Eqn. 5 and Eqn. 6, with SHapley Additive exPlanations (SHAP) values, a popular methodology for explaining black-box models, considered as state-of-the-art. First published in 2017 by Lundberg and Lee [2], the approach attempts to \"reverse-engineer\" the output of any predictive algorithm by assigning each feature an importance value for a particular prediction. As it is first and foremost concerned with the local interpretability of a model, global interpretability of the SHAP approach can be viewed at the level of visualizing all the samples in the form of a SHAP value (impact on model output) by feature value (from low to high).\nWe use the Wisconsin Breast Cancer data set to compare the two approaches. This data set contains 30 different features extracted from an image of a fine needle aspirate (FNA) of a breast mass. These features represent different physical characteristics like the concavity, texture, or symmetry computed for each cell with various descriptive statistics such as the mean, standard deviation and \"worst\" (sum of the three largest values). Each sample is labelled according to the diagnosis, benign or malign.\nBefore comparing the results on the most influential features, we compare the performance metrics of the IWTMs with XGBoost. Table 1 shows the comparison in terms of mean and variance on accuracy and error types where the models were constructed 10 times each, with a training set of 70 percent randomly chosen samples. We see that the IWTM clearly competes in performance with XGBoost, albeit with a much higher variance in performance.\nIn the SHAP summary plot shown in Figure 3, we observe that the most important features for the XGBoost model are perimeter_worst, concave points-mean, concave points-worst, texture_worst and area_se among others. Taking into account the feature value and impact on model output, the most impactful features for making a prediction tend to be perimeter_worst, concave points-worst, area_se, and area_worst, whereas texture_worst and concave points-mean prove to be the most effective in their lower value range.\nFigure 4 shows the corresponding results for the TM, providing the strength of the features when predicting benign cells, calculated based on Eqn. 5. We can see that concave points-mean, concave points-worst, texture-worst, area_se, and concavity_worst seem to be the strongest contributors. Apart from feature perimeter_worst being the most effective for SHAP, it can clearly be seen that both methods yield very similar global feature strengths. Nearly all of the top 10 features in both sets agree in relative strength.\nSimilarly, the scores of the most relevant features for the benign class are shown in Figure 5. As seen, concave points-mean, concave points-worst, and area_worst have a non-trivial impact.\nFinally, Figure 6 reports the global importance for the features negated, calculated using \u03c6\u0304(fu) in Eqn. 5 for the top features fu. In essence, the strength of these features show that in general, the inclusion of their negated feature ranges had a positive impact on predicting the malign class of cells."
+    },
+    {
+      "heading": "4.2 Comparison with Neural Additive Models",
+      "text": "Recently introduced in [4], Neural Additive Models offer a novel approach to general additive models. In all brevity, the goal is to learn a linear combination of simple neural networks that each model a single input feature. Being trained jointly, they learn arbitrarily complex relationships between input features and outputs. In this section, we compare IWTM models to NAMs both in terms of AUC and interpretability. For convenience, we also show the performance against several other popular black-box type machine learning approaches.\nWe first investigate two classification tasks, continuing with a regression task to constrast interpretability against NAMs. All of the performance results, except for those associated with the IWTMs, are adapted directly from [4]."
+    },
+    {
+      "heading": "4.2.1 Credit Fraud",
+      "text": "In this task, we wish to predict whether a certain credit card transaction is fraudulent or not. To learn such fraudulent transaction, we use the data set found in [24] containing 284,807 transactions made by European credit cardholders. The data set is highly unbalanced, containing only 492 frauds (or 0.172 percent) of all transactions.\nThe training and testing strategy is to sample 60 percent of the true positives of fraudulent transactions, and then randomly select an equal number of non-fraudulent transactions from the remaining 284k+ transactions. Testing is then done on the remaining fraudulent transactions.\nThe globally important features for the fraudulent class of transactions are shown in Figure 7. With the exception of \"time from first transaction\" and \"transaction amount\", there is unfortunately no reference to other features names due to confidentiality. Thus, we cannot interpret features meaningfully. However, we can analyze how the ranges of the features vary according to predicting fraudulent or non-fraudulent transactions.\nNote that all plots concerning ranges have had the feature values normalized such that the minimal value for that feature is 0.0 and the maximal value is 1.0. We will use blue-colored bars to represent where the range with the most impact for the given class is located.\nIn applying the feature range expression from Eqn. 6 to a batch of non-fraudulent samples, we see from Figure 8 and Figure 9 that the \"time from first transaction\" feature, while one of the most important, is important in its entire range for both classes of transactions. Namely there is no range that sways the model to predict either fraudulent or non-fraudulent. This is in accordance with the NAM [4] (shown in Figure 12 as of the current draft on June 30 2020), where their graph depicts no sway of contribution into either class for the entire range of values.\nThe \"transaction amount\" feature can also be compared with NAMs, again considering feature value ranges. In Figure 8, we see that most relevant range is from around 0 to 50 for the non-fraudulent class, but for fraudulent transaction class shown in Figure 9 the most salient range shrinks to about 0\u2212 25. Indeed, for most of the other V-features, the value ranges tend to shrink, in particular for the higher value ranges.\nWe can see that even though the visual representation of the model outputs in terms of feature and range importance are quite different, they can still be traced to yield similar conclusions."
+    },
+    {
+      "heading": "4.2.2 COMPAS: Risk Prediction in Criminal Justice",
+      "text": "As a proprietary risk score developed to predict recidivism risk used to inform bail and sentencing and parole decisions, COMPAS is combined with a database containing the criminal history, prison time, demographics for defendants from Broward County from 2013 and 2014. In looking at the data features from ProPublica [25], it is clear that race could\nbe heavily biasing the predictions. Thus by removing race as a feature, we are able to construct an interpretable model that demonstrated much more equality in importance across all remaining features. Figure 10 shows the global feature importance after race was removed as feature when predicting low probability of re-offending. Notice that the charge degree has the highest impact followed by number of days in jail, whereas age, sex and number of prior offenses have fairly close equal impact. In predicting higher probability of risk in re-offense, the number of prior offenses plays a more significant role, along with sex, while the charge degree is still the most important.\nBy looking at the value ranges that seem to influence high risk of re-offending, we get additional insight into the IWTM model (Figure 12). We see that higher charge degree, higher prior convictions, and being male seems to give a higher risk. Number of days in jail/prison also contributes to a higher risk or re-offending for values above the bottom 5 percent level.\nIt is worth noting that value of ranges of the prior convictions and the number of days in jail shown in Figure 12 seem to be in agreement with the ranges obtained with NAM [4]."
+    },
+    {
+      "heading": "4.2.3 Performance on Classification",
+      "text": "In terms of performance of IWTM in classification problems compared with six other approaches, we see that IWTMs have yielded competitive results.5 In the COMPAS data, we prepared two separate models to observe performance. One of the models contains the race feature bias in order to compare with results from other papers, and one with the bias\n5The choice of hyperparameters of the IWTM can be summarized as picking the number of clauses randomly three times, between 50 and 500 clauses, with a threshold of twice the number of clauses. The best model in terms of accuracy was chosen of the three configurations.\nremoved. In Table 2 we show how the two models compare with those used in [4] where race was used a predictive feature in NAM and all other tested models therein. We see a slight dip in performance in the non-biased IWTM model (race-feature removed), but it achieves competitive performance against all approaches when equipped with the same set of features."
+    },
+    {
+      "heading": "4.2.4 California Housing Price data set",
+      "text": "We next investigate performance and interpretability on a regression task, using the California Housing data set. This data set appears in [26] where it is used to explore important features from a regression on housing price averages, offering features that are intrinsically interpretable and easy to validate in how they contribute to predictions. The data is comprised of one row per census block group, where a block group is the smallest geographical unit for which the U.S. Census Bureau publishes sample data, with a population typically between 600 to 3,000 people. The data set suggests we can derive and understand the influence of community characteristics on housing prices by predicting the median price of houses (in million dollars) in each California district.\nWe include results on both global and local interpretability, while also including results on influential ranges conditional on three tiers of prediction of housing prices (low, medium, high).\nThe global feature importance diagram measures the importance of each feature by how often if appears as a positive contribution in the clauses, per Eqn. 5. In summary, the diagram indicates that both median income and house location are the most influential features to predicting housing prices. This also conforms with the features derived by the NAM approach in [4].\nWe now investigate local interpretability using a specific housing price instance. For our example, we take geographical region in the scenic hill area just east of Berkeley, known for its high real estate. Being from an affluent Bay Area zip code, it should be clear that with a high housing price predicted, both median income and location should be the main drivers. Figure 14 shows the approximate area of the US Census block, with the exact input features given in the upper left of the figure.\nApplying the local interpretability expression from Eqn. 8 to this specific sample, we see that the top features concur with the assumption on the particular real estate area (Figure 15). The location is sparsely populated with smaller occupancy per home, but hugely driven by the large median income and the Bay Area zip code. We also see that latitude achieves an exceptionally higher influence than longitude for this example, in comparison with their global importance, which could be from the fact that this particular latitude is aligned with northern California in the Bay Area and thus has more informative content to provide for a high housing cost prediction. Furthermore, housing age and number of bedrooms for this region in the Bay Area also seem to provide more information in making a prediction than longitude. This clearly exhibits how a local explanation can differ from a general global explanation of the model feature importance.\nMore insight can be gained by examining the feature value ranges that are important for certain levels of housing price predictions. Using the range importance expression Eqn. 6, we look at some typical ranges of values that are attributed to lower prediction in the housing price. In Figure 16, we note that Median income is low for this class of housing prices, while latitude and longitude values take on nearly the entire range of values. On the other hand, average number of rooms does not seem be a factor.\nWe now apply the same approach to mid-tiered housing prices (Figure 17). Here we expect to see higher median income and maybe some changes in the location to accommodate more rural housing prices. In general, relatively all ranges of values for most features are important, with the exception of median income which takes on the upper 70 percent of values. Further, the number of bedrooms plays a larger part in the prediction. Lower population seems to have a positive impact as well, accounting for those rural census blocks.\nConsidering regression error, we compare techniques by means of average RMSE, obtaining the one-standard deviation figures via 5-fold cross validation. Table 3 show the results compared with those from [4], section 3.2.1.\nWe see that IWTMs performs similarly to the other techniques, however, is outperformed by the DNNs. This can be explained by the low number of clauses employed, making it more difficult to exploit the large number of samples (20k), which gives the DNN 6 an advantage."
+    },
+    {
+      "heading": "4.3 Data dimension reduction and clustering",
+      "text": "In order to evaluate our dimension reduction and clustering scheme (Algorithm 1), we apply the clustering procedure to a well known data set that has been used in other clustering approaches. It is the mice protein expression data from [27] consisting of the expression levels of 77 proteins/protein modifications that produced detectable signals in the nuclear fraction of cortex. The data includes experiments in the form of 15 measurements registered of each protein per sample/mouse that includes 38 control mice and 34 trisomic (Down syndrome) mice. For the control mice, there are thus 570 measurements, and for trisomic mice 510 measurements. The data set contains a total of 1080 measurements per protein with each measurement considered as an independent sample/mouse.\nBeing given that there are 77 various dimensions (features) for each sample, any visualization method of the data should be able to capture some clear clustering of the data where each cluster contains samples that share something in common with its nearest neighbors. As most visualization tools explore data in 2 or 3 dimensions, we will use 3 dimensions with 2 of the dimensions as unit-less x/y coordinates, and the 3rd given by a transparency value (less transparent means further away in the 3rd dimension).\nWe visually compare with other clustering methods, which include t-Distributed Stochastic Neighbor Embedding (tSNE), standard PCA, and a contrastive PCA approach (CPCA) introduced in [28]. While these methods are not based on supervised learning and thus cannot be discussed in any quantitative comparisons, we wish to exhibit nonetheless the visual essence of how all of the approaches are clustering the data.\nIn the scatter plots in the Figures 18, 19, and 20, the tSNE, PCA, and CPCA are all shown and plotted with the green values signifying healthy mice and the fuchia colored observations the trisomic mice. Clearly, the CPCA method accurately distinguishes between the two classes, while only using the protein markers as data. One cluster alone is attributed to all the trisomic mice. Using tSNE, while building clusters, it doesn\u2019t seem to distinguish between the two classes. Finally, PCA does not have any resemblance of distinguishable clustering at all.\nIn the interpretable clustering approach, we visualized the results in the following manner. We first applied one epoch of TM learning. A weighted TM is applied to 70 percent of the data, where the label of either trisomic or healthy mouse was used to train the clauses. After the initial training, Algorithm 1 was applied, where we used the top 10 centroids in terms of their global importance coming from Eqn. 5. Colors were then attributed to each of the 10 centroids, and any observation such that its local most influential feature had centroid n as cluster center, the color of centroid n was used. Figure 21 shows the resulting clustering scatter plot. Notice that a large portion of the clustering is centered around a very pertinent feature being SOD1, which happens to be globally the most important feature for predicting healthy\n6DNN with 10 hidden layers containing 100 units each with ReLU activation and Adam optimizer.\nmice, as shown in Figure 22. Further, Figure 23 shows the local interpretability output on one particular observation in the largest cluster. All values in this cluster (teal colored) have SOD1 as the most impactful feature. Figure 24 plots the local interpretability output on one particular observation in the largest cluster. All values in this cluster (light blue colored) have CaNA as the most important feature. Finally, Figure 25, depicts the local interpretability output on one particular observation in the largest cluster. All values inthis cluster (light blue colored) have CaNA as the most important feature."
+    },
+    {
+      "heading": "5 Conclusion",
+      "text": "In this paper, we proposed closed-form expressions for understanding why a TM model makes a specific prediction (local interpretability). Additionally, the expressions capture the most important features of the model overall (global interpretability). We further introduced expressions for measuring the importance of feature value ranges for continuous features. The expressions are formulated directly from the conjunctive clauses of the TM, making it possible to capture the role of features in real-time, also during the learning process as the model evolves. Additionally, from the closed-form expressions, we derived a novel data clustering algorithm for visualizing high-dimensional data in three-dimensions. Finally, we compared our proposed approach against SHAP and state-of-the-art interpretable machine\nlearning techniques. For both classification and regression, our evaluation show correspondence with SHAP as well as competitive prediction accuracy in comparison with XGBoost, Explainable Boosting Machines, and Neural Additive Models.\nThe clause structures that we investigated revealed interpretable insights about high-dimensional data, without the use of additional methods or additive approaches. Upon comparing the interpretability results to a staple in machine learning interpretability such as SHAP and a more recent novel interpretable extension to neural networks in NAMs, we observed that the TM-based interpretability yielded similar conclusions. Furthermore, we validated the approach of range importance on California housing data which offer human interpretable features.\nCurrent and future work on interpretability in Tsetlin Machines includes extending the interpretability expressions for local, global, and conditional range importance to also cover the convolutional TM approach [10]. Further, a method for multivariate time-series analysis based on Tsetlin Machines [29] needs to be developed. Finally, we are investigating a unsupervised approach to using Tsetlin Machines for clustering and outlier detection in real-time."
+    }
+  ],
+  "year": 2020
+}

@@ -1,0 +1,195 @@
+{
+  "abstractText": "Deep learning system have drawback that their output is not accompanied with explanation. In a domain such as forensic handwriting verification it is essential to provide explanation to jurors. The goal of handwriting verification is to find a measure of confidence whether the given handwritten samples are written by the same or different writer. We propose a method to generate explanations for the confidence provided by convolutional neural network (CNN) which maps the input image to 15 annotations (features) provided by experts. Our system comprises of: (1) Feature learning network (FLN), a differentiable system, (2) Inference module for providing explanations. Furthermore, inference module provides two types of explanations: (a) Based on cosine similarity between categorical probabilities of each feature, (b) Based on Log-Likelihood Ratio (LLR) using directed probabilistic graphical model. We perform experiments using a combination of feature learning network (FLN) and each inference module. We evaluate our system using XAI-AND dataset, containing 13700 handwritten samples and 15 corresponding expert examined features for each sample. The dataset is released for public use and the methods can be extended to provide explanations on other verification tasks like face verification and bio-medical comparison. This dataset can serve as the basis and benchmark for future research in explanation based handwriting verification. The code is available on github.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Mihir Chauhan"
+    },
+    {
+      "affiliations": [],
+      "name": "Mohammad Abuzar Shaikh"
+    },
+    {
+      "affiliations": [],
+      "name": "Sargur N. Srihari"
+    }
+  ],
+  "id": "SP:63c750bd41a2f13a7a726b5ff92dfa3e311f390c",
+  "references": [
+    {
+      "authors": [
+        "Srihari SN"
+      ],
+      "title": "Recognition of handwritten and machine-printed text for postal address interpretation",
+      "venue": "Pattern Recognition Letters",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "Axel Brink",
+        "Lambert Schomaker",
+        "Marius Bulacu"
+      ],
+      "title": "Towards explainable writer verification and identification using vantage writers",
+      "venue": "In Ninth International Conference on Document Analysis and Recognition (ICDAR 2007),",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Jun Chu",
+        "Mohammad Abuzar Shaikh",
+        "Mihir Chauhan",
+        "Lu Meng",
+        "Sargur Srihari"
+      ],
+      "title": "Writer verification using cnn feature extraction",
+      "venue": "In 2018 16th International Conference on Frontiers in Handwriting Recognition (ICFHR),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Crepieux-Jamin"
+      ],
+      "title": "L\u2019ecriture et le caractere",
+      "venue": "presses univ. de france, 14th edition",
+      "year": 1951
+    },
+    {
+      "authors": [
+        "David Gunning"
+      ],
+      "title": "Explainable artificial intelligence (xai)",
+      "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A.M. Roy A. Huber"
+      ],
+      "title": "Headrick. Handwriting identification: facts and fundamentals",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "Yann LeCun",
+        "Yoshua Bengio"
+      ],
+      "title": "Convolutional networks for images, speech, and time series",
+      "venue": "The handbook of brain theory and neural networks,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Xiao-Jiao Mao",
+        "Chunhua Shen",
+        "Yu-Bin Yang"
+      ],
+      "title": "Image restoration using convolutional auto-encoders with symmetric skip connections",
+      "venue": "arXiv preprint arXiv:1606.08921,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Rada Mihalcea",
+        "Courtney Corley",
+        "Carlo Strapparava"
+      ],
+      "title": "Corpus-based and knowledge-based measures of text semantic similarity",
+      "venue": "In AAAI,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Ramprasaath R Selvaraju",
+        "Michael Cogswell",
+        "Abhishek Das",
+        "Ramakrishna Vedantam",
+        "Devi Parikh",
+        "Dhruv Batra"
+      ],
+      "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization",
+      "venue": "In Proceedings of the IEEE International Conference on Computer Vision,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M.A. Shaikh",
+        "M. Chauhan",
+        "J. Chu",
+        "S. Srihari"
+      ],
+      "title": "Hybrid feature learning for handwriting verification",
+      "venue": "In 2018 16th International Conference on Frontiers in Handwriting Recognition (ICFHR),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Sargur N Srihari",
+        "Sung-Hyuk Cha",
+        "Hina Arora",
+        "Sangjik Lee"
+      ],
+      "title": "Individuality of handwriting: a validation study",
+      "venue": "In Proceedings of Sixth International Conference on Document Analysis and Recognition,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Sargur Srihari Yi Tang"
+      ],
+      "title": "Likelihood ratio estimation in forensic identification using similarity and rarity",
+      "year": 2013
+    }
+  ],
+  "sections": [
+    {
+      "text": "planation. In a domain such as forensic handwriting verification it is essential to provide explanation to jurors. The goal of handwriting verification is to find a measure of confidence whether the given handwritten samples are written by the same or different writer. We propose a method to generate explanations for the confidence provided by convolutional neural network (CNN) which maps the input image to 15 annotations (features) provided by experts. Our system comprises of: (1) Feature learning network (FLN), a differentiable system, (2) Inference module for providing explanations. Furthermore, inference module provides two types of explanations: (a) Based on cosine similarity between categorical probabilities of each feature, (b) Based on Log-Likelihood Ratio (LLR) using directed probabilistic graphical model. We perform experiments using a combination of feature learning network (FLN) and each inference module. We evaluate our system using XAI-AND dataset, containing 13700 handwritten samples and 15 corresponding expert examined features for each sample. The dataset is released for public use and the methods can be extended to provide explanations on other verification tasks like face verification and bio-medical comparison. This dataset can serve as the basis and benchmark for future research in explanation based handwriting verification. The code is available on github."
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Handwritten evidences provided by expert forensic document examiners (FDE) has long been admissible in the court of law. FDE subjectively specify the characteristics of the handwritten samples like word formations, pen pressure and pen lifts which uniquely identifies an individual writer. The premise for finding unique characteristics is based on the hypothesis that every individual has a unique way of writing [12]. The examination of the handwritten samples involves comparison of the questioned handwritten sample submitted for examination with the known handwritten sample under investigation. Therefore, the task of handwriting verification is to find a measure of confidence whether the questioned and known handwritten samples are written by the same writer or different writer. An example of handwriting verification evidence as presented by FDE is shown in Figure 1. [5]\nForensic handwritten evidences has received skepticism on the reliability of the reasoning methodologies and the subjective nature of the judgments provided by FDE. This is due to\nc\u00a9 2019. The copyright of this document resides with its authors. It may be distributed unchanged freely in print or electronic forms.\nar X\niv :1\n90 9.\n02 54\n8v 1\n[ cs\n.C V\nFigure 1: Explanation with evidence provided to the court of law by a QD examiner. Red arrow indicates a dissimilarity in staff of \u2019a\u2019. The two green arrows indicates similarity between staff of \u2019n\u2019 and exit stroke of \u2019d\u2019 respectively. A green bar over d indicates similarity between staff of \u2019d\u2019. The explanations provides a confidence that the two handwritten samples were written by same writer.\nthe non-exact nature of the conclusions drawn from the explanations provided by different FDE\u2019s.\nResearchers have implemented handwriting verification systems using conventional machine learning techniques [1] [12] [6] as well as deep learning techniques [11] [3]. FDE\u2019s are still unconvinced with the handwriting verification systems because: (1) The output of such systems is difficult to interpret because the system does not provide explanations for the decision. (2) The system is opaque and the inner-working of the system is unclear. Hence, our goal is to provide an explanation based handwriting verification system which provides a decision report for the FDE to interpret the output. Vantage writer approach [2] was proposed to generate comprehensible reports for providing explanations for the task of writer verification and identification. The idea used in [2] is that an individual handwriting can be seen as a mixture of handwritings of typical writers, the vantage writers. The vantage profile describes the features for a handwritten sample. The profile is created using similarity between features of a handwritten sample and all vantage handwritten samples. We have proposed a different approach wherein we generate human explainable features instead of using vantage profile. The proposed system consists of two modules:(1) Feature Learning Network (FLN) which learns to map the input images to expert human observed features (2) The decision inference interface which uses cosine similarity and probabilistic graphical network to provide rational behind the decision made by the system. In the next section, we describe XAI-AND, a dataset specifically created for explainable handwriting verification."
+    },
+    {
+      "heading": "2 Dataset",
+      "text": "XAI-AND dataset is a publicly available dataset for handwriting verification, comprising of 15,518 \u201cAND\u201d image fragments extracted from CEDAR Letter Dataset [12] written by 1567 writers. Each \u201cAND\u201d image fragment is labeled by a questioned document (QD) examiner"
+    },
+    {
+      "heading": "Pen Pressure Tilt Entry Stroke of \"a\" Is Lowercase Is Continuous",
+      "text": "Strong (40.6%)\nNormal (81.24%)\nNo Stroke (94.32%)\nNo (1.5%)\nNo (33.38%)\nMedium (59.4%)\nTilted (18.76%)\nDownstroke (5.68%)\nYes (98.5%)\nYes (66.62%)\nTable 2: Examples and Class Distribution\nwith 15 explainable discrete features. QD examiners have specified these handwriting features based on years of training using seven fundamental elements of handwriting [4] as shown in Table 1. We have created a web based truthing tool for QD examiners to enter the values for the 15 features for \u201cAND\u201d images fragments. The data entry work using the truthing tool was shared primarily between 89 external examiners. The data entered by the external examiners was verified by 2 QD examiners. The resultant dataset serves as a good resource for explanation based handwriting verification. Table 2, 3 and 4 shows class-wise examples and distribution for each explainable feature.\nData Partitioning We follow three approaches to partitioning the writers in training (Dtrain), validation (Dval) and testing(Dtest ) set [11]: Unseen Writer Partitioning: No data partitions share any sample from same writer\nDtrain \u22c2 Dval \u22c2 Dtest = /0 (1)\nShuffled Writer Partitioning: Data partitions randomly share different samples from writers Dtrain \u22c2 Dval \u22c2 Dtest = X where X 6= /0 (2)\nSeen Writer Partitioning: Each data partition contains different samples of the same writer Dtrain = N\u22c3\ni=1\n0.6\u2217Si, Dval = N\u22c3\nj=1\n0.2\u2217S j, Dtest = N\u22c3\nk=1\n0.2\u2217Sk, Dtrain \u22c3 Dval \u22c3 Dtest = S (3)\nwhere S denotes a set of all the writers and i, j,k denote different samples from each writer"
+    },
+    {
+      "heading": "3 Methods",
+      "text": "We propose two broad approaches through our experiments. Both the approaches have two parts to it: (i) A deep learning [7] model for feature extraction, (ii) Inference model for providing an explanation interface [5]. In the first approach we find cosine similarity [9] between the soft assigned class values of corresponding 15 features of two given images, then display the degree of similarity of each feature and overall matching score. In the second, we infer the degree of similarity between the hard assigned predicted class values of the two images through bayesian inference [13]."
+    },
+    {
+      "heading": "3.1 Deep Feature Learning",
+      "text": "Various deep learning models were tested for mapping the human annotations to the handwritten image samples. For obtaining a baseline, we implemented a simple deep CNN"
+    },
+    {
+      "heading": "Slantness Size Staff of \u2019a\u2019 Dimension Exit Stroke \u2019d\u2019",
+      "text": "Normal (52.41%)\nSmall (23.01%)\nNo Staff (18.04%)\nLow (29.75%)\nNo Stroke (24.86%)\nSlight Right (29.38%) Medium (52.41%)\nRetraced (58.45%)\nMedium (52.18%)\nDown Stroke (44.02%)\nVery Right (11.05%) Large (24.58%)\nLoopy (7%)\nHigh (18.07%)\nCurved Up (12.6%)\nLeft (7.58%)\nTented (16.51%)\nStraight (18.53%)\nTable 3: Examples and Class Distribution (contd.)\nnetwork to learn the mapping between input image and the 15 categories. The parameters of the deep CNN network are displayed in Figure 2 (a). This network comprises of an input of shape 64x64x1, layers from Encoding 1 to Encoding 5, followed by a FLN network to generate a multi-task output as shown in Figure 2 (b). Loss function for deep CNN network is shown in equation 4. However, since our input images were noisy, we reconstructed the input using an auto-encoder (AE) in order generate clean output and improve effectiveness. The AE network resembles Figure 2, but, without any skip connections. Furthermore, to reduce the training time, avoid vanishing gradient and to recover a cleaner image, we added skip connections [8] to the AE network. To make the reconstruction and learning non-trivial we translate the input data in the vertical direction and induce 50% random noise in it. The task of reconstruction is to regenerate a clean and non-translated image.\nBased on results of our experiments shown in Table 6, we employ Skip Auto-Encoder (SAE) [8] as it gives decent accuracy to demonstrate the main purpose of the paper. The input image is encoded through layers Encoding 1 up to Encoding 5 and then decoded through layers Decoding 4 down to 0. This is shown in Figure 1 (a). Each encoding layer consists of convolution [7] followed by a max-pool operation. Furthermore, each convolution layer has a kernel size (3x3) and each max-pooling layer has a pool size (2x2). The number of filters keep increasing in multiples of 2 stating from 16 in Encoding 1. On decoding end, each layer consists of up-sampling followed by a convolution layer. Moreover, each upsampling layer doubles the height and width of the incoming tensor and each conv. layer has kernel size (3x3). The number of filters keep decreasing by multiples of 2 starting from 256 in Decoding 4. We then concatenate the encoded feature maps with the decoding layers that have the same height and width to increase the robustness of training and reduce the effect of vanishing gradient problem [8]. Thus, doubling the number of feature maps in the decoding layer. We believe the reconstruction of the noisy-translated samples as de-noised and centered samples provides a regularization effect for updating the parameters of FLN.\nFeature Learner Network (FLN): We introduce a learning network such that Encoding 5 is processed in FLN and its output is then supplied to Decoding 4 for reconstruction. FLN"
+    },
+    {
+      "heading": "Constancy Letter Spacing Word Formation Staff of \u2019d\u2019 Formation of \u2019n\u2019",
+      "text": "Irregular (39.65%)\nLess (22.49%)\nNot Well Formed (56.91%)\nNo Staff (9.86%)\nNo Formation (22.97%)\nRegular (60.35%)\nMedium (43.09%)\nWell Formed (43.09%)\nRetraced (49.63%)\nNormal (77.03%)\nHigh (25.78%)\nLoopy (40.51%)\nTable 4: Examples and Class Distribution (contd.)\nconsists of learning units for each of the 15 categories present in the dataset. Each learning unit comprises of a hidden layer (H) and a SoftMax layer (SM) such that there is one H and SM for each task. Each H has 128 neurons and each SM has neurons corresponding to the number of classes in respective task. The sum of Categorical-CrossEntropy (CCE) loss for each SM is backpropogated during the training. Hence the loss of FLN is denoted by:\nLFLN := \u2211 j \u2212\u2211 i (y\u2032i log(yi)+(1\u2212 y\u2032i) log(1\u2212 yi)) (4)\nwhere i is the class is each task category denoted in Table 2, 3 and 4. and j ranges from 1 to 15 for each of the categories. Next, all the H\u2019s are concatenated and input to a fully connected (FC) layer consisting of 512 neurons. The output of FC is then reshaped to 1x1x512 and is then input to Decoding 4 layer. Hence, instead of passing the Encoding 5 directly to Decoding 4, which normally is the case, we do the following: (i) fan out Encoding 5 into 15 clone branches, (ii) learn mapping of each category with the image, as Encoding 5 is a latent representation of the image, (iii) combine the learned representations of each category to further reconstruct the input image.\nTotal Loss: Total Loss of the deep learning network is the sum of Reconstruction Loss (LRecon) and FLN Loss (LFLN). Where LRecon is calculated by measuring the models ability to reconstruct the image close to original. To generate the image the Decoding 5 neurons are activated by Sigmoid function since the input was normalized to be between 0 and 1.\nLRecon :=\u2212 m\n\u2211 i=1 yiln(pi)+(1\u2212 yi)log(1\u2212 pi) (5)\nLTotal := LRecon +LFLN (6)"
+    },
+    {
+      "heading": "3.2 Inference Methods for Explainability",
+      "text": "Analysis of handwriting features helps a Forensic Document Examiner (FDE) to find the probability (p) that the known (k f ) and questioned (q f ) handwritten samples were written by the same writer. Each handwritten sample, q f and k f is associated with 15 discrete features f = { f1, f2, ... f15}. We use Dtrain for training the FLN; Dval to tune model hyper-parameters and threshold value; Dtest for testing the model with tuned parameters. Furthermore, two approaches are tested for analysis of handwritten samples:\n(a)\n(b)\nFigure 2: (a) shows the Auto Encoder Architecture. (b) shows the expanded form of Features Learner we call it Feature Learner Network (FLN). In (b) H1 to H15 are hidden layers consisting 128 neurons for respective 15 tasks. SM1 to SM15 are soft-max activations for respective 15 tasks. Best viewed when zoomed\nDistance as a measure (DAAM): We use Cosine Similarity (Csim) to measure the degree of similarity. We measure the similarity of the categorical probabilities learned by the FLN soft-max layer. Cosine similarity between the corresponding categories of two input images implies the measure of similarity:\nCsim(q f j ,k f j) = \u2211ni=1 q f ji k f ji\u221a\n\u2211ni=1 q2f ji \u221a \u2211ni=1 k2f ji\n(7)\nwhere j \u2208 {1,2, ...15} and n is the number of classes in f j. We also compute the Overall Cosine Similarity COCS by taking the mean of the sum of Csim across all f .\nCOCS(q f ,k f ) = 15\n\u2211 j=1 Csim(q f j ,k f j) (8)\nOnce the model learns to map the input images to human features using Dtrain, we then finalize a threshold value T on the validation set. To guesstimate the value of T we run multiple iteration of same experiment with T ranging from 0.1 to 0.9 at an increment of 0.1. During every iteration, COCS is calculated for each pair of data point in Dval . Simultaneously, we calculate the True Positives (TP), False Positives (FP), True Negatives (TN), False Negatives (FN), for all the pairs in Dval based on the current increment of T . Post every iteration Precision and Recall is calculated. Finally, the value of T where precision is very close to recall is chosen for testing the performance on Dtest . Furthermore, during testing if the COCS score is below T ; the two samples are considered as negative pairs else positive pairs.\nLikelihood as a measure (LAAM): Likelihood ratio (LR) is the ratio of the joint probability P(q f ,k f |l0) of q f and k f given the handwritten samples were written by the same writer l0 to the joint probability P(q f ,k f |l1) of q f and k f given the samples were written by\ndifferent writers l1. Finding P(q f ,k f |l) requires calculating the joint probability of existence for all possible combinations pairs of input features. This is computationally expensive and infeasible. Hence, we simplify the calculation by calculating distance between q f and k f . This approach has been proposed for shoe-print verification, fingerprint verification by Yi Tang et al. in [13].\nLR = P(q f ,k f |l0) P(q f ,k f |l1) \u2248 P(d(q f ,k f )|l0) P(d(q f ,k f )|l1)\n(9)\nThe distance d(q f ,k f ) can be regarded as a measure of similarity between q f and k f .\nBecause each feature f j = [x1, ...,xn f j ] can take one of n f j values, the features are multinomial in nature. In our dataset, n f1 = 2,n f2 = 2,n f3 = 2,n f4 = 4,n f5 = 3,n f6 = 3,n f7 = 3,n f8 = 2,n f9 = 2,n f10 = 2,n f11 = 4,n f12 = 3,n f13 = 4,n f14 = 2,n f15 = 2. We have calculated the distance between multinomial discrete features using categorical distance values. Let\u2019s describe categorical distance by an example with staff of \u2019a\u2019 f11 taking values {0:No Staff, 1:Retraced, 2:Loopy, 3:Tented}. Hence, q f11 and k f11 can take values {0,1,2,3}. As a result, d(q f11 ,k f11) takes 10 categorical distance values: {1:\u201800\u2019, 2:\u201801\u2019, 3:\u201802\u2019, 4:\u201803\u2019, 5:\u201811\u2019,6:\u201812\u2019, 7:\u201813\u2019, 8:\u201822\u2019, 9:\u201823\u2019, 10:\u201833\u2019}. We calculate the joint probability P(d(q f ,k f )|l0) using Bayesian Network (BN1) inference as in eqn. 10 by considering dependencies between the 15 features as shown in Figure 3. Input to BN1 are the categorical distance values between k f and q f when l = 0. Similarly, we calculate the joint probability P(d(q f ,k f )|l1) using Bayesian Network BN2 inference using eqn. 10 while considering same dependencies between 15 features as shown in Figure 3. Input to BN2 are the categorical distance values between k f and q f when l = 1.\nBoth, BN1 and BN2 have 15 vertices with the same structure as shown in Figure 2. Furthermore, the structure is learned using correlation values, k2 scores, BDeu scores, BIC scores and domain knowledge. Each vertex contains a categorical distance value. Even though the structure of the Bayesian Network is the same for BN1 and BN2, we find that the conditional probability distributions (CPDs) generated using Maximum Likelihood Estimation (MLE) would be different. Finally, we infer the values of P(d(q f ,k f )|l0) and P(d(q f ,k f )|l1) using the CPDs from BN1 and BN2 respectively to calculate LR using equation [9][10]:\nP(d(q f ,k f )|l) = P(d( f1))\u2217P(d( f2)|d( f1))\u2217P(d( f3))\u2217P(d( f4)|d( f3))\u2217 P(d( f11))\u2217P(d( f12)|d( f11))\u2217P(d( f13))\u2217P(d( f14)|d( f13))\u2217 P(d( f8)|d( f7))\u2217P(d( f9)|d( f8))\u2217P(d( f10)|d( f9))\u2217P(d( f5))\u2217 P(d( f6))\u2217P(d( f15))\u2217P(d( f7)|P(d( f5)),P(d( f6)),P(d( f15)))\nwhere, d( f j) = d(q f j ,k f j) (10)\n(a) (b)\nFigure 4: Graph of Similarity Score of Questioned (q) & Known (k) Image Features for (a) Different Writer Samples (b) Same Writer Samples"
+    },
+    {
+      "heading": "4 Experiments and Results",
+      "text": "Our experimental setup includes a deep learning system followed by an inference model. Training and testing of the deep learning system was done using three 11GB NVIDIA GTX 1080 Ti GPUs and TensorFlow backend. Input to the deep learning system are handwritten \u201cAND\u201d image snippets and the targets are the 15 explainable features. We normalize the input image snippets such that each pixel value in the image is between [0,1]. We develop data-generator to output 128 samples in one batch. The input image is translated in vertical direction randomly by \u00b112px. This makes the skip auto-encoder translation invariant. We train the deep learning model for 100,000 epochs with SGD optimizer. The evaluation of the deep learning model is done using accuracy per explainable feature as shown in Table 5.\nThe two methods for inferring explanations from the features are DAAM and LAAM. The input to DAAM is the softmax layer of FLN whereas input to LAAM is the argmax of the softmax layer of FLN. DAAM uses the soft probabilities to compute the cosine simi-"
+    },
+    {
+      "heading": "Method Metric Seen Unseen Shuffled",
+      "text": "DAAM_CNN Intra Writer Accuracy (Type 1) 86.34% 66.12% 76.77% Inter Writer Accuracy (Type 2) 93.23% 90.91% 93.18% Overall Accuracy 92.64% 91.51% 94.87% DAAM_AE Intra Writer Accuracy (Type 1) 86.88% 68.33% 77.67% Inter Writer Accuracy (Type 2) 94.80% 92.41% 94.13% Overall Accuracy 94.58% 92.31% 94.34% DAAM_SAE Intra Writer Accuracy (Type 1) 88.12% 70.82% 80.98% Inter Writer Accuracy (Type 2) 95.58% 93.49% 95.08% Overall Accuracy 95.78% 94.27% 95.23% LAAM_SAE Intra Inter Writer Accuracy (Type 1) 75.17% 71.92% 81.67% Inter Writer Accuracy (Type 2) 95.77% 87.30% 93.90% Overall Accuracy 85.15% 85.79% 92.76%\nTable 6: Performance using DAAM and LAAM on XAI-AND dataset. Feature learning using translation-invariant skip-auto-encoder outperforms basic CNN and basic auto-encoder\nlarity between the corresponding explainable features. During the evaluation phase the soft probabilities of each category for each sample are extracted and stored in memory, with the id of the writer and the name of the image as the keys. This data is then sorted in memory and Csim is computed. Once the scores are ready we calculate COCS for each sample. Next we compare the COCS with T to get the confusion metrics. With these confusion metrics we calculate the evaluation metrics Type 1 accuracy (T1), Type 2 accuracy (T2), Precision (P), Recall (R). Where, Intra Writer accuracy (Type 1) = T P/Sw, Inter Writer Accuracy (Type 2) = FP/Se and Overall Accuracy = (T P+T N)/Se. Here, Se = Total number of samples in evaluation set, Sw = Number of samples in resp. writer set. We repeat the same experiment for all the three datasets. Similar to DAAM, we have experimented LAAM using bayesian network on all the three datasets. The results are shown in Table 6. Output of the explainable model is shown in figure 4. Figure 4(a) shows an example of the explanations provided when the handwritten samples are written by different writer. The overall similarity score is low (0.3784) because the similarity between is_lowercase, sta f f _o f _d and exit_stroke_d is low. Similarly, Figure 4(b) shows an example of the explanations provided when the handwritten samples are written by the same writer."
+    },
+    {
+      "heading": "5 Conclusion",
+      "text": "We have made XAI-AND dataset publicly available. The dataset contains explainable features (meta-data) associated with each of the handwritten sample in the dataset. Furthermore, we provide an effective deep learning system which is capable of learning and generating explanations for the task of handwriting verification. Our experiments denote that threshold based methods like cosine similarity and likelihood ratio can be used to explain the output of deep learning system. We show that deep learning model can be amalgamated with Bayesian models to provide useful explanations for FDE. Currently our system is two pass, in the first pass we train the deep learning model and in the second pass we train the Bayesian network. However, we plan to make the system end to end trainable in the future. Moreover, we plan to build a pipeline to update model parameters while the FDEs are labeling the dataset and provide suggestive feedbacks on their input. Finally, our future plan is to provide visual explanations using GradCAM [10] like approaches."
+    }
+  ],
+  "title": "Explanation based Handwriting Verification",
+  "year": 2019
+}

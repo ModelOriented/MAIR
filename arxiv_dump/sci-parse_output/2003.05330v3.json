@@ -1,0 +1,544 @@
+{
+  "abstractText": "The ability to understand and trust the fairness of model predictions, particularly when considering the outcomes of unprivileged groups, is critical to the deployment and adoption of machine learning systems. SHAP values provide a unified framework for interpreting model predictions and feature attribution but do not address the problem of fairness directly. In this work, we propose a new definition of fairness that emphasises the role of an external auditor and model explicability. To satisfy this definition, we develop a framework for mitigating model bias using regularizations constructed from the SHAP values of an adversarial surrogate model. We focus on the binary classification task with a single unprivileged group and link our fairness explicability constraints to classical statistical fairness metrics. We demonstrate our approaches using gradient and adaptive boosting on: a synthetic dataset, the UCI Adult (Census) dataset and a real-world credit scoring dataset. The models produced were fairer and performant.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Vlasios Vasileiou"
+    },
+    {
+      "affiliations": [],
+      "name": "V. Vasileiou"
+    }
+  ],
+  "id": "SP:d55e50feecf9b30b9362b9575d619ff31d4ffcbf",
+  "references": [
+    {
+      "authors": [
+        "A. Agarwal",
+        "A. Beygelzimer",
+        "M. Dudik",
+        "J. Langford",
+        "H. Wallach"
+      ],
+      "title": "A reductions approach to fair classification",
+      "venue": "Proceedings of the 35th International Conference on Machine Learning. Proceedings of Machine Learning Research,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Barocas",
+        "A.D. Selbst"
+      ],
+      "title": "Big data\u2019s disparate impact",
+      "venue": "Calif. L. Rev. 104, 671",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Beutel",
+        "J. Chen",
+        "Z. Zhao",
+        "E.H. Chi"
+      ],
+      "title": "Data decisions and theoretical implications when adversarially learning fair representations",
+      "venue": "arXiv preprint arXiv:1707.00075",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Beutel",
+        "J. Chen",
+        "T. Doshi",
+        "H. Qian",
+        "A. Woodruff",
+        "C. Luu",
+        "P. Kreitmann",
+        "J. Bischof",
+        "E.H. Chi"
+      ],
+      "title": "Putting fairness principles into practice: Challenges, metrics, and improvements",
+      "venue": "Proceedings of the 2019 AAAI/ACM Conference on AI, Ethics, and Society. pp. 453\u2013459. AIES \u201919, Association for Computing Machinery, New York, NY, USA",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L.E. Celis",
+        "L. Huang",
+        "V. Keswani",
+        "N.K. Vishnoi"
+      ],
+      "title": "Classification with fairness constraints: A meta-algorithm with provable guarantees",
+      "venue": "Proceedings of the Conference on Fairness, Accountability, and Transparency. pp. 319\u2013328. Association for Computing Machinery, New York, NY, USA",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J. Cesaro",
+        "F. Gagliardi Cozman"
+      ],
+      "title": "Measuring unfairness through game-theoretic interpretability",
+      "venue": "Cellier, P., Driessens, K. (eds.) Machine Learning and Knowledge 14 J. Hickey, P. Di Stefano, and V. Vasileiou Discovery in Databases. pp. 253\u2013264. Springer International Publishing, Cham",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "T. Chen",
+        "C. Guestrin"
+      ],
+      "title": "Xgboost: A scalable tree boosting system",
+      "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. pp. 785\u2013794. KDD 2016, Association for Computing Machinery, New York, NY, USA",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "S. Chiappa",
+        "T. Gillam"
+      ],
+      "title": "Path-specific counterfactual fairness",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence 33",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Chouldechova"
+      ],
+      "title": "Fair prediction with disparate impact: A study of bias in recidivism prediction instruments",
+      "venue": "Big Data 5(2), 153\u2013163",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Corbett-Davies",
+        "S. Goel",
+        "J. Morgenstern",
+        "R. Cummings"
+      ],
+      "title": "Defining and designing fair algorithms",
+      "venue": "Proceedings of the 2018 ACM Conference on Economics and Computation. p. 705. Association for Computing Machinery, New York, NY, USA",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "P. Di Stefano",
+        "J. Hickey",
+        "V. Vasileiou"
+      ],
+      "title": "Counterfactual fairness: removing direct effects through regularization",
+      "venue": "arXiv preprint arXiv:2002.10774",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "C. Dwork",
+        "M. Hardt",
+        "T. Pitassi",
+        "O. Reingold",
+        "R. Zemel"
+      ],
+      "title": "Fairness through awareness",
+      "venue": "Proceedings of the 3rd Innovations in Theoretical Computer Science Conference. pp. 214\u2013226. ITCS 2012, Association for Computing Machinery, New York, NY, USA",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Y. Freund",
+        "R.E. Schapire"
+      ],
+      "title": "A decision-theoretic generalization of on-line learning and an application to boosting",
+      "venue": "Journal of Computer and System Sciences 55(1), 119\u2013139",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "S. Friedler",
+        "S. Choudhary",
+        "C. Scheidegger",
+        "E. Hamilton",
+        "S. Venkatasubramanian",
+        "D. Roth"
+      ],
+      "title": "A comparative study of fairness-enhancing interventions in machine learning",
+      "venue": "FAT* 2019 - Proceedings of the 2019 Conference on Fairness, Accountability, and Transparency. pp. 329\u2013338. FAT* 2019 - Proceedings of the 2019 Conference on Fairness, Accountability, and Transparency, Association for Computing Machinery, Inc",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "N. Goel",
+        "M. Yaghini",
+        "B. Faltings"
+      ],
+      "title": "Non-discriminatory machine learning through convex fairness criteria",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "I. Goodfellow",
+        "J. Pouget-Abadie",
+        "M. Mirza",
+        "B. Xu",
+        "D. Warde-Farley",
+        "S. Ozair",
+        "A. Courville",
+        "Y. Bengio"
+      ],
+      "title": "Generative adversarial nets",
+      "venue": "K.Q. (eds.) Advances in Neural Information Processing Systems",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "B. Goodman",
+        "S. Flaxman"
+      ],
+      "title": "European union regulations on algorithmic decision-making and a \u201cright to explanation",
+      "venue": "AI Magazine 38(3), 50\u201357",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "T. Kamishima",
+        "S. Akaho",
+        "H. Asoh",
+        "J. Sakuma"
+      ],
+      "title": "Fairness-aware classifier with prejudice remover regularizer",
+      "venue": "Flach, P.A., De Bie, T., Cristianini, N. (eds.) Machine Learning and Knowledge Discovery in Databases. pp. 35\u201350. Springer Berlin Heidelberg, Berlin, Heidelberg",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "N. Kilbertus",
+        "M. Rojas-Carulla",
+        "G. Parascandolo",
+        "M. Hardt",
+        "D. Janzing",
+        "B. Sch\u00f6lkopf"
+      ],
+      "title": "Avoiding discrimination through causal reasoning",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J. Kleinberg"
+      ],
+      "title": "Inherent trade-offs in algorithmic fairness",
+      "venue": "Abstracts of the 2018 ACM International Conference on Measurement and Modeling of Computer Systems. p. 40. SIGMETRICS-18, Association for Computing Machinery, New York, NY, USA",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Lipovetsky",
+        "M. Conklin"
+      ],
+      "title": "Analysis of regression in game theory approach",
+      "venue": "Applied Stochastic Models in Business and Industry 17(4), 319\u2013330",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "K. Lum",
+        "W. Isaac"
+      ],
+      "title": "To predict and serve? Significance",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "G. Erion",
+        "H. Chen",
+        "A. DeGrave",
+        "J.M. Prutkin",
+        "B. Nair",
+        "R. Katz",
+        "J. Himmelfarb",
+        "N. Bansal",
+        "S.I. Lee"
+      ],
+      "title": "Explainable ai for trees: From local explanations to global understanding",
+      "venue": "arXiv preprint arXiv:1905.04610",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "S.I. Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "Guyon, I., Luxburg, U.V., Bengio, S., Wallach, H., Fergus, R., Vishwanathan, S., Garnett, R. (eds.) Advances in Neural Information Processing Systems 30, pp. 4765\u20134774. Curran Associates, Inc.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Madras",
+        "E. Creager",
+        "T. Pitassi",
+        "R. Zemel"
+      ],
+      "title": "Learning adversarially fair and transferable representations",
+      "venue": "Proceedings of the 35th International Conference on Machine Learning. Proceedings of Machine Learning Research,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "P. Manisha",
+        "S. Gujar"
+      ],
+      "title": "A neural network framework for fair classifier",
+      "venue": "arXiv preprint arXiv:1811.00247",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Mansoor"
+      ],
+      "title": "A viral tweet accused apple\u2019s new credit card of being \u2019sexist.\u2019 now new york state regulators are investigating",
+      "venue": "TIME Magazine",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "N. Mehrabi",
+        "F. Morstatter",
+        "N. Saxena",
+        "K. Lerman",
+        "A. Galstyan"
+      ],
+      "title": "A survey on bias and fairness in machine learning",
+      "venue": "arXiv preprint arXiv:1908.09635",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R.K. Mothilal",
+        "A. Sharma",
+        "C. Tan"
+      ],
+      "title": "Explaining machine learning classifiers through diverse counterfactual explanations",
+      "venue": "Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency. pp. 607\u2013617. FAT* 2020, Association for Computing Machinery, New York, NY, USA",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "R. Nabi",
+        "I. Shpitser"
+      ],
+      "title": "Fair inference on outcomes",
+      "venue": "Proceedings of the ... AAAI Conference on Artificial Intelligence. AAAI Conference on Artificial Intelligence",
+      "year": 1931
+    },
+    {
+      "authors": [
+        "C. O\u0143eil"
+      ],
+      "title": "Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy",
+      "venue": "Crown Publishing Group, USA",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "\u1e85hy should i trust you?\u0308: Explaining the predictions of any classifier",
+      "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. pp. 1135\u20131144. Association for Computing Machinery, New York, NY, USA",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J.E. Roemer",
+        "A. Trannoy"
+      ],
+      "title": "Equality of opportunity",
+      "venue": "Handbook of income distribution, vol. 2, pp. 217\u2013300. Elsevier",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "L.S. Shapley"
+      ],
+      "title": "A value for n-person games",
+      "venue": "pp. 307\u2013317. Contributions to the Theory of Games 2.28",
+      "year": 1953
+    },
+    {
+      "authors": [
+        "A. Shrikumar",
+        "P. Greenside",
+        "A. Kundaje"
+      ],
+      "title": "Learning important features through propagating activation differences",
+      "venue": "Proceedings of the 34th International Conference on Machine Learning - Volume 70. pp. 3145\u20133153. JMLR.org",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "E. Strumbelj",
+        "I. Kononenko"
+      ],
+      "title": "Explaining prediction models and individual predictions with feature contributions",
+      "venue": "Knowledge and Information Systems pp",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "H. Suresh",
+        "J.V. Guttag"
+      ],
+      "title": "A framework for understanding unintended consequences of machine learning",
+      "venue": "arXiv preprint arXiv:1901.10002",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Verma",
+        "J. Rubin"
+      ],
+      "title": "Fairness definitions explained",
+      "venue": "Proceedings of the International Workshop on Software Fairness. pp. 1\u20137. Association for Computing Machinery, New York, NY, USA",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Wachter",
+        "B.D. Mittelstadt",
+        "C. Russell"
+      ],
+      "title": "Counterfactual explanations without opening the black box: Automated decisions and the GDPR",
+      "venue": "Harvard Journal of Law and Technology 31",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Yeom",
+        "M.C. Tschantz"
+      ],
+      "title": "Discriminative but not discriminatory: A comparison of fairness definitions under different worldviews",
+      "venue": "arXiv preprint arXiv:1808.08619v4",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "H.P. Young"
+      ],
+      "title": "Monotonic solutions of cooperative games",
+      "venue": "International Journal of Game Theory 14,",
+      "year": 1985
+    },
+    {
+      "authors": [
+        "M.B. Zafar",
+        "I. Valera",
+        "M.G. Rodriguez",
+        "K.P. Gummadi",
+        "A. Weller"
+      ],
+      "title": "From parity to preference-based notions of fairness in classification",
+      "venue": "Proceedings of the 31st International Conference on Neural Information Processing Systems. p. 228\u2013238. NIPS\u201917, Curran Associates Inc., Red Hook, NY, USA",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M.B. Zafar",
+        "I. Valera",
+        "M.G. Rogriguez",
+        "K.P. Gummadi"
+      ],
+      "title": "Fairness constraints: Mechanisms for fair classification",
+      "venue": "Proceedings of the 20th International Conference on Artificial Intelligence and Statistics. Proceedings of Machine Learning Research,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B.H. Zhang",
+        "B. Lemoine",
+        "M. Mitchell"
+      ],
+      "title": "Mitigating unwanted biases with adversarial learning",
+      "venue": "Proceedings of the 2018 AAAI/ACM Conference on AI, Ethics, and Society. pp. 335\u2013340. AIES 18, Association for Computing Machinery, New York, NY, USA",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "L. Zhang",
+        "Y. Wu",
+        "X. Wu"
+      ],
+      "title": "A causal framework for discovering and removing direct and indirect discrimination",
+      "venue": "Proceedings of the Twenty-Sixth International Joint Conference on Artificial Intelligence, IJCAI-17. pp. 3929\u20133935",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Q. Zhao",
+        "T. Hastie"
+      ],
+      "title": "Causal interpretations of black-box models",
+      "venue": "Journal of Business & Economic Statistics 0(0), 1\u201310",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "text": "ar X\niv :2\n00 3.\n05 33\n0v 3\n[ cs\n.L G\n] 2\n6 Ju\nn 20\nKeywords: Algorithmic Fairness \u00b7 SHAP values \u00b7 Adversarial learning \u00b7 Machine learning interpretability."
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "The last few decades have seen machine learning algorithms become even more performant and leverage larger varieties of data. These advances have led to wide-spread adoption of machine learning in nearly every industry. The potential damage and wider societal harm that could be caused by large-scale automated decisioning systems is palpable amongst regulators, industry practitioners and consumers [10,34,25]. Two specific concerns that have emerged center on the interpretability and fairness of the decisions resulting from these algorithms. These are not unjustified with cases of unfair decisioning systems manifesting in multiple domains from criminal recidivism [10] to credit worthiness assessment. In the European Union, these concerns have manifest in the General Data Protection Regulation [14,19] that enshrines each individual\u2019s right to fair and transparent\n\u22c6 Supported by Experian Ltd.\nprocessing. This combined societal and legislative scrutiny has resulted in model interpretability and algorithmic fairness coming to the fore in research [13,31].\nAt the broadest level, the concept of algorithmic fairness tackles whether members of specific unprivileged groups are more likely to receive unfavourable decisions from the predictions of a machine learning system. Recent advances have enabled modellers to incorporate fairness at every point of the model building process [16,31,40,11]. One embodiment incorporates fairness constraints into the training procedure [20,6,12,17,47,33,29,1,29], typically these constraints rely on statistical measures of fairness and are subject to drawbacks [22] and tradeoffs. These measures rely on a priori worldviews and do not incorporate the role of external model auditing or decision explicability in their fairness criteria. This is poorly aligned with how these issues are dealt within industry, where external actors often question the model fairness through building surrogate explanatory models, even if mentally, using the information available to them.\nTo address these issues, we propose a new definition of fairness we dub \u201cFairness by Explicability\u201d. Under this definition, if an external actor\u2019s surrogate model cannot produce a narrative (i.e., a set of explanations) against the fairness of a particular model, then that particular model can be considered explicably fair. This definition explicitly frames the perception of an algorithm\u2019s fairness as one determined by a combination of an auditor\u2019s worldview, data availability, model interpretability framework and measurement/modelling approach. It can be considered complementary to the existing ways of evaluating a model\u2019s fairness, since while those may capture risk arising from non-adherence to regulatory requirements, our new \u201cfairness by explicability\u201d viewpoint captures the additional and independent risk that may arise from analyses performed by one\u2019s own clients [30].\nTo enforce our \u201cFairness by Explicability\u201d definition, we leverage model interpretability methodologies [35,27,49] to incorporate fairness constraints through adversarial learning. More explicitly, we utilize the SHAP [27,26] values of a surrogate adversary model in two ways. The first works by constructing a differentiable fairness regularization term. The second is a modification to the classic AdaBoost algorithm [15] to include adversarial attribution values in the weight updates.\nWe link our fairness approach to statistical fairness [41] via the construction of an appropriate surrogate model. Our approaches are illustrated using a synthetic dataset, the UCI Adult Census Dataset [5], and a commercial credit scoring dataset. These datasets present a diverse evaluation set, with the realworld dataset providing assurance that these approaches are viable in industrial applications. The structure of the papers is as follows: in Section 2 we introduce our notation; in Section 3 we provide a brief account of SHAP values and Section 4 discusses statistical fairness measures. Section 5 introduces the \u201cFairness by Explicability\u201d worldview and in Section 6 we present our SHAP-regularized algorithms before discussing the results of the experiments in Section 7. We then state our conclusions and highlight areas of further research in Section 8."
+    },
+    {
+      "heading": "2 Notation",
+      "text": "To measure the fairness of any algorithm output one needs to define the task objective, the un-/privileged groups to measure fairness against and the favourable outcomes. For the remainder of this paper, we focus on binary classification tasks with a single privileged group indicator Z. We denote the other covariates present with X and the combination of Z with those covariates by X\u0303. Furthermore, and without loss of generality, we define the value of 1 for the target Y and the corresponding model outcomes Y\u0302 as the favourable label. Model outcomes are constructed by applying a threshold to the scores Y\u0304 . For each instance i, we denote the corresponding values with the appropriate lowercase symbol and subscript, i.e. yi, zi, xi, etc. In this case, xi and x\u0303i denote vectors and the value of the jth covariate is given by xij and x\u0303ij ."
+    },
+    {
+      "heading": "3 SHapley Additive Explanations (SHAP)",
+      "text": "SHapley Additive Explanations, or SHAP values [27,26], provide a unified framework for interpreting model predictions. This approach was built off the insight that many other modern explanatory frameworks such as LIME [35] and DeepLIFT [38] could be recast as variants of a generic additive feature attribution paradigm. In this paradigm, a simplified explanatory model \u03c3 is built to explain the original prediction f using simplified binary input vectors x\u0303\u2032i \u2208 {0, 1}\nM , where M is the number of features and i is the instance label. These simplified inputs are related to the original feature vectors x\u0303i through the mapping x\u0303i = hx\u0303i(x\u0303 \u2032 i) and the local explanatory model is given by:\n\u03c3(x\u0303\u2032i) = \u03c6 i,f 0 +\nM \u2211\nj=1\n\u03c6 i,f j x\u0303 \u2032 ij . (1)\nThe local feature effect of feature j for model f is \u03c6i,fj and global explanations are calculated via the statistics of these values across a dataset. The different explanatory frameworks, e. g. LIME, emerge from specific choices of the mapping function hx\u0303i , the kernel weighting of instances in the objective (\u03c0x\u0303) and any additional regularization terms \u2126(\u03c3) used to fit \u03c3. These choices influence the properties of the surrogate model. In Ref. [27], they showed that only one \u03c3 satisfies these 3 desirable properties:\n1. Local Accuracy: f(x\u0303i) = \u03c3(x\u0303 \u2032 i) =\n\u2211M j=0 \u03c6 i,f j , when x\u0303i = hx\u0303i(x\u0303 \u2032 i).\n2. Missingness: x\u0303\u2032ij = 0 =\u21d2 \u03c6 i,f j = 0. 3. Attribution Consistency: for any two models f, f \u2032, the ordering of the differences of the model output when a feature is present vs missing is reflected in their respective attributions of that feature.\nIts attributions \u03c6j are the same Shapley Values first identified in cooperative game theory [37,24,44,39]:\n\u03c6 \u2022,f j =\n\u2211\nz\u2032\u2286x\u0303\u2032\n|z\u2032|!(M \u2212 |z\u2032| \u2212 1)!\nM ! [fx\u0303(z\n\u2032)\u2212 fx\u0303(z \u2032 \\ j)]. (2)\nHere, |z\u2032| is the number of non-zero entries in z\u2032, z\u2032 \\ j denotes setting the jth element of z\u2032 to 0 and the summation is over all z\u2032 where the non-zero entries are a subset of the non-zero entries of x\u0303\u2032. These SHAP values can be estimated for a generic model using KernelSHAP [27] while for specific model families there are efficient computational methods and analytic approximations [26,39]."
+    },
+    {
+      "heading": "4 Metrics and Statistical Fairness",
+      "text": "To estimate fairness metrics one requires a dataset of N instances with Y and Z as well as the outcomes. Given this data, the appropriate fairness metric is often defined by the worldview(s) [43] of those auditing the outcomes. These worldviews tend to fall into three broad categories: \u201cWe\u2019re all equal\u201d [2], \u201cWhat you see is what you get\u201d [13,36] and causal [21,48,23,42,12,9]. The first two categories are statistical in nature and we now discuss their application to the binary task domain.\nStatistical fairness metrics relate to the conditional probabilities involving Y , Y\u0302 and Z. The \u201cWe\u2019re all equal\u201d worldview has numerous group fairness metrics associated with it. These metrics measure any differences in outcome given group membership and seek to balance said outcomes. Contrastingly, \u201cWhat you see is what you get\u201d asserts that the observed data captures the underlying \u201ctruth\u201d and typically prefers to offer individuals similar outcomes conditional on Y . In this work, we consider two of the most common statistical fairness metrics from these categories: \u201cstatistical parity\u201d difference (SPD) and \u201cequality of opportunity\u201d difference (EOD). More formally, these are defined as:\nSPD = |P (Y\u0302 = 1|Z = 1)\u2212 P (Y\u0302 = 1|Z = 0)|, (3)\nEOD = |P (Y\u0302 = 1|Y = 1, Z = 1)\u2212\nP (Y\u0302 = 1|Y = 1, Z = 0)|. (4)\nNote that a target SPD value can also be calculated by replacing Y\u0302 with Y respectively in Eq. 3. Both of these measures are estimated from a specified dataset, their value of zero denotes a maximally fair model, and both have tradeoffs [22] and limitations. For example, SPD can be minimized through randomly modifying outcomes while ignoring all other covariates X and so can be viewed as a lazy penalization. Contrastingly, minimizing EOD may not reduce any gap in the rate of favourable outcomes between the groups."
+    },
+    {
+      "heading": "5 Fairness by Explicability",
+      "text": "The traditional statistical fairness metrics presented in Section 4 are not explicitly linked to the domain of model interpretability. Recent work [7] demonstrated empirically that the SHAP values of Z could capture statistical unfairness provided Z was used as a feature of the model. To formalize an explicit link between model fairness and explicability, we first recall that statistical fairness measures\nemerge from the worldviews of individuals auditing the model outcomes for fairness. Typically, when trying to understand observations, a human agent (an external actor/auditor) will construct a surrogate model to obtain explanations for their observations. The role of Z in these explanations determines whether the outcomes constructed are perceived as fair or not. Building on this idea, we propose a new worldview to capture the mechanism by which model decisions are evaluated by external actors.\nDefinition 1. Consider a model trained by an auditor to predict Y\u0304 using Z and, optionally, a combination from {Y,X}. If this model does not detect any difference in the Z attribution between the Z = 0, 1 groups, then the predictor model is explicably fair with respect to the auditor.\nWe dub this worldview \u201cFairness by Explicability\u201d. The precise measure of fairness one attains is determined by: the population examined by the auditor, the interpretability framework used, how attributions are calculated and aggregated, and the auditor model developed. This definition can be specialized into a strong \u201cFairness by Explicability\u201d form by further requiring that total attribution for Z is also reduced to zero.\nAuditors are usually interested in the average attribution of the two groups given a population of data. This informs the metrics used to quantify how \u201cexplicably fair\u201d a model is. These are:\nFE = |\n\u2211 i,s.t.Z=1 \u03c6 i,l Z\nN1 \u2212\n\u2211 i,s.t.Z=0 \u03c6 i,l Z\nN2 |, (5)\nSFE =\n\u2211 i |\u03c6 i,l Z |\nN , (6)\nwhere \u03c6i,lZ is the SHAP value of Z for instance i for auditor model l, N is the total number of instances in the dataset and N1(0) is number of examples when Z = 1(0). FE measures the difference in mean attribution between the two groups. When it is minimized the model is considered fair according to our \u201cFairness by Explicability\u201d definition. The second metric (SFE) measures the total attribution of Z across the population, when minimized the auditor model concludes that the model satisfies the strong version of \u201cFairness by Explicability\u201d and, by definition, the first metric is also zero. These metrics are equivalent to those of Ref. [7] but in this instance are applied to an external auditor model and are informed by how a typical auditor would aggregate their explicability scores.\nFrom this discussion, \u201cFairness by Explicability\u201d may appear intuitive but difficult to implement and, in general, being \u201cexplicably fair\u201d does not provide any guarantees of statistical fairness. However, an initial informal connection to the prior fairness worldviews can be made through consideration of specific forms of the auditor models. Intuitively, removing the dependency on Z as measured by an external l will tend to reduce Y\u0304 \u2019s dependency on Z. This will generally lead to improved SPD and EOD although the decision policy plays a large role in how these two connect."
+    },
+    {
+      "heading": "6 Achieving Fairness by Explicability",
+      "text": "We now present two different approaches for imposing \u201cFairness by Explicability\u201d directly into the training process of gradient-based and adaptive boosting (specifically AdaBoost) algorithms. These approaches rely on inserting a surrogate model g directly into the iterative training procedures. The form of g is then chosen to account for the examination of an anticipated external auditor whose model is l. Both approaches require Z during the training phase only, hence any sensitive attributes defining Z do not need to be supplied at prediction time. In addition to this presentation, we also discuss how the approaches can be linked to the SPD and EOD."
+    },
+    {
+      "heading": "6.1 SHAPSqueeze",
+      "text": "The first approach to imposing \u201cFairness by Explicability\u201d uses a series of differentiable regularizations to penalize unfair attributions. We consider a differentiable loss function of the form:\nLfair = (1\u2212 \u03bb) \u2217 Lo + \u03bb \u2217 R, (7)\nwhich we can optimize through gradient-based methods, e.g. stochastic gradient descent. At each iteration, a surrogate model g is fit to the Y\u0304 values. From g, the SHAP values of Z, and optionally Y , are used to calculate the appropriate regularization term (R). In this work, Lo is the binary cross-entropy. Considering the case where l and g are identical, when the associatedR is minimized then the attributions to Z will be zero and strong \u201cFairness by Explicability\u201d is satisfied by the model scores Y\u0304 .\nThe specific form of g we examine is a linear regression model, see the first row of Table 1. The SHAP values of interest are given by:\n\u03c6 i,g Z = \u03b2(zi \u2212 E[Z]). (8)\nEquation (8) directly relates the SHAP values of Z to its model coefficient, \u03b2, and the specific realisation of Z for instance i. The regularization R is then simply the sum of the squares of these SHAP values scaled by a constant C, see Table 1. This constant is used to make the size of the gradients coming from R and Lo comparable, while \u03bb is used to adjust the balance between these two quantities. Moreover, we note that the explicability fairness metrics in Eq. 5 are proportional to \u03b2 in this instance. Therefore, these specific g and R will seek to eliminate the linear dependence of the model predictions Y\u0304 on Z. Consequently, we expect reductions in the SPD as the model becomes explicably fairer.\nTo conclude, we note that the use of linear regression makes both the model fitting and SHAP value derivative calculations computationally efficient to perform. However, the approach described is applicable to any g whose SHAP values are differentiable with respect to Y\u0304 and so parametric/kernel regression models could also be employed. In combination with adding more features, this can allow for the consideration of more complex auditors with different worldviews."
+    },
+    {
+      "heading": "6.2 SHAPEnforce",
+      "text": "The classic AdaBoost algorithm [15] trains a model that is a weighted linear combination of weak classifiers. The training process is iterative, with each weak learner (km) being fitted to a reweighted version of the training data. After R iterations, the outputted model is given by CR = \u2211R\nm=1 \u03b1mkm. We consider learners that output a score and whose classification output, {0, 1}, is obtained by thresholding. Traditionally, AdaBoost generates the instance weights for the mth training round, \u03c9mi , by scaling the previous iteration\u2019s weights \u03c9 (m\u22121) i . Instances km that are incorrectly classified have their weights enhanced by e \u03b1m , while correctly classified instances are downweighted by e\u2212\u03b1m . As training proceeds, the algorithm increasingly focuses on erroneous examples to improve its predictive performance. To incorporate \u201cFairness by Explicability\u201d into AdaBoost, we adjust its reweighting process to consider the SHAP values {\u03c6i,gj }, i = 1, . . . , N , of the features {j} of a surrogate g. This SHAP weighting is introduced through a penalty function (P({\u03c6i,gj })) and fairness regularization weight (\u03bb) which trades off the original weight update with the new penalty.\nIn effect, this forces weak learners to not only focus on erroneous examples but also those with specific SHAP values as determined by g and P . This pushes the algorithm to improve its predictions on instances with specific SHAP values and is dubbed \u201cSHAPEnforce\u201d. Furthermore, in contrast to SHAPSqueeze, it is fully non-parametric and only requires that the SHAP values of g can be computed.\nAlgorithm 1 presents the pseudo-code for \u201cSHAPEnforce\u201d. The learning approach can be qualitatively interpreted as a two-player game. Expanding on this view, at each stage the predictive learner makes a move by constructing a weak learner and attempts to reweight the training data as-if the surrogate had not acted up to that point. Similarly, once the learner is constructed the surrogate acts to reweight the dataset in its own best interest. The regularization weight \u03bb then controls the resulting outcome between these two competing actions.\nIn this work, we consider a linear surrogate model trained on data where Y = 1 whose form and associated P is shown in Table 1. We again approximate the SHAP values using Eq. 8. The P considered is local in nature and, conditioned on Y = 1, will downweight any examples with positive SHAP values while upweighting those with negative values. This forces the predictor model to focus on instances where the Z attributions have a negative impact on the favourable outcome and where the weak learner has made mistakes when the target is favourable, i.e. Y = 1. By focusing on the examples with negative Z\nAlgorithm 1: SHAPEnforce\nInput: training examples {(xi, yi, zi)} N i=1, specification of favourable outcome, a\nsurrogate model g, a SHAP penalty function P , and the number of boosting rounds R.\nOutput: A classifier CR(x) = \u2211R\nm=1 \u03b1mkm(x).\n1 Initialize weights \u03c91i = 1/N, \u2200i.\n2 for m = 1 to R do 3 Fit a weak learner km(x) using the training data with weights \u03c9 m i . 4 Compute the probability of favourable outcome, y\u0304mi , and the predicted label y\u0302mi from km. 5 Fit g - taking features and the target from {(xi, yi, zi, y\u0304 m i )}. 6 Compute the \u03c6i,gj , and the corresponding weight adjustment P({\u03c6 i,g j }). 7 Compute em \u2190 E\u03c9m [1(y 6=km(x))]. 8 Compute \u03b1m = log((1\u2212 em)/em). 9 Update the instance weights:\n\u03c9 (m+1) i \u2190 \u03c9 m i [(1\u2212 \u03bb) \u2217 e\n\u03b1m(1(y 6=km(x))\u22121(y=km(x))) + \u03bbeP({\u03c6 i,g j })].\n10 Set \u03c9m+1i \u2190 \u03c9 m+1 i\u2211\ni \u03c9 m+1 i\n."
+    },
+    {
+      "heading": "11 end",
+      "text": "attribution, their Z attribution will be increased at the next round, hence the explicability fairness, as determined by an equivalent l, will tend to increase. This choice of P further reflects the intuition that unprivileged groups are likely to have unfavourable predictions from weak learners and hence negative Z attribution. Furthermore, with the focus on examples where Y = 1 we expect this modification to reduce the EOD. Finally, P is related to a fairness regularization term previously applied to neural networks [4]. Our work formalizes this previously ad-hoc loss as a \u201cFairness by Explicability\u201d regularizer with an appropriate auditor."
+    },
+    {
+      "heading": "7 Computational Experiments",
+      "text": "To evaluate our algorithms we consider three binary classification datasets: a synthetic dataset, the UCI Adult dataset [5], and a commercial Credit Risk dataset. The train/test splits are shown in Table 2. The datasets were preprocessed so categorical variables were one-hot encoded and numeric variables were converted to their standard score.\nWe exemplify the SHAPSqueeze objectives using XGBoost [8]. In each experiment, we evaluate the algorithms predictive performance, as measured by accuracy/precision and ROC AUC, as well as measuring the SPD and EOD. To determine these quantities, we use a fixed threshold policy. For SHAPSqueeze, in the case of the synthetic and UCI Adult dataset, this threshold is 0.5 while a more risk-averse threshold of 0.85 is set for the commercial Credit Risk dataset.\n(a)\n(b)\n(c)\nThis higher threshold better reflects real-world business practices in this domain. SHAPEnforce, being a modification to AdaBoost, is less calibrated than the SHAPSqueeze implementation and so a threshold of 0.5 is used in all cases. Additionally, we build linear regression auditor models on the test set to measure the explicability fairness. The equations defining l are the same as the g employed, and so the explicability fairness is given by the coefficient \u03b2 of the fitted l, see Table 1. Note for SHAPEnforce, l is built on the data subset where Y = 1."
+    },
+    {
+      "heading": "7.1 Datasets",
+      "text": "Synthetic Data The synthetic dataset was generated to exhibit a very large SPD. To construct this, the distribution of X is conditional on Z and Y is determined by Z and X. Specifically, Z was sampled from a Bernoulli distribution and X contains three sets of covariates: \u201csafe\u201d covariates Xs \u223c N (0, 1), \u201cproxy\u201d covariates (Xp) and \u201cindirect effect\u201d covariates (Xi). The latter two are sampled from N (Z, 1). From this, the log-odds of the binary target (SY ) are given by 0.25w \u00b7 (Xi + Xs) + 1.25Z, w is a vector of ones. The target Y is then sampled\nfrom Bern (\n1 1+e\u2212SY\n)\n. Using this approach we sampled a dataset with 10 safe,\n4 indirect effect and 2 proxy variables. Furthermore, the sampled dataset was such that approximately 90% of the favourable outcomes were obtained by the privileged group.\nAdult Census The goal is to predict whether a person will have an income below or above $50k. In this dataset, we consider the variable sex as our protected attribute and removed race, marital status, native country and relationship from our models. The other covariates measure financial information, occupation and education.\nPrivate Credit Risk Dataset In this dataset, we are trying to infer a customer\u2019s default probability given curated information on their current account transactions. We are interested in removing bias related to age. We binarize the age variable dividing our examples in two groups, an \u201colder\u201d (unprivileged) group of people over 50 and a \u201cyounger\u201d group of people under 50 years old."
+    },
+    {
+      "heading": "7.2 Results",
+      "text": "Results for SHAPSqueeze on the test datasets are shown in Fig. 1. We observe that across all 3 datasets increasing \u03bb induces fairness as observed by reductions in SPD, EOD and \u03b2. We set C = 1 for the synthetic dataset, C = 10 for Adult and for the Credit Risk dataset we set C = 100. These values were chosen to ensure the mean gradients from Lo and R in the intermediate stages of training,\ni.e. \u223c 100 iterations, when \u03bb = 0.5 were on the same order of magnitude and effective. For the synthetic data, we observe \u03b2 drops from 0.404 at \u03bb = 0 to 0.142 at \u03bb = 0.9. It is accompanied by a tolerable drop in the AUC and accuracy of 0.04 in both cases. Similarly, the SPD is reduced by roughly 0.35 while the EOD is almost eliminated, taking a value of 0.018 at \u03bb = 0.9. Increasing \u03bb further, \u03b2 approaches zero and is faithful to our strong \u201cFairness by Explicability\u201d definition.\nWe observe the same patterns for the fairness metrics when SHAPSqueeze is applied to the Adult and Credit Risk datasets. In the former, we observe a reduction of roughly 0.04 in accuracy and AUC with increasing \u03bb, at \u03bb = 0.9 these take values of 0.80 and 0.83 respectively. In the latter case, the precision is reduced by \u2248 0.12 and the AUC drops by \u2248 0.07 as we change \u03bb from 0 to 0.9. Contrastingly, for Adult, we observe an increase in precision (from 0.76 to 0.98) as the fairness regularization increases the scores beyond the classification threshold. A similar effect is seen in the Credit Risk dataset where we observed an increase in the accuracy from 0.744 to 0.837 as \u03bb was increased to 0.9. This increased accuracy is attributed to the conservative threshold of 0.85 employed. This threshold also results in the SPD and EOD being eliminated at \u03bb = 0.9 as the regularization pushes all of the scores above 0.85. At this point \u03b2 is roughly 0.006 demonstrating that even when the SPD and EOD are zero a model may not be 100% explicably fair. This highlights the differences in fairness definition and, in particular, the use of Y\u0304 and not Y\u0302 when measuring explicable fairness. To avoid this scenario one would either reduce C or select a different \u03bb value. At \u03bb = 0.7, the model has SPD, EOD and \u03b2 values of 0.035, 0.013 and 0.014 respectively. It is also performant with tolerable drops in the AUC (0.06) and precision (0.1) observed.\nThe results for SHAPEnforce are presented in Fig. 2. In all cases, we observe the EOD, SPD, AUC and accuracy decrease with increasing \u03bb. For the synthetic data, the accuracy drops by approximately 0.08 from 0.828 to 0.75 as we increase \u03bb. This is accompanied by a drop of \u2248 0.03 in the AUC from 0.868 to 0.836 as we change \u03bb from 0 to 0.9. Compared to the statistical fairness metrics, we observe smaller improvements in the explicable fairness. Furthermore, the decreasing trend of \u03b2 is less pronounced and consistent compared to SHAPSqueeze. This was expected for two reasons. Firstly, the unregularized AdaBoost model is explicably fairer than XGBoost and so there is less explicable unfairness to remove. Secondly, we expected the heuristic nature of the modification provides no guarantees on explicable fairness and so the magnitude of the reduction is not guaranteed. For the synthetic dataset we observe a decrease in \u03b2 of \u2248 63% as we increase \u03bb from 0 to 0.9. Moving to the Adult results, we observe \u03b2 decreases by approximately 84% on changing \u03bb from 0 to 0.9. The SPD and EOD are reduced to 0.03 and 0.01 respectively with tolerable drops in accuracy (0.02) and AUC (0.01) observed. For the Credit Risk data, we again observe explicable fairness improvements, on the order of 69% as we increase \u03bb. This is accompanied with the SPD and EOD being eliminated for \u03bb > 0.6. Similar to SHAPSqueeze, this elimination is due to the regularization pushing all scores below the threshold\nfor \u03bb > 0.6. In practice one would use a model from another \u03bb, such as \u03bb = 0.2, where the SPD and EOD are reduced by roughly 50% and 61% respectively while the precision and AUC take values of 0.85 and 0.84 respectively. This represents a drop of \u2248 0.01 for the former while the latter is consistent with the unregularized model. However, at this point, \u03b2 is only reduced by approximately 40.5% compared to \u03bb = 0."
+    },
+    {
+      "heading": "8 Conclusions",
+      "text": "In this work, we developed a novel fairness definition, \u201cFairness by Explicability\u201d, that gives the explanations of an auditor\u2019s surrogate model primacy when determining model fairness. We demonstrated how to incorporate this definition into model training using adversarial learning with surrogate models and SHAP values. This approach was implemented through appropriate regularization terms and a bespoke adaptation of AdaBoost. We exemplified these approaches on 3 datasets, using XGBoost in combination with our regularizations, and connected our choices of surrogate model to \u201cstatistical parity\u201d and \u201cequality of opportunity\u201d difference. In all cases, the models trained were explicably and statistically fairer, yet still performant. This methodology can be readily extended to other interpretability frameworks, such as LIME [35], with the only constraint being that R must be appropriately differentiable. Future work will explore more complex surrogate models and different explicability scores in the proposed framework."
+    },
+    {
+      "heading": "9 Related Work",
+      "text": "In recent years, there has been significant work done in both model interpretability, adversarial learning and fairness constrained machine learning model training.\nInterpretability: Ref. [27] provided a unified framework for interpreting model predictions. This framework unified several existing frameworks, e.g. LIME [35] and DeepLift [38], and it can be argued to be the \u201cgold standard\u201d for model interpretability. It provides both local and global measures of feature attribution and through the KernelSHAP algorithm, is model agnostic. Further work has introduced computationally efficient approximations to the SHAP values of [27] for tree-based models [26]. Other works in interpretability have focussed on causality for model interpretability. These approaches provide insight into why the decision was made, rather than an explanation of the model predictive accuracy and are frequently qualitative in nature. Ref. [32] is a recent exception, where the counterfactual examples generated obey realistic constraints to ensure practical use and are examined quantitatively through bespoke metrics.\nAdversarial Training: Ref. [3] used adversarial training to remove EOD while a framework for learning adversarially fair representations was developed in Ref. [28]. Similar, in Ref. [47] an adversarial network [18] was used to debias a predictor network, their specific approach compared favourably to the approach of [3].\nTraining Fair Models : typically, fair learning methodologies have tended to focus on incorporating statistical fairness constraints directly into the model objective function. Ref. [29] combined neural networks with statistical fairness regularizations but their form restricts their applicability to neural networks. Similarly, Ref. [17] trained a fair logistic regression using convex regularizations and addresses proportionally fair classification. Other works have viewed fair model training as one of constrained optimization [46,45] or have created metaalgorithms for fair classification [6].\nIn these works, the approaches to fair learning have tended to focus on fairness metrics associated with more traditional worldviews and less focus on model explicability. Similarly, the role of model explicability in fairness, to the authors\u2019 knowledge, has not been used directly in fair model training but instead research has focussed on the consistency and transparency of explanations. Our work is novel as it places the role of model explicability at the core of a new fairness definition and develops an adversarial learning methodology that is applicable to adaptive boosting and any model trained via gradient-based optimization. In the former case, our proposed algorithm is fully non-parametric where the adversary can come from any model family provided the corresponding explicability scores, in this case SHAP values, can be computed."
+    }
+  ],
+  "year": 2020
+}

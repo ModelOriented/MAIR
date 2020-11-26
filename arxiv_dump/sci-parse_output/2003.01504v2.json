@@ -1,0 +1,469 @@
+{
+  "abstractText": "Machine learning has the potential to aid our understanding of phase structures in lattice quantum field theories through the statistical analysis of Monte Carlo samples. Available algorithms, in particular those based on deep learning, often demonstrate remarkable performance in the search for previously unidentified features, but tend to lack transparency if applied naively. To address these shortcomings, we propose representation learning in combination with interpretability methods as a framework for the identification of observables. More specifically, we investigate action parameter regression as a pretext task while using layer-wise relevance propagation (LRP) to identify the most important observables depending on the location in the phase diagram. The approach is put to work in the context of a scalar Yukawa model in (2+1)d. First, we investigate a multilayer perceptron to determine an importance hierarchy of several predefined, standard observables. The method is then applied directly to the raw field configurations using a convolutional network, demonstrating the ability to reconstruct all order parameters from the learned filter weights. Based on our results, we argue that due to its broad applicability, attribution methods such as LRP could prove a useful and versatile tool in our search for new physical insights. In the case of the Yukawa model, it facilitates the construction of an observable that characterises the symmetric phase.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Stefan Bl\u00fccher"
+    },
+    {
+      "affiliations": [],
+      "name": "Lukas Kades"
+    },
+    {
+      "affiliations": [],
+      "name": "Jan M. Pawlowski"
+    },
+    {
+      "affiliations": [],
+      "name": "Nils Strodthoff"
+    },
+    {
+      "affiliations": [],
+      "name": "Julian M. Urban"
+    }
+  ],
+  "id": "SP:56b4ea146ca3dcc8c8bc2fe88c4a1eb5395cd120",
+  "references": [
+    {
+      "authors": [
+        "Y. LeCun",
+        "Y. Bengio"
+      ],
+      "title": "and G",
+      "venue": "Hinton Nature 521 no. 7553, ",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "A. Krizhevsky",
+        "I. Sutskever"
+      ],
+      "title": "and G",
+      "venue": "E. Hinton in Advances in Neural Information Processing Systems 25, F. Pereira, C. J. C. Burges, L. Bottou, and K. Q. Weinberger, eds., pp. 1097\u20131105. Curran Associates, Inc.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "S. Ren",
+        "K. He",
+        "R. Girshick"
+      ],
+      "title": "and J",
+      "venue": "Sun in Advances in 12 Neural Information Processing Systems 28, C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, eds., pp. 91\u201399. Curran Associates, Inc.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "P. Broecker",
+        "J. Carrasquilla",
+        "R. Melko"
+      ],
+      "title": "and S",
+      "venue": "Trebst Scientific Reports 7 ",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L.-G. Pang",
+        "K. Zhou",
+        "N. Su",
+        "H. Petersen"
+      ],
+      "title": "H",
+      "venue": "St\u00f6cker, and X.-N. Wang Nature Commun. 9 no. 1, ",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S.J. Wetzel",
+        "M. Scherzer Phys"
+      ],
+      "title": "Rev",
+      "venue": "B96 no. 18, ",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "W. Hu",
+        "R.R.P. Singh"
+      ],
+      "title": "and R",
+      "venue": "T. Scalettar Physical Review E 95 no. 6, ",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "L. Huang",
+        "L. Wang Phys"
+      ],
+      "title": "Rev",
+      "venue": "B 95 ",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J. Liu",
+        "Y. Qi",
+        "Z.Y. Meng",
+        "L. Fu Phys"
+      ],
+      "title": "Rev",
+      "venue": "B 95 ",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Wu",
+        "L. Wang"
+      ],
+      "title": "and P",
+      "venue": "Zhang Physical Review Letters 122 no. 8, ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Zhou",
+        "G. Endr\u0151di",
+        "L.-G. Pang"
+      ],
+      "title": "and H",
+      "venue": "St\u00f6cker Physical Review D 100 no. 1, ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P.E. Shanahan",
+        "D. Trewartha",
+        "W. Detmold Phys"
+      ],
+      "title": "Rev",
+      "venue": "D97 no. 9, ",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "F. No\u00e9",
+        "S. Olsson",
+        "J. K\u00f6hler"
+      ],
+      "title": "and H",
+      "venue": "Wu Science 365 no. 6457, ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Nicoli",
+        "P. Kessel",
+        "N. Strodthoff",
+        "W. Samek",
+        "K.-R. M\u00fcller",
+        "S. Nakajima"
+      ],
+      "title": "arXiv:1903.11048 [cond-mat.stat-mech",
+      "year": 1903
+    },
+    {
+      "authors": [
+        "M.S. Albergo",
+        "G. Kanwar",
+        "P.E. Shanahan Phys"
+      ],
+      "title": "Rev",
+      "venue": "D100 no. 3, ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L. Kades",
+        "J.M. Pawlowski",
+        "A. Rothkopf",
+        "M. Scherzer",
+        "J.M. Urban",
+        "S.J. Wetzel",
+        "N. Wink",
+        "F. Ziegler"
+      ],
+      "title": "arXiv:1905.04305 [physics.comp-ph",
+      "year": 1905
+    },
+    {
+      "authors": [
+        "K. Kashiwa",
+        "Y. Kikuchi"
+      ],
+      "title": "and A",
+      "venue": "Tomiya PTEP 2019 no. 8, ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. Liu",
+        "J. Greitemann"
+      ],
+      "title": "and L",
+      "venue": "Pollet Physical Review B 99 no. 10, ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Casert",
+        "T. Vieijra",
+        "J. Nys"
+      ],
+      "title": "and J",
+      "venue": "Ryckebusch Physical Review E 99 no. 2, ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "W. Rzadkowski",
+        "N. Defenu",
+        "S. Chiacchiera",
+        "A. Trombettoni"
+      ],
+      "title": "Bighin arXiv:1907.05417 [cond-mat.dis-nn",
+      "year": 1907
+    },
+    {
+      "authors": [
+        "K.A. Nicoli",
+        "S. Nakajima",
+        "N. Strodthoff",
+        "W. Samek",
+        "K.-R. M\u00fcller",
+        "P. Kessel Phys"
+      ],
+      "title": "Rev",
+      "venue": "E 101 ",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "K. Kashiwa",
+        "Y. Kikuchi"
+      ],
+      "title": "and A",
+      "venue": "Tomiya Progress of Theoretical and Experimental Physics 2019 no. 8, ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "E. Greplova",
+        "A. Valenti",
+        "G. Boschung",
+        "F. Sch\u00e4fer",
+        "N. L\u00f6rch"
+      ],
+      "title": "and S",
+      "venue": "Huber New J. Phys. 22 no. 4, ",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "P. Mehta",
+        "M. Bukov",
+        "C.-H. Wang",
+        "A.G.R. Day",
+        "C. Richardson",
+        "C.K. Fisher"
+      ],
+      "title": "and D",
+      "venue": "J. Schwab Physics reports 810 ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "G. Carleo",
+        "I. Cirac",
+        "K. Cranmer",
+        "L. Daudet",
+        "M. Schuld",
+        "N. Tishby",
+        "L. Vogt-Maranto"
+      ],
+      "title": "and L",
+      "venue": "Zdeborov\u00e1 Reviews of Modern Physics 91 no. 4, ",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Bach",
+        "A. Binder",
+        "G. Montavon",
+        "F. Klauschen",
+        "K.-R. M\u00fcller"
+      ],
+      "title": "and W",
+      "venue": "Samek PLOS ONE 10 no. 7, ",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "I. Montvay",
+        "G. M\u00fcnster"
+      ],
+      "title": "Quantum Fields on a Lattice",
+      "venue": "Cambridge Monographs on Mathematical Physics. Cambridge University Press",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "S.J. Wetzel",
+        "R.G. Melko",
+        "J. Scott",
+        "M. Panju",
+        "V. Ganesh"
+      ],
+      "title": "arXiv:2003.04299 [physics.comp-ph",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "M. Ancona",
+        "E. Ceolini",
+        "C. \u00d6ztireli"
+      ],
+      "title": "and M",
+      "venue": "Gross in NIPS Workshop on Interpreting, Explaining and Visualizing Deep Learning - Now What? ETH Zurich",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "G. Montavon"
+      ],
+      "title": "W",
+      "venue": "Samek, and K.-R. M\u00fcller Digital Signal Processing 73 ",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "K. Simonyan",
+        "A. Vedaldi"
+      ],
+      "title": "and A",
+      "venue": "Zisserman in 2nd International Conference on Learning Representations, 13 ICLR 2014, Banff, AB, Canada, April 14-16",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "A. Shrikumar",
+        "P. Greenside"
+      ],
+      "title": "and A",
+      "venue": "Kundaje in Proceedings of the 34th International Conference on Machine Learning, D. Precup and Y. W. Teh, eds., vol. 70 of Proceedings of Machine Learning Research, pp. 3145\u20133153. PMLR, International Convention Centre, Sydney, Australia, 06\u201311 aug",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "L. Breiman Mach"
+      ],
+      "title": "Learn",
+      "venue": "45 no. 1, ",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "F. Pedregosa",
+        "G. Varoquaux",
+        "A. Gramfort",
+        "V. Michel",
+        "B. Thirion",
+        "O. Grisel",
+        "M. Blondel",
+        "P. Prettenhofer",
+        "R. Weiss",
+        "V. Dubourg",
+        "J. Vanderplas",
+        "A. Passos",
+        "D. Cournapeau",
+        "M. Brucher",
+        "M. Perrot"
+      ],
+      "title": "and E",
+      "venue": "Duchesnay Journal of Machine Learning Research 12 ",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "A. Paszke",
+        "S. Gross",
+        "F. Massa",
+        "A. Lerer",
+        "J. Bradbury",
+        "G. Chanan",
+        "T. Killeen",
+        "Z. Lin",
+        "N. Gimelshein",
+        "L. Antiga",
+        "A. Desmaison",
+        "A. Kopf",
+        "E. Yang",
+        "Z. DeVito",
+        "M. Raison",
+        "A. Tejani",
+        "S. Chilamkurthy",
+        "B. Steiner",
+        "L. Fang",
+        "J. Bai"
+      ],
+      "title": "and S",
+      "venue": "Chintala in Advances in Neural Information Processing Systems 32, H. Wallach, H. Larochelle, A. Beygelzimer, F. d\u2019Alch\u00e9 Buc, E. Fox, and R. Garnett, eds., pp. 8024\u20138035. Curran Associates, Inc.",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "text": "Towards Novel Insights in Lattice Field Theory with Explainable Machine Learning\nStefan Blu\u0308cher,1 Lukas Kades,1 Jan M. Pawlowski,1, 2 Nils Strodthoff,3 and Julian M. Urban1\n1Institut fu\u0308r Theoretische Physik, Universita\u0308t Heidelberg, Philosophenweg 16, 69120 Heidelberg, Germany 2ExtreMe Matter Institute EMMI, GSI, Planckstra\u00dfe 1, D-64291 Darmstadt, Germany\n3Fraunhofer Heinrich Hertz Institute, 10587 Berlin, Germany\nMachine learning has the potential to aid our understanding of phase structures in lattice quantum field theories through the statistical analysis of Monte Carlo samples. Available algorithms, in particular those based on deep learning, often demonstrate remarkable performance in the search for previously unidentified features, but tend to lack transparency if applied naively. To address these shortcomings, we propose representation learning in combination with interpretability methods as a framework for the identification of observables. More specifically, we investigate action parameter regression as a pretext task while using layer-wise relevance propagation (LRP) to identify the most important observables depending on the location in the phase diagram. The approach is put to work in the context of a scalar Yukawa model in (2+1)d. First, we investigate a multilayer perceptron to determine an importance hierarchy of several predefined, standard observables. The method is then applied directly to the raw field configurations using a convolutional network, demonstrating the ability to reconstruct all order parameters from the learned filter weights. Based on our results, we argue that due to its broad applicability, attribution methods such as LRP could prove a useful and versatile tool in our search for new physical insights. In the case of the Yukawa model, it facilitates the construction of an observable that characterises the symmetric phase.\nI. INTRODUCTION\nLattice simulations of quantum field theories have proven essential for the theoretical understanding of fundamental interactions from first principles, perhaps most prominently so in quantum chromodynamics. However, an in-depth understanding of the emergent dynamics is often difficult. In cases where such an understanding remains elusive, it may be instructive to search for so far unidentified structures in the data to better characterise the dynamics.\nIn this quest towards new physical insight, we turn to machine learning (ML) approaches, in particular from the subfield of deep learning [1]. These methods have proven capable of efficiently identifying high-level features in a broad range of data types\u2014in many cases, such as speech or image recognition, with spectacular success [2\u20135]. Accordingly, there is growing interest in the lattice community to harness the capabilities of these algorithms, both for high energy physics and condensed matter systems. Applications include predictive objectives, such as detecting phase transitions from lattice configurations, as well as generative modeling [6\u201339]. We recommend [40] as an introduction to ML for physicists and [41] as a general review for ML applications in physics.\nOne ansatz for the identification of relevant observables from lattice data is through representation learning, i.e. by training on a pretext task. The rationale behind this approach is that the ML algorithm learns to recognise patterns which can be leveraged to construct observables from low-level features that characterise different phases. However, solving a given task does by itself not lead to physical insights, since the inner structure of the algorithm typically remains opaque. This issue can at least partially be resolved by the use of \u201cexplainable AI\u201d tech-\nniques, which have recently attracted considerable interest in the ML community and beyond. In this work, we focus on layer-wise relevance propagation (LRP) [42]. It is one of several popular post-hoc attribution methods that propagate the prediction back to the input domain, thereby highlighting features that influence the algorithm towards/against a particular classification decision.\nWe test this approach in the context of Yukawa theory in (2+1) dimensions, using inference of an action parameter as a pretext task in order to identify relevant observables. In a first step, we demonstrate that this is at least partially possible by training a multilayer perceptron (MLP) on a set of standard observables. Here, we show that the relevance of features in different phases, as determined by LRP, agrees with physical expectations. We benchmark our results with a similar method based on random forests. Subsequently, we demonstrate that the action parameter can be inferred directly from field configurations using a convolutional neural network (CNN). We use LRP to identify relevant filters and discuss how these align with physical knowledge. This also allows us to construct an observable that appears to be a distinctive feature of the paramagnetic phase.\nThe paper is organised as follows. In Section II we briefly review scalar Yukawa theory on the lattice and define important quantities. Section III serves as an introduction to the topic of explainable AI and discusses LRP in order to convey the rationale behind our approach. Numerical results for the MLP and a random forest benchmark are presented in Section IV A. In Section IV B we conduct an analysis of the CNN and subsequently demonstrate how all order parameters, as well as the aforementioned observable relevant for the paramagnetic phase, can be extracted from the filters. We discuss our findings and possible future work in Section V.\nar X\niv :2\n00 3.\n01 50\n4v 2\n[ he\npla\nt] 1\n8 M\nay 2\n02 0\n2"
+    },
+    {
+      "heading": "II. YUKAWA THEORY",
+      "text": "We consider a scalar Yukawa model defined on a (2+1)d cubic lattice with periodic boundary conditions. The theory is comprised of a real-valued scalar field with quartic self-interaction coupled to Dirac fermions. The action for the scalar field can be cast into the following dimensionless form,\nSKG[\u03c6] = \u2211 n\u2208\u039b\n[ \u2212 2\u03ba\nd\u2211 \u00b5=1 \u03c6(n)\u03c6(n+ \u00b5\u0302)\n+ (1\u2212 2\u03bb)\u03c6(n)2 + \u03bb\u03c6(n)4 ] , (1)\nwhere \u039b denotes the set of all lattice sites. Here, \u03ba is called the hopping parameter and \u03bb takes the role of the coupling constant.\nIn order to ensure positivity of the partition function, one needs a minimum of two degenerate fermion flavors. Due to their bilinear contributions to the action, the fermionic d.o.f. can be integrated out, yielding the determinant of the discretised Dirac operator,\nDnm[\u03c6] = d\u2211 \u00b5=1 \u03b7\u00b5(n) \u03b4(n\u2212m+ \u00b5\u0302)\u2212 \u03b4(n\u2212m\u2212 \u00b5\u0302) 2\n+ \u03b4(n\u2212m) ( Mf + g \u03c6(n) ) , (2)\nas a multiplicative contribution to the statistical weight. The Euclidean Dirac \u03b3-matrices are absorbed by the staggered transformation, yielding the scalars \u03b7\u00b5(n) that mix the spatial and spinor degrees of freedom. They are given by \u03b71(n) = 1 and \u03b7l(n) = (\u22121)n1 \u00b7 \u00b7 \u00b7 (\u22121)nl\u22121 . Mf denotes the fermion mass and g is the Yukawa coupling to the bosonic field. The expectation value of an observable O can then be expressed as the path integral\n\u3008O\u3009 = 1 Z\n\u222b D\u03c6 det(DTD) exp(\u2212SKG) O(\u03c6) , (3)\nwhere Z denotes the partition function. Important observables characterising phases and critical phenomena in scalar \u03c64-theory include the magnetisation,\nM = 1 |\u039b| \u2211 n\u2208\u039b \u03c6(n) , (4)\nas well as the staggered magnetisation\nMs = 1 |\u039b| \u2211 n\u2208\u039b (\u22121)n1+\u00b7\u00b7\u00b7+nd\u03c6(n), (5)\nwhich is relevant for negative \u03ba. The scalar part of Equa-\ntion (1) features the additional staggered symmetry\n\u03ba 7\u2192 \u2212\u03ba and \u03c6(n) 7\u2192 (\u22121)n\u03c6(n), (6)\nwhich connects both magnetisations. The fermionic part explicitly breaks this symmetry.\nA slice of the phase diagram at fixed Yukawa coupling is shown in Figure 1. The theory exhibits an interesting structure, with two broken phases of ferromagnetic (FM) and antiferromagnetic (AFM) nature, where M and Ms respectively acquire non-zero expectation values. They are separated by a symmetric, paramagnetic (PM) phase, where both quantities vanish.\nWe also consider the connected two-point correlation function\nGc(n,m) = \u3008\u03c6(n)\u03c6(m)\u3009 \u2212 \u3008\u03c6(n)\u3009\u3008\u03c6(m)\u3009 . (7)\nWhile the expectation value of the magnetisation can be estimated from a single field configuration at reasonable lattice sizes, signals of n-point correlators are naturally much more suppressed due to statistical noise and cannot be reasonably approximated from one sample. Therefore, we introduce the time-sliced correlator Gc(t), which is defined by\nGc(t) = 1 |\u039b| \u2211 ~n Gc((t, ~n), (0,~0)) , (8)\nwhere the sum runs over spacelike components. It measures correlations only in the temporal direction, which leads to a better signal-to-noise ratio due to the averaging procedure.\nSome aspects of the derivation and simulation are given in Appendix A. For a comprehensive treatment of Yukawa theory on the lattice, we recommend [43].\n3 III. INSIGHTS FROM EXPLAINABLE AI\nSimple methods from statistics and ML often lack the capability to model complex data, whereas sophisticated algorithms typically tend to be less transparent. A commonly used example is principal component analysis (PCA). It has been successfully applied to the extraction of (albeit already known) order parameters for various systems [6, 9, 13]. However, its linear structure prohibits the identification of complex non-linear features, e.g. Wilson loops in gauge theories. Hence, we require tools capable of modeling non-linearities, such as deep neural networks [18]. They allow for a more comprehensive treatment of complex systems, which has been demonstrated e.g. for fermionic theories in [7, 12]. The approach also enables novel procedures, such as learning by confusion and similar techniques, to locate phase transitions in a semi-supervised manner [16, 36]. For lattice QCD, action parameters can be extracted from field configurations [26]. Overall, deep learning tools seem particularly well-suited to grasp relevant information about quantum field dynamics in a completely data-driven approach, by learning abstract internal representations of relevant features.\nHowever, their lack of transparency is frequently a major drawback of using such methods, which prohibits access to and comprehension of these representations. A unified understanding of how and what these architectures learn, and why it seems to work so well in a wide range of applications, is still pending. To better understand the processes behind neural network-driven phase detection in lattice models, multiple proposals have been made, such as pruning [10, 27, 33], utilising (kernel) support vector machines [17, 34], and saliency maps [35]. Interpretability is also investigated for other applications in theoretical physics, e.g. by employing twin neural networks [44].\nAlso, in the broader scope of ML research, there has been growing interest in interpretability approaches, most of them focusing on post-hoc explanations for trained models. So-called attribution methods typically assign a relevance score to each of the input features that quantifies which features the classifier was particularly sensitive to, or influenced the algorithm towards/against an individual classification decision. In the domain of image recognition, such attribution maps are typically visualised as heatmaps overlaying the input image. The development of attribution algorithms is a very active field of research in the ML community. Therefore, we refer to dedicated research articles for more in-depth treatments [45, 46]. Very broadly, the most important types of such local interpretability methods can be categorised as: 1. Gradient-based, such as saliency maps [47] obtained by computing the derivative of a particular class score with respect to the input features or integrated gradients [48]. 2. Decomposition-based, such as layer-wise relevance propagation (LRP) [42] or DeepLift [49]. 3. Perturbation-based, as in [50], investigating the change\nFIG. 2: Sketch of LRP through the last two layers of a classification network that predicts one-hot vectors. Relevance is indicated by arrow width. The conservation law requires the sum of widths to remain constant during backpropagation. Diagram adapted from [51].\nin class scores when occluding parts of the input features. In this work, we focus on LRP, a particular variant of decomposition-based attribution methods, which has been successfully applied to other problems in physics and chemistry, e.g. in the context of atomistic systems [52]. Nevertheless, we stress that qualitative findings are expected to agree for all decomposition- and gradientbased methods [53]. The general idea of LRP is to start from a relevance assignment in the output layer and subsequently propagate this relevance back to the input using certain propagation rules, see the sketch in Figure 2 and Appendix C for details. In this way, the method assigns a relevance score to each neuron, where positive (negative) entries strongly influence the classifier towards (against) a particular classification decision."
+    },
+    {
+      "heading": "IV. RESULTS",
+      "text": "In this section, numerical results are presented which corroborate our rationale. We train a multilayer perceptron (MLP) and a convolutional neural network (CNN) to infer the associated hopping parameter \u03ba from a set of known observables (Approach A), as well as solely from the raw field configurations (Approach B), akin to [26]. In the first case, without providing any prior knowledge of the phase boundaries, LRP manages to reveal the underlying phase structure and returns a phase-dependent importance hierarchy of the observables in accordance with physical expert knowledge. In the second case, by calculating the relevances of the learnt filters, we can associate each of them with one of the physical phases and thereby extract the known order parameters. Moreover, it facilitates the construction of an observable that characterises the symmetric phase. Both variants of our strategy are sketched in Figure 3. Due to the ill-conditioned nature of the action parameter prediction problem, the optimisation objective is formulated in terms of maximum likelihood estimation. Assuming a Gaussian distribution with fixed variance, this objective reduces to minimising the mean squared error (MSE), which we use as loss function in the following. In addition, we apply weight regularisation, see Appendix E for details.\nA. Importance Hierarchies of Known Observables\nIn Section II we introduced a set of standard observables, consisting of the normal and staggered magnetisation as well as the time-sliced two-point correlation function.1 It seems reasonable to assume that much of the relevant information characterising the phase structure and dynamics of the theory is encoded in these quantities. To check this, we create an ordered dataset of measurements of these quantities at various, evenly spaced values of \u03ba (see Appendix B for details on the dataset) and use it to perform a regression analysis. We employ a MLP, also called fully-connected neural network (see Appendix E for details on the specific architecture). The method is compared against a random forest regressor as a baseline, which is a standard method based on the optimisation of decision trees [54] (see Appendix D for details). The results for both approaches, shown in Figures 4 and 5, will be discussed in the following.\nWe observe qualitatively similar accuracy on the training and test data in the broken FM and AFM phases. This is expected, since we know from Figure 1 that always one of the two types of magnetisations is strictly\n1 We use a slightly modified definition of the time-sliced correlator in order to remove lattice artifacts from the data, see Appendix B.\nmonotonic in the respective phase and can therefore determine \u03ba uniquely. However, both approaches yield at best mediocre performance in the symmetric PM phase. Here, both magnetisations tend to zero and therefore do not contain much relevant information. Moreover, the two-point correlator exhibits approximately symmetric properties around \u03ba = 0. Therefore, it also does not provide a unique mapping. This issue is resembled in the prediction for both methods. The random forest yields a symmetric discrepancy around \u03ba = 0. In comparison, the MLP shows an improved performance for \u03ba < 0, albeit at the price of a larger variance for \u03ba > 0. At this point, we can already see that the chosen set of observables suffices to characterise the theory only in the broken phases, whereas in the symmetric phase, additional information appears to be necessary.\nBefore we embark on the search for the missing piece, let us first examine the results further to verify that the learnt decision rules conform to the physical interpretation given above. We begin with the relevances as determined by LRP, shown in Figure 4 (bottom), and later compare to the random forest benchmark below. As expected, M and Ms are relevant in the FM and AFM phases, respectively. There, considerable relevance is also assigned to the observable Gc(t = 0). However, the contribution appears to diminish when going deeper into the broken phases. Its comparably large relevance in the symmetric PM phase shows that it contains most of the information used for the noisy prediction. As de-\n5 \u22120.4 \u22120.3 \u22120.2 \u22120.1 0.0 0.1 0.2 0.3 \u03ba \u22120.4 \u22120.2 0.0 0.2 P re d ic ti o n PT Train Test\n\u22120.4 \u22120.3 \u22120.2 \u22120.1 0.0 0.1 0.2 0.3 \u03ba\n0.00\n0.25\n0.50\n0.75\n1.00\n1.25\nR el\nev an\nce\nPT M\nMs Gc(t=0)\nGc(t=1) Gc(t=2)\nFIG. 4: Results for the MLP. Top: predictions, bottom: normalised LRP relevances of individual features. Error bars here and throughout this work are obtained with the statistical jackknife method.\nscribed above, the mediocre performance in this phase indicates that although the network seems to find weak signals, the chosen set of observables cannot be optimal.\nThe interpretation sketched above is further supported by the results obtained through random forest regression [54]. Analogously to the previously introduced relevance for LRP, we can determine nominal contributions of input features to the prediction and hence a measure of local feature importance (see Appendix D for details), which is shown in Figure 5 (bottom). In the broken FM and AFM phases, the respective contributions of M and Ms demonstrate a linear dependence on \u03ba. Again, this clearly indicates that these quantities characterise the associated phases. For the symmetric PM phase, the situation appears more challenging, since no such clear dependence is observed for any of the observables. The non-zero contributions of features in the PM phase imply that they add some valuable information to the decision here. However, this has to be weighted against the observation that the accuracy in this region is poor. This further confirms our previous conclusion that relevant information to characterise this phase is largely lost in the preprocessing step, assuming that it was initially present in the raw field configurations. It is worthwhile stressing that this analysis represents an independent confirmation\n\u22120.4 \u22120.3 \u22120.2 \u22120.1 0.0 0.1 0.2 0.3 \u03ba\n\u22120.4\n\u22120.2\n0.0\n0.2\nP re\nd ic\nti o n\nPT Train Test\n\u22120.4 \u22120.3 \u22120.2 \u22120.1 0.0 0.1 0.2 0.3 \u03ba\n\u22120.3\n\u22120.2\n\u22120.1\n0.0\n0.1\n0.2\nC on\ntr ib\nu ti\non\nPT M Ms\nGc(t=0) Gc(t=1) Gc(t=2)\nFIG. 5: Benchmark results for the random forest. Top: predictions, bottom: nominal contributions of individual features.\nof the results obtained above. Both algorithms (MLP vs. random forest) rely on fundamentally different principles. We use a model-intrinsic interpretability measure for the random forest, whereas for the MLP we rely on LRP, i.e. a post-hoc attribution method."
+    },
+    {
+      "heading": "B. Extracting Observables from Convolutional Filters",
+      "text": "In the previous section, we used a dataset of known observables to reconstruct \u03ba. Calculating such quantities corresponds to heavy preprocessing of the highdimensional field configuration data. The resulting lowdimensional features are far less noisy, implying distillation of relevant information. This is a common procedure in the field of data science, and may become unavoidable for large lattices and/or theories with more degrees of freedom. E.g. in state-of-the-art simulations of lattice QCD, the required memory to store a single field configuration can easily reach O(109) floating point numbers. Nevertheless, using preprocessed data in the form of standard observables introduces strong biases towards known structures. If our perception of the problem or generally our physical intuition is flawed, machine learning cannot help us\u2014the relevant information may very well be\nlost in the preprocessing step. In the present case specifically, it appears that important features in the PM phase are neglected by this procedure, assuming that structures characterising this phase do in fact exist. Therefore, it is instructive to search for signals of such structures by training neural networks directly on field configurations.\nAs a starting point for this search, we first perform a PCA on the field configuration dataset. As previously mentioned, this has been done before with promising results [6, 9, 13], albeit not in exactly the same physical setting. PCA immediately identifies the normal and staggered magnetisations as dominant features, essentially reproducing the work of [9]. All higher order principal components show a vanishing explained variance ratio, implying that no other relevant, purely linear features are present in the data. This observation indicates that, if a quantity exists which parametrises the symmetric PM phase, it cannot simply be a linear combination of the field variables.\nOur improved approach is based on a convolutional neural network (CNN). The training procedure is largely equivalent to that for the MLP in the previous section, with the observable dataset replaced by the full field configurations. We train a CNN using five convolutional filters with a shape of 2\u00d72\u00d72 and a stride of 1. In order to support explainability, we encourage weight sparsity by\nadding the L1 norm to the loss\u2014also known as LASSO regularisation\u2014as suggested in [35] (see Appendix E for details). Due to the nature of the convolution operation, learnt filters have a direct interpretation i.t.o. first-order linear approximations of relevant observables. Hence, we expect the CNN to reproduce the PCA results at the very least, and aim for the identification of other, non-linear quantities, which the network can encode in subsequent layers. It is important to understand this difference between the approaches, even though both extract only linear signals in a first approximation.\nThe model predictions are shown in Figure 6 (top). We can immediately observe a superior performance in the PM phase compared to our previous results. The CNN succeeds to consistently infer \u03ba from the field configuration data with high accuracy. This indicates that it indeed manages to construct internal representations suitable not only to discern the different phases, which would be sufficient for classification purposes, but also for an ordering of data points within each phase.\nIn order to interpret the predictions and extract knowledge about the learnt representations, we have to customise LRP to our needs. In image recognition, as previously mentioned, one mostly aims at highlighting important regions in the input domain, leading to superimposed heatmaps. This is based on the inherent heterogeneity common to image data, where relevant features are usually localised. For field configurations on the lattice, due to the translational symmetry of the action and the resulting homogeneity, no particularly distinguished, localised region should be apparent in any given sample. However, each convolutional filter encodes an activation map that is in fact sensitive to a specific feature present in a lattice configuration. In contrast to the usual ansatz, the spatial homogeneity promotes global pooling over the relevances associated with each filter weight. Hence, instead of assigning relevances to input pixels, we are interested in the cumulative filter relevance which indicates their individual importance for a particular prediction.\n7 \u22120.4 \u22120.3 \u22120.2 \u22120.1 0.0 0.1 0.2 0.3 \u03ba 0.0 0.2 0.4 0.6 0.8 1.0 |O | / m a x |O | AFM \u3008Ms\u3009 FM \u3008M\u3009 OPM OsPM\nFIG. 9: Normalised observables reconstructed from the learnt filters. The quantities associated with the FM and AFM phases are compared to M and Ms. OPM and OsPM are related by Equation (6) and exhibit an approximate mirror symmetry around \u03ba = 0.\nAnalogously to the rationale of the previous section, we can use this approach to build importance hierarchies of filters, thereby facilitating their physical interpretation as signals of relevant observables.\nFigure 6 (bottom) shows each filter relevance as a function of \u03ba. We can recognise some similarities to the relevances in Figure 4, highlighting the underlying phase structure of the Yukawa theory. It appears that the model can parametrise each phase individually using one or a small subset of filters, while the others show small or insignificant relevances in the respective region. The learnt weight maps are shown in Figure 7, where we also assign names to the filters depending on the corresponding associated phase, with the exception of filter no.0 because it exhibits completely vanishing weights and relevance. It seems to have been dropped entirely by the network, indicating that four filters are sufficient to characterise all phases seen in the data. This reduction is an effect of the regularisation, and constitutes a recurring pattern also when more filters are initially used, providing a first hint towards the number of independent quantities utilised by the network.\nLet us begin by examining the results that directly correspond to known quantities. We observe that the FM1 and FM2 filters have entries of roughly uniform magnitude with a globally flipped sign. Accordingly, we can identify them as signals of the negative and positive branches of the magnetisation M , respectively. This is corroborated by their dominating relevances in the FM phase. The AFM filter exhibits alternating entries of uniform magnitude and therefore corresponds to the staggered magnetisation Ms, which accordingly dominates the AFM phase. Hence, both order parameters can be explicitly reconstructed from the CNN. The appearance of two filters for the magnetisation is easily understood by inspection of the network architecture in Table III, the crucial point being the application of a ReLU activation after the convolution operation. Consider the action\nof a positively-valued filter to negatively magnetised field configurations, or vice versa. The resulting negative activation map is subsequently defaulted to zero by the ReLU. Hence, in order to take both branches of M into account, two equivalent filters with opposing signs are required. The comparably large error bars in this region stem from the presence of positively and negatively magnetised samples in the dataset, which lead to a higher per-filter variance. Therefore, we additionally plot the cumulative relevance of both filters.\nWe now discuss the main object of interest, namely the PM filter. It supplies the dominant signal for the characterisation of this phase. A linear application of this filter to the configurations, as done for the FM and AFM filters, does not produce a monotonic quantity, which would be required for a unique ordering. This further supports the aforementioned evidence gathered by PCA for the absence of an additional, purely linear observable. Hence, the simple reconstruction scheme outlined in the previous paragraphs cannot be applied in this case. Instead, we undertake a heuristic attempt to reconstruct the relevant quantity. To this end, we note that the ReLU activation applied to the convolutional layer\u2019s output can effectively correspond to the absolute value function, albeit with less statistics, if the entries of the activation map are distributed accordingly. Inspired by this observation, we define the following observable,\nOPM = 1 |\u039b| \u2211 n\u2208\u039b \u2223\u2223\u2223 [\u03c6(n) + \u03c6(n+ \u00b5\u03021)] \u2212 [ \u03c6(n+ \u00b5\u03022 + \u00b5\u03023) + \u03c6(n+ \u00b5\u03021 + \u00b5\u03022 + \u00b5\u03023)\n] \u2223\u2223\u2223 . (9) As with M and Ms, we obtain the corresponding staggered form OsPM by applying the transformation given in Equation (6). The resulting pair of quantities is visualised by the following idealised filters.\nThe observable OPM defined in Equation (9) is the sum over all lattice sites of the lattice derivative in the diagonal \u00b5\u03022 + \u00b5\u03023 direction of blocks in the \u00b5\u03021 direction. This already explains the modulus, as otherwise OPM would be the sum over all sites of a total derivative, which vanishes identically. We also remark that OPM can be made isotropic by summing over all directions.\nWe now discuss the properties of the theory that are measured by OPM: In the continuum limit, OPM naively tends towards the volume integral over |\u2207\u03c6|. Due to\n8\nthe modulus of the derivative, \u3008OPM\u3009 carries the same information as the expectation value of the kinetic term.\nThe blocking in the \u00b5\u03021-direction leads to a sensitivity of OPM to sign flips of nearest-neighbours. While no continuum observable is sensitive to these sign flips, the continuum limit of \u3008OPM\u3009 maintains this information. Accordingly, \u3008OPM\u3009 exhibits a distinct behavior in the presence of localised, (anti-)magnetised regions, even if the expectation values vanish globally. Possible local field alignments resulting in different values of OPM, but not of the standard derivative, are visualised in Figure 11.\nThe construction and discussed sensitivities of \u3008OPM\u3009 demonstrates again the usefulness of LRP: we can identify the learnt representation as a feature of the dataset arising from the lattice discretisation. \u3008OPM\u3009 and \u3008OsPM\u3009 as functions of \u03ba are shown in Figure 9 together with the other reconstructed observables and their respective analytical counterparts. A monotonic, roughly linear dependence is observed in the PM phase, indicating that the quantity indeed provides a unique mapping which aids the \u03ba inference. In fact, if OPM is included in the set of predefined observables for the inference approach detailed in the previous section, the prediction accuracy of the MLP accordingly becomes comparable to the CNN in this phase.\nIn conclusion, we find that the CNN characterises the PM phase by additionally measuring kinetic contributions in the described manner, rather than only expectation values of the condensate like in the broken phases. Still, M and Ms are being utilised as well, judging from the comparably large relevances of the FM filters in this region. Due to the opacity of the fully-connected layers following the convolution, some ambiguity remains regarding the precise decision rules that the network implements based on these quantities. This residual lack of clarity can likely be resolved by manually enforcing locality in the internal operations, e.g. by introducing artificial bottlenecks into the network. Of course, the form\nof OPM is also not exactly equivalent to the operations of the CNN, even though they share many important features. In particular, there is a mismatch between the averaging procedure and the MaxPool layer. Effects associated with the choice of different activation functions and pooling layers, which may be tailored more specifically towards certain types of observables, should be investigated in the future. However, our analysis shows that the overlap with the learned internal representation is significant."
+    },
+    {
+      "heading": "V. CONCLUSIONS AND OUTLOOK",
+      "text": "We have investigated the application of interpretability methods to deep neural network classifiers as a generalpurpose framework for the identification of physical features from lattice data. The approach facilitates an interpretation of a network\u2019s predictions, permitting a quantitative understanding of the internal representations that the network learns in order to solve a pretext task\u2014in this case, inference of action parameters. This culminates in the extraction of relevant observables from the data, leading to insights about the phase structure.\nFirst, both types of magnetisations and the time-sliced, connected two-point correlator were used as training data for a MLP (see Figure 4). Inference of the hopping parameter was shown to work in each of the two broken phases, respectively. However, in the symmetric phase, the network was observed to suffer from bad accuracy. This indicates that the amount of relevant information present in the dataset is insufficient for the network to fully capture the dynamics of the theory. Using layer-wise relevance propagation, we determined a \u03ba-dependent importance hierarchy of the observables. Using this approach we were able to confirm our physics expectations about order parameters being relevant within their associated phases. Moreover, while the two-point correlation function is sensitive to the PM phase, this signal is insufficient for attaining high accuracy for the MLP. Our numerical results and interpretation thereof were further verified by a random forest regression benchmark performed on the same dataset, which demonstrated qualitatively comparable accuracy (see Figure 5).\nNext, we trained a CNN directly on the field configurations. In contrast to aforementioned results, the CNN was shown to yield superior accuracy for the same inference task (see Figure 6). Therefore, the set of observables chosen previously must have neglected important information, which the network managed to distill from the raw data. Employing LRP, a cumulative relevance was assigned to the individual convolutional filters, revealing a distinctive pattern that explains the decision process. In particular, we observed that the network specifically assigned filters to the each of the phases of the theory, with small to vanishing relevances in the remaining phases. This also indicates where phase transitions are located. We confirmed that the learned filters corre-\n9 spond to representations of the known order parameters by examining the weight maps (see Figures 7 and 8), essentially reproducing previous results.\nGuided by the filter analysis, we constructed an observable that characterises the symmetric phase. In a heuristic attempt to find the exact form of this quantity, we defined OPM in Equation (9) and showed that it exhibits several interesting properties (see Figure 9). We interpreted this quantity as a particular measure of local fluctuations that is also sensitive to nearest-neighbour sign flips. This further validates our physical intuition, since in the PM phase, we expect that relevant information for its characterisation is encoded by kinetic contributions. As discussed in detail below Equation (9), the naive continuum limit of OPM is simply the volume integral of |\u2207\u03c6|, Hence, it has lost the information about nearestneighbour sign flips, while the continuum limit of its expectation value, \u3008OPM\u3009, keeps its sensitivity towards this property. Accordingly, the construction of this observable guided by the filter analysis is non-trivial evidence for the potential power of the present approach: the results demonstrate that we can identify relevant structures which may otherwise stay hidden. At this point, LRP has indeed facilitated a deeper understanding of the CNN, by explaining the origin of its comparably high accuracy w.r.t. the MLP. With these results, we have conclusively established the value of interpretability methods in deep learning analyses of lattice data.\nIn the present work, the emphasis was put on the methodological aspects of the analysis in order to form a comprehensive basis for future efforts. Many interesting aspects, such as an investigation of the fermionic sector, were barely discussed. Instead, we have focused on the inference of the hopping parameter. Including other action parameters into the labels, such as the Yukawa coupling or chemical potential, is a promising endeavour for the future, as it will likely lead to an improvement in comparison to the current results. This is necessary in order to pave the way towards an application to more interesting scenarios, such as QCD at finite density or competing order regimes in the Hubbard model. Moreover, the introduced ML pipeline has the potential to provide insight also in various other areas of computational physics."
+    },
+    {
+      "heading": "Acknowledgements",
+      "text": "We thank M. Scherzer, I.-O. Stamatescu, S. J. Wetzel and F. P.G. Ziegler for discussions. This work is supported by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany\u2019s Excellence Strategy EXC 2181/1 - 390900948 (the Heidelberg STRUCTURES Excellence Cluster) and under the Collaborative Research Centre SFB 1225 (ISOQUANT), EMMI, the BMBF grants 05P18VHFCA, 01IS14013A (Berlin Big Data Center), and 01IS18037I (Berlin Center for Machine Learning)."
+    },
+    {
+      "heading": "Appendix A: Theory and Simulation Details",
+      "text": ""
+    },
+    {
+      "heading": "1. Dimensionless Form of the Klein-Gordon Action",
+      "text": "The lattice action for real, scalar \u03c64-theory in d dimensions is defined as\nSKG[\u03c60] = \u2211 n\u2208\u039b ad\n[ 1\n2 d\u2211 \u00b5=1 (\u03c60(n+ a\u00b5\u0302)\u2212 \u03c60(n))2 a2\n+ m20 2 \u03c620 + g0 4! \u03c640\n] , (A1)\nwhere a is the lattice spacing, \u03c60,m0, g0 correspond to the bare field, mass and coupling constant, and \u00b5\u0302 is the unit vector in \u00b5-direction. The action can be cast into a dimensionless form through the following transformation:\na d\u22122 2 \u03c60 = (2\u03ba) 1/2\u03c6\n(am0) 2 = 1\u2212 2\u03bb \u03ba \u2212 2d (A2)\na\u2212d+4\u03bb0 = 6\u03bb\n\u03ba2 .\nHere, \u03ba is commonly called the hopping parameter and \u03bb now takes the role of the coupling constant. Applying this transformation results in\nSKG[\u03c6] = \u2211 n\u2208\u039b\n[ \u2212 2\u03ba\nd\u2211 \u00b5=1 \u03c6(n)\u03c6(n+ \u00b5\u0302)\n+ (1\u2212 2\u03bb)\u03c6(n)2 + \u03bb\u03c6(n)4 ] . (A3)"
+    },
+    {
+      "heading": "2. Simulating Fermions",
+      "text": "Calculating the determinant of the dicretised Dirac operator (Equation (2)) exactly and repeatedly, which is in principle necessary for importance sampling, is computationally intractable even for moderate lattice sizes. The usual approach is to approximate its value stochastically, e.g. by introducing auxiliary bosonic field variables (commonly called pseudo-fermions), which guarantees an asymptotically exact distribution. Simulations based on the numerical solution of differential equations, such as the Hybrid Monte Carlo (HMC) algorithm or Langevin dynamics, can exploit the comparably low cost of computing only the matrix inverse with the conjugate gradient method. In this work, we exclusively employ the HMC algorithm to generate data.\n10"
+    },
+    {
+      "heading": "Appendix B: Lattice Datasets",
+      "text": "All field configurations composing the datasets used in this work are generated with the parameters listed in Table I. A single, labeled sample is given by the mapping\n(\u03c6, \u03ba) : {\u03c6n} = {\u03c6n | n \u2208 \u039b} \u2212\u2192 \u03ba . (B1)\nIn order to explicitly enforce Z2 symmetry onto the neural networks, we use the same configurations twice in the dataset, just with a globally flipped sign. This raw data is directly used to train the CNN. For the MLP, the samples are preprocessed by computing the chosen set of observables for each configuration,\n(O, \u03ba) : {|M |, |Ms|, Gc(t)} \u2212\u2192 \u03ba . (B2)\nIn this case, we can simply take the modulus of the magnetisations without losing information, since only two branches with exactly opposite signs are present in the phase diagram. Due to the finite expectation value of the staggered magnetisation, the AFM phase contains unphysical negative correlations. In order to remove these lattice artifacts, we adapt the usual time-sliced two-point correlator to\nGc(t) = \u2223\u2223\u2223\u2223\u3008\u03c6(t)\u03c6(0)\u3009 \u2212M2 \u2212 (\u22121)tM2s \u2223\u2223\u2223\u2223 . (B3) Generally, LRP is designed for classification problems. Therefore, we discretise \u03ba to facilitate the formulation of the inference objective as a classification task. All values of \u03ba are transformed into individual bins and the networks are tasked to predict the correct bin. In order to retain a notion of locality, the true bins are additionally smeared out with a Gaussian distribution, resulting in the target labels\n\u03ba \u2212\u2192 yb = e\u2212 (\u03bab\u2212\u03baTrue)\n2\n2\u03c32 . (B4)\nHere, b denotes the bin number, and the variance was set to \u03c3 = 3\u2206\u03ba. In combination with a MSE loss, we obtain qualitatively similar prediction results compared to a standard regression approach."
+    },
+    {
+      "heading": "Appendix C: Propagation Rules",
+      "text": "This section contains a summary of the mathematical background of LRP, in particular regarding the propagation rules. Generally, the relevance Rj depends on the activation of the previous layer xi. Given some input to the network, its predicted class f is identified by the output neuron with the largest response. This neuron\u2019s activation Routf , along with R out i = 0 for all other classes i 6= f , defines the relevance vector. This output layer relevance can then be backpropagated through the whole network, which results in the aforementioned heatmap on the input. Importantly, the propagation rules are designed such that the total relevance is conserved,\n\u2211 i Rni = \u2211 i Routi \u2261 Routf , (C1)\nwhere the index n can indicate any layer. This conservation law ensures that explanations from all layers are closely related and prohibits additional sources of relevance during the backpropagation. A Taylor expansion of this conservation law yields\n\u2211 j Rj(xi) = \u2211 j\nRj(x\u0303i)\ufe38 \ufe37\ufe37 \ufe38 =0\n+ \u2211 i \u2211 j \u2202Rj \u2202xi \u2223\u2223\u2223\u2223\u2223\u2223 {x\u0303i} (xi \u2212 x\u0303i)\n\ufe38 \ufe37\ufe37 \ufe38 Ri\n.\n(C2)\nHere, we choose x\u0303i to be a so-called root point, which corresponds to an activation with vanishing consecutive layer relevance Rj(x\u0303i) = 0. By definition, it is localised on the layer\u2019s decision boundary, which constitutes a hypersurface in the activation space. Hence, the root point is not uniquely defined and we need to impose an additional criterion. However, given such a point, we can identify the first order term as the relevance propagation rule Rj 7\u2192 Ri. The remaining root point dependence gives rise to a variety of possible propagation rules. For instance, the w2 rule minimises the Euclidean distance between neuron activation xi and the decision boundary in order to single out a root point. Visualisations of root points, as well as essential derivations and analytical expressions for propagation rules, can be found in [46]."
+    },
+    {
+      "heading": "Appendix D: Random Forest Details",
+      "text": "Random forests [54] denote a predictive ML approach based on ensembles of decision trees. They utilise the majority vote of multiple randomised trees in order to arrive at a prediction. This greatly improves the generalisation performance compared to using a single tree. The elementary building block is a node performing binary decisions based on a single feature criterion. New nodes are\n11\nconnected sequentially with so-called branches. A single decision tree is grown iteratively from a root node to multiple leaf nodes. A concrete prediction corresponds to a unique path from the root to a single leaf. Each node on the path is associated with a specific feature. Hence, we can sum up the contributions to the decision separately for each feature by moving along the path,\nprediction = bias+ \u2211 i (feature contribution)i . (D1)\nHere, the bias corresponds to the average prediction at the root node.\nWe employ the scikit-learn implementation [55] in combination with a TreeInterpreter extension [56]. The latter reference also provides an excellent introduction to the concept of feature contributions.\nThe random forest is initialised with 10 trees and a maximum tree depth of 10. This parameter is essential for regularisation, since an unconstrained depth causes overfitting and thus results in poor generalisation performance. In order to fix this parameter, we start at a large value and successively reduce it until the training and test accuracy reach a similar level. This way we can retain as much expressive power as possible in the random forest while simultaneously eliminating systematic errors resulting from overfitting. However, we emphasise that the specific choice of this parameter not relevant to our argument."
+    },
+    {
+      "heading": "Appendix E: Network Architectures and Implementation Details",
+      "text": "We use the PyTorch framework [57]. The machinery of LRP is included by defining a custom torch.nn.Module and equipping all layers with a relevance propagation rule. Furthermore, all biases are restricted to negative values in order to ensure the existence of a root point. For training, we employ the Adam optimiser [58] with default hyperparameters and an initial learning rate of 0.001, using a batch size of 16.\nFor both networks, the first layer undergoes least absolute shrinkage and selection operator (LASSO) regularisation during training, which encourages sparsity and thereby enhances interpretability. This corresponds to simply adding the L1 norm of the respective weights wij to the MSE loss, which accordingly takes the form\nL = 1\nd d\u2211 f=1 (yf \u2212 y\u0302f )2 + \u03bbLasso \u2211 ij |wij | . (E1)\nHere, yf , y\u0302f denote the prediction and ground truth labels, and i, j the input and output nodes of the first layer. The quantity \u03bbLasso parametrises the strength of the regularisation.\nThe network architectures used in this work are given in the following tables.\n[1] Y. LeCun, Y. Bengio, and G. Hinton Nature 521 no. 7553, (May, 2015) 436\u2013444. [2] A. Graves, A.-r. Mohamed, and G. Hinton in 2013 IEEE international conference on acoustics, speech and signal processing, pp. 6645\u20136649, IEEE. 2013. arXiv:1303.5778 [cs.NE].\n[3] A. Krizhevsky, I. Sutskever, and G. E. Hinton in Advances in Neural Information Processing Systems 25, F. Pereira, C. J. C. Burges, L. Bottou, and K. Q. Weinberger, eds., pp. 1097\u20131105. Curran Associates, Inc., 2012. [4] S. Ren, K. He, R. Girshick, and J. Sun in Advances in\n12\nNeural Information Processing Systems 28, C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, eds., pp. 91\u201399. Curran Associates, Inc., 2015. arXiv:1506.01497 [cs.CV]. [5] K. He, X. Zhang, S. Ren, and J. Sun in Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 770\u2013778. 2016. [6] L. Wang Physical Review B 94 no. 19, (Nov, 2016) , arXiv:1606.00318 [cond-mat.stat-mech]. [7] P. Broecker, J. Carrasquilla, R. Melko, and S. Trebst Scientific Reports 7 (08, 2016) , arXiv:1608.07848 [cond-mat.str-el]. [8] L.-G. Pang, K. Zhou, N. Su, H. Petersen, H. Sto\u0308cker, and X.-N. Wang Nature Commun. 9 no. 1, (2018) 210, arXiv:1612.04262 [hep-ph]. [9] S. J. Wetzel Physical Review E 96 no. 2, (Aug, 2017) , arXiv:1703.02435 [cond-mat.stat-mech].\n[10] S. J. Wetzel and M. Scherzer Phys. Rev. B96 no. 18, (2017) 184410, arXiv:1705.05582 [cond-mat.stat-mech]. [11] M. Cristoforetti, G. Jurman, A. I. Nardelli, and C. Furlanello arXiv:1705.09524 [hep-lat]. [12] K. Ch\u2019ng, J. Carrasquilla, R. G. Melko, and E. Khatami Phys. Rev. X 7 (Aug, 2017) 031038, arXiv:1609.02552 [cond-mat.str-el]. [13] W. Hu, R. R. P. Singh, and R. T. Scalettar Physical Review E 95 no. 6, (Jun, 2017) , arXiv:1704.00080 [cond-mat.stat-mech]. [14] Z. Liu, S. P. Rodrigues, and W. Cai arXiv:1710.04987 [cond-mat.dis-nn]. [15] G. Carleo and M. Troyer Science 355 no. 6325, (Feb, 2017) 602\u2013606. [16] E. P. L. van Nieuwenburg, Y.-H. Liu, and S. D. Huber Nature Physics 13 no. 5, (Feb, 2017) 435\u2013439, arXiv:1610.02048 [cond-mat.dis-nn]. [17] P. Ponte and R. Melko Physical Review B 96 (04, 2017) , arXiv:1704.05848 [cond-mat.stat-mech]. [18] J. Carrasquilla and R. G. Melko Nature Physics 13 no. 5, (Feb, 2017) 431\u2013434, arXiv:1605.01735 [cond-mat.str-el]. [19] A. Morningstar and R. G. Melko J. Mach. Learn. Res. 18 no. 1, (Jan., 2017) 5975\u20135991, arXiv:1708.04622 [cond-mat.dis-nn]. [20] A. Tanaka and A. Tomiya arXiv:1712.03893 [hep-lat]. [21] A. Tanaka and A. Tomiya Journal of the Physical Society of Japan 86 no. 6, (2017) 063001, https://doi.org/10.7566/JPSJ.86.063001. [22] L. Huang and L. Wang Phys. Rev. B 95 (Jan, 2017) 035105, arXiv:1610.02746 [physics.comp-ph]. [23] J. Liu, Y. Qi, Z. Y. Meng, and L. Fu Phys. Rev. B 95 (Jan, 2017) 041101, arXiv:1610.03137 [cond-mat.str-el]. [24] D. Wu, L. Wang, and P. Zhang Physical Review Letters 122 no. 8, (Feb, 2019) , arXiv:1809.10606 [cond-mat.stat-mech]. [25] K. Zhou, G. Endro\u030bdi, L.-G. Pang, and H. Sto\u0308cker Physical Review D 100 no. 1, (Jul, 2019) , arXiv:1810.12879 [hep-lat]. [26] P. E. Shanahan, D. Trewartha, and W. Detmold Phys. Rev. D97 no. 9, (2018) 094506, arXiv:1801.05784 [hep-lat]. [27] P. Suchsland and S. Wessel Physical Review B 97 no. 17, (May, 2018) , arXiv:1802.09876\n[cond-mat.stat-mech]. [28] J. M. Urban and J. M. Pawlowski arXiv:1811.03533\n[hep-lat]. [29] F. Noe\u0301, S. Olsson, J. Ko\u0308hler, and H. Wu Science 365\nno. 6457, (Sept., 2019) eaaw1147, arXiv:1812.01729 [stat.ML]. [30] K. Nicoli, P. Kessel, N. Strodthoff, W. Samek, K.-R. Mu\u0308ller, and S. Nakajima arXiv:1903.11048 [cond-mat.stat-mech]. [31] M. S. Albergo, G. Kanwar, and P. E. Shanahan Phys. Rev. D100 no. 3, (2019) 034515, arXiv:1904.12072 [hep-lat]. [32] L. Kades, J. M. Pawlowski, A. Rothkopf, M. Scherzer, J. M. Urban, S. J. Wetzel, N. Wink, and F. Ziegler arXiv:1905.04305 [physics.comp-ph]. [33] K. Kashiwa, Y. Kikuchi, and A. Tomiya PTEP 2019 no. 8, (2019) 083A04, arXiv:1812.01522 [cond-mat.dis-nn]. [34] K. Liu, J. Greitemann, and L. Pollet Physical Review B 99 no. 10, (Mar, 2019) , arXiv:1810.05538 [cond-mat.stat-mech]. [35] C. Casert, T. Vieijra, J. Nys, and J. Ryckebusch Physical Review E 99 no. 2, (Feb, 2019) , arXiv:1807.02468 [cond-mat.stat-mech]. [36] W. Rzadkowski, N. Defenu, S. Chiacchiera, A. Trombettoni, and G. Bighin arXiv:1907.05417 [cond-mat.dis-nn]. [37] K. A. Nicoli, S. Nakajima, N. Strodthoff, W. Samek, K.-R. Mu\u0308ller, and P. Kessel Phys. Rev. E 101 (Feb, 2020) 023304, arXiv:1910.13496 [cond-mat.stat-mech]. [38] K. Kashiwa, Y. Kikuchi, and A. Tomiya Progress of Theoretical and Experimental Physics 2019 no. 8, (08, 2019) . https://doi.org/10.1093/ptep/ptz082. 083A04. [39] E. Greplova, A. Valenti, G. Boschung, F. Scha\u0308fer, N. Lo\u0308rch, and S. Huber New J. Phys. 22 no. 4, (2020) 045003, arXiv:1910.10124 [quant-ph]. [40] P. Mehta, M. Bukov, C.-H. Wang, A. G. R. Day, C. Richardson, C. K. Fisher, and D. J. Schwab Physics reports 810 (2019) 1\u2013124, arXiv:1803.08823 [physics.comp-ph]. [41] G. Carleo, I. Cirac, K. Cranmer, L. Daudet, M. Schuld, N. Tishby, L. Vogt-Maranto, and L. Zdeborova\u0301 Reviews of Modern Physics 91 no. 4, (Dec., 2019) , arXiv:1903.10563 [physics.comp-ph]. [42] S. Bach, A. Binder, G. Montavon, F. Klauschen, K.-R. Mu\u0308ller, and W. Samek PLOS ONE 10 no. 7, (2015) e0130140. [43] I. Montvay and G. Mu\u0308nster, Quantum Fields on a Lattice. Cambridge Monographs on Mathematical Physics. Cambridge University Press, 1994. [44] S. J. Wetzel, R. G. Melko, J. Scott, M. Panju, and V. Ganesh arXiv:2003.04299 [physics.comp-ph]. [45] M. Ancona, E. Ceolini, C. O\u0308ztireli, and M. Gross in NIPS Workshop on Interpreting, Explaining and Visualizing Deep Learning - Now What? ETH Zurich, 2017. arXiv:1711.06104. http://hdl.handle.net/20.500.11850/237705. [46] G. Montavon, W. Samek, and K.-R. Mu\u0308ller Digital Signal Processing 73 (2018) 1\u201315. https://doi.org/10.1016/j.dsp.2017.10.011. [47] K. Simonyan, A. Vedaldi, and A. Zisserman in 2nd International Conference on Learning Representations,\n13\nICLR 2014, Banff, AB, Canada, April 14-16, 2014, Workshop Track Proceedings, Y. Bengio and Y. LeCun, eds. 2014. arXiv:1312.6034 [cs.CV]. [48] M. Sundararajan, A. Taly, and Q. Yan in ICML. 2017. arXiv:1703.01365 [cs.LG]. [49] A. Shrikumar, P. Greenside, and A. Kundaje in Proceedings of the 34th International Conference on Machine Learning, D. Precup and Y. W. Teh, eds., vol. 70 of Proceedings of Machine Learning Research, pp. 3145\u20133153. PMLR, International Convention Centre, Sydney, Australia, 06\u201311 aug, 2017. arXiv:1704.02685 [cs.CV]. [50] M. D. Zeiler and R. Fergus in Computer Vision - ECCV 2014 - 13th European Conference, Zurich, Switzerland, September 6-12, 2014, Proceedings, Part I, D. J. Fleet, T. Pajdla, B. Schiele, and T. Tuytelaars, eds., vol. 8689 of Lecture Notes in Computer Science, pp. 818\u2013833. Springer, 2014. arXiv:1311.2901 [cs.CV]. [51] T. B. Fraunhofer HHI and S. Singapore. http://heatmapping.org/. accessed: 2020-01-07. [52] K. Nicoli, P. Kessel, M. Gastegger, and K. T. Schutt 2018.\n[53] A. Shrikumar, P. Greenside, A. Shcherbina, and A. Kundaje arXiv:1605.01713 [cs.LG]. [54] L. Breiman Mach. Learn. 45 no. 1, (Oct., 2001) 5\u201332. [55] F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel,\nB. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay Journal of Machine Learning Research 12 (2011) 2825\u20132830.\n[56] A. Saabas, https://github.com/andosa/treeinterpreter, 2015. [57] A. Paszke, S. Gross, F. Massa, A. Lerer, J. Bradbury, G. Chanan, T. Killeen, Z. Lin, N. Gimelshein, L. Antiga, A. Desmaison, A. Kopf, E. Yang, Z. DeVito, M. Raison, A. Tejani, S. Chilamkurthy, B. Steiner, L. Fang, J. Bai, and S. Chintala in Advances in Neural Information Processing Systems 32, H. Wallach, H. Larochelle, A. Beygelzimer, F. d\u2019Alche\u0301 Buc, E. Fox, and R. Garnett, eds., pp. 8024\u20138035. Curran Associates, Inc., 2019. arXiv:1912.01703 [cs.LG]. [58] D. P. Kingma and J. Ba arXiv:1412.6980 [cs.LG]."
+    }
+  ],
+  "title": "Towards Novel Insights in Lattice Field Theory with Explainable Machine Learning",
+  "year": 2020
+}

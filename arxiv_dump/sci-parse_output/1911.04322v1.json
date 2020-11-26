@@ -1,0 +1,481 @@
+{
+  "abstractText": "Current adoption of machine learning in industrial, societal and economical activities has raised concerns about the fairness, equity and ethics of automated decisions. Predictive models are often developed using biased datasets and thus retain or even exacerbate biases in their decisions and recommendations. Removing the sensitive covariates, such as gender or race, is insufficient to remedy this issue since the biases may be retained due to other related covariates. We present a regularization approach to this problem that trades off predictive accuracy of the learned models (with respect to biased labels) for the fairness in terms of statistical parity, i.e. independence of the decisions from the sensitive covariates. In particular, we consider a general framework of regularized empirical risk minimization over reproducing kernel Hilbert spaces and impose an additional regularizer of dependence between predictors and sensitive covariates using kernel-based measures of dependence, namely the Hilbert-Schmidt Independence Criterion (HSIC) and its normalized version. This approach leads to a closed-form solution in the case of squared loss, i.e. ridge regression. Moreover, we show that the dependence regularizer has an interpretation as modifying the corresponding Gaussian process (GP) prior. As a consequence, a GP model with a prior that encourages fairness to sensitive variables can be derived, allowing principled hyperparameter selection and studying of the relative relevance of covariates under fairness constraints. Experimental results in synthetic examples and in real problems of income and crime prediction illustrate the potential of the approach to improve fairness of automated decisions.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Zhu Li"
+    },
+    {
+      "affiliations": [],
+      "name": "Adrian Perez-Suay"
+    },
+    {
+      "affiliations": [],
+      "name": "Gustau Camps-Valls"
+    },
+    {
+      "affiliations": [],
+      "name": "Dino Sejdinovic"
+    }
+  ],
+  "id": "SP:2ef65c9c3dffb200428e73397ca30a63baaf32d8",
+  "references": [
+    {
+      "authors": [
+        "J. Adebayo",
+        "L. Kagal"
+      ],
+      "title": "Iterative orthogonal feature projection for diagnosing bias in black-box models",
+      "venue": "arXiv preprint arXiv:1611.04967",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Belkin",
+        "P. Niyogi",
+        "V. Sindhwani",
+        "Dec"
+      ],
+      "title": "Manifold regularization: A geometric framework for learning from labeled and unlabeled examples",
+      "venue": "Journal of Machine Learning Research",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "R. Berk",
+        "H. Heidari",
+        "S. Jabbari",
+        "M. Kearns",
+        "A. Roth"
+      ],
+      "title": "Fairness in criminal justice risk assessments: The state of the art",
+      "venue": "Sociological Methods & Research,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Brennan",
+        "W.D. Tim",
+        "B. Ehret"
+      ],
+      "title": "Evaluating the predictive validity of the compas risk and needs assessment system",
+      "venue": "Criminal Justice and Beh",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "T. Calders",
+        "S. Verwer"
+      ],
+      "title": "Three naive bayes approaches for discrimination-free classification",
+      "venue": "Data Mining and Knowledge Discovery",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "F. Calmon",
+        "D. Wei",
+        "B. Vinzamuri",
+        "K.N. Ramamurthy",
+        "K.R. Varshney"
+      ],
+      "title": "Optimized pre-processing for discrimination prevention",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Chouldechova"
+      ],
+      "title": "Fair prediction with disparate impact: A study of bias in recidivism prediction instruments",
+      "venue": "Big data",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Chouldechova",
+        "A. Roth"
+      ],
+      "title": "The frontiers of fairness in machine learning",
+      "venue": "arXiv preprint arXiv:1810.08810",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M.D. Cunningham",
+        "J.R. Sorensen"
+      ],
+      "title": "Actuarial models for assessing prison violence risk: revisions and extensions of the risk assessment scale for prison",
+      "venue": "(rasp). Assessment",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "W. Dieterich",
+        "C. Mendoza",
+        "T. Brennan"
+      ],
+      "title": "Compas risk scales: Demonstrating accuracy equity and predictive parity",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "C. Dwork",
+        "M. Hardt",
+        "T. Pitassi",
+        "O. Reingold",
+        "R. Zemel"
+      ],
+      "title": "Fairness through awareness",
+      "venue": "Proceedings of the 3rd innovations in theoretical computer science conference",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "M. Feldman",
+        "S.A. Friedler",
+        "J. Moeller",
+        "C. Scheidegger",
+        "S. Venkatasubramanian"
+      ],
+      "title": "Certifying and removing disparate impact",
+      "venue": "Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "K. Fukumizu",
+        "F.R. Bach",
+        "Jordan",
+        "M. I"
+      ],
+      "title": "Kernel dimension reduction in regression",
+      "venue": "The Annals of Statistics",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "K. Fukumizu",
+        "A. Gretton",
+        "X. Sun",
+        "P.B. Sch\u00f6lkopf"
+      ],
+      "title": "Kernel measures of conditional dependence",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "A. Gretton",
+        "K.M. Borgwardt",
+        "M.J. Rasch",
+        "B. Sch\u00f6lkopf",
+        "A. Smola",
+        "Mar"
+      ],
+      "title": "A kernel two-sample test",
+      "venue": "J. Mach. Learn. Res",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "A. Gretton",
+        "R. Herbrich",
+        "A. Hyv\u00e4rinen"
+      ],
+      "title": "Kernel methods for measuring independence",
+      "venue": "Journal of Machine Learning Research",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "M. Hardt",
+        "E. Price",
+        "N Srebro"
+      ],
+      "title": "Equality of opportunity in supervised learning. In: Advances in neural information processing systems",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "H. Heidari",
+        "C. Ferrari",
+        "K. Gummadi",
+        "A. Krause"
+      ],
+      "title": "Fairness behind a veil of ignorance: A welfare analysis for automated decision making",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Hoffman",
+        "L.B. Kahn",
+        "D. Li"
+      ],
+      "title": "Discretion in hiring",
+      "venue": "The Quarterly Journal of Economics",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Joseph",
+        "M. Kearns",
+        "J.H. Morgenstern",
+        "A. Roth"
+      ],
+      "title": "Fairness in learning: Classic and contextual bandits",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "F. Kamiran",
+        "T. Calders"
+      ],
+      "title": "Classifying without discriminating",
+      "venue": "2nd International Conference on Computer, Control and Communication",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "F. Kamiran",
+        "T. Calders"
+      ],
+      "title": "Data preprocessing techniques for classification without discrimination",
+      "venue": "Knowledge and Information Systems",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "T. Kamishima",
+        "S. Akaho",
+        "H. Asoh",
+        "J. Sakuma"
+      ],
+      "title": "Fairness-aware classifier with prejudice remover regularizer",
+      "venue": "Joint European Conference on Machine Learning and Knowledge Discovery in Databases",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "M. Kanagawa",
+        "P. Hennig",
+        "D. Sejdinovic",
+        "B.K. Sriperumbudur"
+      ],
+      "title": "Gaussian processes and kernel methods: A review on connections and equivalences",
+      "venue": "arXiv preprint arXiv:1807.02582",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Kim",
+        "O. Reingold",
+        "G. Rothblum"
+      ],
+      "title": "Fairness through computationally-bounded awareness",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "G.S. Kimeldorf",
+        "G. Wahba"
+      ],
+      "title": "A correspondence between Bayesian estimation on stochastic processes and smoothing by splines",
+      "venue": "Ann. Math. Statist",
+      "year": 1970
+    },
+    {
+      "authors": [
+        "J. Kleinberg",
+        "S. Mullainathan",
+        "M. Raghavan"
+      ],
+      "title": "Inherent trade-offs in the fair determination of risk scores. arXiv preprint arXiv:1609.05807",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Luo",
+        "W. Liu",
+        "I. Koprinska",
+        "F. Chen"
+      ],
+      "title": "Discrimination-aware association rule mining for unbiased data analytics. In: International Conference on Big Data Analytics and Knowledge Discovery",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "D. Pedreschi",
+        "S. Ruggieri",
+        "F. Turini"
+      ],
+      "title": "Discrimination-aware data mining",
+      "venue": "Proceedings of the 14th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. KDD",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "A. P\u00e9rez-Suay",
+        "V. Laparra",
+        "G. Mateo-Gar\u0107\u0131a",
+        "J. Mu\u00f1oz-Ma\u0155\u0131",
+        "L. G\u00f3mez- Chova",
+        "G. Camps-Valls"
+      ],
+      "title": "Fair kernel learning. In: Joint European Conference on Machine Learning and Knowledge Discovery in Databases",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Redmond",
+        "A. Baveja"
+      ],
+      "title": "A data-driven software tool for enabling cooperative information sharing among police departments",
+      "venue": "European Journal of Operational Research",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "G. Ristanoski",
+        "W. Liu",
+        "J. Bailey"
+      ],
+      "title": "Discrimination aware classification for imbalanced datasets. In: CIKM \u201913",
+      "venue": "ACM, NY,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "B.K. Sriperumbudur",
+        "K. Fukumizu",
+        "G.R. Lanckriet"
+      ],
+      "title": "Universality, characteristic kernels and rkhs embedding of measures",
+      "venue": "Journal of Machine Learning Research",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "M.B. Zafar",
+        "I. Valera",
+        "M. Gomez Rodriguez",
+        "K.P. Gummadi"
+      ],
+      "title": "Fairness beyond disparate treatment & disparate impact: Learning classification without disparate mistreatment",
+      "venue": "Proceedings of the 26th International Conference on World Wide Web. International World Wide Web Conferences Steering Committee,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "R.S. Zemel",
+        "Y. Wu",
+        "K. Swersky",
+        "T. Pitassi",
+        "C. Dwork"
+      ],
+      "title": "Learning fair representations",
+      "venue": "ICML (3)",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "J. Zeng",
+        "B. Ustun",
+        "C. Rudin"
+      ],
+      "title": "Interpretable classification models for recidivism prediction",
+      "venue": "Jour. of the Royal Stat. Soc.: Series A (Statistics",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "text": "Current adoption of machine learning in industrial, societal and economical activities has raised concerns about the fairness, equity and ethics of automated decisions. Predictive models are often developed using biased datasets and thus retain or even exacerbate biases in their decisions and recommendations. Removing the sensitive covariates, such as gender or race, is insufficient to remedy this issue since the biases may be retained due to other related covariates. We present a regularization approach to this problem that trades off predictive accuracy of the learned models (with respect to biased labels) for the fairness in terms of statistical parity, i.e. independence of the decisions from the sensitive covariates. In particular, we consider a general framework of regularized empirical risk minimization over reproducing kernel Hilbert spaces and impose an additional regularizer of dependence between predictors and sensitive covariates using kernel-based measures of dependence, namely the Hilbert-Schmidt Independence Criterion (HSIC) and its normalized version. This approach leads to a closed-form solution in the case of squared loss, i.e. ridge regression. Moreover, we show that the dependence regularizer has an interpretation as modifying the corresponding Gaussian process (GP) prior. As a consequence, a GP model with a prior that encourages fairness to sensitive variables can be derived, allowing principled hyperparameter selection and studying of the relative relevance of covariates under fairness constraints. Experimental results in synthetic examples and in real problems of income and crime prediction illustrate the potential of the approach to improve fairness of automated decisions.\nKeywords: Fairness, Kernel methods, Gaussian processes, Regularization, Hilbert-Schmidt Independence Criterion\nar X\niv :1\n91 1.\n04 32\n2v 1\n[ st\nat .M\nL ]\n1 1\nN ov"
+    },
+    {
+      "heading": "1. Introduction",
+      "text": ""
+    },
+    {
+      "heading": "1.1. Motivation",
+      "text": "Current and upcoming pervasive application of machine learning algorithms promises to have an enormous impact on people\u2019s lives. For example, algorithms now decide on the best curriculum to fill in a position [20], determine wages [11], help in pre-trial risk assessment [4], and evaluate risk of violence [9]. Concerns were raised about the lack of fairness, equity and ethics in machine learning to treat these types of problems1. Indeed, standard machine learning models are far from being fair, just, or equitable: they will retain and often exacerbate systemic biases present in data. For example, a model trained simply to minimize a loss with respect to human-provided labels which are subject to a cognitive bias cannot be expected to be free from that bias. More nuanced modelling approaches are needed to move towards fair decision-making processes based on machine learning algorithms. New algorithms should also be easy to use, implement and interpret."
+    },
+    {
+      "heading": "1.2. Approaches to Fairness in Machine Learning",
+      "text": "Fairness is an elusive concept, and adopts many forms and definitions. The field is vast, and a wide body of literature and approaches exists [30, 22, 8].\nLet us broadly distinguish into two classes of fairness: individual and group fairness. On one hand, individual fairness [12, 21, 26, 19] is a notion that can be roughly understood as: \u201csimilar individuals should be treated similarly\u2019. An example is [12], where it is assumed that there exists a similarity measure among individuals, and the goal is to find a classifier that returns similar outcomes for individuals with high similarity. Joseph et al. [21] gives another formalization of individual fairness, which can be loosely described as: \u201cless qualified individual should not be favoured\u201d, where the notion of quality is estimated from data. Although practically important, there are certain obstacles that prevent individual fairness being widely adopted in practice. For example, the approach from [12] requires a pre-agreed similarity measure which may be difficult to define. Also, employing individual fairness requires evaluation on any pair of individuals in the dataset and when dealing with large datasets, such computation may be infeasible.\nOn the other hand, group fairness focuses on the inequality at the group level (where groups may be defined using a sensitive variable such as race or gender). More broadly, outcomes should not differ systematically based\n1See for example the Handbook on European non-discrimination law and the Paycheck Fairness Act in the U.S. Federal Legislation.\non individuals\u2019 protected (sensitive) information or group membership. This problem has been addressed by modifying classification rules [30, 34] or preprocessing the data to remove sensitive dependencies explicitly [22, 29, 13, 33]. Down-weighting sensitive features or directly removing them have been proposed [38]. However, simply removing the sensitive covariates (such as gender, disability, or race, to predict, e.g., monthly income or credit score) is often insufficient as related variables may still enter the model. Sensitive covariate may be inferred from those related variables and the bias is retained. Including covariates related to the sensitive variables in the models is called redlining, and induces the problem known as the omitted variable bias (OVB). Alternative approaches seek fair representation learning, i.e. achieving fairness through finding an optimal way to preprocess the data and map it into a latent space where all information about the sensitive variables is removed. After such preprocessing, standard machine techniques are employed to build predictive models. Examples of these methods include [37, 23, 1, 6]. Statistical parity approaches, on the other hand, directly impose the independence between predictor and sensitive variables [5, 24, 13, 31]. Various other statistical measures across groups can be considered, e.g. equalized odds which require that the false positive and false negative rates should be approximately equal across different groups [28, 18, 7, 36], and other examples are given in [3]. Group fairness is attractive because it is simple to implement, it often leads to convex optimization problems, and it is easy to verify in practice. However, as argued by [12], group fairness cannot give guarantees to individuals as only average fairness to members of each subgroup is attained."
+    },
+    {
+      "heading": "1.3. Regularization for Group Fairness",
+      "text": "In this paper, we build on the work of [31] which falls within the framework of group fairness and was the first work that considered the notion of statistical parity with continuous labels. In particular, independence between predictor and sensitive variables is imposed by employing a kernel dependence measure, namely the Hilbert-Schmidt Independence Criterion (HSIC) [17], as a regularizer in the objective function. Regularization is one of the key concepts in modern supervised learning, which allows imposing structural assumptions and inductive biases onto the problem at hand. It ranges from classical notions of sparsity, shrinkage, and model complexity to the more intricate regularization terms which allow building specific assumptions about the predictors into the objective functions, e.g. smoothness on manifolds [2]. Such regularization viewpoint for algorithmic fairness was presented in [24] in the context of classification, and was extended to regression and dimensionality reduction with kernel methods in [31]. Our work extends [31] in the following three ways. Firstly,\nwe give a general framework of empirical risk minimization with fairness regularizers and their interpretation. Secondly, we derive a Gaussian Process (GP) formulation of the fairness regularization framework, which allows uncertainty quantification and principled hyperparameter selection. Finally, we introduce a normalized version of the fairness regularizer which makes it less sensitive to the choice of kernel parameters. We demonstrate how the developed fairness regularization framework trades off model\u2019s predictive accuracy (with respect to potentially biased data) for independence to the sensitive covariates. It is worth noting that, in our setting, a function which produced the labels is not necessarily the function we wish to learn, so that the predictive accuracy is not necessarily a gold-standard criterion.\nThe paper is structured as follows. The general framework, together with the relevant background, is developed in \u00a72. In \u00a73, we develop a Gaussian Process (GP) interpretation of kernel dependence regularization. We give some instances of fairness-regularized ERM and their interpretation in \u00a74. \u00a75 describes the normalized kernel dependence regularizer. Experimental results are presented in \u00a76. We conclude the work with some remarks and further work in \u00a77."
+    },
+    {
+      "heading": "2. Regression with dependence penalization",
+      "text": ""
+    },
+    {
+      "heading": "2.1. Fairness regularization framework",
+      "text": "We build on a pragmatic definition of fairness following [7]. We are given a set of inputs, xi \u2208 X , and the corresponding targets, yi \u2208 Y , for i = 1, . . . , n. Furthermore, we have observations of sensitive inputs si \u2208 S (sensitive inputs si could be treated as a subset of xi). We take xi to be an iid sample from an X -valued random variable x, and similarly for s. For simplicity, we will assume that the inputs are vectorial, i.e. X \u2286 Rd\u00d71, S \u2286 Rq\u00d71 and that the targets are scalar, i.e. Y \u2286 R, but the exposition can be trivially extended to nonEuclidean or structured domains which admit positive definite kernel functions. We let X \u2208 Rn\u00d7d denote the matrix of n observed inputs corresponding to d explanatory covariates, S \u2208 Rn\u00d7q denotes the set of q sensitive (protected) variables, y \u2208 Rn\u00d71 denotes the vector of observed targets, which we assume are corrupted with historical biases, and y\u0302 is the predictor. We will also introduce the following notions of fair predictors in terms of statistical parity. The fitted predictor f : X \u2192 Y is said to be parity-fair to the sensitive input s if and only if f(x) is statistically independent of s. Moreover, it is said to be parity-fair in expectation to the sensitive input s if and only if Ex|s [f(x)|s] does not depend on s.\nRemark. We note that parity-fairness implies parity-fairness in expectation but that the converse is not true. For example, it may be possible that the conditional variance Var[f(x)|s] still depends on s. For a concrete example, consider the case of modelling income where gender is a sensitive variable. Parity-fairness in expectation implies that the mean predicted income does not depend on the gender, but it is possible that, e.g. the variance is larger for one of the genders. This is hence a weaker notion of fairness, as it may still result in predictions where, say, the top 10% earners all have the same gender.\nFitting a fairness-regularized predictor f\u2217 \u2208 H for some hypothesis class H, reduces to optimizing a regularized empirical risk functional [24, 31]:\nf\u2217 = arg min f\u2208H\n1\nn n\u2211 i=1 V (f(xi), yi) + \u2126(f) + \u03b7I(f(x), s) (1)\nwhere V is the loss function, \u2126 acts as an overfitting/complexity penalty on f , and I measures the statistical dependence between the model f and the protected variables. By setting \u03b7 = 0, standard, yet potentially biased, machine learning models are obtained.\nThe framework admits many variants depending on the loss function V , regularizer \u2126 and the dependence measure, I. In [24], a logistic loss was used and I was a simplified version of the mutual information estimator. In [31], the hypothesis class was a reproducing kernel Hilbert space (RKHS), and the dependence measure I was Hilbert-Schmidt Independence Criterion (HSIC), based on the norm of the particular cross-covariance operator on RKHSs [17], allowing one to deal with several sensitive variables simultaneously. When combined with the framework of kernel ridge regression, a closed-form solution is obtained. In this paper, we extend the latter formalism and introduce a Gaussian process (GP) treatment of the problem. Then we study the HSIC penalization as a modified GP prior, and explore the aspects of HSIC normalization, and the interpretability of the hyperparameters inferred under the GP framework. Before that, let us fix notation and review the basics of GP modeling and kernel-based dependence measures."
+    },
+    {
+      "heading": "2.2. GP models",
+      "text": "In GP modeling, observations yi are assumed to arise from a probabilistic model p\u03bb (yi|f(xi)), parametrized by the evaluation f(xi) of a latent function f at the input xi. Here, \u03bb > 0 is an optional hyperparameter used to rescale the log-likelihood, i.e. log p\u03bb (yi|f(xi)) = const + 1\u03bb log p (yi|f(xi)). For example, in GP regression, we assume a normal likelihood, i.e. log p\u03bb(yi|f(xi)) = const \u2212 1\n2\u03bb (yi \u2212 f(xi))2. Equivalently, the latent function is impaired by a\nGaussian noise of variance \u03bb, i.e. yi = f(xi) + \u03b5i, \u03b5i \u223c N (0, \u03bb), independently over i = 1, . . . , n. A Gaussian process prior, typically zero-mean2, is placed on the latent function f , denoted f(x) \u223c GP(0, k\u03b8(x,x\u2032)), where k\u03b8(x,x\u2032) is a covariance function parametrized by \u03b8. Advantageously, GPs provide a coherent framework to select model hyperparameters \u03b8 and \u03bb by maximizing the marginal log-likelihood, or to pursue Bayesian treatment of hyperparameters. Moreover, they yield a posterior distribution over predictions f(x?) for new inputs x?, allowing to quantify uncertainty and return a predictive posterior of target y?, not just a point estimate. We will denote latent function evaluations over all inputs as f = [f(x1), . . . , f(xn)] >."
+    },
+    {
+      "heading": "2.3. Dependence measures with kernels",
+      "text": "Consider random variables z and w taking values in general domains Z and W . Given kernel functions m and l on Z and W respectively, with RKHSs Hm and Hl, the cross-covariance operator is defined as a linear operator \u03a3zw : Hl \u2192 Hm such that \u3008g,\u03a3zwh\u3009Hm = Cov[g(z), h(w)], for all g \u2208 Hm, h \u2208 Hl. Hilbert-Schmidt Independence Criterion (HSIC) measuring dependence between z and w is then given by the Hilbert-Schmidt norm of \u03a3zw. HSIC can be understood as a maximum mean discrepancy (MMD) [16] between the joint probability measure of z and w and the product of their marginals. Given the dataset D with n pairs drawn from the joint P (z,w), an empirical estimator of HSIC is defined as [17]:\nH\u0302SICm,l(z,w) = 1\nn2 Tr(MHLH), (2)\nwhere M, L are the kernel matrices computed on observations {zi}ni=1 and {wi}ni=1 using kernels m and l respectively, and H = I \u2212 1n11\n> has the role of centering the data in the feature space. For a broad family of kernels m and l (including e.g. Gaussian RBF and Mate\u0301rn family), the population HSIC equals 0 if and only if z and w are statistically independent, cf. [17]. Hence, nonparametric independence tests consistent against all departures from independence can be devised using HSIC estimators with such kernels. Note, however, that the selection of the kernel functions and their parameters have a strong impact on the value of HSIC estimator. As we will see, this is important when HSIC is used as a regularizer, as it generally leads to different predictive models.\n2For example, in regression, it is customary to subtract sample average from the targets {yi}ni=1, and then to assume a zero-mean model.\nMoreover, HSIC is sensitive to the scale appearing in the marginal distributions of z and w and their units of measurements and hence needs an appropriate normalization if it is to depict a dependence measure useful for, e.g. relative dependence comparisons. This problem is well recognized in the literature and a normalized version of HSIC, called NOCCO (NOrmalized Cross-Covariance Operator) was introduced in [15]."
+    },
+    {
+      "heading": "3. Interpretations of HSIC penalization",
+      "text": "Consider a particular instantiation of the regularized functional in (1) given by\nmin f\u2208Hk\n{ 1\nn n\u2211 i=1 V (f(xi), yi) + \u03bb n \u2016f\u20162Hk + \u03b7H\u0302SICm,l(f(x), s) } , (3)\nwhere we adopted the reproducing kernel Hilbert space (RKHS) Hk as a hypothesis class and added a fairness penalization term consisting of an estimator of HSIC between the predicted response f(x) and the sensitive variable s.\nWith appropriate choices of kernels m and l, HSIC regularizer captures all types of statistical dependence between f(x) and s. However, we will here focus on fairness in expectation as it will give us a convenient link to GP modelling. Fairness in expectation corresponds to adopting a linear kernel on f(x), i.e., m(f(xi), f(xj)) = f(xi)f(xj). Estimator (2) then simplifies to\nH\u0302SICm,l(f(x), s) = 1\nn2 Tr(ff>HLH) =\n1\nn2 f>HLHf . (4)\nGiven that this fairness penalty term only depends on the unknown functionf through its evaluations f at the training inputs {xi}, direct application of Representer theorem [27] tells us that the optimal solution can be written as f = \u2211n i=1 \u03b1ik(\u00b7,xi). Hence, we obtain the so called dual problem\nmin \u03b1\u2208Rn\n{ 1\nn n\u2211 i=1 V (f(xi), yi) + \u03bb n \u03b1>K\u03b1 + \u03b7 n2 \u03b1>KHLHK\u03b1 } . (5)\nThe problem (5) can now be solved for \u03b1 directly, and in the case of squared loss, it has a closed form solution [31]."
+    },
+    {
+      "heading": "3.1. Modified Gaussian Process Prior",
+      "text": "For a Bayesian interpretation of (3), we here assume that the loss corresponds to the negative conditional log-likelihood in some probabilistic model,\ni.e. that V (f(xi), yi) = \u2212 log p (yi|f(xi)), which is true for a wide class of loss functions. Hence, we will write (3) as:\nmin f\u2208Hk\n{ \u2212 n\u2211 i=1 log p(yi|f(xi)) \u03bb + \u2016f\u20162Hk + \u03b4f >HLHf } , (6)\nwhere we write \u03b4 = \u03b7/\u03bbn (note that the objective (3) is rescaled by n/\u03bb such that the regularization parameter \u03bb now plays the role of rescaling the log-likelihood).\nConsider now using explicit feature mapping xi 7\u2192 \u03c6(xi) (for the moment assumed finite-dimensional) and denoting the feature matrix by \u03a6, we have f = \u03a6\u03b2 and thus can recast optimization as (so called primal problem) with some abuse of notation3:\nmin \u03b2\u2208Rm\n{ 1\n\u03bb V (y,\u03a6\u03b2) + \u03b2>\u03b2 + \u03b4\u03b2>\u03a6>HLH\u03a6\u03b2\n} . (7)\nThese problems give us an insight about how the two regularization terms interact. It is well known that solutions to regularized ERM over RKHS Hk are closely related to GP models using covariance kernel k \u2013 for a recent overview, cf. [25] and references therein. In particular, by inspecting (7), the two regularization terms correspond, up to an additive constant, to a negative\nlog-prior of \u03b2 \u223c N ( 0, ( I + \u03b4\u03a6>HLH\u03a6 )\u22121) , which in turn gives a prior on\nthe evaluations f \u223c N ( 0,\u03a6 ( I + \u03b4\u03a6>HLH\u03a6 )\u22121 \u03a6> ) . By directly applying\nthe Woodbury-Morrison formula, the covariance matrix in this prior becomes (K\u22121 + \u03b4HLH)\u22121, compared to K in the standard GP case. Thus, adding an HSIC regularizer corresponds to modifying the prior on function evaluations f . A natural question arises:\nQuestion 1 : can the fairness-regularized ERM in (3) be interpreted as simply modifying the GP prior on the whole function f into a fair GP prior?\nAs the next proposition shows, the answer to Question 1 is positive. The proof is given in Appendix A.\n3We write V (y, f) = \u2212 \u2211n\ni=1 log p(yi|f(xi)) to denote the rescaled conditional negative log-likelihood.\nProposition 1. Solution to (6) corresponds to the posterior mode in a Bayesian model using a modified GP prior\nf \u223c GP ( 0, k(\u00b7, \u00b7)\u2212 k>X\u00b7(KHLH + \u03b4\u22121I)\u22121HLHkX\u00b7 ) . (8)\nwhere kX\u00b7 = [k(\u00b7,x1), \u00b7 \u00b7 \u00b7 , k(\u00b7,xn)]>, for any training set {xi}ni=1.\nSeveral important consequences of the GP interpretation will allow us to improve the fair learning process. In particular, the GP treatment allows us to easily derive uncertainty estimates and perform hyperparameter learning using marginal log-likelihood maximization, which is more practical than typical cross-validation strategy limited to simple parameterizations. More importantly, appropriate inference of the model (parameters and hyperparameters) thus yield closer insight into the fairness tradeoffs."
+    },
+    {
+      "heading": "3.2. Projections using Cross-Covariance Operators",
+      "text": "We can derive an additional intepretation of the fairness regularizer in terms of cross-covariance operators. Namely, by considering an explicit feature map si 7\u2192 \u03c8(si) corresponding to the kernel l, and denoting the feature matrix by \u03a8, i.e. L = \u03a8\u03a8> we see that the fairness regularizer in (5) reads\n\u03b2>\u03a6>HLH\u03a6\u03b2 = \u2016\u03a8>H\u03a6\u03b2\u201622 = n2\u2016\u03a3\u0302sx\u03b2\u201622, (9)\nwhere \u03a3\u0302sx = 1 n \u03a8>H\u03a6 is the empirical cross-covariance matrix between feature vectors \u03c6(xi) and \u03c8(si). This interpretation also holds in the case of infinitedimensional RKHSs Hk and Hl. For an infinite-dimensional version of primal formulation, we define sampling operator S : Hk \u2192 Rn, Sf = f . Then the HSIC regularizer becomes\nf>HLHf = \u3008Sf,HLHSf\u3009Rn = \u3008f,S\u2217HLHSf\u3009Hk , where the adjoint S\u2217 acts as S\u2217 : \u03b1 7\u2192 \u2211n\ni=1 \u03b1ik(\u00b7, xi). Moreover, if we define similarly the sampling operator for kernel l, i.e. R : Hl \u2192 Rn, \u2200h \u2208 Hl with Rh = [h(s1), . . . , h(sn)]>, then L = RR\u2217 and S\u2217HR = n\u03a3\u0302xs, R\u2217HS = n\u03a3\u0302sx. Here, \u03a3\u0302xs : Hl \u2192 Hk and \u03a3\u0302xs : Hk \u2192 Hl are the empirical cross-covariance operators [15], i.e. \u2200f \u2208 Hk, h \u2208 Hl\n\u3008f, \u03a3\u0302xsh\u3009Hk = \u3008\u03a3\u0302sxf, h\u3009Hl = 1\nn n\u2211 i=1 f(xi)h(si)\u2212 1 n n\u2211 i=1 f(xi) 1 n n\u2211 i=1 h(si).\nThus, the overall objective can be written as\nmin f\u2208Hk\n{ 1\n\u03bb V (y,Sf) +\n\u2329 f, ( I + \u03b4n2\u03a3\u0302xs\u03a3\u0302sx ) f \u232a Hk } . (10)\nHere, I denotes the identity on Hk. Hence, the additional regularization term is up to scaling simply\n\u3008f, \u03a3\u0302xs\u03a3\u0302sxf\u3009Hk = \u2016\u03a3\u0302sxf\u20162Hl = \u2211 i\u2208I C\u0302ov(ui(s), f(x)),\nwhere ui is an arbitrary basis of Hl. This gives another insight into the fairness regularizer as an action of the empirical cross-covariance operator between sensitive and remaining inputs s and x on the learned function4. As we shall see, this perspective will also allow us to construct a normalized version of fairness regularizer in Section \u00a75."
+    },
+    {
+      "heading": "4. Instances of dependence-regularized learning",
+      "text": "In this section, we give two concrete examples of fair learning and give illustrations how the fairness penalty enforces the fairness in both the ridge regression setting and in the Bayesian learning setting. As before, we denote by \u03a3xs the cross-covariance operator and by \u03a3\u0302xs its empirical version.\nFair Linear Regression. We start with the simple case of linear regression. We note that the kernel k on x is then linear, while the kernel l on s need not be. For simplicity, let us assume that l is finite-dimensional and write its explicit feature map as \u03c8(s) \u2208 Rm. Thus, we have the following minimization problem:\n\u03b2\u2217 : = arg min \u03b2\n1 n \u2016y \u2212X\u03b2\u201622 + \u03bb n \u2016\u03b2\u201622 + \u03b7\u2016\u03a3\u0302sx\u03b2\u201622\n= arg min \u03b2\n1 \u03bb \u2016y \u2212X\u03b2\u201622 + \u03b2>(I + \u03b4n2\u03a3\u0302xs\u03a3\u0302sx)\u03b2. (11)\nThe purpose of fair linear regression is to predict y from inputs X while ensuring that the predictions are independent of the sensitive variable s. From (11), we see that the HSIC regularizer penalizes the weighted norm of \u03b2. The weight on each dimension of \u03b2 is guided by the cross-covariance operator \u03a3\u0302sx : Rd \u2192 Rm. As a result, if a dimension xi in x has a high covariance with any of the entries in \u03c8(s), its corresponding coefficient \u03b2i will be shrank towards zero, leading to a low covariance between f(x) and \u03c8(s). This can be illustrated by the following toy case. Since feature spaces are finite-dimensional, we can treat \u03a3\u0302sx as an m \u00d7 d matrix. Say that m < d and that \u03a3\u0302sx has zero-off\n4Note that this operator is different from the cross-covariance operator defining HSIC in (3) itself, as the latter pertains to cross-covariance between s and f(x)\ndiagonal entries (i.e. the only non-zero cross-correlations are between the i-th dimension of x and the i-th dimension of \u03c8(s)). We further enlarge \u03a3\u0302sx to be a d \u00d7 d matrix by appending zeros. We denote the diagonal elements of the enlarged matrix as \u03c31, . . . , \u03c3d, \u03c3i \u2265 0. As a result, \u03a3\u0302xs\u03a3\u0302sx \u2208 Rd\u00d7d is symmetric and diagonal with diagonal elements \u03c321, . . . , \u03c3 2 d. Now the second term in Eq. (11) is simply:\n\u03b2>(I + \u03b4n2\u03a3\u0302xs\u03a3\u0302sx)\u03b2 = d\u2211 i=1 (1 + \u03b4n2\u03c32i )\u03b2 2 i\nSince we aim at minimizing the penalty term \u03b2>(I+\u03b4\u03a3\u0302xs\u03a3\u0302sx)\u03b2, the coefficient \u03b2i is likely to be low if the corresponding feature has high covariance with \u03c8(s), i.e. high \u03c3i. In the extreme case where \u03b4 \u2192 \u221e, \u03b2i \u2192 0 for all the features that have positive covariance with \u03c8(s). Moreover, if feature i has \u03c3i = 0, its coefficient is unaffected by the extra penalization. In practice of course, \u03a3\u0302sx is rarely diagonal, but the general idea is the same: the regularizer simply takes into account all cross-correlations to determine the penalty on each coefficient.\nWe now turn to the Bayesian perspective. Note that (11) is equivalent to the following Bayesian linear regression model\nY = X\u03b2 + , \u223c N (0, \u03bb), \u03b2 \u223c N (0,\u03a3), \u03a3 = (I + \u03b4n2\u03a3\u0302xs\u03a3\u0302sx)\u22121. (12)\nComparing to the normal Bayesian linear regression, we can see that this version simply modifies the prior on \u03b2. The same interpretation holds: assuming \u03a3\u0302sx is diagonal and denoting the i-th diagonal element of \u03a3\u0302xs\u03a3\u0302sx as \u03c32i , the prior covariance matrix \u03a3 is a diagonal matrix with i-th diagonal element of (1 + \u03b4n2\u03c32i )\n\u22121. This means that we modify our prior such that the coefficients corresponding to the features with high \u03c3i are shrank towards zero.\nFair Kernel Ridge Regression. We now consider the nonlinear case with RKHSs Hk and Hl corresponding to feature maps \u03c6(\u00b7) and \u03c8(\u00b7) respectively. We denote the transformed data as \u03a6 and \u03a8 with the corresponding Gram matrices K and L. We extend the fair learning problem in the nonlinear case as the following optimization problem.\n\u03b2\u0304 := argmin 1\nn \u2016Y \u2212\u03a6\u03b2\u201622 +\n\u03bb n \u2016\u03b2\u201622 + \u03b7\u2016\u03a3\u0302sx\u03b2\u201622\n= argmin 1\n\u03bb \u2016Y \u2212\u03a6\u03b2\u201622 + \u03b2>(I + \u03b4n2\u03a3\u0302xs\u03a3\u0302sx)\u03b2. (13)\nThe interpretation of the form is similar to the linear case. We would like to penalize more for the coefficient \u03b2i if its corresponding feature has a large covariance with sensitive features s.\nLet us explore the Bayesian treatment of the nonlinear fair learning problem. In the weight space view, Eq.(13) corresponds to the same model as (12), with Y = \u03a6\u03b2 + . However, we can readily derive the GP formulation. For any kernel k where k(x,x\u2032) = \u3008\u03c6(x), \u03c6(x\u2032)\u3009, the GP model is given by\nf \u223c GP(0, k\u2217(\u00b7, \u00b7)), y|f(x) \u223c N (f(x), \u03bb), k\u2217(x,x\u2032) = \u3008\u03c6(x),\u03a3\u2217\u03c6(x\u2032)\u3009, \u03a3\u2217 = (I + \u03b4n2\u03a3\u0302xs\u03a3\u0302sx)\u22121. (14)\nWhile it is not obvious that k\u2217 is tractable as it involves the operator \u03a3\u2217 : Hk \u2192 Hk, Proposition 1 proves that k\u2217(x,x\u2032) = k(x,x\u2032)\u2212 k>Xx(KHLH + \u03b4\u22121I)\u22121HLHkXx\u2032 and hence, one can readily employ this kernel as a modified GP prior and make use of the extensive GP modeling toolbox. We also note that we can treat kernel parameters of k and l as well as \u03b4 simply as parameters of k\u2217."
+    },
+    {
+      "heading": "5. Normalized dependence regularizers",
+      "text": "We have explained the fair kernel learning, and introduced its corresponding Gaussian process version. Also, we provided another view of the dependence penalizer as the weighted norm of the coefficients where the weights are given by the cross-covariance operator. However, one issue with this framework is that the dependence measure is sensitive to the kernel parameters. For example, if we look at problem (3), the extra penalty term f>HLHf is sensitive to the hyperparameters \u03b8k and \u03b8l from kernel k and l. Notice that varying \u03b8l does not affect the other two terms in the objective function, one could simply adjust \u03b8l to reduce the HSIC value and hence reduce the objective function value. The unfairness however, is not reduced. Hence, one needs a parameter invariant dependence measure to avoid such an issue. As a result, we introduce the normalized fair learning framework in this section.\nAs shown in Eq. 3, fairness is enforced through using HSIC value as the penalizer. Hence, a naive way of dealing with parameter sensitivity is to use the normalized version of HSIC. This has been extensively studied in [15] where the so called NOCCO was proposed. Replacing HSIC with Hilbert-Schmidt norm of NOCCO in Eq. 3, the fair learning is the following optimization problem:\nmin f\u2208Hk\n{ 1\nn n\u2211 i=1 V (f(xi), yi) + \u03bb\u2016f\u20162Hk + \u03b7Tr[RfRS] } , (15)\nwhere Tr[RfRS] is the Hilbert-Schmidt norm of NOCCO between f(x) and S. Rf = HKH(HKH +n I) \u22121, RS = HLH(HLH +n I) \u22121 and is the regularization parameter used in the same way as in [15]. Since we are using the linear kernel for f(x) and f = \u03a6\u03b2, we have Rf = H\u03a6x\u03b2\u03b2 >\u03a6>x H(H\u03a6x\u03b2\u03b2 >\u03a6>x H + n I)\u22121. However, problem (15) does not admit a closed form solution. The reason is that the derivative of Tr[RfRS] is not linear in \u03b2. Hence, we ask the following question:\nQuestion 2 : can we find a normalized fair learning which admits a closed form solution?\nIt turns out that the cross-covariance view of fair learning provides us a way to answer this question. In (11), we used the empirical cross-covariance operator as the penalizer. To avoid the parameter sensitivity issue, we could use the normalized cross-covariance operator Vsx := \u03a3 \u22121/2 ss \u03a3sx\u03a3 \u22121/2 xx to replace \u03a3sx. Let V\u0302sx := \u03a3\u0302 \u22121/2 ss \u03a3\u0302sx\u03a3\u0302 \u22121/2 xx be the empirical version of Vsx, the learning problem is now:\n\u03b2\u0304 := argmin\u03b2\n{ 1\nn \u2016y \u2212X\u03b2\u201622 + \u03bb\u2016\u03b2\u201622 + \u03b7\u2016V\u0302sx\u03b2\u201622\n} . (16)\nThis leads to a closed-form solution as\n\u03b2\u0304 = (\u03a6>x\u03a6x + n\u03bbI + n\u03b7V\u0302xsV\u0302sx) \u22121\u03a6>x y\n= (\u03a6>x\u03a6x + n\u03bbI + n\u03b7\u03a3\u0302 \u22121/2 xx \u03a3\u0302xs\u03a3\u0302 \u22121 ss \u03a3\u0302sx\u03a3\u0302 \u22121/2 xx ) \u22121\u03a6>x y.\nIn case where \u03c6(\u00b7) and \u03c8(\u00b7) are finite dimensional, the above provides a valid solution to the normalized fair learning problem. However, this is not the case if either of \u03c6(\u00b7) and \u03c8(\u00b7) is infinite dimensional. Since we face the problem of evaluating \u03a3 \u22121/2 xx and \u03a3 \u22121/2 ss terms which are infinite dimensional operators.\nTo remedy this issue, we notice that the HSIC is potentially sensitive to parameters from k and l. During the optimization process, parameters from k is tuned from the data, while the parameters from l are free to adjust. Hence, one could only partially normalize the cross-covariance operator with respect to hyperparameters from l and formulate the following learning problem:\n\u03b2\u0304 := argmin\n{ 1\nn \u2016y \u2212X\u03b2\u201622 + \u03bb\u2016\u03b2\u201622\n} + \u03b7\u2016\u03a3\u0302\u22121/2ss \u03a3\u0302sx\u03b2\u201622 (17)\nThis gives us a closed-form solution as\n\u03b2\u0304 = (\u03a6>x \u03a6x + n\u03bbI + n\u03b7\u03a3\u0302xs\u03a3\u0302 \u22121 ss \u03a3\u0302sx) \u22121\u03a6>x y\n= \u03a6>x (K + n\u03bbI + \u03b7KL\u0303(L\u0303 + n I) \u22121)\u22121y (18)\nwhere in the second equality we applied the Woodbury matrix inversion lemma5. As a result, the prediction at the training point for fair learning is\nf\u0302(x) = K(K + n\u03bbI + \u03b7KL\u0303(L\u0303 + n I)\u22121)\u22121y.\nRemark. We provide a justification for (17) via the conditional covariance operator. For any two random variable x and s, we define the conditional covariance operator \u03a3xx|s = \u03a3xx \u2212\u03a3xs\u03a3\u22121ss \u03a3sx6. It has been shown in [14, Proposition 2] that\n\u3008\u03b2,\u03a3xx|s\u03b2\u3009 = \u3008\u03b2,\u03a3xx\u03b2\u3009 \u2212 \u3008\u03b2,\u03a3xs\u03a3\u22121ss \u03a3sx\u03b2\u3009 = inf\ng\u2208Hl Exs|f(x)\u2212 g(s)|2 (19)\nNotice that Eq.(19) is the minimal residual error when we use g(s) to predict f(x), for any g \u2208 Hl. In other words, it is the variance in f(x) that cannot be explained by g(s). Since \u3008\u03b2,\u03a3xx\u03b2\u3009 represents the variance of f(x), we can treat \u3008\u03b2,\u03a3xs\u03a3\u22121ss \u03a3sx\u03b2\u3009 as the maximal amount of variance of f(x) that can be explained by g(s). In (17),\n\u2016\u03a3\u0302\u22121/2ss \u03a3\u0302sx\u03b2\u201622 = \u3008\u03b2, \u03a3\u0302xs\u03a3\u0302\u22121ss \u03a3\u0302sx\u03b2\u3009,\nminimizing this term is equivalent to minimize the amount of variance in f(x) that can be explained by g(s),\u2200g \u2208 Hl. This is essentially the same as minimizing the dependence between f(x) and s. Furthermore, if l is a universal kernel ( e.g. Gaussian kernel, Laplace kernel, etc., refer to [35] for more details on universal kernel), Eq.(19) can be rewritten as\n\u3008\u03b2,\u03a3xx|s\u03b2\u3009 = inf g\u2208L2 Exs|f(x)\u2212 g(s)|2, (20)\nwhere L2 is the space of all square integrable functions defined on S. In this case, \u3008\u03b2,\u03a3xs\u03a3\u22121ss \u03a3sx\u03b2\u3009 quantifies the maximal amount of variance in f(x) that can be explained by g(s),\u2200g \u2208 L2. Note that L2 is independent of the choice of l, this is particularly useful in the normalized fair learning problem. The reason is, although in defining \u03a3xs we rely on the hyperparameter \u03b8l from kernel l, the quantity \u3008\u03b2,\u03a3xs\u03a3\u22121ss \u03a3sx\u03b2\u3009 is independent of l. In other words, varying \u03b8l will not affect its value. This justifies the usage of \u2016\u03a3\u0302\u22121/2ss \u03a3\u0302sx\u03b2\u201622 as the penalty term in normalized fair learning.\n5In computing \u03a3\u0302\u22121ss , we use (\u03a3\u0302ss + I) \u22121 instead to avoid the issue with non-invertible matrix. 6For convenience, we have abused the notation \u03a3\u22121xx since \u03a3ss can be non-invertible. But in this case, we can always use the regularized version (\u03a3xx + I) \u22121 instead."
+    },
+    {
+      "heading": "6. Experiments",
+      "text": "In this section, we illustrate the performance of the proposed methods on both synthetic and real-data problems, and study the effect of the fairness regularization. We first study performance in simulated toy datasets that allow us to study the error-vs-dependence paths and demonstrate the potential of proposed approaches in controlled scenarios. Secondly, we study the effect of the normalized dependence regularizer as well as the use of the GP formulation in contrast to the ERM framework, i.e. kernel ridge regression, in two real-data fairness problems: crime prediction and income prediction."
+    },
+    {
+      "heading": "6.1. Toy dataset 1",
+      "text": "We start by demonstrating the effectiveness of the proposed fairness framework by comparing it to two other baselines based on the fairness literature. The first approach is simple omission of the sensitive variable (OSV), where we use all the features except the prespecified sensitive variable. The second one mimics the ideas of fair representation learning (FRL) [37] where the input data is transformed such that it contains as much information as possible from the original data while simultaneously being statistically independent from the sensitive variable. The transformed data is then used for learning. The dataset we consider is as follows: we first sample x1, x2, z independently from N (0, 1); assuming z is unobserved, we let the sensitive variable be x3 =\n1\u221a 2 (x1 + z). Obviously, x1 and x3 are correlated. Let the true\nfunction of interest be\nf(x, z) = sign((x1 \u2212 z)x3)|x2|,\nwhere x = [x1, x2, x3] T . It is readily checked that f(x, z) is marginally independent of the sensitive variable x3. We now further assume that the observations y include a bias that is based on the sensitive variable x3\ny = f(x, z) + 2b1{x3>0} \u2212 b+ ,\ni.e. the observations are on average increased by b when x3 > 0 and decreased by b otherwise. Given data {xi, yi}ni , our task is to find a best fit while preserving fairness in terms of statistical parity. Clearly, simply removing the sensitive variable while training the model is not appropriate as the bias in the observations is correlated with x1 as well and will thus be retained. Alternatively, we may want to fully remove all dependence on x3 from the inputs. This simply corresponds to transforming x1 as follows:\nx\u03031 = x1 \u2212 E [x1x3] Ex23 x3 = x1 \u2212 1\u221a 2 x3 = 1 2 (x1 \u2212 z) . (21)\nHowever, this shows the danger of such an approach \u2013 we now have input x\u03031 independent of the sensitive variable, but the true function f(x, z) is marginally independent of x\u03031 as well and hence the transformed variable will not be useful for learning! Hence, the fairness regularization on the predictor provides a remedy \u2013 it directly penalizes the dependence between the predictor and the sensitive variable rather than between the inputs and the sensitive variable, which does not take into account the learning problem at hand. We compare the performances between the following approaches: standard kernel ridge regression (KRR) and Gaussian process regression (GPR) without data modification, fairness regularization (both KRR and GPR versions) with different \u03b7 (refer to Eq. 3) values; OSV and FRL. In the case of kernel ridge regression (KRR), we choose the kernel lengthscale and regularization parameter with cross-validation and in the GP versions, we choose them via maximization of the marginal likelihood. We measure the performance of each model through the coefficient of determination R2 = variance explained by the predictor\ntotal variance with respect to both the observed responses yi and\nthe true function values. By definition of R2, we would expect the standard approach to achieve the highest R2 (on biased data) as it utilizes all the available information, whereas FRL would have the lowest score. For fairness regularization, this will depend on the value of \u03b7, i.e. model with high \u03b7 will have low R2. Looking at Table 1, we do see this pattern. On the other hand, if we consider R2 on the true function values, we see that it tends to increase with higher \u03b7, i.e. higher fairness regularization improves the removal of the bias present in the observed responses from the predictors. As expected, FRL detects no signal on this data, and OSV also leads to a significant drop in R2. In addition, since the GP version allows us to systematically select the hyperparameters, we can see that in most cases, R2 from the GP model will be higher than its kernel regression version. We next report the correlation between the predicted value y\u0302 and x3. Likewise, we would expect the standard approach will have the highest correlation while the FRL will have the lowest correlation. For fairness regularization, the correlation decreases as \u03b7 increases. Table 2 reports these results. We see that OSV still has a high correlation to the sensitive variable x3. In contrast, the GPR for \u03b7 = 200 allows a predictor that is essentially uncorrelated from x3 while having strong R 2 performance."
+    },
+    {
+      "heading": "6.2. Toy dataset 2",
+      "text": "We next consider a simple simulated dataset following the model from [31]:\ny = x2 + s2 + , x|s \u223c N (log(|s|), \u03c32x), s \u223c N (0, \u03c32s ), \u223c N (0, \u03c32y).\nSimilarly as in the previous example, even if we omit the sensitive variable s, the remaining variables are dependent on it. We will use this dataset to study the impact of normalizing the HSIC regularizer on the trade-offs between the predictive performance and dependence on the sensitive variable. We compare here the following methods: Kernel Ridge Regression (KRR), Fair Kernel Learning (FKL), and the Normalized Fair Kernel Learning (NFKL) on toy dataset 2. To validate the behavior of the proposed methods we used the RMSE as an error measurement of the predictions. As a fairness measurement we used both the HSIC and Mutual Information (MI) estimates between the output predictions and the sensitive variables. We performed 50 trials using n = 700 points for training algorithms and 700 points for the final test validation. We chose 25 different values for the fairness parameter \u03b7 logarithmically spaced in the range [10\u22127, 103]. In the case of the kernel lengthscale and regularization parameters we did cross-validation taking 10 values logarithmically spaced in ranges \u03b8 \u2208 [10\u22124, 103] and \u03bb \u2208 [10\u22124, 104]. In the case of NFKL we have fixed the parameter = 10\u22126. Figure 1 illustrates the averaged results of the presented methods. The standard KRR method (corresponding to case \u03b7 = 0) achieves the best performance in RMSE, but it is the also the most unfair in terms of both dependence measures. The use of the proposed fairness regularization approaches is able to mitigate the unfairness of the predictors by trading it off for the RMSE as the fairness regularization\nparameter \u03b7 is varied producing the unfairness/error curves shown in Figure 1. We see that NFKL outperforms FKL, i.e. that the normalization of the regularizer substantially improves this tradeoff."
+    },
+    {
+      "heading": "6.3. Crime and income prediction",
+      "text": "In the next set of experiments, we empirically compare the performance of fair kernel learning and our proposed GP version on two real datasets:\n\u2022 Communities and Crime [32]. We are here concerned about predicting per capita violent crime rate in different communities in the United States from a set of relevant features, such as median family income or the percentage of people under poverty line. Race is considered the sensitive variable. The dataset contains 1994 instances with 127 features. Some of the features contained many missing values as some surveys were not conducted in some communities, so they were removed from the data. This returns a 1993 \u00d7 100 data matrix. We will use this data to assess performance of the discriminative versus the GP-based algorithm.\n\u2022 Adult Income [10]. The Adult dataset contains 48841 subjects, which consists of 32561 training data and 16581 data. The original data have 14 features among which 6 are continuous and the remaining are categorical. The label is binary indicating whether a subjects\u2019s income is higher that 50K or not. Each continuous feature was then discretized into quantiles and represented by a binary variable. Hence the final dataset has 123 features. The goal is to predict a given subject\u2019s income level while controlling for the sensitive variables: gender and race. We preprocessed\nthe data so that each feature of the predictor variable x as well as the response variable y has zero mean and standard deviation 1.\nFair KRR vs Fair GP. We empirically compared the performance of the two fair kernel learning model: kernel ridge regression and the modified GP version. In the regression setting, we used 5-fold cross validation to choose the kernel bandwidth parameter \u03b8k for k and the penalty parameter \u03bb. For the sake of a fair comparison, we have set the parameter for the kernel on the sensitive variable s to be fixed at \u03b8l = 0.5, while we select \u03b8k according to the median heuristic and also randomly draw 10 samples around its value. In addition, we draw 15 values between [e\u221215, 1.0].\nFor the modified GP case, we fixed \u03b8l = 0.5 as in the regression setting while optimizing over other hyperparameters. In both settings, we chose 7 different \u03b7 (the penalty hyperparameter for unfairness) in the interval [0, 10] with high \u03b7 value representing more fair model. Figure 2 demonstrate the result for the two model in the crime data. We can see that for most of the time, the modified GP outperforms kernel ridge regression. The modified GP gives better tradeoff between fairness and prediction accuracy due to its optimization process. Note that the performance gap between fair kernel learning and fair GP is larger in the Adult data than that in the Crime data. An possible reason is that the Crime data is much harder to learn (RMSE is 0.6 at its highest) so that the advantage of using GP in optimizing hyperparameter is limited.\nFair GP with ARD Kernel. In this section, we show empirical evidence of the performance of the modified GP fair learning with ARD (Automatic Relevance Determination) kernel to the Communities and Crime real dataset. The goal of this experiment setting is to assess the effect of the fair learning on the coefficients for each feature. Specifically, we run two sets of experiments. The first experiment is to perform predictions with standard GP. The kernel is set to be ARD RBF defined as :\nfor x,x\u2032 \u2208 Rd, k(x,x\u2032) = exp ( \u2212 d\u2211 i=1 \u03b8\u22122i (xi \u2212 x\u2032i)2 ) .\nThis experiment is similar to the previous one, except that we used the modified GP framework. We would like to see how the \u03b8i\u2019s for those sensitive variables change when we impose the fairness regularizer. We list the results in Table 3. The root mean square error and the unfairness of the predictions in two settings are also reported in the table.\nWe can see that for most sensitive variables, their bandwidths were significantly increased after performing fair learning. This means that in computing the kernel value, those sensitive variables are contributing less, i.e. we treat instances as similar even when their sensitive variables have different values and as a result, the learned function varies less in those dimensions than in others."
+    },
+    {
+      "heading": "7. Conclusions",
+      "text": "Using machine learning to facilitate and automate data-informed decisions has a huge potential to benefit society and transform people\u2019s lives. However, data used to train machine learning models are not necessarily free\nfrom cognitive or other biases, so the discovered patterns may retain or compound discriminatory decisions. We introduced a regularization framework of fairness-aware models where statistical dependence between predictions and the sensitive, protected variables is penalized. The use of kernel dependence measures as fairness regularizers allowed us to obtain simple regression models with closed-form solutions, derive a probabilistic Gaussian process interpretation, as well as the appropriate normalization of the regularizers. The latter two developments lead to principled and robust hyperparameter selection. The developed methods show promising performance in synthetic and real-data experiments involving crime and income prediction, allowing to strike favourable tradeoffs between method\u2019s predictive performance (on biased data) and its fairness in terms of statistical parity. While we focused on a specific viewpoint on fairness here, considering directly the statistical dependence on a prespecified set of sensitive variables, construction of machine learning techniques suited for other notions of fairness involving causal associations and conditional dependencies presents an important future research challenge. As there is also a flurry of research on the use of kernel methods in these fields, similar approaches invoking appropriate notions of kernel-based regularizers may be possible."
+    },
+    {
+      "heading": "8. Acknowledgements",
+      "text": "A.P.-S. and G.C.-V. are supported by the European Research Council (ERC) under the ERC-CoG-2014 SEDAL Consolidator grant (grant agreement 647423). D.S. is supported in part by The Alan Turing Institute (EP/N510129/1). The authors thank Kenji Fukumizu for fruitful discussions and Alan Chau, Lucian Chan, Qinyi Zhang and Alex Shestopaloff for helpful comments."
+    },
+    {
+      "heading": "Appendix A. Proof of Proposition 1",
+      "text": "Through feature maps \u03c6(\u00b7) and \u03c8(\u00b7), we map xi and si into the RKHS Hk and Hl with kernel k(x,y) = \u03c6(x)>\u03c6(y) and l(x,y) = \u03c8(x)>\u03c8(y) respectively.7 We form the estimation as f(xi) = \u03c6(xi)\n>\u03b2. Denote \u03a6 = [\u03c6(x1), \u00b7 \u00b7 \u00b7 , \u03c6(xn)]> and \u03a8 = [\u03c8(s1), \u00b7 \u00b7 \u00b7 , \u03c8(sn)]>, we have that f = \u03a6\u03b2. In addition, we have K = \u03a6\u03a6> and L = \u03a8\u03a8>. We have shown that solving problem (6) is equivalent to solve Eq.(7), which states that the fair learning can be cast as the following optimization problem\nmin \u03b2\n{ 1\n\u03bb V (y,\u03a6\u03b2) + \u03b2>\u03b2 + \u03b4\u03b2>\u03a6>HLH\u03a6\u03b2\n} .\nUsing the negative conditional log-likelihood as the loss, i.e. V (f(xi), yi) = \u2212 log p(yi|xi) and by rescaling, it can be rewritten as\nmin \u03b2\n{ \u2212 n\u2211 i=1 log p(yi|\u03c6(xi)>\u03b2) \u03bb + \u03b2>\u03b2 + \u03b4\u03b2>\u03a6>HLH\u03a6\u03b2 } . (A.1)\n7 For ease of presentation, we have abused the notation of inner product, since both \u03c6(\u00b7) and \u03c8(\u00b7) can be infinite dimensional.\nLet us consider a Gaussian Process model with prior kernel defined as in the statement of Proposition 1 and the likelihood function p. For a set of observations {xi, yi}ni=1, the model reads\nf \u223c N (0,K\u2212K(KHLH + (\u03b4I)\u22121)\u22121(HLH)K),\np(Y |f) \u223c n\u220f i=1 p(yi|f(xi). (A.2)\nNotice that\nK\u2212K(KHLH + (\u03b4I)\u22121)\u22121(HLH)K = K\u2212K(K + \u03b4\u22121(HLH)\u22121)\u22121(K + \u03b4\u22121(HLH)\u22121)\n+K(K + \u03b4\u22121(HLH)\u22121)\u22121\u03b4\u22121(HLH)\u22121\n= K(I + \u03b4KHLH)\u22121 = (K\u22121 + \u03b4HLH)\u22121 (A.3)\nHence,\nlog p(f |Y ) \u221d log p(Y |f) \u00b7 log p(f)\n\u221d 1 \u03bb n\u2211 i=1 log p(yi|f(xi))\n+ logN (0, (K\u22121 + \u03b4HLH)\u22121)\n\u221d 1 \u03bb n\u2211 i=1 log p(yi|f(xi))\u2212 f>(K\u22121 + \u03b4HLH)f\n= 1\n\u03bb n\u2211 i=1 log p(yi|f(xi) \u2212f>K\u22121f \u2212 \u03b4f>HLHf (A.4)\nSince f = \u03a6\u03b2 and K = \u03a6\u03a6>, we have\n(A.4) = 1\n\u03bb n\u2211 i=1 log p(yi|f(xi))\u2212 \u03b2>\u03b2 \u2212 \u03b4\u03b2>\u03a6>HLH\u03a6\u03b2 (A.5)\nHence, the MAP estimate of the above probabilistic model is equivalent to the regularized ERM Problem (A.1). This concludes our proof."
+    }
+  ],
+  "title": "Kernel Dependence Regularizers and Gaussian Processes with Applications to Algorithmic Fairness",
+  "year": 2019
+}

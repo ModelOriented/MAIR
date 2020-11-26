@@ -1,0 +1,134 @@
+{
+  "abstractText": "Current methodologies in machine learning analyze the effects of various statistical parity notions of fairness primarily in light of their impacts on predictive accuracy and vendor utility loss. In this paper, we propose a new framework for interpreting the effects of fairness criteria by converting the constrained loss minimization problem into a social welfare maximization problem. This translation moves a classifier and its output into utility space where individuals, groups, and society at-large experience different welfare changes due to classification assignments. Under this characterization, predictions and fairness constraints are seen as shaping societal welfare and distribution and revealing individuals\u2019 implied welfare weights in society\u2014 weights that may then be interpreted through a fairness lens. The social welfare formulation of the fairness problem brings to the fore concerns of distributive justice that have always had a central albeit more implicit role in standard algorithmic fairness approaches.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Lily Hu"
+    },
+    {
+      "affiliations": [],
+      "name": "Yiling Chen"
+    }
+  ],
+  "id": "SP:91fb27837600f589c05a539d5061cf9be4fbf49c",
+  "references": [
+    {
+      "authors": [
+        "Bechavod",
+        "Yahav",
+        "Ligett",
+        "Katrina"
+      ],
+      "title": "Learning fair classifiers: A regularization-inspired approach",
+      "venue": "arXiv preprint arXiv:1707.00044,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Chouldechova",
+        "Alexandra"
+      ],
+      "title": "Fair prediction with disparate impact: A study of bias in recidivism prediction instruments",
+      "venue": "Big data,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Dwork",
+        "Cynthia",
+        "Hardt",
+        "Moritz",
+        "Pitassi",
+        "Toniann",
+        "Reingold",
+        "Omer",
+        "Zemel",
+        "Richard"
+      ],
+      "title": "Fairness through awareness",
+      "venue": "In Proceedings of the 3rd Innovations in Theoretical Computer Science Conference,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Hardt",
+        "Moritz",
+        "Price",
+        "Eric",
+        "Srebro",
+        "Nati"
+      ],
+      "title": "Equality of opportunity in supervised learning",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Kleinberg",
+        "Jon",
+        "Mullainathan",
+        "Sendhil",
+        "Raghavan",
+        "Manish"
+      ],
+      "title": "Inherent trade-offs in the fair determination of risk scores",
+      "venue": "In Proceedings of the 8th Innovations in Theoretical Computer Science Conference,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Sen",
+        "Amartya"
+      ],
+      "title": "Equality of What",
+      "year": 1980
+    }
+  ],
+  "sections": [
+    {
+      "text": "ar X\niv :1\n80 7.\n01 13\n4v 1\n[ cs\n.L G\n] 3\nJ ul\n2 01\n8\nalyze the effects of various statistical parity notions of fairness primarily in light of their impacts on predictive accuracy and vendor utility loss. In this paper, we propose a new framework for interpreting the effects of fairness criteria by converting the constrained loss minimization problem into a social welfare maximization problem. This translation moves a classifier and its output into utility space where individuals, groups, and society at-large experience different welfare changes due to classification assignments. Under this characterization, predictions and fairness constraints are seen as shaping societal welfare and distribution and revealing individuals\u2019 implied welfare weights in society\u2014 weights that may then be interpreted through a fairness lens. The social welfare formulation of the fairness problem brings to the fore concerns of distributive justice that have always had a central albeit more implicit role in standard algorithmic fairness approaches."
+    },
+    {
+      "heading": "1. Introduction",
+      "text": "In his 1979 Tanner Lectures, Amartya Sen noted that since nearly all theories of fairness are founded on an equality of some sort, the heart of the issue rests on clarifying the \u201cequality of what?\u201d problem (1980). The field of fair machine learning has not escaped this essential question. Do such tools have an obligation to assure probabilistic equality of outcomes (Feldman et al., 2015; Hardt et al., 2016)? Or do they simply owe an equality of treatment (Dwork et al., 2012)? Does fairness demand that individuals (or groups) be subject to equal mistreatment rates (Zafar et al., 2017; Bechavod & Ligett, 2017)? Or does being fair refer only to avoiding some intolerable level of\n1School of Engineering and Applied Sciences, Harvard University, Cambridge, MA, USA. Correspondence to: Lily Hu <lilyhu@g.harvard.edu>.\nPresented at the FAT/ML workshop at the 35 th International Conference on Machine Learning, Stockholm, Sweden. Copyright 2018 by the author(s).\ndiscrimination? Differential demands of fairness contrast starkly with each other in both their effects on the outcomes that are ultimately issued and in the means by which they may be implemented.\nIn machine learning, the task of accounting for fairness involves comparing myriad metrics\u2014probability distributions, error likelihoods, classification rates\u2014sliced every way possible to reveal the range of inequalities that may arise before, during, and after the learning process. But as shown in Chouldechova (2017) and Kleinberg et al. (2017), fundamental statistical incompatibilities rule out any solution that satisfies all parity metrics, and we are left with the harsh but unavoidable task of adjudicating between these measures and methods. Past work has been limitedly able to address these \u201cinherent trade-offs.\u201d For one, the leading approach of constrained loss minimization offers little guidance by itself for choosing among the fairness desiderata, which appear incommensurable and result in different impacts on different individuals and groups. Even when comparisons are made across fairness metrics and methods, current approaches refer only to losses in predictive accuracy or vendor utility as illustrative of the cost of assuring different types of fairness. This methodology flattens multifaceted distributive procedures, which involve many individuals and thus many interests, into a two-dimensional comparison of accuracy vs. \u201cfairness,\u201d and as a result fails to capture the fundamentally social nature of fairness.\nThis paper proposes a conceptual framework and methodology for conceiving of fairness in machine learning that is based in analysis of the society-wide distributional effects of classifier outputs. Our approach maps the standard empirical risk minimization task in supervised learning into a corresponding social welfare maximization task as it appears in welfare economics\u2019 Planner\u2019s Problem. Social welfare functionals are typically formulated as the sum of weighted utility functions, where an individual\u2019s weight represents the value placed by society on her welfare. Inverting the Planner\u2019s Problem of efficient social welfare maximization generates a question that is more concerned with social equity: \u201cGiven a particular allocation, what is the presumptive social weight function that would yield the allocation as optimal?\u201d Mapping a fair learning problem into a social welfare problem lends new insight into the different fairness regimes proposed by admitting comparison\nof the distributive and welfare effects of the various models and constraints used in prediction. By centering social welfare as the primary object of interest of fair machine learning, we highlight a positive conception of fairness as a societal good rather than as an oppositional force that detracts from a decision-maker\u2019s accuracy and optimality. We believe that this perspective presents a more nuanced and faithful understanding of fairness as a social ideal.\nIn this paper, we establish this mapping for the task of binary classification using linear SVMs. Starting with standard empirical risk minimization, we present general characteristics of the structure of the implied welfare weight function corresponding to a given learned classifier. We then follow the two main distinct approaches to fairnessadjusted classification, connecting the altered outcomes and margins resulting from each of these new methodologies with shifting weight functions in the social welfare problem. In offering two different perspectives on how the welfare weight distribution may be transformed by fair adjustment, we present novel interpretations of how fairness constraints alter boundary-based classifiers\u2019 treatments of individuals, groups, and the underlying feature space.\nThe deployment of socially-oriented machine learning inevitably implicates several ethical questions surrounding the tension between shared societal norms and ideals and a decision-maker\u2019s private goals and interests. Most leading methodologies have focused on optimization of utility or welfare to the vendor, limiting our ability to answer questions about how individuals, groups, and society-atlarge fare under various distributive allocations. The social welfare perspective directly engages both questions of efficiency, in the task of maximization, and equity, in the design of welfare weights. This perspective is especially enlightening when applied to sectors in which the government, acting as the Planner, maintains a strong interest in issues of distributive fairness and can justifiably make interpersonal comparisons of utility. Financial services, wherein loan and credit approvals are increasingly automated, satisfy both criteria and will be the main application focus of this paper."
+    },
+    {
+      "heading": "2. Problem Formalization",
+      "text": "Before we formalize this paper\u2019s objective of connecting loss minimization with social welfare maximization, we provide an overview of the separate perspectives on and methodologies for achieving fairness in optimal predictions or allocations. In this paper, we will center our analysis on binary decision tasks using linear SVM classifiers.\nConsider risk minimization within the supervised learning classification setting where the decision-maker seeks the classifier that minimizes the probability of er-\nror on a training set of n data points D = {xi, yi} n i . The risk-minimizing predictor is thus h\u0302\u03b8 := argminh\u2208H \u2211n\ni=1 \u2113(h(xi), yi) where H contains only those classifiers that are linear halfspaces that may be written as h\u03b8(x) = \u03b8 \u22ba x + b with x, \u03b8 \u2208 Rd and b \u2208 R. For binary classification, the ultimate classifications follow y\u0302ML(x) = sgn(h\u0302\u03b8(x)). For our considered case of linear SVMs, we will relax 0 \u2212 1 loss and replace it with hinge loss \u2113h = max(0, 1\u2212 yih\u03b8(xi)).\nIn the social welfare problem, a Planner is charged with the task of maximizing societal welfare given as an aggregate weighted sum of individuals\u2019 utilities, W = \u2211n\ni=1 wiui. The Planner distributing financial loans solves\nySWF (x) := argmaxyi \u2211n i=1 wiu(x m i , yi), where individual i\u2019s contribution to society\u2019s overall welfare is a product of her utility u(xmi , yi), a function of her income and allocation outcome, and her societal weight wi. In binary classification, the Planner can either allocate the good to individual i or not (yi \u2208 {0, 1}), while in the standard welfare problem, the Planner faces a fixed exogenous budget for allocations. In our formulation, the budget is set to be equal to the number of positive instances issued by the classifier.\nOur central question of interest in thus: For a given boundary classifier h\u03b8 output by a loss minimization task and a set of income levels xmi , can we characterize aspects of the functional form of the welfare weights wi within W = \u2211n\ni=1 wiu(x m i , yi) that would yield an optimal so-\ncial allocation such that y\u0302SWF = y\u0302ML? We call such an allocation produced by a learned classifier that is also socially optimal in the welfare sense a matched allocation."
+    },
+    {
+      "heading": "2.1. Preliminary Results",
+      "text": "A mapping from loss minimization to social welfare maximization requires that welfare weights be formulated to \u201ctrack\u201d the classifier\u2019s treatment of individuals. The Planner with a given classifier h(x) must prefer individual i to j whenever h(xi) > h(xj); under matched allocations, equivalent margins enforce equivalent weights. The Planner considers both classification margins h(xi) and incomes xmi , and as such, weights must be a function of both. Formally, the marginal social gain associated with a positive classification y = 1, wf (h(x), x m) = w(h(x), xm)\u2206u(xm), where \u2206u(xm) = u(xm, 1) \u2212 u(xm, 0) represents the utility gain due to receiving a loan, satisfies\ndwf = \u2206u[ \u2202w\n\u2202h dh+\n\u2202w\n\u2202xm dxm] + w\nd\u2206u dxm dxm > 0 (1)\nwhenever dh > 0 and dwf = 0 \u21d4 dh = 0. From here, characterizing welfare weights w depends on the functional form of u(xm, y)."
+    },
+    {
+      "heading": "3. Results",
+      "text": ""
+    },
+    {
+      "heading": "3.1. Unconstrained Loss Minimization",
+      "text": "In the simplest case in which u(xm, y) is either linear or additively separable, then d\u2206u\ndxm = 0, and Eq (1) reduces\nto the condition that welfare weights w = f(h(x)) where f is any positive monotonic transformation of h(x). Here, weights do not depend on xm at all ( dw\ndxm = 0), and so long\nas the welfare weights are such that dwf dh = dw dh\n> 0, the Planner is justified in distributing the matched allocation.\n3.1.1. u(xm, y) CONCAVE IN xm\nWhen utility exhibits the property of diminishing marginal utility of income such that u(xm, y) is concave in xm, the implied welfare weight function must now explicitly account for xm. In the binary allocation setting, the standard statement of concavity, \u2202 2u\n(\u2202xm)2 < 0, becomes equivalent to d\u2206u dxm\n< 0. Under this assumption of u, the welfare weight condition in Eq. (1) may be expanded to\n\u2202w \u2202h dh+ \u2202w \u2202xm dxm > | w \u2206u d\u2206u dxm dxm| (2)\n\u2202w\n\u2202xm dxm = |\nw\n\u2206u\nd\u2206u dxm dxm| (3)\nsuch that dh > 0 enforces a strictly greater lower bound on dwf compared to the linear case, and changes in classification margin h must correspond to larger deviations in w. Notice that when utility is linear or additively separable, two individuals i and j with identical classification margins would be equally preferred under welfare weights w(h(xi), x m i ) = w(h(xj), x m j ) and would receive the matched allocation under the Planner\u2019s Problem even if they were endowed with differing income levels xmi > x m j . In contrast, under concave u(xm, y), the condition that \u2202w \u2202h dh > 0 is insufficient to achieve the appropriate welfare weights. \u2202w \u2202xm must also be increasing in the the concavity of u(xm, y) as given in Eq. (3). As marginal utility returns to income decrease, the Planner is only justified in allocating the loan to an individual with high xm if she inflates the individual\u2019s welfare weight in accordance with her income to \u201coffset\u201d the loss due to concavity. These relations and conditions of the weight function w(h(x), xm) in the Planner\u2019s Problem are summarized in the following Theorem.\nTheorem 3.1. Given classifier margins h(xi) and income levels xmi , the following welfare maximization problem\nySWF = argmax yi\nn \u2211\ni=1\nw(h(xi), x m i )u(x m i , yi)\ns.t\nn \u2211\ni=1\n1{ySWF i\n>0} =\nn \u2211\ni=1\n1{h(xi)>0},\nyi \u2208 {0, 1} \u2200i \u2208 [n]\nwith weights w(h(xi), x m i ) satisfying Eq. (2) and (3) yields the matched optimal allocation ySWF = yML. Moreover, the welfare weight function is of multiplicative form w(h(x), xm) = f(h(x))g(xm) such that g(xm) = k \u2206u(xm) for some constant k \u2208 R+.\nProof. Notice that the Planner can reduce her task to a binary knapsack problem (BKP) by considering the maximization \u2211n\ni=1 w(h(xi), x m i )v(x m i , yi) where\nv(xmi , yi) =\n{\n0, if yi = 0 \u2206u(xmi ), if yi = 1\nWhen u(xm, y) is concave in xm, d\u2206u dxm\n< 0. The optimal solution to BKP may be attained via the greedy algorithm in which the Planner allocates the good yi = 1 in decreasing order starting with the individual i with the highest marginal contribution to social welfare, w(h(xi), x m i )\u2206u(x m i ), until she depletes her \u201cbudget\u201d \u2211n\ni=1 1{h(xi)>0}. This procedure gener-\nates the same ordering on individuals as h(x) whenever d(w(h(x),xm)\u2206u(xm))\ndh > 0, which is the inequality condi-\ntion given in Eq. (2). When two individuals share the same h(x), the greedy algorithm for BKP must also be indifferent such that \u2200xmi , x m j \u2265 0, marginal gains are equal: w(h(xi), x m i )\u2206u(x m i ) = w(h(xj), x m j )\u2206u(x m j ), corresponding to Eq. (3). Notice that generally wf (h(x), x m) cannot be a function of xm and as a result, the functional form of w(h(x), xm) can be decomposed into functions f(h(x)) and g(xm) = k\u2206u(xm) for some constant k \u2208 R+.\nThe proof follows similarly when u(xm, y) is linear or additively separable, and any weight function w(\u00b7) that preserves the ordering given by h(x) yields the same BKP solution. Since weights are defined up to a constant, this result agrees with the multiplicative decomposition of w(h(x), xm).\nThe multiplicative form of these underlying social welfare weights highlights two intertwined effects of using boundary-based classifiers in financial distribution decisions. Concavity of utility enforces a term that explicitly incorporates wealth as having a multiplicative impact on welfare weights. Moreover, the wealth effect encoded in g(xm) is compounded by the classifier score effect in f(h) such that differences in individuals\u2019 classification margins also amplify differences in their incomes, and vice versa, in determining an individual\u2019s ultimate social weight. In the binary classification task, intensified disparities in welfare weight magnitudes do not affect the Planner\u2019s optimal allocation, but such differences do have significant repercussions in more general welfare maximization settings in which the Planner distributes allocations ySWFi \u2208 R+."
+    },
+    {
+      "heading": "3.2. Fairness-constrained Loss Minimization",
+      "text": "Having characterized aspects of the implied social welfare weight functions under standard loss minimization, we now move to \u201cfair\u201d formulations of learning and ask how popular parity-based constraints on optimization may be translated into social welfare space where they may be interpreted as redistributive mechanisms that act to shift welfare weight among individuals and groups."
+    },
+    {
+      "heading": "3.2.1. FAIR POST-PROCESSING",
+      "text": "A post-processing approach to fairness proposed by Hardt et al. adjusts the distribution of outcomes by using sensitive attribute information to construct group-specific thresholds for classification (2016). This approach grants flexibility to practitioners who can apply the adjustment without needing to access the original dataset or learn a new classifier.\nWithout a new classifier or new margins, welfare weights explicitly incorporate group information to handle fairness criteria. The welfare problem adopts the post-processing approach of resolving fairness constraints by transforming the original h0(x) margins by group-specific threshold factors to achieve various fairness parities. Since \u2202w\n\u2202h dh >\n0, then any positive affine transformation h\u2032(x, z) = T (h0(x); \u03c40, \u03c4z) applied group-wide, where \u03c40 and \u03c4z represent the old and new group-specific thresholds respectively, that maps h0(x) = \u03c40 to new margin h \u2032(x, z) = \u03c4z preserves ordering and interval scales. Then the optimal allocation ySWF with weights w ( T (h0(x); \u03c40, \u03c4z), x m ) will match the post-processed fair allocation yML."
+    },
+    {
+      "heading": "3.2.2. LEARNING A FAIR CLASSIFIER",
+      "text": "Recent efforts have incorporated fairness constraints into the learning process itself by way of regularization (Bechavod & Ligett, 2017) or convex proxies for constrained optimization (Zafar et al., 2017) to generate a new classifier h\u2032(x). We note that conditions for the implied welfare weights under h\u2032(x) may be rederived by direct appeal to Theorem 3.1, but we also present in this section an alternative procedure that although requiring the Planner to have access to richer information\u2014she must know both the previous and new classifiers, rather than just individuals\u2019 margins\u2014admits derivation of new conditions on w\u2032(\u00b7) from old conditions on w(\u00b7). This technique allows direct comparison of the two functions w and w\u2032 and thus sheds light on how fairness constraints shift the distribution of social welfare weight.\nWe derive conditions for dw\u2032f (h \u2032(x), xm) in terms of dwf (h(x), x m) by constructing a transformation from the old margins h(x) to the new margins h\u2032(x). Let T : hx 7\u2192 h \u2032 x be the linear transformation that maps the orthogonal projection of x onto h to its orthogonal pro-\njection onto h\u2032. Formally, we have hx = Phx \u2208 R d where Ph \u2208 R d\u00d7d gives the orthogonal projection mapping of x onto h. Then following Eq. (2) with wf (h \u2032(x), xm) = w ( D(x, T (h(x))), xm ) \u2206u(xm),\nwhere D(x, T (hx)) gives the Euclidean distance from x to its projection on h\u2032 = T (hx), we have that\n\u2202w(\u00b7) \u2202D(\u00b7) dD(\u00b7) + \u2202w(\u00b7) \u2202xm dxm > | w(\u00b7) \u2206u d\u2206u dxm dxm| (4)\nwhere D(\u00b7) = D(x, T (hx)) and w(\u00b7) = w ( D(\u00b7), xm ) . The total differential dD(\u00b7) is computed as\n( \u221a \u2016(x\u2212 T (Ph(x)))\u20162) \u22121\n[ d \u2211\ni=1\n[\nxi \u2212\nd \u2211\nj=1\nTij ( (Ph)j \u00b7 x )] dxi+\n[(\nd \u2211\nj=1\n( Tij((Ph)j \u00b7 x))\u2212 xi )(\nd \u2211\nk=1\nTik ( (Ph)k \u00b7 dx ))]\n]\n(5)\nSince Ph, Ph\u2032 and T are unique for boundary classifiers h(x) and h\u2032(x), and the Euclidean distance D(x, T (hx)) is easily computable, all of the new variables and functions in Eq. (5) can be analytically derived. Since \u2202w(\u00b7) \u2202D(\u00b7) = \u2202w \u2202h , the multiplicative factor given by dD(\u00b7) dictates how the new welfare weights w\u2032(h\u2032(x), xm) shift. In particular, the inclusion of vector rows Ti of the matrix T offers a geometric interpretation of the new classifier\u2019s transformation of the feature space. Thus, working from the previous weight function w(h(x), xm) corresponding to the original unfair classifier h and ensuring that Eq. (4) and Eq. (5) holds, the new weights w\u2032(h\u2032(x), xm) will justify the fair matched allocation ySWF = yML under social welfare maximization."
+    },
+    {
+      "heading": "4. Discussion",
+      "text": "Within the financial services sector, both disparate impact and accuracy loss may be understood in terms of utility gains and losses incurred by different agents. By connecting loss minimization of accuracy to social welfare maximization, we make such trade-offs explicit and in doing so, broaden the scope of the fairness question to include distributive justice. This descriptive mathematical link sets the groundwork for the requisite normative reasoning of fair machine learning. Different loss functions, parity constraints, and fairness-adjustment methodologies all differentially impact \u201coptimal\u201d classifier behavior. Translating these various effects into changes in welfare weights, which may be analyzed at the individual level or summed to reveal group shares of societal welfare, allows practitioners to better interpret and evaluate the distributive impacts of predictions and as a result, make more informed comparisons among these choices when building models.\nThis work presents preliminary results on the mapping from boundary-based classification to social welfare maximization, but it is our hope that future work will establish a bidirectional relationship such that insights in welfare maximization may be translated for fair classification. Welfare economics as a field has a rich history of developing principles and methods of analysis centered on problems of fair representation and distribution. Linking the field with machine learning would yield complementary perspectives on fairness that would be both normative and descriptive, theoretical and implementable."
+    },
+    {
+      "heading": "Acknowledgements",
+      "text": "This work is supported in part by an NSF Graduate Research Fellowship and NSF Grant #CCF-1718549."
+    }
+  ],
+  "title": "Welfare and Distributional Impacts of Fair Classification",
+  "year": 2018
+}

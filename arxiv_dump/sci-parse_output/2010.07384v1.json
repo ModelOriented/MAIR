@@ -1,0 +1,733 @@
+{
+  "abstractText": "The importance of explainability in machine learning continues to grow, as both neural-network architectures and the data they model become increasingly complex. Unique challenges arise when a model\u2019s input features become high dimensional: on one hand, principled model-agnostic approaches to explainability become too computationally expensive; on the other, more efficient explainability algorithms lack natural interpretations for general users. In this work, we introduce a framework for human-interpretable explainability on high-dimensional data, consisting of two modules. First, we apply a semantically-meaningful latent representation, both to reduce the raw dimensionality of the data, and to ensure its human interpretability. These latent features can be learnt, e.g. explicitly as disentangled representations or implicitly through image-to-image translation, or they can be based on any computable quantities the user chooses. Second, we adapt the Shapley paradigm for model-agnostic explainability to operate on these latent features. This leads to interpretable model explanations that are both theoreticallycontrolled and computationally-tractable. We benchmark our approach on synthetic data and demonstrate its effectiveness on several image-classification tasks.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Damien de Mijolla"
+    },
+    {
+      "affiliations": [],
+      "name": "Christopher Frye"
+    },
+    {
+      "affiliations": [],
+      "name": "Markus Kunesch"
+    }
+  ],
+  "id": "SP:5d6b2e035d2b78706d909eceef4fa251e1d61110",
+  "references": [
+    {
+      "authors": [
+        "D. Alvarez-Melis",
+        "T.S. Jaakkola"
+      ],
+      "title": "Towards robust interpretability with self-explaining neural networks",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Barredo Arrieta",
+        "J. Del Ser"
+      ],
+      "title": "Plausible counterfactuals: Auditing deep learning classifiers with realistic adversarial examples, 2020",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "Y. Bengio",
+        "A.C. Courville",
+        "P. Vincent"
+      ],
+      "title": "Representation learning: A review and new perspectives",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "C.P. Burgess",
+        "I. Higgins",
+        "A. Pal",
+        "L. Matthey",
+        "N. Watters",
+        "G. Desjardins",
+        "A. Lerchner"
+      ],
+      "title": "Understanding disentangling in \u03b2-vae, 2018",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C. Chang",
+        "E. Creager",
+        "A. Goldenberg",
+        "D. Duvenaud"
+      ],
+      "title": "Explaining image classifiers by counterfactual generation",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Chen",
+        "O. Li",
+        "D. Tao",
+        "A. Barnett",
+        "C. Rudin",
+        "J. Su"
+      ],
+      "title": "This looks like that: Deep learning for interpretable image recognition",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J. Chen",
+        "L. Song",
+        "M. Wainwright",
+        "M. Jordan"
+      ],
+      "title": "Learning to explain: An information-theoretic perspective on model interpretation",
+      "venue": "In International Conference on Machine Learning,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "T. Chen",
+        "C. Guestrin"
+      ],
+      "title": "Xgboost: A scalable tree boosting system",
+      "venue": "In International Conference on Knowledge Discovery and Data Mining,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T.Q. Chen",
+        "X. Li",
+        "R.B. Grosse",
+        "D. Duvenaud"
+      ],
+      "title": "Isolating sources of disentanglement in variational autoencoders",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "X. Chen",
+        "Y. Duan",
+        "R. Houthooft",
+        "J. Schulman",
+        "I. Sutskever",
+        "P. Abbeel"
+      ],
+      "title": "Infogan: Interpretable representation learning by information maximizing generative adversarial nets",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Y. Choi",
+        "M. Choi",
+        "M. Kim",
+        "J. Ha",
+        "S. Kim",
+        "J. Choo"
+      ],
+      "title": "Stargan: Unified generative adversarial networks for multi-domain image-to-image translation",
+      "venue": "In Conference on Computer Vision and Pattern Recognition,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Cimpoi",
+        "S. Maji",
+        "I. Kokkinos",
+        "S. Mohamed",
+        "A. Vedaldi"
+      ],
+      "title": "Describing textures in the wild",
+      "venue": "In Conference on Computer Vision and Pattern Recognition,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "J. Cooley",
+        "J. Tukey"
+      ],
+      "title": "An algorithm for the machine calculation of complex Fourier series",
+      "venue": "Mathematics of Computation,",
+      "year": 1965
+    },
+    {
+      "authors": [
+        "A. Datta",
+        "S. Sen",
+        "Y. Zick"
+      ],
+      "title": "Algorithmic transparency via quantitative input influence: Theory and experiments with learning systems",
+      "venue": "In IEEE Symposium on Security and Privacy,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J. Deng",
+        "W. Dong",
+        "R. Socher",
+        "L.-J. Li",
+        "K. Li",
+        "L. Fei-Fei"
+      ],
+      "title": "ImageNet: A Large-Scale Hierarchical Image Database",
+      "venue": "In Conference on Computer Vision and Pattern Recognition,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Y. Dubois"
+      ],
+      "title": "Disentangling VAEs, 2019",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "E. Dupont"
+      ],
+      "title": "Learning disentangled joint continuous and discrete representations",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "I.J. Goodfellow",
+        "J. Shlens",
+        "C. Szegedy"
+      ],
+      "title": "Explaining and harnessing adversarial examples",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Y. Goyal",
+        "Z. Wu",
+        "J. Ernst",
+        "D. Batra",
+        "D. Parikh",
+        "S. Lee"
+      ],
+      "title": "Counterfactual visual explanations",
+      "venue": "In International Conference on Machine Learning,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K. He",
+        "X. Zhang",
+        "S. Ren",
+        "J. Sun"
+      ],
+      "title": "Deep residual learning for image recognition",
+      "venue": "In Conference on Computer Vision and Pattern Recognition,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Z. He",
+        "W. Zuo",
+        "M. Kan",
+        "S. Shan",
+        "X. Chen"
+      ],
+      "title": "Attgan: Facial attribute editing by only changing what you want",
+      "venue": "IEEE Transactions on Image Processing,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L.A. Hendricks",
+        "R. Hu",
+        "T. Darrell",
+        "Z. Akata"
+      ],
+      "title": "Grounding visual explanations",
+      "venue": "In European Conference on Computer Vision,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "L.A. Hendricks",
+        "R. Hu",
+        "T. Darrell",
+        "Z. Akata"
+      ],
+      "title": "Generating counterfactual explanations with natural language, 2018b",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "I. Higgins",
+        "L. Matthey",
+        "A. Pal",
+        "C. Burgess",
+        "X. Glorot",
+        "M. Botvinick",
+        "S. Mohamed",
+        "A. Lerchner"
+      ],
+      "title": "\u03b2-vae: Learning basic visual concepts with a constrained variational framework",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "P. Isola",
+        "J. Zhu",
+        "T. Zhou",
+        "A.A. Efros"
+      ],
+      "title": "Image-to-image translation with conditional adversarial networks",
+      "venue": "In Conference on Computer Vision and Pattern Recognition,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B. Kim",
+        "M. Wattenberg",
+        "J. Gilmer",
+        "C.J. Cai",
+        "J. Wexler",
+        "F.B. Vi\u00e9gas",
+        "R. Sayres"
+      ],
+      "title": "Interpretability beyond feature attribution: Quantitative testing with concept activation vectors",
+      "venue": "In International Conference on Machine Learning,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "H. Kim",
+        "A. Mnih"
+      ],
+      "title": "Disentangling by factorising",
+      "venue": "In International Conference on Machine Learning,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D.P. Kingma",
+        "M. Welling"
+      ],
+      "title": "Auto-encoding variational bayes",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "I. Kononenko"
+      ],
+      "title": "An efficient explanation of individual classifications using game theory",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "G. Lample",
+        "N. Zeghidour",
+        "N. Usunier",
+        "A. Bordes",
+        "L. Denoyer",
+        "M. Ranzato"
+      ],
+      "title": "Fader networks: Manipulating images by sliding attributes",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Lipovetsky",
+        "M. Conklin"
+      ],
+      "title": "Analysis of regression in game theory approach",
+      "venue": "Applied Stochastic Models in Business and Industry,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "M. Liu",
+        "Y. Ding",
+        "M. Xia",
+        "X. Liu",
+        "E. Ding",
+        "W. Zuo",
+        "S. Wen"
+      ],
+      "title": "STGAN: A unified selective transfer network for arbitrary image attribute editing",
+      "venue": "In Conference on Computer Vision and Pattern Recognition,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Liu",
+        "B. Kailkhura",
+        "D. Loveland",
+        "Y. Han"
+      ],
+      "title": "Generative counterfactual introspection for explainable deep learning",
+      "venue": "In Global Conference on Signal and Information Processing,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Z. Liu",
+        "P. Luo",
+        "X. Wang",
+        "X. Tang"
+      ],
+      "title": "Deep learning face attributes in the wild",
+      "venue": "In International Conference on Computer Vision,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "F. Locatello",
+        "B. Poole",
+        "G. R\u00e4tsch",
+        "B. Sch\u00f6lkopf",
+        "O. Bachem",
+        "M. Tschannen"
+      ],
+      "title": "Weakly-supervised disentanglement without compromises, 2020",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "S. Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Madry",
+        "A. Makelov",
+        "L. Schmidt",
+        "D. Tsipras",
+        "A. Vladu"
+      ],
+      "title": "Towards deep learning models resistant to adversarial attacks",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Makhzani",
+        "J. Shlens",
+        "N. Jaitly",
+        "I.J. Goodfellow"
+      ],
+      "title": "Adversarial autoencoders",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Matthey",
+        "I. Higgins",
+        "D. Hassabis",
+        "A. Lerchner"
+      ],
+      "title": "dSprites: Disentanglement testing sprites dataset, 2017",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A.M. Nguyen",
+        "J. Yosinski",
+        "J. Clune"
+      ],
+      "title": "Deep neural networks are easily fooled: High confidence predictions for unrecognizable images",
+      "venue": "In Conference on Computer Vision and Pattern Recognition,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "T. Oliphant"
+      ],
+      "title": "A guide to NumPy",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Why should I trust you?\u201d: Explaining the predictions of any classifier",
+      "venue": "In Special Interest Group on Knowledge Discovery and Data Mining,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "P. Samangouei",
+        "A. Saeedi",
+        "L. Nakagawa",
+        "N. Silberman"
+      ],
+      "title": "ExplainGAN: Model explanation via decision boundary crossing transformations",
+      "venue": "In European Conference on Computer Vision,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Schmidhuber"
+      ],
+      "title": "Learning factorial codes by predictability minimization",
+      "venue": "Technical report, University of Colorado at Boulder,",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "K. Schulz",
+        "L. Sixt",
+        "F. Tombari",
+        "T. Landgraf"
+      ],
+      "title": "Restricting the flow: Information bottlenecks for attribution",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "R.R. Selvaraju",
+        "M. Cogswell",
+        "A. Das",
+        "R. Vedantam",
+        "D. Parikh",
+        "D. Batra"
+      ],
+      "title": "Grad-CAM: Visual explanations from deep networks via gradient-based localization",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "L.S. Shapley"
+      ],
+      "title": "A value for n-person games",
+      "venue": "In Contribution to the Theory of Games,",
+      "year": 1953
+    },
+    {
+      "authors": [
+        "A. Shrikumar",
+        "P. Greenside",
+        "A. Kundaje"
+      ],
+      "title": "Learning important features through propagating activation differences",
+      "venue": "In International Conference on Machine Learning,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Singh",
+        "W. Ha",
+        "F. Lanusse",
+        "V. Boehm",
+        "J. Liu",
+        "B. Yu"
+      ],
+      "title": "Transformation importance with applications to cosmology",
+      "venue": "In ICLR Workshop on Fundamental Science in the era of AI,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "S. Singla",
+        "B. Pollack",
+        "J. Chen",
+        "K. Batmanghelich"
+      ],
+      "title": "Explanation by progressive exaggeration",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "E. \u0160trumbelj",
+        "I. Kononenko"
+      ],
+      "title": "Explaining prediction models and individual predictions with feature contributions",
+      "venue": "Knowledge and Information Systems,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "M. Sundararajan",
+        "A. Taly",
+        "Q. Yan"
+      ],
+      "title": "Axiomatic attribution for deep networks",
+      "venue": "In International Conference on Machine Learning,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Szegedy",
+        "W. Zaremba",
+        "I. Sutskever",
+        "J. Bruna",
+        "D. Erhan",
+        "I.J. Goodfellow",
+        "R. Fergus"
+      ],
+      "title": "Intriguing properties of neural networks",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "P. Wang",
+        "N. Vasconcelos"
+      ],
+      "title": "SCOUT: Self-aware discriminant counterfactual explanations, 2020",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Z. Wang",
+        "Y. Yang",
+        "A. Shrivastava",
+        "V. Rawal",
+        "Z. Ding"
+      ],
+      "title": "Towards frequency-based explanation for robust CNN, 2020",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "B. Zhou",
+        "A. Khosla",
+        "\u00c0. Lapedriza",
+        "A. Oliva",
+        "A. Torralba"
+      ],
+      "title": "Learning deep features for discriminative localization",
+      "venue": "In Conference on Computer Vision and Pattern Recognition,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "B. Zhou",
+        "Y. Sun",
+        "D. Bau",
+        "A. Torralba"
+      ],
+      "title": "Interpretable basis decomposition for visual explanation",
+      "venue": "In European Conference on Computer Vision,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Zhu",
+        "T. Park",
+        "P. Isola",
+        "A.A. Efros"
+      ],
+      "title": "Unpaired image-to-image translation using cycle-consistent adversarial networks",
+      "venue": "In International Conference on Computer Vision,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "L.M. Zintgraf",
+        "T.S. Cohen",
+        "T. Adel",
+        "M. Welling"
+      ],
+      "title": "Visualizing deep neural network decisions: Prediction difference analysis",
+      "venue": "In International Conference on Learning Representations,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Liu"
+      ],
+      "title": "2019a). This entails cropping the central 170\u00d7170 region of the images and using a bicubic linear interpolation to resize them to 128 \u00d7 128. We explained the predictions of a CNN trained to predict the \u201cattractive\u201d label, which exhibits a 51 : 49 class balance in the data. Our CNN (with 3 convolutional and 2 fully-connected layers) was optimised using Adam and the",
+      "venue": "For our experiments on CelebA (Liu et al.,",
+      "year": 2015
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 INTRODUCTION",
+      "text": "The explainability of AI systems is important, both for model development and model assurance. This importance continues to rise as AI models \u2013 and the data on which they are trained \u2013 become ever more complex. Moreover, methods for AI explainability must be adapted to maintain the human-interpretability of explanations in the regime of highly complex data.\nMany explainability methods exist in the literature. Model-specific techniques refer to the internal structure of a model in formulating explanations (Chen & Guestrin, 2016; Shrikumar et al., 2017), while model-agnostic methods are based solely on input-output relationships and treat the model as a black-box (Breiman, 2001; Ribeiro et al., 2016). Model-agnostic methods offer wide applicability and, importantly, fix a common language for explanations across different model types.\nThe Shapley framework for model-agnostic explainability stands out, due to its theoretically principled foundation and incorporation of interaction effects between the data\u2019s features (Shapley, 1953; Lundberg & Lee, 2017). The Shapley framework has been used for explainability in machine learning for years (Lipovetsky & Conklin, 2001; Kononenko et al., 2010; S\u030ctrumbelj & Kononenko, 2014; Datta et al., 2016). Unfortunately, the combinatorics required to capture interaction effects make Shapley values computationally intensive and thus ill-suited for high-dimensional data.\nMore computationally-efficient methods have been developed to explain model predictions on highdimensional data. Gradient- and perturbation-based methods measure a model prediction\u2019s sensitivity to each of its raw input features (Selvaraju et al., 2020; Zhou et al., 2016; Zintgraf et al., 2017). Other methods estimate the mutual information between input features and the model\u2019s prediction (Chen et al., 2018a; Schulz et al., 2020), or generate counterfactual feature values that change the model\u2019s prediction (Chang et al., 2019; Goyal et al., 2019; Wang & Vasconcelos, 2020). See Fig. 1 for explanations produced by several of these methods (with details given in Sec. 3.5).\nWhen intricately understood by the practitioner, these methods for model explainability can be useful, e.g. for model development. However, many alternative methods exist to achieve broadly the\n\u2217Authors contributed equally.\nar X\niv :2\n01 0.\n07 38\n4v 1\n[ cs\n.L G\n] 1\n4 O\nct 2\n02 0\nFigure 1: Pixel-based explanations of a model trained to predict the attractiveness label in CelebA.\n<latexit sha1_base64=\"uVbZDjeKN2CUg8cuBY25CqEibBw=\">AAAB8HicjVDLSgMxFL1TX7W+qi7dBIvgqsyIoO6KblxWsA9ph5JJ77ShSWZIMkIp/Qo3LhRx6+e482/MtF2oKHggcDjnXu7JiVLBjfX9D6+wtLyyulZcL21sbm3vlHf3mibJNMMGS0Si2xE1KLjChuVWYDvVSGUksBWNrnK/dY/a8ETd2nGKoaQDxWPOqHXSXVdSO4xiEvfKlaDqz0D+JhVYoN4rv3f7CcskKssENaYT+KkNJ1RbzgROS93MYErZiA6w46iiEk04mQWekiOn9EmcaPeUJTP168aESmPGMnKTeUDz08vF37xOZuPzcMJVmllUbH4ozgSxCcl/T/pcI7Ni7AhlmrushA2ppsy6jkr/K6F5Ug1Oqxc3p5Xa5aKOIhzAIRxDAGdQg2uoQwMYSHiAJ3j2tPfovXiv89GCt9jZh2/w3j4BebeQNw==</latexit>\n<latexit sha1_base64=\"48lxewtfvoTjglqBN3Xn2cbIFVI=\">AAAB8HicjVDLSgMxFL2pr1pfVZdugkVwVWakoO6KblxWsA9ph5JJM21okhmSjFiGfoUbF4q49XPc+Tdm2i5UFDwQOJxzL/fkhIngxnreByosLa+srhXXSxubW9s75d29lolTTVmTxiLWnZAYJrhiTcutYJ1EMyJDwdrh+DL323dMGx6rGztJWCDJUPGIU2KddNuTxI7CCN/3yxW/6s2A/yYVWKDRL7/3BjFNJVOWCmJM1/cSG2REW04Fm5Z6qWEJoWMyZF1HFZHMBNks8BQfOWWAo1i7pyyeqV83MiKNmcjQTeYBzU8vF3/zuqmNzoKMqyS1TNH5oSgV2MY4/z0ecM2oFRNHCNXcZcV0RDSh1nVU+l8JrZOqX6ueX9cq9YtFHUU4gEM4Bh9OoQ5X0IAmUJDwAE/wjDR6RC/odT5aQIudffgG9PYJlP+QSQ==</latexit>\n<latexit sha1_base64=\"K7cr1icZ8HzhwI560g3J0QOAQ0o=\">AAAB8HicjVDLSgMxFL2pr1pfVZdugkVwVWakoO6KblxWsA9ph5JJM21okhmSjFCHfoUbF4q49XPc+Tdm2i5UFDwQOJxzL/fkhIngxnreByosLa+srhXXSxubW9s75d29lolTTVmTxiLWnZAYJrhiTcutYJ1EMyJDwdrh+DL323dMGx6rGztJWCDJUPGIU2KddNuTxI7CCN/3yxW/6s2A/yYVWKDRL7/3BjFNJVOWCmJM1/cSG2REW04Fm5Z6qWEJoWMyZF1HFZHMBNks8BQfOWWAo1i7pyyeqV83MiKNmcjQTeYBzU8vF3/zuqmNzoKMqyS1TNH5oSgV2MY4/z0ecM2oFRNHCNXcZcV0RDSh1nVU+l8JrZOqX6ueX9cq9YtFHUU4gEM4Bh9OoQ5X0IAmUJDwAE/wjDR6RC/odT5aQIudffgG9PYJmAeQSw==</latexit>\n<latexit sha1_base64=\"KmEypMHsM7yk2RUtZ+c6bXbVosA=\">AAAB/nicbVDLSsNAFJ3UV62vqLhyM1iEuimJFNRd0Y3LCvYBTSiTyU07dPJgZiKWUPBX3LhQxK3f4c6/cdJmoa0HBg7n3Ms9c7yEM6ks69sorayurW+UNytb2zu7e+b+QUfGqaDQpjGPRc8jEjiLoK2Y4tBLBJDQ49D1xje5330AIVkc3atJAm5IhhELGCVKSwPzyAmJGnkBzoKaoxj3AT+eTQdm1apbM+BlYhekigq0BuaX48c0DSFSlBMp+7aVKDcjQjHKYVpxUgkJoWMyhL6mEQlButks/hSfasXHQSz0ixSeqb83MhJKOQk9PZmHlYteLv7n9VMVXLoZi5JUQUTnh4KUYxXjvAvsMwFU8YkmhAqms2I6IoJQpRur6BLsxS8vk8553W7Ur+4a1eZ1UUcZHaMTVEM2ukBNdItaqI0oytAzekVvxpPxYrwbH/PRklHsHKI/MD5/AHIalSw=</latexit>\n<latexit sha1_base64=\"WqAssZMNrO3tfegI87RjqSrSAbQ=\">AAACAXicbVDLSsNAFJ34rPUVdSO4GSxCuymJFNSNFNy4rGAf0IYymUzaoZMHMzdiDXXjr7hxoYhb/8Kdf+OkzUJbD1w4nHMv997jxoIrsKxvY2l5ZXVtvbBR3Nza3tk19/ZbKkokZU0aiUh2XKKY4CFrAgfBOrFkJHAFa7ujq8xv3zGpeBTewjhmTkAGIfc5JaClvnnYCwgMXR+nfrkHXHgM35cfKpVJ3yxZVWsKvEjsnJRQjkbf/Op5EU0CFgIVRKmubcXgpEQCp4JNir1EsZjQERmwrqYhCZhy0ukHE3yiFQ/7kdQVAp6qvydSEig1Dlzdmd2r5r1M/M/rJuCfOykP4wRYSGeL/ERgiHAWB/a4ZBTEWBNCJde3YjokklDQoRV1CPb8y4ukdVq1a9WLm1qpfpnHUUBH6BiVkY3OUB1dowZqIooe0TN6RW/Gk/FivBsfs9YlI585QH9gfP4AK46WEQ==</latexit>\n<latexit sha1_base64=\"249iHdhtu7W0+U31BonYLaM+rVg=\">AAAB+3icjVDLSsNAFL2pr1pfsS7dDBbBVUlEUHdFNy4r2Ac0oUwmk3boZBJmJtIS8ituXCji1h9x5984abtQUfDAhcM593IPJ0g5U9pxPqzKyura+kZ1s7a1vbO7Z+/XuyrJJKEdkvBE9gOsKGeCdjTTnPZTSXEccNoLJtel37unUrFE3OlZSv0YjwSLGMHaSEO77sVYj4MI5Z5mPKRoWgzthtt05kB/kwYs0R7a716YkCymQhOOlRq4Tqr9HEvNCKdFzcsUTTGZ4BEdGCpwTJWfz7MX6NgoIYoSaUZoNFe/XuQ4VmoWB2azTKp+eqX4mzfIdHTh50ykmaaCLB5FGUc6QWURKGSSEs1nhmAimcmKyBhLTLSpq/a/ErqnTfeseXl71mhdLeuowiEcwQm4cA4tuIE2dIDAFB7gCZ6twnq0XqzXxWrFWt4cwDdYb5/eNJRa</latexit>\nsame goal (i.e. to monitor how outputs change as inputs vary) with alternative design choices that make their explanations uncomparable to a general user: e.g. the distinct explanations in Fig. 1 describe the same model prediction. Ideally, a set of axioms (agreed upon or debated) would constrain the space of explanations, thus leading to a framework of curated methods that the user can choose from based on which axioms are relevant to the application.\nA further challenge on high-dimensional data is the sheer complexity of an explanation: in the methods described above, explanations have the same dimensionality as the data itself. Moreover, the importance of raw input features (e.g. pixels) are not individually meaningful to the user. Even when structured patterns emerge in an explanation (e.g. in Fig. 1) this is not sufficient to answer higher-level questions. For example, did the subject\u2019s protected attributes (e.g. gender, age, or ethnicity) have any influence on the model\u2019s decision?\nIn this work, we develop methods for explaining predictions in terms of a digestible number of semantically meaningful concepts. We provide several options for transforming from the highdimensional raw features to a lower-dimensional latent space, which allow varying levels of user control. Regardless of the method used, transformation to a low-dimensional human-interpretable basis is a useful step, if explanations are to satisfy experts and non-experts alike.\nOnce a set of semantic latent features is selected, one must choose an explainability algorithm to obtain quantitative information about why a certain model prediction was made. Fortunately, since the set of latent features is low-dimensional by construction, a Shapley-based approach becomes once again viable. In this work, we develop a method to apply Shapley explainability at the level of semantic latent features, thus providing a theoretically-controlled, model-agnostic foundation for explainability on high-dimensional data. Our main contributions are:\n\u2022 We introduce an approach to model explainability on high-dimensional data that involves encoding the raw input features into a digestible number of semantically meaningful latent features. We develop a procedure to apply Shapley explainability in this context, obtaining Shapley values that describe the high-dimensional model\u2019s dependence on each semantic latent feature.\n\u2022 We demonstrate 3 methods to extract semantic features for the explanations: Fourier transforms, disentangled representations, and image-to-image translation. We benchmark our approach on dSprites \u2013 with known latent space \u2013 and showcase its effectiveness in computer vision tasks such as MNIST, CIFAR-10, ImageNet, Describable Textures, and CelebA."
+    },
+    {
+      "heading": "2 SEMANTIC SHAPLEY EXPLAINABILITY",
+      "text": "In this section, we present a simple modular framework for obtaining meaningful low-dimensional explanations of model predictions on high-dimensional data. The framework contains two modules: (i) a mechanism for transforming from the high-dimensional space of raw model inputs to a lowdimensional space of semantic latent features, and (ii) an algorithm for generating explanations of the model\u2019s predictions in terms of these semantic features. See Fig. 2.\nWe will begin by describing module (ii) in Sec. 2.1, where we will show how to adapt Shapley explainability to latent features. Then we will describe several options for module (i) in Sec. 2.2."
+    },
+    {
+      "heading": "2.1 SHAPLEY VALUES FOR LATENT FEATURES",
+      "text": "Shapley values (Shapley, 1953) were developed in cooperative game theory to distribute the value v(N) earned by a team N = {1, 2, . . . , n} among its players. The Shapley value \u03c6v(i) represents the marginal value added by player i upon joining the team, averaged over all orderings in which the\nteam can form. In particular,\n\u03c6v(i) = \u2211\nS\u2286N\\{i}\n|S|! (n\u2212 |S| \u2212 1)! n!\n[ v(S \u222a {i})\u2212 v(S) ] (1)\nwhere v(S) represents the value that a coalition S obtains without the rest of their teammates. Shapley values are the unique attribution method satisfying 4 natural axioms (Shapley, 1953). For example, they sum to the total value earned: \u2211 i \u03c6v(i) = v(N) \u2212 v({}), and they are symmetric if two players i and j are functionally interchangeable: \u03c6v(i) = \u03c6v(j). Shapley values thus serve as a well-founded explanation of an output (the earned value) in terms of inputs (the players).\nThe method can be adapted to explain the output of a machine learning model by interpreting the model\u2019s input features x = (x1, . . . , xn) as the players of a game. Consider a classification task, and let fy(x) be the model\u2019s predicted probability that data point x belongs to class y. To apply Shapley explainability, one must define a value function representing the model\u2019s expected output given only a subset of the input features xS . The most common choice is\nvfy(x)(S) = Ep(x\u2032) [ fy(xS t x\u2032S\u0304) ] (2)\nwhere p(x\u2032) is the distribution from which the data is drawn, S\u0304 is the complement of S, and xS tx\u2032S\u0304 represents the spliced data point with in-coalition features from x and out-of-coalition features from x\u2032. Then, inserting the value function of Eq. (2) into the definition of Eq. (1), one obtains Shapley values \u03c6fy(x)(i) representing the portion of the prediction fy(x) attributable to feature xi.\nThe Shapley values presented above provide a local explanation of the model\u2019s behaviour on an individual data point. For a global explanation, local values can be aggregated (Frye et al., 2020)\n\u03a6f (i) = Ep(x,y) [ \u03c6fy(x)(i) ] (3)\nwhere p(x, y) is the joint distribution from which the labelled data is drawn. This aggregation preserves the Shapley axioms and is motivated by the sum rule:\u2211\ni\n\u03a6f (i) = Ep(x,y) [ fy(x) ] \u2212 Ep(x\u2032)p(y) [ fy(x \u2032) ]\n(4)\nwhich can be interpreted as the model accuracy above a class-balance baseline. Global Shapley values thus represent the portion of model accuracy attributable to each feature.\nTo adapt the Shapley framework to latent features, suppose (as in Fig. 2) that a mapping x \u2192 z exists to transform the raw model inputs x into a semantically meaningful representation z(x), and that an (approximate) inverse mapping z \u2192 x\u0303 exists as well. Then we can obtain an explanation of the model prediction fy(x) in terms of the latent features z(x) by applying Shapley explainability instead to the function fy(x\u0303(z)) at the point z = z(x). To be precise, we define a value function\nv\u0303fy(x)(S) = Ep(x\u2032) [ fy ( x\u0303 ( zS(x) t zS\u0304(x\u2032) )) ] (5)\nwhich represents the marginalisation of fy(x\u0303(z)) over out-of-coalition features zS\u0304 . Here zS(x) is the in-coalition slice of z(x), and zS\u0304(x\u2032) is the out-of-coalition slice corresponding to a different data point. These get spliced together in latent space before transforming back to model-input-space and feeding into the model. Inserting the value function of Eq. (5) into the definition of Eq. (1) produces semantic Shapley values that explain fy(x) in terms of latent features zi."
+    },
+    {
+      "heading": "2.2 LANDSCAPE OF SEMANTIC REPRESENTATIONS",
+      "text": "A wide variety of methods exist to transform from the high-dimensional set of raw model inputs to an alternative set of features that offer semantic insight into the data being modelled. In this section, we consider several options for this semantic component of our approach to explainability."
+    },
+    {
+      "heading": "2.2.1 FOURIER TRANSFORMS",
+      "text": "Despite their high dimensionality, pixel-based explanations as in Fig. 1 manage to convey meaning to their consumers through the local structure of images. A central claim of our work, however, is that such meaning remains limited and incomplete. One way to complement the location information of pixel-based explanations is with frequency-based explanations via Fourier transforms.\nIf an image consists of a value xi for each pixel i = 1, . . . , n, then its discrete Fourier transform (Cooley & Tukey, 1965) consists of a value zk for each Fourier mode k = 1, . . . , n. Each mode k corresponds to a set of frequencies in the horizontal and vertical directions, ranging from 0 (uniform imagery) to 1/2 (one oscillation every 2 pixels). As the inverse Fourier transform x\u0303(z(x)) = x exists, we can obtain Shapley values for the Fourier modes of an image using Eq. (5).\nWe can also aggregate Fourier-based Shapley values into frequency bins to reduce the complexity of the calculation and lower the dimensionality of the explanation. Such frequency-based explanations can offer insight into whether a model\u2019s decisions are based on shapes or textures (see Sec. 3.2) and whether a model is robust to adversarial examples (see Sec. 3.1)."
+    },
+    {
+      "heading": "2.2.2 DISENTANGLED REPRESENTATIONS",
+      "text": "The goal of disentangled representation learning (Bengio et al., 2013; Schmidhuber, 1991) is to learn a mapping from a data set\u2019s raw high-dimensional features to a lower-dimensional basis of semantically meaningful factors of variation. In an image, these factors of variation might correspond to the subject\u2019s position and orientation, their emotional state, the lighting, and the setting. Disentangled representations are highly aligned with our goal of achieving semantic explanations.\nDifferent approaches offer varying levels of control over which semantic features are learnt in the representation. Unsupervised disentanglement extracts factors of variation directly from the data. Such methods are often based on variational inference (Higgins et al., 2017; Burgess et al., 2018; Kim & Mnih, 2018; Chen et al., 2018b) \u2013 though other approaches exist (Chen et al., 2016) \u2013 and often seek a factorised latent representation. Supervised disentanglement (Schmidhuber, 1991; Lample et al., 2017) allows the practitioner to specify a subset of the sought-after semantic features by labelling them \u2013 in full or in part (Locatello et al., 2020) \u2013 in the data. Such methods then involve learning a representation that factorises the specified and unspecified factors of variation.\nDisentangled representations based on variational autoencoders (Kingma & Welling, 2014) include an encoder z(x) and a decoder x\u0303(z), thus fitting neatly into our framework (Fig. 2) for semantic explainability. The value function of Eq. (5) then leads to Shapley values that explain a model\u2019s predictions in terms of the disentangled factors of variation underlying the data. We will demonstrate this for unsupervised (Sec. 3.3) and supervised (Sec. 3.4) disentanglement with experiments."
+    },
+    {
+      "heading": "2.2.3 IMAGE-TO-IMAGE TRANSLATION",
+      "text": "In image-to-image translation (Isola et al., 2017), one is not interested in directly extracting semantic factors of variation, but instead in transforming images by selectively modifying underlying semantic features. Generative adversarial methods can accomplish this goal without passing through an explicit compressed representation (Zhu et al., 2017). Other adversarial methods allow the user to selectively perturb the semantic attributes of an image (e.g. hair colour or gender) for attributes that are labelled in the data set (Choi et al., 2018; He et al., 2019; Liu et al., 2019a).\nImage-to-image translation methods can straightforwardly be incorporated into our framework for semantic explainability. To do so, one inserts the result of the translation x \u2192 x\u0303 ( zS(x) t zS\u0304(x\u2032) ) , which corresponds to the modification of semantic attributes zS\u0304(x) \u2192 zS\u0304(x\u2032), into the value function of Eq. (5). We demonstrate this in Sec. 3.5 below."
+    },
+    {
+      "heading": "3 RESULTS",
+      "text": "Here we demonstrate the practical utility of our approach on a variety of data sets and for a diverse set of semantic representations. We use pre-trained models for the semantic representations to show that our method can be applied with existing tools. See App. A for full experimental details."
+    },
+    {
+      "heading": "3.1 CIFAR-10",
+      "text": "We begin by applying our explainability framework using the Fourier transform as the semantic representation. We do this on CIFAR-10 (Krizhevsky et al., 2009) and investigate whether sensitivity to adversarial examples (Szegedy et al., 2014; Goodfellow et al., 2015; Nguyen et al., 2015) is linked to dependence on high-frequency (i.e. small length-scale) fluctuations. We considered two classifiers on CIFAR-10: a robust model (Madry et al., 2018; Engstrom et al., 2019) trained to be insensitive to adversarial perturbations, and a non-robust model (He et al., 2016) trained naturally. We computed semantic Shapley values according to Sec. 2.2.1.\nThe first row of Fig. 3 shows the semantic explanations that result for a single image. The Shapley values in Fourier space show that, on this particular image, the non-robust model is sensitive to high-frequency features (less detectable by the human eye), while the robust prediction is based exclusively on low-frequency information near the Fourier-space origin (large-scale structure). The 1-dimensional comparison, in which frequency modes were binned according to Euclidean norm, allows for quantitative comparison that confirms this effect.\nWe also computed the adversarial perturbation of the local image in Fig. 3, using projected gradient descent (Nocedal & Wright, 2006) and = 8/255 (separately for each model). Such adversarial perturbations do not significantly alter the image to the human eye, and the robust model\u2019s prediction accordingly remains unchanged; however, the non-robust model\u2019s prediction is perturbed from \u201chorse\u201d to \u201cship\u201d. Fig. 3 explains the model decisions on these adversarially perturbed images, showing that the non-robust model\u2019s mistake is due to high-frequency features.\nThe second row of Fig. 3 shows global semantic explanations for these models, which correspond to aggregating local explanations across the data set. We see that the trends found above for one particular image hold in general throughout the data. Our framework for semantic explainability thus leads to the interesting result that adversarially robust classifiers are less sensitive to high-frequency information. See App. A.2 for similar results on ImageNet (Deng et al., 2009)."
+    },
+    {
+      "heading": "3.2 DESCRIBABLE TEXTURES",
+      "text": "Here we apply our framework \u2013 again using the Fourier transform \u2013 to explain whether a model\u2019s predictions are based on shapes or textures. Shapes tend to correspond to extended objects and thus sit at the lower end of the frequency spectrum. Textures correspond to small-scale patterns and thus occupy the higher end of the frequency spectrum, often with distinctive peaks that represent a periodic structure. We explore this question by explaining a ResNet-50 (He et al., 2016) trained on the Describable Textures Dataset (Cimpoi et al., 2014).\nFig. 4 shows randomly drawn \u201cbanded\u201d and \u201cwoven\u201d images from the data set, as well as their pixelbased explanations computed with integrated gradients (Sundararajan et al., 2017). At the level of pixels, it is difficult to judge what qualities (e.g. colours, shapes, textures) drive the model\u2019s prediction. However, the frequency-based explanations in Fig. 4 show clear peaks at high frequencies corresponding to regular patterns in each image. See App. A.3 for additional examples."
+    },
+    {
+      "heading": "3.3 DSPRITES",
+      "text": "Here we apply our explainability framework using unsupervised disentangled representations to extract the semantic features. We do this on dSprites (Matthey et al., 2017), synthetic images of sprites (see Fig. 5a) generated from a known latent space with 5 dimensions: shape, scale, orientation, and horizontal and vertical positions. This experiment serves as a benchmark of our approach.\nIn this experiment, we explain a rules-based model that classifies sprites according to the number of white pixels in the top half of the image (with 6 classes corresponding to 6 latent scales). We\narticulate the explanation in terms of the unsupervised disentangled representation (cf. Sec. 2.2.2) of a \u03b2-TCVAE (Chen et al., 2018b), using a publicly available model (Dubois, 2019).\nFig. 5a shows semantic Shapley values for this model. Globally, the model relies on the sprite\u2019s vertical position and scale, while generally ignoring its shape, orientation, and horizontal position. This is indeed consistent with the rules-based model we laid out above. Locally, the model classifies the sprite as y = 0, as it has no white pixels in the top half of the image. The vertical position of the sprite is the main driver of this decision. In fact, the sprite\u2019s scale (maximum) would tend to indicate a different class, so the scale receives a negative local Shapley value in this case.\nThis experiment validates our framework for semantic explainability, as the modelling task and factors of variation in the data are fully understood and consistent with our results. Moreover, this example showcases an explanation that differentiates between shape and scale \u2013 semantic features that cannot be distinguished in a pixel-based explanation."
+    },
+    {
+      "heading": "3.4 MNIST",
+      "text": "Here we apply our framework \u2013 again using disentangled representations \u2013 to a binary classifier on MNIST (LeCun & Cortes, 2010). In particular, we explain a rules-based model that detects the presence of a geometric hole, which exists when all black pixels are not contiguous. We use the unsupervised disentangled representation of a JointVAE pre-trained on MNIST (Dupont, 2018), which accommodates a combination of continuous (e.g. handwriting) and discrete (e.g. digit value) latent dimensions. Supervised methods also exist for disentangling the digit value in the latent representation (Makhzani et al., 2016).\nFig. 5b shows semantic Shapley values for the rules-based model. The global values show that the digit value has the most bearing on the model\u2019s general behaviour; indeed, some digits (0, 6, 8, 9) almost always contain a geometric hole while others (1, 3, 5, 7) almost always do not. The global values also show sensitivity to writing style (e.g. 4 vs 4 ) and stroke thickness (which can close a hole) as expected. The local values in Fig. 5b are roughly in line with the global trends.\nThis example demonstrates that latent disentanglement is a powerful tool for understanding model decisions at a semantic level. These results also highlight that explanations are only as good as the chosen semantic representation. One can see in the latent traversals of Fig. 5b that in this representation, semantic concepts are not perfectly disentangled: stroke thickness and hole size are entangled, and writing style mixes 7\u2019s and 9\u2019s. This can lead to a small corruption of the explanation."
+    },
+    {
+      "heading": "3.5 CELEBA",
+      "text": "Here we apply our explainability framework using image-to-image translation as the implicit semantic representation. We do this on CelebA (Liu et al., 2015) to demonstrate, on real world data, that our method elucidates patterns in model behaviour that are missed by other methods. In particular, we train a CNN to predict the labelled attractiveness of individuals in the data. We choose this admittedly banal label because it is influenced by a variety of other higher level attributes, including sensitive characteristics (e.g. gender, age, skin tone) that should not influence fair model predictions. Pixel-based explanations (e.g. Fig. 1) provide no insight into these important issues.\nWe explain the model\u2019s predictions in terms of other semantic attributes also labelled in the data. We do so according to Sec. 2.2.3, using the implicit representation of an STGAN (Liu et al., 2019a) pre-trained on these other attributes (Liu et al., 2019b). Fig. 6 shows the resulting semantic Shapley values explaining the model\u2019s prediction of y = 0 for an individual in the data. The \u201cunlabelled\u201d bar represents remaining factors of variation not captured by labelled attributes.\nGlobally, the model makes significant use of age, eyeglasses, and blond hair. This reflects stereotypical western-cultural conceptions of beauty, not surprising in a database of celebrities. The attribute with the largest influence is gender, a result of bias in the data set: women are more than twice as likely to be labelled attractive as men. Locally, the subject\u2019s gender (male) thus increases the tendency for the model to predict y = 0. The subject\u2019s age (young) receives a negative local Shapley value, as this correlates instead with y = 1 (opposite the model\u2019s prediction) in the data. Hair colour, smile, and eyebrows also played a role in the model prediction for this individual.\nInterestingly, our explanation captures dependence on features barely perceptible to the human eye. For example, while traversals of the \u201cyoung\u201d attribute are hardly noticeable for this individual, this feature significantly impacts the model prediction. Model evaluations on traversals of this feature confirm that this is a genuine pattern exploited by the model and not an aberration in the explanation. Figs. 9 \u2013 12 in App. A.6 provide explicit comparisons between Shapley explanations and model evaluations over a latent-space grid, as well as additional validation of our CelebA experiment."
+    },
+    {
+      "heading": "4 RELATED WORK",
+      "text": "In this work, we have focused on explaining model predictions in terms of semantic latent features rather than the model\u2019s raw inputs. In related work, natural language processing is leveraged to produce interpretable model explanations textually (Hendricks et al., 2018a;b). Other methods (Kim et al., 2018; Zhou et al., 2018) learn to associate patterns of neuron activations with semantic concepts. However, each of these requires large sets of annotated data for training \u2013 a barrier to widespread application \u2013 whereas we offer both unsupervised and analytic options for semantic explainability in our approach. Orthogonal efforts exist to train high-capacity models that are intrinsically interpretable (Alvarez-Melis & Jaakkola, 2018; Chen et al., 2019).\nOther related works leverage generative models to produce explanations. Several methods generate counterfactual model inputs (e.g. images) with the features that led to the model prediction accentuated (Singla et al., 2020; Samangouei et al., 2018; Arrieta & Ser, 2020). In contrast to our work, such explanations are pixel-based. Techniques developed by Liu et al. (2019c) generate counterfac-\ntual images that cross class boundaries while remaining nearby the original image. When employed using a disentangled generative model, such methods can assign importance to latent features; however, they aim to minimise an ad-hoc pixel-based distance metric, whereas semantic latent features generally control large-scale changes in an image.\nA recent workshop (Singh et al., 2020) showed that a change of basis in model explanations can offer insights in cosmology applications. Complementary to this work, we develop this idea in general, offer several alternatives for the basis change, and benchmark with extensive experiments.\nRecently released work-in-progress (Wang et al., 2020) studies the dependence of adversarially robust models on the frequency modes of an image\u2019s Fourier transform. While taking a somewhat different approach (e.g. explaining based on \u201cOccluded Frequencies\u201d) the study finds results generally consistent with ours in Sec. 3.1: adversarial sensitivity is primarily a high-frequency phenomenon."
+    },
+    {
+      "heading": "5 CONCLUSION",
+      "text": "In this work, we introduced an approach to model explainability on high-dimensional data, in which explanations are articulated in terms of a digestible set of semantic latent features. We adapted the Shapley paradigm to this task, in order to attribute a model\u2019s prediction to the latent features underlying its input data. These two developments form a principled, flexible framework for human-interpretable explainability on complex models. To demonstrate its flexibility, we highlighted Fourier transforms, latent disentanglement, and image-to-image translation as options for the semantic representation that offer varying levels of user control. We benchmarked our method on synthetic data, where the underlying latent features are controlled, and demonstrated its effectiveness in an extensive set of experiments using off-the-shelf pretrained models. We hope this framework will find wide applicability and offer practitioners a new way to probe their models."
+    },
+    {
+      "heading": "ACKNOWLEDGMENTS",
+      "text": "This work was developed and experiments were run on the Faculty Platform for machine learning. The authors benefited from conversations with Tom Begley and Tobias Schwedes. DDM was partially supported by UCL\u2019s Centre for Doctoral Training in Data Intensive Science."
+    },
+    {
+      "heading": "A DETAILS OF EXPERIMENTS AND ADDITIONAL RESULTS",
+      "text": "Below we provide numerical details and supplementary results for the experiments presented in this paper. For each experiment, we describe both the semantic representation employed as well as the Shapley calculation and its statistical uncertainty.\nFirst we mention the pixel-based explanations that appear in Figs. 1 and 4 (and Fig. 11 below). We produced these using the Captum PyTorch package [github.com/pytorch/captum]. We refer the reader to the package documentation for additional details regarding our chosen explanation methods. Explanations using integrated gradients, occlusion, and feature ablation were calculated using a zero-valued baseline.\nA.1 CIFAR-10\nFor our experiments on CIFAR-10 (Krizhevsky et al., 2009), we explained the predictions of pretrained robust and non-robust ResNet-50\u2019s that are publicly available (Engstrom et al., 2019). The robust model in particular was adversarially (pre-)trained with respect to `\u221e perturbations of norm \u03b5 = 8/255. For the semantic representation, we used the FFT (Cooley & Tukey, 1965) functionality of NumPy (Oliphant, 2006).\nWe computed local Shapley values according to Sec. 2.1, using 10k Monte-Carlo samples from the validation set to estimate the local Shapley value for each pixel. The colour plots in Fig. 3 display the means of these Monte-Carlo estimations. (We treated the RGB components of each Fourier mode as a single feature zk in these calculations. We similarly grouped together complex-conjugate modes, zk and zk\u2217 , as these provide redundant information for real-valued images.) The global Shapley values were similarly computed with 10k samples.\nTo produce the 1d-comparison plots of Fig. 3, we aggregated Shapley values from the colour plots, binning Shapley values according to the `2 norm of the corresponding 2d-frequencies. The shaded bands around the curves display the standard error of the mean in the Monte Carlo sampling discussed above. (These uncertainty bands are very narrow.)\nIn the final column of Fig. 3, we explain model predictions on adversarially perturbed data. We computed these perturbations according to Engstrom et al. (2019). In particular, we performed projected gradient descent with respect to an `\u221e norm of \u03b5 = 8/255, using a step size of 0.01 and 100 iterations towards a targeted, randomly-drawn incorrect class. Each (robust and non-robust) model was evaluated on a separate set of direct adversarial attacks.\nA.2 RESTRICTED IMAGENET\nHere we present supplementary results on Restricted ImageNet (Engstrom et al., 2019), confirming that the trends found on CIFAR-10 also exist for higher-dimensional images. In particular, we explain the predictions of pre-trained robust and non-robust ResNet-50\u2019s (Engstrom et al., 2019); the robust model was adversarially trained with `\u221e perturbations of norm \u03b5 = 4/255.\nIn Fig. 7 we present results analogous to those in Fig. 3. In the first row, we show frequencybased Shapley values for each model\u2019s prediction on a local image. There we see that the robust model primarily depends on low-frequency information in the image. By contrast, the non-robust model is sensitive to higher-frequency features. This sensitivity leads to the false classification of the adversarially perturbed image of the primate as an insect. In the second row, we show that this trend persists across the data set: the global Shapley values aggregated over many images display trends similar to those just described for an individual image.\nFor this calculation, we treated all the Fourier modes that fall into the same frequency bin as a single feature in the Shapley calculation. This reduced the 224 \u00d7 224 Fourier modes down to 25 aggregate features, thus enabling a very tractable calculation that preserves the primary informationof-interest in the explanation. All other numerical details of our experiment on Restricted ImageNet are identical to those on CIFAR-10, but replacing 8/255\u2192 4/255 for the adversarial perturbations.\nA.3 DESCRIBABLE TEXTURES\nFor Describable Textures (Cimpoi et al., 2014), we explained a ResNet-101 (He et al., 2016) trained to predict the 47 textures classes. Our model was optimised using Adam and obtained a top-1 accuracy of 53.5% and a top-5 accuracy of 83.1% on a held-out test set.\nExplanations in Fig. 4 were computed according to the same procedure outlined in App. A.2. In particular, 10k Monte Carlo samples were used to estimate the local Shapley value in each frequency bin, and narrow uncertainty bands display the standard error of the mean in each bin. Fig. 8 provides additional local explanations of the model on randomly-drawn \u201cspiralled\u201d, \u201cperforated\u201d, and \u201cstratified\u201d images. These show clear dependence on specific high-frequency patterns in the images.\nA.4 DSPRITES\nFor our experiments on dSprites (Matthey et al., 2017), we explained the output of a rules-based model. The model counts the number of white pixels in the top half of the image in order to classify images into 6 classes. The white-pixel-counts naturally fall into 6 clusters because the synthetic dSprites images are generated according to 6 underlying scales.\nFor the semantic representation, we employed a \u03b2-TCVAE (Burgess et al., 2018), obtaining a publicly available pre-trained network (Dubois, 2019). We applied a rotation matrix to the latent representation to align translation-dimensions with the horizontal and vertical axes.\nWe computed explanations for Fig. 5a according to Sec. 2.1. Each Shapley value was estimated using 10k Monte Carlo samples: each bar heights represents the mean, and each error bar displays the standard error of the mean.\nA.5 MNIST\nFor our experiments on MNIST (LeCun & Cortes, 2010), we explained the output of a rules-based model that checks for the presence of a geometric hole in an image. Such a hole exists if there is a black pixel that is not path-connected to the image\u2019s perimeter, restricting to paths that only pass through other black pixels. For example, \u201c0\u201d has a hole, because the black pixels at the centre are disconnected from the black pixels near the perimeter, but \u201c1\u201d does not. In practice, we detected holes using SciPy\u2019s binary fill holes function.\nFor the semantic representation, we employed a JointVAE (Dupont, 2018), using the pre-trained network available at the paper\u2019s associated repository. Explanations in Fig. 5b were computed using 10k Monte Carlo samples to estimate the means and standard errors.\nA.6 CELEBA\nFor our experiments on CelebA (Liu et al., 2015), we pre-processed the data according to the procedure described by Liu et al. (2019a). This entails cropping the central 170\u00d7170 region of the images and using a bicubic linear interpolation to resize them to 128 \u00d7 128. We explained the predictions of a CNN trained to predict the \u201cattractive\u201d label, which exhibits a 51 : 49 class balance in the data. Our CNN (with 3 convolutional and 2 fully-connected layers) was optimised using Adam and the cross-entropy loss to achieve 78.7% accuracy on a held-out test set.\nFor the semantic representation, we employed an STGAN (Liu et al., 2019a), using the pre-trained network available at the paper\u2019s associated repository. This network was trained to selectively modify the labelled attributes listed in Fig. 6. Our Shapley explanations also include an \u201cunlabelled\u201d dimension: this is meant to represent all remaining factors of variation distinguishing one image from another that are not captured by the labelled attributes. In practice, this unlabelled dimension is simply the image\u2019s index in the data set. To vary an image along this unlabelled dimension, one simply draws other images from the data set while using the STGAN to hold their labelled attributes \u2013 hair colour, age, gender, etc. \u2013 fixed. Shapley values for CelebA were computed using 5k Monte Carlo samples to estimate the mean and standard error for each feature.\nIn Fig. 9, we provide results that validate the hierarchy of Shapley values that appears in Fig. 6. Below each image in the latent traversals of Fig. 9, we display the CNN\u2019s predicted probability that y = 1. This shows that the model indeed depends strongly on the rightmost features while remaining relatively insensitive to the leftmost features. While the Shapley explanation of the CNN\u2019s prediction also takes into account feature interactions that are not shown here, the model evaluations in Fig. 6 provide a qualitative check on the Shapley values.\nFig. 10 provides an additional explanation of the CNN evaluated on a different image in the data set. The model predicts y = 1 for this individual, and this is attributed in large part to the unlabelled factors of variation. The subject\u2019s gender (male) anti-correlates with the model\u2019s prediction (attractive), while his age (young) is a positive predictor of the model\u2019s behaviour.\nAs a further sanity check on our CelebA explanations, we present supplementary results here explaining a model that predicts the \u201cmouth slightly open\u201d label, which exhibits a 48 : 52 class balance in the data. Training our CNN architecture on this task resulted in 91.8% accuracy on the held-out test set. The pixel-based explanations of this classifier are shown in Fig. 11. Since (in contrast to the \u201cattractive\u201d label) this is a visually-localised prediction task, the pixel-based explanations are sensible, highlighting the region surrounding the subject\u2019s mouth. Furthermore, the semantic Shapley explanation of this classifier (Fig. 12) attributes the prediction primarily to the \u201cmouth slightly open\u201d latent feature. Since this is indeed the label that the model was trained to predict, this validates our setup for computing semantic explanations on CelebA."
+    }
+  ],
+  "title": "HUMAN-INTERPRETABLE MODEL EXPLAINABILITY ON HIGH-DIMENSIONAL DATA",
+  "year": 2020
+}

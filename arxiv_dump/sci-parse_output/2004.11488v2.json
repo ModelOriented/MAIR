@@ -1,0 +1,1525 @@
+{
+  "abstractText": "Despite the recent advances in a wide spectrum of applications, machine learning models, especially deep neural networks, have been shown to be vulnerable to adversarial attacks. Attackers add carefully-crafted perturbations to input, where the perturbations are almost imperceptible to humans, but can cause models to make wrong predictions. Techniques to protect models against adversarial input are called adversarial defense methods. Although many approaches have been proposed to study adversarial attacks and defenses in different scenarios, an intriguing and crucial challenge remains that how to really understand model vulnerability? Inspired by the saying that \u201cif you know yourself and your enemy, you need not fear the battles\u201d, we may tackle the aforementioned challenge after interpreting machine learning models to open the black-boxes. The goal of model interpretation, or interpretable machine learning, is to extract human-understandable terms for the working mechanism of models. Recently, some approaches start incorporating interpretation into the exploration of adversarial attacks and defenses. Meanwhile, we also observe that many existing methods of adversarial attacks and defenses, although not explicitly claimed, can be understood from the perspective of interpretation. In this paper, we review recent work on adversarial attacks and defenses, particularly from the perspective of machine learning interpretation. We categorize interpretation into two types, feature-level interpretation and model-level interpretation. For each type of interpretation, we elaborate on how it could be used for adversarial attacks and defenses. We then briefly illustrate additional correlations between interpretation and adversaries. Finally, we discuss the challenges and future directions along tackling adversary issues with interpretation.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Ninghao Liu"
+    },
+    {
+      "affiliations": [],
+      "name": "Mengnan Du"
+    },
+    {
+      "affiliations": [],
+      "name": "Ruocheng Guo"
+    },
+    {
+      "affiliations": [],
+      "name": "Huan Liu"
+    },
+    {
+      "affiliations": [],
+      "name": "Xia Hu"
+    }
+  ],
+  "id": "SP:416599736080cbb4aae2dcd2412c0bd3255d41f3",
+  "references": [
+    {
+      "authors": [
+        "Ian J Goodfellow",
+        "Jonathon Shlens",
+        "Christian Szegedy"
+      ],
+      "title": "Explaining and harnessing adversarial examples",
+      "venue": "arXiv preprint arXiv:1412.6572,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Christian Szegedy",
+        "Wojciech Zaremba",
+        "Ilya Sutskever",
+        "Joan Bruna",
+        "Dumitru Erhan",
+        "Ian Goodfellow",
+        "Rob Fergus"
+      ],
+      "title": "Intriguing properties of neural networks",
+      "venue": "arXiv preprint arXiv:1312.6199,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Alexey Kurakin",
+        "Ian Goodfellow",
+        "Samy Bengio"
+      ],
+      "title": "Adversarial machine learning at scale",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Qi Lei",
+        "Lingfei Wu",
+        "Pin-Yu Chen",
+        "Alexandros G Dimakis",
+        "Inderjit S Dhillon",
+        "Michael Witbrock"
+      ],
+      "title": "Discrete adversarial attacks and submodular optimization with applications to text classification",
+      "venue": "Systems and Machine Learning (SysML),",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ninghao Liu",
+        "Hongxia Yang",
+        "Xia Hu"
+      ],
+      "title": "Adversarial detection with model interpretation",
+      "venue": "In KDD,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Daniel Z\u00fcgner",
+        "Amir Akbarnejad",
+        "Stephan G\u00fcnnemann"
+      ],
+      "title": "Adversarial attacks on neural networks for graph data",
+      "venue": "In KDD,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Dawn Song",
+        "Kevin Eykholt",
+        "Ivan Evtimov",
+        "Earlence Fernandes",
+        "Bo Li",
+        "Amir Rahmati",
+        "Florian Tramer",
+        "Atul Prakash",
+        "Tadayoshi Kohno"
+      ],
+      "title": "Physical adversarial examples for object detectors",
+      "venue": "In 12th {USENIX} Workshop on Offensive Technologies ({WOOT}",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Mary Frances Zeager",
+        "Aksheetha Sridhar",
+        "Nathan Fogal",
+        "Stephen Adams",
+        "Donald E Brown",
+        "Peter A Beling"
+      ],
+      "title": "Adversarial learning in credit card fraud detection",
+      "venue": "Systems and Information Engineering Design Symposium (SIEDS),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Nicolas Papernot",
+        "Patrick McDaniel",
+        "Ian Goodfellow",
+        "Somesh Jha",
+        "Z Berkay Celik",
+        "Ananthram Swami"
+      ],
+      "title": "Practical black-box attacks against machine learning",
+      "venue": "In Proceedings of the 2017 ACM on Asia conference on computer and communications security,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Nicolas Papernot",
+        "Patrick McDaniel",
+        "Ian Goodfellow"
+      ],
+      "title": "Transferability in machine learning: from phenomena to black-box attacks using adversarial samples",
+      "venue": "arXiv preprint arXiv:1605.07277,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Seyed-Mohsen Moosavi-Dezfooli",
+        "Alhussein Fawzi",
+        "Omar Fawzi",
+        "Pascal Frossard"
+      ],
+      "title": "Universal adversarial perturbations",
+      "venue": "In CVPR,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Simen Thys",
+        "Wiebe Van Ranst",
+        "Toon Goedem\u00e9"
+      ],
+      "title": "Fooling automated surveillance cameras: adversarial patches to attack person detection",
+      "venue": "In CVPR Workshops,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Alexey Kurakin",
+        "Ian Goodfellow",
+        "Samy Bengio"
+      ],
+      "title": "Adversarial examples in the physical world",
+      "venue": "arXiv preprint arXiv:1607.02533,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Finale Doshi-Velez",
+        "Been Kim"
+      ],
+      "title": "Towards a rigorous science of interpretable machine learning",
+      "venue": "arXiv preprint arXiv:1702.08608,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Tania Lombrozo"
+      ],
+      "title": "The structure and function of explanations",
+      "venue": "Trends in cognitive sciences,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Frank C Keil"
+      ],
+      "title": "Explanation and understanding",
+      "venue": "Annu. Rev. Psychol.,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Carl G Hempel",
+        "Paul Oppenheim"
+      ],
+      "title": "Studies in the logic of explanation",
+      "venue": "Philosophy of science,",
+      "year": 1948
+    },
+    {
+      "authors": [
+        "Gr\u00e9goire Montavon",
+        "Wojciech Samek",
+        "Klaus- Robert M\u00fcller"
+      ],
+      "title": "Methods for interpreting and understanding deep neural networks",
+      "venue": "Digital Signal Processing,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Jan Hendrik Metzen",
+        "Tim Genewein",
+        "Volker Fischer",
+        "Bastian Bischoff"
+      ],
+      "title": "On detecting adversarial perturbations",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Cihang Xie",
+        "Jianyu Wang",
+        "Zhishuai Zhang",
+        "Zhou Ren",
+        "Alan Yuille"
+      ],
+      "title": "Mitigating adversarial effects through randomization",
+      "venue": "arXiv preprint arXiv:1711.01991,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Fangzhou Liao",
+        "Ming Liang",
+        "Yinpeng Dong",
+        "Tianyu Pang",
+        "Xiaolin Hu",
+        "Jun Zhu"
+      ],
+      "title": "Defense against adversarial attacks using high-level representation guided denoiser",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Weilin Xu",
+        "David Evans",
+        "Yanjun Qi"
+      ],
+      "title": "Feature squeezing: Detecting adversarial examples in deep neural networks",
+      "venue": "arXiv preprint arXiv:1704.01155,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Cihang Xie",
+        "Yuxin Wu",
+        "Laurens van der Maaten",
+        "Alan L Yuille",
+        "Kaiming He"
+      ],
+      "title": "Feature denoising for improving adversarial robustness",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Aleksander Madry",
+        "Aleksandar Makelov",
+        "Ludwig Schmidt",
+        "Dimitris Tsipras",
+        "Adrian Vladu"
+      ],
+      "title": "Towards deep learning models resistant to adversarial attacks",
+      "venue": "arXiv preprint arXiv:1706.06083,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Nicolas Papernot",
+        "Patrick McDaniel",
+        "Xi Wu",
+        "Somesh Jha",
+        "Ananthram Swami"
+      ],
+      "title": "Distillation as a defense to adversarial perturbations against deep neural networks",
+      "venue": "IEEE Symposium on Security and Privacy (SP). IEEE",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Jiajun Lu",
+        "Theerasit Issaranon",
+        "David Forsyth"
+      ],
+      "title": "Safetynet: Detecting and rejecting adversarial examples robustly",
+      "venue": "In ICCV,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Guanhong Tao",
+        "Shiqing Ma",
+        "Yingqi Liu",
+        "Xiangyu Zhang"
+      ],
+      "title": "Attacks meet interpretability: Attributesteered detection of adversarial samples",
+      "venue": "In NIPS,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Zhitao Gong",
+        "Wenlu Wang",
+        "Wei-Shinn Ku"
+      ],
+      "title": "Adversarial and clean data are not twins",
+      "venue": "arXiv preprint arXiv:1704.04960,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Dongyu Meng",
+        "Hao Chen"
+      ],
+      "title": "Magnet: a two-pronged defense against adversarial examples",
+      "venue": "In Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Kathrin Grosse",
+        "Praveen Manoharan",
+        "Nicolas Papernot",
+        "Michael Backes",
+        "Patrick McDaniel"
+      ],
+      "title": "On the (statistical) detection of adversarial examples",
+      "venue": "arXiv preprint arXiv:1702.06280,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Mengnan Du",
+        "Ninghao Liu",
+        "Fan Yang",
+        "Shuiwang Ji",
+        "Xia Hu"
+      ],
+      "title": "On attribution of recurrent neural network predictions via additive decomposition",
+      "venue": "In The World Wide Web Conference,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Bolei Zhou",
+        "Aditya Khosla",
+        "Agata Lapedriza",
+        "Aude Oliva",
+        "Antonio Torralba"
+      ],
+      "title": "Learning deep features for discriminative localization",
+      "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Karen Simonyan",
+        "Andrea Vedaldi",
+        "Andrew Zisserman"
+      ],
+      "title": "Deep inside convolutional networks: Visualising image classification models and saliency maps",
+      "venue": "arXiv preprint arXiv:1312.6034,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Cynthia Rudin"
+      ],
+      "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+      "venue": "Nature Machine Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "W James Murdoch",
+        "Chandan Singh",
+        "Karl Kumbier",
+        "Reza Abbasi-Asl",
+        "Bin Yu"
+      ],
+      "title": "Interpretable machine learning: definitions, methods, and applications",
+      "year": 1901
+    },
+    {
+      "authors": [
+        "Daniel Smilkov",
+        "Nikhil Thorat",
+        "Been Kim",
+        "Fernanda Vi\u00e9gas",
+        "Martin Wattenberg"
+      ],
+      "title": "Smoothgrad: removing noise by adding noise",
+      "venue": "arXiv preprint arXiv:1706.03825,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Florian Tram\u00e8r",
+        "Alexey Kurakin",
+        "Nicolas Papernot",
+        "Ian Goodfellow",
+        "Dan Boneh",
+        "Patrick McDaniel"
+      ],
+      "title": "Ensemble adversarial training: Attacks and defenses",
+      "venue": "arXiv preprint arXiv:1705.07204,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Xiaoyu Cao",
+        "Neil Zhenqiang Gong"
+      ],
+      "title": "Mitigating evasion attacks to deep neural networks via region-based classification",
+      "venue": "In ACSAC,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Mukund Sundararajan",
+        "Ankur Taly",
+        "Qiqi Yan"
+      ],
+      "title": "Axiomatic attribution for deep networks",
+      "venue": "In ICML,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Zhengping Che",
+        "Sanjay Purushotham",
+        "Robinder Khemani",
+        "Yan Liu"
+      ],
+      "title": "Distilling knowledge from deep networks with applications to healthcare domain",
+      "venue": "arXiv preprint arXiv:1512.03542,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Jun Gao",
+        "Ninghao Liu",
+        "Mark Lawley",
+        "Xia Hu"
+      ],
+      "title": "An interpretable classification framework for information extraction from online healthcare forums",
+      "venue": "Journal of healthcare engineering,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why should i trust you?: Explaining the predictions of any classifier",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Wenbo Guo",
+        "Dongliang Mu",
+        "Jun Xu",
+        "Purui Su",
+        "Gang Wang",
+        "Xinyu Xing"
+      ],
+      "title": "Lemna: Explaining deep learning based security applications",
+      "venue": "In CCS,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Battista Biggio",
+        "Igino Corona",
+        "Davide Maiorca",
+        "Blaine Nelson",
+        "Nedim \u0160rndi\u0107",
+        "Pavel Laskov",
+        "Giorgio Giacinto",
+        "Fabio Roli"
+      ],
+      "title": "Evasion attacks against machine learning at test time",
+      "venue": "In Joint European conference on machine learning and knowledge discovery in databases,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Anish Athalye",
+        "Nicholas Carlini",
+        "David Wagner"
+      ],
+      "title": "Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Adith Boloor",
+        "Xin He",
+        "Christopher Gill",
+        "Yevgeniy Vorobeychik",
+        "Xuan Zhang"
+      ],
+      "title": "Simple physical adversarial examples against end-to-end autonomous driving models",
+      "venue": "In ICESS",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Amit Dhurandhar",
+        "Pin-Yu Chen",
+        "Ronny Luss",
+        "Chun- Chen Tu",
+        "Paishun Ting",
+        "Karthikeyan Shanmugam",
+        "Payel Das"
+      ],
+      "title": "Explanations based on the missing: Towards contrastive explanations with pertinent negatives",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Motoki Sato",
+        "Jun Suzuki",
+        "Hiroyuki Shindo",
+        "Yuji Matsumoto"
+      ],
+      "title": "Interpretable adversarial perturbation in input embedding space for text",
+      "venue": "In IJCAI,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Warren He",
+        "James Wei",
+        "Xinyun Chen",
+        "Nicholas Carlini",
+        "Dawn Song"
+      ],
+      "title": "Adversarial example defense: Ensembles of weak defenses are not strong",
+      "venue": "In 11th {USENIX} Workshop on Offensive Technologies ({WOOT}",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Alexey Kurakin",
+        "Ian Goodfellow",
+        "Samy Bengio",
+        "Yinpeng Dong",
+        "Fangzhou Liao",
+        "Ming Liang",
+        "Tianyu Pang",
+        "Jun Zhu",
+        "Xiaolin Hu",
+        "Cihang Xie"
+      ],
+      "title": "Adversarial attacks and defences",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ludwig Schmidt",
+        "Shibani Santurkar",
+        "Dimitris Tsipras",
+        "Kunal Talwar",
+        "Aleksander Madry"
+      ],
+      "title": "Adversarially robust generalization requires more data",
+      "venue": "In NIPS,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Hongyang Zhang",
+        "Yaodong Yu",
+        "Jiantao Jiao",
+        "Eric Xing",
+        "Laurent El Ghaoui",
+        "Michael Jordan"
+      ],
+      "title": "Theoretically principled trade-off between robustness and accuracy",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Daniel Cullina",
+        "Arjun Nitin Bhagoji",
+        "Prateek Mittal"
+      ],
+      "title": "Pac-learning in the presence of adversaries",
+      "venue": "In NIPS,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Nicholas Baker",
+        "Hongjing Lu",
+        "Gennady Erlikhman",
+        "Philip J Kellman"
+      ],
+      "title": "Deep convolutional networks do not classify based on global object shape",
+      "venue": "PLoS computational biology,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Baifeng Shi",
+        "Dinghuai Zhang",
+        "Qi Dai",
+        "Zhanxing Zhu",
+        "Yadong Mu",
+        "Jingdong Wang"
+      ],
+      "title": "Informative dropout for robust representation learning: A shape-bias perspective",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Gil Fidel",
+        "Ron Bitton",
+        "Asaf Shabtai"
+      ],
+      "title": "When explainability meets adversarial learning: Detecting adversarial examples using shap signatures",
+      "year": 1909
+    },
+    {
+      "authors": [
+        "Ruth C Fong",
+        "Andrea Vedaldi"
+      ],
+      "title": "Interpretable explanations of black boxes by meaningful perturbation",
+      "venue": "In ICCV,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Puyudi Yang",
+        "Jianbo Chen",
+        "Cho-Jui Hsieh",
+        "Jane- Ling Wang",
+        "Michael I Jordan"
+      ],
+      "title": "Ml-loo: Detecting adversarial examples with feature attribution",
+      "year": 1906
+    },
+    {
+      "authors": [
+        "Chiliang Zhang",
+        "Zuochang Ye",
+        "Yan Wang",
+        "Zhimou Yang"
+      ],
+      "title": "Detecting adversarial perturbations with saliency",
+      "venue": "IEEE 3rd International Conference on Signal and Image Processing (ICSIP),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Jingyuan Wang",
+        "Yufan Wu",
+        "Mingxuan Li",
+        "Xin Lin",
+        "Junjie Wu",
+        "Chao Li"
+      ],
+      "title": "Interpretability is a kind of safety: An interpreter-based ensemble for adversary defense",
+      "venue": "In KDD,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Yinpeng Dong",
+        "Hang Su",
+        "Jun Zhu",
+        "Fan Bao"
+      ],
+      "title": "Towards interpretable deep neural networks by leveraging adversarial examples",
+      "venue": "arXiv preprint arXiv:1708.05493,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Tianyuan Zhang",
+        "Zhanxing Zhu"
+      ],
+      "title": "Interpreting adversarially trained convolutional neural networks",
+      "venue": "In International Conference on Machine Learning,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Amirata Ghorbani",
+        "Abubakar Abid",
+        "James Zou"
+      ],
+      "title": "Interpretation of neural networks is fragile",
+      "venue": "In AAAI,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Akshayvarun Subramanya",
+        "Vipin Pillai",
+        "Hamed Pirsiavash"
+      ],
+      "title": "Fooling network interpretation in image classification",
+      "venue": "In ICCV,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Quanshi Zhang",
+        "Yu Yang",
+        "Haotian Ma",
+        "Ying Nian Wu"
+      ],
+      "title": "Interpreting cnns via decision trees",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Been Kim",
+        "Martin Wattenberg",
+        "Justin Gilmer",
+        "Carrie Cai",
+        "James Wexler",
+        "Fernanda Viegas"
+      ],
+      "title": "Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (tcav)",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Bolei Zhou",
+        "Yiyou Sun",
+        "David Bau",
+        "Antonio Torralba"
+      ],
+      "title": "Interpretable basis decomposition for visual explanation",
+      "venue": "In ECCV,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ninghao Liu",
+        "Xiao Huang",
+        "Jundong Li",
+        "Xia Hu"
+      ],
+      "title": "On interpretation of network embedding via taxonomy induction",
+      "venue": "In KDD,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Mahmood Sharif",
+        "Sruti Bhagavatula",
+        "Lujo Bauer",
+        "Michael K Reiter"
+      ],
+      "title": "Accessorize to a crime: Real and stealthy attacks on state-of-the-art face recognition",
+      "venue": "In CCS,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Yoshua Bengio",
+        "Aaron Courville",
+        "Pascal Vincent"
+      ],
+      "title": "Representation learning: A review and new perspectives",
+      "venue": "IEEE transactions on pattern analysis and machine intelligence,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Tom Young",
+        "Devamanyu Hazarika",
+        "Soujanya Poria",
+        "Erik Cambria"
+      ],
+      "title": "Recent trends in deep learning based natural language processing",
+      "venue": "IEEE Computational intelligenCe magazine,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "William L Hamilton",
+        "Rex Ying",
+        "Jure Leskovec"
+      ],
+      "title": "Representation learning on graphs: Methods and applications",
+      "venue": "arXiv preprint arXiv:1709.05584,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Irina Higgins",
+        "Loic Matthey",
+        "Arka Pal",
+        "Christopher Burgess",
+        "Xavier Glorot",
+        "Matthew Botvinick",
+        "Shakir Mohamed",
+        "Alexander Lerchner"
+      ],
+      "title": "beta-vae: Learning basic visual concepts with a constrained variational framework",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Abhishek Panigrahi",
+        "Harsha Vardhan Simhadri",
+        "Chiranjib Bhattacharyya"
+      ],
+      "title": "Word2sense: Sparse interpretable word embeddings",
+      "venue": "In ACL,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ninghao Liu",
+        "Qiaoyu Tan",
+        "Yuening Li",
+        "Hongxia Yang",
+        "Jingren Zhou",
+        "Xia Hu"
+      ],
+      "title": "Is a single vector enough? exploring node polysemy for network embedding",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Jianxin Ma",
+        "Chang Zhou",
+        "Peng Cui",
+        "Hongxia Yang",
+        "Wenwu Zhu"
+      ],
+      "title": "Learning disentangled representations for recommendation",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Amirata Ghorbani",
+        "James Wexler",
+        "James Y Zou",
+        "Been Kim"
+      ],
+      "title": "Towards automatic concept-based explanations",
+      "venue": "In NeurIPS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Binny Mathew",
+        "Sandipan Sikdar",
+        "Florian Lemmerich",
+        "Markus Strohmaier"
+      ],
+      "title": "The polar framework: Polar opposites enable interpretability of pre-trained word embeddings",
+      "venue": "In The World Wide Web Conference,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Been Kim",
+        "Cynthia Rudin",
+        "Julie A Shah"
+      ],
+      "title": "The bayesian case model: A generative approach for casebased reasoning and prototype classification",
+      "venue": "In NIPS,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Pang Wei Koh",
+        "Percy Liang"
+      ],
+      "title": "Understanding blackbox predictions via influence functions",
+      "venue": "In ICML,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Chaofan Chen",
+        "Oscar Li",
+        "Daniel Tao",
+        "Alina Barnett",
+        "Cynthia Rudin",
+        "Jonathan K Su"
+      ],
+      "title": "This looks like that: deep learning for interpretable image recognition",
+      "venue": "NeurIPS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Quanyu Dai",
+        "Xiao Shen",
+        "Liang Zhang",
+        "Qiang Li",
+        "Dan Wang"
+      ],
+      "title": "Adversarial training methods for network embedding",
+      "venue": "In The World Wide Web Conference,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Andrew Ilyas",
+        "Shibani Santurkar",
+        "Dimitris Tsipras",
+        "Logan Engstrom",
+        "Brandon Tran",
+        "Aleksander Madry"
+      ],
+      "title": "Adversarial examples are not bugs, they are features",
+      "year": 1905
+    },
+    {
+      "authors": [
+        "Haohan Wang",
+        "Xindi Wu",
+        "Zeyi Huang",
+        "Eric P Xing"
+      ],
+      "title": "High-frequency component helps explain the generalization of convolutional neural networks",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Scott M Lundberg",
+        "Su-In Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "In NIPS,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Xin Li",
+        "Fuxin Li"
+      ],
+      "title": "Adversarial examples detection in deep networks with convolutional filter statistics",
+      "venue": "In ICCV,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Reuben Feinman",
+        "Ryan R Curtin",
+        "Saurabh Shintre",
+        "Andrew B Gardner"
+      ],
+      "title": "Detecting adversarial samples from artifacts",
+      "venue": "arXiv preprint arXiv:1703.00410,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Dimitris Tsipras",
+        "Shibani Santurkar",
+        "Logan Engstrom",
+        "Alexander Turner",
+        "Aleksander Madry"
+      ],
+      "title": "Robustness may be at odds with accuracy",
+      "venue": "arXiv preprint arXiv:1805.12152,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Shibani Santurkar",
+        "Andrew Ilyas",
+        "Dimitris Tsipras",
+        "Logan Engstrom",
+        "Brandon Tran",
+        "Aleksander Madry"
+      ],
+      "title": "Image synthesis with a single (robust) classifier",
+      "venue": "NeurIPS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ninghao Liu",
+        "Xiao Huang",
+        "Jundong Li",
+        "Xia Hu"
+      ],
+      "title": "On interpretation of network embedding via taxonomy induction",
+      "venue": "In KDD,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Zeyuan Allen-Zhu",
+        "Yuanzhi Li"
+      ],
+      "title": "Feature purification: How adversarial training performs robust deep learning",
+      "venue": "arXiv preprint arXiv:2005.10190,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Ruocheng Guo",
+        "Lu Cheng",
+        "Jundong Li",
+        "P Richard Hahn",
+        "Huan Liu"
+      ],
+      "title": "A survey of learning causality with data: Problems and methods",
+      "venue": "ACM Computing Surveys (CSUR),",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Raha Moraffah",
+        "Mansooreh Karami",
+        "Ruocheng Guo",
+        "Adrienne Raglin",
+        "Huan Liu"
+      ],
+      "title": "Causal interpretability for machine learning-problems, methods and evaluation",
+      "venue": "ACM SIGKDD Explorations Newsletter,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Sandra Wachter",
+        "Brent Mittelstadt",
+        "Chris Russell"
+      ],
+      "title": "Counterfactual explanations without opening the black box: Automated decisions and the gdpr",
+      "venue": "Harv. JL & Tech.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jiwei Li",
+        "Will Monroe",
+        "Dan Jurafsky"
+      ],
+      "title": "Understanding neural networks through representation erasure",
+      "venue": "arXiv preprint arXiv:1612.08220,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Piotr Dabkowski",
+        "Yarin Gal"
+      ],
+      "title": "Real time image saliency for black box classifiers",
+      "venue": "In NIPS,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Olaf Ronneberger",
+        "Philipp Fischer",
+        "Thomas Brox"
+      ],
+      "title": "U-net: Convolutional networks for biomedical image segmentation",
+      "venue": "In International Conference on Medical image computing and computer-assisted intervention. Springer,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Karl Schulz",
+        "Leon Sixt",
+        "Federico Tombari",
+        "Tim Landgraf"
+      ],
+      "title": "Restricting the flow: Information bottlenecks for attribution",
+      "venue": "In ICLR,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Tanmayee Narendra",
+        "Anush Sankaran",
+        "Deepak Vijaykeerthy",
+        "Senthil Mani"
+      ],
+      "title": "Explaining deep learning models using causal inference",
+      "venue": "arXiv preprint arXiv:1811.04376,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Michael Harradon",
+        "Jeff Druce",
+        "Brian Ruttenberg"
+      ],
+      "title": "Causal learning and explanation of deep neural networks via autoencoded activations",
+      "venue": "arXiv preprint arXiv:1802.00541,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ninghao Liu",
+        "Yunsong Meng",
+        "Xia Hu",
+        "Tie Wang",
+        "Bo Long"
+      ],
+      "title": "Are interpretations fairly evaluated? a definition driven pipeline for post-hoc interpretability",
+      "venue": "arXiv preprint arXiv:2009.07494,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Brian Y Lim",
+        "Anind K Dey",
+        "Daniel Avrahami"
+      ],
+      "title": "Why and why not explanations improve the intelligibility of context-aware intelligent systems",
+      "venue": "In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems. ACM,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Menaka Narayanan",
+        "Emily Chen",
+        "Jeffrey He",
+        "Been Kim",
+        "Sam Gershman",
+        "Finale Doshi-Velez"
+      ],
+      "title": "How do humans understand explanations from machine learning systems? an evaluation of the human-interpretability of explanation",
+      "venue": "arXiv preprint arXiv:1802.00682,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Fan Yang",
+        "Shiva K Pentyala",
+        "Sina Mohseni",
+        "Mengnan Du",
+        "Hao Yuan",
+        "Rhema Linder",
+        "Eric D Ragan",
+        "Shuiwang Ji",
+        "Xia Ben Hu"
+      ],
+      "title": "Xfake: Explainable fake news detector with visualizations",
+      "venue": "In WWW,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Isabelle Bichindaritz",
+        "Cindy Marling"
+      ],
+      "title": "Case-based reasoning in the health sciences: What\u2019s next",
+      "venue": "Artificial intelligence in medicine,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Been Kim",
+        "Rajiv Khanna",
+        "Oluwasanmi O Koyejo"
+      ],
+      "title": "Examples are not enough, learn to criticize! criticism for interpretability",
+      "venue": "In NIPS,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Yash Goyal",
+        "Ziyan Wu",
+        "Jan Ernst",
+        "Dhruv Batra",
+        "Devi Parikh",
+        "Stefan Lee"
+      ],
+      "title": "Counterfactual visual explanations",
+      "venue": "In ICML,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Guoshuai Zhao",
+        "Hao Fu",
+        "Ruihua Song",
+        "Tetsuya Sakai",
+        "Zhongxia Chen",
+        "Xing Xie",
+        "Xueming Qian"
+      ],
+      "title": "Personalized reason generation for explainable song recommendation",
+      "venue": "ACM Transactions on Intelligent Systems and Technology (TIST),",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Juyeon Heo",
+        "Sunghwan Joo",
+        "Taesup Moon"
+      ],
+      "title": "Fooling neural network interpretations via adversarial model manipulation",
+      "venue": "arXiv preprint arXiv:1902.02041,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Dylan Slack",
+        "Sophie Hilgard",
+        "Emily Jia",
+        "Sameer Singh",
+        "Himabindu Lakkaraju"
+      ],
+      "title": "Fooling lime and shap: Adversarial attacks on post hoc explanation methods",
+      "venue": "In AAAI,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Ann-Kathrin Dombrowski",
+        "Maximillian Alber",
+        "Christopher Anders",
+        "Marcel Ackermann",
+        "Klaus- Robert M\u00fcller",
+        "Pan Kessel"
+      ],
+      "title": "Explanations can be manipulated and geometry is to blame",
+      "venue": "NeurIPS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Alexander Levine",
+        "Sahil Singla",
+        "Soheil Feizi"
+      ],
+      "title": "Certifiably robust interpretation in deep learning",
+      "venue": "arXiv preprint arXiv:1905.12105,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Peter W Battaglia",
+        "Jessica B Hamrick",
+        "Victor Bapst",
+        "Alvaro Sanchez-Gonzalez",
+        "Vinicius Zambaldi",
+        "Mateusz Malinowski",
+        "Andrea Tacchetti",
+        "David Raposo",
+        "Adam Santoro",
+        "Ryan Faulkner"
+      ],
+      "title": "Relational inductive biases, deep learning, and graph networks",
+      "venue": "arXiv preprint arXiv:1806.01261,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Sara Sabour",
+        "Nicholas Frosst",
+        "Geoffrey E Hinton"
+      ],
+      "title": "Dynamic routing between capsules",
+      "venue": "In NIPS,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jonas Peters",
+        "Dominik Janzing",
+        "Bernhard Sch\u00f6lkopf"
+      ],
+      "title": "Elements of causal inference: foundations and learning algorithms",
+      "venue": "MIT press,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Semantically equivalent adversarial rules for debugging nlp models",
+      "venue": "In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Tianyu Gu",
+        "Brendan Dolan-Gavitt",
+        "Siddharth Garg"
+      ],
+      "title": "Badnets: Identifying vulnerabilities in the machine learning model supply chain",
+      "venue": "arXiv preprint arXiv:1708.06733,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Ligeng Zhu",
+        "Zhijian Liu",
+        "Song Han"
+      ],
+      "title": "Deep leakage from gradients",
+      "venue": "arXiv preprint arXiv:1906.08935,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Andrei Barbu",
+        "David Mayo",
+        "Julian Alverio",
+        "William Luo",
+        "Christopher Wang",
+        "Dan Gutfreund",
+        "Josh Tenenbaum",
+        "Boris Katz"
+      ],
+      "title": "Objectnet: A large-scale biascontrolled dataset for pushing the limits of object recognition models",
+      "venue": "NeurIPS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Tom B Brown",
+        "Nicholas Carlini",
+        "Chiyuan Zhang",
+        "Catherine Olsson",
+        "Paul Christiano",
+        "Ian Goodfellow"
+      ],
+      "title": "Unrestricted adversarial examples",
+      "venue": "arXiv preprint arXiv:1809.08352,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Mengnan Du",
+        "Ninghao Liu",
+        "Fan Yang",
+        "Xia Hu"
+      ],
+      "title": "Learning credible deep neural networks with rationale regularization",
+      "venue": "In ICDM,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Cihang Xie",
+        "Mingxing Tan",
+        "Boqing Gong",
+        "Jiang Wang",
+        "Alan Yuille",
+        "Quoc V Le"
+      ],
+      "title": "Adversarial examples improve image recognition",
+      "year": 1911
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords Adversarial attack, model robustness, interpretation, explainability, deep learning"
+    },
+    {
+      "heading": "1. INTRODUCTION",
+      "text": "Machine learning (ML) techniques, especially recent deep learning models, are progressing rapidly and have been increasingly applied in various applications. Nevertheless, concerns have been posed about the security and reliability issues of ML models. In particular, many deep models are sus-\nceptible to adversarial attacks [1; 2]. That is, after adding certain well-designed but human imperceptible perturbation or transformation to a clean data instance, we are able to manipulate the prediction of the model. The data instances after being attacked are called adversarial samples. The phenomenon is intriguing since clean samples and adversarial samples are usually not distinguishable to a human. Adversarial samples may be predicted dramatically differently from clean samples, but the predictions usually do not make sense to a human.\nThe model vulnerability to adversarial attacks has been discovered in various applications or under different constraints. For examples, approaches for crafting adversarial samples have been proposed in tasks such as classification (e.g., on image data [3], text data [4], tabular data [5], graph data [6]), object detection [7], and fraud detection [8]. Adversarial attacks could be initiated under different constraints, such as assuming limited knowledge of attackers on target models [9; 10], assuming higher generalization level of attack [11; 12], posing different real-world constraints on attack [13; 14]. Given these progresses, several questions could be posted. First, are these progresses relatively independent of each other, or is there a underlying perspective from which we are able to discover the commonality behind them? Second, should adversarial samples be seen as the negligent corner cases that could be fixed by putting patches to models, or are they deeply rooted to the internal working mechanism of models that it is not easy get rid of?\nMotivated by the idiom that \u201cif you know yourself and your enemy, you need not fear the battles\u201d from The Art of War, in this paper, we answer the above questions and review the recent advances of adversarial attack and defense approaches from the perspective of interpretable machine learning. The\nar X\niv :2\n00 4.\n11 48\n8v 2\n[ cs\n.L G\n] 7\nO ct\n2 02\n0\nrelation between model interpretation and model robustness is illustrated in Figure 1. On one hand, if adversaries know how the target model work, they may utilize it to find model weakness and initiate attacks accordingly. On the other hand, if model developers know how the model works, they could identify the vulnerability and work on remediation in advance. Interpretation refers to the human-understandable information explaining what a model have learned or how a model makes prediction. Exploration of model interpretability has attracted many interests in recent years, because recent machine learning techniques, especially deep learning models, have been criticized due to lack of transparency. Some recent work starts to involve interpretability into the analysis of adversarial robustness. Also, although not being explicitly specified, in this survey we will show that many existing adversary-related work can be comprehended from another perspective as extension of model interpretation.\nBefore connecting the two domains, we first briefly introduce the subjects of interpretation to be covered in this paper. Interpretability is defined as \u201cthe ability to explain or to present in understandable terms to a human [15]\u201d. Although a formal definition of interpretation still remains elusive [15; 16; 17; 18], the overall goal is to obtain and transform information from models or their behaviors into a domain that human can make sense of [19]. For a more structured analysis, we categorize existing work into two categories: feature-level interpretation and model-level interpretation, as shown in Figure 2. Feature-level interpretation targets to find the most important features in a data sample to its prediction. Model-level interpretation explores the functionality of model components, and their internal states after being fed with input. This categorization is based on whether the internal working mechanism of models is involved in interpretation.\nFollowing the above categorization, the overall structure of this article is organized as below. To begin with, we briefly introduce different types of adversarial attack and defense strategies in Section 2. Then, we introduce different categories of interpretation approaches, and demonstrate in detail how interpretation correlates to the attack and defense strategies. Specifically, we discuss feature-level interpretation in Section 3 and model-level interpretation in Section 4. After that, we extend the discussion to additional relations between interpretation and adversarial aspects of model in Section 5. Finally, we discuss some opening challenges for future work in Section 6."
+    },
+    {
+      "heading": "2. ADVERSARIAL MACHINE LEARNING",
+      "text": "Before understanding how interpretation helps adversarial attack and defense, we first provide an overview of existing attack and defense methodologies."
+    },
+    {
+      "heading": "2.1 Adversarial Attacks",
+      "text": "In this subsection, we introduce different types of threat models for adversarial attack. The overall threat models may be categorized under different criteria. Based on different application scenarios, conditions, and adversary capabilities, specific attack strategies will be deployed."
+    },
+    {
+      "heading": "2.1.1 Untargeted vs Targeted Attack",
+      "text": "Based on the goal of attackers, the threat models can be classified into targeted and untargeted ones. For targeted attack, it attempts to mislead a model\u2019s prediction to a specific class\ngiven an instance. Let f denote the target model exposed to adversarial attack. A clean data instance is x0 \u2208 X, and X is the input space. We consider classification tasks, so f(x0) = c, c \u2208 {1, 2, ..., C}. One way of formulating the task of targeted attack is as below [2]:\nmin x\u2208X\nd(x,x0), s.t. f(x) = c \u2032 (1)\nwhere c\u2032 6= c, and d(x,x0) measures the distance between the two instances. A typical choice of distance measure is to use lp norms, where d(x,x0) = \u2016x\u2212 x0\u2016p. The core idea is to add small perturbation to the original instance x0 to make it being classified as c\u2032. However, in some cases, it is important to increase the confidence of perturbed samples being misclassified, so the task may also be formulated as:\nmax x\u2208X\nfc\u2032(x), s.t. d(x,x0) \u2264 \u03b4 (2)\nwhere fc\u2032(x) denotes the probability or confidence that x is classified as c\u2032 by f , and \u03b4 is a threshold limiting perturbation magnitude. For untargeted attack, its goal is to prevent a model from assigning a specific label to an instance. The objective of untargeted attack could be formulated in a similar way as targeted attack, where we just need to change the constraint as f(x) 6= c in Equation 1, or change the objective as minx\u2208X fc(x) in Equation 2. In some scenarios, the two types of attack above are also called false positive attack and false negative attack. The former aims to make models misclassify negative instances as positive, while the latter tries to mislead models to classify positive instances as negative. False positive attack and false negative attack sometimes are also called Type-I attack and Type-II attack."
+    },
+    {
+      "heading": "2.1.2 One-Shot vs Iterative Attack",
+      "text": "According to practical constraints, adversaries may initiate one-shot or iterative attack to target models. In one-shot attack, they have only one chance to generate adversarial samples, while iterative attack could take multiple steps to\nexplore better direction. Iterative attack can generate more effective adversarial samples than one-shot attack. However, it also requires more queries to the target model and more computation to initiate each attack, which may limit its application in some computational-intensive tasks."
+    },
+    {
+      "heading": "2.1.3 Data Dependent vs Universal Attack",
+      "text": "According to information sources, adversarial attacks could be data dependent or independent. In data dependent attack, perturbations are customized based on the target instance. For example, in Equation 1, the adversarial sample x is crafted based on the original instance x0. However, it is also possible to generate adversarial samples without referring to the input instance, and it is also named as universal attack [11; 20]. The problem can be abstracted as looking for a perturbation vector v so that\nf(x + v) 6= f(x) for \u201cmost\u201d x \u2208 X. (3)\nWe may need a number of training samples to obtain v, but it does not rely on any specific input at test time. Adversarial attack can be implemented efficiently once the vector v is solved."
+    },
+    {
+      "heading": "2.1.4 Perturbation vs Replacement Attack",
+      "text": "Adversarial attacks can also be categorized based on the way of input distortion. In perturbation attack, input features are shifted by specific noises so that the input is misclassified by the model. In this case, let x\u2217 denote the final adversarial sample, then it can be obtained via\nx\u2217 = x0 + \u2206x, (4)\nand usually \u2016\u2206x\u2016p is small. In replacement attack, certain parts of input are replace by adversarial patterns. Replacement attack is more natural in physical scenarios. For examples, criminals may want to wear specifically designed glasses to prevent them from being recognized by computer vision systems 1. Also, surveillance cameras may fail to detect persons wearing clothes attached with adversarial patches [13]. Suppose v denote the adversarial pattern, then replacement attack can be represented by using a mask m \u2208 {0, 1}|x0|, so that\nx\u2217 = x0 (1\u2212m) + v m (5)\nwhere the symbol denotes element-wise multiplication."
+    },
+    {
+      "heading": "2.1.5 White-Box vs Black-Box Attack",
+      "text": "In white-box attack, it is assumed that attackers know everything about the target model, which may include model architecture, weights, hyper-parameters and even training data. White-box attack helps discovering intrinsic vulnerabilities of the target model. It works in ideal cases representing the worst scenario that defenders have to confront. Black-box attack assumes that attackers are only accessible to the model output, just like normal end users. This is a more practical assumption in real-world scenarios. Although a lot of detailed information about models are occluded, black-box attack still poses significant threat to machine learning systems due to the transferability property of adversarial samples discovered in [10]. In this sense, attacker could build a new model f \u2032 to approximate the target\n1https://www.inovex.de/blog/machine-perception-facerecognition/\nmodel f , and adversarial samples created on f \u2032 could still be effective to f ."
+    },
+    {
+      "heading": "2.2 Defenses against Adversarial Attacks",
+      "text": "In this subsection, we briefly introduce the basic idea of different defense strategies against adversaries."
+    },
+    {
+      "heading": "2.2.1 Input Denoising",
+      "text": "As adversarial perturbation is a type of human imperceptible noise added to data, then a natural defense solution is to filter it out, or to use additional random transformation to offset adversarial noise. It is worth noting that fm could be added prior to model input layer [21; 22; 23], or as an internal component inside the target model [24]. Formally, for the former case, given an instance x\u2217 which is probably affected by adversaries, we hope to design a mapping fm, so that f(fm(x\n\u2217)) = f(x0). For the latter case, the idea is similar except that f is replace by certain intermediate layer output h."
+    },
+    {
+      "heading": "2.2.2 Model Robustification",
+      "text": "Refining the model to prepare itself against potential threat from adversaries is another widely applied strategy. The refinement of model could be achieved from two directions: changing the training objective, or modifying model structure. Some examples of the former include adversarial training [2; 1], and replacing empirical training loss with robust training loss [25]. The intuition behind is to consider in advance the threat of adversarial samples during model training, so that the resultant model gains robustness from training. Examples of model modification include model distillation [26], applying layer discretization [27], controlling neuron activations [28]. Formally, let f \u2032 denote the robust model, the goal is to make f \u2032(x\u2217)) = f \u2032(x0) = y."
+    },
+    {
+      "heading": "2.2.3 Adversarial Detection",
+      "text": "Different from the previous two strategies where we hope to discover the true label given an instance, adversarial detection tries to identify whether the given instance is polluted by adversarial perturbation. The general idea is to build another predictor fd, so that fd(x) = 1 if x has been polluted, and otherwise fd(x) = 0. The establishment process of fd could follow the normal routine of building a binary classifier [29; 30; 31].\nInput denoising and model robustification methods proactively recover the correction prediction from influences of adversarial attack, by fixing the input data and model architectures respectively. Adversarial detection methods reactively decide whether the model should make predictions against the input in order not to be fooled. Implementations of the proactive strategies are usually more challenging than the reactive one."
+    },
+    {
+      "heading": "3. FEATURE-LEVEL INTERPRETATION IN ADVERSARIAL MACHINE LEARNING",
+      "text": "Feature-level interpretation is a widely used post-hoc method to identify feature importance with respect to a prediction result. It focuses on the end-to-end relation between input and output, instead of carefully examining the internal states of models. Some examples include measuring the importance of phrases of sentences in text classification [32], and pixels in image classification [33]. In this section, we\nwill discuss how this type of interpretation correlates with the attack and defense of adversaries, although most work on adversarial machine learning does not analyze adversaries from this perspective."
+    },
+    {
+      "heading": "3.1 Feature-Level Interpretation for Understanding Adversarial Attack",
+      "text": "In this part, we will show that many feature-level interpretation techniques are closely coupled with existing adversarial attack methods, thus providing another perspective to understand adversarial attack."
+    },
+    {
+      "heading": "3.1.1 Gradient-Based Techniques",
+      "text": "Following the notations in previous discussion, we let fc(x0) denote the probability that model f classify the input instance x0 as class c. One of the intuitive ways to understand why such prediction is derived is to attribute prediction fc(x0) to feature dimensions of x0. A fundamental technique to obtain attribution scores is backpropagation. According to [34], fc(x0) can be approximated with a linear function surrounding x0 by computing its first-order Taylor expansion:\nfc(x) \u2248 fc(x0) + wTc \u00b7 (x\u2212 x0) (6)\nwhere wc is the gradient of fc with respect to input at x0, i.e., wc = \u2207xfc(x0). From the interpretation perspective, wc entries of large magnitude correspond to the features that are important around the current output.\nHowever, another perspective to comprehend the above equation is that, the interpretation coefficient vector wc also indicates the most effective direction of locally changing the prediction result by perturbing input away from x0. If we let \u2206x = x\u2212 x0 = \u2212wc, we are attacking the model f with respect to the input-label pair (c,x0). Such perturbation method is closely related to the Fast Gradient Sign (FGS) attacking method [1], where:\n\u2206x = \u00b7 sign(\u2207xJ(f,x0, c)), (7)\nexcept that (1) FGS computes the gradient of a certain cost function J nested outside f , and (2) it applies an additional sign() operation on gradient for processing images. However, if we define J with cross entropy loss, and the true label of x0 is c, then\n\u2207xJ(f,x0, c) = \u2212\u2207x log fc(x0) = \u2212 1\nfc(x0) \u2207xfc(x0), (8)\nwhich points to the same perturbation direction as reversing the interpretation wc. Both gradient-based interpretation and FGS rely on the assumption that the targeted model can be locally approximated by linear models.\nThe traditional FGS method is proposed under the setting of untargeted attack, where the goal is to impede input from being correctly classified. For targeted attack, where the goal is to misguide the model prediction towards a specific class, a typical way is Box-constrained L-BFGS (L-BFGSB) method [2]. Assume c\u2032 is the target label, the problem of L-BFGS-B is formulated as:\nargmin x\u2208X\n\u03b1 \u00b7 d(x,x0) + J(f,x, c\u2032) (9)\nwhere d is considered to control perturbation degree, and X is the input domain (e.g., [0, 255] for each channel of image input). The goal of attack is to make f(x) = c\u2032,\nwhile maintaining d(x,x0) to be small. Suppose we apply gradient descent to solve the problem, and x0 is the starting point. Similar to the previous discussion, if we define J as the cross entropy loss, then\n\u2212\u2207xJ(f,x0, c\u2032)) = \u2207x log fc\u2032(x0) \u221d wc\u2032 . (10)\nOn one hand, wc\u2032 locally and linearly interprets fc\u2032(x0), and it also serves the most effective direction to make x0 towards being classified as c\u2032.\nAccording to the taxonomy of adversarial attacks, the two scenarios discussed above can also be categorized into: (1) one-shot attack, since we only perform interpretation once, (2) data-dependent attack, since the perturbation direction is related with x0, (3) white-box attack, since model gradients are available. Other types of attack could be crafted if different interpretation strategies are applied, which will be discussed in later sections.\nImproved Gradient-Based Techniques. The interpretation methods based on raw gradients, as discussed above, are usually unstable and noisy [35; 36]. The possible reasons include: (1) the target model itself is not stable in terms of function surface or model establishment; (2) gradients only consider the local output-input relation so that its scope is too limited; (3) the prediction mechanism is too complex to be approximated by a linear substitute. Some approaches for improving interpretation (i.e., potential adversarial attack) are as below.\n\u2022 Region-Based Exploration: To reduce random noises in interpretation, SmoothGrad is proposed in [37], where the final interpretation wc, as a sensitivity map, is obtained by averaging a number of sensitivity maps of instances sampled around the target instance x0, i.e., wc =\u2211\nx\u2032\u2208N (x0) 1 |N (x0)| \u2207fc(x\u2032). The averaged sensitivity map will be visually sharpened. A straightforward way to extend it for adversarial attack is to perturb input by reversing the averaged map. Furthermore, [38] designed a different strategy by adding a step of random perturbation before gradient computation in attack, to jump out of the non-smooth vicinity of the initial instance. Spatial averaging is a common technique to stabilize output. For example, [39] applied it as a defense method to derive more stable model predictions.\n\u2022 Path-Based Integration: To improve interpretation, [40] proposes Integrated Gradient (InteGrad). After setting a baseline point xb, e.g., a black image in object recognition tasks, the interpretation is defined as:\nwc = (x0 \u2212 xb)\nD \u25e6 D\u2211 d=1 [\u2207fc](xb + d D (x0 \u2212 xb)), (11)\nwhich is the weighted sum of gradients along the straightline path from x0 to the baseline point x\nb. A similar strategy in adversarial attack is iterative attack [3], where the sample is iteratively perturbed as:\nx\u20320 = x0, x \u2032 d+1 = Clipx0, {x \u2032 d + \u03b1\u2207xJ(f,x\u2032d, c)}, (12)\nwhich gradually explore the perturbation along a path directed by a series of gradients. Clipx0, (x) denotes elementwise clipping x so that d(x\u2212 x0) \u2264 .\nInterestingly, although in many cases gradient-based interpretation is intuitive as visualization to show that the model\nis functioning well, it may be an illusion since we can easily transform interpretation into adversarial perturbation."
+    },
+    {
+      "heading": "3.1.2 Distillation-Based Techniques",
+      "text": "The interpretation techniques discussed so far require gradient information \u2207xf from models. Meanwhile, it is possible to extract interpretation without querying a model f more than f(x). This type of interpretation methods, here named as distillation-based methods, can be also used for adversarial attack. Since no internal knowledge is required from the target model, they are usually used for black-box attack.\nThe main idea of applying distillation for interpretation is to use an interpretable model g (e.g., a decision tree) to mimic the behavior of the target deep model f [41; 42]. Once we obtain g, existing white-box attack methods could be applied to craft adversarial samples [5]. In addition, given an instance x0, to guarantee that g more accurately mimics the nuanced behaviors of f , we could further require that g locally approximates f around the instance. The objective is thus as below:\nmin g L(f, g,x0) + \u03b1 \u00b7 C(g), (13)\nwhere L denotes the approximation error around x0. For examples, in LIME [43]:\nL(f, g,x0) = \u2211\nx\u2032\u2208N (x0)\nexp(\u2212d(x0,x\u2032))\u2016f(x\u2032)\u2212 g(x\u2032)\u20162,\n(14) and N (x0) denotes the local region around x0. In addition, LEMNA [44] adopts mixture regression models for g and fused lasso as regularization C(g). After obtaining g, we can craft adversarial samples targeting g using attack methods by removing or reversing the interpretation result. According to the property of transferability [10], an adversarial sample that successfully fools g is also likely to fool f . The advantages are two-fold. First, the process is model agnostic and does not assume availability to gradients. It could be used for black-box attack or attacking certain types of models (such as tree-based models) that do not use gradient backpropagation in training. Second, one-shot attacks on g could be more effective thanks to the smoothness term C(g) as well as extending the consideration to include the neighborhood of x0 [45]. Thus, it has the potential to cause defense methods that are based on obfuscated gradients [46] to be less robust. The disadvantage is that crafting each adversarial sample requires high computation cost.\nIn certain scenarios, it is beneficial to make adversarial patterns understandable to humans as real-world simulation when identifying model vulnerability. For examples, in autonomous driving, we need to consider physically-possible patterns that could cause misjudgement of autonomous vehicles [47]. One possible approach is to constrain adversarial instances to fall into the data distribution. For example, [48] achieves this through an additional regularization term \u2016x0 + \u2206x \u2212 AE(x0 + \u2206x)\u2016, where AE(\u00b7) denotes an autoencoder. Another strategy is to predefine a dictionary, and then makes the adversarial perturbation to match one of the dictionary tokens [47], or a weighted combination of the tokens [49].\n3.2 Feature-level Interpretation against Adversaries\nFeature-level interpretation could be used for defense against adversaries through adversarial training and detecting model vulnerability."
+    },
+    {
+      "heading": "3.2.1 Model Robustification with Feature-level Interpretation",
+      "text": "Feature-level interpretation could help adversarial training to improve model robustness. Adversarial training [1; 3] is one of the most applied proactive countermeasures to improve the robustness of the model. Its core idea is to first generate adversarial samples to unveil the weakness of the model, and then inject the adversarial samples into training set for data augmentation. The overall loss function can be formulated as:\nmin f\nE(x,y)\u2208D [\u03b1J(f(x), y) + (1\u2212 \u03b1)J(f(x\u2217), y)]. (15)\nIn the scenario of adversarial training, feature-level interpretation helps in preparing adversarial samples x\u2217, which may refer to any method discussed in Section 3.1. Although such an attack-and-then-debugging strategy has been successfully applied in many traditional cybersecurity scenarios, one key drawback is that it tends to overfit to the specific approach that is used to generate x\u2217. It is untenable and ineffective [50] to exhaust a number of possible attacking methods for data preparation. Meanwhile, it is argued that naive adversarial training may actually perform gradient masking instead of moving the decision boundary [46; 51].\nTo train more robust models, some optimization based methods have been proposed. [25] argued that traditional Empirical Risk Minimization (ERM) fails to yield models that are robust to adversarial instances, and proposed a min-max formulation to train robust models:\nmin f E(x,y)\u2208D [ max \u03b4\u2208\u2206X J(x + \u03b4, y)], (16)\nwhere \u2206X denotes the set of allowed perturbations. It formally defines adversarially robust classification as a learning problem to reduce adversarial expected risk. This minmax formulation provides another perspective on adversarial\ntraining, where the inner task aims to find adversarial samples, and the outer task retrains model parameters. [38] further improves its defense performance by crafting adversarial samples from multiple sources to augment training data. This strategy is also implicitly supported in [52] which shows training robust models requires much greater data complexity. [53] further identifies a trade-off between robust classification error [52; 54] and natural classification error, which provides a solution to reduce the negative effect on model accuracy after adversarial training.\nBesides adversarial training, feature-level interpretation can also provide motivation to robust learning. For example, empirical interpretation results pointed out, that an intriguing property of CNN is its bias towards texture instead of shape in making predictions [55]. To tackle this problem, [56] proposes InfoDrop, a plug-in filtering method to remove texture-intensive information during forward propagation of CNN. Feature map regions with low self-information, i.e., regions being observed based on their contents contain less \u201csurprise\u201d, tend to be filtered out. In this way, the model will pay more attention to regions such as edges and corners, and be more robust under various scenarios including adversaries."
+    },
+    {
+      "heading": "3.2.2 Adversarial Detection with Feature-level Interpretation",
+      "text": "In the scenario where a model is subject to adversarial attack, interpretation may serve as a new type of information for directly detecting adversarial patterns. The motivation is illustrated in Figure 3. For the adversarial image which originally shows a shoe, although the model classifies it as shirt, its interpretation result does not resemble the one obtained from the clean image of a shirt. A straightforward way to distinguish interpretations is to train another classifier fd as the detector trained with interpretations of both clean and adversarial instances, paired with labels indicating whether the sample is clean [57; 58; 59; 60]. Specifically, [60] directly uses gradient-based saliency map as interpretation, [59] adopts the distribution of Leave-One-Out (LOO) attribution scores, while [58] proposes a new interpretation method based on masks highlighting important regions. [61] proposes an ensemble framework called X-Ensemble for detecting adversarial samples. X-Ensemble consists of multiple sub-detectors, each of which is a convolutional neural network to classify whether an instance is adversarial or benign. The input to each sub-detector is the interpretation on the instance\u2019s prediction. More than one interpretation methods are deployed so there are multiple sub-detectors. A random forest model is then used to combine sub-detectors into a powerful ensemble detector.\nIn more scenarios, interpretation serves as a diagnosis tool to qualitatively identify model vulnerability. First, we could use interpretation to identify whether inputs are affected by adversarial attack. For example, if interpretation result shows that unreasonable evidences have been used for prediction [62], then it is possible that there exists suspicious but imperceptible input pattern. Second, interpretation may reflect whether a model is susceptible to adversarial attack. Even given a clean input instance, if interpretation of model prediction does not make much sense to human, then the model is under the risk of being attacked. For examples, in a social spammer detection system, if the model regards certain features as important but they are\nnot strongly correlated with maliciousness, then attackers could easily manipulate these features without much cost to fool the system [5]. Also, in image classification, CNN models have been demonstrated to focus on local textures instead of object shapes, which could be easily utilized by attackers [55]. An interesting phenomenon in image classification is that, after refining a model with adversarial training, feature-level interpretation results indicate that the refined model will be less biases towards texture features [63].\nNevertheless, there are several challenges that impede the intuitions above from being formulated to formal defense approaches. First, interpretation itself is also fragile in neural networks. Attackers could control prediction and interpretation simultaneously via indistinguishable perturbation [64; 65]. Second, it is difficult to quantify the robustness of model through interpretation [35]. Manual inspection of interpretation helps discover defects in model, but visually acceptable interpretation does not guarantee model robustness. That is, defects in feature-level interpretation indicate the presence but not the absence of vulnerability."
+    },
+    {
+      "heading": "4. MODEL-LEVEL INTERPRETATION IN ADVERSARIAL MACHINE LEARNING",
+      "text": "In this review, model-level interpretation is defined with two aspects. First, model-level interpretation aims to figure out what has been learned by intermediate components in a trained model [66; 34], or what is the meaning of different locations in latent space [67; 68; 69]. Second, given an input instance, model-level interpretation unveils how the input is encoded by those components as latent representation [67; 68; 22; 24]. In our discussion, the former does not rely on input instances, while the later is the opposite. Therefore, we name the two aspects as Static Model Interpretation and Representation Interpretation respectively to further distinguish them. Representation interpretation could rely on static model interpretation."
+    },
+    {
+      "heading": "4.1 Static Model Interpretation for Understanding Adversarial Attack",
+      "text": "For deep models, one of the most widely explored strategies is to explore the visual or semantic meaning of each neuron. A popular strategy for solve this problem is to recover the patterns that activate the neuron of interests at a specific layer [70; 34]. Following the previous notations, let h(x) denote the activation of neuron h given input, the perceived pattern of the neuron can be visualized via solving the problem below:\nargmax x\u2032\nh(x\u2032)\u2212 \u03b1 \u00b7 C(x\u2032), (17)\nwhere C(\u00b7) such as \u2016 \u00b7 \u20161 or \u2016 \u00b7 \u20162 acts as regularization. Conceptually, the result contains patterns that neuron h is sensitive to. If we choose h to be fc, then the resultant x\u2032 illustrates class appearances learned by the target model. Another discussion about different choices of h, such as neurons, channels, layers, logits and class probabilities, is provided in [71]. Similarly, we could also formulate another minimization problem\nargmin x\u2032\nh(x\u2032) + \u03b1 \u00b7 C(x\u2032), (18)\nto produce patterns that prohibit activation of certain model components or prediction towards certain classes.\nThe interpretation result x\u2032 is highly related with several types of adversarial attack, with some examples shown in Figure 4:\n\u2022 Targeted-Universal-Perturbation Attack: If we set h to be class relevant mapping such as fc, then x\n\u2032 can be directly added to target input instance as targeted perturbation attack. That is, given a clean input x0, the adversarial sample x\u2217 is crafted simply as x\u2217 = x0 +\u03bb \u00b7x\u2032 to make f(x\u2217) = c. It belongs to universal attack, because the interpretation process in Eq.17 does not utilize any information of the clean input.\n\u2022 Untargeted-Universal-Perturbation Attack: If we set h to be the aggregation of a number of middle-level layer mappings, such as h(x\u2032) = \u2211 l log(h l(x\u2032)) where hl\ndenotes the feature map tensor at layer l, the resultant x\u2032 is expected to produce spurious activation to confuse the prediction of CNN models given any input, which implies f(x0 + \u03bb \u00b7 x\u2032) 6= f(x0) with high probability [12].\n\u2022 Universal-Replacement Attack: Adversarial patches, which completely replace part of input, represent a visually different attack from perturbation attack. Based on Eq.17, more parameters such as masks, shape, location and rotation could be considered in the optimization to control x\u2032 [72]. The patch is obtained as x\u2032 m, and the adversarial sample x\u2217 = x0 (1\u2212m) +x\u2032 m, where m is a binary mask that defines patch shape. Besides, based on Eq.18, after defining h as the objectness score function in person detectors [13] or as the logit corresponding to human class [73], it produces real-world patches attachable to human bodies to avoid them being detected by surveillance camera."
+    },
+    {
+      "heading": "4.2 Representation Interpretation for Initiating Adversarial Attack",
+      "text": "Representation learning plays a crucial role in recent advances of machine learning, with applications in vision [74], natural language processing [75] and network analysis [76].\nHowever, the opacity of representation space also becomes the bottleneck for understanding complex models. A commonly used strategy toward understanding representation is to define a set of explainable basis, and then decompose representation points along the basis. Formally, let zi \u2208 RD denote a representation vector, and {bk \u2208 RD}Kk=1 denote the basis set, where D denotes the representation dimension and K is the number of base vectors. Then, through decomposition\nzi = K\u2211 k=1 pi,k \u00b7 bk, (19)\nwe can explain the meaning of zi through referencing base vectors whose semantics are known, where pi,k measures the affiliation degree between instance zi and bk. The work of providing representation interpretation following this scheme can be divided into several groups:\n\u2022 Dimension-wise Interpretation: A straightforward way to achieve interpretability is to require each dimension to have a concrete meaning [77; 78], so that the basis can be seen as non-overlapping one-hot vectors. A natural extension to this would be to allow several dimensions (i.e., a segment) to jointly encode one meaning [79; 80].\n\u2022 Concept-wise Interpretation: A set of high-level and intuitive concepts could first be defined, so that each bk encodes one concept. Some examples include visual concepts [68; 67; 81], antonym words [82], and network communities [69].\n\u2022 Example-wise Interpretation: Each base vector can be designed to match one data instance [83; 84; 85] or part of the instance [86]. Those instances are also called prototypes. For examples, a prototype could be an image region [86] or a node in networks [85].\nThe extra knowledge obtained from representation interpretation could be used to guide the direction of adversarial perturbation. However, the motivation of this type of work usually is to initiate more meaningful adversaries and then use adversarial training to improve model generalization, but not for the pure purpose of undermining model performance. For examples, in text mining, [49] restricts perturbation direction of each word embedding to be a linear combination of vocabulary word embeddings, which improves model performance in text classification with adversarial training. In network embedding, [87] restricts perturbation of a node\u2019s embedding towards the embeddings of the node\u2019s neighbors in the network, which benefits node classification and link prediction."
+    },
+    {
+      "heading": "4.3 Model-level Interpretation against Adversaries",
+      "text": "Model-level interpretation develops an internal understanding of a model, including its weakness. Defenders could either choose to improve model robustness or develop a detector using internal data representation."
+    },
+    {
+      "heading": "4.3.1 Model Robustification with Model-level Interpretation",
+      "text": "Some high-level features learned by deep models are not robust, which is insufficient to train robust models. A novel algorithm is proposed in [88] to build datasets of robust\nfeatures. Let h : X \u2192 R denote a transformation function that maps input to a representation neuron. Each instance in the robust dataset Dr is constructed from the original dataset D through solving a optimization problem:\nE(x,y)\u2208Dr [h(x) \u00b7 y] = { E(x,y)\u2208D[h(x) \u00b7 y], if h \u2208 Hr 0, otherwise (20)\nwhere Hr denotes the set of features utilized by robust models. In this way, input information that corresponds to nonrobust representations are suppressed.\nDespite not being directly incorporated in the procedure of model training, inspection of model-level interpretation, especially latent representation, has motivated several defense approaches. Through visualizing feature maps of latent representation layers, the noise led by adversarial perturbation can be easily observed [24; 22; 59]. With this observation, [24] proposes adding denoising blocks between intermediate layers of deep models, where the core function of the denoising blocks are chosen as low-pass filters. [22] observed that adversarial perturbation is magnified through feedforward propagation in deep models, and proposed a U-net model structure as denoiser. Furthermore, through neuron pattern visualization, [89] found that convolutional kernels of CNNs after adversarial training tend to show a more smooth pattern. Based on this observation, they propose to average each kernel weight with its neighbors in a CNN model, in order to to improve the adversarial robustness."
+    },
+    {
+      "heading": "4.3.2 Adversarial Detection with Model-level Interpretation",
+      "text": "Instead of training another large model as detector using raw data, we can also leverage model-level interpretation to detect adversarial instances more efficiently. By regarding neurons as high-level features, readily available interpretation methods such as SHAP [90] could be applied for feature engineering to build adversarial detector [57]. After inspecting the role of neurons in prediction, a number of critical neurons could be selected. A steered model could be obtained by strengthening those critical neurons, while adversarial instances are detected if they are predicted very differently by the original model and steered model [28]. Nevertheless, the majority of work on adversarial detection utilizes latent representation of instances without inspecting their meanings, such as directly applying statistical methods on representations to build detectors [20; 91; 92] or conducting additional coding steps on activations of neurons [27]."
+    },
+    {
+      "heading": "5. ADDITIONAL RELATIONS BETWEEN ADVERSARY AND INTERPRETATION",
+      "text": "In previous context, we have discussed how interpretation could be leveraged in adversarial attack and defense. In this section, we complement this viewpoint by analyzing the role of adversarial aspect of models in defining and evaluating interpretation. In addition, we specify the distinction between the two domains."
+    },
+    {
+      "heading": "5.1 Improving Interpretation via Building Robust Models",
+      "text": "In previous content, we have discussed the role of interpretation in studying model robustness. From another perspective, improving model robustness also influences interpretation of models. First, the representations learned by robust\nmodels tend to align better with salient data characteristics and human perception [93]. Therefore, adversarially robust image classifiers are also useful in more sophisticated tasks such as generation, super-resolution and translation [94], even without relying on GAN frameworks. Also, when attacking a robust classifier, resultant adversarial samples tend to be recognized similarly by the classifier and human [93]. In addition, retraining with adversarial samples [63], or regularizing gradients to improve model robustness [95], has been discovered to reduce noises from gradient-based sensitivity maps, and encourage CNN models to focus more on object shapes in making predictions. To take a step further, [96] presents the principle of \u201cfeature purification\u201d. The work discovers that dense mixtures of patterns exist in the weights of models trained with clean data using normal gradient descent. The dense pattern mixtures still generalize well when being used to predict normal data, but they are extremely sensitive to small perturbation in input. It then theoretically proves under two-layer neural networks that, through adversarial training, dense pattern mixtures could be removed, as visualized through neuron interpretation."
+    },
+    {
+      "heading": "5.2 Defining Interpretation With Adversaries",
+      "text": "Some definitions of interpretation are inspired by adversarial perturbation. For feature-level interpretation, to understand the importance of a certain feature x, we try to answer a hypothetical question that \u201cWhat would happen to the prediction Y, if x is removed or distorted?\u201d. This is closely related to causal inference [97; 98], and samples crafted in this way are also called counterfactual explanations [99]. For example, to understand how different words in sentences contribute to downstream NLP tasks, we can erase the target words from input, so that the variation in output indicates whether the erased information is important for prediction [100]. In image processing, salient regions could be defined as the input parts that most affect the output value when perturbed [58]. Considering that using traditional iterative algorithms to generate masks is timeconsuming, Goyal et al. [101] develops trainable masking models that generate masks in real time. In order to make the masks sharp and precise, the U-Net architecture [102] is applied for building the trainable model. Besides, objective function above can also be reformulated with the information bottleneck [103].\nBesides defining feature-level interpretation, the similar strategy can be used to define static model interpretation. Essentially we need to answer the question that \u201cHow the model output will change if we change the component in the model?\u201d. The general idea is to treat the structure of a deep model as a causal model [104], or extract human understandable concepts to build a causal model [105], and then estimate the causal effect of each model component via causal reasoning. The importance of a component is measured by computing model output changes after the component is removed.\nAs a natural extension from the discussion above, adversarial perturbation can also be used to evaluate the interpretation result. For examples, after obtaining the important features, and understanding whether they are positively or negatively related to the output, we could remove or distort these features to observe the target model\u2019s performance change [5; 44]. If the target model\u2019s performance significantly drops, then we are likely to have extracted correct\ninterpretation. However, it is worth noting that the evaluation will not be fair if the metric and interpretation methods do not match [106]."
+    },
+    {
+      "heading": "5.3 Uniqueness of Model Explainability from Adversaries",
+      "text": "Despite the common techniques applied for acquiring interpretation and exploring adversary characteristics, some aspects of the two directions put radically different requirements. For examples, some applications require interpretation to be easily understood by human especially by AI novices, such as providing more user-friendly interfaces to visualize and present interpretation [107; 108; 109], while adversarial attack requires perturbation to be imperceptible to human. Some work tries to adapt interpretation to fit human cognition habits, such as providing examplebased interpretation [110], criticism mechanism [111] and counter-factual explanation [112]. Furthermore, generative models could be applied to create content from interpretation [113], where interpretation is post-processed into more understandable content such as dialogue texts. The emphasis of understandability in interpretability is exactly opposite to one of the objectives in adversarial attack, which focuses on crafting perturbation that is too subtle to be perceived by human."
+    },
+    {
+      "heading": "6. CHALLENGES AND FUTURE WORK",
+      "text": "We briefly introduce the challenges encountered in leveraging interpretation to analyze adversarial robustness of models. Finally, we discuss the future research directions."
+    },
+    {
+      "heading": "6.1 Model Development with Better Explainability",
+      "text": "Although interpretation could provide important directions against adversaries, interpretation techniques with better stability and faithfulness are needed before it could really be widely used as a reliable tool. As one of the challenges, it has been shown that many existing interpretation methods are vulnerable to adversarial attacks [64; 114; 65; 115]. A stable interpretation method, given an input instance and a target model, should be able to produce relatively consistent result under the situation that input may be subject to certain noises. As preliminary work, [116] analyzed the phenomenon from a geometric perspective of decision boundary and proposed a smoothed activation function to replace Relu. [117] proposed a sparsified variant of SmoothGrad [37] in producing saliency maps that is certifiably robust to adversarial attacks.\nBesides post-hoc interpretation, another challenge we are facing is how to develop intrinsically interpretable models [35]. With intrinsic interpretability, it could be easier for model developers to correct undesirable properties of models. One of the challenges is that requiring interpretability may negatively affect model performance. To tackle the problem, some preliminary work start to explore applying graph-based models, such as proposing relational inductive biases to facilitate learning about entities and their relations [118], towards a foundation of interpretable and flexible scheme of reasoning. Novel neural architectures have also been proposed such as capsule networks [119] and causal models [120]."
+    },
+    {
+      "heading": "6.2 Adversarial Attack in Real-World",
+      "text": "Scenarios\nThe most common scenario in existing work considers adversarial noises or patches in image classification or object detection. However, these types of perturbation may not represent the actual threats in physical world. To solve the challenge, more realistic adversarial scenarios need to be studied in different applications. Some preliminary work include verification code generation 2, and semantically/syntactically equivalent adversarial text generation [4; 121]. Meanwhile, model developers need to be consistently alert to new types of attack that utilizes interpretation as the back door. For examples, it is possible to build models that predict correctly on normal data, but make mistakes on input with certain secret attacker-chosen property [122]. Also, recently researchers found that it is possible to break data privacy by reconstructing private data merely from gradients communicated between machines [123]."
+    },
+    {
+      "heading": "6.3 Improving Models with Adversarial Samples",
+      "text": "The value of adversarial samples goes beyond simply serving as prewarning of model vulnerability. It is possible that the vulnerability to adversarial samples reflects some deeper generalization issues of deep models [124; 125]. Some preliminary work has been conducted to understand the difference between a robust model and a non-robust one. For examples, it has been shown that adversarially trained models possess better interpretability [63] and representations with higher quality [93; 94]. [126] also tries to connect adversarial robustness with model credibility, where credibility measures the degree that a model\u2019s reasoning conforms with human common sense. Another challenging problem is how to properly use adversarial samples to benefit model performance, since many existing work report that training with adversarial samples will lead to performance degradation especially on large data [3; 24]. Recently, [127] shows that, by separately considering the distributions of normal data and adversarial data with batch normalization, adversarial training can be used to improve model accuracy."
+    },
+    {
+      "heading": "7. CONCLUSION",
+      "text": "In this paper, we review the recent work of adversarial attack and defense by combining them with the recent advances of interpretable machine learning. Specifically, we categorize interpretation techniques into feature-level interpretation and model-level interpretation. Within each category, we investigated how the interpretation could be used for initiating adversarial attacks or designing defense approaches. After that, we briefly discuss other relations between interpretation and adversarial samples or robustness. Finally, we discuss current challenges of developing transparent and robust models, as well as potential directions to further utilizing adversarial samples."
+    },
+    {
+      "heading": "8. REFERENCES",
+      "text": "[1] Ian J Goodfellow, Jonathon Shlens, and Christian Szegedy. Explaining and harnessing adversarial examples. arXiv preprint arXiv:1412.6572, 2014.\n2https://github.com/littleredhat1997/captcha-adversarialattack\n[2] Christian Szegedy, Wojciech Zaremba, Ilya Sutskever, Joan Bruna, Dumitru Erhan, Ian Goodfellow, and Rob Fergus. Intriguing properties of neural networks. arXiv preprint arXiv:1312.6199, 2013.\n[3] Alexey Kurakin, Ian Goodfellow, and Samy Bengio. Adversarial machine learning at scale. 2017.\n[4] Qi Lei, Lingfei Wu, Pin-Yu Chen, Alexandros G Dimakis, Inderjit S Dhillon, and Michael Witbrock. Discrete adversarial attacks and submodular optimization with applications to text classification. Systems and Machine Learning (SysML), 2019.\n[5] Ninghao Liu, Hongxia Yang, and Xia Hu. Adversarial detection with model interpretation. In KDD, 2018.\n[6] Daniel Zu\u0308gner, Amir Akbarnejad, and Stephan Gu\u0308nnemann. Adversarial attacks on neural networks for graph data. In KDD, 2018.\n[7] Dawn Song, Kevin Eykholt, Ivan Evtimov, Earlence Fernandes, Bo Li, Amir Rahmati, Florian Tramer, Atul Prakash, and Tadayoshi Kohno. Physical adversarial examples for object detectors. In 12th {USENIX} Workshop on Offensive Technologies ({WOOT} 18), 2018.\n[8] Mary Frances Zeager, Aksheetha Sridhar, Nathan Fogal, Stephen Adams, Donald E Brown, and Peter A Beling. Adversarial learning in credit card fraud detection. In 2017 Systems and Information Engineering Design Symposium (SIEDS), 2017.\n[9] Nicolas Papernot, Patrick McDaniel, Ian Goodfellow, Somesh Jha, Z Berkay Celik, and Ananthram Swami. Practical black-box attacks against machine learning. In Proceedings of the 2017 ACM on Asia conference on computer and communications security, 2017.\n[10] Nicolas Papernot, Patrick McDaniel, and Ian Goodfellow. Transferability in machine learning: from phenomena to black-box attacks using adversarial samples. arXiv preprint arXiv:1605.07277, 2016.\n[11] Seyed-Mohsen Moosavi-Dezfooli, Alhussein Fawzi, Omar Fawzi, and Pascal Frossard. Universal adversarial perturbations. In CVPR, 2017.\n[12] Konda Reddy Mopuri, Aditya Ganeshan, and Venkatesh Babu Radhakrishnan. Generalizable datafree objective for crafting universal adversarial perturbations. IEEE transactions on pattern analysis and machine intelligence.\n[13] Simen Thys, Wiebe Van Ranst, and Toon Goedeme\u0301. Fooling automated surveillance cameras: adversarial patches to attack person detection. In CVPR Workshops, 2019.\n[14] Alexey Kurakin, Ian Goodfellow, and Samy Bengio. Adversarial examples in the physical world. arXiv preprint arXiv:1607.02533, 2016.\n[15] Finale Doshi-Velez and Been Kim. Towards a rigorous science of interpretable machine learning. arXiv preprint arXiv:1702.08608, 2017.\n[16] Tania Lombrozo. The structure and function of explanations. Trends in cognitive sciences, 2006.\n[17] Frank C Keil. Explanation and understanding. Annu. Rev. Psychol., pages 227\u2013254, 2006.\n[18] Carl G Hempel and Paul Oppenheim. Studies in the logic of explanation. Philosophy of science, 1948.\n[19] Gre\u0301goire Montavon, Wojciech Samek, and KlausRobert Mu\u0308ller. Methods for interpreting and understanding deep neural networks. Digital Signal Processing, 2018.\n[20] Jan Hendrik Metzen, Tim Genewein, Volker Fischer, and Bastian Bischoff. On detecting adversarial perturbations. ICLR, 2017.\n[21] Cihang Xie, Jianyu Wang, Zhishuai Zhang, Zhou Ren, and Alan Yuille. Mitigating adversarial effects through randomization. arXiv preprint arXiv:1711.01991, 2017.\n[22] Fangzhou Liao, Ming Liang, Yinpeng Dong, Tianyu Pang, Xiaolin Hu, and Jun Zhu. Defense against adversarial attacks using high-level representation guided denoiser. In CVPR, 2018.\n[23] Weilin Xu, David Evans, and Yanjun Qi. Feature squeezing: Detecting adversarial examples in deep neural networks. arXiv preprint arXiv:1704.01155, 2017.\n[24] Cihang Xie, Yuxin Wu, Laurens van der Maaten, Alan L Yuille, and Kaiming He. Feature denoising for improving adversarial robustness. In CVPR, 2019.\n[25] Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, and Adrian Vladu. Towards deep learning models resistant to adversarial attacks. arXiv preprint arXiv:1706.06083, 2017.\n[26] Nicolas Papernot, Patrick McDaniel, Xi Wu, Somesh Jha, and Ananthram Swami. Distillation as a defense to adversarial perturbations against deep neural networks. In 2016 IEEE Symposium on Security and Privacy (SP). IEEE.\n[27] Jiajun Lu, Theerasit Issaranon, and David Forsyth. Safetynet: Detecting and rejecting adversarial examples robustly. In ICCV, 2017.\n[28] Guanhong Tao, Shiqing Ma, Yingqi Liu, and Xiangyu Zhang. Attacks meet interpretability: Attributesteered detection of adversarial samples. In NIPS, 2018.\n[29] Zhitao Gong, Wenlu Wang, and Wei-Shinn Ku. Adversarial and clean data are not twins. arXiv preprint arXiv:1704.04960, 2017.\n[30] Dongyu Meng and Hao Chen. Magnet: a two-pronged defense against adversarial examples. In Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security, 2017.\n[31] Kathrin Grosse, Praveen Manoharan, Nicolas Papernot, Michael Backes, and Patrick McDaniel. On the (statistical) detection of adversarial examples. arXiv preprint arXiv:1702.06280, 2017.\n[32] Mengnan Du, Ninghao Liu, Fan Yang, Shuiwang Ji, and Xia Hu. On attribution of recurrent neural network predictions via additive decomposition. In The World Wide Web Conference, 2019.\n[33] Bolei Zhou, Aditya Khosla, Agata Lapedriza, Aude Oliva, and Antonio Torralba. Learning deep features for discriminative localization. In Proceedings of the IEEE conference on computer vision and pattern recognition, 2016.\n[34] Karen Simonyan, Andrea Vedaldi, and Andrew Zisserman. Deep inside convolutional networks: Visualising image classification models and saliency maps. arXiv preprint arXiv:1312.6034, 2013.\n[35] Cynthia Rudin. Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. Nature Machine Intelligence, 2019.\n[36] W James Murdoch, Chandan Singh, Karl Kumbier, Reza Abbasi-Asl, and Bin Yu. Interpretable machine learning: definitions, methods, and applications. arXiv preprint arXiv:1901.04592, 2019.\n[37] Daniel Smilkov, Nikhil Thorat, Been Kim, Fernanda Vie\u0301gas, and Martin Wattenberg. Smoothgrad: removing noise by adding noise. arXiv preprint arXiv:1706.03825, 2017.\n[38] Florian Trame\u0300r, Alexey Kurakin, Nicolas Papernot, Ian Goodfellow, Dan Boneh, and Patrick McDaniel. Ensemble adversarial training: Attacks and defenses. arXiv preprint arXiv:1705.07204, 2017.\n[39] Xiaoyu Cao and Neil Zhenqiang Gong. Mitigating evasion attacks to deep neural networks via region-based classification. In ACSAC, 2017.\n[40] Mukund Sundararajan, Ankur Taly, and Qiqi Yan. Axiomatic attribution for deep networks. In ICML, 2017.\n[41] Zhengping Che, Sanjay Purushotham, Robinder Khemani, and Yan Liu. Distilling knowledge from deep networks with applications to healthcare domain. arXiv preprint arXiv:1512.03542, 2015.\n[42] Jun Gao, Ninghao Liu, Mark Lawley, and Xia Hu. An interpretable classification framework for information extraction from online healthcare forums. Journal of healthcare engineering, 2017.\n[43] Marco Tulio Ribeiro, Sameer Singh, and Carlos Guestrin. Why should i trust you?: Explaining the predictions of any classifier. In KDD, 2016.\n[44] Wenbo Guo, Dongliang Mu, Jun Xu, Purui Su, Gang Wang, and Xinyu Xing. Lemna: Explaining deep learning based security applications. In CCS, 2018.\n[45] Battista Biggio, Igino Corona, Davide Maiorca, Blaine Nelson, Nedim S\u030crndic\u0301, Pavel Laskov, Giorgio Giacinto, and Fabio Roli. Evasion attacks against machine learning at test time. In Joint European conference on machine learning and knowledge discovery in databases, 2013.\n[46] Anish Athalye, Nicholas Carlini, and David Wagner. Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples. 2018.\n[47] Adith Boloor, Xin He, Christopher Gill, Yevgeniy Vorobeychik, and Xuan Zhang. Simple physical adversarial examples against end-to-end autonomous driving models. In ICESS. IEEE, 2019.\n[48] Amit Dhurandhar, Pin-Yu Chen, Ronny Luss, ChunChen Tu, Paishun Ting, Karthikeyan Shanmugam, and Payel Das. Explanations based on the missing: Towards contrastive explanations with pertinent negatives. In NIPS, 2018.\n[49] Motoki Sato, Jun Suzuki, Hiroyuki Shindo, and Yuji Matsumoto. Interpretable adversarial perturbation in input embedding space for text. In IJCAI, 2018.\n[50] Warren He, James Wei, Xinyun Chen, Nicholas Carlini, and Dawn Song. Adversarial example defense: Ensembles of weak defenses are not strong. In 11th {USENIX} Workshop on Offensive Technologies ({WOOT} 17), 2017.\n[51] Alexey Kurakin, Ian Goodfellow, Samy Bengio, Yinpeng Dong, Fangzhou Liao, Ming Liang, Tianyu Pang, Jun Zhu, Xiaolin Hu, Cihang Xie, et al. Adversarial attacks and defences competition. Springer, 2018.\n[52] Ludwig Schmidt, Shibani Santurkar, Dimitris Tsipras, Kunal Talwar, and Aleksander Madry. Adversarially robust generalization requires more data. In NIPS, 2018.\n[53] Hongyang Zhang, Yaodong Yu, Jiantao Jiao, Eric Xing, Laurent El Ghaoui, and Michael Jordan. Theoretically principled trade-off between robustness and accuracy. In ICML, 2019.\n[54] Daniel Cullina, Arjun Nitin Bhagoji, and Prateek Mittal. Pac-learning in the presence of adversaries. In NIPS, 2018.\n[55] Nicholas Baker, Hongjing Lu, Gennady Erlikhman, and Philip J Kellman. Deep convolutional networks do not classify based on global object shape. PLoS computational biology, 2018.\n[56] Baifeng Shi, Dinghuai Zhang, Qi Dai, Zhanxing Zhu, Yadong Mu, and Jingdong Wang. Informative dropout for robust representation learning: A shape-bias perspective. 2020.\n[57] Gil Fidel, Ron Bitton, and Asaf Shabtai. When explainability meets adversarial learning: Detecting adversarial examples using shap signatures. arXiv preprint arXiv:1909.03418, 2019.\n[58] Ruth C Fong and Andrea Vedaldi. Interpretable explanations of black boxes by meaningful perturbation. In ICCV, 2017.\n[59] Puyudi Yang, Jianbo Chen, Cho-Jui Hsieh, JaneLing Wang, and Michael I Jordan. Ml-loo: Detecting adversarial examples with feature attribution. arXiv preprint arXiv:1906.03499, 2019.\n[60] Chiliang Zhang, Zuochang Ye, Yan Wang, and Zhimou Yang. Detecting adversarial perturbations with saliency. In 2018 IEEE 3rd International Conference on Signal and Image Processing (ICSIP), pages 271\u2013 275. IEEE, 2018.\n[61] Jingyuan Wang, Yufan Wu, Mingxuan Li, Xin Lin, Junjie Wu, and Chao Li. Interpretability is a kind of safety: An interpreter-based ensemble for adversary defense. In KDD, 2020.\n[62] Yinpeng Dong, Hang Su, Jun Zhu, and Fan Bao. Towards interpretable deep neural networks by leveraging adversarial examples. arXiv preprint arXiv:1708.05493, 2017.\n[63] Tianyuan Zhang and Zhanxing Zhu. Interpreting adversarially trained convolutional neural networks. In International Conference on Machine Learning, pages 7502\u20137511, 2019.\n[64] Amirata Ghorbani, Abubakar Abid, and James Zou. Interpretation of neural networks is fragile. In AAAI, 2019.\n[65] Akshayvarun Subramanya, Vipin Pillai, and Hamed Pirsiavash. Fooling network interpretation in image classification. In ICCV, 2019.\n[66] Quanshi Zhang, Yu Yang, Haotian Ma, and Ying Nian Wu. Interpreting cnns via decision trees. In CVPR, 2019.\n[67] Been Kim, Martin Wattenberg, Justin Gilmer, Carrie Cai, James Wexler, Fernanda Viegas, et al. Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (tcav). In ICML, 2018.\n[68] Bolei Zhou, Yiyou Sun, David Bau, and Antonio Torralba. Interpretable basis decomposition for visual explanation. In ECCV, 2018.\n[69] Ninghao Liu, Xiao Huang, Jundong Li, and Xia Hu. On interpretation of network embedding via taxonomy induction. In KDD, 2018.\n[70] Dumitru Erhan, Yoshua Bengio, Aaron Courville, and Pascal Vincent. Visualizing higher-layer features of a deep network. University of Montreal, page 1.\n[71] Chris Olah, Alexander Mordvintsev, and Ludwig Schubert. Feature visualization. Distill, 2(11):e7, 2017.\n[72] Tom B Brown, Dandelion Mane\u0301, Aurko Roy, Mart\u0301\u0131n Abadi, and Justin Gilmer. Adversarial patch. arXiv preprint arXiv:1712.09665, 2017.\n[73] Mahmood Sharif, Sruti Bhagavatula, Lujo Bauer, and Michael K Reiter. Accessorize to a crime: Real and stealthy attacks on state-of-the-art face recognition. In CCS, 2016.\n[74] Yoshua Bengio, Aaron Courville, and Pascal Vincent. Representation learning: A review and new perspectives. IEEE transactions on pattern analysis and machine intelligence, 2013.\n[75] Tom Young, Devamanyu Hazarika, Soujanya Poria, and Erik Cambria. Recent trends in deep learning based natural language processing. IEEE Computational intelligenCe magazine, 2018.\n[76] William L Hamilton, Rex Ying, and Jure Leskovec. Representation learning on graphs: Methods and applications. arXiv preprint arXiv:1709.05584, 2017.\n[77] Irina Higgins, Loic Matthey, Arka Pal, Christopher Burgess, Xavier Glorot, Matthew Botvinick, Shakir Mohamed, and Alexander Lerchner. beta-vae: Learning basic visual concepts with a constrained variational framework. ICLR, 2017.\n[78] Abhishek Panigrahi, Harsha Vardhan Simhadri, and Chiranjib Bhattacharyya. Word2sense: Sparse interpretable word embeddings. In ACL, 2019.\n[79] Ninghao Liu, Qiaoyu Tan, Yuening Li, Hongxia Yang, Jingren Zhou, and Xia Hu. Is a single vector enough? exploring node polysemy for network embedding. In KDD, 2019.\n[80] Jianxin Ma, Chang Zhou, Peng Cui, Hongxia Yang, and Wenwu Zhu. Learning disentangled representations for recommendation. In Advances in Neural Information Processing Systems, 2019.\n[81] Amirata Ghorbani, James Wexler, James Y Zou, and Been Kim. Towards automatic concept-based explanations. In NeurIPS, 2019.\n[82] Binny Mathew, Sandipan Sikdar, Florian Lemmerich, and Markus Strohmaier. The polar framework: Polar opposites enable interpretability of pre-trained word embeddings. In The World Wide Web Conference, 2020.\n[83] Been Kim, Cynthia Rudin, and Julie A Shah. The bayesian case model: A generative approach for casebased reasoning and prototype classification. In NIPS, 2014.\n[84] Pang Wei Koh and Percy Liang. Understanding blackbox predictions via influence functions. In ICML, 2017.\n[85] Petar Velic\u030ckovic\u0301, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Lio, and Yoshua Bengio. Graph attention networks. arXiv preprint arXiv:1710.10903, 2017.\n[86] Chaofan Chen, Oscar Li, Daniel Tao, Alina Barnett, Cynthia Rudin, and Jonathan K Su. This looks like that: deep learning for interpretable image recognition. In NeurIPS, 2019.\n[87] Quanyu Dai, Xiao Shen, Liang Zhang, Qiang Li, and Dan Wang. Adversarial training methods for network embedding. In The World Wide Web Conference, 2019.\n[88] Andrew Ilyas, Shibani Santurkar, Dimitris Tsipras, Logan Engstrom, Brandon Tran, and Aleksander Madry. Adversarial examples are not bugs, they are features. arXiv preprint arXiv:1905.02175, 2019.\n[89] Haohan Wang, Xindi Wu, Zeyi Huang, and Eric P Xing. High-frequency component helps explain the generalization of convolutional neural networks. In CVPR, 2020.\n[90] Scott M Lundberg and Su-In Lee. A unified approach to interpreting model predictions. In NIPS, 2017.\n[91] Xin Li and Fuxin Li. Adversarial examples detection in deep networks with convolutional filter statistics. In ICCV, 2017.\n[92] Reuben Feinman, Ryan R Curtin, Saurabh Shintre, and Andrew B Gardner. Detecting adversarial samples from artifacts. arXiv preprint arXiv:1703.00410, 2017.\n[93] Dimitris Tsipras, Shibani Santurkar, Logan Engstrom, Alexander Turner, and Aleksander Madry. Robustness may be at odds with accuracy. arXiv preprint arXiv:1805.12152, 2018.\n[94] Shibani Santurkar, Andrew Ilyas, Dimitris Tsipras, Logan Engstrom, Brandon Tran, and Aleksander Madry. Image synthesis with a single (robust) classifier. In NeurIPS, 2019.\n[95] Ninghao Liu, Xiao Huang, Jundong Li, and Xia Hu. On interpretation of network embedding via taxonomy induction. In KDD, 2018.\n[96] Zeyuan Allen-Zhu and Yuanzhi Li. Feature purification: How adversarial training performs robust deep learning. arXiv preprint arXiv:2005.10190, 2020.\n[97] Ruocheng Guo, Lu Cheng, Jundong Li, P Richard Hahn, and Huan Liu. A survey of learning causality with data: Problems and methods. ACM Computing Surveys (CSUR), 2020.\n[98] Raha Moraffah, Mansooreh Karami, Ruocheng Guo, Adrienne Raglin, and Huan Liu. Causal interpretability for machine learning-problems, methods and evaluation. ACM SIGKDD Explorations Newsletter, 2020.\n[99] Sandra Wachter, Brent Mittelstadt, and Chris Russell. Counterfactual explanations without opening the black box: Automated decisions and the gdpr. Harv. JL & Tech., 31:841, 2017.\n[100] Jiwei Li, Will Monroe, and Dan Jurafsky. Understanding neural networks through representation erasure. arXiv preprint arXiv:1612.08220, 2016.\n[101] Piotr Dabkowski and Yarin Gal. Real time image saliency for black box classifiers. In NIPS, 2017.\n[102] Olaf Ronneberger, Philipp Fischer, and Thomas Brox. U-net: Convolutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention. Springer, 2015.\n[103] Karl Schulz, Leon Sixt, Federico Tombari, and Tim Landgraf. Restricting the flow: Information bottlenecks for attribution. In ICLR, 2019.\n[104] Tanmayee Narendra, Anush Sankaran, Deepak Vijaykeerthy, and Senthil Mani. Explaining deep learning models using causal inference. arXiv preprint arXiv:1811.04376, 2018.\n[105] Michael Harradon, Jeff Druce, and Brian Ruttenberg. Causal learning and explanation of deep neural networks via autoencoded activations. arXiv preprint arXiv:1802.00541, 2018.\n[106] Ninghao Liu, Yunsong Meng, Xia Hu, Tie Wang, and Bo Long. Are interpretations fairly evaluated? a definition driven pipeline for post-hoc interpretability. arXiv preprint arXiv:2009.07494, 2020.\n[107] Brian Y Lim, Anind K Dey, and Daniel Avrahami. Why and why not explanations improve the intelligibility of context-aware intelligent systems. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems. ACM, 2009.\n[108] Menaka Narayanan, Emily Chen, Jeffrey He, Been Kim, Sam Gershman, and Finale Doshi-Velez. How do humans understand explanations from machine learning systems? an evaluation of the human-interpretability of explanation. arXiv preprint arXiv:1802.00682, 2018.\n[109] Fan Yang, Shiva K Pentyala, Sina Mohseni, Mengnan Du, Hao Yuan, Rhema Linder, Eric D Ragan, Shuiwang Ji, and Xia Ben Hu. Xfake: Explainable fake news detector with visualizations. In WWW, 2019.\n[110] Isabelle Bichindaritz and Cindy Marling. Case-based reasoning in the health sciences: What\u2019s next? Artificial intelligence in medicine, 2006.\n[111] Been Kim, Rajiv Khanna, and Oluwasanmi O Koyejo. Examples are not enough, learn to criticize! criticism for interpretability. In NIPS, 2016.\n[112] Yash Goyal, Ziyan Wu, Jan Ernst, Dhruv Batra, Devi Parikh, and Stefan Lee. Counterfactual visual explanations. In ICML, 2019.\n[113] Guoshuai Zhao, Hao Fu, Ruihua Song, Tetsuya Sakai, Zhongxia Chen, Xing Xie, and Xueming Qian. Personalized reason generation for explainable song recommendation. ACM Transactions on Intelligent Systems and Technology (TIST), 2019.\n[114] Juyeon Heo, Sunghwan Joo, and Taesup Moon. Fooling neural network interpretations via adversarial model manipulation. arXiv preprint arXiv:1902.02041, 2019.\n[115] Dylan Slack, Sophie Hilgard, Emily Jia, Sameer Singh, and Himabindu Lakkaraju. Fooling lime and shap: Adversarial attacks on post hoc explanation methods. In AAAI, 2020.\n[116] Ann-Kathrin Dombrowski, Maximillian Alber, Christopher Anders, Marcel Ackermann, KlausRobert Mu\u0308ller, and Pan Kessel. Explanations can be manipulated and geometry is to blame. In NeurIPS, 2019.\n[117] Alexander Levine, Sahil Singla, and Soheil Feizi. Certifiably robust interpretation in deep learning. arXiv preprint arXiv:1905.12105, 2019.\n[118] Peter W Battaglia, Jessica B Hamrick, Victor Bapst, Alvaro Sanchez-Gonzalez, Vinicius Zambaldi, Mateusz Malinowski, Andrea Tacchetti, David Raposo, Adam Santoro, Ryan Faulkner, et al. Relational inductive biases, deep learning, and graph networks. arXiv preprint arXiv:1806.01261, 2018.\n[119] Sara Sabour, Nicholas Frosst, and Geoffrey E Hinton. Dynamic routing between capsules. In NIPS, 2017.\n[120] Jonas Peters, Dominik Janzing, and Bernhard Scho\u0308lkopf. Elements of causal inference: foundations and learning algorithms. MIT press, 2017.\n[121] Marco Tulio Ribeiro, Sameer Singh, and Carlos Guestrin. Semantically equivalent adversarial rules for debugging nlp models. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pages 856\u2013865, 2018.\n[122] Tianyu Gu, Brendan Dolan-Gavitt, and Siddharth Garg. Badnets: Identifying vulnerabilities in the machine learning model supply chain. arXiv preprint arXiv:1708.06733, 2017.\n[123] Ligeng Zhu, Zhijian Liu, and Song Han. Deep leakage from gradients. arXiv preprint arXiv:1906.08935, 2019.\n[124] Andrei Barbu, David Mayo, Julian Alverio, William Luo, Christopher Wang, Dan Gutfreund, Josh Tenenbaum, and Boris Katz. Objectnet: A large-scale biascontrolled dataset for pushing the limits of object recognition models. In NeurIPS, 2019.\n[125] Tom B Brown, Nicholas Carlini, Chiyuan Zhang, Catherine Olsson, Paul Christiano, and Ian Goodfellow. Unrestricted adversarial examples. arXiv preprint arXiv:1809.08352, 2018.\n[126] Mengnan Du, Ninghao Liu, Fan Yang, and Xia Hu. Learning credible deep neural networks with rationale regularization. In ICDM, 2019.\n[127] Cihang Xie, Mingxing Tan, Boqing Gong, Jiang Wang, Alan Yuille, and Quoc V Le. Adversarial examples improve image recognition. arXiv preprint arXiv:1911.09665, 2019."
+    }
+  ],
+  "title": "Adversarial Attacks and Defenses: An Interpretation Perspective",
+  "year": 2020
+}

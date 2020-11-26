@@ -1,0 +1,511 @@
+{
+  "abstractText": "Corporate mergers and acquisitions (M&A) account for billions of dollars of investment globally every year, and offer an interesting and challenging domain for artificial intelligence. However, in these highly sensitive domains, it is crucial to not only have a highly robust and accurate model, but be able to generate useful explanations to garner a user\u2019s trust in the automated system. Regrettably, the recent research regarding eXplainable AI (XAI) in financial text classification has received little to no attention, and many current methods for generating textual-based explanations result in highly implausible explanations, which damage a user\u2019s trust in the system. To address these issues, this paper proposes a novel methodology for producing plausible counterfactual explanations, whilst exploring the regularization benefits of adversarial training on language models in the domain of FinTech. Exhaustive quantitative experiments demonstrate that not only does this approach improve the model accuracy when compared to the current stateof-the-art and human performance, but it also generates counterfactual explanations which are significantly more plausible based on human trials.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Linyi Yang"
+    },
+    {
+      "affiliations": [],
+      "name": "Eoin M. Kenny"
+    },
+    {
+      "affiliations": [],
+      "name": "Tin Lok"
+    },
+    {
+      "affiliations": [],
+      "name": "James Ng"
+    },
+    {
+      "affiliations": [],
+      "name": "Yi Yang"
+    },
+    {
+      "affiliations": [],
+      "name": "Barry Smyth"
+    },
+    {
+      "affiliations": [],
+      "name": "Ruihai Dong"
+    }
+  ],
+  "id": "SP:2d54bd757ddc6590ffb5565857f60a39358e391c",
+  "references": [
+    {
+      "authors": [
+        "Dzmitry Bahdanau",
+        "Kyunghyun Cho",
+        "Yoshua Bengio."
+      ],
+      "title": "Neural machine translation by jointly learning to align and translate",
+      "venue": "arXiv preprint arXiv:1409.0473.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Gino Brunner",
+        "Yang Liu",
+        "Damian Pascual",
+        "Oliver Richter",
+        "Massimiliano Ciaramita",
+        "Roger Wattenhofer."
+      ],
+      "title": "On identifiability in transformers",
+      "venue": "Proceedings of the International Conference on Learning Representations (ICLR).",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Ruth MJ Byrne."
+      ],
+      "title": "Counterfactuals in explainable artificial intelligence (xai): evidence from human reasoning",
+      "venue": "Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, IJCAI-19, pages 6276\u20136282.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Nicholas Carlini",
+        "David Wagner."
+      ],
+      "title": "Towards evaluating the robustness of neural networks",
+      "venue": "2017 ieee symposium on security and privacy (sp), pages 39\u201357. IEEE.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jo Danbolt",
+        "Antonios Siganos",
+        "Abongeh Tunyi."
+      ],
+      "title": "Abnormal returns from takeover prediction modelling: Challenges and suggested investment strategies",
+      "venue": "Journal of Business Finance & Accounting, 43(1-2):66\u201397.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Jacob Devlin",
+        "Ming-Wei Chang",
+        "Kenton Lee",
+        "Kristina Toutanova."
+      ],
+      "title": "Bert: Pre-training of deep bidirectional transformers for language understanding",
+      "venue": "arXiv preprint arXiv:1810.04805.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Junwen Duan",
+        "Yue Zhang",
+        "Xiao Ding",
+        "Ching Yun Chang",
+        "Ting Liu."
+      ],
+      "title": "Learning target-specific representations of financial news documents for cumulative abnormal return prediction",
+      "venue": "Proceedings of the 27th International Conference on Computational Linguistics (COLING-18), pages 2823\u20132833.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Javid Ebrahimi",
+        "Anyi Rao",
+        "Daniel Lowd",
+        "Dejing Dou."
+      ],
+      "title": "Hotflip: White-box adversarial examples for text classification",
+      "venue": "arXiv preprint arXiv:1712.06751.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Ian J Goodfellow",
+        "Jonathon Shlens",
+        "Christian Szegedy."
+      ],
+      "title": "Explaining and harnessing adversarial examples",
+      "venue": "arXiv preprint arXiv:1412.6572.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Rory Mc Grath",
+        "Luca Costabello",
+        "Chan Le Van",
+        "Paul Sweeney",
+        "Farbod Kamiab",
+        "Zhao Shen",
+        "Freddy Lecue."
+      ],
+      "title": "Interpretable credit application predictions with counterfactual explanations",
+      "venue": "arXiv preprint arXiv:1811.05245.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Christopher Grimsley",
+        "Elijah Mayfield",
+        "Julia RS Bursten."
+      ],
+      "title": "Why attention is not explanation: Surgical intervention and causal reasoning about neural models",
+      "venue": "Proceedings of The 12th Language Resources and Evaluation Conference, pages 1780\u20131790.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Xinyu Ji",
+        "Gaurav Jetley."
+      ],
+      "title": "The shrinking merger arbitrage spread: Reasons and implications",
+      "venue": "Financial Analysts Journal, 66, 03.",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Xisen Jin",
+        "Zhongyu Wei",
+        "Junyi Du",
+        "Xiangyang Xue",
+        "Xiang Ren."
+      ],
+      "title": "Towards hierarchical importance attribution: Explaining compositional semantics for neural sequence models",
+      "venue": "Proceedings of the International Conference on Learning Representations (ICLR).",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Divyansh Kaushik",
+        "Eduard Hovy",
+        "Zachary C Lipton."
+      ],
+      "title": "Learning the difference that makes a difference with counterfactually-augmented data",
+      "venue": "Proceedings of the International Conference on Learning Representations (ICLR).",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Mark T Keane",
+        "Barry Smyth."
+      ],
+      "title": "Good counterfactuals and where to find them: A case-based technique for generating counterfactuals for explainable ai (xai)",
+      "venue": "International Conference on Case-Based Reasoning (ICCBR).",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Eoin M Kenny",
+        "Mark T Keane."
+      ],
+      "title": "Twin-systems to explain artificial neural networks using case-based reasoning: comparative tests of feature-weighting methods in ann-cbr twins for xai",
+      "venue": "Proceedings of the 28th International Joint Conference on Artificial Intelligence, pages 2708\u20132715. AAAI Press.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Eoin M Kenny",
+        "Mark T Keane."
+      ],
+      "title": "On generating plausible counterfactual and semi-factual explanations for deep learning",
+      "venue": "arXiv preprint arXiv:2009.06399.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Yoon Kim."
+      ],
+      "title": "Convolutional neural networks for sentence classification",
+      "venue": "Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP), pages 1746\u20131751.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Zhenzhong Lan",
+        "Mingda Chen",
+        "Sebastian Goodman",
+        "Kevin Gimpel",
+        "Piyush Sharma",
+        "Radu Soricut."
+      ],
+      "title": "Albert: A lite bert for self-supervised learning of language representations",
+      "venue": "arXiv preprint arXiv:1909.11942.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Yinhan Liu",
+        "Myle Ott",
+        "Naman Goyal",
+        "Jingfei Du",
+        "Mandar Joshi",
+        "Danqi Chen",
+        "Omer Levy",
+        "Mike Lewis",
+        "Luke Zettlemoyer",
+        "Veselin Stoyanov."
+      ],
+      "title": "Roberta: A robustly optimized bert pretraining approach",
+      "venue": "arXiv preprint arXiv:1907.11692.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Xiaodong Liu",
+        "Hao Cheng",
+        "Pengcheng He",
+        "Weizhu Chen",
+        "Yu Wang",
+        "Hoifung Poon",
+        "Jianfeng Gao."
+      ],
+      "title": "Adversarial training for large neural language models",
+      "venue": "arXiv preprint arXiv:2004.08994.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Matthew Ma",
+        "Feng Zhang."
+      ],
+      "title": "Investor reaction to merger and acquisition rumors",
+      "venue": "SSRN 2813401.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Aleksander Madry",
+        "Aleksandar Makelov",
+        "Ludwig Schmidt",
+        "Dimitris Tsipras",
+        "Adrian Vladu."
+      ],
+      "title": "Towards deep learning models resistant to adversarial attacks",
+      "venue": "Proceedings of the International Conference on Learning Representations (ICLR).",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Takeru Miyato",
+        "Andrew M Dai",
+        "Ian Goodfellow."
+      ],
+      "title": "Adversarial training methods for semi-supervised text classification",
+      "venue": "Proceedings of the International Conference on Learning Representations (ICLR).",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "W. James Murdoch",
+        "Peter J. Liu",
+        "Bin Yu."
+      ],
+      "title": "Beyond word importance: Contextual decomposition to extract interactions from LSTMs",
+      "venue": "Proceedings of the International Conference on Learning Representations (ICLR).",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Victor Sanh",
+        "Lysandre Debut",
+        "Julien Chaumond",
+        "Thomas Wolf."
+      ],
+      "title": "Distilbert, a distilled version of bert: smaller, faster, cheaper and lighter",
+      "venue": "arXiv preprint arXiv:1910.01108.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Chandan Singh",
+        "W. James Murdoch",
+        "Bin Yu."
+      ],
+      "title": "Hierarchical interpretations for neural network predictions",
+      "venue": "Proceedings of the International Conference on Learning Representations (ICLR).",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Dimitris Tsipras",
+        "Shibani Santurkar",
+        "Logan Engstrom",
+        "Alexander Turner",
+        "Aleksander Madry."
+      ],
+      "title": "Robustness may be at odds with accuracy",
+      "venue": "International Conference on Learning Representations.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ashish Vaswani",
+        "Noam Shazeer",
+        "Niki Parmar",
+        "Jakob Uszkoreit",
+        "Llion Jones",
+        "Aidan N Gomez",
+        "\u0141ukasz Kaiser",
+        "Illia Polosukhin."
+      ],
+      "title": "Attention is all you need",
+      "venue": "Advances in neural information processing systems, pages 5998\u20136008.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Sandra Wachter",
+        "Brent Mittelstadt",
+        "Chris Russell."
+      ],
+      "title": "Counterfactual explanations without opening the black box: Automated decisions and the gdpr",
+      "venue": "Harv. JL & Tech., 31:841.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Eric Wallace",
+        "Jens Tuyls",
+        "Junlin Wang",
+        "Sanjay Subramanian",
+        "Matt Gardner",
+        "Sameer Singh."
+      ],
+      "title": "Allennlp interpret: A framework for explaining predictions of nlp models",
+      "venue": "arXiv preprint arXiv:1909.09251.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Frank Z Xing",
+        "Erik Cambria",
+        "Yue Zhang."
+      ],
+      "title": "Sentiment-aware volatility forecasting",
+      "venue": "Knowledge-Based Systems, 176:68\u201376.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Junchi Yan",
+        "Shuai Xiao",
+        "Changsheng Li",
+        "Bo Jin",
+        "Xiangfeng Wang",
+        "Bin Ke",
+        "Xiaokang Yang",
+        "Hongyuan Zha."
+      ],
+      "title": "Modeling contagious merger and acquisition via point processes with a profile regression prior",
+      "venue": "International Joint Conferences on Artifical Intelligence, IJCAI-16, pages 2690\u20132696.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Zichao Yang",
+        "Diyi Yang",
+        "Chris Dyer",
+        "Xiaodong He",
+        "Alex Smola",
+        "Eduard Hovy."
+      ],
+      "title": "Hierarchical attention networks for document classification",
+      "venue": "Proceedings of the 2016 conference of the North American chapter of the association for computational linguistics: human language technologies, NAACL-16, pages 1480\u20131489.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Linyi Yang",
+        "Zheng Zhang",
+        "Su Xiong",
+        "Lirui Wei",
+        "James Ng",
+        "Lina Xu",
+        "Ruihai Dong."
+      ],
+      "title": "Explainable textdriven neural network for stock prediction",
+      "venue": "2018 5th IEEE International Conference on Cloud Computing and Intelligence Systems (CCIS), pages 441\u2013445. IEEE.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Linyi Yang",
+        "Tin Lok James Ng",
+        "Barry Smyth",
+        "Ruihai Dong."
+      ],
+      "title": "Html: Hierarchical transformer-based multi-task learning for volatility prediction",
+      "venue": "Proceedings of The Web Conference 2020, WWW \u201920, page 441\u2013451.",
+      "year": 2020
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction and Related Work",
+      "text": "In recent years, large-scale, pre-trained transformer models have led to massive improvements on a wide range of natural language processing (NLP) tasks (Devlin et al., 2018; Liu et al., 2019), including financial technology applications (Duan et al., 2018; Yang et al., 2018; Xing et al., 2019; Yang et al., 2020). However, this impressive ability also coincides with an inherent lack of robustness and transparency, which undermines human trust in the prediction outcome. In the highly sensitive (and financially lucrative) area of FinTech, explainable financial text classification remains an open, and highly alluring question. To tackle this problem, this paper advances a novel approach which first applies robust transformer models (by leveraging adversarial training) on a real-world, up-to-date, self-collected mergers and acquisitions (M&A) dataset, and then generating plausible, post-hoc, counterfactual explanations. In the remainder of this section, we describe relevant work to both of these areas before detailing our contributions."
+    },
+    {
+      "heading": "1.1 Artificial Intelligence in Mergers and Acquisitions",
+      "text": "M&As have reshaped the global business landscape for generations, and are having an accelerating impact on the world\u2019s economy as new technologies such as the internet, big data, and artificial intelligence disrupt many business sectors (Yan et al., 2016). To appreciate this, a recent economic study provided strong evidence that M&A deal rumours could influence the share price volatility of rumor target firms (Ma and Zhang, 2016). In particular, they showed that, on average, M&A rumors have a positive short term impact and a negative long term impact on the cumulative abnormal returns of the potential acquirers and targets. In the existing AI literature, focus here is typically on predicting likely M&A targets (Yan et al., 2016), and forecasting the likely success of M&A (Danbolt et al., 2016) for developing high-risk/high-reward investment strategies based on M&A speculation (Ji and Jetley, 2009).\nar X\niv :2\n01 0.\n12 51\n2v 1\n[ cs\n.C L\n] 2\n3 O\nct 2\n02 0\nWhile the existing literature typically focuses on predicting likely M&A acquirers and targets, in this work we address a distinct but related task: namely, whether a merger and acquisition rumor is likely going to prove to be correct."
+    },
+    {
+      "heading": "1.2 Visualization-based Explanations",
+      "text": "To interpret a model\u2019s prediction, prior efforts have focused on either incorporating pre-hoc analysis into the experimental design (Brunner et al., 2020), or developing post-hoc analysis algorithms to select or modify particular instances of the dataset to explain the behavior of models (Keane and Smyth, 2020; Kenny and Keane, 2019). Recent research (Grimsley et al., 2020) shows that transformer models can not be perfectly explained from their intrinsic architecture, and a further work (Brunner et al., 2020) provides strong evidence that self-attention distributions are not directly interpretable. For this reason, model-agnostic, post-hoc explanation methods have come to the fore among these works for explaining text classification models, as they are easy to understand and do not require access to the data or the model (Keane and Smyth, 2020).\nTowards post-hoc explanation in NLP tasks, (Murdoch et al., 2018) proposes a popular way named contextual decomposition (CD) to quantify the importance of each individual word/phrase by computing the change to the model prediction when solely removing a word/phrase. Its hierarchical extensions (Singh et al., 2019; Jin et al., 2020) continue to refine the explanation algorithms that calculate and further visualize the individual phrase\u2019s importance. However, despite these visualization-based methods (Murdoch et al., 2018; Singh et al., 2019; Jin et al., 2020) having achieved good results on a popular dataset of sentiment analysis (namely the Stanford Sentiment Treebank-2 [SST-2] dataset where human create the ground truth with their subjective judgement), how to generate explanations in more complex scenarios where human performance is worse than a model have not been well studied. As a result, the prior lines of visualization-based works cannot provide a clear boundary between positive and negative instances to human, whereas counterfactuals could provide \u201chuman-like\u201d logic to show a modification to the input that makes a difference to the output classification (Byrne, 2019). Hence, post-hoc, examplebased explanation methods have received more and more attention in recent years (Keane and Smyth, 2020)."
+    },
+    {
+      "heading": "1.3 Counterfactual Text Explanations",
+      "text": "Counterfactual explanations are renown for their explanatory ability in AI systems (Wachter et al., 2017); specifically, they offer the ability to explain models (such as transformers) without having to \u201copen the black-box\u201d (Grath et al., 2018), by conveying causal information about what contributed to a given classification. To understand counterfactuals in the context of text classification, consider a sentiment classification task were a black-box model may classify \u201cJohn loved the film\u201d with a positive sentiment, and explain the prediction counterfactually by presenting \u201cJohn hated the film\u201d. Glossed, this latter text is the AI explaining the prediction by saying \u201cf the word love was replaced with the word hate, I would have thought it was a negative sentiment\u201d. This allows us to understand the main reasoning process behind the classifier in question, thus explaining the prediction causally. To understand the issue of counterfactual plausibility, consider that the previous explanation may also generate a counterfactual which reads \u201cJohn not the film\u201d. This text may \u201cflip\u201d the classification to the counterfactual class, but it is grammatically implausible, and (arguably) very difficult to contextualize. The reason this is important is because humans avoid creating counterfactuals which are far from a \u201cpossible world\u201d (Wachter et al., 2017), and by extension wildly implausible (Byrne, 2019; Kenny and Keane, 2020). In response to this, our work attempts to guarantee more grammatically plausible explanations, and does not rely on attention weights, nor is it constrained to a specific text domain.\nContributions and Paper Outline\n\u2022 We present a novel dataset to the interesting and challenging problem of artificial intelligence in M&A prediction.\n\u2022 To the best of our knowledge, the present work is the first general approach to generate grammatically plausible counterfactual explanations for unstructured text classification.\n\u2022 The primary technical contribution in this work is to generate grammatically plausible counterfactuals by replacing the most important words with the antonyms (REP-SCD) based on pre-trained language models. Furthermore, two additional variants (removing/inserting works at the most important place, namely RM-SCD and INS-SCD) are proposed to guarantee counterfactual generations, albeit ones which are less plausible.\nThe remainder of this paper is organized as follows. Section 2 details our novel dataset and the preprocessing steps involved. Section 3 describes our adversarial training approach, with the sensitivitybased method for counterfactual explanation generation. Exhaustive experiments (both quantitative and human-based) show clear improvements in our method over current state-of-the-art, both in regards to classification accuracy, and explanation quality (see Sections 4 and 5). Finally, the implications of this work on XAI and future research is discussed."
+    },
+    {
+      "heading": "2 The Novel Mergers and Acquisitions Dataset",
+      "text": "For this study we adopted a large-scale, up-to-date M&A dataset collected from Zephyr, a comprehensive database of deal data from the \u201creal world\u201d. The dataset 1 contains 14,539 news articles or tweets on M&A events between January 1st 2007, and August 12th 2019. Each instance corresponds to a specific editorial M&A article which describes a possible deal between an acquirer and a target company (also including a few IPO rumours). Additionally, each datapoint also includes the deal outcome (see below), and the deal announcement data, if relevant. In this work, the deal outcome corresponds to the target class, and the raw dataset contains the following outcome types: complete \u2013 a deal between the acquirer and target companies concluded successfully; rumour \u2013 no deal materialized between the acquirer and target company; pending \u2013 a desired deal between the acquirer and target company has been confirmed, and at the time of data collection was deemed to be in-progress, but not yet complete; cancelled \u2013 a past potential deal between the acquirer and target companies has been confirmed, but it did not complete, and is no longer being pursued.\nIn order to prepare the raw dataset for use in this study, a number of pre-processing steps were carried out:\n1. In this work we chose to focus on a binary classification task and, as such, removed instances with outcome types of cancelled and pending, leaving only those instances that correspond to completed deals (the positive class) and rumours (the negative class).\n2. We eliminated instances where both acquiring and target companies were non-US, due to a tendency towards low-quality data; in other words, all of the instances in our dataset include a US Listed Company as either the acquirer or the target or both.\n3. Articles published within one day or after the deal announcement date were also removed, this is because our interest is in developing a prediction model that is capable of generating accurate predictions at least one day in advance of any deal outcome.\n1https://www.bvdinfo.com/en-gb/our-products/data/specialist/zephyr\n4. Finally, the remaining instances are randomly over-sampled to ensure an even split between positive (completed) and negative (rumours) instances for each year.\nThe result is a dataset of 4,098 instances (news articles and meta-data) which we split into training, validation, and testing sets on a year-by-year basis (see Table 1)."
+    },
+    {
+      "heading": "3 Methodology",
+      "text": "The pipeline of our method is shown in Fig. 1. First, as a prerequisite, a transformer variant is finetuned on the M&A prediction task, alongside adversarial training (which as we shall see is shown to be promising in this domain). Second, important words in the test instances are identified using a sampled contextual decomposition technique after the prediction. Third, a counterfactual explanation is generated by replacing these words with grammatically plausible substitutes. As we shall see, although this method does not always guarantee a plausible counterfactual will be found, we propose two alternative methods which will, albeit with the possible trade-off of plausibility. These steps are detailed next."
+    },
+    {
+      "heading": "3.1 Step 1: Robust Transformer Classification Models",
+      "text": "As eluded to earlier, M&A prediction is a highly sensitive domain, and despite adversarial training showing promise previously (Goodfellow et al., 2014; Tsipras et al., 2018), it has never been tested in this domain. Hence, to try ensure a robust model which can simultaneously generate intelligible explanations, we explore its usage here compared to other popular approaches. Given a news article, we adopt the classical transformer architecture proposed by (Vaswani et al., 2017). The original multi-head self-attention is subsequently applied to the k-th document D(k), which is calculated as follows:\nMultiHead = Concat (head1, . . . ,headh)WO (1)\nheadj = Attention (Q,K, V ) (2)\nQ = D(k)WQj ,K = D (k)WKj , V = D(k)W Vj (3)\nwhere WQj ,W K j ,W V j \u2208 Rd\u00d7d are weight metrics, and the attention is computed as:\nAttention (Q,K, V ) = softmax ( QK>\u221a\nd\n) V (4)\nfor input query, key and value matrices Q,K, V \u2208 Rn\u00d7d. The h outputs from the attention calculations are concatenated and transformed using an output weight matrix W o \u2208 Rdh\u00d7d.\nAdditionally, the adversarial noise, treated as a form of regularization, is generated by the Fast Gradient Method (FGM) (Miyato et al., 2017) and Projected Gradient Descent (PGD) (Madry et al., 2018). The idea of using adversarial perturbation is derived from the usage of adversarial attacks (Carlini and Wagner, 2017) to evaluate the robustness of neural networks, while the recent advances of using the adversarial training in NLP models (Liu et al., 2020) inspires us to use it as a way of regularization. For each embedded word e in k-th news article D(k), the FGM computes its perturbation as follows:\nrfgm = \u00b7 g/\u2016g\u20162 where g = \u2207eL(\u03b8, (D(k), y)) (5)\nwhere rfgm is the perturbation of e, \u03b8 denotes the current values of the parameters of the classifier, and L denotes the loss function (cross entropy) associated with the classifier. The perturbation can be easily computed using back-propagation. The projected gradient descent, which can be considered as a multi-step variant of the FGM, computes the perturbation of e iteratively:\net+1 = \u03a0e+S ( et + \u03b1g ( D(k)t ) / \u2225\u2225\u2225g (D(k)t )\u2225\u2225\u2225\n2 ) g ( D(k)t ) = \u2207eL ( \u03b8, (D(k)t , y) ) (6)\nwhere S = { r \u2208 Rd : \u2016r\u20162 \u2264 } is the constraint space of the perturbation, \u03a0e+S denotes the projection of a vector onto the feasible set e+ S, and \u03b1 is the step size. We use Adam optimizer with learning rate decay to train our model until convergence."
+    },
+    {
+      "heading": "3.2 Step 2: Context-Independent Word Importance",
+      "text": "To calculate the context independent importance up to one word, we adopt the sensitivity of contextual decomposition technique from (Madry et al., 2018) which removed part of inputs from the sequence text to evaluate a model\u2019s sensitivity to them, thereby allowing for the identification of important features. In its hierarchical extensions \u2013 Sampling and Contextual Decomposition (SCD), (Jin et al., 2020) mask out the phrase p from the input while the max sequence length N is set to 40. However, the average input length in our data is much larger than 40. We, therefore, propose a phrase-level removing method only if the phrase starts with the negative pronouns or limitations. Otherwise, only a single word will be removed. For example, in the sentence \u201cthe deal is not closing currently\u201d, the attribution of \u201cclosing\u201d should be positive while the attribution of \u201cnot closing\u201d should be negative. In this situation, we remove the whole phrase \u201cnot closing\u201d together to calculate the influence in terms of the logits change in the output layer of the transformer and then assign the negative score to the word \u201cclosing\u201d.\nGiven a phrase p starting with the negative limitations in the k-th document D(k), we sample the documents which contain the same phrase p to alleviate the influence by chance when there are multiple shreds of evidence saturating the prediction. For example, in the source \u201cJPMorgan is closing in on a deal, sources close to the situation are optimistic for deal completion\u201d, if we only remove the word \u201cclosing\u201d, the prediction would not be changed so much. In this sampling way, the proposed contextindependent importance of word and phrase is more robust to saturation. The formula for calculating the importance can be written as:\n\u03c6(p, D\u0302(k)) = E D\u0302(\u03b2)\n[ l ( D\u0302(\u03b2); D\u0302 ) \u2212 l ( D\u0302(\u03b2)\\p; D\u0302 )] (7)\nwhere D(\u03b2) denotes the resulting document after masking out a single token or a phrase starting with the negative pronoun in the length ofN surrounding the phrase p. we use l ( D\u0302(\u03b2)\\p; D\u0302 ) to represent the\nmodel prediction logits after replacing the masked-out context. \\p indicates the operation of masking out the phrase p in a input file sampling from the testing set D.\nAs an aside, the resulting top 15 most influenced words are shown in Table 2. In total, there are 123 positive words and 155 negative words in the dictionaries. We can see the average influence score of positive words (0.637) is higher than the negative words (0.385). It may reveal that positive words usually contain more powerful clues in predicting the M&A deal. That would be interesting to see which kind of words in the sources illustrate the deal is more likely to be completed in the future and which kind of words would be likely to kill the deal.\nAlgorithm 1 Plausible Counterfactual Instances Generation Input: Testing document example D(k)= {w1, w2, ..., wn}, the corresponding ground truth label Y, pretrained Mask Language Model MLM, negative pronouns list NP, fine-tuned transformer classifier C. Output: Positive Word Dictionaries POS, Negative Word Dictionaries NEG, Plausible counterfactual example(s) D(k)cf = {D (k) REP\u2212SCD, D (k) RM\u2212SCD, ..., D (k) INS\u2212SCD}\n1: Initialization: D(k)cf \u2190 D (k) 2: for each word wi in in D(k) do 3: if the prev word wi\u22121 is in NP then 4: Creat the whole phrase npi by contextual decomposition 5: Computer the importance score Pwi = \u2212Pnp(i) via Eq.(7) 6: else 7: Computer the importance score Pwi via Eq.(7) 8: end if 9: end for\n10: Create dictionaries with words: WPOS ;WNeg, alongside the word positions poswi sorted by the descending order of their importance scores Pwi . 11: for each word position posi in poswi do 12: WPlausible \u2190MLM(D\n(k) mask wposi ), W \u2032 Plausible \u2190MLM(D (k) mask wposi\u00b11 )\n13: if Y (k) == POS then 14: WCandidate, W \u2032 Candidate\u2190 Intersection (WNEG and WPlausible), (WNEG and W \u2032 Plausible) 15: else 16: WCandidate, W \u2032 Candidate\u2190 Intersection (WPOS and WPlausible), (WPOS and W \u2032 Plausible) 17: end if 18: D\n(k) rm \u2190 D(k) wposi\n19: end for 20: for each word wi,w \u2032 i in zip (WCandidate,W \u2032 Candidate) do 21: D (k) ins\u2190 Insert w \u2032 i to D\n(k) mask wposi\u00b11\n22: D (k) rep\u2190 Replace wi with D(k)mask wposi 23: if C(D(k)rm, D (k) ins, D (k) rep) 6= Y then 24: Add D(k)rm, D (k) ins, D (k) rep to the set D (k) cf 25: end if 26: end for 27: return D(k)cf"
+    },
+    {
+      "heading": "3.3 Step 3: Counterfactual Instance Generation",
+      "text": "As shown in Algorithm 1, we summarize three different counterfactual generation methods, namely, the primary technique which generates grammatically plausible counterfactuals (REP-SCD), and two further variants to guarantee counterfactual generation (RM-SCD and INS-SCD). We combine these three methods to alleviate a major issue in counterfactual explanation, that is, there is no guarantee that for a given example a counterfactual instance is found. Our main technique identifies the most important word(s) in a test instance using SCD and replaces them with the intersection of grammatically plausible substitutes [using masked language model (MLM)] and words in the reverse emotional dictionary. The raw document contentD(k) itself is taken as input, and MLM outputs p(\u00b7|D(k)) for each masked position. After all masked positions are infilled, we get the reconstructed document:\nD\u0302(k) = MLM(D(k)). (8)\nWe iterative repeat this operation at the most important word positions ranked by SCD until the reconstructed document ultimately moves the model\u2019s classification towards the opposing class. Notably, there\nmay be more than one counterfactual explanation corresponding with the original text instance."
+    },
+    {
+      "heading": "4 Experiment 1: Financial Text Classification with Robust Transformers",
+      "text": "In this section we describe the results of a comprehensive evaluation of classification accuracy, comparing a variety of different classification baselines (including a human baseline) to our adversarial transformer approach."
+    },
+    {
+      "heading": "4.1 Methods Used",
+      "text": "The baselines used can be grouped into several distinct categories: human evaluations \u2013 traditional machine learning approaches (SVM) \u2013 classical deep learning approaches (CNN (Kim, 2014), BiGRU (Bahdanau et al., 2014) , and HAN (Yang et al., 2016)) \u2013 and various transformer approaches with/without pruning strategies. These transformer-based models are generally considered to provide the current stateof-the-art in text classification. We reproduce these baselines based on the Transformers.2\nAcquiring a human baseline As a baseline, we asked 26 participants which were experts in economics and finance to predict M&A events by completing 50 M&A evaluation questionnaires. The participants consisted of Ph.D. students, and academics from the fields of economics/finance. All participants were either native English speakers or had a high degree of English competence. Each questionnaire provided information on ten M&A cases/instances, sampled randomly without replacement from the test set. In addition, the news articles available in the dataset that were published before the deal announcement were also provided. The questionnaire asked the participant to predict the outcome of the deal (complete or rumour), and to state their confidence in this prediction."
+    },
+    {
+      "heading": "4.2 Classification Results",
+      "text": "In line with best practice, model hyper-parameters are tuned using the validation set. In particular, the maximum sequence length is set as 256, and the size of transformers are all set as large. All experiments are using the conventional Matthews Correlation Coefficient (MCC), accuracy and F1 metrics. The classification results are summarized in Table 3 with Random Guess used to provide a lower-baseline based on chance. While the human evaluators performed better than chance their ability to predict deal outcomes is limited when compared to the more sophisticated machine models that follow. These results are particularly compelling as the human evaluators had considerable domain expertize.\n2https://github.com/huggingface/pytorch-transformers\nEach of the machine learning approaches offer substantial improvements over the human evaluators and a clear separation can be seen between traditional machine learning (with MCC scores in low 0.7 range/F1 scores in the low 0.8 range), classical deep learners (with MCC scores in the range 0.73-0.74/F1 scores in the range 0.84-0.85), and recent transformer-based models (MCC>0.75/F1>0.87).\nWe further evaluate the relative influence of the adversarial perturbation to test the robustness of the models. We find that all variants of the transformer (Lan et al., 2019; Sanh et al., 2019) benefit from the adversarial perturbation during the training process in terms of the prediction results in the practice. For exploring the reason why the optimal transformer classifier can outperform the human test a lot \u2013 39%, we take the best performed model \u2013 RoBERTa (Liu et al., 2019) with adversarial training as our optimal classifier in the following experiments for generating the plausible counterfactual explanations."
+    },
+    {
+      "heading": "5 Experiment 2: Generating Plausible Counterfactual Explanations",
+      "text": "Interpretability is an increasingly important property for many deep learning techniques, including computer vision and natural language processing (Kenny and Keane, 2019), especially in critical tasks such as financial text classification; high-value investment decisions demand a reasonable level of interpretability if investors are to trust the predictions that come for a system such as the one described in this work. In this section, we describe the qualitative analysis for each of our methods. Subsequently, we show the evaluation of user studies compared to the existing example-based explanation methods."
+    },
+    {
+      "heading": "5.1 Qualitative Analysis for the Resulting Counterfactual Instances",
+      "text": "In qualitative analysis, we identified five typical patterns among the generated counterfactual instances as shown in Table 4 where we highlight the changing parts. Based on the 500 testing examples, we guarantee that there is at least one counterfactual instance corresponding with the original input. We gain insight into which aspects are causally relevant by comparing the original context to the revised context which can flip the classifier\u2019s prediction."
+    },
+    {
+      "heading": "5.2 Human Evaluation for the Explanation",
+      "text": "We implement interpretation experiments on the optimal fine-tuned transformer classifier. While an explainable model trained with supervised learning is a common method to interpret the results of text classification (Wallace et al., 2019), the self-supervised learning explainable frameworks have been scarcely found. Meanwhile, the work in (Kaushik et al., 2020) consider similar types of edits to generate counterfactually-revised data, however, all of the instances are generated by human which greatly limits the expansibility of the method. To comprehensively evaluate the performance of our method, we consider a state-of-the-art example-based explanation framework for comparison, namely HotFlip (Ebrahimi et al., 2017), which uses gradients to identify important words and then flip it with the adversarial word which can cause the maximum change in gradients.\nFor user evaluation, here we ask domain experts in finance to rate our explanations on two aspects, (1) how plausible (mainly in terms of grammar and comprehension) it is, and (2) how reasonable it is (i.e., does the explanation make sense). We compare our method to Hotflip - the current state-of-the-art framework for counterfactual explanation - at the time of writing. Each score is measured on a scale of 1-5, where 5 is the best, and 1 is the worst. We randomly sample 100 examples from the testing set for 5 participants to answer (20 examples per person). By combining the REP-SCD, RM-SCD, INS-SCD together, our method achieves significantly higher ranking score compared to HotFlip, more specifically, 2.35 score improvements (4.35/2.00) were made regarding plausibility while 0.85 score improvements (4.00/3.15) were made on reasonableness, showing a p-value less than 0.001 and 0.05, respectively. Hence, there is compelling evidence that our method can generate counterfactual explanations which are more plausible and reasonable."
+    },
+    {
+      "heading": "6 Conclusion and Future Work",
+      "text": "In this work, we pursued a new research problem of M&A prediction. Our transformer-based classifier leveraged the regularization benefits of adversarial training to enhance model robustness. More importantly, we built upon previous techniques to quantify the importance of words and help guarantee the generation of plausible counterfactual explanations with a masked language model in financial text classification. The results demonstrate superior accuracy and explanatory performance compared to state-of-the-art techniques. An obvious extension would be to include canceled deals into the classifier,\nor to predict novel M&A events based on market descriptions of companies (e.g., scale, finances, and target markets). Moreover, additional financial events (e.g., misstatement detection and earnings call analysis) is yet another related task to be considered for further research."
+    },
+    {
+      "heading": "Acknowledgment",
+      "text": "We would like to thank Tianhao Fu, Yimeng Li, Yang Xu and Prof. Mark Keane for their helpful advice and discussion during this work. Also, we would like to thank the anonymous reviewers for their insightful comments and suggestions to help improve the paper. This research was supported by Science Foundation Ireland (SFI) under Grant Number SFI/12/RC/2289 2."
+    }
+  ],
+  "title": "Generating Plausible Counterfactual Explanations for Deep Transformers in Financial Text Classification",
+  "year": 2020
+}

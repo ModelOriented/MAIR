@@ -1,0 +1,613 @@
+{
+  "abstractText": "With a mortality rate of 5.4 million lives worldwide every year and a healthcare cost of more than 16 billion dollars in the USA alone, sepsis is one of the leading causes of hospital mortality and an increasing concern in the ageing western world. Recently, medical and technological advances have helped re-define the illness criteria of this disease, which is otherwise poorly understood by the medical society. Together with the rise of widely accessible Electronic Health Records, the advances in data mining and complex nonlinear algorithms are a promising avenue for the early detection of sepsis. This work contributes to the research effort in the field of automated sepsis detection with an open-access labelling of the medical MIMIC-III data set. Moreover, we propose MGP-AttTCN: a joint multitask Gaussian Process and attention-based deep learning model to early predict the occurrence of sepsis in an interpretable manner. We show that our model outperforms the current state-of-the-art and present evidence that different labelling heuristics lead to discrepancies in task difficulty.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Margherita Rosnati"
+    },
+    {
+      "affiliations": [],
+      "name": "Vincent Fortuin"
+    }
+  ],
+  "id": "SP:6d09fd7f6508c1f8f96f441c1f263c2ce817b069",
+  "references": [
+    {
+      "authors": [
+        "Derek C Angus",
+        "Walter T Linde-Zwirble",
+        "Jeffrey Lidicker",
+        "Gilles Clermont",
+        "Joseph Carcillo",
+        "Michael R Pinsky"
+      ],
+      "title": "Epidemiology of severe sepsis in the united states: analysis of incidence, outcome, and associated costs of care",
+      "venue": "Critical care medicine,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Dzmitry Bahdanau",
+        "Kyunghyun Cho",
+        "Yoshua Bengio"
+      ],
+      "title": "Neural machine translation by jointly learning to align and translate",
+      "venue": "arXiv preprint arXiv:1409.0473,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Shaojie Bai",
+        "J Zico Kolter",
+        "Vladlen Koltun"
+      ],
+      "title": "An empirical evaluation of generic convolutional and recurrent networks for sequence modeling",
+      "venue": "arXiv preprint arXiv:1803.01271,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Edwin V Bonilla",
+        "Kian M Chai",
+        "Christopher Williams"
+      ],
+      "title": "Multi-task gaussian process prediction",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Jacob Calvert",
+        "Jana Hoffman",
+        "Christopher Barton",
+        "David Shimabukuro",
+        "Michael Ries",
+        "Uli Chettipally",
+        "Yaniv Kerem",
+        "Melissa Jay",
+        "Samson Mataraso",
+        "Ritankar Das"
+      ],
+      "title": "Cost and mortality impact of an algorithm-driven sepsis prediction system",
+      "venue": "Journal of medical economics,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jacob S Calvert",
+        "Daniel A Price",
+        "Uli K Chettipally",
+        "Christopher W Barton",
+        "Mitchell D Feldman",
+        "Jana L Hoffman",
+        "Melissa Jay",
+        "Ritankar Das"
+      ],
+      "title": "A computational approach to early sepsis detection",
+      "venue": "Computers in biology and medicine,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "\u00c1lvaro Castellanos-Ortega",
+        "Borja Suberviola",
+        "Luis A Garc\u00eda-Astudillo",
+        "Mar\u00eda S Holanda",
+        "Fernando Ortiz",
+        "Javier Llorca",
+        "Miguel Delgado-Rodr\u00edguez"
+      ],
+      "title": "Impact of the surviving sepsis campaign protocols on hospital length of stay and mortality in septic shock patients: results of a three-year follow-up quasi-experimental study",
+      "venue": "Critical care medicine,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Edward Choi",
+        "Mohammad Taha Bahadori",
+        "Jimeng Sun",
+        "Joshua Kulas",
+        "Andy Schuetz",
+        "Walter Stewart"
+      ],
+      "title": "Retain: An interpretable predictive model for healthcare using reverse time attention mechanism",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Ryan J Delahanty",
+        "JoAnn Alvarez",
+        "Lisa M Flynn",
+        "Robert L Sherwin",
+        "Spencer S Jones"
+      ],
+      "title": "Development and evaluation of a machine learning model for the early identification of patients at risk for sepsis",
+      "venue": "Annals of emergency medicine,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Thomas Desautels",
+        "Jacob Calvert",
+        "Jana Hoffman",
+        "Melissa Jay",
+        "Yaniv Kerem",
+        "Lisa Shieh",
+        "David Shimabukuro",
+        "Uli Chettipally",
+        "Mitchell D Feldman",
+        "Chris Barton"
+      ],
+      "title": "Prediction of sepsis in the intensive care unit with minimal electronic health record data: a machine learning approach",
+      "venue": "JMIR medical informatics,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Carolin Fleischmann",
+        "Andr\u00e9 Scherag",
+        "Neill KJ Adhikari",
+        "Christiane S Hartog",
+        "Thomas Tsaganos",
+        "Peter Schlattmann",
+        "Derek C Angus",
+        "Konrad Reinhart"
+      ],
+      "title": "Assessment of global incidence and mortality of hospital-treated sepsis. current estimates and limitations",
+      "venue": "American journal of respiratory and critical care medicine,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Vincent Fortuin",
+        "Gunnar R\u00e4tsch"
+      ],
+      "title": "Deep mean functions for meta-learning in gaussian processes",
+      "venue": "arXiv preprint arXiv:1901.08098,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Vincent Fortuin",
+        "Matthias H\u00fcser",
+        "Francesco Locatello",
+        "Heiko Strathmann",
+        "Gunnar R\u00e4tsch"
+      ],
+      "title": "Som-vae: Interpretable discrete representation learning on time series",
+      "venue": "arXiv preprint arXiv:1806.02199,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Vincent Fortuin",
+        "Gunnar R\u00e4tsch",
+        "Stephan Mandt"
+      ],
+      "title": "Multivariate time series imputation with variational autoencoders",
+      "venue": "arXiv preprint arXiv:1907.04155,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Joseph Futoma",
+        "Sanjay Hariharan",
+        "Katherine Heller"
+      ],
+      "title": "Learning to detect sepsis with a multitask gaussian process rnn classifier",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning-Volume",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Joseph Futoma",
+        "Sanjay Hariharan",
+        "Mark Sendak",
+        "Nathan Brajer",
+        "Meredith Clement",
+        "Armando Bedoya",
+        "Cara O\u2019Brien",
+        "Katherine Heller"
+      ],
+      "title": "An improved multi-output gaussian process rnn with real-time validation for early sepsis detection",
+      "venue": "arXiv preprint arXiv:1708.05894,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Marzyeh Ghassemi",
+        "Marco AF Pimentel",
+        "Tristan Naumann",
+        "Thomas Brennan",
+        "David A Clifton",
+        "Peter Szolovits",
+        "Mengling Feng"
+      ],
+      "title": "A multivariate timeseries modeling approach to severity of illness assessment and forecasting in icu with sparse, heterogeneous clinical data",
+      "venue": "In Twenty-Ninth AAAI Conference on Artificial Intelligence,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Shameek Ghosh",
+        "Jinyan Li",
+        "Longbing Cao",
+        "Kotagiri Ramamohanarao"
+      ],
+      "title": "Septic shock prediction for icu patients via coupled hmm walking on sequential contrast patterns",
+      "venue": "Journal of biomedical informatics,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Katharine E Henry",
+        "David N Hager",
+        "Peter J Pronovost",
+        "Suchi Saria"
+      ],
+      "title": "A targeted real-time early warning score (trewscore) for septic shock",
+      "venue": "Science translational medicine,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Md Mohaimenul Islam",
+        "Tahmina Nasrin",
+        "Bruno Andreas Walther",
+        "Chieh-Chen Wu",
+        "Hsuan-Chia Yang",
+        "Yu-Chuan Li"
+      ],
+      "title": "Prediction of sepsis patients using machine learning approach: a meta-analysis",
+      "venue": "Computer methods and programs in biomedicine,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Alistair Johnson",
+        "Tom Pollard"
+      ],
+      "title": "sepsis3-mimic, May 2018",
+      "venue": "URL https://doi.org/10.5281/zenodo.1256723",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Alistair EW Johnson",
+        "Tom J Pollard",
+        "Lu Shen",
+        "H Lehman Li-wei",
+        "Mengling Feng",
+        "Mohammad Ghassemi",
+        "Benjamin Moody",
+        "Peter Szolovits",
+        "Leo Anthony Celi",
+        "Roger G Mark"
+      ],
+      "title": "Mimic-iii, a freely accessible critical care database",
+      "venue": "Scientific data,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Hye Jin Kam",
+        "Ha Young Kim"
+      ],
+      "title": "Learning representations for the early detection of sepsis with deep neural networks",
+      "venue": "Computers in biology and medicine,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Anand Kumar",
+        "Daniel Roberts",
+        "Kenneth E Wood",
+        "Bruce Light",
+        "Joseph E Parrillo",
+        "Satendra Sharma",
+        "Robert Suppes",
+        "Daniel Feinstein",
+        "Sergio Zanotti",
+        "Leo Taiberg"
+      ],
+      "title": "Duration of hypotension before initiation of effective antimicrobial therapy is the critical determinant of survival in human septic shock",
+      "venue": "Critical care medicine,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Colin Lea",
+        "Michael D Flynn",
+        "Rene Vidal",
+        "Austin Reiter",
+        "Gregory D Hager"
+      ],
+      "title": "Temporal convolutional networks for action segmentation and detection",
+      "venue": "In proceedings of the IEEE Conference on Computer Vision and Pattern Recognition,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Steven Cheng-Xian Li",
+        "Benjamin M Marlin"
+      ],
+      "title": "A scalable end-to-end gaussian process adapter for irregularly sampled time series classification",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Lei Lin",
+        "Beilei Xu",
+        "Wencheng Wu",
+        "Trevor Richardson",
+        "Edgar A Bernal"
+      ],
+      "title": "Medical time series classification with hierarchical attention-based temporal convolutional networks: A case study of myotonic dystrophy diagnosis",
+      "venue": "arXiv preprint arXiv:1903.11748,",
+      "year": 1903
+    },
+    {
+      "authors": [
+        "Zachary C Lipton",
+        "David C Kale",
+        "Randall Wetzel"
+      ],
+      "title": "Modeling missing data in clinical time series with rnns",
+      "venue": "arXiv preprint arXiv:1606.04130,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Qingqing Mao",
+        "Melissa Jay",
+        "Jana L Hoffman",
+        "Jacob Calvert",
+        "Christopher Barton",
+        "David Shimabukuro",
+        "Lisa Shieh",
+        "Uli Chettipally",
+        "Grant Fletcher",
+        "Yaniv Kerem"
+      ],
+      "title": "Multicentre validation of a sepsis prediction algorithm using only vital sign data in the emergency department, general ward and icu",
+      "venue": "BMJ open,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Volodymyr Mnih",
+        "Nicolas Heess",
+        "Alex Graves"
+      ],
+      "title": "Recurrent models of visual attention",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Michael Moor",
+        "Max Horn",
+        "Bastian Rieck",
+        "Damian Roqueiro",
+        "Karsten Borgwardt"
+      ],
+      "title": "Early recognition of sepsis with gaussian process temporal convolutional networks and dynamic time warping",
+      "year": 1902
+    },
+    {
+      "authors": [
+        "H Bryant Nguyen",
+        "Stephen W Corbett",
+        "Robert Steele",
+        "Jim Banta",
+        "Robin T Clark",
+        "Sean R Hayes",
+        "Jeremy Edwards",
+        "Thomas W Cho",
+        "William A Wittlake"
+      ],
+      "title": "Implementation of a bundle of quality indicators for the early management of severe sepsis and septic shock is associated with decreased mortality",
+      "venue": "Critical care medicine,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Yao Qin",
+        "Dongjin Song",
+        "Haifeng Chen",
+        "Wei Cheng",
+        "Guofei Jiang",
+        "Garrison Cottrell"
+      ],
+      "title": "A dual-stage attention-based recurrent neural network for time series prediction",
+      "venue": "arXiv preprint arXiv:1704.02971,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Aniruddh Raghu",
+        "Matthieu Komorowski",
+        "Sumeetpal Singh"
+      ],
+      "title": "Model-based reinforcement learning for sepsis treatment",
+      "venue": "arXiv preprint arXiv:1811.09602,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Jo Schlemper",
+        "Ozan Oktay",
+        "Michiel Schaap",
+        "Mattias Heinrich",
+        "Bernhard Kainz",
+        "Ben Glocker",
+        "Daniel Rueckert"
+      ],
+      "title": "Attention gated networks: Learning to leverage salient regions in medical images",
+      "venue": "Medical image analysis,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Christopher W Seymour",
+        "Vincent X Liu",
+        "Theodore J Iwashyna",
+        "Frank M Brunkhorst",
+        "Thomas D Rea",
+        "Andr\u00e9 Scherag",
+        "Gordon Rubenfeld",
+        "Jeremy M Kahn",
+        "Manu Shankar-Hari",
+        "Mervyn Singer"
+      ],
+      "title": "Assessment of clinical criteria for sepsis: for the third international consensus definitions for sepsis and septic shock",
+      "venue": "(sepsis-3). Jama,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Manu Shankar-Hari",
+        "Gary S Phillips",
+        "Mitchell L Levy",
+        "Christopher W Seymour",
+        "Vincent X Liu",
+        "Clifford S Deutschman",
+        "Derek C Angus",
+        "Gordon D Rubenfeld",
+        "Mervyn Singer"
+      ],
+      "title": "Developing a new definition and assessing new clinical criteria for septic shock: for the third international consensus definitions for sepsis and septic shock (sepsis-3)",
+      "venue": "Jama, 315(8):775\u2013787,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "David W Shimabukuro",
+        "Christopher W Barton",
+        "Mitchell D Feldman",
+        "Samson J Mataraso",
+        "Ritankar Das"
+      ],
+      "title": "Effect of a machine learning-based severe sepsis prediction algorithm on patient survival and hospital length of stay: a randomised clinical trial",
+      "venue": "BMJ open respiratory research,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Mervyn Singer",
+        "Clifford S Deutschman",
+        "Christopher Warren Seymour",
+        "Manu Shankar-Hari",
+        "Djillali Annane",
+        "Michael Bauer",
+        "Rinaldo Bellomo",
+        "Gordon R Bernard",
+        "Jean-Daniel Chiche",
+        "Craig M Coopersmith"
+      ],
+      "title": "The third international consensus definitions for sepsis and septic shock",
+      "venue": "(sepsis-3). Jama,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Jean-Louis Vincent",
+        "John C Marshall",
+        "Silvio A \u00d1amendys-Silva",
+        "Bruno Fran\u00e7ois",
+        "Ignacio Martin-Loeches",
+        "Jeffrey Lipman",
+        "Konrad Reinhart",
+        "Massimo Antonelli",
+        "Peter Pickkers",
+        "Hassane Njimi"
+      ],
+      "title": "Assessment of the worldwide burden of critical illness: the intensive care over nations (icon) audit",
+      "venue": "The lancet Respiratory medicine,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Zichao Yang",
+        "Diyi Yang",
+        "Chris Dyer",
+        "Xiaodong He",
+        "Alex Smola",
+        "Eduard Hovy"
+      ],
+      "title": "Hierarchical attention networks for document classification",
+      "venue": "In Proceedings of the 2016 conference of the North American chapter of the association for computational linguistics: human language technologies,",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "Every year, it is estimated that 31.5 million people worldwide contract sepsis. With a mortality rate of 17% in its benign state and 26% for its severe state [11], sepsis is one of the leading causes of hospital mortality [40], costing the healthcare system more than 16 billion dollars in the USA alone [1]. Studies demonstrated that early treatment has a significant positive effect on the survival rate [24, 32]. In particular, Castellanos-Ortega et al. [7] demonstrated that each hour delay in treating a patient results in a 7.6% increase in mortality.\nCurrent methods of screening, such as Modified Early Warning System (MEWS) and Systemic Inflammatory Response Syndrome (SIRS) have been criticised for their lack of specificity, leading to low accuracies and high false alarm rates. In 2015, the Third International Consensus Definitions for Sepsis [39, 36, 37] committee worked towards incorporating medical and technological advances into an up-to-date definition of sepsis, providing scientists with widely acknowledged illness criteria. Together with the rise of Electronic Health Records (EHR), the scientific community is now armed with both the data and labelling techniques to experiment with novel prediction methods [20, 19, 18, 6, 10], which are already proving effective in increasing survival rate [38] and promising in decreasing costs.\nNew models developed so far either relied on some interpretable yet simple prediction methods, such as logistic regression [6] and decision tree based classifiers [29, 9], or on effective yet black-box methods such as Recurrent Neural Networks [16]. Moreover, the results achieved by different authors are rarely comparable: although most use the MIMIC-III data set, the disparities in labelling rules result in highly variable data sets (eg. [34] have 17,898 septic patients vs. 2,577 for [10]).\nThis work presents an attempt at reconciling interpretability and predictive performance on the sepsis prediction task and makes the following contributions:\n\u2022 Gold standard for labelling. We provide a gold standard for Sepsis-3 labelling implemented on the MIMIC-III data set.\n\u2217mrosnati@student.ethz.ch\nar X\niv :1\n90 9.\n12 63\n7v 1\n[ cs\n.L G\n] 2\n7 Se\n\u2022 Novel interpretable model. We present an explainable and end-to-end trainable model based on Multitask Gaussian Processes and Attentive Neural Networks for the early prediction of sepsis.\n\u2022 Empirical evaluation. We assess our model on real-world medical data and report superior predictive performance and interpretability compared to previous methods.\nAn overview of our proposed method is shown in Figure 1."
+    },
+    {
+      "heading": "2 Related work",
+      "text": "Medical time series diagnosis Multiple researchers have tackled the task of predicting sepsis and septic shock. Works on septic shock include exploration of survival models [19] and Hidden Markov Models [18]. However, these models rely on the assumption that a patient has already developed sepsis and focus on patterns of patients\u2019 further deterioration. Other authors [6, 10, 29, 9] use linear models and decision trees on engineered features to predict sepsis onset, thus failing to capture temporal patterns. More recently, Kam and Kim [23] and Raghu et al. [34] employed recurrent neural networks to better capture time dependencies. Crucially, all these models rely on either averaging or forward imputation of data points to create equidistant inputs. This transformation creates data artefacts and discards relevant uncertainty: in the medical field, the absence of data is a conscious decision made by professionals implying an underlying belief of the patient state. Futoma et al. [16] and Moor et al. [31] tackled this issue with Multitask Gaussian Processes (MGPs), however their models lack the interpretability necessary in the medical field.\nIrregularly sampled time series The most common solution to missing values is forward imputation [6]. [28] utilise forward imputation coupled with a missingness indicator fed into a black-box model. Although this method retains information about data presence, it is not clear how the information is later interpreted by the model and hence does not meet our transparency criteria. [17] use MGPs to fit sparse medical data, however they optimise their model for the data fit and use the parametrisation as input for a classifier rather than optimising the model for a classification task. Both [15] and [31] use MGPs with end-to-end training, although their temporal covariance function is shared across all variables. Finally, [16] uses MGPs with multiple time kernels in a similar fashion to our model, although they infer the number of kernels from hyperparameter tuning rather than the data itself.\nAttention based neural networks Attention was first introduced on the topic of machine translation [2]. Since then, the concept has been used in natural language processing [41, 42] and image analysis [30, 35]. In the same spirit, [33] used attention mechanisms to improve the performance of a time series prediction model. Although their model easily explains the variable importance, its attention mechanism is based on Long Short Term Memory encodings of the time series. At any given time, such an encoding contains both the information of the current time point and all previous time points seen by the recurrent model. As such, the time domain attention does not allow for easy interpretation. More similar to our implementation is the RETAIN model [8], which generates its attention weights through reversed recurrent networks and applies them to a simple embedding of the time series. The model employs recurrent neural networks which are slower to train and suffer from the vanishing gradient problem. Furthermore, the initial and final embeddings decrease the model\u2019s interpretablity. Other authors using TCN-based attention include [27], who only attend to time."
+    },
+    {
+      "heading": "3 Method",
+      "text": ""
+    },
+    {
+      "heading": "3.1 Notation",
+      "text": "Let us first define some notation for the problem at hand. For each patient encounter p, several features yp,ti,k are recorded at times tp,i,k from admission, where k \u2208 {1, . . . ,M} is the feature identifier. These features are often vital signs and laboratory results. As such, they are rarely observed at the same times. Hence, we have a sparse matrix representation of observations  yp,1,t1 . . . yp,1,tNp... . . .\nyp,M,t1 . . . yp,M,tNp  (1) where Np is the patient\u2019s observation period length. We also define static features sp = {sp,M+1, ..sp,M+Q} with features identifiers k \u2208 {M + 1, . . . ,M +Q}, corresponding to time-independent quantities, such as age, gender and first admission unit. Finally, we define sepsis labels lp \u2208 {0, 1}. Given the sparsity of the data, we can define the compact representation of all observed values:\n{tp,yp, sp, lp} = { {tp,i,k, yp,i,k}i\u2208{0,...,Np},k\u2208{1,...,M}, {sp,M+1, ..sp,M+Q}, lp } (2)\nThe goal of the model is, for a given set {tp,yp, sp} to predict the label lp. In order to remove clutter, we will from now on drop the patient-specific subscript p from all notation, and the feature subscript k from time notation, simplifying tp,i,k to ti."
+    },
+    {
+      "heading": "3.2 Multitask Gaussian Process (MGP)",
+      "text": "Gaussian processes are commonly known for their ability to generate coherent function fits to a set of irregular samples, by modelling the data covariance. As they easily account for uncertainty and do not require homogeneously sampled data, Gaussian processes are the perfect candidate model to deal with relatively small amounts of medical data.\nFollowing [4], we use a Multitask Gaussian Process (MGP) to capture feature correlation and Li and Marlin [26]\u2019s end-to-end training framework, in a similar manner to [15]. Given an hourly spaced time series {t\u2032i}0i=\u2212Np (where 0 is the time of prediction), the MGP layer produces a set of posterior predictions for each feature, which will then be fed into a classification model.\nWe define a patient-independent prior over the true values of {yi,k} by {fk(ti)} such that {yi,k} \u223c N (fk(ti), \u03c32k) (3)\u2329\nfk(ti), fk\u2032(tj) \u232a = \u2211 l\u2208L Kkl (k, k \u2032)Kttl (ti, tj) (4)\nwhere {Kttl (ti, tj)}l\u2208L are time point covariances varying in smoothness, {Kkl (k, k\u2032)}l\u2208L are feature covariances at a given smoothness level, independent of time, and L are smoothness clusters. Over all variables and time points, the multivariate model has covariance \u2211\nl\u2208L\nKkl \u2297Kttl +D \u2297 I (5)\nwhere D = diag(\u03c3k) are the noise terms associated to each feature and \u2297 is the Kronecker product. The posterior over t\u2032 = {t\u2032i}0i=\u2212Np is a multivariate Gaussian with mean and covariance:\n\u00b5 = (\u2211 l\u2208L Kkl \u2297Ktt \u2032 l )(\u2211 l\u2208L Kkl \u2297Kttl +D \u2297 I )\u22121 y\n\u03a3 = \u2211 l\u2208L Kkl \u2297Kt \u2032t\u2032 l \u2212 (\u2211 l\u2208L Kkl \u2297Ktt \u2032 l )(\u2211 l\u2208L Kkl \u2297Kttl +D \u2297 I )\u22121(\u2211 l\u2208L Kkl \u2297Kt \u2032t l ) (6) In order to approximate the posterior distribution, we then take Monte Carlo samples yMC from YMGP \u223c N (\u00b5,\u03a3). Note that there are two main feature clusters: vital signs (vitals) and laboratory results (labs). Vitals are noisier and sampled more often, whereas labs are more monotone and rarely sampled. As opposed to [16], we do not treat the number of clusters L as hyperparameters but set L = 2 and define\nKtl (ti, tj) = exp (\u2212|ti \u2212 tj |\n\u03bbl\n) (7)\nas Ornstein-Uhlenbeck (OU) kernels with lengths \u03bb1 and \u03bb2, each representing a cluster smoothness. OU kernels are well suited to capture local variations and do not assume infinite differentiability as Squared Exponential kernels do. In our case, differentiablity implies a level of smoothness which does not apply to medical records and only introduces unnecessary bias. In addition, given the scarce availability of labs, all short lengthscales would be an ill fit to the data. We hence discarded kernels varying over lengthscales such as the Cauchy and the Rational Quadratic kernels. Kkl (k, k\n\u2032) are free-form covariance matrice that are learned by gradient descent.\nTo feed the MGP samples into the classifier, we fix the model time window to N = 25 by either zero padding or truncating the beginning of the time series. We choose to do so at the beginning of the time series in order to align prediction times as the last step of the temporal classification model. Here, we also integrate the static variables by broadcasting them over each time point2."
+    },
+    {
+      "heading": "3.3 Attention Time Convolutional Network (AttTCN)",
+      "text": "The concept of attention was born in machine translation [2]: given an input sentence embedding S = {h1, . . .h|S|}, the attention mechanism produces weights {\u03b1i1, . . . \u03b1i|S|} such that \u03b1 i j \u2208 [0, 1], \u2211 j \u03b1 i j = 1, and a context vector ci = \u2211 j \u03b1 i jhj used to predict target word i. The weights \u03b1ij can therefore be interpreted as the importance of the input sentence\u2019s j th word to produce the ith word of the translation.\nMore recently, Choi et al. [8] have applied attention to clinical time series. Given a time series {x1, . . .xT } \u2282 Rr, the authors first create a time-independent embedding of the data {v1, . . .vT } \u2282 Rm. They then use inversed recurrent neural networks (RNN) to create weights \u03b1 \u2208 RT and \u03b2 \u2208 RT\u00d7m, where \u03b1j \u2208 [0, 1] and \u03b2ij \u2208 [\u22121, 1], with softmax and tanh activations respectively. The context vectors then take the form ci = \u2211 j\u2264i \u03b1j\u03b2j vj and are fed into a multilayer perceptron with softmax activation to yield a prediction.\nThe attention model we devised borrows some ideas from [8]. The interpolated data yMC \u2208 RN\u00d7(M+Q) is directly fed into two temporal convolutional networks (TCNs) ([25]) and generates embeddings z = [z1, . . . , zN ] \u2208 RN\u00d7M and z\u2032 = [z\u20321, . . . , z \u2032 N ] \u2208 RN\u00d7M .\nTCNs are a class of neural networks composed of causal convolutions stacked into Residual Blocks. A causal convolution is a 1D convolutional layer which only takes inputs from the past to generate its output, avoiding any information leakage from the future. Residual Blocks are made of two causal convolutional layers together with ReLU activation functions, dropout and L2 regularisations. The Residual Blocks also include an identity map from the input of the block added to the output. As we only use up to 12 layers, this last step is omitted in our architecture. TCNs have shown to outperform RNNs ([3]), are faster at training and do not suffer from vanishing gradients. Given the latter, inverting the time series similarly to [25] also becomes an unnecessary step which we omit.\nWe generate the attention weights \u03b1 and \u03b2 as\n\u03b1j,0 = softmax(zj \u00d7W\u03b1,0 + b\u03b1,0) \u03b1j,1 = softmax(zj \u00d7W\u03b1,1 + b\u03b1,1) (8) \u03b2j,0 = sigmoid(z\u2032j \u00d7W\u03b2,0 + b\u03b2,0) \u03b2j,1 = sigmoid(z\u2032j \u00d7W\u03b2,1 + b\u03b2,1) (9) W\u03b1,0,W\u03b1,1 \u2208 RM+Q b\u03b1,0, b\u03b1,1 \u2208 R (10) W\u03b2,0,W\u03b2,1 \u2208 R(M+Q)\u00d7(M+Q) b\u03b2,0,b\u03b2,0 \u2208 RM+Q (11)\nsuch that \u03b1 = [\u03b10,\u03b11] \u2208 RN\u00d72 and \u03b2 = [\u03b20,\u03b21] \u2208 RN\u00d7(M+Q)\u00d72. We then create two context vectors, one for each of negative and positive label predictions\nci = \u2211 j\u2264i \u03b1j,\u03b4\u03b2j,\u03b4 yMC,j \u2208 RN\u00d7(M+Q)\u00d72 , \u03b4 \u2208 {0, 1} (12)\nwhere yMC,j is broadcast to meet the dimensionality of \u03b2j,\u03b4 . We then predict the labels as\nl\u0302i = softmax ( N\u2211\nn M+Q\u2211 m ci,nm ) \u2208 [0, 1]2 (13)\n2see Appendix C.2 for more information on this design choice\nIn our case, we are only interested in making predictions with the latest available data. We therefore only use l\u0302last to train the model. This of course can be easily modified to suit any specific use-case.\nSince the MGP output is directly multiplied by weights ci, the classification model can be interpreted as a scoring mechanism where each past point yMC,ij contributes \u03b1i,0\u03b2ij,0 to the time series being classified as positive, and \u03b1i,1\u03b2ij,1 to the time series being classified as negative. The positive and negative scores are then normalised to represent probabilities of the positive or negative labelling. As we design both \u03b1 and \u03b2 to be non-negative, we can hence directly look at the average \u03b1 and \u03b2 over Monte Carlo samples to see which time points and features contribute most strongly to the network\u2019s positive or negative decision."
+    },
+    {
+      "heading": "4 Data",
+      "text": "Sepsis is defined as a life-threatening organ dysfunction caused by a dysregulated host response to infection [39]. The latter is usually interpreted as the administration of antibiotics coupled with the culture of blood samples, generating a suspicion of infection window, whereas the former is interpreted as a two point increase in Sequential Organ Failure Assessment (SOFA) within such a suspected infection window. We make use of the MIMIC-III data set [22] and encode the Sepsis-3 criteria following Johnson and Pollard [21]\u2019s code available on GitHub, with the help of Moor et al. [31]\u2019s code that the authors have generously provided.\nOne key difference between our assumptions and Moor et al. [31]\u2019s is the handling of missing SOFA contributor values: if one or more SOFA contributors are missing, Moor et al. do not calculate the total score. On the other hand, we assume such a contributor to be within a healthy norm, implying a zero contribution. In order to validate our results, we carry out all experiments using both labelling techniques.\nWe proceed to extract times series of case and control patients for a set of commonly recorded vitals, labs and static variables and normalise their values. Following Moor et al. [31], in order to keep the data set length balanced, we match the time series lengths of control patients to those of case patients using the class balance ratio. In addition, we create up to seven copies of each time series and truncate the last zero to six hours of data, effectively creating early prediction patients and augmenting our data set. We remove excessively noisy or computationally intensive data and train the model over different hyperparameters, randomly resampling an equal number of case and control patients to counteract the data set imbalance."
+    },
+    {
+      "heading": "5 Experimental Results",
+      "text": "We compare our model\u2019s performance to the performance of the InSight algorithm [6] and to the state-of-the-art MGP-TCN algorithm [31]. Figure 3 shows the predictive performance of the models for different time horizons.\nArea under the ROC over time"
+    },
+    {
+      "heading": "5.1 Comparison between different data labels",
+      "text": "The first result is the difference in performance of models applied to the different labelling methods. The SOFA contributor assumption Moor et al. make has two main implications. Firstly, it considerably restricts the number of patients. Assuming that sicker patients receive more medical attention, the patients included are likely to be in worse conditions than the septic patients excluded and hence easier to classify. Secondly, it delays sepsis onset. For example, a patient having a severe liver failure with few other recorded vitals, followed by an overall collapse further in time will have septic onset at the time of its liver failure in our records, whereas it will only be considered septic at the time of the overall collapse in Moor et al.\u2019s labels. On the other hand, the labels we produce reflect the incomplete nature of medical data: even if only a part of all the potentially relevant tests are carried out at any given time, a doctor must be able to assess a patient\u2019s well-being and foresee potential complications. The difference in labels implies a discrepancy in task difficulty: Moor et al.\u2019s labels present an easier learning problem, however they define a more narrow use-case in real-world scenarios.\nIndeed, when assessing the performance of the different models on the two different data labellings, it becomes evident that our proposed labels are harder to fit. This means that predicting sepsis in a realistic setting on the intensive care unit is probably much harder than previous work would suggest."
+    },
+    {
+      "heading": "5.2 Model performance",
+      "text": "We find that our MGP-AttTCN model has a better performance when presented with patients further in time from sepsis onset. In the case of Moor et al.\u2019s labels the difference is clearly noticeable, whereas with our labels it is of lower statistical significance. With our labels, both MGP-TCN and MGP-AttTCN have a stronger performance than InSight. The intuition behind this result is the robustness of the models to missing data: both MGP-TCN and MGP-AttTCN account for the data uncertainty and hence have a better performance on lower resolution and more irregular data.\nOn Moor et al.\u2019s labels, the MGP-TCN model does not seem to significantly outperform the InSight model, suggesting that those labels might be easy enough to not require a particularly pronounced robustness to missing data. However, the additional attention of the proposed MGP-AttTCN model does seem to gain a clearer advantage here than on our labels, presumably due to a more complete set of features that can be attended to."
+    },
+    {
+      "heading": "5.3 MGP interpretability",
+      "text": "Inspecting the learned covariances (Figure 4), we notice that the two OU lengthscales converged to represent two clusters within the selected variables: a shorter lengthscale (around two hours) represents noisy data, whereas a larger lengthscale (around 64 hours) represents smoother observations. In addition, the feature covariance matrix for the short lengthscale puts more emphasis on vitals, while the one for the long lengthscale puts more emphasis on labs, fitting our initial intuition that vitals vary more rapidly. Graphically, once can observe this by inspecting the diagonals on the covariance heatmaps.\nOn a more granular level, the two covariance matrices also provide insights about the underlying variables. One can for instance observe that the body temperature (tempc) has a larger variance than the systolic and diastolic blood pressure (sysbp, diabp), following the general clinical intuition. Moreover, we can observe correlations between different features, such as a negative correlation between temperature and heart rate, which also seems to coincide with the general medical expectation. These covariances can then for instance be used by the model to extrapolate a full function from a single INR observation with an inverse correlation to the pulse oximetry observations (Fig. 5)."
+    },
+    {
+      "heading": "5.4 Attention weights",
+      "text": "One important benefit of our model compared to current approaches is its interpretability due to the attention mechanism. Once the samples have been drawn, the weights \u03b1 and \u03b2 provide us with more information about the importance of different time points and features for the model\u2019s behaviour. The attention weights for an exemplary patient trajectory are depicted in Figure 5.\nOverall, the absolute values of \u03b1 are small for points further from the prediction time and increasingly larger closer to it. A good example of this behaviour is the fourth row in Figure 5, where feature importance increases in time. We can also see there, that different features can have opposing effects on the prediction. While the elevated heart rate close to the prediction time increases the likelihood of a sepsis prediction (first column, yellow weights), the lowered prothrombin values reduce this likelihood (third column, blue weights). Interestingly, the low prothrombin values are not actually measured in this example, but predicted by the MGP purely based on the other measured features and the learned covariances.\nFinally, \u03b1\u00d7 \u03b2 \u00d7 yMC gives the individual score contribution of each feature at each time point. These weights are shown in the last row of the figure. It can again be seen that the attention weights are generally larger in magnitude closer to the prediction time. Moreover, about half of the features have significant non-zero attention weights, while the others seem to not be important for the prediction in this example.\nThese visualizations could be used by doctors to make an informed decision about whether or not to trust the prediction of the model for each given patient, thus facilitating the interpretability and accountability that is crucial in medical applications."
+    },
+    {
+      "heading": "6 Conclusion",
+      "text": "We have shown that current data sets for the early prediction of sepsis underestimate the true difficulty of the problem and proposed a new labelling for the MIMIC-III data set that corresponds more closely to a realistic intensive care setting. Moreover, we have proposed a new machine learning model, the MGP-AttTCN, which outperforms the state-of-the-art approaches on the easier labels from the literature as well as on our proposed harder labels. Additionally, our model provides an interpretable attention mechanism that would allow clinicians to make more informed decisions about trusting its predictions on a case-by-case basis.\nPotential avenues for future work include a more thorough discussion with clinicians to potentially make our proposed labels even more representative of the real-world task, and architectural improvements, for instance by meta-learning the MGP prior [12], amortizing the latent MGP inference for performance gains [14], or discretizing the latent space for improved interpretability [13]."
+    },
+    {
+      "heading": "Appendix A Data processing",
+      "text": "A.1 Data labelling\nPlease refer to https://github.com/mmr12/MIMIC-III-sepsis-3-labels for more details how we derived the MIMIC-III sepsis labels.\nA.2 Data extraction\nPatient Inclusion We filter for patients admitted to Intensive Care Units (ICU) who are more than 14 years old and with valid records. Case patients are patients having sepsis onset within their ICU stay, whereas control patients have not developed sepsis nor have an ICD discharge code referring to sepsis. Starting with 58\u2019976 patients, we find 14\u2019071 control patients and 7\u2019936 case patients using our labels, versus 1\u2019797 cases using Moor et al. labels.\nFeature extraction Reviewing sepsis related literature and commonly extracted laboratory and vital recordings, we extracted all features which were reported at least once for more than 75% of the included population. The final 24 dynamic features are reported in Table 3. We also extracted static features - age, gender and first ICU admission department.\nCase-control matching As the goal is to predict sepsis prior to onset, the cases data was extracted between ICU admission and sepsis onset. Note that sepsis onset happens early within ICU admission, with the median patient getting sick at 3.4 hours of admission. On the other hand, patients not developing sepsis are more likely to recover completely, and do so in a lengthier time frame. In addition, once they are close to discharge, their vitals and labs are within the norms. Hence, both the length and the values of the time series are strong discriminatory factors which ease the classification. We hence carry out a matching strategy similar to Moor et al. [31]: following the class imbalance ratio, we associate each control time series to a case time series and truncate the control to have the same length as the case from ICU admission. We then discard patients with less than 40 data points within the selected window, and - for computational tractability - truncate the first Np \u2212 250 initial values of patients\u2019 time series in order to keep a maximum of 250 data points per patient.\nHorizon augmentation As our goal is to predict sepsis early, we augment the data by creating new shorter time series. For each time series, we create six copies, where each copy represents a different horizon to onset. We then proceed to truncate the last one to six hours prior to onset from the time series copies. In order to keep data consistency, we once again discard time series with less than 40 observations. In Tables 1 and 2 we illustrate the data distribution per horizon.\nData split Finally we split the data into training, validation and testing sets, respectively capturing 80%, 10% and 10% of the data. We then normalise the data by subtracting the training set mean and dividing by the training set standard deviation of each feature."
+    },
+    {
+      "heading": "Appendix B Baselines",
+      "text": "B.1 Data preparation\nIn order to benchmark our MGP model, we build some baselines homogenising the data sampling. For each hour and variable, we take the average of the available observations. If a given hour has no observations, we carry forward the average of the previous hour. In this manner, we generate an hourly sampled time series for each patient. We then proceed to normalise the size of each patient matrix by setting a time window of observation N . For patients having more than N observations Np, we discard the first N \u2212Np observation; whereas for patients having less than N observations we pad the beginning of the matrix with zeros. yp,1,t1 . . . yp,1,tNp... . . .\nyp,M,t1 . . . yp,M,tNp  carry forward\u2212\u2212\u2212\u2212\u2212\u2212\u2212\u2192  yp,1,1 . . . yp,1,Np... . . . yp,M,1 . . . yp,M,Np  (14)\nnormalise\u2212\u2212\u2212\u2212\u2212\u2192   yp,1,N\u2212Np . . . yp,1,N... . . . yp,M,N\u2212Np . . . yp,M,N  if Np \u2265 N 0 . . . 0 yp,1,N\u2212Np . . . yp,1,N... ... ... . . .\n0 . . . 0 yp,M,N\u2212Np . . . yp,M,N\n oth. (15)\nWe choose to align the end of the time series as opposed to the beginning as the relative importance of time points is to when a patient becomes sick rather to when he is admitted to the ICU.\nAs a next step, we augment the data to focus on different time series in a similar manner than for irregularly sampled data. We create seven copies of each time series, for each copy we discard the last zero to six hours, then normalise the matrix as above. We hence generate a dataset YBL = {Y }q = {{yq,ij}N,Mi,j=1}q where q represent all augmented the time series.\nB.2 InSight\nThe InSight scoring model is one of the few machine learning algorithms to surpass the proof-of-concept stage with multiple research, economic and clinical trials [6, 10, 5, 29]. We therefore include it as a baseline to our model.\nThe key concept of the model is to use few largely available vitals, build some handcrafted features and train a simple classification model.\nHere is an account of our interpretation of the author\u2019s method. The features extracted are based on a six consecutive hour window. For each six hour window, we extract each variable\u2019s mean Mi and difference Di (last observation minus first observation) over the window. We also extract variables pairs correlation Dij and triplet correlation Dijk; where i, j, k are observed variables. We interpret the latter as a relaxation of the Pearson correlation: if the correlation between two variables is\n\u03c1XY = E[(X \u2212 \u00b5X)(Y \u2212 \u00b5Y )]\n\u03c3X\u03c3Y (16)\nthen we define the triplet correlation as\n\u03c1XY Z = E[(X \u2212 \u00b5X)(Y \u2212 \u00b5Y )(Z \u2212 \u00b5Z)]\n\u03c3X\u03c3Y \u03c3Z (17)\nWe then classify the difference and correlations as either positive, negligible or negative using their distribution quantiles over every patient and six hour window observed. Note that given the high level of data missingness, many variables are calculated by forward imputation and hence have no variance over six hours. To adjust for the high number of zero correlations, we calcualte the quantiles of non-zero correlations and define:\nD\u0302i =  1 if Di > q\u2217(2/3) \u22121 if Di < q\u2217(1/3) 0 otherwise\n(18)\nwhere q\u2217 is the adjusted quantile function. We proceed in a similar manner for the correlations and triplet correlations.\nIn order to keep the results comparable to the AttTCN fixed window N , we extract N \u2212 (6\u22121) six consecutive hour window and vectorise the resulting features, generating in total\nnfeatures = ( N \u2212 5 ) \u00d7 ( 2\u00d7M + ( M\n2\n) + ( M\n3\n)) (19)\nfeatures per patient.\nAlthough the original paper does not specify which classification method the authors employ, we derive by their description of a dimensionless score that the method is a logistic regression."
+    },
+    {
+      "heading": "Appendix C Model details",
+      "text": "C.1 TCN properties\nTCNs are a class of neural networks composed of causal convolutions stacked into Residual Blocks. A causal convolution is a 1D convolutional layer which only takes inputs from the past to generate its output, avoiding any data leakage. Residual Blocks are made of two causal convolutional layers together with ReLU activation functions, dropout and L2 regularisations.\nC.2 Static variables\nIn our model implementation, we decide to integrate the static variables to the MGP output. Another choice we considered is to integrate the data to the output of the attention model. Once the weights \u03b1 and \u03b2 have been created, we can introduce a bias term to\nl\u0302i = Softmax ( N\u2211\nm M+Q\u2211 m ci,nm + bstatic ) \u2208 [0, 1]2 (20)\nwhere bstatic is generated by the output of a two layers multilayer perceptron applied to the static data. Although this solution is computationally lighter and provides a more elegant interpretation, it does not allow the attention mechanism to utilise the information about the patient\u2019s static state when making a decision about its vitals and labs values. For the scope of this paper, we hence decided for earlier static data integration.\nC.3 Parameter hypersearch and training\nAs the datasets are highly unbalanced, we carry out a case set oversampling: we randomly resample the case set to have the same size as the control set. In addition, at each iteration we sample equally the same number of cases and controls, then feed a shuffled version into the model. In this manner the model will see an equal number of controls and cases and will not become biased towards zero labels. This procedure does not happen for either of the validations and test sets, as the results would not compare to real life settings.\nFor both our core model MGP-AttTCN and all baselines, in order to select the best possible hyperparameters, we performed a hyperparameter random search, as described in Table 4."
+    }
+  ],
+  "title": "MGP-ATTTCN: AN INTERPRETABLE MACHINE LEARNING MODEL FOR THE PREDICTION OF SEPSIS",
+  "year": 2019
+}

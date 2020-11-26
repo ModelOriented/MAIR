@@ -1,0 +1,446 @@
+{
+  "abstractText": "While state-of-the-art NLP explainability (XAI) methods focus on explaining persample decisions in supervised end or probing tasks, this is insufficient to explain and quantify model knowledge transfer during (un-)supervised training. Thus, for TX-Ray, we modify the established computer vision explainability principle of \u2018visualizing preferred inputs of neurons\u2019 to make it usable for both NLP and for transfer analysis. This allows one to analyze, track and quantify how selfor supervised NLP models first build knowledge abstractions in pretraining (1), and then transfer abstractions to a new domain (2), or adapt them during supervised fine tuning (3) \u2013 see Fig. 1. TX-Ray expresses neurons as feature preference distributions to quantify fine-grained knowledge transfer or adaptation and guide human analysis. We find that, similar to Lottery Ticket based pruning, TX-Ray based pruning can improve test set generalization and that it can reveal how early stages of self-supervision automatically learn linguistic abstractions like parts-of-speech.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Nils Rethmeier"
+    },
+    {
+      "affiliations": [],
+      "name": "Vageesh Kumar Saxena"
+    },
+    {
+      "affiliations": [],
+      "name": "Isabelle Augenstein"
+    }
+  ],
+  "id": "SP:445d3318a012baff7f7e7320a8d2f9feb25decb2",
+  "references": [
+    {
+      "authors": [
+        "J. Adebayo",
+        "J. Gilmer",
+        "M. Muelly",
+        "I.J. Goodfellow",
+        "M. Hardt",
+        "B. Kim"
+      ],
+      "title": "Sanity Checks for Saliency Maps",
+      "venue": "Proceedings of NeurIPS.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Akbik",
+        "T. Bergmann",
+        "D. Blythe",
+        "K. Rasul",
+        "S. Schweter",
+        "R. Vollgraf"
+      ],
+      "title": "FLAIR: An Easy-to-Use Framework for State-of-the-Art NLP",
+      "venue": "NAACL Demos), Minneapolis, Minnesota. ACL.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L. Arras",
+        "A. Osman",
+        "M\u00fcller",
+        "K.-R.",
+        "W. Samek"
+      ],
+      "title": "Evaluating Recurrent Neural Network Explanations",
+      "venue": "ACL Workshop BlackboxNLP, Florence, Italy. ACL.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P. Atanasova",
+        "J. Grue Simonsen",
+        "C. Lioma",
+        "I. Augenstein"
+      ],
+      "title": "Generating Fact Checking Explanations",
+      "venue": "Proceedings of the ACL.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Bau",
+        "Y. Belinkov",
+        "H. Sajjad",
+        "N. Durrani",
+        "F. Dalvi",
+        "J.R. Glass"
+      ],
+      "title": "Identifying and controlling important neurons in neural machine translation",
+      "venue": "ICLR, New Orleans, LA, USA.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Y. Belinkov",
+        "J. Glass"
+      ],
+      "title": "Analysis Methods in Neural Language Processing: A Survey",
+      "venue": "Transactions of ACL.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Carter",
+        "Z. Armstrong",
+        "L. Schubert",
+        "I. Johnson",
+        "C. Olah"
+      ],
+      "title": "Activation Atlas",
+      "venue": "Distill.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Conneau",
+        "D. Kiela"
+      ],
+      "title": "SentEval: An Evaluation Toolkit for Universal Sentence Representations",
+      "venue": "Proceedings of LREC, Miyazaki, Japan.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C. de Masson d\u2019Autume",
+        "S. Ruder",
+        "L. Kong",
+        "D. Yogatama"
+      ],
+      "title": "Episodic Memory in Lifelong Language Learning",
+      "venue": "In Advances of NeurIPS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Erhan",
+        "Y. Bengio",
+        "A.C. Courville",
+        "P. Vincent"
+      ],
+      "title": "Visualizing Higher-Layer Features of a Deep Network",
+      "venue": "University of Montreal publications.",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "J. Frankle",
+        "M. Carbin"
+      ],
+      "title": "The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks",
+      "venue": "ICLR, New Orleans, LA, USA.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Gehrmann",
+        "H. Strobelt",
+        "R. Kr\u00fcger",
+        "H. Pfister",
+        "A.M. Rush"
+      ],
+      "title": "Visual Interaction with Deep Learning Models through Collaborative Semantic Inference",
+      "venue": "IEEE TVCG.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L.H. Gilpin",
+        "D. Bau",
+        "B.Z. Yuan",
+        "A. Bajwa",
+        "M. Specter",
+        "L. Kagal"
+      ],
+      "title": "Explaining Explanations: An Overview of Interpretability of Machine Learning",
+      "venue": "IEEE DSAA, Turin, Italy.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Giulianelli",
+        "J. Harding",
+        "F. Mohnert",
+        "D. Hupkes",
+        "W.H. Zuidema"
+      ],
+      "title": "Under the Hood: Using Diagnostic Classifiers to Investigate and Improve how Language Models Track Agreement Information",
+      "venue": "EMNLP Workshop BlackboxNLP, Brussels, Belgium.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "E. Hellinger"
+      ],
+      "title": "Neue Begr\u00fcndung der Theorie Quadratischer Formen von Unendlichvielen Ver\u00e4nderlichen",
+      "venue": "Journal f\u00fcr die reine und angewandte Mathematik, 136.",
+      "year": 1909
+    },
+    {
+      "authors": [
+        "F. Hohman",
+        "H. Park",
+        "C. Robinson",
+        "D.H. Chau"
+      ],
+      "title": "Summit: Scaling Deep Learning Interpretability by Visualizing Activation and Attribution Summarizations",
+      "venue": "IEEE TVCG.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "J. Howard",
+        "S. Ruder"
+      ],
+      "title": "Universal Language Model Fine-tuning for Text Classification",
+      "venue": "Proceedings of the ACL, Melbourne, Australia.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "N.F. Liu",
+        "M. Gardner",
+        "Y. Belinkov",
+        "M.E. Peters",
+        "N.A. Smith"
+      ],
+      "title": "Linguistic knowledge and transferability of contextual representations",
+      "venue": "NAACLHLT, Minneapolis, MN, USA.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A.L. Maas",
+        "R.E. Daly",
+        "P.T. Pham",
+        "D. Huang",
+        "A.Y. Ng",
+        "C. Potts"
+      ],
+      "title": "Learning Word Vectors for Sentiment Analysis",
+      "venue": "Proceedings of ACL-HLT, Portland, Oregon, USA. ACL-HLT.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "T. McCoy",
+        "E. Pavlick",
+        "T. Linzen"
+      ],
+      "title": "Right for the Wrong Reasons: Diagnosing Syntactic Heuristics",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Merity",
+        "C. Xiong",
+        "J. Bradbury",
+        "R. Socher"
+      ],
+      "title": "Pointer Sentinel Mixture Models",
+      "venue": "ICLR, Toulon, France.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Olah",
+        "A. Mordvintsev",
+        "L. Schubert"
+      ],
+      "title": "Feature Visualization",
+      "venue": "Distill. https://distill.pub/2017/feature-visualization.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M.E. Peters",
+        "S. Ruder",
+        "N.A. Smith"
+      ],
+      "title": "To Tune or Not to Tune? Adapting Pretrained Representations to Diverse Tasks",
+      "venue": "ACL Workshop RepL4NLP, Florence, Italy.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Raghu",
+        "J. Gilmer",
+        "J. Yosinski",
+        "J. Sohl-Dickstein"
+      ],
+      "title": "SVCCA: Singular Vector Canonical Correlation Analysis for Deep Learning Dynamics and Interpretability",
+      "venue": "Guyon, I., Luxburg, U. V., Bengio, S., Wallach, H., Fergus, R., Vishwanathan, S., and Gar-",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "V. Sanh",
+        "T. Wolf",
+        "A.M. Rush"
+      ],
+      "title": "Movement Pruning: Adaptive Sparsity by Fine-Tuning",
+      "venue": "CoRR, abs/2005.07683.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "N. Saphra",
+        "A. Lopez"
+      ],
+      "title": "Language Models Learn POS First",
+      "venue": "EMNLP Workshop BlackboxNLP, Brussels, Belgium.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R. Schwarzenberg",
+        "M. H\u00fcbner",
+        "D. Harbecke",
+        "C. Alt",
+        "L. Hennig"
+      ],
+      "title": "Layerwise Relevance Visualization in Convolutional Text Graph Classifiers",
+      "venue": "TextGraphs-13, Hong Kong. ACL.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Singh",
+        "A. Peyrache",
+        "M.D. Humphries"
+      ],
+      "title": "Medial prefrontal cortex population activity is plastic irrespective of learning",
+      "venue": "Journal of Neuroscience, 39(18).",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L. Sixt",
+        "M. Granz",
+        "T. Landgraf"
+      ],
+      "title": "When Explanations Lie: Why Modified BP Attribution Fails",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "H. Strobelt",
+        "S. Gehrmann",
+        "M. Behrisch",
+        "A. Perer",
+        "H. Pfister",
+        "A.M. Rush"
+      ],
+      "title": "Seq2seq-Vis: A Visual Debugging Tool for Sequence-to-Sequence Models",
+      "venue": "IEEE TVCG, 25(1).",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "E. Voita",
+        "D. Talbot",
+        "F. Moiseev",
+        "R. Sennrich",
+        "I. Titov"
+      ],
+      "title": "Analyzing Multi-Head Self-Attention: Specialized Heads Do the Heavy Lifting, the Rest Can Be Pruned",
+      "venue": "Proceedings of the ACL, Florence, Italy. ACL.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Wang",
+        "A. Singh",
+        "J. Michael",
+        "F. Hill",
+        "O. Levy",
+        "S.R. Bowman"
+      ],
+      "title": "GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding",
+      "venue": "ICLR, New Orleans, LA, USA.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Wang",
+        "Z. Ye",
+        "A. Zhang",
+        "Z. Zhang",
+        "A.J. Smola"
+      ],
+      "title": "Transformer on a Diet",
+      "year": 2020
+    }
+  ],
+  "sections": [
+    {
+      "text": "While state-of-the-art NLP explainability (XAI) methods focus on explaining persample decisions in supervised end or probing tasks, this is insufficient to explain and quantify model knowledge transfer during (un-)supervised training. Thus, for TX-Ray, we modify the established computer vision explainability principle of \u2018visualizing preferred inputs of neurons\u2019 to make it usable for both NLP and for transfer analysis. This allows one to analyze, track and quantify how self- or supervised NLP models first build knowledge abstractions in pretraining (1), and then transfer abstractions to a new domain (2), or adapt them during supervised fine tuning (3) \u2013 see Fig. 1. TX-Ray expresses neurons as feature preference distributions to quantify fine-grained knowledge transfer or adaptation and guide human analysis. We find that, similar to Lottery Ticket based pruning, TX-Ray based pruning can improve test set generalization and that it can reveal how early stages of self-supervision automatically learn linguistic abstractions like parts-of-speech."
+    },
+    {
+      "heading": "1 INTRODUCTION",
+      "text": "Continual and Transfer Learning have gained importance across fields like NLP, where the de facto standard approach is to pretrain a sequence encoder and finetune it to a set of supervised end-tasks (Peters et al., 2019). Analysis and understanding of transfer in NLP are currently focused on using either supervised probing\n1Features fk are discrete inputs like tokens or POS tags. 2\u2018Backward transfer\u2019 since E changes, but labels Y do not.\nProceedings of the 36th Conference on Uncertainty in Artificial Intelligence (UAI), PMLR volume 124, 2020.\nzero-shot transfer supervised transfer\nf1 f2 f3 fk f_\nXpre pretrain E on Xpre\nf1 f2 f3 fk f_\nXend eval. E on new Xend\nf1 f2 f3 fk f_\nXend eval. Eend on Xend\nYend Eend : E fit on Yend\n(2): zero-shot (3): supervised(1): pretraining\nE\npk p1= .05\nfk := token / POS pk := token probabilitynn:= token-activate dist.\nE E\nFigure 1: Example uses of TX-Ray: for transfer learn-\ning and model interpretability. Left (1): pre-train a sequence encoder E on corpus Xpre and collect feature preference distributions (\u00a72.1, red bars) over input features (e.g. words) fk.1 Middle (2): apply, but not retrain, the encoder E to new domain inputs Xend and observe the changed neuron activation (green). Similarities in red and green reveal zero-shot forward transfer potential or data match between Xpre and Xend according to E. Right (3): fine-tune encoder E on supervision labels Yend to reveal \u2018backward\u2019 transfer of supervision knowledge into the encoder\u2019s knowledge abstractions.2\ntasks (Belinkov and Glass, 2019) to compare task performance metrics (Wang et al., 2019) or laborious perinstance explainability (Belinkov and Glass, 2019). Supervised probing annotation is costly, but not guaranteed to be reliable under domain shifts. Probing is also limited to analyzing foreseen (probed) knowledge absorption aspects, while unforeseen, model-knowledge properties that underlie and thus further our understanding of self-supervised pretraining remain hidden (McCoy et al., 2019). In fact, \u2018decision understanding\u2019 explainability techniques, as Gehrmann et al. (2019) term them, compute the relevance of a feature or neuron for an end-task prediction score. This makes \u2018decision understanding\u2019 explainability unable to answer the following research questions (RQ1-3) \u2013 i.e. how can we explain transfer?\n(RQ1), unsupervised knowledge absorption: Can ex-\nar X\niv :1\n91 2.\n00 98\n2v 3\n[ cs\n.L G\n] 1\n9 Ju\nn 20\nplainabilty (XAI) analyze how self-supervised models build and change knowledge abstractions during pretraining and can XAI measure knowledge changes? Do measures coincide with conventional metrics like perplexity? If and when does self-supervision learn linguistic abstractions like word function (parts-of-speech)?\n(RQ2), zero-shot knowledge transfer: What knowledge subset do pretrained models apply to a new domain without re-training, e.g. in a zero-shot setting?\n(RQ3), supervised/ backwards transfer: Can knowledge transfer \u2018backwards\u2019 from supervision labels into a pretrained model? Does XAI identify which neurons are reconfigured \u2013 i.e. become task (ir)relevant due to supervision. Can we validate XAI-based transfer measures (RQ1) empirically by pruning (ir)relevant neurons?\nTX-Ray can analyze and quantify (self-)supervised model knowledge change: To answer RQ1-3 we propose TX-Ray. TX-Ray \u2013 i.e., Transfer eXplainability as pReference of Activations analYsis \u2013 modifies the well established activation maximization method of visualizing the preferred inputs of neurons (Erhan et al., 2009) to suit NLP. The resulting fine-grained \u2018model understanding\u2019 \u2013 as Gehrmann et al. (2019) term it \u2013 enables us to quantify knowledge changes or transfer during training at the level of individual neurons \u2013 without requiring or preemptively limiting analysis to probing task supervision semantics. The method is designed to explore model knowledge change at both neuron (detail) and model (overview) level to enable concise or deep explorative analysis of unforeseen knowledge transfer mechanics to help us better analyze (continual) transfer, model knowledge generalization (McCoy et al., 2019; Frankle and Carbin, 2019), or low-resource learning. Adebayo et al. (2018); Sixt et al. (2019) showed that XAI methods do not guarantee faithful explanations. We thus use TX-Ray\u2019s transfer measures to guide neuron pruning and empirically verify that it can identify task (ir)relevant neurons that boost or lower test set generalization as expected. We also demonstrate that supervision not only causes catastrophic forgetting of knowledge, but also adds new knowledge into previously unpreferred (under-used) neurons (Tab. 2)."
+    },
+    {
+      "heading": "2 APPROACH",
+      "text": "TX-Ray is inspired by the widely used activation maximization explainability method, which is based on the idea that \u201ca pattern to which a unit is responding maximally is a good first-order abstraction of what a unit (neuron) is doing. A simple way is to find the input samples that produce the highest activation for a neuron. Unfortunately, this opens the problem of how to \u2018combine\u2019\nthese samples.\u201d (Erhan et al., 2009). In computer vision, naively combining image maximum feature activation maps \u201cover a corpus does not produce interpretable results\u201d (Erhan et al., 2009). In NLP, however, maximal activations of discrete token feature can easily be combined over many samples to form a discrete distribution of \u2018tokens that a neuron prefers\u2019. These corpus-wide input feature preference distributions let us visualize how each neuron abstracts input knowledge subsets.\nA major advantage of a \u2018feature preference\u2019 method is that it can analyze non-supervised models over an entire corpus, while \u2018prediction score relevance explainability\u2019 methods require supervised models, and only explain individual instances (Belinkov and Glass, 2019). When representing a neuron\u2019s abstracted knowledge as a feature preference distributions, we can measure knowledge change, or transfer, during learning using standard measures such as Hellinger Distance \u2013 i.e., a symmetric version of the Kullback Leibler divergence. This allows one to track changes in neuron knowledge abstractions during model pretraining, model application to new domains or due to supervised fine tuning \u2013 see experimental section. Additionally, we automatically determine neurons that change their knowledge the most over time to provide interesting starting points (see Fig. 6, 8) for nuanced, per-neuron analysis (see Fig. 7 and 9)."
+    },
+    {
+      "heading": "2.1 NEURONS AS FEATURE PREFERENCE",
+      "text": "We thus expresses each neuron nn as a distribution over preferred features fk with activation probabilities pk (Fig. 1) that have been aggregated over an entire corpus to construct each nn distribution as follows.\n(1) Record what features neurons prefer: Given: a corpus D, text sequences si \u2208 D, input features (tokens) fk \u2208 si, a sequence encoder E, and hidden layer neurons nn \u2208 E, for each input token feature fk in the corpus sequences si, we calculate its: encoder neuron activations a = E(fk); along with a\u2019s maximally active neuron nargmax = argmax(a) and (maximum) activation value amax = max(a); to then record a single feature\u2019s activation row vector [fk, nargmax, amax]. If the encoder is part of a classifier modelC, we also record the sequence\u2019s class probability y\u0302 = C(si) and true class y as a longer vector [fk, nargmax, amax, y\u0302, y]. For analyses in RQ1-3, we also record part-of-speech tags (POS, see \u00a73.1) in the row vectors. This produces a matrixM of neuron feature max activations that we aggregate to express each neuron as a probability distribution over maximally activated features in Step (2).\n(2) Preferred feature distribution per neuron: From rows mr \u2208 M , we generate for each neu-\nron nn its discrete feature activation distribution Ann = {(fk, \u00b5(amax1 , . . . , amaxm))|fk, nn, amaxj \u2208 mr \u2227 mr \u2208 M \u2227 nargmax = nn}, where each fk is a feature the neuron maximally activated on, and \u00b5(amax1 , . . . , amaxm) = \u00b5fk is the mean (maximum)activation of that feature in nn. We then turn each activation distribution Ann into a probability distribution Pnn by calculating the sum of its feature activation means s\u00b5\u0304 = sum(\u00b5f1 , . . . , \u00b5fl) and dividing each \u00b5fk by s\u00b5\u0304 to produce the normalized distribution Pnn = {(f1, \u00b5f1/s\u00b5\u0304), . . . , (fl, \u00b5fl/s\u00b5\u0304)} = {(f1, p1), . . . , (fl, pl)}}, where, each pfk is now the activation probability of a feature fk \u2208 nn. Finally, for n neurons in a model, P describes their n per-neuron activation distributions P = {Pn1 , . . . , Pnn=|E|}.\nFeatures can be n-grams, and be tracked through multiple layers as in Carter et al. (2019). However, since in this work we focus on concisely presenting TX-Ray\u2019s transfer analysis, we only use uni-grams and a single layer."
+    },
+    {
+      "heading": "2.2 NEURON KNOWLEDGE CHANGE",
+      "text": "We use Hellinger distanceH (Hellinger, 1909) and neuron distribution length l to quantify differences between discrete feature preference probability distributions p = Pna and q = Pnb of two neurons na and nb as follows:\nH(p, q) = 1\u221a 2 \u221a\u221a\u221a\u221a l\u2211 fk=1 ( \u221a pfk \u2212 \u221a qfk) 2; knowl. change\nl(Pnn) = |{fk | fk \u2208 Pnn}|; knowledge \u2018diversity\u2019\nNeuron length l describes the number of (unique) maximally activated features in a feature preference distribution Pnn . We use Hellinger distance because it is symmetric, unlike the Kullback-Leibler divergence. Importantly, if one of the preference distributions Pna or Pnb is empty, i.e. has zero features (zero length), then the resulting Hellinger distance is ill-defined. Thus, Hellinger distance allows one to easily quantify neuron feature preference shifts to measure per-neuron knowledge change during pre-training (RQ1), zero-shot transfer (RQ2), and supervised fine-tuning (RQ3).\nNeuron length l on the other hand allows us to define binary states like \u2018un-preferred\u2019 for empty preference distributions (l = 0) and non-empty ones \u2018preferred\u2019 (l > 0). We can use the two terms to classify three kinds of neuron preference state changes caused by different model training stages: \u2018shared\u2019, \u2018avoided\u2019, \u2018gained\u2019. For \u2018shared\u2019 neurons both distributions are non-empty (preferred) \u2013 e.g. when neurons received maximum activations before and after retraining a model. \u2018Avoided\u2019 neurons were active \u2018preferred\u2019, but became less active\n\u2018un-preferred\u2019 after retraining. Finally \u2018gained\u2019 neurons, became more active after retraining, switching from \u2018unpreferred\u2019 to \u2018preferred\u2019 status. In RQ1-3 we will use changes in Hellinger Distance, distribution length and neuron states to identify which neurons overfit to few preferred features, which ones reuse features (transfer) and which one never specialize (unfit)."
+    },
+    {
+      "heading": "3 EXPERIMENTS AND RESULTS",
+      "text": "We showcase TX-Ray\u2019s usefulness for analyzing and quantifying transfer in answering the previously stated research questions. For RQ1, we pretrain an LSTM sequence encoder E3 with 1500 hidden units on WikiText2 similarly to (Merity et al., 2017; Howard and Ruder, 2018), and apply (RQ2) or fine-tune it (RQ3) on IMDB (Maas et al., 2011), so we can analyze its zero-shot and supervised transfer properties. Each RQ\u2019s experimental setup and results are detailed below."
+    },
+    {
+      "heading": "3.1 RQ1: PRETRAINED WHAT KNOWLEDGE?",
+      "text": "In this experiment, we explore how pretraining builds knowledge abstractions. We first analyze neuron abstraction shift between early and later training epochs, and then verify that Hellinger distance and neuron length changes converge similar to measures like training loss.\nWe pretrain a single layer LSTM encoder E on paragraphs from the WikiText-2 corpus Dwiki2 using a standard language modeling setup until loss an perplexity converge, resulting in 50 training epochs. We save model states at Epoch 1, 48 and 49 for later analysis. To produce neuron activation distributions Pwiki1 (gray), Pwiki48 (pink) and Pwiki49 (red) we feed the first 400.000 tokens of WikiText-2 into the Epoch 1, 48 and 49 model snapshots each to compare their neuron adaptation and incremental abstraction building using Hellinger distance and distribution length. Additionally, we record POS feature activation distributions using one POS tag per token, to later group tokens activations by their word function to better read, analyze and compare feature preference distributions \u2013 see Fig. 3, 5, 7 or 9. POS tags are produced by the state-of-the-art Flair tagger (Akbik et al., 2019) using the Penn Treebank II4 tag set.\n3Though possible, we do not pretrain Transformers, due to high computation requirements, and since LSTMs encoders perform vastly better when pretraining on small collections \u2013 compare Wang et al. (2020) with Merity et al. (2017). Instead, we focus on demonstrating TX-Ray\u2019s analytical versatility, especially for true low-resource scenarios, where large pre-training is unavailable.\n4https://www.clips.uantwerpen.be/pages/ mbsp-tags\nWe use this experiment to verify the feasibility of using a feature preference distribution approach, since comparing Epochs 1 vs. 48 should reveal large changes to neuron abstractions, while Epoch 48 and 49 should cause few changes. The resulting changes in terms of Hellinger distance, amount of \u2018shared\u2019 preferred neurons, and feature preference distribution lengths can be seen in Fig. 2.\nWhile the Epoch 1 vs. 48 comparison produced 544 \u2018shared\u2019 neurons, the later 48 vs. 49 comparison shows 1335 \u2018shared\u2019 (\u00a72.2) neurons. This means that pretraining the encoder distributes maximum input activations across increasingly many neurons. This can be seen in most neurons becoming longer (blue /N lines), and fewer neurons becoming shorter (red N\\ lines). As expected, for epochs 48 and 49 we see almost unchanged neuron length \u2013 seen as dotted vertical (:) lines between epochs. Additionally, in later training stages, shorter neurons are more frequent than longer ones, reflected in the opacity of dotted vertical bars decreasing with neuron length. In fact, the average length of \u2018shared\u2019 preferred neurons drops from 944.76 in epoch 1 to 524.55 and 519.34 in epochs 48 and 49.\nSince lengths of POS class preference distributions change significantly in the early epochs, we also analyze whether the encoders activations Pwiki1 , Pwiki49 actually learned to represent the original POS tag frequency distribution of WikiText-2. Thus, we express both corpus POS tag frequencies and encoder activation masses as proportional (relative) frequencies per token. In Fig. 3, we see relative corpus POS tag frequencies (black), compared with encoder POS activation percentages for epoch 1 (dark grey) and 49 (red). Evidently, the encoder learns a good approximation of the original distribution (black) even after just the first epoch (dark grey), which confirms findings by Saphra and Lopez (2018), who showed that: \u201clanguage model pretraining learns POS first\u201d, and that \u201cduring later epochs (49) the encoder POS representation changes little\u201d. Ultimately, the encoder near perfectly replicates the original POS distribution. We thus\nsee that POS are well represented by the encoder, and that neuron adaptation and length shifts converge in later epochs in accordance with the quality of the POS match. This also tells us that TX-Ray, similar to more involved optimization-based analysis methods (Saphra and Lopez, 2018; Raghu et al., 2017), can reveal comparably deep insights into the mechanisms of unsupervised training, while being simpler and more versatile (RQ1-3).\nUsing Fig. 4, a similar analysis about neuron feature distribution changes stabilizing at later training stages can be made using Hellinger distances. When visualizing distances, we see that they shrink as expected by 99.92% on average in later epochs and that neuron distance comparisons concentrate on medium length distributions of 10-200 features fk each. Preference distribution changes of short, specialized, neuron seem to produce higher Hellinger distances than longer, more general neurons. Since distances over different neuron lengths are not and should not be directly compared, this visualization acts to provide an explorable overview of neuron distances over different preference distribution lengths, used to identify and examine interesting neurons in detail.\nTo run such a detail analysis we pick 2 neurons from Fig. 4 for closer inspection of their feature preference distribution changes between Epochs 1, 48 and 49. Fig. 5 thus shows neuron 296 from the top 10 (head) most dis-\ntant Epoch 1 vs. 48 neurons, and Neuron 38 from the 10 least changed ones (tail). As expected from Neuron 296\u2019s high Hellinger distances between Epoch 1 and 48, we see that its token and POS distribution for Epoch 1, i.e., an outlined grey bar and the word \u2018condition\u2019 ( ), are very different from the Epoch 48 and 49 distributions (N, N), which show no significant change in token and POS distribution \u2013 i.e., they look nearly the same. Equally expected from Neuron 38\u2019s low Hellinger distance for Epoch 1 and 48; we see that it keeps the exact same token, \u2018with\u2019, and POS, \u2018IN\u2018, across all three epochs. This demonstrates that Hellinger distance identifies neuron change, and that later epochs, as expected, lead to small neuron abstraction changes, while earlier ones, also as expected, experience larger changes."
+    },
+    {
+      "heading": "3.2 RQ2: DO WE ZERO-SHOT TRANSFER?",
+      "text": "In this section, we analyze where and to what extent knowledge is zero-shot transferred when applying a pretrained encoder to text of a new domain \u2013 without retraining the encoder to fit that new data.\nTo do so, we apply the trained encoder E, in predictiononly mode, to both its original corpus IMDB,Dimdb, and to the new domain WikiText-2 corpus Dwiki2, to generate feature preference distributions Pimdb and Pwiki2 from the encoders\u2019 hidden layer, as before. We also record activation distributions for POS, which despite the FLAIR tagger being SOTA across several datasets and tasks, had noticeably low quality on the noisy IMDB corpus. However on the WikiText-2 corpus, tagging produced comparatively sensible results. By comparing neuron token and tag activations Pimdb (new domain) vs. Pwiki2 using Hellinger distances for the same neuron positions as in RQ1, we can now analyze zero-shot transfer as distribution shifts. Put differently, we estimate domain transfer between the pretrained model abstractions and text input from a new domain. High distances between the same neurons in Pimdb and Pwiki2 tell us that the pretrained neuron did not abstract the new domain texts\nwell, resulting in low transfer and poor cross-domain generalization. When comparing Pimdb and Pwiki2 in terms of Hellinger distances vs. neuron lengths in Fig. 6, we see that 1323 out of 1500 pretrained neurons (88.2%) remain \u2018preferred\u2019 (\u2018shared\u2019) when applying E to the IMDB domain. A drop in the amount of \u2018preferred\u2019 neurons compared to the RQ1 analysis, though at 1335 to 1323 small, is expected since the pretraining corpus covers a broader set of domains.\nHowever, to gain a detailed view of model abstraction behavior and zero-shot transfer, we analyze activation differences between Pimdb (green) and Pwiki2 (red) for two specific neurons, visualizing one each from the 10 most (head) and 10 least (longtail) Hellinger-distant neurons. In Fig. 7 (up), we see Neuron 637, which has high Hellinger distance when comparing token feature distributions (N, \u25e6). As expected, the neuron\u2019s feature preference between the pretraining corpus Pwiki2 and the new domain data Pimdb changes a lot. In fact, the distance in Neuron 637 is high in terms of both POS classes (word function semantics) and non-synonymous tokens \u2013 see x-axis annotated with POS tags and tokens sorted by POS class. Overall, we see very little knowledge transfer across data sets within Neuron 637 due to its feature over-specialization, which is also observable in its short distribution length l \u2013 only 2 features activate. When looking at the low Hellinger distance Neuron 1360 in Fig. 7 (lower plot), we see that the neuron focuses on tokens such as \u2018no\u2019 on both datasets and \u2018but\u2019 on IMDB, suggesting that its pretrained sensitivity to disagreement\n(red), is useful when processing sentiment in the new domain dataset. Furthermore, we see that IMDB specific tokens have many strong activations for movie terms like \u2018dorothy\u2019 or \u2018shots\u2019 (green). We thus conclude that Neuron 1360 is both able to apply (zero-shot transfer) its knowledge to the new domain, as expected from the low Hellinger distance, while also being adaptive to the new domain inputs, despite not being fine-tuned to do so, which is more surprising. In summary, we find that during zero-shot application of an encoder to new domain data, the pretrained encoder exhibits broad transfer, indicated by almost equal amounts of \u2018shared\u2019 neurons between pretraining (1335) and application to the new domain data (1323). A supervision fit encoder however, has its knowledge reconfigured to superivsion, leading to much reduced transfer of pretrained knowledge, as we will see in RQ3."
+    },
+    {
+      "heading": "3.3 RQ3: HOW DOES SUPERVISION BACKTRANSFER LABEL KNOWLEDGE?",
+      "text": "In this experiment, we analyze whether transfer constitutes more phenomena than just a high level observation like catastrophic forgetting. Here, we want to see if knowledge also transfers \u2018backwards\u2019 from supervised annotations to a pretrained encoder. Specifically, we analyze whether knowledge is added or discarded in two experiments. In Experiment 1, we demonstrate how TXRay can identify knowledge addition or loss induced by supervision at individual neuron level (\u00a73.3.1). In Experiment 2, we verify our understanding of neuron specialization and generalization by first pruning neurons that add or lose knowledge during supervision, and then measuring end-task performance changes (\u00a73.3.2). Finally, we show how neuron activity increasingly sparsifies over RQ1-3 to gain overall insights about model-neuron specialization and generalization during unsupervised and supervised transfer (\u00a73.3.3).\nFor this RQ, we extend the pretrained encoder E with a shallow, binary classifier5 to classify IMDB reviews as positive or negative while fine-tuning E to create a domain-adapted encoder Eimdb\u2212sup. To guarantee a controlled experiment, we freeze the embedding layer weights and do not use a language modeling objective, such that model re-fitting is exclusively based on supervised feedback \u2013 i.e., on knowledge encoded into the labels. We tune the model to produce roughly 80% F1 on the IMDB test set, to be able to analyze the effects of even moderate amounts of supervised fine-tuning before task (over-)fitting occurs. To produce feature preference distributions Pimdb\u2212sup, we feed the IMDB cor-\n5One fully connected layer with sigmoid activation that is fed by E\u2032s end-of-sequence hidden state.\npus DIMDB to the newly fine-tuned encoder Eimdb\u2212sup \u2013 i.e. using the same IMDB text input. We also once more record POS tags for tokens. This time, since POS distributions are compared on the same corpus, their distances are more consistent than in RQ2. Analyzing Hellinger distance and neuron length change when comparing Pimdb\u2212sup vs. Pimdb\u2212zero\u2212shot will tell us which neuron abstractions were changed the most due to supervision \u2013 i.e., show us \u2018backward knowledge transfer\u2019. In Fig. 8, we notice that only 675 neurons were \u2018shared\u2019 compared to 1323 neurons in the zero-shot transfer setting (Fig. 6). In other words, supervision re-fits the sequence-encoder to \u2018avoid\u2019 (unprefer) nearly half its neurons."
+    },
+    {
+      "heading": "3.3.1 Supervision adds and removes knowledge",
+      "text": "Somewhat surprisingly, supervision not only erased neurons, but also added distributions for 85 new neurons into Pimdb\u2212sup that had previously empty distributions in Pimdb\u2212zero\u2212shot. We analyzed these neurons and found that they represent new supervision task specific feature fk detectors. Below in Tab. 1, we show token features fk for the top three strongest firing neurons nn and the three least activating neurons out of the 85 \u2013 i.e. supervisionspecific neurons with the highest or lowest overall activation magnitude. Note: we removed stop-words like \u2018the\u2019 or \u2018a\u2019 as well as spelling duplicates from the table\u2019s feature lists to remain brief. Features are sorted by decreasing activation mass from left to right. We see that the first three highly active neurons roughly encode movierelated locations and entities as well as sentiment terms like \u2018dull\u2019 or \u2018great\u2019, though some seem unspecialized (general), fitting many genres.\nWhen looking at the three least activating \u2018supervision\u2019 neurons, we find more specialized feature lists. Some of them are short and very specialized to a specific feature \u2013 e.g. the 372 \u2018walter\u2019 neuron seems to be a \u2018Breaking Bad\u2019 review detector, while \u2018archer\u2019 (688) may detect the animated show of the same name. Somewhat surprisingly, Neuron 1289, despite only having a low activation sum, is comprised of many features that focus on sentiment like \u2018terrific\u2019 or \u2018dull\u2019, making the neuron\nmore specialized than the top three. This suggests that \u2018supervision\u2019 neurons with low activation mass, somewhat independent of their feature variety, are more specialized than the highly active ones \u2013 which reflects in their lower \u2018neuron length\u2019, i.e. them preferring fewer features. Detailed \u2018discoveries\u2019 like supervision-gained knowledge reinforce our motivation, that an explorationinvestigation approach can reveal detailed insights about a model\u2019s inner workings if \u2018drilled-down\u20196 far enough, which underlines TX-Ray\u2019s application potential."
+    },
+    {
+      "heading": "3.3.2 Pruning avoided, shared and gained neurons",
+      "text": "To understand how much the \u2018avoided\u2019, \u2018shared\u2019 and 85 neurons \u2018gained\u2019 by supervision affect predictive task performance, we run four pruning experiments (A-D) that remove neuron sets to measure the relative change from the unpruned F1 score in % \u2013 i.e., a drop from 80 to 77 is 77 \u2212 80/80 = \u22123.75%. Experiment (A) cuts 740 \u2018avoided\u2019 neurons from the encoder Eimdb\u2212sup, i.e., 740 neurons with empty feature preference distribution after supervision. Experiments B and C cut the 20 least and most active neurons from the supervision tuned encoder. To select 20 neurons each, we sort neurons by their individual activation mass, i.e. the sum of a neuron\u2019s (max) activations, where \u2018unpreferred\u2019 neurons with an empty preference distribution have zero activity. In the last pruning experiment (D), we prune the 85 neurons that became \u2018preferred\u2019 after (due to) supervision \u2013 i.e., were \u2018unpreferred\u2019 before in Pimdb\u2212zero\u2212shot. Tab. 2 shows for each pruning: the relative changes in training and test set F1 and what percentage of the encoder\u2019s entire (max) activation mass the pruned neurons drop.\nFor pruning experiment (A), we see that removing \u2018avoided\u2019 neurons not only does not drop performance\n6A fundamental visualization techniques design pattern used to describe incrementally more focused analysis.\nas commonly observed when dropping irrelevant neurons (Voita et al., 2019; Sanh et al., 2020), but actually increases both training and test set performance by 3.65 and 2.80 % respectively, resulting in better generalization. In Experiment (B), when removing seldomly activated supervision neurons, as indicated by the low activation mass percentage of 0.004%, we lose significant training performance (\u22123.79%), but no test set performance, telling us that those neurons were overspecialized or over-fit to the training set. It also tells us that these neurons were likely short (over-specialized), similar to those in Tab. 1 that have low activation mass (372, 688). When we examined this intuition, we found that each of the 20 neurons has a length of exactly one \u2013 i.e. is over-specialized. When pruning the 20 most heavily used supervision neurons (C) with 83.12% (max) activation mass, we see the largest drop in training set performance out of all experiments (A-D). This tells us that, similar to observations in experiment (B), TX-Ray again identified neurons that strongly over-fit to the training data, while they overfit the test set to a lesser extend. Thus, Experiments (B, C) indicate that cutting supervision specific neurons after training can help preserve generalization performance, i.e., reduce generalization loss. Lastly, for (D), when pruning the 85 neurons \u2018gained\u2019 by supervision both training and test performances drop by equal amounts. Since these 85 supervision-only neurons only became \u2018preferred\u2018 after supervised fine-tuning, this indicates that pretrainingexposed neurons as in (B) and (C), suffer less from overfitting on new (test set) data, even when pruned. We reason that pretraining-exposed neurons in (B) and (C) have their knowledge partially duplicated across other neurons, while the supervision-only knowledge in the 85\n\u2018gained\u2019 neurons (D) has no such backups. (Neuron) generalization, specialization: These observations are not only consistent with known effects of pretraining on generalization (Peters et al., 2019; Howard and Ruder, 2018), but also show that TX-Ray can identify and distinguish at individual neuron level, which parts of a neural network improve or preserve generalization (A, B) and which do not (C, D). Moreover, the pruning based generalization increase in experiment (A) is consistent with findings of Lottery Ticket based pruning by Frankle and Carbin (2019), as well as with our notions of neuron specialization an generalization used throughout TX-Ray. This demonstrates the method\u2019s effectiveness in identifying neurons that affect generalization and specialization.\nTo again analyze what individual neurons learned, we inspect neurons with high and low Hellinger distances between encoder activations before (green) Pimdb\u2212zero\u2212shot and after supervision (blue) Pimdb\u2212sup. In Fig. 9, we show Neuron 47 (up), from the top 10 highest Hellinger distances. We see that the neuron 47 changed in both POS and token distributions after supervision, which suggests catastrophic forgetting, or supervised reconfiguration. For the low Hellinger distance Neuron 877 (down), we see some POS and token distribution overlap before and after supervision, and that movie review related terms (green O) become relevant, compared to noticeably war related tokens before supervision (green \u25e6). This shows the neuron\u2019s semantic shift (POS, token) due to supervision \u2013 i.e., limited knowledge transfer occurred despite the low Hellinger distance. Moreover, distribution length changed for this neuron from 9 before to 15 tokens after supervision, indicating a lack of transfer. Finally, we recall that in the zero-shot case more neurons were \u2018shared\u2019 than after supervision, 1323 vs. 675 (Fig. 6 vs. Fig. 8), which should be reflected in the overall activation magnitude produced by encoder E before and after supervision."
+    },
+    {
+      "heading": "3.3.3 Supervision sparsifies neuron knowledge",
+      "text": "To investigate the distribution length shift and activation sum hypotheses formulated above, we visualize the shift of neuron length before and after supervision (Fig. 10 and Fig. 11), as well as the activation mass for the three research questions: (RQ1) pretraining, (RQ2) zero-shot, and (RQ3) supervision.\nIn Fig. 10, we see neurons that shortened (red lines, O/ \u25e6), or got longer (blue lines, \u25e6\\O), after supervision. Token preference distributions of neurons actually slightly lengthen by 4.62% on average over the 675 shared neurons,7 while POS preference distributions, severely shorten at 32.83% (not shown). Similar neuron lengthening, \u2018feature variety increase\u2019, from supervision, was already apparent in neuron 877 (Fig. 9), where supervision appeared to have specialized and extended a previously unspecific neuron into a movie sentiment detector8.\nIn Fig. 11, we see that the activation mass \u2013 i.e., the sum of activation values \u2013 differs across corpora and encoder activation distributions Pimdb\u2212zero\u2212shot, Pimdb\u2212sup and Pwiki2. A much more peaked activation mass is produced after the encoder has been fine-tuned via supervision and then again applied to IMDB (blue, O) compared to before supervision (green), which is a strong indicator that supervision sparsified the neuron activation and therefore the abstractions in the encoder. The activation mass of the pretrained encoder E on its pretraining\n7Over the entire 1500 neurons, neuron token length shortens by 42.53% after supervision.\n8Again, without deeper analysis, we are not claiming that this is the case, only that such points for investigation and new, interesting hypotheses can be identified via TX-Ray.\ncorpus (WikiText-2, red N) is, unsurprisingly, the broadest, while it activates less strongly on the same amount of text (400k tokens) on the IMDB text (green, \u25e6), due to the mismatch of domains between pretrained encoder and the new data domain \u2013 as seen in RQ2."
+    },
+    {
+      "heading": "4 RELATED WORK",
+      "text": "Recent explainability methods (Gehrmann et al., 2019; Belinkov and Glass, 2019; Gilpin et al., 2018; Atanasova et al., 2020) fall into two categories: supervised \u2018model-understanding (MU)\u2019 and \u2018decisionunderstanding (DU)\u2019. DU treats models as black boxes by visualizing how important each input is for a prediction outcome to understand model decisions. MU enables a grey-box view by visualizing internal model abstractions to understand what knowledge a model learned. Both DU and MU heavily focus on analyzing supervised models, while understanding transfer learning in self- and supervised models remain open challenges. Supervised \u2018DU\u2019: techniques explain decisions for supervised (probing) tasks to hypothesis test models for language properties like syntax and semantics (Conneau and Kiela, 2018; Schwarzenberg et al., 2019), or language understanding (Wang et al., 2019; Giulianelli et al., 2018). DU is limited to supervised analysis of individual samples (Gilpin et al., 2018; Arras et al., 2019). MU: techniques like Activation Atlas or Summit (Carter et al., 2019; Hohman et al., 2020) explore supervised model knowledge in vision, while NLP methods like Seq2Seq-Vis (Strobelt et al., 2019) compare model behavior using many per-instance explanations. However, these methods produce a high cognitive load, showing many details, which makes it harder to understand overarching learning phenomena. (Un-) supervised \u2018model and transfer understanding\u2019: TX-Ray modifies ideas behind activation maximization (Erhan et al., 2009; Olah et al., 2017; Carter et al., 2019) (see \u00a72) to enable measuring neuron knowledge change, specialization and generalization as well as to guide explorative transfer analysis by quantifying interesting starting points. Somewhat similarly to our setup in RQ3, Singh et al. (2019) \u201ccalculate Helliger distances over \u2018neuron feature dictionaries\u2018 to measure neuron adaptation during \u2018supervised\u2019 task learning\u201d in the prefrontal cortex of rats. Measuring changes in neuron feature preference distributions enables fine-grained analysis of neuron (de)specialization and model knowledge transfer in RQ1-3. TX-Ray extends upon probing task and correlation based transfer analysis methods like Liu et al. (2019); Bau et al. (2019); Raghu et al. (2017), to provide more flexible, yet nuanced, (un-)supervised transfer interpretability and analysis for current and future (continual) pretraining methods (Peters et al., 2019; de Masson d\u2019Autume et al.,\n2019), while also enabling discovery of unforeseen hypotheses to help scale learning analysis beyond the limitations of supervised probing and approximate correlation analysis."
+    },
+    {
+      "heading": "5 CONCLUSION AND FUTURE WORK",
+      "text": "We presented TX-Ray, a simple, yet nuanced model knowledge explainability method for analyzing how neuron knowledge transfers between pretraining (RQ1), zero-shot knowledge application (RQ2), and supervised fine-tuning (RQ3). We showed how to extract neuron knowledge abstractions in NLP, developed extensible explainability visualizations and demonstrated how this can measure knowledge abstraction change. We find that TX-Ray enables explorative analysis of how knowledge is lost and added during supervision (RQ3), how neurons overfit or generalize (RQ1-3), and how pretraining builds knowledge abstractions (RQ1). TX-Ray is designed to reduce computational and cognitive load, but is flexible and scalable. In future, we will use TX-Ray for more advanced transfer models and metrics. The code and visualizations are available at github.com/copenlu/tx-ray."
+    },
+    {
+      "heading": "Acknowledgements",
+      "text": "This work was supported by the German Federal Ministry of Education and Research within the projects XAINES and DEEPLEE (01IW17001)."
+    }
+  ],
+  "title": "TX-Ray: Quantifying and Explaining Model-Knowledge Transfer in (Un-)Supervised NLP",
+  "year": 2020
+}

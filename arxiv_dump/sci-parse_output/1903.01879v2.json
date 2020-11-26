@@ -1,0 +1,803 @@
+{
+  "abstractText": "We study model-agnostic copies of machine learning classifiers, new models that replicate the decision behavior of any classifier. We develop the theory behind the problem of copying, highlighting its differences with that of learning, and propose a framework to copy the functionality of any classifier using no prior knowledge of its parameters or training data distribution. We validate this framework through extensive experiments using data from a series of well-known problems. To further validate this concept, we use three different use cases where desiderata such as interpretability, fairness or productivization constrains need to be addressed. Results show that copies can be exploited to enhance existing solutions and improve them adding new features and characteristics.",
+  "authors": [],
+  "id": "SP:82d931cab8e464e1c5580f08bc9da5f952a5937d",
+  "references": [
+    {
+      "authors": [
+        "Matt Fredrikson",
+        "Somesh Jha",
+        "Thomas Ristenpart"
+      ],
+      "title": "Model Inversion Attacks that Exploit Confidence Information and Basic Countermeasures",
+      "venue": "In Proc. Conf. Comput. and Commun. Sec.,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Reza Shokri",
+        "Cornell Tech",
+        "Marco Stronati",
+        "Vitaly Shmatikov"
+      ],
+      "title": "Membership Inference Attacks Against Machine Learning Models",
+      "venue": "In Proc. IEEE Symp. Secur. and Priv.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Congzheng Song",
+        "Thomas Ristenpart",
+        "Vitaly Shmatikov"
+      ],
+      "title": "Machine Learning Models that Remember Too Much",
+      "venue": "In Proc. Conf. Comput. and Commun. Sec.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Bryce Goodman",
+        "Seth Flaxman"
+      ],
+      "title": "European Union Regulations on Algorithmic Decision-Making and a Right to Explanation",
+      "venue": "AI Mag.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Andrew D Selbst",
+        "Julia Powles"
+      ],
+      "title": "Meaningful Information and the Right to Explanation",
+      "venue": "Int. Data Priv. Law,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Solon Barocas",
+        "Andrew D Selbst"
+      ],
+      "title": "Big Data\u2019s Disparate Impact",
+      "venue": "Calif. Law Rev.,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Moritz Hardt"
+      ],
+      "title": "How Big Data is Unfair",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "D. Sculley"
+      ],
+      "title": "Gary Holt",
+      "venue": "Daniel Golovin, Eugene Davydov, Todd Phillips, Dietmar Ebner, Vinay Chaudhary, Michael Young, Jean-Francois Crespo, and Dan Dennison. Hidden Technical Debt in Machine Systems. In Proc. Int. Conf. Neural Inf. Process. Syst., pages 2503\u20132511",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Geoffrey Hinton",
+        "Oriol Vinyals",
+        "Jeffrey Dean"
+      ],
+      "title": "Distilling the knowledge in a neural network",
+      "venue": "In Workshop Deep Learn. Represent. Learn.,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Christian Bucila",
+        "Rich Caruana",
+        "Alexandru Niculescu-Mizil"
+      ],
+      "title": "Model Compression",
+      "venue": "In Proc. ACM Int. Conf. Knowl. Discovery Data Min.,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "M.W. Craven",
+        "J.W. Shavlik"
+      ],
+      "title": "Extracting Treestructured Representations of Trained Networks",
+      "venue": "Proc. Int. Conf. Neural Inf. Process. Syst., pages 24\u2013 30",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Florian Tram\u00e8r",
+        "Fan Zhang",
+        "Ari Juels",
+        "Michael K. Reiter",
+        "Thomas Ristenpart"
+      ],
+      "title": "Stealing Machine Learning Models via Prediction APIs",
+      "venue": "In Proc. USENIX Secur. Symp.,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Nicolas Papernot",
+        "Patrick McDaniel",
+        "Ian Goodfellow",
+        "Somesh Jha",
+        "Z Berkay Celik",
+        "Ananthram Swami"
+      ],
+      "title": "Practical Black-Box Attacks against Machine Learning",
+      "venue": "In Proc. ACM Asia Conf. Comput. and Commun. Secur.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Daniel Lowd",
+        "Christopher Meek"
+      ],
+      "title": "Adversarial Learning",
+      "venue": "In Proc. ACM Int. Conf. Knowl. Discovery Data Min.,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "Ruishan Liu",
+        "Nicolo Fusi",
+        "Lester Mackey"
+      ],
+      "title": "Teacher-student compression with generative adversarial networks",
+      "venue": "In arXiv:1812.02271,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Chenglin Yang",
+        "Lingxi Xie",
+        "Siyuan Qiao",
+        "Alan L. Yuille"
+      ],
+      "title": "Knowledge distillation in generations: More tolerant teachers educate better students",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Robert Andrews",
+        "Joachim Diederich",
+        "Alan B. Tickle"
+      ],
+      "title": "Survey and Critique of Techniques for Extracting Rules from Trained ANNs",
+      "venue": "Knowl.-Based Syst.,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Mark W. Craven",
+        "Jude W. Shavlik"
+      ],
+      "title": "Learning Symbolic Rules Using Artificial Neural Networks",
+      "venue": "In Proc. Int. Conf. Mach. Learn.,",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "L.M. Fu"
+      ],
+      "title": "Rule Learning by Searching on Adapted Nets",
+      "venue": "Proc. Nat. Conf. Artif. Intell., pages 590\u2013595",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "Sebastian Thrun"
+      ],
+      "title": "Extracting Rules from Artificial Neural Networks with Distributed Representations",
+      "venue": "Proc. Int. Conf. Neural Inf. Process. Sys.,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "C. Szegedy",
+        "V. Vanhoucke",
+        "S. Ioffe",
+        "J. Shlens",
+        "Z. Wojna"
+      ],
+      "title": "Rethinking the inception architecture for computer vision",
+      "venue": "Proc. IEEE Conf. Comput. Vis. Pattern Recognit.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T. Furlanello",
+        "Z.C. Lipton"
+      ],
+      "title": "and Anandkumar",
+      "venue": "Born Again Neural Networks. In Proc. Int. Conf. Mach. Learn.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Guido Bologna",
+        "Yoichi Hayashi"
+      ],
+      "title": "A Comparison Study on Rule Extraction from Neural Network Ensembles",
+      "venue": "Boosted Shallow Trees, and SVMs. Appl. Comput. Intell. and Soft Comput.,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Zhengping Che",
+        "Sanjay Purushotham",
+        "Robinder Khemani",
+        "Yan Liu"
+      ],
+      "title": "Interpretable Deep Models for ICU Outcome Prediction",
+      "venue": "In AMIA Annu. Symp. Proc.,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Osbert Bastani",
+        "Carolyn Kim",
+        "Hamsa Bastani"
+      ],
+      "title": "Interpreting blackbox models via model extraction",
+      "venue": "In arXiv:1705.08504,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Xinchuan Zeng",
+        "Tony R. Martinez"
+      ],
+      "title": "Using a Neural Network to Approximate an Ensemble of Classifiers",
+      "venue": "Neural Process. Lett.,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Shenda Hong",
+        "Cao Xiao",
+        "Trong Nghia Hoang",
+        "Tengfei Ma",
+        "Hongyan Li",
+        "J Sun"
+      ],
+      "title": "Rdpd: Rich data helps poor data via imitation",
+      "venue": "In Proc. Int. Joint Conf. Artif. Intell.,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Nicolas Papernot",
+        "Patrick McDaniel",
+        "Ian Goodfellow"
+      ],
+      "title": "Transferability in Machine Learning: from Phenomena to Black-Box Attacks using Adversarial Samples",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Yanpei Liu",
+        "Xinyun Chen",
+        "Chang Liu",
+        "Dawn Song"
+      ],
+      "title": "Delving into Transferable Adversarial Examples and Black-box Attacks",
+      "venue": "In Proc. Int. Conf. Represent.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Christian Szegedy",
+        "Wojciech Zaremba",
+        "Ilya Sutskever",
+        "Joan Bruna",
+        "Dumitru Erhan",
+        "Ian Goodfellow",
+        "Rob Fergus"
+      ],
+      "title": "Intriguing Properties of Neural Networks",
+      "venue": "In Proc. Int. Conf. Learn. Represent.,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Battista Biggio",
+        "Igino Corona",
+        "Davide Maiorca",
+        "Blaine Nelson",
+        "Nedim \u0160rndi\u0107",
+        "Pavel Laskov",
+        "Giorgio Giacinto",
+        "Fabio Roli"
+      ],
+      "title": "Evasion attacks against machine learning at test time",
+      "venue": "In Proc. European Conf. Mach. Learn. and Knowl. Discovery in Databases,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Battista Biggio",
+        "Marco Melis",
+        "Giorgio Fumera",
+        "Fabio Roli"
+      ],
+      "title": "Sparse support faces",
+      "venue": "In Proc. of Int. Conf. Biometrics,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Burr Settles"
+      ],
+      "title": "Active learning literature survey",
+      "venue": "Comput. Sci. Tech. Rep. 1648,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "A. Fujii",
+        "T. Tokunaga",
+        "K. Inui",
+        "H. Tanaka"
+      ],
+      "title": "Selective sampling for examplebased word sense disambiguation",
+      "venue": "Comput. Linguist., 24(4):573\u2013597",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "D. Lewis",
+        "W. Gale"
+      ],
+      "title": "A sequential algorithm for training text classifiers",
+      "venue": "Proc. ACM Conf. Res. Dev. Inf. Retr., pages 3\u201312",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "M. Lindenbaum",
+        "S. Markovitch",
+        "D. Rusakov"
+      ],
+      "title": "Selective sampling for nearest neighbor classifiers",
+      "venue": "Mach. Learn., 54(2):125\u2013152",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "T. Scheffer",
+        "C. Decomain",
+        "S. Wrobel"
+      ],
+      "title": "Active hidden Markov models for information extraction",
+      "venue": "Proc. Int. Conf. Adv. Intell. Data Anal., pages 309\u2013 318",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "D. Lopez-Paz",
+        "L. Bottou",
+        "B. Scholkopf",
+        "V. Vapnik"
+      ],
+      "title": "Unifying distillation and privileged information",
+      "venue": "Proc. Int. Conf. Learn. Represent.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Phuong",
+        "C. Lampert"
+      ],
+      "title": "Towards Understanding Knowledge Distillation",
+      "venue": "Proc. Int. Conf. Mach. Learn.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Vladimir N. Vapnik"
+      ],
+      "title": "The Nature of Statistical Learning",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Robert E. Schapire",
+        "Yoav Freund",
+        "Peter Bartlett",
+        "Wee Sun Lee"
+      ],
+      "title": "Boosting the Margin: a New Explanation for the Effectiveness of Voting Methods",
+      "venue": "Ann. Stat.,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "Behnam Neyshabur",
+        "Ryota Tomioka",
+        "Ruslan Salakhutdinov",
+        "Nathan Srebro"
+      ],
+      "title": "Geometry of Optimization and Implicit Regularization in Deep",
+      "venue": "In arXiv:1705.03071,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Alon Brutzkus",
+        "Amir Globerson",
+        "Eran Malach",
+        "Shai Shalev-Shwartz"
+      ],
+      "title": "SGD Learns Overparameterized Networks that Provably Generalize on Linearly Separable Data",
+      "venue": "In Proc. Int. Conf. Learn. Represent.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "I. Unceta",
+        "D. Palacios",
+        "J. Nin",
+        "O. Pujol"
+      ],
+      "title": "Sampling unknown decision functions to build classifier copies",
+      "venue": "arXiv:1910.00237",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Manuel Fern\u00e1ndez-Delgado",
+        "Eva Cernadas",
+        "Sen\u00e9n Barro",
+        "Dinani Amorim",
+        "Dinani Amorim Fern\u00e1ndez-Delgado"
+      ],
+      "title": "Do we Need Hundreds of Classifiers to Solve Real World Classification Problems",
+      "venue": "Journal of Mach. Learn. Res.,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Leon Bottou",
+        "Yann Le Cun"
+      ],
+      "title": "Large Scale Online Learning",
+      "venue": "In Proc. Int. Conf. Neural Inf. Process. Syst.,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Sergio Escalera",
+        "David Masip",
+        "Eloi Puertas",
+        "Petia Radeva",
+        "Oriol Pujol"
+      ],
+      "title": "Online error-correcting output codes",
+      "venue": "Pattern Recognit. Lett.,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Been Doshi-Velez",
+        "Finale",
+        "Kim"
+      ],
+      "title": "Towards a rigorous science of interpretable machine learning",
+      "venue": "In arXiv:1702.08608,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Zachary C. Lipton"
+      ],
+      "title": "The Mythos of Model Interpretability",
+      "venue": "In Workshop Human Interpret. in Mach. Learn.,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Nicholas Frosst",
+        "Geoffrey Hinton"
+      ],
+      "title": "Distilling a Neural Network Into a Soft Decision Tree",
+      "venue": "In arXiv:1711.09784,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Anchors: High-Precision Model-Agnostic Explanations",
+      "venue": "In Assoc. Adv. Artif. Intell.,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Himabindu Lakkaraju",
+        "Stephen H. Bach",
+        "Jure Leskovec"
+      ],
+      "title": "Interpretable Decision Sets",
+      "venue": "In Proc. ACM Int. Conf. Knowl. Discovery and Data Min.,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Ilias Flaounas"
+      ],
+      "title": "Beyond the technical challenges for deploying Machine Learning solutions in a software company",
+      "venue": "In Workshop Human in the Loop Mach. Learn.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Alfred Spector",
+        "Peter Norvig",
+        "Slav Petrov"
+      ],
+      "title": "Google\u2019s Hybrid Approach to Research",
+      "venue": "Commun. ACM,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Alice Zheng",
+        "Sethu Raman"
+      ],
+      "title": "The Challenges of Bringing Machine Learning to the Masses",
+      "venue": "In Workshop Softw. Eng. Mach. Learn.,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Wai Chee Yau"
+      ],
+      "title": "How Zendesk Serves TensorFlow Models in Production",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Julia Angwin",
+        "Jeff Larson",
+        "Surya Mattu",
+        "Lauren Kirchner"
+      ],
+      "title": "Machine Bias: There\u2019s Software Used Across the Country to Predict Future Criminals",
+      "venue": "And It\u2019s Biased Against Blacks. ProPublica,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Joy Buolamwini",
+        "Timnit Gebru"
+      ],
+      "title": "Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification ",
+      "venue": "Proc. of Mach. Learn. Res.,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Brendan F. Klare",
+        "Mark J. Burge",
+        "Joshua C. Klontz",
+        "Richard W. Vorder Bruegge",
+        "Anil K. Jain"
+      ],
+      "title": "Face Recognition Performance: Role of Demographic Information",
+      "venue": "IEEE Trans. Inf. Forensics and Secur., 7(6):1789\u20131801,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Tolga Bolukbasi",
+        "Kai Wei Chang",
+        "James Zou",
+        "Venkatesh Saligrama",
+        "Adam Kalai"
+      ],
+      "title": "Man is to computer programmer as woman is to homemaker? Debiasing word embeddings",
+      "venue": "In Proc. Int. Conf. Neural Inf. Process. Syst.,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Aylin Caliskan",
+        "Joanna J Bryson",
+        "Arvind Narayanan"
+      ],
+      "title": "Semantics Derived Automatically from Language Corpora Contain Human-like Biases",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Saikat Guha",
+        "Bin Cheng",
+        "Paul Francis"
+      ],
+      "title": "Challenges in Measuring Online Advertising Systems",
+      "venue": "In Proc. ACM Int. Conf. Data Commun.,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "S. Tan",
+        "R. Caruana",
+        "G. Hooker",
+        "Y. Lou"
+      ],
+      "title": "Distilland-compare: Auditing black-box models using transparent model distillation",
+      "venue": "arXiv:1710.06169",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Irene Unceta",
+        "Jordi Nin",
+        "Oriol Pujol"
+      ],
+      "title": "Towards Global Explanations for Credit Risk Scoring",
+      "venue": "In arXiv:1811.07698,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Anahita Namvar",
+        "Mohammad Siami",
+        "Fethi Rabhi",
+        "Mohsen Naderpour"
+      ],
+      "title": "Credit Risk Prediction in an Imbalanced Social Lending Environment",
+      "venue": "Int. J. Comput. Intell.Sys.,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Gao Huang",
+        "Zhuang Liu",
+        "Kilian Q. Weinberger"
+      ],
+      "title": "Densely connected convolutional networks",
+      "venue": "In Proc. IEEE Conf. Comput. Vis. Pattern Recognit.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "G\u00fcnter Klambauer",
+        "Thomas Unterthiner",
+        "Andreas Mayr",
+        "Sepp Hochreiter"
+      ],
+      "title": "Self-Normalizing Neural Networks",
+      "venue": "In Proc. Int. Conf. Neural Inf. Process. Syst.,",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords Classification \u00b7 Copying \u00b7Model-agnostic, \u00b7 Differential replication \u00b7 Fidelity, \u00b7 Interpretability \u00b7 Fairness \u00b7 Productivization"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "In many every-day examples, performance of state-of-theart machine learning is held back by operational constraints. Either the data or the models themselves are subject to privacy restrictions [1], [2], [3] or specific regulations apply that require models to be self-explanatory [4], [5], [6] or fair with respect to sensitive data attributes [7], [8], [9]. Other issues include time or space limitations for deployment, and production bottlenecks in delivering certain models to the market [10]. To the best of our knowledge, these issues have been traditionally addressed by means of tailored solutions. As a result, off-the-shelf machine learning techniques often yield only sub-optimal results.\nUnder such circumstances, training a new model may seem straightforward. However, a re-training is not always possible, nor advisable. This may be, for example, because production protocols require the maintenance of predic-\ntive performance over time, because the specifics of the model are unknown or even because the training data are no longer available. Whatever the cause, the impossibility of re-training calls for new ways to address this situation.\nIn this article we study copying, the problem of building a new model that replicates the decision behavior of another. The idea of approximating a model\u2019s decision boundary can be found in the literature under different topics, including distillation [11, 12], model extraction [13, 14] or adversarial learning [15, 16]. In all cases, this notion is introduced on a simplified case-by-case basis, devoid of theoretical foundation. In contrast, we approach this problem from a higher level of abstraction and mathematically frame it under the copying theory.\nFor this purpose, we envisage the most general scenario, where we make the minimum number of required assumptions about the amount of information available during the process. In particular, we assume access to the model is\nar X\niv :1\n90 3.\n01 87\n9v 2\n[ cs\n.L G\nlimited to a membership query interface. Unlike previous articles, where the training data distribution is directly [11] or indirectly [12] known and where rich information outputs can be used as soft targets for the new model [17, 18], we also assume the training data to be lost and the query interface to produce only hard predictions.\nIn this context, we propose copying as a methodology to project the decision function learned by a model onto a new hypothesis space that enables the same decision behaviour, while incorporating new features and properties. This process is one of differential replication[19]. Copies not only retain the original accuracy, but can also be used to endow classifiers with new characteristics, such as interpretability, online learning or equity features, which may prove useful to overcome the aforementioned limitations.\nWe summarize the main contributions of this paper as:\n\u2022 We formalize the problem of building a copy that replicates the decision behavior of a machine learning model in the most general setting.\n\u2022 We explore the theoretical implications of copying and show that this problem differs from that of traditional machine learning.\n\u2022 We put this theory into practice to highlight the specific characteristics of copying and validate this proposal on a series of well known problems.\n\u2022 We further illustrate the value of copying for differential replication in three real use cases. First, we address the issues of non-decomposability and delayed time-to-market delivery in non-client mortgage risk scoring. Second, we build an online copy that recovers a critical operating point in a loan default prediction problem. Finally, we use copies to ensure a fair classification of superhero alignment.\nThe rest of this article is organized as follows. Sec. 2 presents a literature survey of related work. The theoretical basis for copying is introduced in Sec. 3, while Sec. 4 extracts meaningful insights for a practical implementation. In Sec. 5 we validate copies on various UCI problems. In Sec. 6 we consider the advantages and limitations of this methodology and present three real applications. The paper concludes with a brief summary of our findings and an outline of future research."
+    },
+    {
+      "heading": "2 Related work",
+      "text": "The idea of copying is not new in the literature. We find this notion in early works on concept extraction, where trained artificial neural networks are compiled into a set of representative rules [20], [21], [22], [23]. More recently, distillation has been proposed to transfer the knowledge acquired by a large, complex model (teacher) to a faster, simpler architecture (student) [11, 12]. Papers in this field have explored different forms of supervision from the teacher\n[24], training the same network in generations [25] or inducing teacher signals with a softened label distribution to convey useful task-dependent information to students [18]. These can all be understood as a form of data enhancement, where rich information outputs by the complex model are used as soft targets to improve the predictive performance of the student. All these articles use similar concepts to that of copying. The aim of copying is not to enable a simple model to learn a complex task, but to ensure the exact replication of a decision boundary.\nAn important degree of freedom in distillation is the transfer set used to train the simpler model. Traditionally, knowledge transfer has been treated as a standard learning process, where the training data are relabelled and extended to learn an alternative model [26]. In most cases, the same set is used to train teacher and student, either in its raw form [26],[11],[27] or enriched with additional synthetic data [28],[13],[17]. Some works advocate the use of unlabelled data [12, 29], extracted from the estimated density of the attributes. In other examples, teachers and students faced with the same task have different access to training data [30]. In this paper, the training data are assumed to be lost and their distribution unknown. What is more, model internals remain secret throughout the process.\nA seemingly related but vastly different approach is that of transferability-based adversarial learning [15],[31],[32],[33][34], where a malicious adversary exploits samples crafted from a local substitute of a model to compromise it. In this context, copying does bear a similarity to gray-box attacks in settings involving surrogate learners with limited-knowledge [35]. Note, however, that copies are aimed at replicating the original classification boundary globally. Moreover, the objective of adversarial learning fundamentally differs from ours. An adversary benefits from acquiring knowledge about a model to fool it. Copies are global models that replicate a learned decision behavior.\nCopying may use a synthetic sample generator process. This process shares some similarities with active learning. In general, the objective of active learning is to learn a target function using the minimum number of queries in situations where there is a high cost associated to querying/labelling, as is the case of human annotation [36]. In contrast, when generating synthetic samples for copying the cost of querying a model is negligible. Query minimization in this context could still be desirable. Yet, it is not necessary. In addition, while most query optimization strategies rely on class probability outputs [37], [38],[39],[40], this information is not available during the more general copying scenario.\nAll in all, the above could be understood as narrow examples of copying in restricted scenarios and with very specific objectives. However, to date, this technique has lacked a more general formal framework. To our knowledge the only work that studies distillation from a theoretical perspective is [41] and, more recently, [42]. Yet, both\nfocus on learning using privileged information, as opposed to the label-based approach proposed in this article. Hence, our contribution on top of this body of work is to formalize copying as a problem that differs from that of learning and to highlight its general features and characteristics.\nAt this point, given the many links with related topics, we may ask ourselves questions such as why do we not at improving the performance of the model? or why is an exact replica important? Or even, we can wonder why is this work focused on a data-less black-box scenario when we usually have training data?"
+    },
+    {
+      "heading": "3 Copying",
+      "text": "Copying refers to the process of building a functional model which is equivalent in its decision behaviour to another. During this process, the knowledge acquired by the first model is transferred to a copy, in circumstances where both the internals and the training data of the former are unknown, and access to its knowledge is only possible through a membership query interface.\nLet us take a classifier fO : X \u2192 T , where X and T correspond to the input and label spaces, respectively. We define the set D = {(xi, ti)}Mi=1 as the training data, for M the total number of instances, and restrict to the case of classification, where T \u2208 Zk for k the number of classes. Copying is defined as the problem of finding a model fC(\u03b8) \u2208 HC , parameterized by \u03b8, such that given a new sample x\u2217 it predicts the output y\u2217 = fO(x\u2217). Our objective is therefore to obtain a new model, the copy, whose decision function mimics that of fO all over the space.\nThe process of copying can be interpreted as projecting the decision function fO onto the new hypothesis space HC the copy belongs to. A graphical illustration of this is shown in Fig. 1. As we will later explain in more detail, this new hypothesis space need not coincide with that of fO. On the contrary, we can exploit to our advantage the fact that both spaces are different to endow the model with new features, not present in the original hypothesis space. This differential replication process is the crucial characteristic of copying.\nThe problem of copying is characterized by the predictive distribution P (y\u2217|fO,x\u2217). Marginalizing with respect to the copy parameters \u03b8\nP (y\u2217|fO,x\u2217) = \u222b\n\u03b8\u2208HC P (t\u2217|\u03b8, fO,x\u2217)P (\u03b8|fO,x\u2217)d\u03b8,\nfor HC the complete parameter space for the copy. We simplify this expression by making two basic assumptions.\nFirst, when building the copy, knowledge about the unseen data point x\u2217 is not available, so that P (\u03b8|fO,x\u2217) = P (\u03b8|fO). Second, once having built the copy, i.e. fixed the value of \u03b8, interaction with the classifier fO is no longer required, so that P (y\u2217|\u03b8, fO,x\u2217) = P (y\u2217|\u03b8,x\u2217). On this basis, we rewrite the expression above as\nP (y\u2217|fO,x\u2217) = \u222b\n\u03b8\u2208HC P (y\u2217|\u03b8,x\u2217)P (\u03b8|fO)d\u03b8.\nWe take a winner takes it all approach and force the posterior to have the form of a point mass density, P (\u03b8|fO) = \u03b4(\u03b8\u2212 \u03b8\u2217), for \u03b4(.) the Dirac delta function and \u03b8\u2217 the optimal parameter set. All the probability mass is then placed onto \u03b8\u2217, so that\nP (y\u2217|fO,x\u2217) = P (y\u2217|\u03b8\u2217,x\u2217).\nHence, the problem of copying can be understood as that of finding the optimal parameter values \u03b8\u2217 to maximize the posterior probability\n\u03b8\u2217 = arg max \u03b8 P (\u03b8|fO). (1)"
+    },
+    {
+      "heading": "3.1 The need for unlabelled data",
+      "text": "We study the most general scenario, where the training data D is assumed to be lost. Solving (1) therefore requires that we generate new data in order to gain information about the form of fO throughout the input space X . We introduce unlabelled data points z \u2208 X and rewrite (1) as\n\u03b8\u2217 = arg max \u03b8\n\u222b\nz\u223cPZ P (\u03b8|fO(z))dPZ , (2)\nfor an arbitrary generating probability distribution PZ from which the new samples are independently drawn. This distribution defines the spatial support for the copy, i.e. its plausible operational space. In the existing literature, the training data distribution, P , is directly [11] or indirectly [12] accessible. Here we completely lack this information, so that we cannot match PZ to our estimate of P . Nonetheless, note that despite PZ could be related to the training distribution, this is not mandatory for our purposes.\nTake for example the completely separable binary problem in Fig. 2, where each class comes from a Gaussian distribution and the decision boundary lies in a low density area\nPZ\nP\nfO\nFigure 2: Gaussian training data distribution P and learned decision boundary fO. Alternative gaussian distribution for PZ .\nof the space. Further assume that we are in a production setting, so that we have full knowledge of the system. In principle, in this scenario it would be possible, and even desirable, to match PZ with P . Indeed, by forcing PZ = P we ensure that the copy replicates the learned decision behaviour in those areas where the training data lie. However, the copy may display a completely different behaviour around the boundary, where these data are scarce. An interesting modelling question in this scenario would be: what should the copy do in corner cases? Another extreme case is that of counterfactuals, which include operation regimes even in front of impossible events and data values.\nMore generally, defining PZ to resemble the form of P might help in ensuring that the copy generalizes well in the training domain. However, this can also be achieved by other methods, such as updating the form of PZ as we gain more information about fO, or choosing a PZ that adapts to the form of the copy hypothesis space. Indeed, choosing PZ adequately can be difficult, given that we have no intuition about where the training data are located or which specific regions the copy should focus on. In Sec. 4 we study this problem in more depth."
+    },
+    {
+      "heading": "3.2 Introducing the dual optimization",
+      "text": "Let us then assume an arbitrary form for the probability distribution PZ . Because maximizing the posterior is equal to maximizing the log-posterior, we rewrite (2) as\n\u03b8\u2217 = arg max \u03b8\n[ log (\u222b\nz\u223cPZ P (\u03b8|fO(z))dPZ\n)]\n= arg max \u03b8\n[ log (\u222b\nz\u223cPZ\nP (fO(z)|\u03b8)P (\u03b8) P (fO(z)) dPZ\n)]\nwhere we apply Bayes\u2019 rule to the terms inside the integral. Using Jensen\u2019s inequality1 we can then provide a lower bound for \u03b8\u2217 of the form2\n1Jensen\u2019s inequality states that for any concave function f it holds that E[f(X)] \u2264 f(E[X]). In particular, for the log(x) function.\n2Maximization of the lower bound also maximizes the original function. However, the optimal value of the lower bound may differ from that of the original objective function.\n\u03b8\u2217 = arg max \u03b8\n\u222b\nz\u223cPZ log\n( P (fO(z)|\u03b8)P (\u03b8)\nP (fO(z))\n) dPZ\n= arg max \u03b8\n[ \u222b\nz\u223cPZ logP (fO(z)|\u03b8)dPZ\u2212\n\u222b\nz\u223cPZ logP (fO(z))dPZ + logP (\u03b8)\n]\n= arg max \u03b8\n[ \u222b\nz\u223cPZ logP (fO(z)|\u03b8)dPZ + logP (\u03b8)\n]\n(3)\nwhere we drop the term \u222b z\u223cPZ logP (fO(z))dPZ , which has no dependence on \u03b8.\nThe solution to (3) depends on the form of the considered models. In this seminal article we study hard decision copies. Under this framework, we can recover regularized empirical risk minimization models [43] if we approximate the distributions above with an exponential family\nP (fO(z)|\u03b8) \u221d e\u2212\u03b31`1(fC(z,\u03b8),fO(z)); P (\u03b8) \u221d e\u2212\u03b32`2(\u03b8,\u03b8 +)\nfor `i(a, b) a measure of disagreement between a and b, and \u03b8+ our prior about \u03b8. Using this approximation we can rewrite (3) as\n\u03b8\u2217 = arg min \u03b8\n[ \u222b\nz\u223cPZ \u03b31`1(fC(z, \u03b8), fO(z))dPZ\n+ \u03b32`2(\u03b8, \u03b8 +) ] (4)\nThe first term in this expression is the expected value of the disagreement between model and copy, which has the form of empirical risk minimization. The expected loss particularized to our copying problem can be defined as\nRF (fC(z, \u03b8), fO(z)) = Ez\u223cPZ [`1(fC(z, \u03b8), fO(z))] (5) over the probability distribution PZ . We refer to this value as the fidelity error. This error captures all the loss of copying. In the general form, it corresponds to the integral\u222b z\u223cPZ logP (fO(z)|\u03b8)dPZ in (3), i.e. the probability that the copy resembles the model.\nThe second term in (4) refers to the fit of the parameters to the prior and can be identified as the regularization term\n\u2126(\u03b8) = `2(\u03b8, \u03b8 +).\nUnder the empirical risk minimization framework we approximate the expected loss by the empirical risk. The particularization of the empirical risk to the copying setting corresponds to the empirical fidelity error, RFemp. We\ndefine this value as the empirical version of the fidelity error\nRFemp(fC(z, \u03b8), fO(z)) = 1\nN\nN\u2211\nj=1\n`1(fC(zj , \u03b8), fO(zj))\n(6) and rewrite (4) for the discrete case as follows\n(\u03b8\u2217,Z\u2217) = arg min \u03b8,z\u223cPZ\n[ RFemp(fC(z, \u03b8), fO(z)) + \u2126(\u03b8) ]\n= arg min \u03b8,z\u223cPZ\n[ 1\nN\nN\u2211\nj=1\n\u03b31`1(fC(zj , \u03b8), fO(zj))\n+ \u03b32`2(\u03b8, \u03b8 +) ] , (7)\nwhere Z corresponds to the set of synthetic samples z \u223c PZ . We refer to the set of labelled synthetic pairs Z = {(zj , fO(zj))}Nj=1 as the synthetic dataset. The expression above is a dual optimization, where we simultaneously optimize the copy parameters \u03b8 and the synthetic set Z . This duality results from referring to the decision function fO instead of exploiting the training data D , and it fundamentally shapes how copying works."
+    },
+    {
+      "heading": "3.3 Why copying is not learning",
+      "text": "The class membership predictions of fO define a hard classification boundary. The resulting problem has two important characteristics: (i) the synthetic dataset is always separable and (ii) a potentially infinite stream of synthetic data is accessible. These properties define copying as a problem different from learning, as traditionally understood by the machine learning community.\nBecause the synthetic set is separable, if we assume a copy with enough capacity, it is always possible to achieve zero empirical error, RFemp(fC(z, \u03b8), fO(z)) = 0. The error then only depends on the generalization gap for the synthetic dataset. And since we can generate infinite synthetic data, this value can be asymptotically reduced to zero. Hence, in theory, copying can be performed without loss and redefined as the unconstrained optimization problem\nminimize \u03b8,Z\nRFemp(fC(z, \u03b8), fO(z)). (8)\nYet, in practice, the synthetic set is finite. It therefore stands to reason to impose that the copy have small capacity, \u2126(\u03b8), and rewrite the copying problem as\nminimize \u03b8,Z \u2126(\u03b8) (9)\nsubject to \u2016RFemp(fC , fO)\u2212RFemp(f\u2020C , fO)\u2016 < ,\nfor f\u2020C the solution to (8) and a defined tolerance 3. The term \u2016RFemp(fC , fO)\u2212RFemp(f\u2020C , fO)\u2016 < defines a feasible set of parameters. The solution to (9) achieves the smallest capacity while keeping RFemp(fC , fO) within a tolerance of the unconstrained optimal value of the empirical fidelity error, RFemp(f \u2020 C , fO). We argue that there exists a set of parameters \u03b8 that fulfill this constraint.\nIn some cases the optimal loss value is known in advance. Consider, for example, the hinge-loss in SVMs, where RFemp(f \u2020 C , fO) = 0. However, this is not always the case, e.g. least-square errors in classification4. Copying is different from the standard multi-objective optimization in a pure learning setting, where the optimal values of both the loss and the regularization term are unknown. Instead of having a Pareto\u2019s surface of plausible optimal solutions, as long as \u2126(\u03b8) is convex, the solution to (9) is unique.\nThis optimization can be straightforwardly solved in cases where the capacity is directly modelled, such as those of SVMs and neural networks, using a regularization function, or Bayesian models, selecting the priors. For other models, such as trees, the complexity control must be done by either early stopping or by an external process, such as post- or pre-pruning. Finally, techniques such as boosting or deep learning may exhibit a delayed overfitting effect [44, 45, 46]. A property that can be exploited to our advantage to directly solve (8) instead of (9)."
+    },
+    {
+      "heading": "3.4 The single-pass copy",
+      "text": "Conducting a simultaneous optimization of the synthetic data and the copy parameters requires the copy hypothesis space to have certain properties, such as online updating. This challenging issue is out of the scope of this paper and requires further research. Hence, for the sake of simplicity, in the rest of this article we consider the simplest approach to solving the dual copying problem: the single-pass copy. We cast the simultaneous optimization problem into one where only a single iteration of an alternating projection optimization scheme is used. This effectively splits the problem in two independent sub-problems:\nStep 1: Synthetic sample generation. The first step is to find the optimal set Z\u2217. This set is that for which the empirical fidelity error, RFemp, is minimal\nZ\u2217 = arg min Z RFemp\nAs a result, we obtain the optimal synthetic dataset Z \u2217.\n3In what follows, we favour a more concise notation and drop the explicit dependence on the synthetic data z and copy parameters \u03b8.\n4Instead of tracking the empirical risk we can track the empirical error, which can be set to zero due to the separability property.\nStep 2: Building the copy. Once having generated and labelled the set Z \u2217, the next step is to find \u03b8\u2217 such that\nminimize \u03b8 \u2126(\u03b8) subject to \u2016RFemp(fC , fO)\u2212RFemp(f\u2020C , fO)\u2016 < ,\nor its simplified version (8), provided that the adequate conditions hold.\nAn example of the single-pass copy is shown in Fig. 3, where the binary decision function learned by a fullyconnected neural network is copied with a decision tree classifier. The tree-based copy is built using a set of synthetic samples drawn from a uniform distribution and labelled according to the hard predictions output by the neural net."
+    },
+    {
+      "heading": "4 Meaningful Insights",
+      "text": "In what follows, we bridge the gap between theory and practice by using toy problems to draw relevant conclusions from the derivation above. We focus on the two steps of the single-pass copy: we begin by studying the synthetic sample generation process and then show how copying differs from learning in a practical setting."
+    },
+    {
+      "heading": "4.1 STEP 1: Synthetic sample generation",
+      "text": "For the sake of this discussion, let us consider a binary classification problem and let fO(z) \u2208 {\u22121, +1} and fC(z, \u03b8) \u2208 {\u22121, +1}, for any z \u2208 X . Let us also consider the case where `1 corresponds to the 0/1 loss. For this case, the empirical fidelity error in (6) can be rewritten as\nRFemp = 1\n2N\nN\u2211\nj=1\n\u2223\u2223\u2223fO(zj))\u2212 fC(zj , \u03b8) \u2223\u2223\u2223\n= 1\n2N\nN\u2211\nj=1\n\u2223\u2223\u2223fO(z) \u2223\u2223\u2223 \u2223\u2223\u22231\u2212 fC(z, \u03b8)\nfO(z)\n\u2223\u2223\u2223\n= 1\n2N\nN\u2211\nj=1\n( 1\u2212 fC(z, \u03b8)\nfO(z)\n)\n= 1\n2N\nN\u2211\nj=1\n1\u2212 1 2N\nN\u2211\nj=1\nfC(z, \u03b8) fO(z)\n= 1 2 \u2212 1 2N\nN\u2211\nj=1\nfC(z, \u03b8)fO(z), z (N) \u223c PZ\nLet us now define a partition of the space such that X = X+ \u222a X\u2212 and X+ \u2229 X\u2212 = \u2205, where X+ = {z|z \u2208 X , fO(z) = 1} and X\u2212 = {z|z \u2208 X , fO(z) = \u22121} are the two sub-spaces defined by the model. We rewrite the equation above in terms of this partition as\nRFemp = 1 2 \u2212 1\n2N+\nN+\u2211\nj=1\nfC(zj , \u03b8) + 1\n2N\u2212\nN\u2212\u2211\nj=1\nfC(zj , \u03b8)\nfor N+ and N\u2212 the number of samples lying in X+ and X\u2212, respectively. We define the probability of a sample lying in X+ as p+ = P(z \u2208 X+) and the probability of a sample lying in X\u2212 as p\u2212 = P(z \u2208 X\u2212). These two probabilities depend on the size of the positive and negative domains. In particular,\np+ =\n\u222b\nz\u2208X+ PZ(z)dz, p\u2212 =\n\u222b\nz\u2208X\u2212 PZ(z)dz.\nWith these quantities, we can see that N+ = Np+ and N\u2212 = Np\u2212. Thus,\nRFemp = 1 2 \u2212 1\n2Np+\nNp+\u2211\nj=1\nfC(zj , \u03b8)+ 1\n2Np\u2212\nNp\u2212\u2211\nj=1\nfC(zj , \u03b8).\nMinimization of this expression explicitly depends on the form of PZ . In the simplest case, we can assume this distribution to be flat on the domain X , so that z \u223c U(X ). Under this assumption, p+ and p\u2212 correspond to the fraction of volume for each of the classes. Recalling the form of the error for the Monte Carlo estimator under this distribution, we can express the standard error for RFemp as\n\u03c3(RCV) \u221d O ( 1\u221a\nNp+ + 1\u221a Np\u2212\n) .\nWe exploit this expression to extract relevant insights for the synthetic sample generation process. First, we confirm the need to define an attribute representation X . This is a reasonable assumption, since we need to have an approximate idea of the dynamic range of all variables in order to build meaningful queries.\nSecond, we note that in some situations there might be a mismatch between the decision boundary achievable by the copy and fO. As a consequence, a given synthetic dataset may not perform equally for different copy hypotheses. Consider a non-linear decision function and a linear copy model. Exploring the twists of the decision boundary during the synthetic sample generation process may not be relevant in this situation. Thus, we should consider the properties and assumptions of the copy hypothesis space to effectively exploit each generated sample.\nAnother important issue is that of volume imbalance, which arises when one or more of the classes occupy a region of the space much smaller than the rest."
+    },
+    {
+      "heading": "4.1.1 The issue of volume imbalance",
+      "text": "The empirical fidelity error depends on the fraction of volume occupied by each decision region. If the spatial support of one class is small with respect to the total volume, it may be difficult to have a meaningful number of\nsamples on that region, resulting in large approximation errors.\nIn Fig. 4(a), we show a binary dataset with a balanced label distribution. Despite the number of instances per label being equal, note that there are notable differences in the volume of each of the classes. The resulting decision function is displayed in Fig. 4(b).\nTo copy this model, we assay two different forms for PZ . In a preliminary approach, we generate samples at random until we reach a desired number of points. In Fig. 4(c) and Fig. 4(d) we plot the sets that result for a uniform distribution and for a standard normal distribution, respectively. The resulting data, shown together with their corresponding label distribution, are notably imbalanced: there is one class for which we only recover a few number points. This result is unrelated to class distribution.\nFortunately, the volume imbalance effect can be alleviated either by a good choice of PZ or by imposing that the resulting set be balanced. For example, we can try to infer a sampling distribution that allocates a large amount of the probability mass around the unknown decision boundary. Due to its complexity, we believe the problem of finding an optimal PZ to be out of the scope of this work. This issue will be subject to further analysis in future contributions. Indeed, in a recent paper [47] we have studied different sampling algorithms for the copying setting, including a technique that focuses on boundary exploration, a Bayesian-based optimizer, a modified version of the Jacobian approach proposed by [15] and raw random sampling.\nAlternatively, we can overcome the issue of volume imbalance using heuristics that balance a general exploration of the space with exploitation around the areas of interest. Hence, we impose that the resulting set be balanced with respect to the class labels. We force the data generator to focus on those areas where the misrepresented class is located, to ensure that all labels are well represented in the resulting set, as shown in Fig. 4."
+    },
+    {
+      "heading": "4.2 STEP 2: Building the copy",
+      "text": "The second part of the alternating projection scheme corresponds to finding the optimal parameters for the copy. For illustration purposes, consider a radial basis function kernel SVM. This model is defined by a kernel function of the form K(x,x\u2032) = e\u2212\u03b3||x\u2212x\u2032||2 , where ||x \u2212 x\u2032||2 corresponds to the squared Euclidean distance, and \u03b3 is the inverse of the radius of influence of the support vectors, i.e. the width of the kernel. This means, in essence, that \u03b3 controls the capacity: the larger its value, the higher the complexity. In other words, minimizing the model capacity in (9) amounts to minimizing \u03b3. In Fig. 5 we show how this can be exploited in practice to copy the neural net in Fig. 3 using synthetic samples drawn at random from a uniform distribution.\nIn particular, Fig. 5(a) shows the copy decision function for a maximal value of \u03b3, such that the second term in (9) is satisfied and the empirical error is zero. Fig. 5(b) shows the decision boundary for a copy with optimal capacity \u03b3, computed for a tolerance = 1e\u22124. This solution results from sequentially reducing the value of \u03b3 and monitoring the change in accuracy until the error deviation is greater than . When comparing both plots we observe the improvement in generalization performance. This improvement is also seen in Fig. 5(c), where train and generalization errors of the copy are shown for decreasing values of \u03b3. For a bounded value of the empirical error, the generalization error is reduced as we decrease the capacity of the copy.\nUnlike the classical machine learning, where capacity is optimized during the validation step, this result shows that it is possible to optimize the capacity of a copy during training. This has a profound impact on how copying is\nperformed and shows that copying is not learning, in the traditional meaning of the word."
+    },
+    {
+      "heading": "4.2.1 Capacity error",
+      "text": "Lastly, note that the specific choice of copy hypothesis has a significant impact on performance. Different capacity copies may behave very differently when confronted with the same set of synthetic data points.\nWe refer to the capacity of a classifier as a measure of its complexity. A mismatch of capacity between model and copy can lead to poor performance results, even in cases where the synthetic dataset properly covers the input space. Take for example the case of a linear logistic regression and a support vector machine. The decision functions resulting from building copies based on these two architectures are notably different. Given the same set of synthetic points, the logistic model may not able to fully recover the form of the considered decision boundary if this is non-linear. This is because the original classifier, is not contained in the new hypothesis space. In the case of the SVM, the mismatch in capacity is presumably not so pronounced and therefore the copy decision boundary may be much more precise."
+    },
+    {
+      "heading": "5 Empirical Validation",
+      "text": "In this section we present our experiments to empirically validate copies in a variety of well-known problems that include a diverse selection of UCI datasets with different number of classes and dimensions. We begin by proposing a set of performance metrics."
+    },
+    {
+      "heading": "5.1 Performance metrics",
+      "text": "When evaluating copies, we may ask questions of the form: \"what does the performance on a synthetic validation set tell us about the generalization of the copy?\", \"does the copy have enough capacity to replicate the decision function?\" or, more generally, \"what metrics should we use to evaluate copies in terms of the available information?\". In what follows we introduce a set of definitions aimed at answering these questions."
+    },
+    {
+      "heading": "5.1.1 Empirical fidelity error",
+      "text": "We particularize the empirical fidelity error in (6) to the 0/1 loss and measure it over the synthetic set Z as\nRF ,Zemp = 1\nN\nN\u2211\nj=1\nI[fO(zj) 6= fC(zj)] (10)\nfor I the indicator function. In resorting to Monte Carlo integration we here necessarily incur in an approximation error that depends, among other things, on the quality of the set Z . As a result, a low RF ,Zemp is no absolute guarantee of a good copy. For this value to be a valid assessment of the total error, the synthetic dataset must be\nlarge enough to ensure coverage of the input space and the volume imbalance effect needs to be controlled for.\nIn cases where the constraints of the copying scenario are relaxed and the training data D is accessible, we could also evaluate the empirical fidelity error over this set as\nRF ,Demp = 1\nM\nM\u2211\ni=1\nI[fO(xi) 6= fC(xi)] (11)\nFor validation purposes, in the following we assume these data to be known. In general, RF ,Demp and R F ,Z emp yield very different values. This difference arises from the mismatch between the probability density functions P and PZ ."
+    },
+    {
+      "heading": "5.1.2 Copy accuracy",
+      "text": "To evaluate the copy generalization performance over D we introduce the copy accuracy, AC , as follows\nAC = 1\nM\nM\u2211\ni=1\nI[ti = fC(xi)], (12)\nfor t \u2208 T the true labels. The performance of the copy on D is bounded by AO, the accuracy of fO on these data. In the ideal case the fidelity error is zero, so that AC = AO. In general, we can use the empirical fidelity error over the synthetic set to approximateAC by means of the estimated copy accuracy, A\u0302C , as follows\nA\u0302C = AO(1\u2212RF ,Zemp ) (13)"
+    },
+    {
+      "heading": "5.2 Experiments",
+      "text": "We use 60 datasets from the UCI Machine Learning Repository database [48]. We refer the reader to [49] for a specific description of initial data selection and preprocessing. We select those datasets with more than 100 samples and a frequency above 10% for all class labels. We also require the number of inputs to be greater than double the number of attributes. Among the selected datasets 42 correspond to binary classification problems and 18 are multiclass."
+    },
+    {
+      "heading": "5.2.1 Experimental set up",
+      "text": "We convert nominal attributes to numerical and re-scale variables to zero mean and unit variance. We split data into stratified 80/20 training and test sets. We use 6 state-ofthe-art classification algorithms, including adaboost (adaboost), an artificial neural network (ann), a random forest (random_forest), a linear SVM (linear_svm), a SVM with a radial basis function kernel (rbf_svm) and a gradientboosted tree (xgboost). To avoid bias regarding the algorithm choice, we sort datasets in alphabetical order, group them in sets of 10 and randomly assign a classifier to each group.\nWe build a generic pipeline and train all models using a cross-validated grid-search over a fixed parameter grid. Three classifiers learn decision functions that exclude at least one of the class labels. This occurs for pittsburgbridges-REL-L, for which only two of the three classes are learned, and planning and statlog-australian-credit, for which a single class label is assigned to all data points. Besides, because we use a fixed pipeline, not all models yield an optimal performance. See, for example, the case of echocardiogram, where accuracy is equal to 0.3.\nWe keep this result for two reasons. First, we want the experimental setup to be as agnostic as possible and hence the random pairing of models and datasets. Second, it reinforces an important idea: a copy can only be as good as the model it aims to replicate. Or in the other words, the baseline for the copy performance is the original model performance. Non-optimal models lead to poorly performing copies. We stress, nonetheless, that in a real setting one would be interested in copying only those models that perform reasonably well.\nWe draw 1e6 random samples from a uniform distribution to generate balanced synthetic sets. We identify three cases of volume imbalance: congressional-voting, ilpd-indianliver and statlog-image. Despite the training data being balanced with respect to class distribution, we only recover a small fraction of samples for one or more of the labels. As previously mentioned, this could lead to sub-optimal results, given that the copy tends to wrongly classify points that belong to the subsampled classes. Imposing that the synthetic dataset be balanced mitigates this issue to a great extent and ensures that the copy treats all labels equally.\nTo evaluate the impact of heuristics, we assay different copy model hypotheses. We use decision trees because they are easily interpretable, logistic regression because it is a linear model and random forest as an example of a bagging method. We copy using no cross-validation or hyper-parameter tuning: trees are grown until each leaf contains a single sample and neural networks and boosting methods are trained with no regard for generalization. For validation purposes, we run each experiment 100 times and report averages over all repetitions for the true and the estimated copy accuracy. We also report the mean empirical fidelity error measured over both training and synthetic data."
+    },
+    {
+      "heading": "5.2.2 Results",
+      "text": "The measured performance metrics are shown in Fig. 6. In particular, Fig. 6(a), Fig. 6(b) and Fig. 6(c) show the distribution of the mean copy accuracy AC against the original accuracy AO and the estimated copy accuracy A\u0302C for all datasets and copies based on decision trees (decision_tree), logistic regression (logistic_regression) and random forest (random_forest) classifiers, respectively.\nResults for both decision_tree and random_forest are scattered around the main diagonal, whereas copies based on logistic_regression show a greater dispersion; especially\nwhen comparing AC to A\u0302C . In general, the value of A\u0302C is smaller than AC , which means that the empirical fidelity error over the synthetic data overestimates the real error. This is in part due to the difference in the distributions P and PZ . When evaluating RZF , we measure the performance of the copy in the space defined by PZ , so that we may penalize the copy for errors in regions where there are no actual training data.\nThe complete summary of results for all problems and copy algorithms is shown in Table 3 in the Appendix. In most problems, results show the ability of copies to replicate the target decision behaviour. Overall, copy accuracy is competitive for the proposed synthetic dataset size and the estimated copy accuracy provides a reliable approximation to the accuracy of the copy in real data. The empirical fidelity error generally yields values close to 0, which indicates that copies are correctly built.\nTable 1 shows a selected set of results. There are several datasets where there is no degradation when using a logistic_regression to copy higher capacity models such as ann or xgboost. This is the case, for example, with breastcancer-wisc and wine, where AC is reasonably close to AO, even while the logistic model can only learn linear relations among attributes. We take this as an indication that the initial classifiers were too complex for the relatively simple problems. Copying here allows us to move to a more suitable solution, with less parameters and training requirements.\nOn the other hand, we identify a number of cases where copies based on decision_tree and random_forest clearly\noutperform logistic_regression. See, for example, energyy1 and iris. This is because when the decision function is not linear6, non-linear copies are needed. Here, the error due to a mismatch of capacity dominates, because the copy hypothesis space, the logistic family, does not contain fO.\nFinally, in some instances the copy hypothesis space is well chosen and yet the empirical fidelity error is high. See for example musk_1 and musk_2, which are both high dimensional problems where a linear_svm is copied using a random_forest. In both cases, AC is notably lower than AO. This happens in complex datasets, where 1e6 synthetic data points are probably not enough to ensure a small RFemp."
+    },
+    {
+      "heading": "5.3 Discussion",
+      "text": "The different error contributions are collectively defined by the fidelity error and approximated through the empirical fidelity error. However, the condition that empirical fidelity error be small is necessary, but not sufficient. Having significant errors in certain regions and none in others may lead to a low error, while altogether not ensuring a good generalization performance. The opposite is also true: a large empirical fidelity error may not lead to a low copy accuracy. Take, for example, errors distributed around the boundary. This may happen when trying to copy a smooth function using linear decision cuts. If errors are very substantial, this may be seen as a problem. However, if the\n6Despite the training data being linearly separable, the learned decision boundary may be non-linear.\ntraining data are distributed far away from the boundary, errors in this region would have no real impact. No effective error would therefore be measured when substituting the model with the copy.\nTo a large extent, copy evaluation depends on the available information. The more information we have, the more reliable our estimates will be. If the training data were accessible, we could obtain a direct estimate of the copy generalization performance. Furthermore, we could choose PZ to be as close to P as possible, i.e. redefine the copy operation space to match P . If the form of the model was also known, we could refine the choice of copy hypothesis. In those cases where model and copy have similar decision boundary shapes, copying is conducted with greater ease. That is, when the decision function is formed of cuts perpendicular to the axes, i.e. it is a random forest, it is easier to copy with a decision tree than it is with a radial basis kernel SVM. Conversely, those models with smooth decision functions are better copied using classifiers other than trees.\nAt this stage, we may ask ourselves the question: if the training data are available why copy instead of learning a new classifier? There exist scenarios where a new training may not be advisable. A new model may display very different behaviour and decision properties. This is unacceptable in production environments where performance has to be preserved and controlled. Moreover, training a new classifier with the training data involves having to take care of the overfitting effect. As shown in Sec. 4, when copying we can avoid the hyper-parameter optimization step.\nAnother reason to use copies is that when training a new model, we might not be able to recover the same operation point as before. In contrast, as explained in Sec. 6, a copy can help bias the parameter optimization process towards a desired solution.\nIn general, copies can be understood as a tool to bridge the gap between accuracy and any other desired property. Copying helps in breaking the trade-offs we face in training\nhigh-performance models when characteristics such as interpretability, simplicity or compliance are required."
+    },
+    {
+      "heading": "6 Applications and limitations",
+      "text": "Having demonstrated the feasibility of copying and discussed its main characteristics, in this section we elaborate on its utility in a wide variety of scenarios. We present three use cases with real-life applications of copying. Further, we analyse shortcomings and discuss different approaches to overcoming the identified barriers."
+    },
+    {
+      "heading": "6.1 Applications",
+      "text": "One of the main benefits of copying is that it enables differential replication of models. This means that copies can be used to enhance existing solutions. They can, for example, be used to evolve from batch to online learning schemes [50]. This extends a model\u2019s lifespan as it enables adaptation to data drifts or performance deviations. Equivalently, when new class labels appear during a model\u2019s deployment in the wild, copies can account for the new data points and evolve from binary to multiclass classification settings [51]. More generally, there are numerous examples were differential replication can be applied to solve specific problems. In the following lines, we describe some of them and discuss how copies could be useful in addressing these issues.\nInterpretability. Recent advances in the field of machine learning have led to increasingly sophisticated models, capable of learning ever more complex problems to a high degree of accuracy. This comes at the cost of simplicity [52], [53], a situation that stands in contrast to the growing demand for transparency in automated processing [4],[5], [6]. Recent papers have shown that the knowledge acquired by black-box solutions can be transferred to interpretable models such as trees [28],[27],[54], rules [55] and decision sets [56]. In the copying scenario models of any arbitrary type can be substituted by copies\nspecifically designed to be globally self-explanatory.\nProduction. Model deployment is often costly in company environments [10], [57], [58], [59]. Common issues include the inability to maintain the technological infrastructure up-to-date with latest software releases, conflicting versions or incompatible research and deployment environments. Consider the case of neural network library Tensorflow. Despite the library itself provides detailed instructions on how to serve models in production [60], this typically requires several third-party components for docker orchestration, such as Kubernetes or Elastic Container Service [61], which are seldom compatible with on-premise software infrastructure. Moving to a copy in a less demanding environment helps bridge the gap between the data science and engineering departments.\nFairness and auditing. Machine learning models can reproduce existing patterns of discrimination [7], [9]. Some algorithms have been reported to be biased against people with protected characteristics like race [62, 63, 64, 65], gender [66, 67] or sexual orientation [68]. Under these circumstances distillation has been shown to be useful for model auditing [69] and so have copies. Upon them, desiderata such as equity of learning can be directly imposed to, for example, reduce the biased of trained classifiers."
+    },
+    {
+      "heading": "6.2 Use cases",
+      "text": "In what follows we demonstrate some of these nontrivial applications in real-life scenarios. First, we derive regulatory-compliant high-performing copies for nonclient mortgage loan default prediction in a private dataset from BBVA. Second, we use copies to recover the operation point of a model trained on borrower information from the Lending Club website [70]. Lastly, we study how copies can be applied to obtain a fair classification of alignment in the superheroes dataset [71]."
+    },
+    {
+      "heading": "6.2.1 Risk scoring for non-client mortgage loans",
+      "text": "Logistic regression is a widely established technique for credit risk scoring. Mainly because it performs relatively well on credit prediction settings. But also because it offers the additional advantage of a relative ease of interpretation to comply with regulatory requirements. Even so, models based on logistic regression fail to account for nonlinearities in the data, which are usually modelled during an increasingly complex preprocessing step.\nDuring this step, which is critical to maximize business objectives, domain knowledge is exploited to artificially generate a set of highly predictive attributes. Here, a qualified risk analyst is required to conduct a tedious process of trial and error to find an optimal set of variables. This incurs in a large economical cost and a delayed time-to-market delivery. Even worse, preprocessing largely reduces interpretability: new variables often reflect complex relations\namong attributes and therefore remain non-decomposable [53] as far as the regulators are concerned.\nIn what follows, we tackle these issues in two different scenarios. In the first, we use a set of hand-crafted attributes to predict credit default using a logistic regression. We then build a copy that remains interpretable while retaining predictive performance. In the second, we decrease timeto-market delivery by training a high capacity model that avoids the preprocessing step. We copy this model with a simpler architecture that is nonetheless compliant with production and regulatory requirements.\nIn both cases, we use a private dataset of non-client7 mortgage loan applications recorded during 2015 all over Mexico [72]. This dataset consists of 19 attributes for 1.328 loan applicants, among which only 77% paid it off.\nDeobfuscated risk scoring models. We emulate a standard production pipeline and preprocess the data to obtain 6 carefully crafted variables. We then train a logistic regression that achieves an accuracy of 0.77. We copy this whole predictive system, composed of both the preprocessing module and the logistic model, using a decision tree classifier. Fig. 7 shows the distribution of scores for this experiment. We obtain an averaged copy accuracy of 0.71 \u00b1 0.04 and an estimated copy accuracy of 0.74314 \u00b1 0.00018. The mean empirical fidelity errors over Z and D are 0.03488 \u00b1 0.00018 and 0.15 \u00b1 0.05, respectively.\nThe empirical fidelity error over the synthetic data is small. However, when computed over the original test set this error grows. We argue that if we were to increase the number of synthetic samples, and better explore the boundaries, the approximation error would converge to a more reliable value and the overall error would be reduced.\nIn this example, the copy uses the deobfuscated 19 variables. Thus, the problem of non-decomposability is effectively solved. For validation purposes, in Fig. 7(a) we show the accuracy of a decision tree classifier trained directly on the training data. Note that it is smaller than that of our copy. This shows an additional advantage of copying: it can be used to guide a certain model to a more optimal solution in its parameter space.\nHigh-performance regulatory compliant copies. In this scenario, we use a high capacity model without any preprocessing. We train a gradient-boosted tree with all the 19 attributes in the training dataset. This model achieves an original accuracy of 0.79. We copy it using a decision tree classifier and report the results in Fig. 8. The mean copy accuracy averaged over all runs is 0.74\u00b10.02 and the accuracy estimated using (13) is equal to 0.7194\u00b1 0.0003. Thus, the average empirical fidelity error is 0.09\u00b1 0.0003 and the average empirical fidelity error over D is 0.09\u00b1\n7The term non-client refers to those individuals who had no previous contractual relation with the bank at the time of loan application.\n0.02. Note that while final model attributes differ from this application to that of scenario_1, the same samples are shared in both cases, so as to minimize any bias regarding the specific choice of data.\nThe difference in performance between the preprocessed logistic model in scenario_1 and the copy decision trees in scenario_2 is minor when tested against the test data. In Fig. 8(a) we display the accuracy achieved by a decision tree trained directly on the training data. This value is equal to 0.69\u00b1 0.01. Comparison between this result and the mean true copy accuracy for this problem provides further evidence for the benefits of using copies in this context."
+    },
+    {
+      "heading": "6.2.2 Restoring full operational potential in online loan default prediction",
+      "text": "For predicting whether a potential borrower will repay a loan, the Lending Club website publishes statistics about individual loan applicants [70]. We use these data to show how copies can be used to move a trained classifier to an online setting and recover the original operation point.\nThe complete dataset contains a comprehensive list of attributes for all loans issued through the 2007-2015 period, including loan status, latest payment information, number of finance inquires, borrower\u2019s annual income or zip code, among others. We remove null and missing values and drop all fields which provide no useful information for inference. We also identify and drop all variables that cause data leakage as those that are typically not available at the time of prediction [73]. Finally, we label instances by classifying all loans identified as defaulted, charged off or late as bad. The resulting database consists of 50 attributes for 887,379 loans, divided into two classes.\nWe train a denseNet neural network [74] consisting of 5 hidden layers with 256, 128, 64, 32 and 16 neurons. We use self-normalizing units[75] to avoid internal covariate shift, a dropout rate of 10% and a least squared loss optimized using Adam. Because training data are highly imbalanced, with bad loans accounting only for 8% of the data, we use balanced batches. We choose our operation point to be that for which the recall values for both classes are closer to each other. Accuracy is equal to 0.63 and recall is 0.59 and 0.63 for the bad and good classes, respectively.\nWe copy this model using a neural net with a much simpler architecture, consisting of five fully connected layers with 256, 128, 64, 32 and 16 selu neurons, no dropout and a least-square loss with a default parameter Adam optimizer. We obtain a mean copy accuracy of 0.63 \u00b1 0.07. The estimated copy accuracy is 0.603 \u00b1 0.009, the empirical fidelity error is 0.042 \u00b1 0.009 and the empirical fidelity error over the training data is 0.45\u00b1 0.07. The copy recall distribution over these data is shown in Fig. 9(a), for both classes. We correctly recover the recall operating point for one of the classes, but suffer a loss of around 20% for the other.\nWe conclude that we can build copies with online capabilities, while retaining most of the accuracy and reaching a reasonably close operating point. Moreover, in the presence of new data points, copies can be fine tuned to achieve a new desirable operating point, as shown in Fig. 9(b). Here, we recover an equal rate of 59% after visiting a few hundred examples of the training data. It is worth noting that this example also shows that copies can serve as analysis tools for other models. In particular, we observe that the denseNet and the fully connected architectures both have very similar operation points."
+    },
+    {
+      "heading": "6.2.3 A fair classification of superhero alignment",
+      "text": "In this use case we exploit a fictitious example that nonetheless represents a use case common to many real scenarios. We assume a model has been trained using protected data attributes and that it cannot be modified to correct for any bias. Instead, we build a copy that reproduces the learned decision function, while excluding these attributes.\nWe use superheroes dataset [71], which describes characteristics such as powers and physical attributes of 660 superheroes in SuperHeroDb [76]. We choose alignment as the target attribute to label all superheroes as either good or bad. We use these data to train a fully-connected artifi-\ncial neural network with 4 hidden layers, each consisting of 128, 64, 32 and 16 neurons with SeLu activation, a softmax cross entropy loss optimized using Adam optimizer and a a drop-out equal to 0.6. This model yields an accuracy of 0.65\nAmong the 177 input attributes, gender and race may be deemed sensitive. The differences in accuracy by the gender and race groups are shown in Table 2. In both cases, the resulting decision boundary leads to biased predictions. To overcome this issue, we propose to build a copy that does not include this information.\nAs a first step, we check that no other variable is correlated with gender and race and can leak this information into the copy. We train different models to predict gender or race using the rest of the variables. We average over 100 runs and obtain a mean balanced accuracy over classes of 0.42 \u00b1 0.08 when predicting gender and of 0.28 \u00b1 0.03 when predicting race. We also compute the one-to-one correlation for all attributes. At most, this correlation is equal to 0.18 in the case of gender and to 0.35 in the case of race. We conclude that the remaining attributes are very weakly correlated with these two, so that we can safely remove them without incurring in any leakage of information.\nHence, we extract these two attributes from the synthetic set and build a copy based on the existing network architecture. The mean copy accuracy is 0.66\u00b10.01, the estimated copy accuracy is 0.61 \u00b1 0.02, and the empirical fidelity error is 0.059\u00b1 0.003. The mean empirical fidelity error over the test data is 0.22\u00b10.01. While this value may seem high, we stress that the removal of two variables results in a certain shift of the decision function. As shown in Table 2, this shift accommodates those instances that are unfairly classified by the model and reduces the overall bias in the copy."
+    },
+    {
+      "heading": "6.3 Limitations",
+      "text": "Despite its flexibility and large range of applications, copying has several limitations, for example, when it comes to dealing with high-dimensional data, or with certain problem environments. We highlight some of them.\nCopying is highly dependent on the synthetic data generation process. The complexity of this process grows with increasing dimensionality. Hence, while the copying methodology itself remains valid in this context, its performance may be affected. Mostly because sampling an unknown decision function is hard. More so, because we have no information about the training data distribution and lack any insight on how the different classes may be distributed throughout the space. In theory, we could overcome this problem by generating infinite query points. Yet, this is not tractable in practice, since we are limited by our computational resources.\nIn our experience, when considering large dimensionality data it is worth replacing uniform sampling distributions with normal distributions. The first conduct an arbitrary exploration of the space, whereas the second better characterize the typicality5 of a standardized dataset. This is because, as the number of dimensions increases, so do the regions of the space where there are no data present. By using a normal distribution to guide sampling we focus only on those areas that could potentially contain data.\nNot only the amount of data but also their structure can be problematic. In structured environments, such as those of images or text, data tend to lie on top of a variety. Finding the optimal synthetic dataset therefore requires sampling the appropriate manifold. While this may be doable, it is not straightforward. In general, copying in such domains would require access to the training data to generate synthetic data with a suitable representation. This could be done, for example, using an autoencoder that ensures image invariance.\nAn additional limitation is choosing PZ . As shown above, blindly exploring the input space works well for simple cases. As the complexity of the problem grows, however,\n5 The concept of typicality refers to properties holding for the vast majority of cases [77]\nso does the intricacy of the decision function and more ad hoc techniques are needed to appropriately sample the input space. See for example [47], where we assay uncertainty based methods to guide sampling,\nLastly, many local minima exist. This is because an infinite number of different synthetic sets can be used to replicate a given decision boundary. In theory, the empirical error is known and equal to zero, so that all sets should converge to the same result. Due to training variability, however, this is not always the case."
+    },
+    {
+      "heading": "7 Conclusions and future work",
+      "text": "In this paper we propose and validate a model-agnostic framework to copy machine learning classifiers. Copying refers to the process of creating an exact replica of a classifier\u2019s decision boundary (or the most similar one if this can not be achieved). As such, this process can be understood as a projection operator of a decision function onto a target model space. The resulting copy optimizes the fidelity measure to preserve the original predictive performance.\nWe derive the theory for copying and highlight its differences with learning, as traditionally understood by the machine learning community. The process of building a copy does not require access to training data. Moreover, we consider the most general case, where the original model is treated as a black-box whose internals remain unknown.\nWe introduce the concept of differential replication as the property of endowing copies with new features by adequately selecting the target projection space. This enables copies to provide reliable solutions to many open issues in machine learning. We also discuss the implications of building copies in practice and introduce a set of performance metrics assuming access to different levels of information. Our experiments demonstrate that our approach is feasible. Moreover, the case studies presented show the potential of copies to ensure interpretability, fairness or productivization of machine learning models.\nThe problem of representing the decision behaviour of a machine learning model using a finite number of samples is far from being solved. Notably, an in-depth study should be conducted to evaluate methods to sample closed domains where class distribution is governed by an unknown decision function. Much research also remains to be done on how to solve the dual optimization problem. While the single pass-copy provides a reasonable approximation, more general approaches should be studied.\nIn this article we restrict ourselves to exploring the application of copies to specific areas such as interpretability, fairness and general enhancement. Nonetheless, there exist other fields were copies are potentially useful. Particularly that of privacy, where copies could be specifically built to be privacy-preserving with respect to the training data. This wide range of applications is ensured by the differential replication property of copies, which enables adap-\ntation to new needs and requirements. This characteristic should be the subject of further research."
+    },
+    {
+      "heading": "Acknowledgements",
+      "text": "This work has been partially funded by the Spanish project TIN2016-74946-P (MINECO/FEDER, UE), and by AGAUR of the Generalitat de Catalunya through the Industrial PhD grant 2017-DI-25. We gratefully acknowledge the support of BBVA Data & Analytics for sponsoring the Industrial PhD."
+    }
+  ],
+  "title": "COPYING MACHINE LEARNING CLASSIFIERS",
+  "year": 2020
+}

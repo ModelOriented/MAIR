@@ -1,0 +1,979 @@
+{
+  "abstractText": "There has recently been a surge of work in explanatory artificial intelligence (XAI). This research area tackles the important problem that complex machines and algorithms often cannot provide insights into their behavior and thought processes. XAI allows users and parts of the internal system to be more transparent, providing explanations of their decisions in some level of detail. These explanations are important to ensure algorithmic fairness, identify potential bias/problems in the training data, and to ensure that the algorithms perform as expected. However, explanations produced by these systems is neither standardized nor systematically assessed. In an effort to create best practices and identify open challenges, we describe foundational concepts of explainability and show how they can be used to classify existing literature. We discuss why current approaches to explanatory methods especially for deep neural networks are insufficient. Finally, based on our survey, we conclude with suggested future research directions for explanatory artificial intelligence.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Leilani H. Gilpin"
+    },
+    {
+      "affiliations": [],
+      "name": "David Bau"
+    },
+    {
+      "affiliations": [],
+      "name": "Ben Z. Yuan"
+    },
+    {
+      "affiliations": [],
+      "name": "Ayesha Bajwa"
+    }
+  ],
+  "id": "SP:e584ce4d2b435513a58c050e479b85a7db391cf2",
+  "references": [
+    {
+      "authors": [
+        "J. Angwin",
+        "J. Larson",
+        "S. Mattu",
+        "L. Kirchner"
+      ],
+      "title": "Machine bias",
+      "venue": "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing [Accessed May 24, 2019], 2016.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Nguyen",
+        "J. Yosinski",
+        "J. Clune"
+      ],
+      "title": "Deep neural networks are easily fooled: High confidence predictions for unrecognizable images",
+      "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2015, pp. 427\u2013436.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "C. Szegedy",
+        "W. Zaremba",
+        "I. Sutskever",
+        "J. Bruna",
+        "D. Erhan",
+        "I. Goodfellow",
+        "R. Fergus"
+      ],
+      "title": "Intriguing properties of neural networks",
+      "venue": "arXiv preprint arXiv:1312.6199, 2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "S.-M. Moosavi-Dezfooli",
+        "A. Fawzi",
+        "O. Fawzi",
+        "P. Frossard"
+      ],
+      "title": "Universal adversarial perturbations",
+      "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2017, pp. 86\u201394.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "N. Papernot",
+        "P. McDaniel",
+        "S. Jha",
+        "M. Fredrikson",
+        "Z.B. Celik",
+        "A. Swami"
+      ],
+      "title": "The limitations of deep learning in adversarial settings",
+      "venue": "IEEE European Symposium on Security and Privacy (EuroS&P), 2016, pp. 372\u2013387.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "R. Jia",
+        "P. Liang"
+      ],
+      "title": "Adversarial examples for evaluating reading comprehension systems",
+      "venue": "CoRR, vol. abs/1707.07328, 2017. [Online]. Available: http://arxiv.org/abs/1707.07328",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Liu",
+        "S. Ma",
+        "Y. Aafer",
+        "W.-C. Lee",
+        "J. Zhai",
+        "W. Wang",
+        "X. Zhang"
+      ],
+      "title": "Trojaning attack on neural networks",
+      "venue": "2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "I.J. Goodfellow",
+        "J. Shlens",
+        "C. Szegedy"
+      ],
+      "title": "Explaining and harnessing adversarial examples",
+      "venue": "arXiv preprint arXiv:1412.6572, 2014.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "A. Madry",
+        "A. Makelov",
+        "L. Schmidt",
+        "D. Tsipras",
+        "A. Vladu"
+      ],
+      "title": "Towards deep learning models resistant to adversarial attacks",
+      "venue": "2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A.D. Kraft"
+      ],
+      "title": "Vision by alignment",
+      "venue": "Ph.D. dissertation, MIT, 77 Massachusetts Ave., 2 2018, an optional note.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "N. Carlini",
+        "D. Wagner"
+      ],
+      "title": "Adversarial examples are not easily detected: Bypassing ten detection methods",
+      "venue": "Proceedings of the 10th ACM Workshop on Artificial Intelligence and Security, 2017, pp. 3\u201314.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B. Goodman",
+        "S. Flaxman"
+      ],
+      "title": "European union regulations on algorithmic decision-making and a\u201d right to explanation",
+      "venue": "arXiv preprint arXiv:1606.08813, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "D. Boyd",
+        "K. Crawford"
+      ],
+      "title": "Critical questions for big data: Provocations for a cultural, technological, and scholarly phenomenon",
+      "venue": "Information, communication & society, vol. 15, no. 5, pp. 662\u2013679, 2012.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "A. Caliskan",
+        "J.J. Bryson",
+        "A. Narayanan"
+      ],
+      "title": "Semantics derived automatically from language corpora contain human-like biases",
+      "venue": "Science, vol. 356, no. 6334, pp. 183\u2013186, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Russell",
+        "D. Dewey",
+        "M. Tegmark"
+      ],
+      "title": "Research priorities for robust and beneficial artificial intelligence",
+      "venue": "Ai Magazine, vol. 36, no. 4, pp. 105\u2013114, 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S. Bromberger"
+      ],
+      "title": "On what we know we don\u2019t know: Explanation, theory, linguistics, and how questions shape them",
+      "year": 1992
+    },
+    {
+      "authors": [
+        "P.R. Thagard"
+      ],
+      "title": "The best explanation: Criteria for theory choice",
+      "venue": "The journal of philosophy, vol. 75, no. 2, pp. 76\u201392, 1978.",
+      "year": 1978
+    },
+    {
+      "authors": [
+        "B. Herman"
+      ],
+      "title": "The promise and peril of human evaluation for model interpretability",
+      "venue": "arXiv preprint arXiv:1711.07414, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "K. He",
+        "X. Zhang",
+        "S. Ren",
+        "J. Sun"
+      ],
+      "title": "Deep residual learning for image recognition",
+      "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition, 2016, pp. 770\u2013778.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Why should i trust you?: Explaining the predictions of any classifier",
+      "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 2016, pp. 1135\u20131144.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J.R. Zilke",
+        "E.L. Menc\u0131\u0301a",
+        "F. Janssen"
+      ],
+      "title": "Deepred\u2013rule extraction from deep neural networks",
+      "venue": "International Conference on Discovery Science. Springer, 2016, pp. 457\u2013473.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Sato",
+        "H. Tsukimoto"
+      ],
+      "title": "Rule extraction from neural networks via decision tree induction",
+      "venue": "Neural Networks, 2001. Proceedings. IJCNN\u201901. International Joint Conference on, vol. 3. IEEE, 2001, pp. 1870\u20131875.",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "M.G. Augasta",
+        "T. Kathirvalavakumar"
+      ],
+      "title": "Reverse engineering the neural networks for rule extraction in classification problems",
+      "venue": "Neural processing letters, vol. 35, no. 2, pp. 131\u2013150, 2012.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "S.L. Salzberg"
+      ],
+      "title": "C4. 5: Programs for machine learning by j. ross quinlan. morgan kaufmann publishers, inc., 1993",
+      "venue": "Machine Learning, vol. 16, no. 3, pp. 235\u2013240, 1994.",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "G.P. Schmitz",
+        "C. Aldrich",
+        "F.S. Gouws"
+      ],
+      "title": "Ann-dt: an algorithm for extraction of decision trees from artificial neural networks",
+      "venue": "IEEE Transactions on Neural Networks, vol. 10, no. 6, pp. 1392\u20131401, 1999.",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "R. Andrews",
+        "J. Diederich",
+        "A.B. Tickle"
+      ],
+      "title": "Survey and critique of techniques for extracting rules from trained artificial neural networks",
+      "venue": "K owledge-based systems, vol. 8, no. 6, pp. 373\u2013389, 1995.",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "J.R. Zilke"
+      ],
+      "title": "Extracting Rules from Deep Neural Networks",
+      "venue": "Master\u2019s thesis, Technische Universitat Darmstadt, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Fu"
+      ],
+      "title": "Rule generation from neural networks",
+      "venue": "IEEE Transactions on Systems, Man, and Cybernetics, vol. 24, no. 8, pp. 1114\u20131124, 1994.",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "H. Tsukimoto"
+      ],
+      "title": "Extracting rules from trained neural networks",
+      "venue": "IEEE Transactions on Neural Networks, vol. 11, no. 2, pp. 377\u2013389, 2000.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "J.M. Ben\u0131\u0301tez",
+        "J.L. Castro",
+        "I. Requena"
+      ],
+      "title": "Are artificial neural networks black boxes?",
+      "venue": "IEEE Transactions on neural networks,",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "S. Thrun"
+      ],
+      "title": "Extracting rules from artificial neural networks with distributed representations",
+      "venue": "Advances in neural information processing systems, 1995, pp. 505\u2013512.",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "U. Johansson",
+        "R. Konig",
+        "L. Niklasson"
+      ],
+      "title": "Automatically balancing accuracy and comprehensibility in predictive modeling",
+      "venue": "Information Fusion, 2005 8th International Conference on, vol. 2. IEEE, 2005, pp. 7\u2013pp.",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "M.W. Craven"
+      ],
+      "title": "Extracting comprehensible models from trained neural networks",
+      "venue": "Ph.D. dissertation, University of Wisconsin, Madison, 1996.",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "I.A. Taha",
+        "J. Ghosh"
+      ],
+      "title": "Symbolic interpretation of artificial neural networks",
+      "venue": "IEEE Transactions on knowledge and data engineering, vol. 11, no. 3, pp. 448\u2013463, 1999.",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "T. Hailesilassie"
+      ],
+      "title": "Rule extraction algorithm for deep neural networks: A review",
+      "venue": "arXiv preprint arXiv:1610.05267, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "G.G. Towell",
+        "J.W. Shavlik"
+      ],
+      "title": "Extracting refined rules from knowledge-based neural networks",
+      "venue": "Machine learning, vol. 13, no. 1, pp. 71\u2013101, 1993.",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "R. Setiono",
+        "W.K. Leow"
+      ],
+      "title": "Fernn: An algorithm for fast extraction of rules from neural networks",
+      "venue": "Applied Intelligence, vol. 12, no. 1-2, pp. 15\u201325, 2000.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "M.D. Zeiler",
+        "R. Fergus"
+      ],
+      "title": "Visualizing and understanding convolutional networks",
+      "venue": "European conference on computer vision. Springer, 2014, pp. 818\u2013833.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "K. Simonyan",
+        "A. Vedaldi",
+        "A. Zisserman"
+      ],
+      "title": "Deep inside convolutional networks: Visualising image classification models and saliency maps",
+      "venue": "arXiv preprint arXiv:1312.6034, 2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "S. Bach",
+        "A. Binder",
+        "G. Montavon",
+        "F. Klauschen",
+        "K.-R. M\u00fcller",
+        "W. Samek"
+      ],
+      "title": "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation",
+      "venue": "PloS one, vol. 10, no. 7, p. e0130140, 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "A. Shrikumar",
+        "P. Greenside",
+        "A. Kundaje"
+      ],
+      "title": "Learning important features through propagating activation differences",
+      "venue": "arXiv preprint arXiv:1704.02685, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B. Zhou",
+        "A. Khosla",
+        "A. Lapedriza",
+        "A. Oliva",
+        "A. Torralba"
+      ],
+      "title": "Learning deep features for discriminative localization",
+      "venue": "Computer Vision and Pattern Recognition (CVPR), 2016 IEEE Conference on. IEEE, 2016, pp. 2921\u20132929.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "R.R. Selvaraju",
+        "M. Cogswell",
+        "A. Das",
+        "R. Vedantam",
+        "D. Parikh",
+        "D. Batra"
+      ],
+      "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization",
+      "venue": "See https://arxiv. org/abs/1610.02391 v3, vol. 7, no. 8, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Sundararajan",
+        "A. Taly",
+        "Q. Yan"
+      ],
+      "title": "Axiomatic attribution for deep networks",
+      "venue": "arXiv preprint arXiv:1703.01365, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Smilkov",
+        "N. Thorat",
+        "B. Kim",
+        "F.B. Vi\u00e9gas",
+        "M. Wattenberg"
+      ],
+      "title": "Smoothgrad: removing noise by adding noise",
+      "venue": "CoRR, vol. abs/1706.03825, 2017. [Online]. Available: http://arxiv.org/abs/1706.03825",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Ancona",
+        "E. Ceolini",
+        "A.C. \u00d6ztireli",
+        "M.H. Gross"
+      ],
+      "title": "A unified view of gradient-based attribution methods for deep neural networks",
+      "venue": "CoRR, vol. abs/1711.06104, 2017. [Online]. Available: http://arxiv.org/abs/1711.06104",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A.S. Razavian",
+        "H. Azizpour",
+        "J. Sullivan",
+        "S. Carlsson"
+      ],
+      "title": "Cnn features off-the-shelf: an astounding baseline for recognition",
+      "venue": "Computer Vision and Pattern Recognition Workshops (CVPRW), 2014 IEEE Conference on. IEEE, 2014, pp. 512\u2013519.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "J. Yosinski",
+        "J. Clune",
+        "Y. Bengio",
+        "H. Lipson"
+      ],
+      "title": "How transferable are features in deep neural networks?",
+      "venue": "Advances in neural information processing systems,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "B. Zhou",
+        "A. Khosla",
+        "A. Lapedriza",
+        "A. Oliva",
+        "A. Torralba"
+      ],
+      "title": "Object detectors emerge in deep scene cnns",
+      "venue": "arXiv preprint arXiv:1412.6856, 2014.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "A. Nguyen",
+        "A. Dosovitskiy",
+        "J. Yosinski",
+        "T. Brox",
+        "J. Clune"
+      ],
+      "title": "Synthesizing the preferred inputs for neurons in neural networks via deep generator networks",
+      "venue": "Advances in Neural Information Processing Systems, 2016, pp. 3387\u20133395.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "D. Bau",
+        "B. Zhou",
+        "A. Khosla",
+        "A. Oliva",
+        "A. Torralba"
+      ],
+      "title": "Network dissection: Quantifying interpretability of deep visual representations",
+      "venue": "Computer Vision and Pattern Recognition, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Q.-s. Zhang",
+        "S.-C. Zhu"
+      ],
+      "title": "Visual interpretability for deep learning: a survey",
+      "venue": "Frontiers of Information Technology & Electronic Engineering, vol. 19, no. 1, pp. 27\u201339, 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Frankle",
+        "M. Carbin"
+      ],
+      "title": "The lottery ticket hypothesis: Training pruned neural networks",
+      "venue": "CoRR, vol. abs/1803.03635, 2018. [Online]. Available: http://arxiv.org/abs/1803.03635",
+      "year": 1803
+    },
+    {
+      "authors": [
+        "B. Kim",
+        "J. Gilmer",
+        "F. Viegas",
+        "U. Erlingsson",
+        "M. Wattenberg"
+      ],
+      "title": "Tcav: Relative concept importance testing with linear concept activation vectors",
+      "venue": "arXiv preprint arXiv:1711.11279, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Vaswani",
+        "N. Shazeer",
+        "N. Parmar",
+        "J. Uszkoreit",
+        "L. Jones",
+        "A.N. Gomez",
+        "\u0141. Kaiser",
+        "I. Polosukhin"
+      ],
+      "title": "Attention is all you need",
+      "venue": "Advances in Neural Information Processing Systems, 2017, pp. 6000\u20136010.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "T. Xiao",
+        "Y. Xu",
+        "K. Yang",
+        "J. Zhang",
+        "Y. Peng",
+        "Z. Zhang"
+      ],
+      "title": "The application of two-level attention models in deep convolutional neural network for fine-grained image classification",
+      "venue": "Computer Vision and Pattern Recognition (CVPR), 2015 IEEE Conference on. IEEE, 2015, pp. 842\u2013850.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "J. Lu",
+        "J. Yang",
+        "D. Batra",
+        "D. Parikh"
+      ],
+      "title": "Hierarchical question-image co-attention for visual question answering",
+      "venue": "Advances In Neural Information Processing Systems, 2016, pp. 289\u2013297.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Das",
+        "H. Agrawal",
+        "L. Zitnick",
+        "D. Parikh",
+        "D. Batra"
+      ],
+      "title": "Human attention in visual question answering: Do humans and deep networks look at the same regions?",
+      "venue": "Computer Vision and Image Understanding,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D.H. Park",
+        "L.A. Hendricks",
+        "Z. Akata",
+        "A. Rohrbach",
+        "B. Schiele",
+        "T. Darrell",
+        "M. Rohrbach"
+      ],
+      "title": "Multimodal explanations: Justifying decisions and pointing to the evidence",
+      "venue": "CoRR, vol. abs/1802.08129, 2018. [Online]. Available: http://arxiv.org/abs/1802.08129",
+      "year": 1802
+    },
+    {
+      "authors": [
+        "A.S. Ross",
+        "M.C. Hughes",
+        "F. Doshi-Velez"
+      ],
+      "title": "Right for the right reasons: Training differentiable models by constraining their explanations",
+      "venue": "arXiv preprint arXiv:1703.03717, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "I.T. Jolliffe"
+      ],
+      "title": "Principal component analysis and factor analysis",
+      "venue": "Principal component analysis. Springer, 1986, pp. 115\u2013128.",
+      "year": 1986
+    },
+    {
+      "authors": [
+        "A. Hyv\u00e4rinen",
+        "E. Oja"
+      ],
+      "title": "Independent component analysis: algorithms and applications",
+      "venue": "Neural networks, vol. 13, no. 4-5, pp. 411\u2013430, 2000.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "M.W. Berry",
+        "M. Browne",
+        "A.N. Langville",
+        "V.P. Pauca",
+        "R.J. Plemmons"
+      ],
+      "title": "Algorithms and applications for approximate nonnegative matrix factorization",
+      "venue": "Computational statistics & data analysis, vol. 52, no. 1, pp. 155\u2013173, 2007.",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "D.P. Kingma",
+        "M. Welling"
+      ],
+      "title": "Auto-encoding variational bayes",
+      "venue": "arXiv preprint arXiv:1312.6114, 2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "I. Higgins",
+        "L. Matthey",
+        "A. Pal",
+        "C. Burgess",
+        "X. Glorot",
+        "M. Botvinick",
+        "S. Mohamed",
+        "A. Lerchner"
+      ],
+      "title": "beta-vae: Learning basic visual concepts with a constrained variational framework",
+      "venue": "2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "X. Chen",
+        "Y. Duan",
+        "R. Houthooft",
+        "J. Schulman",
+        "I. Sutskever",
+        "P. Abbeel"
+      ],
+      "title": "Infogan: Interpretable representation learning by information maximizing generative adversarial nets",
+      "venue": "Advances in Neural Information Processing Systems, 2016, pp. 2172\u20132180.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Q. Zhang",
+        "Y.N. Wu",
+        "S.-C. Zhu"
+      ],
+      "title": "Interpretable convolutional neural networks",
+      "venue": "2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Q. Zhang",
+        "R. Cao",
+        "Y.N. Wu",
+        "S.-C. Zhu"
+      ],
+      "title": "Growing interpretable part graphs on convnets via multi-shot learning.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Q. Zhang",
+        "Y. Yang",
+        "Y. Liu",
+        "Y.N. Wu",
+        "S.-C. Zhu"
+      ],
+      "title": "Unsupervised learning of neural networks to explain neural networks",
+      "venue": "arXiv preprint arXiv:1805.07468, 2018.",
+      "year": 1805
+    },
+    {
+      "authors": [
+        "S. Sabour",
+        "N. Frosst",
+        "G.E. Hinton"
+      ],
+      "title": "Dynamic routing between capsules",
+      "venue": "Advances in Neural Information Processing Systems, 2017, pp. 3859\u20133869.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Antol",
+        "A. Agrawal",
+        "J. Lu",
+        "M. Mitchell",
+        "D. Batra",
+        "C. Lawrence Zitnick",
+        "D. Parikh"
+      ],
+      "title": "Vqa: Visual question answering",
+      "venue": "Proceedings of the IEEE International Conference on Computer Vision, 2015, pp. 2425\u2013 2433.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "L.A. Hendricks",
+        "Z. Akata",
+        "M. Rohrbach",
+        "J. Donahue",
+        "B. Schiele",
+        "T. Darrell"
+      ],
+      "title": "Generating visual explanations",
+      "venue": "European Conference on Computer Vision. Springer, 2016, pp. 3\u201319.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Fukui",
+        "D.H. Park",
+        "D. Yang",
+        "A. Rohrbach",
+        "T. Darrell",
+        "M. Rohrbach"
+      ],
+      "title": "Multimodal compact bilinear pooling for visual question answering and visual grounding",
+      "venue": "arXiv preprint arXiv:1606.01847, 2016.",
+      "year": 1847
+    },
+    {
+      "authors": [
+        "F. Doshi-Velez",
+        "B. Kim"
+      ],
+      "title": "Towards a rigorous science of interpretable machine learning",
+      "venue": "arXiv, 2017. [Online]. Available: https://arxiv.org/abs/1702.08608",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Abdul",
+        "J. Vermeulen",
+        "D. Wang",
+        "B.Y. Lim",
+        "M. Kankanhalli"
+      ],
+      "title": "Trends and trajectories for explainable, accountable and intelligible systems: An hci research agenda",
+      "venue": "Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems. ACM, 2018, p. 582.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R. Guidotti",
+        "A. Monreale",
+        "F. Turini",
+        "D. Pedreschi",
+        "F. Giannotti"
+      ],
+      "title": "A survey of methods for explaining black box models",
+      "venue": "arXiv preprint arXiv:1802.01933, 2018.",
+      "year": 1802
+    },
+    {
+      "authors": [
+        "M. Fox",
+        "D. Long",
+        "D. Magazzeni"
+      ],
+      "title": "Explainable planning",
+      "venue": "CoRR, vol. abs/1709.10256, 2017. [Online]. Available: http://arxiv.org/abs/1709.10256",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J.F. Reeves"
+      ],
+      "title": "Computational morality: A process model of belief conflict and resolution for story understanding",
+      "venue": "1991.",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "E.T. Mueller"
+      ],
+      "title": "Story understanding",
+      "venue": "Encyclopedia of Cognitive Science."
+    },
+    {
+      "authors": [
+        "P. Winston",
+        "D. Holmes"
+      ],
+      "title": "The genesis manifesto: Story understanding and human intelligence",
+      "venue": "2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D.B. Leake"
+      ],
+      "title": "Focusing construction and selection of abductive hypotheses",
+      "venue": "1993.",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "H.T. Ng",
+        "R.J. Mooney"
+      ],
+      "title": "The role of coherence in constructing and evaluating abductive explanations",
+      "venue": "Working Notes, AAAI Spring Symposium on Automated Abduction, Stanford, California, 1990.",
+      "year": 1990
+    },
+    {
+      "authors": [
+        "R.W. Magid",
+        "M. Sheskin",
+        "L.E. Schulz"
+      ],
+      "title": "Imagination and the generation of new ideas",
+      "venue": "Cognitive Development, vol. 34, pp. 99\u2013110, 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "J. Koster-Hale",
+        "R. Saxe"
+      ],
+      "title": "Theory of mind: a neural prediction problem",
+      "venue": "Neuron, vol. 79, no. 5, pp. 836\u2013848, 2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Y. LeCun"
+      ],
+      "title": "My take on ali rahimi\u2019s test of time award talk at nips",
+      "venue": "2017.",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "text": "ar X\niv :1\n80 6.\n00 06\n9v 3\n[ cs\n.A I]\n3 F\neb 2\n01 9\nI. INTRODUCTION\nAs autonomous machines and black-box algorithms begin making decisions previously entrusted to humans, it becomes necessary for these mechanisms to explain themselves. Despite their success in a broad range of tasks including advertising, movie and book recommendations, and mortgage qualification, there is general mistrust about their results. In 2016, Angwin et al. [1] analyzed Correctional Offender Management Profiling for Alternative Sanctions (COMPAS), a widely used criminal risk assessment tool, and found that its predictions were unreliable and racially biased. Along with this, deep neural networks (DNNs) have been shown to be easily fooled into misclassifying inputs with no resemblance to the true category [2]. Extending this observation, a number of techniques have been shown for changing a network\u2019s classification of any image to any target class by making imperceptible alterations to the pixels [3], [4], [5]. Adversarial examples are not confined to images; natural language networks can also be fooled [6]. Trojaning attacks have been demonstrated [7] in which inputs remain unchanged, but imperceptible changes are hidden in deep networks to cause them to make targeted errors. While some defense methods have been developed, more attack methods have also emerged [8], [9], [10], [11], and susceptibility to unintuitive errors remains a pervasive problem in DNNs. The potential for such unexpected behavior and unintentional discrimination highlights the need for explanations.\nAs a first step towards creating explanation mechanisms, there is a new line of research in interpretability, loosely defined as the science of comprehending what a model did (or might have done). Interpretable models and learning methods show great promise; examples include visual cues to find the \u201cfocus\u201d of deep neural networks in image recognition and proxy methods to simplify the output of complex systems. However, there is ample room for improvement, since identifying dominant classifiers and simplifying the problem space does not solve all possible problems associated with understanding opaque models.\nWe take the stance that interpretability alone is insufficient. In order for humans to trust black-box methods, we need explainability \u2013 models that are able to summarize the reasons for neural network behavior, gain the trust of users, or produce insights about the causes of their decisions. While interpetability is a substantial first step, these mechanisms need to also be complete, with the capacity to defend their actions, provide relevant responses to questions, and be audited. Although interpretability and explainability have been used interchangeably, we argue there are important reasons to distinguish between them. Explainable models are interpretable by default, but the reverse is not always true.\nSome existing deployed systems and regulations make the need for explanatory systems urgent and timely. With impending regulations like the European Union\u2019s \u201cRight to Explanation\u201d [12], calls for diversity and inclusion in AI systems [13], findings that some automated systems may reinforce inequality and bias [14], and requirements for safe and secure AI in safety-critical tasks [15], there has been a recent explosion of interest in interpreting the representations and decisions of black-box models. These models are everywhere, and the development of interpretable and explainable models is scattered throughout various disciplines. Examples of general \u201cexplainable systems\u201d include interpretable AI, explainable ML, causality, safe AI, computational social science, and automatic scientific discovery. Further, research in explanations and their evaluation are found in machine learning, human computer interaction (HCI), crowd sourcing, machine teaching, AI ethics, technology policy, and many other disciplines. This paper aims to broadly engage the greater machine learning community on the intersection of these topics, to set best practices, to define key concepts, and\nto propose evaluation criteria for standardizing explanatory systems often considered in isolation.\nIn this survey, we present a set of definitions, construct a taxonomy, and present best practices to start to standardize interpretability and explanatory work in AI. We review a number of approaches towards explainable AI systems and provide a taxonomy of how one can think about diverse approaches towards explainability. In Section 2, we define key terms including \u201cexplanation\u201d, \u201cinterpretability\u201d, and \u201cexplainability\u201d. We compare and contrast our definitions with those accepted in the literature. In Section 3, we review some classical AI approaches (e.g., causal modeling, constraint reasoning, intelligent user interfaces, planning) but focus mainly on explainable models for deep learning. We provide a summary of related work papers in Section 4, highlighting differences between definitions of key terms including \u201cexplanation\u201d, \u201cinterpretability\u201d, and \u201cexplainability\u201d. In Section 5, we present a novel taxonomy that examines what is being explained by these explanations. We conclude with a discussion addressing open questions and recommend a path to the development and adoption of explainable methods for safety-critical or missioncritical applications."
+    },
+    {
+      "heading": "II. BACKGROUND AND FOUNDATIONAL CONCEPTS",
+      "text": "In this section, we provide background information about the key concepts of interpretability and explanability, and describe the meaningful differences between them."
+    },
+    {
+      "heading": "A. What is an Explanation?",
+      "text": "Philosophical texts show much debate over what constitutes an explanation. Of particular interest is what makes an explanation \u201cgood enough\u201d or what really defines an explanation. Some say a good explanation depends on the question [16]. This set of essays discusses the nature of explanation, theory, and the foundations of linguistics. Although for our work, the most important and interesting work is on \u201cWhy questions.\u201d In particular, when you can phrase what you want to know from an algorithm as a why question, there is a natural qualitative representation of when you have answered said question\u2013when you can no longer keep asking why. There are two whyquestions of interest; why and why-should. Similarly to the explainable planning literature, philosophers wonder about the why-shouldn\u2019t and why-should questions, which can give the kinds of explainability requirements we want.\nThere is also discussion in philosophy about what makes the best explanation. While many say it is inference [17], similar views point to the use of abductive reasoning to explain all the possible outcomes.\nB. Interpretability vs. Completeness\nAn explanation can be evaluated in two ways: according to\nits interpretability, and according to its completeness.\nThe goal of interpretability is to describe the internals of a system in a way that is understandable to humans. The success of this goal is tied to the cognition, knowledge, and biases of the user: for a system to be interpretable, it must produce\ndescriptions that are simple enough for a person to understand using a vocabulary that is meaningful to the user.\nThe goal of completeness is to describe the operation of a system in an accurate way. An explanation is more complete when it allows the behavior of the system to be anticipated in more situations. When explaining a self-contained computer program such as a deep neural network, a perfectly complete explanation can always be given by revealing all the mathematical operations and parameters in the system.\nThe challenge facing explainable AI is in creating explanations that are both complete and interpretable: it is difficult to achieve interpretability and completeness simultaneously. The most accurate explanations are not easily interpretable to people; and conversely the most interpretable descriptions often do not provide predictive power.\nHerman [18] notes that we should be wary of evaluating interpretable systems using merely human evaluations of interpretability, because human evaluations imply a strong and specific bias towards simpler descriptions. He cautions that reliance on human evaluations can lead researchers to create persuasive systems rather than transparent systems. He presents the following ethical dilemmas that are a central concern when building interpretable systems:\n1) When is it unethical to manipulate an explanation\nto better persuade users?\n2) How do we balance our concerns for transparency and\nethics with our desire for interpretability?\nWe believe that it is fundamentally unethical to present a simplified description of a complex system in order to increase trust if the limitations of the simplified description cannot be understood by users, and worse if the explanation is optimized to hide undesirable attributes of the system. Such explanations are inherently misleading, and may result in the user justifiably making dangerous or unfounded conclusions.\nTo avoid this trap, explanations should allow a tradeoff between interpretability and completeness. Rather than providing only simple descriptions, systems should allow for descriptions with higher detail and completeness at the possible cost of interpretability. Explanation methods should not be evaluated on a single point on this tradeoff, but according to how they behave on the curve from maximum interpretability to maximum completeness."
+    },
+    {
+      "heading": "C. Explainability of Deep Networks",
+      "text": "Explanations of the operation of deep networks have focused on either explaining the processing of the data by a network, or explaining the representation of data inside a network. An explanation of processing answers \u201cWhy does this particular input lead to that particular output?\u201d and is analogous to explaining the execution trace of a program. An explanation about representation answers \u201cWhat information does the network contain?\u201d and can be compared to explaining the internal data structures of a program.\nA third approach to interpretability is to create explanationproducing systems with architectures that are designed to\nsimplify interpretation of their own behavior. Such architectures can be designed to make either their processing, representations, or other aspects of their operation easier for people to understand."
+    },
+    {
+      "heading": "III. REVIEW",
+      "text": "Due to the growing number of subfields, as well as the policy and legal ramifications [12] of opaque systems, the volume of research in interpretability is quickly expanding. Since it is intractable to review all the papers in the space, we focus on explainable methods in deep neural architectures, and briefly highlight review papers from other subfields."
+    },
+    {
+      "heading": "A. Explanations of Deep Network Processing",
+      "text": "Commonly used deep networks derive their decisions using a large number of elementary operations: for example, ResNet [19], a popular architecture for image classification, incorporates about 5\u00d7107 learned parameters and executes about 1010 floating point operations to classify a single image. Thus the fundamental problem facing explanations of such processing is to find ways to reduce the complexity of all these operations. This can be done by either creating a proxy model which behaves similarly to the original model, but in a way that is easier to explain, or by creating a salience map to highlight a small portion of the computation which is most relevant.\n1) Linear Proxy Models: The proxy model approach is exemplified well by the LIME method by Ribeiro [20]. With LIME, a black-box system is explained by probing behavior on perturbations of an input, and then that data is used to construct a local linear model that serves as a simplified proxy for the full model in the neighborhood of the input. Ribeiro shows that the method can be used to identify regions of the input that are most influential for a decision across a variety of types of models and problem domains. Proxy models such as LIME are predictive: the proxy can be run and evaluated according to its faithfulness to the original system. Proxy models can also be measured according to their model complexity, for example, number of nonzero dimensions in a LIME model. Because the proxy model provides a quantifiable relationship between complexity and faithfulness, methods can be benchmarked against each other, making this approach attractive.\n2) Decision Trees: Another appealing type of proxy model is the decision tree. Efforts to decompose neural networks into decision trees have recently extended work from the 1990s, which focused on shallow networks, to generalizing the process for deep neural networks. One such method is DeepRED [21], which demonstrates a way of extending the CRED [22] algorithm (designed for shallow networks) to arbitrarily many hidden layers. DeepRED utilizes several strategies to simplify its decision trees: it uses RxREN [23] to prune unnecessary input, and it applies algorithm C4.5 [24], a statistical method for creating a parsimonious decision tree. Although DeepRED is able to construct complete trees that are closely faithful to the original network, the generated trees can be quite large, and the implementation of the method takes substantial time and memory and is therefore limited in scalability.\nAnother decision tree method is ANN-DT [25] which uses sampling to create a decision tree: the key idea is to use sampling to expand training using a nearest neighbor method.\n3) Automatic-Rule Extraction: Automatic rule extraction is another well-studied approach for summarizing decisions. Andrews et al [26] outlines existing rule extraction techniques, and provides a useful taxonomy of five dimensions of ruleextraction methods including their expressive power, translucency and the quality of rules. Another useful survey can be found in the master\u2019s thesis by Zilke [27].\nDecompositional approaches work on the neuron-level to extract rules to mimic the behavior of individual units. The KT method [28] goes through each neuron, layer-by-layer and applies an if-then rule by finding a threshold. Similar to DeepRED, there is a merging step which creates rules in terms of the inputs rather than the outputs of the preceding layer. This is an exponential approach which is not tangible for deep neural networks. However, a similar approach proposed by Tsukimoto [29] achieves polynomial-time complexity, and may be more tangible. There has also been work on transforming neural network to fuzzy rules [30], by transforming each neuron into an approximate rule.\nPedagogical approaches aim to extract rules by directly mapping inputs to outputs rather than considering the inner workings of a neural network. These treat the network as a black box, and find trends and functions from the inputs to the outputs. Validity Interval Analysis is a type of sensitivity analysis to mimic neural network behavior [31]. This method finds stable intervals, where there is some correlation between the input and the predicted class. Another way to extract rules using sampling methods [32], [33]. Some of these sampling approaches only work on binary input [34] or use genetic algorithms to produce new training examples [35]. Other approaches aim to reverse engineer the neural network, notably, the RxREN algorithm, which is used in DeepRED[21].\nOther notable rule-extraction techniques include the MofN algorithm [36], which tries to find rules that explain single neurons by clustering and ignoring insignificant neurons. Similarly, The FERNN [37] algorithm uses the C4.5 algorithm [24] and tries to identify the meaningful hidden neurons and inputs to a particular network.\nAlthough rule-extraction techniques increase the transparency of neural networks, they may not be truly faithful to the model. With that, there are other methods that are focused on creating trust between the user and the model, even if the model is not \u201csophisicated.\u201d\n4) Salience Mapping: The salience map approach is exemplified by occlusion procedure by Zeiler [38], where a network is repeatedly tested with portions of the input occluded to create a map showing which parts of the data actually have influence on the network output. When deep network parameters can be inspected directly, a salience map can be created more efficiently by directly computing the input gradient (Simonyan [39]). Since such derivatives can miss important aspects of the information that flows through a network, a number of other approaches have been designed to\npropagate quantities other than gradients through the network. Examples are LRP [40], DeepLIFT [41], CAM [42], GradCAM [43], Integrated gradients [44], and SmoothGrad [45]. Each technique strikes a balance between showing areas of high network activation, where neurons fire strongest, and areas of high network sensitivity, where changes would most affect the output. A comparison of some of these methods can be found in Ancona [46]."
+    },
+    {
+      "heading": "B. Explanations of Deep Network Representations",
+      "text": "While the number of individual operations in a network is vast, deep networks are internally organized into a smaller number of subcomponents: for example, the billions of operations of ResNet are organized into about 100 layers, each computing between 64 and 2048 channels of information per pixel. The explanation of deep network representations aims to understand the role and structure of the data flowing through these bottlenecks. This work can be divided by the granularity examined: representations can be understood by layer, where all the information flowing through a layer is considered together, and by unit, where single neurons or single filter channels are considered individually, and by vector, where other vector directions in representation space are considered individually.\n1) Role of Layers: Layers can be understood by testing their ability to help solve different problems from the problems the network was originally trained on. For example Razavian [47] found that the output of an internal layer of a network trained to classify images of objects in the ImageNet dataset produced a feature vector that could be directly reused to solve a number of other difficult image processing problems including fine-grained classification of different species of birds, classification of scene images, attribute detection, and object localization. In each case, a simple model such as an SVM was able to directly apply the deep representation to the target problem, beating state-of-the-art performance without training a whole new deep network. This method of using a layer from one network to solve a new problem is called transfer learning, and it is of immense practical importance, allowing many new problems to be solved without developing new datasets and networks for each new problem. Yosinksi [48] described a framework for quantifying transfer learning capabilities in other contexts.\n2) Role of Individual Units: The information within a layer can be further subdivided into individual neurons or individual convolutional filters. The role of such individual units can be understood qualitatively, by creating visualizations of the input patterns that maximize the response of a single unit, or quantitatively, by testing the ability of a unit to solve a transfer problem. Visualizations can be created by optimizing an input image using gradient descent [39], by sampling images that maximize activation [49], or by training a generative network to create such images [50]. Units can also be characterized quantitatively by testing their ability to solve a task. One example of a such a method is network dissection [51], which measures the ability of individual units solve a segmentation\nproblem over a broad set of labeled visual concepts. By quantifying the ability of individual units to locate emergent concepts such as objects, parts, textures, and colors that are not explicit in the original training set, network dissection can be used characterize the kind of information represented by visual networks at each unit of a network.\nA review of explanatory methods focused on understanding unit representations used by visual CNNs can be found in [52], which examines methods for visualization of CNN representations in intermediate network layers, diagnosis of these representations, disentanglement representation units, the creation of explainable models, and semantic middle-to-end learning via human-computer interaction.\nPruning of networks [53] has also been shown to be a step towards understanding the role of individual neurons in networks. In particular, large networks that train successfully contain small subnetworks with initializations conducive to optimization. This demonstrates that there exist training strategies that make it possible to solve the same problems with much smaller networks that may be more interpretable.\n3) Role of Representation Vectors: Closely related to the approach of characterizing individual units is characterizing other directions in the representation vector space formed by linear combinations of individual units. Concept Activation Vectors (CAVs) [54] are a framework for interpretation of a neural nets representations by identifying and probing directions that align with human-interpretable concepts."
+    },
+    {
+      "heading": "C. Explanation-Producing Systems",
+      "text": "Several different approaches can be taken to create networks that are designed to be easier to explain: networks can be trained to use explicit attention as part of their architecture; they can be trained to learn disentangled representations; or they can be directly trained to create generative explanations.\n1) Attention Networks: Attention-based networks learn functions that provide a weighting over inputs or internal features to steer the information visible to other parts of a network. Attention-based approaches have shown remarkable success in solving problems such as allowing natural language translation models to process words in an appropriate nonsequential order [55], and they have also been applied in domains such as fine-grained image classification [56] and visual question answering [57]. Although units that control attention are not trained for the purpose of creating humanreadable explanations, they do directly reveal a map of which information passes through the network, which can serve as a form of explanation. Datasets of human attention have been created [58], [59]; these allow systems to be evaluated according to how closely and their internal attention resembles human attention.\nWhile attention can be observed as a way of extracting explanations, another interesting approach is to train attention explicitly in order to create a network that has behavior that conforms to desired explanations. This is the technique proposed by Ross [60], where input sensitivity of a network is adjusted and measured in order to create networks that are\n\u201cright for the right reasons;\u201d the method can be used to steer the internal reasoning learned by a network. They also propose that the method can be used to learn a sequence of models that discover new ways to solve a problem that may not have been discovered by previous instances.\n2) Disentangled Representations: Disentangled representations have individual dimensions that describe meaningful and independent factors of variation. The problem of separating latent factors is an old problem that has previously been attacked using a variety of techniques such as Principal Component Analysis [61], Independent Component Analysis [62], and Nonnegative Matrix Factorization [63]. Deep networks can be trained to explicitly learn disentangled representations. One approach that shows promise is Variational Autoencoding [64], which trains a network to optimize a model to match the input probability distribution according to information-theoretic measures. Beta-VAE [65] is a tuning of the method that has been observed to disentangle factors remarkably well. Another approach is InfoGAN [66], which trains generative adversarial networks with an objective that reduces entanglement between latent factors. Special loss functions have been suggested for encouraging feed-forward networks to also disentangle their units; this can be used to create interpretable CNNs that have individual units that detect coherent meaningful patches instead of difficult-to-interpret mixtures of patterns [67]. Disentangled units can enable the construction of graphs [68] and decision trees [69] to elucidate the reasoning of a network. Architectural alternatives such as capsule networks [70] can also organize the information in a network into pieces that disentangle and represent higher-level concepts.\n3) Generated Explanations: Finally, deep networks can also be designed to generate their own human-understandable explanations as part of the explicit training of the system. Explanation generation has been demonstrated as part of systems for visual question answering [71] as well as in finegrained image classification [72]. In addition to solving their primary task, these systems synthesize a \u201cbecause\u201d sentence that explains the decision in natural language. The generators for these explanations are trained on large data sets of human-written explanations, and they explain decisions using language that a person would use.\nMultimodal explanations that incorporate both visual pointing and textual explanations can be generated; this is the approach taken in [59]. This system builds upon the winner of the 2016 VQA challenge [73], with several simplification and additions. In addition to the question answering task and the internal attention map, the system trains an additional longform explanation generator together with a second attention map optimized as a visual pointing explanation. Both visual and textual explanations score well individually and together on evaluations of user trust and explanation quality. Interestingly, the generation of these highly readable explanations is conditioned on the output of the network: the explanations are generated based on the decision, after the decision of the network has already been made."
+    },
+    {
+      "heading": "IV. RELATED WORK",
+      "text": "We provide a summary of related review papers, and an overview of interpretability and explainability in other domains.\nA. Interpretability\nA previous survey has attempted to define taxonomies and best practices for a \u201cstrong science\u201d of interpretability [74]. The motivation of this paper is similar to ours, noting that \u201cthe volume of research on interpretability is rapidly growing\u201d and that there is no clear existing definition or evaluation criteria for interpretability. The authors define interpretability as \u201cthe ability to explain or to present in understandable terms to a human\u201d and suggest a variety of definitions for explainability, converging on the notion that interpretation is the act of discovering the evaluations of an explanation. The authors attempt to reach consensus on the definition of interpretable machine learning and how it should be measured. While we are inspired by the taxonomy of this paper, we focus on the explainability aspect rather than interpretability.\nThe main contribution of this paper is a taxonomy of modes for interpretability evaluations: application-grounded, human-grounded, and functionally grounded. The authors state interpretability is required when a problem formulation is incomplete, when the optimization problem \u2013 the key definition to solve the majority of machine learning problems \u2013 is disconnected from evaluation. Since their problem statement is the incompleteness criteria of models, resulting in a disconnect between the user and the optimization problem, evaluation approaches are key.\nThe first evaluation approach is application-grounded, involving real humans on real tasks. This evaluation measures how well human-generated explanations can aid other humans in particular tasks, with explanation quality assessed in the true context of the explanation\u2019s end tasks. For instance, a doctor should evaluate diagnosis systems in medicine.\nThe second evaluation approach is human-grounded, using human evaluation metrics on simplified tasks. The key motivation is the difficulty of finding target communities for application testing. Human-grounded approaches may also be used when specific end-goals, such as identifying errors in safety-critical tasks, are not possible to realize fully.\nThe final evaluation metric is functionally grounded evaluation, without human subjects. In this experimental setup, proxy or simplified tasks are used to prove some formal definition of interpretability. The authors acknowledge that choosing which proxy to use is a challenge inherent to this approach. There lies a delicate tradeoff between choosing an interpretable model and a less interpretable proxy method which is more representative of model behavior; the authors acknowledge this point and briefly mention decision trees as a highly interpretable model.\nThe authors then discuss open problems, best practices and future work in interpretability research, while heavily encouraging data-driven approaches for discovery in interpretability. Although the contribution of the interpretability definition,\nwe distinguish our taxonomy by defining different focuses of explanations a model can provide, and how those explanations should be evaluated."
+    },
+    {
+      "heading": "B. Explainable AI for HCI",
+      "text": "One previous review paper of explainable AI performed a sizable data-driven literature analysis of explainable systems [75]. In this work, the authors move beyond the classical AI interpretability argument, focusing instead on how to create practical systems with efficacy for real users. The authors motivate AI systems that are \u201cexplainable by design\u201d and present their findings with three contributions: a data-driven network analysis of 289 core papers and 12,412 citing papers for an overview of explainable AI research, a perspective on trends using network analysis, and a proposal for best practices and future work in HCI research pertaining to explainablity.\nSince most of the paper focuses on the literature analysis, the authors highlight only three large areas in their related work section: explainable artificial intelligence (XAI), intelligibility and interpretability in HCI, and analysis methods for trends in research topics.\nThe major contribution of this paper is a sizable literature analysis of explainable research, enabled by the citation network the authors constructed. Papers were aggregated based on a keyword search on variations of the terms \u201cintelligible,\u201d \u201cinterpretable,\u201d \u201ctransparency,\u201d \u201cglass box,\u201d \u201cblack box,\u201d \u201cscrutable,\u201d \u201ccounterfacutals,\u201d and \u201cexplainable,\u201d and then pruned down to 289 core papers and 12,412 citing papers. Using network analysis, the authors identified 28 significant clusters and 9 distinct research communities, including early artificial intelligence, intelligent systems/agents/user interfaces, ambient intelligence, interaction design and learnability, interpretable ML and classifier explainers, algorithmic fairness/accountability/transparency/policy/journalism, causality, psychological theories of explanations, and cognitive tutors. In contrast, our work is focused on the research in interpretable ML and classifier explainers for deep learning.\nWith the same sets of core and citing papers, the authors performed LDA-based topic modeling on the abstract text to determine which communities are related. The authors found the largest, most central and well-studied network to be intelligence and ambient systems. In our research, the most important subnetworks are the Explainable AI: Fair, Accountable, and Transparent (FAT) algorithms and Interpretable Machine Learning (iML) subnetwork and the theories of explanations subnetworks. In particular, the authors provide a distinction between FATML and interpretability; while FATML is focused on societal issues, interpretability is focused on methods. Theory of explanations joins causality and cognitive psychology with the common threads of counterfactual reasoning and causal explanations. Both these threads are important factors in our taxonomy analysis.\nIn the final section of their paper, the authors name two trends of particular interest to us: ML production rules and a road map to rigorous and usable intelligibility. The authors\nnote a lack of classical AI methods being applied to interpretability, encouraging broader application of those methods to current research. Though this paper focused mainly on setting an HCI research agenda in explainability, it raises many points relevant to our work. Notably, the literature analysis discovered subtopics and subdisciplines in psychology and social science, not yet identified as related in our analysis."
+    },
+    {
+      "heading": "C. Explanations for Black-Box Models",
+      "text": "A recent survey on methods for explaining black-box models [76] outlined a taxonomy to provide classifications of the main problems with opaque algorithms. Most of the methods surveyed are applied to neural-network based algorithms, and therefore related to our work.\nThe authors provide an overview of methods that explaining decision systems based on opaque and obscure machine learning models. Their taxonomy is detailed, distinguishing small differing components in explanation approaches (e.g. Decision tree vs. single tree, neuron activation, SVM, etc.) Their classification examines four features for each explanation method:\n1) The type of the problem faced. 2) The explanatory capability used to open the black box. 3) The type of black box model that can be explained. 4) The type of input data provided to the black box model.\nThey primarily divide the explanation methods according to the types of problem faced, and identify four groups of explanation methods: methods to explain black box models; methods to explain black box outcomes; methods to inspect black boxes; and methods to design transparent boxes. Using their classification features and these problem definitions, they discuss and further categorize methods according to the type of explanatory capability adopted, the black box model \u201copened\u201d, and the input data. Their goal is to review and classify the main black box explanation architectures, so their classifications can serve as a guide to identifying similar problems and approaches. We find this work a meaningful contribution that is useful for exploring the design space of explanation methods. Our classification is less finely-divided; rather than subdividing implementation techniques, we examine the focus of the explanatory capability and what each approach can explain, with an emphasis on understanding how different types of explainability methods can be evaluated."
+    },
+    {
+      "heading": "D. Explainability in Other Domains",
+      "text": "Explainable planning [77] is an emerging discipline that exploits the model-based representations that exist in the planning community. Some of the key ideas were proposed years ago in plan recognition [78]. Explainable planning urges the familiar and common basis for communication with users, while acknowledging the gap between planning algorithms and human problem-solving. In this paper, the authors outline and provide examples of a number of different types of questions that explanations could answer, like \u201cWhy did you do A\u201d or \u201dWhy DIDN\u2019T you do B\u201d, \u201dWhy CAN\u2019T you do C\u201d, etc. In addition, the authors emphasize that articulating a plan in natural language is NOT usually the same thing as explaining\nthe plan. A request for explanation is \u201can attempt to uncover a piece of knowledge that the questioner believes must be available to the system and that the questioner does not have\u201d. We discuss the questions an explanation can and should answer in our conclusion.\nAutomatic explanation generation is also closely related to computers and machines that can tell stories. In John Reeves\u2019 thesis [79], he created the THUNDER program to read stories, construct character summaries, infer beliefs, and understand conflict and resolution. Other work examines how to represent the necessary structures to do story understanding [80]. The Genesis Story-Understanding System [81] is a working system that understands, uses, and composes stories using higher-level concept patterns and commonsense rules. Explanation rules are used to supply missing causal or logical connections.\nAt the intersection of human robot interaction and storytelling is verbalization; generating explanations for humanrobot interaction [82]. Similar approaches are found in abductive reasoning; using a case-based model [83] or explanatory coherence [84]. This is also a well-studied field in brain and cognitive science by filling in the gaps of knowledge by imagining new ideas [85] or using statistical approaches [86]."
+    },
+    {
+      "heading": "V. TAXONOMY",
+      "text": "The approaches from the literature that we have examined fall into three different categories. Some papers propose explanations that, while admittedly non-representative of the underlying decision processes, provide some degree of justification for emitted choices that may be used as response to demands for explanation in order to build human trust in the system\u2019s accuracy and reasonableness. These systems emulate the processing of the data to draw connections between the inputs and outputs of the system.\nThe second purpose of an explanation is to explain the representation of data inside the network. These provide insight about the internal operation of the network and can be used to facilitate explanations or interpretations of activation data within a network. This is comparative to explaining the internal data structures of the program, to start to gain insights about why certain intermediate representations provide information that enables specific choices.\nThe final type of explanation is explanation-producing networks. These networks are specifically built to explain themselves, and they are designed to simplify the interpretation of an opaque subsystem. They are steps towards improving the transparency of these subsystems; where processing, representations, or other parts are justified and easier to understand.\nThe taxonomy we present is useful given the broad set of existing approaches for achieving varying degrees of interpretability and completeness in machine learning systems. Two distinct methods claiming to address the same overall problem may, in fact, be answering very different questions. Our taxonomy attempts to subdivide the problem space, based on existing approaches, to more precisely categorize what has already been accomplished.\nWe show the classifications of our reviewed methods per category in Table I. Notice that the processing and explanationproducing roles are much more populated than the representation role. We believe that this disparity is largely due to the fact that it is difficult to evaluate representation-based models. User-study evaluations are not always appropriate. Other numerical methods, like demonstrating better performance by adding or removing representations, are difficult to facilitate.\nThe position of our taxonomy is to promote research and evaluation across categories. Instead of other explanatory and interpretability taxonomies that assess the purpose of explanations [74] and their connection to the user [75], we instead assess the focus on the method, whether the method tries to explain the processing of the data by a network, explain the representation of data inside a network or to be a selfexplaining architecture to gain additional meta predictions and insights about the method.\nWe promote this taxonomy, particularly the explanationproducing sub-category, as a way to consider designing neural network architectures and systems. We also highlight the lack of standardized evaluation metrics, and propose research crossing areas of the taxonomy as future research directions."
+    },
+    {
+      "heading": "VI. EVALUATION",
+      "text": "Although we outline three different focuses of explanations for deep networks, they do not share the same evaluation criteria. Most of the work surveyed conducts one of the following types of evaluation of their explanations.\n1) Completeness compared to the original model. A proxy\nmodel can be evaluated directly according to how closely it approximates the original model being explained. 2) Completeness as measured on a substitute task. Some\nexplanations do not directly explain a model\u2019s decisions, but rather some other attribute that can be evaluated. For example, a salience explanation that is intended to reveal model sensitivity can be evaluated against a brute-force measurement of the model sensitivity. 3) Ability to detect models with biases. An explanation that\nreveals sensitivity to a specific phenomenon (such as a presence of a specific pattern in the input) can be tested for its ability to reveal models with the presence or absence of a relevant bias (such as reliance or ignorance of the specific pattern). 4) Human evaluation. Humans can evaluate explanations\nfor reasonableness, that is how well an explanation matches human expectations. Human evaluation can also\nevaluate completeness or substitute-task completeness from the point of view of enabling a person to predict behavior of the original model; or according to helpfulness in revealing model biases to a person.\nAs we can see in Table II, the tradeoff between interpretability and its completeness can be seen not only as a balance between simplicity and accuracy in a proxy model. The tradeoff can also be made by anchoring explanations to substitute tasks or evaluating explanations in terms of their ability to surface important model biases. Each of the three types of explanation methods can provide explanations that can be evaluated for completeness (on those critical model characteristics), while still being easier to interpret than a full accounting for every detailed decision of the model."
+    },
+    {
+      "heading": "A. Processing",
+      "text": "Processing models can also be regarded as emulation-based methods. Proxy methods should be evaluated on their faithfulness to the original model. A handful of these metrics are described in [20]. The key idea is that evaluating completeness to a model should be local. Even if a model, in our case, a deep neural network, is too complex globally, you can still explain in a way that makes sense locally by approximating local behavior. Therefore, processing model explanations want to minimize the \u201ccomplexity\u201d of explanations (essentially, minimize length) as well as \u201clocal completeness\u201d (error of interpretable representation relative to actual classifier, near instance being explained).\nSalience methods that highlight sensitive regions for processing are often evaluated qualitatively. Although they do not directly predict the output of the original method, these methods can also be evaluated for faithfulness, since their intent is to explain model sensitivity. For example, [46] conducts an occlusion experiment as ground truth, in the model is tested on many version of an input image where each portion of the image is occluded. This test determines in a brute-force but computationally inefficient way which parts of an input cause a model to change its outputs the most. Then each salience method can be evaluated according to how closely the method produces salience maps that correlate with this occlusion-based sensitivity."
+    },
+    {
+      "heading": "B. Representation",
+      "text": "Representation-based methods typically characterize the role of portions of the representation by testing the representations on a transfer task. For example, representation layers are characterized according to their ability to serve as feature input for a transfer problem, and both Network\nDissection representation units and Concept Activation Vectors are measured according to their ability to detect or correlate with specific human-understandable concepts.\nOnce individual portions of a representation are characterized, they can be tested for explanatory power by evaluating whether their activations can faithfully reveal a specific bias in a network. For example, Concept Activation Vectors [54] are evaluated by training several versions of the same network on datasets that are synthesized to contain two different types of signals that can be used to determine the class (the image itself, and an overlaid piece of text which gives the class name with varying reliability). The faithfulness of CAVs to the network behavior can be verified by evaluating whether classifiers that are known to depend on the text (as evidenced by performance on synthesized tests) exhibit high activations of CAV vectors corresponding to the text, and that classifiers that do not depend on the text exhibits low CAV vectors."
+    },
+    {
+      "heading": "C. Explanation-Producing",
+      "text": "Explanation-producing systems can be evaluated according to how well they match user expectations. For example, network attention can be compared to human attention [58], and disentangled representations can be tested on synthetic datasets that have known latent variables, to determine whether those variables are recovered. Finally, systems that are trained explicitly to generate human-readable explanations can be tested by similarity to test sets, or by human evaluation.\nOne of the difficulties of evaluating explanatory power of explanation-producing systems is that, since the system itself produces the explanation, evaluations necessarily couple evaluation of the system along with evaluation of the explanation. An explanation that seems unreasonable could indicate either a failure of the system to process information in a reasonable way, or it could indicate the failure of the explanation generator to create a reasonable description. Conversely, an explanation system that is not faithful to the decisionmaking process could produce a reasonable description even if the underlying system is using unreasonable rules to make the decision. An evaluation of explanations based on their reasonableness alone can miss these distinctions. In [74], a number of user-study designs are outlined that can help bridge the gap between the model and the user."
+    },
+    {
+      "heading": "VII. CONCLUSIONS",
+      "text": "One common viewpoint in the deep neural network community is that the level of interpretability and theoretical understanding needed to for transparent explanations of large DNNs remains out of reach; for example, as a response to Ali Rahimi\u2019s Test of Time NIPS address, Yann LeCunn responded that \u201cThe engineering artifacts have almost always preceded the theoretical understanding\u201d [87]. However, we assert that, for machine learning systems to achieve wider acceptance among a skeptical populace, it is crucial that such systems be able to provide or permit satisfactory explanations of their decisions. The progress made so far has been promising, with efforts in explanation of deep network processing, explanation\nof deep network representation, and system-level explanation production yielding encouraging results.\nWe find, though, that the various approaches taken to address different facets of explainability are siloed. Work in the explainability space tends to advance a particular category of technique, with comparatively little attention given to approaches that merge different categories of techniques to achieve more effective explanation. Given the purpose and type of explanation, it is not obvious what the best type of explanation metric is and should be. We encourage the use of diverse metrics that align with the purpose and completeness of the targeted explanation. Our view is that, as the community learns to advance its work collaboratively by combining ideas from different fields, the overall state of system explanation will improve dramatically, resulting in methods that provide behavioral extrapolation, build trust in deep learning systems, and provide usable insight into deep network operation enabling system behavior understanding and improvement."
+    },
+    {
+      "heading": "ACKNOWLEDGEMENTS",
+      "text": "The work was partially funded by DARPA XAI program FA8750-18-C0004, the National Science Foundation under Grants No. 1524817, the MIT-IBM Watson AI Lab, and the Toyota Research Institute (TRI). The authors also wish to express their appreciation for Jonathan Frankle for sharing his insightful feedback on earlier versions of the manuscript."
+    }
+  ],
+  "title": "Explaining Explanations: An Overview of Interpretability of Machine Learning",
+  "year": 2019
+}

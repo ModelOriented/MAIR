@@ -1,0 +1,502 @@
+{
+  "abstractText": "Interpretable Machine Learning (IML) has become increasingly important in many real-world applications, such as autonomous cars and medical diagnosis, where explanations are significantly preferred to help people better understand how machine learning systems work and further enhance their trust towards systems. However, due to the diversified scenarios and subjective nature of explanations, we rarely have the ground truth for benchmark evaluation in IML on the quality of generated explanations. Having a sense of explanation quality not only matters for assessing system boundaries, but also helps to realize the true benefits to human users in practical settings. To benchmark the evaluation in IML, in this article, we rigorously define the problem of evaluating explanations, and systematically review the existing efforts from state-of-the-arts. Specifically, we summarize three general aspects of explanation (i.e., generalizability, fidelity and persuasibility) with formal definitions, and respectively review the representative methodologies for each of them under different tasks. Further, a unified evaluation framework is designed according to the hierarchical needs from developers and end-users, which could be easily adopted for different scenarios in practice. In the end, open problems are discussed, and several limitations of current evaluation techniques are raised for future explorations.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Fan Yang"
+    },
+    {
+      "affiliations": [],
+      "name": "Mengnan Du"
+    },
+    {
+      "affiliations": [],
+      "name": "Xia Hu"
+    }
+  ],
+  "id": "SP:a542245e1f3d46393ff92bbb87adffe9043a1065",
+  "references": [
+    {
+      "authors": [
+        "A. Abdul",
+        "J. Vermeulen",
+        "D. Wang",
+        "B.Y. Lim",
+        "M. Kankanhalli"
+      ],
+      "title": "Trends and trajectories for explainable",
+      "venue": "accountable and intelligible systems: An hci research agenda. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems, page 582. ACM",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "N.S. Altman"
+      ],
+      "title": "An introduction to kernel and nearest-neighbor nonparametric regression",
+      "venue": "The American Statistician, 46(3):175\u2013185",
+      "year": 1992
+    },
+    {
+      "authors": [
+        "B.G. Buchanan",
+        "R.O. Duda"
+      ],
+      "title": "Principles of rule-based expert systems",
+      "venue": "Advances in computers, volume 22, pages 163\u2013216. Elsevier",
+      "year": 1983
+    },
+    {
+      "authors": [
+        "A. Chattopadhyay",
+        "P. Manupriya",
+        "A. Sarkar",
+        "V.N. Balasubramanian"
+      ],
+      "title": "Neural network attributions: A causal perspective",
+      "venue": "Proceedings of the 36th International Conference on Machine Learning, volume 97, pages 981\u2013990",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Z. Che",
+        "S. Purushotham",
+        "R. Khemani",
+        "Y. Liu"
+      ],
+      "title": "Distilling knowledge from deep networks with applications to healthcare domain",
+      "venue": "arXiv preprint arXiv:1512.03542",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "F. Doshi-Velez",
+        "B. Kim"
+      ],
+      "title": "Towards a rigorous science of interpretable machine learning",
+      "venue": "arXiv preprint arXiv:1702.08608",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Du",
+        "N. Liu",
+        "X. Hu"
+      ],
+      "title": "Techniques for interpretable machine learning",
+      "venue": "Communications of the ACM",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Du",
+        "N. Liu",
+        "F. Yang",
+        "S. Ji",
+        "X. Hu"
+      ],
+      "title": "On attribution of recurrent neural network predictions via additive decomposition",
+      "venue": "Proceedings of The Web Conference 2019 (TheWebConf). ACM",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Feng",
+        "J. Boyd-Graber"
+      ],
+      "title": "What can ai do for me: Evaluating machine learning interpretations in cooperative play",
+      "venue": "arXiv preprint arXiv:1810.09648",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R.C. Fong",
+        "A. Vedaldi"
+      ],
+      "title": "Interpretable explanations of black boxes by meaningful perturbation",
+      "venue": "Proceedings of the IEEE International Conference on Computer Vision, pages 3429\u20133437",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "N. Frosst",
+        "G. Hinton"
+      ],
+      "title": "Distilling a neural network into a soft decision tree",
+      "venue": "arXiv preprint arXiv:1711.09784",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Ghorbani",
+        "A. Abid",
+        "J. Zou"
+      ],
+      "title": "Interpretation of neural networks is fragile",
+      "venue": "arXiv preprint arXiv:1710.10547",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "L.H. Gilpin",
+        "D. Bau",
+        "B.Z. Yuan",
+        "A. Bajwa",
+        "M. Specter",
+        "L. Kagal"
+      ],
+      "title": "Explaining explanations: An overview of interpretability of machine learning",
+      "venue": "2018 IEEE 5th International Conference on Data Science and Advanced Analytics (DSAA), pages 80\u201389. IEEE",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "B. Herman"
+      ],
+      "title": "The promise and peril of human evaluation for model interpretability",
+      "venue": "arXiv preprint arXiv:1711.07414",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D. Holliday",
+        "S. Wilson",
+        "S. Stumpf"
+      ],
+      "title": "User trust in intelligent systems: A journey over time",
+      "venue": "Proceedings of the 21st International Conference on Intelligent User Interfaces, pages 164\u2013168. ACM",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "B. Kim",
+        "M. Wattenberg",
+        "J. Gilmer",
+        "C. Cai",
+        "J. Wexler",
+        "F. Viegas",
+        "R. Sayres"
+      ],
+      "title": "Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (tcav)",
+      "venue": "arXiv preprint arXiv:1711.11279",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Kim",
+        "O. Bastani"
+      ],
+      "title": "Learning interpretable models with causal guarantees",
+      "venue": "arXiv preprint arXiv:1901.08576",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "P.W. Koh",
+        "P. Liang"
+      ],
+      "title": "Understanding black-box predictions via influence functions",
+      "venue": "Proceedings of the 34th International Conference on Machine Learning-Volume 70, pages 1885\u20131894. JMLR",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "I. Lage",
+        "E. Chen",
+        "J. He",
+        "M. Narayanan",
+        "B. Kim",
+        "S. Gershman",
+        "F. Doshi-Velez"
+      ],
+      "title": "An evaluation of the human-interpretability of explanation",
+      "venue": "arXiv preprint arXiv:1902.00006",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "H. Lakkaraju",
+        "S.H. Bach",
+        "J. Leskovec"
+      ],
+      "title": "Interpretable decision sets: A joint framework for description and prediction",
+      "venue": "Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining, pages 1675\u20131684. ACM",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Y. LeCun",
+        "Y. Bengio",
+        "G. Hinton"
+      ],
+      "title": "Deep learning",
+      "venue": "Nature, 521(7553):436",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "T. Lei",
+        "R. Barzilay",
+        "T. Jaakkola"
+      ],
+      "title": "Rationalizing neural predictions",
+      "venue": "Proceedings of the Conference on Empirical Methods in Natural Language Processing. NIH Public Access",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "B. Letham",
+        "C. Rudin",
+        "T.H. McCormick",
+        "D. Madigan"
+      ],
+      "title": "Interpretable classifiers using rules and bayesian analysis: Building a better stroke prediction model",
+      "venue": "The Annals of Applied Statistics, 9(3):1350\u20131371",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "N. Liu",
+        "H. Yang",
+        "X. Hu"
+      ],
+      "title": "Adversarial detection with model interpretation",
+      "venue": "Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining, pages 1803\u20131811. ACM",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Long",
+        "E. Shelhamer",
+        "T. Darrell"
+      ],
+      "title": "Fully convolutional networks for semantic segmentation",
+      "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition, pages 3431\u20133440",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "T. Narendra",
+        "A. Sankaran",
+        "D. Vijaykeerthy",
+        "S. Mani"
+      ],
+      "title": "Explaining deep learning models using causal inference",
+      "venue": "arXiv preprint arXiv:1811.04376",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J.A. Nelder",
+        "R.W. Wedderburn"
+      ],
+      "title": "Generalized linear models",
+      "venue": "Journal of the Royal Statistical Society: Series A (General), 135(3):370\u2013384",
+      "year": 1972
+    },
+    {
+      "authors": [
+        "A. Nguyen",
+        "J. Yosinski",
+        "J. Clune"
+      ],
+      "title": "Deep neural networks are easily fooled: High confidence predictions for unrecognizable images",
+      "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition, pages 427\u2013436",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "R.L. Phillips",
+        "K.H. Chang",
+        "S.A. Friedler"
+      ],
+      "title": "Interpretable active learning",
+      "venue": "FAT",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "K. Preuer",
+        "G. Klambauer",
+        "F. Rippmann",
+        "S. Hochreiter",
+        "T. Unterthiner"
+      ],
+      "title": "Interpretable deep learning in drug discovery",
+      "venue": "arXiv preprint arXiv:1903.02788",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Why should i trust you?: Explaining the predictions of any classifier",
+      "venue": "Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining, pages 1135\u20131144. ACM",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "S.R. Safavian",
+        "D. Landgrebe"
+      ],
+      "title": "A survey of decision tree classifier methodology",
+      "venue": "IEEE transactions on systems, man, and cybernetics, 21(3):660\u2013674",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "R.R. Selvaraju",
+        "M. Cogswell",
+        "A. Das",
+        "R. Vedantam",
+        "D. Parikh",
+        "D. Batra"
+      ],
+      "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization",
+      "venue": "Proceedings of the IEEE International Conference on Computer Vision, pages 618\u2013626",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Szegedy",
+        "A. Toshev",
+        "D. Erhan"
+      ],
+      "title": "Deep neural networks for object detection",
+      "venue": "Advances in neural information processing systems, pages 2553\u20132561",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "B. Ustun",
+        "A. Spangher",
+        "Y. Liu"
+      ],
+      "title": "Actionable recourse in linear classification",
+      "venue": "Proceedings of the Conference on Fairness, Accountability, and Transparency, pages 10\u201319. ACM",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Wachter",
+        "B. Mittelstadt",
+        "L. Floridi"
+      ],
+      "title": "Transparent",
+      "venue": "explainable, and accountable ai for robotics. Science Robotics, 2(6)",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "E. Wallace",
+        "S. Feng",
+        "J. Boyd-Graber"
+      ],
+      "title": "Interpreting neural networks with nearest neighbors",
+      "venue": "arXiv preprint arXiv:1809.02847",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "F. Yang",
+        "N. Liu",
+        "S. Wang",
+        "X. Hu"
+      ],
+      "title": "Towards interpretation of recommender systems with sorted explanation paths",
+      "venue": "2018 IEEE International Conference on Data Mining (ICDM), pages 667\u2013676. IEEE",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C.-K. Yeh",
+        "C.-Y. Hsieh",
+        "A.S. Suggala",
+        "D. Inouye"
+      ],
+      "title": "and P",
+      "venue": "Ravikumar. How sensitive are sensitivity-based explanations? arXiv preprint arXiv:1901.09392",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "B. Zhou",
+        "D. Bau",
+        "A. Oliva",
+        "A. Torralba"
+      ],
+      "title": "Interpreting deep visual representations via network dissection",
+      "venue": "IEEE transactions on pattern analysis and machine intelligence",
+      "year": 2018
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. INTRODUCTION",
+      "text": "Serving as one of the most significant momentums for the booming of artificial intelligence, machine learning is playing a vital role in many real-world systems, widely ranging from spam filters to humanoid robot. To handle the tasks that are increasingly complicated in practice nowadays, more and more sophisticated machine learning systems are designed, such as deep learning models [21], for accurate decision making. Despite the superior performance, those complex systems are typically hard to be interpreted by human users, which largely limits their applications in some high-stake scenarios like self-driving vehicles and medical treatment, where explanations are important and necessary for scrutable decisions [36]. To this end, the concept of interpretable machine learning (IML) has been formally\nPermission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. To copy otherwise, to republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee. Copyright 2008 ACM 0001-0782/08/0X00 ...$5.00.\nraised [6], aiming to help humans better understand the machine learning decisions. We illustrate the core idea of IML techniques in Figure 1. IML is a new branch of machine learning techniques with mounting attentions in recent years (shown by Figure 2), focusing on the decision explanation beyond the instance prediction. IML is typically employed to extract useful information, from either system structure or prediction result, as explanations to interpret relevant decisions. Although IML techniques have been comprehensively discussed covering methodology and application [7], the insights on IML evaluation perspective are still rather limited, which significantly impedes the way of IML to a rigorous science field. To precisely reflect the boundaries of IML systems and measure the benefits of explanations brought to human users, effective evaluations are pivotal and indispensable. Different from the conventional evaluation purely relied on model performance, IML evaluation also needs to pay attention to the quality of the generated explanations, which makes it hard to be handled and benchmarked. ar X\niv :1\n90 7.\n06 83\n1v 2\n[ cs\n.L G\n] 1\n5 A\nug 2\n01 9\nEvaluating explanation in IML is a challenging problem, since we need to balance well between the objective and subjective perspectives when designing experiments. On one hand, different users could have different preferences towards what a good explanation should be under different scenarios [6], thus it is not practical to benchmark the IML evaluation with a common set of ground truth for objective evaluations. For example, when deploying self-driving cars with IML, system engineers may consider sophisticated explanations as good ones for safety concerns, while car drivers may prefer those concise explanations because complex ones could be too time-consuming for decision making during driving. On the other hand, there might be more criterion beyond human subjective satisfaction. Human preferred explanations may not always represent the full working mechanism of systems, which could lead to a poor performance on generalization. It has shown that subjective satisfaction of explanations largely depends on the response time of human users, and has no clear relation with the accuracy performance [19]. This finding directly supports the fact that human satisfaction cannot be regarded as the sole standard when evaluating explanation. Besides, fully subjective evaluations would also result in ethics issues, because it is unmoral to manipulate an explanation to better cater human users [14]. Seeking human satisfaction excessively could cause explanations to persuade users, instead of actually interpreting systems. Considering the aforementioned challenges, we aim to pave the way for benchmark evaluation in this article, regarding to the explanation generated from IML techniques. First, we\ngive an overview about the explanations in IML, and categorize them by a two-dimensional standard (i.e., interpretation scope and interpretation manner) with representative examples. Then, we summarize three general properties (i.e., generalizability, fidelity and persuasibility) for explanation with formal definitions, and rigorously define the problem of evaluating explanation in the IML context. Next, following those properties, we conduct a systematic review about existing work on explanation evaluation, with the focus on different techniques in various applications. Moreover, we also review some other special properties for explanation evaluation, which are typically considered under particular scenarios. Further, with the aid of those general properties, we design a unified evaluation framework aligned with the hierarchical needs from both model developers and end-users. At last, we raise several open problems for current evaluation techniques, and discuss some potential limitations for future exploration."
+    },
+    {
+      "heading": "2. EXPLANATION AND EVALUATION",
+      "text": "In this section, we first introduce the explanations we particularly focus on, and give an overview about the categories of explanations in IML. Then, three general properties of explanation are summarized for evaluation tasks according to different perspectives in nature. Finally, we formally define the problem of evaluating explanations in IML with the aid of those general properties."
+    },
+    {
+      "heading": "2.1 Explanation Overview",
+      "text": "In the context of IML, explanations are particularly referred to those information that can help human users interpret either learning process or prediction result for machine learning models. With different focuses, explanations in IML could have diversified forms with various characteristics, such as the local heatmaps for instances and the decision rules for models. In this article, we specifically categorize the explanations in IML with a two-dimensional standard, covering both interpretation scope and interpretation manner. As for the scope dimension, explanations can be classified into the global and local ones, where global explanation indicates the overall working mechanism of models by interpreting structures or parameters, and local explanation reflects the particular model behaviour for individual instance by analyzing specific decisions. Regarding to the manner dimension, we can divide explanations into the intrinsic and posthoc (also written as post-hoc or post hoc) ones. Intrinsic explanation is typically achieved by those self-interpretable models that are transparent with particular designs, while posthoc one requires another independent interpretation model or technique to provide explanations for the target model. The two-dimensional taxonomy of explanations in IML is illustrated by Figure 3. The first category is intrinsic-global explanation. This type of explanation can be well represented by some conventional machine learning techniques, such as rule-based systems and decision trees, which are self-interpretable and capable of showing the overall working patterns for prediction. Take the decision tree for example, the intuitional structure, as well as the set of all decision branches, constitutes the corresponding intrinsic-global explanation. The second category is intrinsic-local explanation, which is associated with specific input instances. A typical example is the attention mechanism applied on sequential models,\nwhere generated attention weights can help interpret particular predictions by indicating the important components. Attention model is widely used in both image captioning and machine translation tasks. Posthoc-global explanation serves as the third category, and the representative example can be shown with mimic learning techniques for deep models. As for mimic learning, the teacher usually is a deep model, while the student is typically deployed as a shallow model that is easier to be interpreted. The overall process of mimic learning can be regarded as a distillation process from the teacher to the student, where the interpretable student model provides a global view in a posthoc manner for the deep teacher model. The posthoc-local explanation fills up the last part of the taxonomy. We introduce this category with an example of instance heatmap, which is used to visualize the input regions with attribution score (i.e., a quantified importance indicator). Instance heatmap works well for both image and text, and is capable of showing the local behaviour of the target model. Since heatmap depends on the particular input and does not involve the specific model design, it is a typical local explanation within a posthoc way."
+    },
+    {
+      "heading": "2.2 General Properties of Explanation",
+      "text": "To formally define the problem of evaluating explanations in IML, it is important to make clear the general properties of explanation for evaluation. In this article, we summarize three significant properties from different perspectives, i.e., generalizability, fidelity and persuasibility, where each of the property corresponds to one specific aspect in evaluation. The intuitions of the properties are illustrated in Figure 4. The first general property is generalizability, which is used\nto reflect the generalization power of explanation. In realworld applications, human users employ explanation from IML techniques mainly to obtain insights from the target system, which naturally brings forward the demand on explanation generalization performance. If a set of explanations is poorly generalized, it can hardly be regarded with good quality, since the knowledge and guidance it provides would be rather limited in practice. One thing to clarify is that the explanation generalization mentioned here is not necessarily equal to the model predictive power, unless the model itself is interpretable with self-explanations (e.g., decision tree). By measuring the generalizability of explanation, users can have a sense of how accurate the generated explanations are for specific tasks.\nDefinition 1: We define the generalizability of explanation in IML as an indicator for generalization performance, regarding to the knowledge and guidance delivered by the corresponding explanation.\nThe second general property is fidelity, which is used to indicate how faithful explanations are to the target system. Faithful explanation is always preferred by human, because it can precisely capture the decision making process of the target system and show the correct evidences for particular predictions. Explanations with high quality need to be faithful, since they are essentially served as important tools for users to understand the target system. Without sufficient fidelity, explanations can only provide limited insights to the system, which degrades the functionalities of IML to human users. To guarantee the relevance of explanations, we need fidelity to conduct explanation evaluation in IML.\nDefinition 2: We define the fidelity of explanation in IML as the faithfulness degree with regard to the target system, aiming to measure the relevance of explanations in practical settings.\nThe third general property is persuasibility, which reflects\nthe degree of how human comprehend and response to the generated explanations. This property handles the subjective aspect of explanation, and is typically measured with human involvement. Good explanations are most likely to be easily comprehended, and facilitate quick responses from human users. Towards different user groups or application scenarios, one specific set of explanations could possibly have different persuasibility due to the diversified preferences. Thus, discussing persuasibility for explanation should only be considered under a same setting of users and tasks.\nDefinition 3: We define the persuasibility of explanation in IML as the usefulness degree to human users, serving as the measure of subjective satisfaction or comprehensibility for the corresponding explanation."
+    },
+    {
+      "heading": "2.3 Explanation Evaluation Problem",
+      "text": "With the definitions of the three general properties for explanation, we further introduce and formally define the problem of evaluating explanations in IML. Technically, IML evaluation can be divided into two parts: model evaluation and explanation evaluation, shown by Figure 5. As for the model evaluation part, the goal is to measure the predictive power of IML systems, which is identical to that of common machine learning systems and can be directly achieved with some conventional metrics (e.g., accuracy, precision, recall and F1-score). Explanation evaluation, however, is different from model evaluation in both objective and methodology aspects. Since explanation typically contains more than one perspective and has no common ground truth over different scenarios, traditional model evaluation techniques thus cannot be perfectly applied. In this article, we specifically focus\non the second part of IML evaluation, i.e., the explanation evaluation, and rigorously define the problem as follows.\nDefinition 4: The explanation evaluation problem within IML context is to assess the quality of the generated explanations from systems, where high-quality explanation corresponds to large values of generalizability, fidelity and persuasibility with relevant measurement. In general, good explanation ought to be well generalized, highly faithful and easily understood."
+    },
+    {
+      "heading": "3. EVALUATION REVIEW",
+      "text": "In this section, we will conduct a systematic review for explanation evaluation problem in IML, following the properties of explanation we summarize. For each property, we mainly review the primary methodologies of evaluation for practical tasks, and shed light on the philosophy about why they are reasonable. After the review of evaluations on generalizability, fidelity and persuasibility, we also focus on some other special aspects, which are typically entangled together with model evaluation, including the robustness, capability and certainty."
+    },
+    {
+      "heading": "3.1 Evaluation on Generalizability",
+      "text": "Existing work, related to generalizability evaluation, mainly focus on the IML systems with intrinsic-global explanations. Since intrinsic-global explanations are typically presented and organized as the form of prediction models, it is straightforward and convenient to evaluate generalizability by applying those explanations on test data to see the corresponding generalization performance. Under this scenario, the generalizability evaluation task is somewhat equivalent to the model evaluation, where traditional model performance indicators (e.g., accuracy and F1-score) can be employed as the metrics to quantify the explanation generalizability. Conventional examples for this scenario can include generalized linear model (with informative coefficients) [27], decision tree (with structured branches) [32], K-nearest neighbors (with significant instances) [2] and rule-based systems (with discriminative patterns) [3]. In general, the generalizability evaluation for intrinsic-global explanations can be easily converted to model evaluation tasks, in which generalizability is positively correlated to the model prediction performance. Take the recent work on decision set [20] for example. The authors use the AUC scores, a common metric for classification tasks in model evaluation, to indicate the generalizability of explanations in set of decision rules. Similarly in recent work [23], AUC scores are employed to reflect the explanation generalizability indirectly. Besides, there is another branch of work focusing on the generalizability of posthoc-global explanations. The relevant evaluation method is similar to that of generalizability for intrinsic-global ones, where model evaluation techniques could be employed to indicate the explanation generalizability. The major difference lies in the fact that the explanations we apply on test data are not directly associated with the target system, but are closely related to the interpretable proxies extracted or learned from the target. Those proxies typically serve as the role for interpreting the target system which is either a black box or a sophisticated model. Representative examples for this scenario can be found in knowledge distillation [11] and mimic learning [5], where the common focus is to derive an interpretable proxy out of the\nblack-box neural model for providing explanations. For example, in literature [5], the authors employ Gradient Boosting Trees (GBT) as the interpretable proxy to explain the working mechanism of neural networks. The constructed GBT is capable of providing feature importance for explanation, and is assessed by model evaluation techniques with AUC score to show the generalizability of corresponding explanations. The generalizability of posthoc-global explanation typically has positive correlation with the model performance of the derived interpretable proxy."
+    },
+    {
+      "heading": "3.2 Evaluation on Fidelity",
+      "text": "Though pretty important for explanation evaluation, fidelity may not be explicitly considered for intrinsic explanations. In fact, the intrinsicality from explanations is sufficient to guarantee the exact working mechanism of the target IML system, and the corresponding explanations can thus be treated as faithful ones with full fidelity. The interpretable decision set [20] should be a good example here. The learned decision set is self-interpretable and explicitly presents the decision rules for the potential classification tasks. Under this example, we can see that those explanation rules faithfully reflect the model prediction behaviour, and there does not exist any inconsistency between the IML system prediction and the relevant explanations. This kind of complete accordance between model and explanation is just what the full fidelity indicates. However, different from intrinsic ones, posthoc-global explanations in form of interpretable proxies cannot be regarded with full fidelity, since the derived proxies usually work in a different way compared with the target system. Although most proxies are derived to approximate the behaviour of target system, it is still constructed as a different model for the potential task. Existing work, related to fidelity evaluation for interpretable proxies, mainly use the difference in prediction performance to indicate the fidelity degree. For instance, in work [5], the authors conducted experiments with several sets of teacher-student models, where the teacher is the target model and the student is the proxy model. During the evaluation, the prediction differences between corresponding teachers and students are used to reflect the fidelity of the derived proxies, and preferred faithful proxies are shown to have minor losses in performance. Moreover, due to the posthoc manner and locality from nature, none of posthoc-local explanations is fully faithful to the target IML system. Among existing work, common ways to measure fidelity for posthoc-local explanations are ablation analysis [28] and meaningful perturbations [10], where the core idea is to check the prediction variation after the adversarial changes made according to the generated explanations. The philosophy of this kind of methodologies is simple, i.e., modifications to the input instances, which are in accordance with the generated explanations, can bring about significant differences to model predictions if the explanations are faithful to the target system. Typical example can be found in image classification task with deep neural networks [33], where the fidelity of generated posthoc-local explanations are evaluated by measuring the prediction difference between the original image and the perturbative image. The overall logic here is to mask the attributing regions in images indicated by the explanations, and then check the extent of prediction variation. The larger the difference, the more faithful the generated explanations are. In addition\nto the image classification task, ablation- and perturbationbased fidelity evaluation methods have also been effectively used in text classification [8], recommender system [38] and adversarial detection [24]. Furthermore, as for the posthoclocal explanations in form of training samples [18] and model components [26], ablation and perturbation operations are properly applied as well in evaluating the explanation fidelity."
+    },
+    {
+      "heading": "3.3 Evaluation on Persuasibility",
+      "text": "To effectively evaluate the persuasibility of generated explanations, human annotation is widely used especially in those uncontentious tasks, such as object detection. The annotation-based evaluation is usually regarded to be objective, since relevant annotations do not change among different groups of user. In computer vision related tasks, the most common annotations for persuasibility evaluation are bounding box [34] and semantic segmentation [25]. Appropriate example can be found in recent work [33], which utilizes bounding boxes to evaluate the persuasibility of explanations and employ the metric Intersection over Union (IoU) or Jaccard index to quantify the persuasibility performance. As for the annotations with semantic segmentation, recent work [40] employs the pixel-level difference as the metric to measure the corresponding persuasibility of explanations. Moreover, in natural language processing, similar human annotation, named rationale [22], has been extensively used for evaluation, which is a subset of features highlighted by annotators and regarded to be important for prediction. Through those different forms of annotations, the persuasibility of explanation can be objectively evaluated with human-grounded truth, which typically keeps consistent across different groups of user and one particular task. Due to the one-to-one correspondence between the annotation and the instance, annotation-based evaluation is usually applied to those local explanations instead of the global ones. Conducting persuasibility evaluation with human annotation does not work well in complicated tasks, since the related annotations may not keep consistent across different user groups. Under those circumstances, employing users for human studies is the common way to evaluate the persuasibility of explanation. To appropriately design relevant human studies, both machine learning experts and humancomputer interaction (HCI) researchers actively explore this area [1, 14], and propose several metrics for human evaluation on general explanation from IML techniques, such as mental mode [20], human-machine performance [9], user satisfaction [19] and user trust [15]. Take the most recent work [19] for instance. The authors focus on the user satisfaction in evaluating the persuasibility, and specifically employ the human response time and decision accuracy as the auxiliary metrics. The whole study is conducted on two different domains with three types of explanation variation, aiming to conclude the relation between the explanation quality and human cognition. With the aid of human studies, persuasibility of explanation can be evaluated under a more complicated and practical setting, regarding to specific user groups and application domains. By directly measuring explanations from human users, we can realize the usefulness in real-world applications when determining the explanation quality. Since human studies can be designed flexibly according to diversified needs and goals, this methodology\nis generally applicable to all kinds of explanations for persuasibility evaluation within IML context."
+    },
+    {
+      "heading": "3.4 Evaluation on Other Properties",
+      "text": "Besides the generalizability, fidelity and persuasibility, existing work also consider some other properties when evaluating the explanation in IML. We introduce those properties separately due to the following two reasons. First, those properties are not representative and general for explanation evaluation among IML systems, and are simply considered under specific architectures or applications. Second, those properties are related to both prediction model and generated explanation, which typically need novel and special design to evaluate. In this part, we particularly focus on the following three properties. Robustness. Similar to machine learning models, the generated explanations from IML systems can also be fragile to adversarial perturbations, especially for those posthoc ones from neural architectures [12]. Explanation robustness is primarily designed to measure how similar the explanations are for similar instances. Recent work [33, 39] all conduct robustness evaluation for explanation with the metrics on sensitivity, beyond the evaluation on those three general properties we summarize. Robust explanations are always preferred in building a trustable IML system for human users. To obtain the explanations with high robustness, a stable prediction model and a reliable explanation generation algorithm are usually the two most important keys. Capability. Another property for explanation evaluation is named capability, which is used to indicate the extent that corresponding explanations can be generated. Commonly, this property is evaluated on those explanations generated from search based methodologies [37], instead of those obtained from gradient based [33] or perturbation based [31] methodologies. Typical example for capability evaluation can be found in work [38] with the application to recommender system, where the authors employ the explainability precision and explainability recall as the metrics to indicate the capability strength. Similar to the property robustness, capability is also related to the target prediction model, which essentially determines the upper bound of the ability to generate explanations. Certainty. To further evaluate explanations on whether they reflect the uncertainty of the target IML system, existing work also focus on the certainty aspect of explanation. Certainty is also a property related to both model and explanation, since explanation can only provide uncertainty interpretation as long as the corresponding IML system itself has the certainty measure. Recent work [29] gives an appropriate example for certainty evaluation. In this work, the authors consider the IML systems under the active learning settings, and propose a novel measure, named uncertainty bias, to evaluate the certainty of generated explanations. Specifically, the explanation certainty is measured according to the discrepancy in prediction confidence of the IML system between one category and the others. In similar ways, work [35] focus on the certainty aspect of explanations as well, and provide insights on how confident users could be for particular outputs with the computed explanations in form of flip set (i.e., a list of actionable changes that users can make to flip the prediction of the target system). In essence, certainty evaluation and persuasibility evaluation can be mutually supported from each other."
+    },
+    {
+      "heading": "4. DISCUSSION AND EXPLORATION",
+      "text": "In this section, we first propose a unified framework to conduct general assessment on explanations in IML, according to the different level of needs for evaluation. Then, several open problems in explanation evaluation are raised and discussed regarding to benchmarking issues. Further, we highlight some significant limitations of current evaluation techniques for future exploration."
+    },
+    {
+      "heading": "4.1 Unified Framework for Evaluation",
+      "text": "Despite the large number of work we reviewed for explanation evaluation, different work typically have their own particular focus, depending on the specific tasks, architectures, or applications. This situation leads to the fact that it is hard to benchmark the evaluation process for explanations in IML as what we developed in model evaluation. To pave the way to benchmark evaluation on explanation, we try to construct a unified framework here by considering those properties of explanations. To make the framework general, we simply take the generalizability, fidelity and persuasibility into account, and do not consider those special ones under particular scenarios.\n4.1.1 Different level of needs for evaluation Although we conduct the review separately, regarding to\ngeneralizability, fidelity and persuasibility, those three general properties are internally related to each other, where each of them represents a specific level of needs for evaluation. From the lower level to higher level, we can sort the properties as: generalizability, fidelity, persuasibility. Generalizability typically serves as the basic need in evaluation, since it formulates the foundation for other properties. In real-world applications, good generalizability is the precondition for human users to make accurate decisions with the generated explanations, which guarantees that the explanations we employ are generalizable and reflect the true knowledge for particular tasks. After that, a further demand for human users is to check whether the derived explanations at hands are reliable or not. This demand pushes out the fidelity property to the front. By assessing the fidelity, better decisions can be made on whether to trust the IML system or not based on the explanation relevance. As for the higher demand on real effectiveness in practice, persuasibility is further considered to indicate the tangible impacts, directly bridging the gap between human users and machine explanations. For one specific task, the explanation evaluation mainly depends on the corresponding applications and user groups, which determine the level of needs in evaluation design. Generally, model developers would care more on those basic properties of lower levels, including generalizability and fidelity, while general end-users would pay more attention on the persuasibility in a higher level.\n4.1.2 Hierarchical structure of the framework The overall unified evaluation framework is designed hier-\narchically, according to the different level of needs, as illustrated in Figure 6. In the bottom tier, the evaluation goal focuses on the generalizability, where generated explanations are tested for their generalization power. In the medium tier, the goal is to evaluate the fidelity, with regard to the target IML system. The top tier aims to evaluate the persuasibility, targeting on specific applications and user groups. To have a unified evaluation in one particular task, each tier\nHigher Need\nshould have a consistent pipeline with a fixed set of data, user and metrics correspondingly. The overall evaluation results can be further derived through an ensemble way, such as weighted sum, where each tier could be assigned with an importance weight depending on the applications and user groups. This proposed hierarchical framework is generally applicable to most of explanation evaluation problems, which could be appended with new components if necessary. With proper metrics, as well as a sensible manner for ensemble, the framework can effectively help human users measure the overall quality of explanation from IML techniques under certain circumstances."
+    },
+    {
+      "heading": "4.2 Open Problems for Benchmark",
+      "text": "To fully achieve the benchmark for explanation evaluation in real-world applications, there are still some open problems left to explore, which are listed and discussed as follows.\n4.2.1 Generalizability for local explanations Existing work on generalizability evaluation mainly focus\non those global explanations, while limited efforts has been paid on the local ones. The challenges in evaluating generalizability of local explanations are in two folds: (1) local explanations cannot be easily organized into valid prediction models, which makes the model evaluation techniques hard to be directly applied; (2) local explanations simply contain the partial knowledge learned by the target IML system, thus special designs are required to ensure the evaluation has a specific local focus. Though no direct solutions, some insights from existing efforts may be inspiring. As for the first challenge, an approximated local classifier [31] could be potentially built to carry the local explanations, and then the generalizability could be further assessed with model evaluation techniques by specifying test instances. Moreover, for the second challenge, we could possibly employ local explanations, together with human simulated/augmented data, to train a separate classifier [16] for generalizability evaluation, where the task is essentially reduced from the original one and only involves the local knowledge we test with.\n4.2.2 Fidelity for posthoc explanations Among existing work, it is well received that good ex-\nplanation should have high fidelity to the target IML system. However, with the posthoc manner, it might not be the case that faithful explanations are always the good ones that human user prefer. During explanation evaluation, we typically assume that IML systems are well trained and are capable of making reasonable decisions, but this assumption is hard to be perfectly achieved in practice. As a result, the generated post-hoc explanations may not be with high quality due to the inferior model performance, although they might be highly faithful to the target system. Thus, designing a novel methodology, which could consider both model and explanation, for posthoc fidelity evaluation is of great importance. In general, how to utilize the model performance to guide the measurement of posthoc explanation fidelity is the key problem to tackle this challenge, where the ultimate goal is to help human users better select out those explanations with good quality from fidelity perspective.\n4.2.3 Persuasibility for global explanations As for the persuasibility, it is also challenging to conduct\neffective evaluations on global explanations, no matter using annotation based methods or employing human studies. The main reason lies in the fact that global explanations in real applications are very sophisticated, which makes it hard to make annotations or select appropriate users for studies. Essentially, the global nature requires either selected annotators or users to equip with comprehensive understandings towards the target task, otherwise the evaluation results would be less convincing or even misleading. Besides, the global explanations in practice typically contain tons of information, which could be extremely time-consuming to evaluate persuasibility. One possible solution is to use some simplified or proxy tasks to simulate the original one, as mentioned in [6], but this kind of substitution needs to maintain the original essence, which certainly requires non-trivial efforts on task abstraction. Another potential solution is to simplify the explanations shown to users, such as only showing the top-k features, which, however, sacrifices the comprehensiveness of generated explanations and impedes the full view over the target system."
+    },
+    {
+      "heading": "4.3 Limitations of Current Evaluation",
+      "text": "Although various methodologies of explanation evaluation exist in IML research, there are still some significant limitations of current evaluation techniques. We briefly introduce some of the most important ones as below.\n4.3.1 Causality insight for evaluation The first limitation lies in the lack of causal perspective [17]\nin explanation evaluation. Current evaluation techniques, no matter what properties they focus on, mostly fail to have causal analysis when evaluating the explanation quality. This kind of drawback could possibly lead to the fact that our selected explanations may not fully represent the true reasons behind the prediction, since the influence from confounders are not effectively blocked during interpretation. Take the two most common methodologies in IML, gradient based and perturbation based methods, for examples. Both of them can be viewed as special cases of Individual Causal Effect (ICE) analysis, where complicated inter-feature interactions could conceal the real importance\nof some input features [4]. Thus, to derive better explanations with relevant causal guarantees, we need corresponding evaluation techniques to assess the causal perspective of the generated explanations. In this way, human users would be further enabled to have a clearer understanding towards the cause-effect association when interpreting the target system.\n4.3.2 Completeness insight for evaluation The second limitation is the neglect of completeness in ex-\nplanation evaluation [13]. Existing efforts on IML evaluation cannot well reflect the degree of completeness for generated explanations, which makes it difficult for human users to further ensure the real value in practice. Explanation completeness could be important in real applications, because it is able to indicate the possibility of whether there would be additional explanations for certain prediction results. Questions, such as \u201cDo we get the full explanations from the target IML system?\" and \u201cIs it possible to generate better explanations than the current ones?\", are not supported by the current evaluation techniques. A completeness-aware evaluation for explanation would definitely be helpful in exploring the boundaries of the target IML system. Besides, having completeness insight for assessment would also be a significant supplement for persuasibility evaluation, since the need for explainability typically stems from the incompleteness in problem formalization [6].\n4.3.3 Novelty insight for evaluation The third limitation results from the explanation novelty\nperspective [30]. Under the current infrastructure of explanation evaluation in IML, it is commonly assumed that highquality explanations are those ones which can help human users make better decisions or obtain better understandings. Nevertheless, the view of this assumption for good explanation is rather limited, since it somewhat overlooks the potential values of the explanations that may not be well comprehended by users. Explanations which are not directly \u201cuseful\u201d to human users may still have significant influences, due to their important roles in extending the human knowledge boundary. Medical diagnosis should be a good example to illustrate this point. When diagnosing patients, doctors would typically refer the generated explanations with their acquired domain knowledge, if they have access to the IML systems. Since there is no way that domain knowledge can cover all aspects and contain full pathological mechanism, especially for those new diseases, we cannot casually discard the explanations that are mismatched with our knowledge. Those \u201cnovel\u201d explanations could possibly point out some valuable research areas in a reverse way. To this end, current evaluation techniques need to be further enhanced to properly cover the novelty issue in assessing the quality of generated explanations, so that novel explanations could be well distinguished from those noisy ones."
+    },
+    {
+      "heading": "5. CONCLUSIONS",
+      "text": "With the booming development of IML techniques, how to effectively evaluate those generated explanations, typically without ground truth on quality, is becoming increasingly critical in recent years. In this article, we briefly introduce the explanation in IML, as well as its three general properties, and formally define the explanation evaluation problem within the context of IML. Then, following the properties, we systematically review the existing efforts in evaluating\nexplanation, covering various methodologies and application scenarios. Moreover, a potential unified evaluation framework is built according to the hierarchical needs from both model developers and general end-users. In the end, several open problems in benchmark and limitations of current techniques are discussed for future exploration. Though numerous obstacles are still left to be solved, explanation evaluation will keep playing the key role in enabling effective interpretation of IML systems."
+    },
+    {
+      "heading": "6. REFERENCES",
+      "text": "[1] A. Abdul, J. Vermeulen, D. Wang, B. Y. Lim, and\nM. Kankanhalli. Trends and trajectories for explainable, accountable and intelligible systems: An hci research agenda. In Proceedings of the 2018 CHI Conference on Human Factors in Computing Systems, page 582. ACM, 2018.\n[2] N. S. Altman. An introduction to kernel and nearest-neighbor nonparametric regression. The American Statistician, 46(3):175\u2013185, 1992.\n[3] B. G. Buchanan and R. O. Duda. Principles of rule-based expert systems. In Advances in computers, volume 22, pages 163\u2013216. Elsevier, 1983.\n[4] A. Chattopadhyay, P. Manupriya, A. Sarkar, and V. N. Balasubramanian. Neural network attributions: A causal perspective. In Proceedings of the 36th International Conference on Machine Learning, volume 97, pages 981\u2013990, 2019.\n[5] Z. Che, S. Purushotham, R. Khemani, and Y. Liu. Distilling knowledge from deep networks with applications to healthcare domain. arXiv preprint arXiv:1512.03542, 2015.\n[6] F. Doshi-Velez and B. Kim. Towards a rigorous science of interpretable machine learning. arXiv preprint arXiv:1702.08608, 2017.\n[7] M. Du, N. Liu, and X. Hu. Techniques for interpretable machine learning. Communications of the ACM, 2019.\n[8] M. Du, N. Liu, F. Yang, S. Ji, and X. Hu. On attribution of recurrent neural network predictions via additive decomposition. In Proceedings of The Web Conference 2019 (TheWebConf). ACM, 2019.\n[9] S. Feng and J. Boyd-Graber. What can ai do for me: Evaluating machine learning interpretations in cooperative play. arXiv preprint arXiv:1810.09648, 2018.\n[10] R. C. Fong and A. Vedaldi. Interpretable explanations of black boxes by meaningful perturbation. In Proceedings of the IEEE International Conference on Computer Vision, pages 3429\u20133437, 2017.\n[11] N. Frosst and G. Hinton. Distilling a neural network into a soft decision tree. arXiv preprint arXiv:1711.09784, 2017.\n[12] A. Ghorbani, A. Abid, and J. Zou. Interpretation of neural networks is fragile. arXiv preprint arXiv:1710.10547, 2017.\n[13] L. H. Gilpin, D. Bau, B. Z. Yuan, A. Bajwa, M. Specter, and L. Kagal. Explaining explanations: An overview of interpretability of machine learning. In 2018 IEEE 5th International Conference on Data Science and Advanced Analytics (DSAA), pages 80\u201389. IEEE, 2018.\n[14] B. Herman. The promise and peril of human evaluation for model interpretability. arXiv preprint arXiv:1711.07414, 2017.\n[15] D. Holliday, S. Wilson, and S. Stumpf. User trust in intelligent systems: A journey over time. In Proceedings of the 21st International Conference on Intelligent User Interfaces, pages 164\u2013168. ACM, 2016.\n[16] B. Kim, M. Wattenberg, J. Gilmer, C. Cai, J. Wexler, F. Viegas, and R. Sayres. Interpretability beyond feature attribution: Quantitative testing with concept activation vectors (tcav). arXiv preprint arXiv:1711.11279, 2017.\n[17] C. Kim and O. Bastani. Learning interpretable models with causal guarantees. arXiv preprint arXiv:1901.08576, 2019.\n[18] P. W. Koh and P. Liang. Understanding black-box predictions via influence functions. In Proceedings of the 34th International Conference on Machine Learning-Volume 70, pages 1885\u20131894. JMLR, 2017.\n[19] I. Lage, E. Chen, J. He, M. Narayanan, B. Kim, S. Gershman, and F. Doshi-Velez. An evaluation of the human-interpretability of explanation. arXiv preprint arXiv:1902.00006, 2019.\n[20] H. Lakkaraju, S. H. Bach, and J. Leskovec. Interpretable decision sets: A joint framework for description and prediction. In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining, pages 1675\u20131684. ACM, 2016.\n[21] Y. LeCun, Y. Bengio, and G. Hinton. Deep learning. Nature, 521(7553):436, 2015.\n[22] T. Lei, R. Barzilay, and T. Jaakkola. Rationalizing neural predictions. In Proceedings of the Conference on Empirical Methods in Natural Language Processing. NIH Public Access, 2016.\n[23] B. Letham, C. Rudin, T. H. McCormick, and D. Madigan. Interpretable classifiers using rules and bayesian analysis: Building a better stroke prediction model. The Annals of Applied Statistics, 9(3):1350\u20131371, 2015.\n[24] N. Liu, H. Yang, and X. Hu. Adversarial detection with model interpretation. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining, pages 1803\u20131811. ACM, 2018.\n[25] J. Long, E. Shelhamer, and T. Darrell. Fully convolutional networks for semantic segmentation. In Proceedings of the IEEE conference on computer vision and pattern recognition, pages 3431\u20133440, 2015.\n[26] T. Narendra, A. Sankaran, D. Vijaykeerthy, and S. Mani. Explaining deep learning models using causal inference. arXiv preprint arXiv:1811.04376, 2018.\n[27] J. A. Nelder and R. W. Wedderburn. Generalized linear models. Journal of the Royal Statistical Society: Series A (General), 135(3):370\u2013384, 1972.\n[28] A. Nguyen, J. Yosinski, and J. Clune. Deep neural networks are easily fooled: High confidence predictions for unrecognizable images. In Proceedings of the IEEE conference on computer vision and pattern recognition, pages 427\u2013436, 2015.\n[29] R. L. Phillips, K. H. Chang, and S. A. Friedler. Interpretable active learning. In FAT, 2017.\n[30] K. Preuer, G. Klambauer, F. Rippmann, S. Hochreiter, and T. Unterthiner. Interpretable deep learning in drug discovery. arXiv preprint arXiv:1903.02788, 2019.\n[31] M. T. Ribeiro, S. Singh, and C. Guestrin. Why should i trust you?: Explaining the predictions of any classifier. In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining, pages 1135\u20131144. ACM, 2016.\n[32] S. R. Safavian and D. Landgrebe. A survey of decision tree classifier methodology. IEEE transactions on systems, man, and cybernetics, 21(3):660\u2013674, 1991.\n[33] R. R. Selvaraju, M. Cogswell, A. Das, R. Vedantam, D. Parikh, and D. Batra. Grad-cam: Visual explanations from deep networks via gradient-based localization. In Proceedings of the IEEE International Conference on Computer Vision, pages 618\u2013626, 2017.\n[34] C. Szegedy, A. Toshev, and D. Erhan. Deep neural networks for object detection. In Advances in neural information processing systems, pages 2553\u20132561, 2013.\n[35] B. Ustun, A. Spangher, and Y. Liu. Actionable recourse in linear classification. In Proceedings of the Conference on Fairness, Accountability, and Transparency, pages 10\u201319. ACM, 2019.\n[36] S. Wachter, B. Mittelstadt, and L. Floridi. Transparent, explainable, and accountable ai for robotics. Science Robotics, 2(6), 2017.\n[37] E. Wallace, S. Feng, and J. Boyd-Graber. Interpreting neural networks with nearest neighbors. arXiv preprint arXiv:1809.02847, 2018.\n[38] F. Yang, N. Liu, S. Wang, and X. Hu. Towards interpretation of recommender systems with sorted explanation paths. In 2018 IEEE International Conference on Data Mining (ICDM), pages 667\u2013676. IEEE, 2018.\n[39] C.-K. Yeh, C.-Y. Hsieh, A. S. Suggala, D. Inouye, and P. Ravikumar. How sensitive are sensitivity-based explanations? arXiv preprint arXiv:1901.09392, 2019.\n[40] B. Zhou, D. Bau, A. Oliva, and A. Torralba. Interpreting deep visual representations via network dissection. IEEE transactions on pattern analysis and machine intelligence, 2018."
+    }
+  ],
+  "title": "Evaluating Explanation Without Ground Truth in Interpretable Machine Learning",
+  "year": 2019
+}

@@ -1,0 +1,496 @@
+{
+  "abstractText": "In many machine learning applications, it is important to explain the predictions of a black-box classifier. For example, why does a deep neural network assign an image to a particular class? We cast interpretability of black-box classifiers as a combinatorial maximization problem and propose an efficient streaming algorithm to solve it subject to cardinality constraints. By extending ideas from Badanidiyuru et al. [2014], we provide a constant factor approximation guarantee for our algorithm in the case of random stream order and a weakly submodular objective function. This is the first such theoretical guarantee for this general class of functions, and we also show that no such algorithm exists for a worst case stream order. Our algorithm obtains similar explanations of Inception V3 predictions 10 times faster than the state-of-the-art LIME framework of Ribeiro et al. [2016].",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Ethan R. Elenberg"
+    },
+    {
+      "affiliations": [],
+      "name": "Alexandros G. Dimakis"
+    },
+    {
+      "affiliations": [],
+      "name": "Moran Feldman"
+    },
+    {
+      "affiliations": [],
+      "name": "Amin Karbasi"
+    }
+  ],
+  "id": "SP:8e788ba6b5feaa80fb3d56810036ad9b84c0be65",
+  "references": [
+    {
+      "authors": [
+        "Radhakrishna Achanta",
+        "Appu Shaji",
+        "Kevin Smith",
+        "Aurelien Lucchi",
+        "Pascal Fua",
+        "Sabine S\u00fcsstrunk"
+      ],
+      "title": "SLIC Superpixels Compared to State-of-the-art Superpixel Methods",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Jason Altschuler",
+        "Aditya Bhaskara",
+        "Gang (Thomas) Fu",
+        "Vahab Mirrokni",
+        "Afshin Rostamizadeh",
+        "Morteza Zadimoghaddam"
+      ],
+      "title": "Greedy Column Subset Selection: New Bounds and Distributed Algorithms",
+      "venue": "In ICML,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Francis R. Bach"
+      ],
+      "title": "Learning with Submodular Functions: A Convex Optimization Perspective",
+      "venue": "Foundations and Trends in Machine Learning,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Ashwinkumar Badanidiyuru",
+        "Baharan Mirzasoleiman",
+        "Amin Karbasi",
+        "Andreas Krause"
+      ],
+      "title": "Streaming Submodular Maximization: Massive Data Summarization on the Fly",
+      "venue": "In KDD,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Sohail Bahmani",
+        "Bhiksha Raj",
+        "Petros T. Boufounos"
+      ],
+      "title": "Greedy Sparsity-Constrained Optimization",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Rafael da Ponte Barbosa",
+        "Alina Ene",
+        "Huy L. Nguyen",
+        "Justin Ward"
+      ],
+      "title": "The Power of Randomization: Distributed Submodular Maximization on Massive Datasets",
+      "venue": "In ICML,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Rafael da Ponte Barbosa",
+        "Alina Ene",
+        "Huy L. Nguyen",
+        "Justin Ward"
+      ],
+      "title": "A New Framework for Distributed Submodular Maximization",
+      "venue": "In FOCS,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Andrew An Bian",
+        "Baharan Mirzasoleiman",
+        "Joachim M. Buhmann",
+        "Andreas Krause"
+      ],
+      "title": "Guaranteed Nonconvex Optimization: Submodular Maximization over Continuous Domains",
+      "venue": "In AISTATS,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Niv Buchbinder",
+        "Moran Feldman"
+      ],
+      "title": "Deterministic Algorithms for Submodular Maximization Problems",
+      "venue": "In SODA,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Niv Buchbinder",
+        "Moran Feldman"
+      ],
+      "title": "Constrained Submodular Maximization via a Non-symmetric Technique",
+      "venue": "CoRR, abs/1611.03253,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Niv Buchbinder",
+        "Moran Feldman",
+        "Roy Schwartz"
+      ],
+      "title": "Online Submodular Maximization with Preemption",
+      "venue": "In SODA,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Gruia C\u0103linescu",
+        "Chandra Chekuri",
+        "Martin P\u00e1l",
+        "Jan Vondr\u00e1k"
+      ],
+      "title": "Maximizing a Monotone Submodular Function Subject to a Matroid Constraint",
+      "venue": "SIAM J. Comput.,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "T-H. Hubert Chan",
+        "Zhiyi Huang",
+        "Shaofeng H.-C. Jiang",
+        "Ning Kang",
+        "Zhihao Gavin Tang"
+      ],
+      "title": "Online Submodular Maximization with Free Disposal: Randomization Beats 1/4 for Partition Matroids",
+      "venue": "In SODA,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Chandra Chekuri",
+        "Shalmoli Gupta",
+        "Kent Quanrud"
+      ],
+      "title": "Streaming Algorithms for Submodular Function Maximization",
+      "venue": "In ICALP,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Michele Conforti",
+        "G\u00e9rard Cornu\u00e9jols"
+      ],
+      "title": "Submodular set functions, matroids and the greedy algorithm: Tight worst-case bounds and some generalizations of the Rado-Edmonds theorem",
+      "venue": "Discrete Applied Mathematics,",
+      "year": 1984
+    },
+    {
+      "authors": [
+        "Abhimanyu Das",
+        "David Kempe"
+      ],
+      "title": "Submodular meets Spectral: Greedy Algorithms for Subset Selection, Sparse Approximation and Dictionary Selection",
+      "venue": "In ICML,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Ethan R. Elenberg",
+        "Rajiv Khanna",
+        "Alexandros G. Dimakis",
+        "Sahand Negahban"
+      ],
+      "title": "Restricted Strong Convexity Implies Weak Submodularity",
+      "venue": "CoRR, abs/1612.00804,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Ethan R. Elenberg",
+        "Rajiv Khanna",
+        "Alexandros G. Dimakis",
+        "Sahand Negahban"
+      ],
+      "title": "Restricted Strong Convexity Implies Weak Submodularity",
+      "venue": "In NIPS Workshop on Learning in High Dimensions with Structure,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Uriel Feige"
+      ],
+      "title": "A Threshold of ln n for Approximating Set Cover",
+      "venue": "Journal of the ACM (JACM),",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "Marshall L. Fisher",
+        "George L. Nemhauser",
+        "Laurence A. Wolsey"
+      ],
+      "title": "An analysis of approximations for maximizing submodular set functions\u2013II",
+      "year": 1978
+    },
+    {
+      "authors": [
+        "Avinatan Hassidim",
+        "Yaron Singer"
+      ],
+      "title": "Submodular Optimization Under Noise",
+      "venue": "In COLT,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Steven C.H. Hoi",
+        "Rong Jin",
+        "Jianke Zhu",
+        "Michael R. Lyu"
+      ],
+      "title": "Batch Mode Active Learning and its Application to Medical Image Classification",
+      "venue": "In ICML,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Thibaut Horel",
+        "Yaron Singer"
+      ],
+      "title": "Maximization of Approximately Submodular Functions",
+      "venue": "In NIPS,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Rajiv Khanna",
+        "Ethan R. Elenberg",
+        "Alexandros G. Dimakis",
+        "Joydeep Ghosh",
+        "Sahand Negahban"
+      ],
+      "title": "On Approximation Guarantees for Greedy Low Rank Optimization",
+      "venue": "In ICML,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Rajiv Khanna",
+        "Ethan R. Elenberg",
+        "Alexandros G. Dimakis",
+        "Sahand Negahban",
+        "Joydeep Ghosh"
+      ],
+      "title": "Scalable Greedy Support Selection via Weak Submodularity",
+      "venue": "In AISTATS,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Andreas Krause",
+        "Volkan Cevher"
+      ],
+      "title": "Submodular Dictionary Selection for Sparse Representation",
+      "venue": "In ICML,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Andreas Krause",
+        "Daniel Golovin"
+      ],
+      "title": "Submodular Function Maximization",
+      "venue": "Tractability: Practical Approaches to Hard Problems,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Baharan Mirzasoleiman",
+        "Amin Karbasi",
+        "Rik Sarkar",
+        "Andreas Krause"
+      ],
+      "title": "Distributed Submodular Maximization: Identifying Representative Elements in Massive Data",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "George L. Nemhauser",
+        "Laurence A. Wolsey"
+      ],
+      "title": "Best Algorithms for Approximating the Maximum of a Submodular Set Function",
+      "venue": "Math. Oper. Res.,",
+      "year": 1978
+    },
+    {
+      "authors": [
+        "George L. Nemhauser",
+        "Laurence A. Wolsey",
+        "Marshall L. Fisher"
+      ],
+      "title": "An analysis of approximations for maximizing submodular set functions\u2013I",
+      "venue": "Mathematical Programming,",
+      "year": 1978
+    },
+    {
+      "authors": [
+        "Xinghao Pan",
+        "Stefanie Jegelka",
+        "Joseph E. Gonzalez",
+        "Joseph K. Bradley",
+        "Michael I. Jordan"
+      ],
+      "title": "Parallel Double Greedy Submodular Maximization",
+      "venue": "In NIPS,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why Should I Trust You?",
+      "venue": "Explaining the Predictions of Any Classifier. In KDD,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Mukund Sundararajan",
+        "Ankur Taly",
+        "Qiqi Yan"
+      ],
+      "title": "Axiomatic Attribution for Deep Networks",
+      "venue": "In ICML,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Maxim Sviridenko",
+        "Jan Vondr\u00e1k",
+        "Justin Ward"
+      ],
+      "title": "Optimal approximation for submodular and supermodular optimization with bounded curvature",
+      "venue": "In SODA,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Christian Szegedy",
+        "Vincent Vanhoucke",
+        "Sergey Ioffe",
+        "Jon Shlens",
+        "Zbigniew Wojna"
+      ],
+      "title": "Rethinking the Inception Architecture for Computer Vision",
+      "venue": "In CVPR,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Jan Vondr\u00e1k"
+      ],
+      "title": "Submodularity and curvature: the optimal algorithm",
+      "venue": "RIMS Ko\u0302kyu\u0302roku Bessatsu",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Kai Wei",
+        "Iyer Rishabh",
+        "Jeff Bilmes"
+      ],
+      "title": "Submodularity in Data Subset Selection and Active Learning",
+      "year": 1954
+    },
+    {
+      "authors": [
+        "Zhuoran Yang",
+        "Zhaoran Wang",
+        "Han Liu",
+        "Yonina C. Eldar",
+        "Tong Zhang"
+      ],
+      "title": "Sparse Nonlinear Regression: Parameter Estimation and Asymptotic Inference",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "Consider the following combinatorial optimization problem. Given a ground set N of N elements and a set function f : 2N 7\u2192 R\u22650, find the set S of size k which maximizes f(S). This formulation is at the heart of many machine learning applications such as sparse regression, data summarization, facility location, and graphical model inference. Although the problem is intractable in general, if f is assumed to be submodular then many approximation algorithms have been shown to perform provably within a constant factor from the best solution.\nSome disadvantages of the standard greedy algorithm of Nemhauser et al. [1978] for this problem are that it requires repeated access to each data element and a large total number of function evaluations. This is undesirable in many large-scale machine learning tasks where the entire dataset cannot fit in main memory, or when a single function evaluation is time consuming. In our main application, each function evaluation corresponds to inference on a large neural network and can take a few seconds. In contrast, streaming algorithms make a small number of passes (often only one) over the data and have sublinear space complexity, and thus, are ideal for tasks of the above kind.\nRecent ideas, algorithms, and techniques from submodular set function theory have been used to derive similar results in much more general settings. For example, Elenberg et al. [2016a] used the concept of weak submodularity to derive approximation and parameter recovery guarantees for nonlinear sparse regression.\nar X\niv :1\n70 3.\n02 64\n7v 3\n[ st\nat .M\nThus, a natural question is whether recent results on streaming algorithms for maximizing submodular functions [Badanidiyuru et al., 2014; Buchbinder et al., 2015; Chekuri et al., 2015] extend to the weakly submodular setting.\nThis paper answers the above question by providing the first analysis of a streaming algorithm for any class of approximately submodular functions. We use key algorithmic components of Sieve-Streaming [Badanidiyuru et al., 2014], namely greedy thresholding and binary search, combined with a novel analysis to prove a constant factor approximation for \u03b3-weakly submodular functions (defined in Section 3). Specifically, our contributions are as follows.\n\u2022 An impossibility result showing that, even for 0.5-weakly submodular objectives, no randomized streaming algorithm which uses o(N) memory can have a constant approximation ratio when the ground set elements arrive in a worst case order.\n\u2022 Streak: a greedy, deterministic streaming algorithm for maximizing \u03b3-weakly submodular functions which uses O(\u03b5\u22121k log k) memory and has an approximation ratio of (1\u2212\u03b5)\u03b32 \u00b7(3\u2212e \u2212\u03b3/2\u22122 \u221a\n2\u2212 e\u2212\u03b3/2) when the ground set elements arrive in a random order.\n\u2022 An experimental evaluation of our algorithm in two applications: nonlinear sparse regression using pairwise products of features and interpretability of black-box neural network classifiers.\nThe above theoretical impossibility result is quite surprising since it stands in sharp contrast to known streaming algorithms for submodular objectives achieving a constant approximation ratio even for worst case stream order.\nOne advantage of our approach is that, while our approximation guarantees are in terms of \u03b3, our algorithm Streak runs without requiring prior knowledge about the value of \u03b3. This is important since the weak submodularity parameter \u03b3 is hard to compute, especially in streaming applications, as a single element can alter \u03b3 drastically.\nWe use our streaming algorithm for neural network interpretability on Inception V3 [Szegedy et al., 2016]. For that purpose, we define a new set function maximization problem similar to LIME [Ribeiro et al., 2016] and apply our framework to approximately maximize this function. Experimentally, we find that our interpretability method produces explanations of similar quality as LIME, but runs approximately 10 times faster."
+    },
+    {
+      "heading": "2 Related Work",
+      "text": "Monotone submodular set function maximization has been well studied, starting with the classical analysis of greedy forward selection subject to a matroid constraint [Nemhauser et al., 1978; Fisher et al., 1978]. For the special case of a uniform matroid constraint, the greedy algorithm achieves an approximation ratio of 1 \u2212 1/e [Fisher et al., 1978], and a more involved algorithm obtains this ratio also for general matroid constraints [C\u0103linescu et al., 2011]. In general, no polynomial-time algorithm can have a better approximation ratio even for a uniform matroid constraint [Nemhauser andWolsey, 1978; Feige, 1998]. However, it is possible to improve upon this bound when the data obeys some additional guarantees [Conforti and Cornu\u00e9jols, 1984; Vondr\u00e1k, 2010; Sviridenko et al., 2015]. For maximizing nonnegative, not necessarily monotone, submodular functions subject to a general matroid constraint, the state-of-the-art randomized algorithm achieves an approximation ratio of 0.385 [Buchbinder and Feldman, 2016b]. Moreover, for uniform matroids there is also a deterministic algorithm achieving a slightly worse approximation ratio of 1/e [Buchbinder and Feldman, 2016a]. The reader is referred to Bach [2013] and Krause and Golovin [2014] for surveys on submodular function theory.\nA recent line of work aims to develop new algorithms for optimizing submodular functions suitable for large-scale machine learning applications. Algorithmic advances of this kind include Stochastic-Greedy [Mirzasoleiman et al., 2015], Sieve-Streaming [Badanidiyuru et al., 2014], and several distributed approaches [Mirzasoleiman et al., 2013; Barbosa et al., 2015, 2016; Pan et al., 2014; Khanna et al., 2017b]. Our algorithm extends ideas found in Sieve-Streaming and uses a different analysis to handle more general functions. Additionally, submodular set functions have been used to prove guarantees for online and active\nlearning problems [Hoi et al., 2006; Wei et al., 2015; Buchbinder et al., 2015]. Specifically, in the online setting corresponding to our setting (i.e., maximizing a monotone function subject to a cardinality constraint), Chan et al. [2017] achieve a competitive ratio of about 0.3178 when the function is submodular.\nThe concept of weak submodularity was introduced in Krause and Cevher [2010]; Das and Kempe [2011], where it was applied to the specific problem of feature selection in linear regression. Their main results state that if the data covariance matrix is not too correlated (using either incoherence or restricted eigenvalue assumptions), then maximizing the goodness of fit f(S) = R2S as a function of the feature set S is weakly submodular. This leads to constant factor approximation guarantees for several greedy algorithms. Weak submodularity was connected with Restricted Strong Convexity in Elenberg et al. [2016a,b]. This showed that the same assumptions which imply the success of regularization also lead to guarantees on greedy algorithms. This framework was later used for additional algorithms and applications [Khanna et al., 2017a,b]. Other approximate versions of submodularity were used for greedy selection problems in Horel and Singer [2016]; Hassidim and Singer [2017]; Altschuler et al. [2016]; Bian et al. [2017]. To the best of our knowledge, this is the first analysis of streaming algorithms for approximately submodular set functions.\nIncreased interest in interpretable machine learning models has led to extensive study of sparse feature selection methods. For example, Bahmani et al. [2013] consider greedy algorithms for logistic regression, and Yang et al. [2016] solve a more general problem using `1 regularization. Recently, Ribeiro et al. [2016] developed a framework called LIME for interpreting black-box neural networks, and Sundararajan et al. [2017] proposed a method that requires access to the network\u2019s gradients with respect to its inputs. We compare our algorithm to variations of LIME in Section 6.2."
+    },
+    {
+      "heading": "3 Preliminaries",
+      "text": "First we establish some definitions and notation. Sets are denoted with capital letters, and all big O notation is assumed to be scaling with respect to N (the number of elements in the input stream). Given a set function f , we often use the discrete derivative f(B | A) , f(A \u222a B) \u2212 f(A). f is monotone if f(B | A) \u2265 0,\u2200A,B and nonnegative if f(A) \u2265 0,\u2200A. Using this notation one can define weakly submodular functions based on the following ratio.\nDefinition 3.1 (Weak Submodularity, adapted from Das and Kempe [2011]). A monotone nonnegative set function f : 2N 7\u2192 R\u22650 is called \u03b3-weakly submodular for an integer r if\n\u03b3 \u2264 \u03b3r , min L,S\u2286N : |L|,|S\\L|\u2264r\n\u2211 j\u2208S\\L f(j | L) f(S | L) ,\nwhere the ratio is considered to be equal to 1 when its numerator and denominator are both 0.\nThis generalizes submodular functions by relaxing the diminishing returns property of discrete derivatives. It is easy to show that f is submodular if and only if \u03b3|N | = 1.\nDefinition 3.2 (Approximation Ratio). A streaming maximization algorithm ALG which returns a set S has approximation ratio R \u2208 [0, 1] if E[f(S)] \u2265 R \u00b7 f(OPT ), where OPT is the optimal solution and the expectation is over the random decisions of the algorithm and the randomness of the input stream order (when it is random).\nFormally our problem is as follows. Assume that elements from a ground set N arrive in a stream at either random or worst case order. The goal is then to design a one pass streaming algorithm that given oracle access to a nonnegative set function f : 2N 7\u2192 R\u22650 maintains at most o(N) elements in memory and returns a set S of size at most k approximating\nmax |T |\u2264k f(T ) ,\nup to an approximation ratio R(\u03b3k). Ideally, this approximation ratio should be as large as possible, and we also want it to be a function of \u03b3k and nothing else. In particular, we want it to be independent of k and N .\nTo simplify notation, we use \u03b3 in place of \u03b3k in the rest of the paper. Additionally, proofs for all our theoretical results are deferred to the Appendix."
+    },
+    {
+      "heading": "4 Impossibility Result",
+      "text": "To prove our negative result showing that no streaming algorithm for our problem has a constant approximation ratio against a worst case stream order, we first need to construct a weakly submodular set function fk. Later we use it to construct a bad instance for any given streaming algorithm.\nFix some k \u2265 1, and consider the ground set Nk = {ui, vi}ki=1. For ease of notation, let us define for every subset S \u2286 Nk\nu(S) = |S \u2229 {ui}ki=1| , v(S) = |S \u2229 {vi}ki=1| .\nNow we define the following set function:\nfk(S) = min{2 \u00b7 u(S) + 1, 2 \u00b7 v(S)} \u2200 S \u2286 Nk .\nLemma 4.1. fk is nonnegative, monotone and 0.5-weakly submodular for the integer |Nk|.\nSince |Nk| = 2k, the maximum value of fk is fk(Nk) = 2 \u00b7 v(Nk) = 2k. We now extend the ground set of fk by adding to it an arbitrary large number d of dummy elements which do not affect fk at all. Clearly, this does not affect the properties of fk proved in Lemma 4.1. However, the introduction of dummy elements allows us to assume that k is an arbitrary small value compared to N , which is necessary for the proof of the next theorem. In a nutshell, this proof is based on the observation that the elements of {ui}ki=1 are indistinguishable from the dummy elements as long as no element of {vi}ki=1 has arrived yet.\nTheorem 4.2. For every constant c \u2208 (0, 1] there is a large enough k such that no randomized streaming algorithm that uses o(N) memory to solve max|S|\u22642k fk(S) has an approximation ratio of c for a worst case stream order.\nWe note that fk has strong properties. In particular, Lemma 4.1 implies that it is 0.5-weakly submodular for every 0 \u2264 r \u2264 |N |. In contrast, the algorithm we show later assumes weak submodularity only for the cardinality constraint k. Thus, the above theorem implies that worst case stream order precludes a constant approximation ratio even for functions with much stronger properties compared to what is necessary for getting a constant approximation ratio when the order is random.\nThe proof of Theorem 4.2 relies critically on the fact that each element is seen exactly once. In other words, once the algorithm decides to discard an element from its memory, this element is gone forever, which is a standard assumption for streaming algorithms. Thus, the theorem does not apply to algorithms that use multiple passes over N , or non-streaming algorithms that use o(N) writable memory, and their analysis remains an interesting open problem."
+    },
+    {
+      "heading": "5 Streaming Algorithms",
+      "text": "In this section we give a deterministic streaming algorithm for our problem which works in a model in which the stream contains the elements of N in a random order. We first describe in Section 5.1 such a streaming algorithm assuming access to a value \u03c4 which approximates a\u03b3 \u00b7 f(OPT ), where a is a shorthand for a = ( \u221a 2\u2212 e\u2212\u03b3/2\u22121)/2. Then, in Section 5.2 we explain how this assumption can be removed to obtain Streak and bound its approximation ratio, space complexity, and running time."
+    },
+    {
+      "heading": "5.1 Algorithm with access to \u03c4",
+      "text": "Consider Algorithm 1. In addition to the input instance, this algorithm gets a parameter \u03c4 \u2208 [0, a\u03b3 \u00b7f(OPT )]. One should think of \u03c4 as close to a\u03b3 \u00b7 f(OPT ), although the following analysis of the algorithm does not rely on it. We provide an outline of the proof, but defer the technical details to the Appendix.\nTheorem 5.1. The expected value of the set produced by Algorithm 1 is at least\n\u03c4 a \u00b7 3\u2212 e\n\u2212\u03b3/2 \u2212 2 \u221a\n2\u2212 e\u2212\u03b3/2 2\n= \u03c4 \u00b7 ( \u221a 2\u2212 e\u2212\u03b3/2 \u2212 1) .\nAlgorithm 1 Threshold Greedy(f, k, \u03c4) Let S \u2190 \u2205. while there are more elements do\nLet u be the next element. if |S| < k and f(u | S) \u2265 \u03c4/k then\nUpdate S \u2190 S \u222a {u}. end if\nend while return: S\nProof (Sketch). Let E be the event that f(S) < \u03c4 , where S is the output produced by Algorithm 1. Clearly f(S) \u2265 \u03c4 whenever E does not occur, and thus, it is possible to lower bound the expected value of f(S) using E as follows.\nObservation 5.2. Let S denote the output of Algorithm 1, then E[f(S)] \u2265 (1\u2212 Pr[E ]) \u00b7 \u03c4 .\nThe lower bound given by Observation 5.2 is decreasing in Pr[E ]. Proposition 5.4 provides another lower bound for E[f(S)] which increases with Pr[E ]. An important ingredient of the proof of this proposition is the next observation, which implies that the solution produced by Algorithm 1 is always of size smaller than k when E happens.\nObservation 5.3. If at some point Algorithm 1 has a set S of size k, then f(S) \u2265 \u03c4 .\nThe proof of Proposition 5.4 is based on the above observation and on the observation that the random arrival order implies that every time that an element of OPT arrives in the stream we may assume it is a random element out of all the OPT elements that did not arrive yet.\nProposition 5.4. For the set S produced by Algorithm 1,\nE[f(S)] \u2265 1 2 \u00b7 ( \u03b3 \u00b7 [Pr[E ]\u2212 e\u2212\u03b3/2] \u00b7 f(OPT )\u2212 2\u03c4 ) .\nThe theorem now follows by showing that for every possible value of Pr[E ] the guarantee of the theorem is implied by either Observation 5.2 or Proposition 5.4. Specifically, the former happens when Pr[E ] \u2264 2\u2212 \u221a 2\u2212 e\u2212\u03b3/2 and the later when Pr[E ] \u2265 2\u2212 \u221a 2\u2212 e\u2212\u03b3/2."
+    },
+    {
+      "heading": "5.2 Algorithm without access to \u03c4",
+      "text": "In this section we explain how to get an algorithm which does not depend on \u03c4 . Instead, Streak (Algorithm 2) receives an accuracy parameter \u03b5 \u2208 (0, 1). Then, it uses \u03b5 to run several instances of Algorithm 1 stored in a collection denoted by I. The algorithm maintains two variables throughout its execution: m is the maximum value of a singleton set corresponding to an element that the algorithm already observed, and um references an arbitrary element satisfying f(um) = m.\nThe collection I is updated as follows after each element arrival. If previously I contained an instance of Algorithm 1 with a given value for \u03c4 , and it no longer should contain such an instance, then the instance is simply removed. In contrast, if I did not contain an instance of Algorithm 1 with a given value for \u03c4 , and it should now contain such an instance, then a new instance with this value for \u03c4 is created. Finally, if I contained an instance of Algorithm 1 with a given value for \u03c4 , and it should continue to contain such an instance, then this instance remains in I as is.\nTheorem 5.5. The approximation ratio of Streak is at least\n(1\u2212 \u03b5)\u03b3 \u00b7 3\u2212 e \u2212\u03b3/2 \u2212 2\n\u221a 2\u2212 e\u2212\u03b3/2\n2 .\nAlgorithm 2 Streak(f, k, \u03b5) Let m\u2190 0, and let I be an (originally empty) collection of instances of Algorithm 1. while there are more elements do\nLet u be the next element. if f(u) \u2265 m then\nUpdate m\u2190 f(u) and um \u2190 u. end if Update I so that it contains an instance of Algorithm 1 with \u03c4 = x for every x \u2208 {(1 \u2212 \u03b5)i | i \u2208 Z and (1\u2212 \u03b5)m/(9k2) \u2264 (1\u2212 \u03b5)i \u2264 mk}, as explained in Section 5.2. Pass u to all instances of Algorithm 1 in I. end while return: the best set among all the outputs of the instances of Algorithm 1 in I and the singleton set {um}.\nThe proof of Theorem 5.5 shows that in the final collection I there is an instance of Algorithm 1 whose \u03c4 provides a good approximation for a\u03b3 \u00b7 f(OPT ), and thus, this instance of Algorithm 1 should (up to some technical details) produce a good output set in accordance with Theorem 5.1.\nIt remains to analyze the space complexity and running time of Streak. We concentrate on bounding the number of elements Streak keeps in its memory at any given time, as this amount dominates the space complexity as long as we assume that the space necessary to keep an element is at least as large as the space necessary to keep each one of the numbers used by the algorithm.\nTheorem 5.6. The space complexity of Streak is O(\u03b5\u22121k log k) elements.\nThe running time of Algorithm 1 is O(Nf) where, abusing notation, f is the running time of a single oracle evaluation of f . Therefore, the running time of Streak is O(Nf\u03b5\u22121 log k) since it uses at every given time only O(\u03b5\u22121 log k) instances of the former algorithm. Given multiple threads, this can be improved to O(Nf + \u03b5\u22121 log k) by running the O(\u03b5\u22121 log k) instances of Algorithm 1 in parallel."
+    },
+    {
+      "heading": "6 Experiments",
+      "text": "We evaluate the performance of our streaming algorithm on two sparse feature selection applications.1 Features are passed to all algorithms in a random order to match the setting of Section 5.\n1Code for these experiments is available at https://github.com/eelenberg/streak."
+    },
+    {
+      "heading": "6.1 Sparse Regression with Pairwise Features",
+      "text": "In this experiment, a sparse logistic regression is fit on 2000 training and 2000 test observations from the Phishing dataset [Lichman, 2013]. This setup is known to be weakly submodular under mild data assumptions [Elenberg et al., 2016a]. First, the categorical features are one-hot encoded, increasing the feature dimension to 68. Then, all pairwise products are added for a total of N = 4692 features. To reduce computational cost, feature products are generated and added to the stream on-the-fly as needed. We compare with 2 other algorithms. RandomSubset selects the first k features from the random stream. LocalSearch first fills a buffer with the first k features, and then swaps each incoming feature with the feature from the buffer which yields the largest nonnegative improvement.\nFigure 1(a) shows both the final log likelihood and the generalization accuracy for RandomSubset, LocalSearch, and our Streak algorithm for \u03b5 = {0.75, 0.1} and k = {20, 40, 80}. As expected, the RandomSubset algorithm has much larger variation since its performance depends highly on the random stream order. It also performs significantly worse than LocalSearch for both metrics, whereas Streak is comparable for most parameter choices. Figure 1(b) shows two measures of computational cost: running time and the number of oracle evaluations (regression fits). We note Streak scales better as k increases; for example, Streak with k = 80 and \u03b5 = 0.1 (\u03b5 = 0.75) runs in about 70% (5%) of the time it takes to run LocalSearch with k = 40. Interestingly, our speedups are more substantial with respect to running time. In some cases Streak actually fits more regressions than LocalSearch, but still manages to be faster. We attribute this to the fact that nearly all of LocalSearch\u2019s regressions involve k features, which are slower than many of the small regressions called by Streak.\nFigure 2(a) shows the final log likelihood versus running time for k = 80 and \u03b5 \u2208 [0.05, 0.75]. By varying the precision \u03b5, we achieve a gradual tradeoff between speed and performance. This shows that Streak can reduce the running time by over an order of magnitude with minimal impact on the final log likelihood."
+    },
+    {
+      "heading": "6.2 Black-Box Interpretability",
+      "text": "Our next application is interpreting the predictions of black-box machine learning models. Specifically, we begin with the Inception V3 deep neural network [Szegedy et al., 2016] trained on ImageNet. We use this network for the task of classifying 5 types of flowers via transfer learning. This is done by adding a final softmax layer and retraining the network.\nWe compare our approach to the LIME framework [Ribeiro et al., 2016] for developing sparse, interpretable explanations. The final step of LIME is to fit a k-sparse linear regression in the space of interpretable features. Here, the features are superpixels determined by the SLIC image segmentation algorithm [Achanta\net al., 2012] (regions from any other segmentation would also suffice). The number of superpixels is bounded by N = 30. After a feature selection step, a final regression is performed on only the selected features. The following feature selection methods are supplied by LIME: 1. Highest Weights: fits a full regression and keep the k features with largest coefficients. 2. Forward Selection: standard greedy forward selection. 3. Lasso: `1 regularization.\nWe introduce a novel method for black-box interpretability that is similar to but simpler than LIME. As before, we segment an image into N superpixels. Then, for a subset S of those regions we can create a new image that contains only these regions and feed this into the black-box classifier. For a given model M , an input image I, and a label L1 we ask for an explanation: why did model M label image I with label L1. We propose the following solution to this problem. Consider the set function f(S) giving the likelihood that image I(S) has label L1. We approximately solve\nmax |S|\u2264k f(S) ,\nusing Streak. Intuitively, we are limiting the number of superpixels to k so that the output will include only the most important superpixels, and thus, will represent an interpretable explanation. In our experiments we set k = 5.\nNote that the set function f(S) depends on the black-box classifier and is neither monotone nor submodular in general. Still, we find that the greedy maximization algorithm produces very good explanations for the flower classifier as shown in Figure 3 and the additional experiments in the Appendix. Figure 2(b) shows that our algorithm is much faster than the LIME approach. This is primarily because LIME relies on generating and classifying a large set of randomly perturbed example images."
+    },
+    {
+      "heading": "7 Conclusions",
+      "text": "We propose Streak, the first streaming algorithm for maximizing weakly submodular functions, and prove that it achieves a constant factor approximation assuming a random stream order. This is useful when the set function is not submodular and, additionally, takes a long time to evaluate or has a very large ground set. Conversely, we show that under a worst case stream order no algorithm with memory sublinear in the ground set size has a constant factor approximation. We formulate interpretability of black-box neural networks as set function maximization, and show that Streak provides interpretable explanations faster than previous approaches. We also show experimentally that Streak trades off accuracy and running time in nonlinear sparse regression.\nOne interesting direction for future work is to tighten the bounds of Theorems 5.1 and 5.5, which are nontrivial but somewhat loose. For example, there is a gap between the theoretical guarantee of the stateof-the-art algorithm for submodular functions and our bound for \u03b3 = 1. However, as our algorithm performs the same computation as that state-of-the-art algorithm when the function is submodular, this gap is solely an analysis issue. Hence, the real theoretical performance of our algorithm is better than what we have been able to prove in Section 5."
+    },
+    {
+      "heading": "8 Acknowledgments",
+      "text": "This research has been supported by NSF Grants CCF 1344364, 1407278, 1422549, 1618689, ARO YIP W911NF-14-1-0258, ISF Grant 1357/16, Google Faculty Research Award, and DARPA Young Faculty Award (D16AP00046)."
+    },
+    {
+      "heading": "A Appendix",
+      "text": ""
+    },
+    {
+      "heading": "A.1 Proof of Lemma 4.1",
+      "text": "The nonnegativity and monotonicity of fk follow immediately from the fact that u(S) and v(S) have these properties. Thus, it remains to prove that fk is 0.5-weakly submodular for |Nk|, i.e., that for every pair of arbitrary sets S,L \u2286 Nk it holds that\u2211\nw\u2208S\\L\nfk(w | L) \u2265 0.5 \u00b7 fk(S | L) .\nThere are two cases to consider. The first case is that fk(L) = 2 \u00b7 u(L) + 1. In this case S \\ L must contain at least dfk(S | L)/2e elements of {ui}ki=1. Additionally, the marginal contribution to L of every element of {ui}ki=1 which does not belong to L is at least 1. Thus, we get\u2211\nw\u2208S\\L\nfk(w | L) \u2265 \u2211\nw\u2208(S\\L)\u2229{ui}ki=1\nfk(w | L) \u2265 |(S \\ L) \u2229 {ui}ki=1|\n\u2265 dfk(S | L)/2e \u2265 0.5 \u00b7 fk(S | L) .\nThe second case is that fk(L) = 2 \u00b7 v(L). In this case S \\ L must contain at least dfk(S | L)/2e elements of {vi}ki=1, and in addition, the marginal contribution to L of every element of {vi}ki=1 which does not belong to L is at least 1. Thus, we get in this case again\u2211\nw\u2208S\\L\nfk(w | L) \u2265 \u2211\nw\u2208(S\\L)\u2229{vi}ki=1\nfk(w | L) \u2265 |(S \\ L) \u2229 {vi}ki=1|\n\u2265 dfk(S | L)/2e \u2265 0.5 \u00b7 fk(S | L) ."
+    },
+    {
+      "heading": "A.2 Proof of Theorem 4.2",
+      "text": "Consider an arbitrary (randomized) streaming algorithm ALG aiming to maximize fk(S) subject to the cardinality constraint |S| \u2264 2k. Since ALG uses o(N) memory, we can guarantee, by choosing a large enough d, that ALG uses no more than (c/4) \u00b7 N memory. In order to show that ALG performs poorly, consider the case that it gets first the elements of {ui}ki=1 and the dummy elements (in some order to be determined later), and only then it gets the elements of {vi}ki=1. The next lemma shows that some order of the elements of {ui}ki=1 and the dummy elements is bad for ALG.\nLemma A.1. There is an order for the elements of {ui}ki=1 and the dummy elements which guarantees that in expectation ALG returns at most (c/2) \u00b7 k elements of {ui}ki=1.\nProof. Let W be the set of the elements of {ui}ki=1 and the dummy elements. Observe that the value of fk for every subset of W is 0. Thus, ALG has no way to differentiate between the elements of W until it views the first element of {vi}ki=1, which implies that the probability of every element w \u2208W to remain in ALG\u2019s memory until the moment that the first element of {vi}ki=1 arrives is determined only by w\u2019s arrival position. Hence, by choosing an appropriate arrival order one can guarantee that the sum of the probabilities of the elements of {ui}ki=1 to be at the memory of ALG at this point is at most\nkM |W | \u2264 k(c/4) \u00b7N k + d = k(c/4) \u00b7 (2k + d) k + d \u2264 kc 2 ,\nwhere M is the amount of memory ALG uses.\nThe expected value of the solution produced by ALG for the stream order provided by Lemma A.1 is at most ck + 1. Hence, its approximation ratio for k > 1/c is at most\nck + 1 2k = c 2 + 1 2k < c ."
+    },
+    {
+      "heading": "A.3 Proof of Observation 5.3",
+      "text": "Algorithm 1 adds an element u to the set S only when the marginal contribution of u with respect to S is at least \u03c4/k. Thus, it is always true that\nf(S) \u2265 \u03c4 \u00b7 |S| k ."
+    },
+    {
+      "heading": "A.4 Proof of Proposition 5.4",
+      "text": "We begin by proving several intermediate lemmas. Recall that \u03b3 , \u03b3k, and notice that by the monotonicity of f we may assume that OPT is of size k. For every 0 \u2264 i \u2264 |OPT | = k, let OPTi be the random set consisting of the last i elements of OPT according to the input order. Note that OPTi is simply a uniformly random subset of OPT of size i. Thus, we can lower bound its expected value as follows.\nLemma A.2. For every 0 \u2264 i \u2264 k, E[f(OPTi)] \u2265 [1\u2212 (1\u2212 \u03b3/k)i] \u00b7 f(OPT ). Proof. We prove the lemma by induction on i. For i = 0 the lemma follows from the nonnegativity of f since\nf(OPT0) \u2265 0 = [1\u2212 (1\u2212 \u03b3/k)0] \u00b7 f(OPT ) . Assume now that the lemma holds for some 0 \u2264 i \u2212 1 < k, and let us prove it holds also for i. Since OPTi\u22121 is a uniformly random subset of OPT of size i\u2212 1, and OPTi is a uniformly random subset of OPT of size i, we can think of OPTi as obtained from OPTi\u22121 by adding to this set a uniformly random element of OPT \\OPTi\u22121. Taking this point of view, we get, for every set T \u2286 OPT of size i\u2212 1,\nE[f(OPTi) | OPTi\u22121 = T ] = f(T ) + \u2211 u\u2208OPT\\T f(u | T ) |OPT \\ T |\n\u2265 f(T ) + 1 k \u00b7 \u2211 u\u2208OPT\\T f(u | T ) \u2265 f(T ) + \u03b3 k \u00b7 f(OPT \\ T | T )\n= (\n1\u2212 \u03b3 k\n) \u00b7 f(T ) + \u03b3\nk \u00b7 f(OPT ) ,\nwhere the last inequality holds by the \u03b3-weak submodularity of f . Taking expectation over the set OPTi\u22121, the last inequality becomes\nE[f(OPTi)] \u2265 (\n1\u2212 \u03b3 k\n) E[f(OPTi\u22121)] + \u03b3\nk \u00b7 f(OPT ) \u2265 (\n1\u2212 \u03b3 k\n) \u00b7 [ 1\u2212 ( 1\u2212 \u03b3\nk\n)i\u22121] \u00b7 f(OPT ) + \u03b3\nk \u00b7 f(OPT )\n= [ 1\u2212 ( 1\u2212 \u03b3\nk\n)i] \u00b7 f(OPT ) ,\nwhere the second inequality follows from the induction hypothesis.\nLet us now denote by o1, o2, . . . , ok the k elements of OPT in the order in which they arrive, and, for every 1 \u2264 i \u2264 k, let Si be the set S of Algorithm 1 immediately before the algorithm receives oi. Additionally, let Ai be an event fixing the arrival time of oi, the set of elements arriving before oi and the order in which they arrive. Note that conditioned on Ai, the sets Si and OPTk\u2212i+1 are both deterministic.\nLemma A.3. For every 1 \u2264 i \u2264 k and event Ai, E[f(oi | Si) | Ai] \u2265 (\u03b3/k) \u00b7 [f(OPTk\u2212i+1)\u2212 f(Si)], where OPTk\u2212i+1 and Si represent the deterministic values these sets take given Ai.\nProof. By the monotonicity and \u03b3-weak submodularity of f , we get\u2211 u\u2208OPTk\u2212i+1 f(u | Si) \u2265 \u03b3 \u00b7 f(OPTk\u2212i+1 | Si)\n= \u03b3 \u00b7 [f(OPTk\u2212i+1 \u222a Si)\u2212 f(Si)] \u2265 \u03b3 \u00b7 [f(OPTk\u2212i+1)\u2212 f(Si)] .\nSince oi is a uniformly random element of OPTk\u2212i+1, even conditioned on Ai, the last inequality implies E[f(oi | Si) | Ai] = \u2211 u\u2208OPTk\u2212i+1 f(u | Si)\nk \u2212 i+ 1 \u2265 \u2211 u\u2208OPTk\u2212i+1 f(u | Si)\nk\n\u2265 \u03b3 \u00b7 [f(OPTk\u2212i+1)\u2212 f(Si)] k .\nLet \u2206i be the increase in the value of S in the iteration of Algorithm 1 in which it gets oi.\nLemma A.4. Fix 1 \u2264 i \u2264 k and event Ai, and let OPTk\u2212i+1 and Si represent the deterministic values these sets take given Ai. If f(Si) < \u03c4 , then E[\u2206i | Ai] \u2265 [\u03b3 \u00b7 f(OPTk\u2212i+1)\u2212 2\u03c4 ]/k.\nProof. Notice that by Observation 5.3 the fact that f(Si) < \u03c4 implies that Si contains less than k elements. Thus, conditioned on Ai, Algorithm 1 adds oi to S whenever f(oi | Si) \u2265 \u03c4/k, which means that\n\u2206i = { f(oi | Si) if f(oi | Si) \u2265 \u03c4/k , 0 otherwise .\nOne implication of the last equality is\nE[\u2206i | Ai] \u2265 E[f(oi | Si) | Ai]\u2212 \u03c4/k ,\nwhich intuitively means that the contribution to E[f(oi | Si) | Ai] of values of f(oi | Si) which are too small to make the algorithm add oi to S is at most \u03c4/k. The lemma now follows by observing that Lemma A.3 and the fact that f(Si) < \u03c4 guarantee\nE[f(oi | Si) | Ai] \u2265 (\u03b3/k) \u00b7 [f(OPTk\u2212i+1)\u2212 f(Si)] > (\u03b3/k) \u00b7 [f(OPTk\u2212i+1)\u2212 \u03c4 ] \u2265 [\u03b3 \u00b7 f(OPTk\u2212i+1)\u2212 \u03c4 ]/k .\nWe are now ready to put everything together and get a lower bound on E[\u2206i].\nLemma A.5. For every 1 \u2264 i \u2264 k,\nE[\u2206i] \u2265 \u03b3 \u00b7 [Pr[E ]\u2212 (1\u2212 \u03b3/k)k\u2212i+1] \u00b7 f(OPT )\u2212 2\u03c4\nk .\nProof. Let Ei be the event that f(Si) < \u03c4 . Clearly Ei is the disjoint union of the events Ai which imply f(Si) < \u03c4 , and thus, by Lemma A.4,\nE[\u2206i | Ei] \u2265 [\u03b3 \u00b7 E[f(OPTk\u2212i+1) | Ei]\u2212 2\u03c4 ]/k .\nNote that \u2206i is always nonnegative due to the monotonicity of f . Thus,\nE[\u2206i] = Pr[Ei] \u00b7 E[\u2206i | Ei] + Pr[E\u0304i] \u00b7 E[\u2206i | E\u0304i] \u2265 Pr[Ei] \u00b7 E[\u2206i | Ei] \u2265 [\u03b3 \u00b7 Pr[Ei] \u00b7 E[f(OPTk\u2212i+1) | Ei]\u2212 2\u03c4 ]/k .\nIt now remains to lower bound the expression Pr[Ei] \u00b7E[f(OPTk\u2212i+1) | Ei] on the rightmost hand side of the last inequality.\nPr[Ei] \u00b7 E[f(OPTk\u2212i+1) | Ei] = E[f(OPTk\u2212i+1)]\u2212 Pr[E\u0304i] \u00b7 E[f(OPTk\u2212i+1) | E\u0304i] \u2265 [1\u2212 (1\u2212 \u03b3/k)k\u2212i+1 \u2212 (1\u2212 Pr[Ei])] \u00b7 f(OPT ) \u2265 [Pr[E ]\u2212 (1\u2212 \u03b3/k)k\u2212i+1] \u00b7 f(OPT )\nwhere the first inequality follows from Lemma A.2 and the monotonicity of f , and the second inequality holds since E implies Ei which means that Pr[Ei] \u2265 Pr[E ] for every 1 \u2264 i \u2264 k.\nProposition 5.4 follows quite easily from the last lemma.\nProof of Proposition 5.4. Lemma A.5 implies, for every 1 \u2264 i \u2264 dk/2e,\nE[\u2206i] \u2265 \u03b3 k f(OPT )[Pr[E ]\u2212 (1\u2212 \u03b3/k)k\u2212dk/2e+1]\u2212 2\u03c4 k\n\u2265 \u03b3 k f(OPT )[Pr[E ]\u2212 (1\u2212 \u03b3/k)k/2]\u2212 2\u03c4 k\n\u2265 ( \u03b3 \u00b7 [Pr[E ]\u2212 e\u2212\u03b3/2] \u00b7 f(OPT )\u2212 2\u03c4 ) /k .\nThe definition of \u2206i and the monotonicity of f imply together\nE[f(S)] \u2265 b\u2211 i=1 E[\u2206i]\nfor every integer 1 \u2264 b \u2264 k. In particular, for b = dk/2e, we get\nE[f(S)] \u2265 b k \u00b7 ( \u03b3 \u00b7 [Pr[E ]\u2212 e\u2212\u03b3/2] \u00b7 f(OPT )\u2212 2\u03c4 ) \u2265 1 2 \u00b7 ( \u03b3 \u00b7 [Pr[E ]\u2212 e\u2212\u03b3/2] \u00b7 f(OPT )\u2212 2\u03c4 ) ."
+    },
+    {
+      "heading": "A.5 Proof of Theorem 5.1",
+      "text": "In this section we combine the previous results to prove Theorem 5.1. Recall that Observation 5.2 and Proposition 5.4 give two lower bounds on E[f(S)] that depend on Pr[E ]. The following lemmata use these lower bounds to derive another lower bound on this quantity which is independent of Pr[E ]. For ease of the reading, we use in this section the shorthand \u03b3\u2032 = e\u2212\u03b3/2.\nLemma A.6. E[f(S)] \u2265 \u03c42a (3\u2212 \u03b3 \u2032 \u2212 2 \u221a 2\u2212 \u03b3\u2032) = \u03c4a \u00b7\n3\u2212e\u2212\u03b3/2\u22122 \u221a\n2\u2212e\u2212\u03b3/2 2 whenever Pr[E ] \u2265 2\u2212\n\u221a 2\u2212 \u03b3\u2032.\nProof. By the lower bound given by Proposition 5.4,\nE[f(S)] \u2265 1 2 \u00b7 {\u03b3 \u00b7 [Pr[E ]\u2212 \u03b3\u2032] \u00b7 f(OPT )\u2212 2\u03c4}\n\u2265 1 2 \u00b7 { \u03b3 \u00b7 [ 2\u2212 \u221a 2\u2212 \u03b3\u2032 \u2212 \u03b3\u2032 ] \u00b7 f(OPT )\u2212 2\u03c4 } = 1 2 \u00b7 { \u03b3 \u00b7 [ 2\u2212 \u221a 2\u2212 \u03b3\u2032 \u2212 \u03b3\u2032 ] \u00b7 f(OPT )\u2212 ( \u221a 2\u2212 \u03b3\u2032 \u2212 1) \u00b7 \u03c4 a\n} \u2265 \u03c4 2a \u00b7 { 2\u2212 \u221a 2\u2212 \u03b3\u2032 \u2212 \u03b3\u2032 \u2212 \u221a 2\u2212 \u03b3\u2032 + 1 }\n= \u03c4 a \u00b7 3\u2212 \u03b3\n\u2032 \u2212 2 \u221a\n2\u2212 \u03b3\u2032 2 ,\nwhere the first equality holds since a = ( \u221a\n2\u2212 \u03b3\u2032 \u2212 1)/2, and the last inequality holds since a\u03b3 \u00b7 f(OPT ) \u2265 \u03c4 .\nLemma A.7. E[f(S)] \u2265 \u03c42a (3\u2212 \u03b3 \u2032 \u2212 2 \u221a 2\u2212 \u03b3\u2032) = \u03c4a \u00b7\n3\u2212e\u2212\u03b3/2\u22122 \u221a\n2\u2212e\u2212\u03b3/2 2 whenever Pr[E ] \u2264 2\u2212\n\u221a 2\u2212 \u03b3\u2032.\nProof. By the lower bound given by Observation 5.2, E[f(S)] \u2265 (1\u2212 Pr[E ]) \u00b7 \u03c4 \u2265 ( 1\u2212 2 + \u221a 2\u2212 \u03b3\u2032 ) \u00b7 \u03c4\n= (\u221a 2\u2212 \u03b3\u2032 \u2212 1 ) \u00b7 \u221a\n2\u2212 \u03b3\u2032 \u2212 1 2 \u00b7 \u03c4 a = 3\u2212 \u03b3\u2032 \u2212 2\n\u221a 2\u2212 \u03b3\u2032\n2 \u00b7 \u03c4 a .\nCombining Lemmata A.6 and A.7 we get the theorem."
+    },
+    {
+      "heading": "A.6 Proof of Theorem 5.5",
+      "text": "There are two cases to consider. If \u03b3 < 4/3 \u00b7 k\u22121, then we use the following simple observation.\nObservation A.8. The final value of the variable m is fmax , max{f(u) | u \u2208 N} \u2265 \u03b3k \u00b7 f(OPT ).\nProof. The way m is updated by Algorithm 2 guarantees that its final value is fmax. To see why the other part of the observation is also true, note that the \u03b3-weak submodularity of f implies\nfmax \u2265 max{f(u) | u \u2208 OPT} = f(\u2205) + max{f(u | \u2205) | u \u2208 OPT}\n\u2265 f(\u2205) + 1 k \u2211 u\u2208OPT f(u | \u2205) \u2265 f(\u2205) + \u03b3 k f(OPT | \u2205) \u2265 \u03b3 k \u00b7 f(OPT ) .\nBy Observation A.8, the value of the solution produced by Streak is at least\nf(um) = m \u2265 \u03b3 k \u00b7 f(OPT ) \u2265 3\u03b3\n2\n4 \u00b7 f(OPT )\n\u2265 (1\u2212 \u03b5)\u03b3 \u00b7 3(\u03b3/2) 2 \u00b7 f(OPT ) \u2265 (1\u2212 \u03b5)\u03b3 \u00b7 3\u2212 3e \u2212\u03b3/2\n2 \u00b7 f(OPT )\n\u2265 (1\u2212 \u03b5)\u03b3 \u00b7 3\u2212 e \u2212\u03b3/2 \u2212 2\n\u221a 2\u2212 e\u2212\u03b3/2\n2 \u00b7 f(OPT ) ,\nwhere the second to last inequality holds since 1\u2212\u03b3/2 \u2264 e\u2212\u03b3/2, and the last inequality holds since e\u2212\u03b3+e\u2212\u03b3/2 \u2264 2.\nIt remains to consider the case \u03b3 \u2265 4/3 \u00b7 k\u22121, which has a somewhat more involved proof. Observe that the approximation ratio of Streak is 1 whenever f(OPT ) = 0 because the value of any set, including the output set of the algorithm, is nonnegative. Thus, we can safely assume in the rest of the analysis of the approximation ratio of Algorithm 2 that f(OPT ) > 0.\nLet \u03c4\u2217 be the maximal value in the set {(1\u2212\u03b5)i | i \u2208 Z} which is not larger than a\u03b3 \u00b7f(OPT ). Note that \u03c4\u2217 exists by our assumption that f(OPT ) > 0. Moreover, we also have (1\u2212\u03b5) \u00b7a\u03b3 \u00b7f(OPT ) < \u03c4\u2217 \u2264 a\u03b3 \u00b7f(OPT ). The following lemma gives an interesting property of \u03c4\u2217. To understand the lemma, it is important to note that the set of values for \u03c4 in the instances of Algorithm 1 appearing in the final collection I is deterministic because the final value of m is always fmax.\nLemma A.9. If there is an instance of Algorithm 1 with \u03c4 = \u03c4\u2217 in I when Streak terminates, then in expectation Streak has an approximation ratio of at least\n(1\u2212 \u03b5)\u03b3 \u00b7 3\u2212 e \u2212\u03b3/2 \u2212 2\n\u221a 2\u2212 e\u2212\u03b3/2\n2 .\nProof. Consider a value of \u03c4 for which there is an instance of Algorithm 1 in I when Algorithm 2 terminates, and consider the moment that Algorithm 2 created this instance. Since the instance was not created earlier, we get that m was smaller than \u03c4/k before this point. In other words, the marginal contribution of every element that appeared before this point to the empty set was less than \u03c4/k. Thus, even if the instance had been created earlier it would not have taken any previous elements.\nAn important corollary of the above observation is that the output of every instance of Algorithm 1 that appears in I when Streak terminates is equal to the output it would have had if it had been executed on the entire input stream from its beginning (rather than just from the point in which it was created). Since we assume that there is an instance of Algorithm 1 with \u03c4 = \u03c4\u2217 in the final collection I, we get by Theorem 5.1 that the expected value of the output of this instance is at least\n\u03c4\u2217 a \u00b7 3\u2212 e\n\u2212\u03b3/2 \u2212 2 \u221a\n2\u2212 e\u2212\u03b3/2 2 > (1\u2212 \u03b5)\u03b3 \u00b7 f(OPT ) \u00b7 3\u2212 e \u2212\u03b3/2 \u2212 2\n\u221a 2\u2212 e\u2212\u03b3/2\n2 .\nThe lemma now follows since the output of Streak is always at least as good as the output of each one of the instances of Algorithm 1 in its collection I.\nWe complement the last lemma with the next one.\nLemma A.10. If \u03b3 \u2265 4/3 \u00b7 k\u22121, then there is an instance of Algorithm 1 with \u03c4 = \u03c4\u2217 in I when Streak terminates.\nProof. We begin by bounding the final value of m. By Observation A.8 this final value is fmax \u2265 \u03b3k \u00b7f(OPT ). On the other hand, f(u) \u2264 f(OPT ) for every element u \u2208 N since {u} is a possible candidate to be OPT , which implies fmax \u2264 f(OPT ). Thus, the final collection I contains an instance of Algorithm 1 for every value of \u03c4 within the set{\n(1\u2212 \u03b5)i | i \u2208 Z and (1\u2212 \u03b5) \u00b7 fmax/(9k2) \u2264 (1\u2212 \u03b5)i \u2264 fmax \u00b7 k }\n\u2287 { (1\u2212 \u03b5)i | i \u2208 Z and (1\u2212 \u03b5) \u00b7 f(OPT )/(9k2) \u2264 (1\u2212 \u03b5)i \u2264 \u03b3 \u00b7 f(OPT ) } .\nTo see that \u03c4\u2217 belongs to the last set, we need to verify that it obeys the two inequalities defining this set. On the one hand, a = ( \u221a 2\u2212 e\u2212\u03b3/2 \u2212 1)/2 < 1 implies\n\u03c4\u2217 \u2264 a\u03b3 \u00b7 f(OPT ) \u2264 \u03b3 \u00b7 f(OPT ) .\nOn the other hand, \u03b3 \u2265 4/3 \u00b7 k\u22121 and 1\u2212 e\u2212\u03b3/2 \u2265 \u03b3/2\u2212 \u03b32/8 imply\n\u03c4\u2217 > (1\u2212 \u03b5) \u00b7 a\u03b3 \u00b7 f(OPT ) = (1\u2212 \u03b5) \u00b7 ( \u221a 2\u2212 e\u2212\u03b3/2 \u2212 1) \u00b7 \u03b3 \u00b7 f(OPT )/2\n\u2265 (1\u2212 \u03b5) \u00b7 ( \u221a 1 + \u03b3/2\u2212 \u03b32/8\u2212 1) \u00b7 \u03b3 \u00b7 f(OPT )/2\n\u2265 (1\u2212 \u03b5) \u00b7 ( \u221a 1 + \u03b3/4 + \u03b32/64\u2212 1) \u00b7 \u03b3 \u00b7 f(OPT )/2\n= (1\u2212 \u03b5) \u00b7 ( \u221a\n(1 + \u03b3/8)2 \u2212 1) \u00b7 \u03b3 \u00b7 f(OPT )/2 \u2265 (1\u2212 \u03b5) \u00b7 \u03b32 \u00b7 f(OPT )/16 \u2265 (1\u2212 \u03b5) \u00b7 f(OPT )/(9k2) .\nCombining Lemmata A.9 and A.10 we get the desired guarantee on the approximation ratio of Streak."
+    },
+    {
+      "heading": "A.7 Proof of Theorem 5.6",
+      "text": "Observe that Streak keeps only one element (um) in addition to the elements maintained by the instances of Algorithm 1 in I. Moreover, Algorithm 1 keeps at any given time at most O(k) elements since the set S it maintains can never contain more than k elements. Thus, it is enough to show that the collection I contains at every given time at most O(\u03b5\u22121 log k) instances of Algorithm 1. If m = 0 then this is trivial since I = \u2205. Thus, it is enough to consider the case m > 0. Note that in this case\n|I| \u2264 1\u2212 log1\u2212\u03b5 mk (1\u2212 \u03b5)m/(9k2) = 2\u2212 ln(9k\n3)\nln(1\u2212 \u03b5)\n= 2\u2212 ln 9 + 3 ln k ln(1\u2212 \u03b5) = 2\u2212 O(ln k) ln(1\u2212 \u03b5) .\nWe now need to upper bound ln(1\u2212 \u03b5). Recall that 1\u2212 \u03b5 \u2264 e\u2212\u03b5. Thus, ln(1\u2212 \u03b5) \u2264 \u2212\u03b5. Plugging this into the previous inequality gives\n|I| \u2264 2\u2212 O(ln k) \u2212\u03b5 = 2 +O(\u03b5\u22121 ln k) = O(\u03b5\u22121 ln k) .\nA.8 Additional Experiments"
+    }
+  ],
+  "title": "Streaming Weak Submodularity: Interpreting Neural Networks on the Fly",
+  "year": 2018
+}

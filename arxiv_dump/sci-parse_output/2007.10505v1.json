@@ -1,0 +1,512 @@
+{
+  "abstractText": "Modern machine learning systems based on neural networks have shown great success in learning complex data patterns while being able to make good predictions on unseen data points. However, the limited interpretability of these systems hinders further progress and application to several domains in the real world. This predicament is exemplified by time consuming model selection and the difficulties faced in predictive explainability, especially in the presence of adversarial examples. In this paper, we take a step towards better understanding of neural networks by introducing a local polytope interpolation method. The proposed Deep Non Negative Kernel regression (NNK) interpolation framework is non parametric, theoretically simple and geometrically intuitive. We demonstrate instance based explainability for deep learning models and develop a method to identify models with good generalization properties using leave one out estimation. Finally, we draw a rationalization to adversarial and generative examples which are inevitable from an interpolation view of machine learning.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Sarath Shekkizhar"
+    },
+    {
+      "affiliations": [],
+      "name": "Antonio Ortega"
+    }
+  ],
+  "id": "SP:199f322d8ad7b7abfc4a4ac934bee3d55591a66a",
+  "references": [
+    {
+      "authors": [
+        "A. Blum",
+        "M. Hardt"
+      ],
+      "title": "The ladder: A reliable leaderboard for machine learning competitions",
+      "venue": "Int. Conf. on Mach. Learn., 2015, pp. 1006\u2013 1014.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "U. Anders",
+        "O. Korn"
+      ],
+      "title": "Model selection in neural networks",
+      "venue": "Neural networks, vol. 12, no. 2, pp. 309\u2013323, 1999.",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "B. Recht",
+        "R. Roelofs",
+        "L. Schmidt",
+        "V. Shankar"
+      ],
+      "title": "Do cifar-10 classifiers generalize to cifar-10?",
+      "venue": "arXiv preprint arXiv:1806.00451,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D. Castelvecchi"
+      ],
+      "title": "Can we open the black box of ai?",
+      "venue": "Nature News,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T. Hastie",
+        "R. Tibshirani",
+        "J. Friedman"
+      ],
+      "title": "The elements of statistical learning: data mining, inference, and prediction",
+      "venue": "Springer Science & Business Media,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "K.P. Murphy"
+      ],
+      "title": "Machine Learning: A Probabilistic Perspective",
+      "venue": "MIT press,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "C. Zhang",
+        "S. Bengio",
+        "M. Hardt",
+        "B. Recht",
+        "O. Vinyals"
+      ],
+      "title": "Understanding deep learning requires rethinking generalization",
+      "venue": "arXiv preprint arXiv:1611.03530, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Belkin",
+        "D.J. Hsu",
+        "P. Mitra"
+      ],
+      "title": "Overfitting or perfect fitting? risk bounds for classification and regression rules that interpolate",
+      "venue": "Advances in Neural Inf. Process. Syst., 2018, pp. 2300\u20132311.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Belkin",
+        "A. Rakhlin",
+        "A. Tsybakov"
+      ],
+      "title": "Does data interpolation contradict statistical optimality?",
+      "venue": "arXiv preprint arXiv:1806.09471,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "T. Liang",
+        "A. Rakhlin"
+      ],
+      "title": "Just interpolate: Kernel\u201d ridgeless\u201d regression can generalize",
+      "venue": "arXiv preprint arXiv:1808.00387, 2018.",
+      "year": 1808
+    },
+    {
+      "authors": [
+        "T. Hastie",
+        "A. Montanari",
+        "S. Rosset",
+        "R.J. Tibshirani"
+      ],
+      "title": "Surprises in high-dimensional ridgeless least squares interpolation",
+      "venue": "arXiv preprint arXiv:1903.08560, 2019.",
+      "year": 1903
+    },
+    {
+      "authors": [
+        "S. Shekkizhar",
+        "A. Ortega"
+      ],
+      "title": "Graph construction from data by nonnegative kernel regression",
+      "venue": "2020 IEEE Int. Conf. on Acoustics, Speech and Signal Process. (ICASSP). IEEE, 2020, pp. 3892\u20133896.",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "L. Devroye",
+        "L. Gy\u00f6rfi",
+        "A. Krzy\u017cak"
+      ],
+      "title": "The hilbert kernel regression estimate",
+      "venue": "J. of Multivariate Analysis, vol. 65, no. 2, pp. 209\u2013227, 1998.",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "G. Biau",
+        "L. Devroye"
+      ],
+      "title": "Lectures on the nearest neighbor method",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "N. Papernot",
+        "P. McDaniel"
+      ],
+      "title": "Deep k-nearest neighbors: Towards confident, interpretable and robust deep learning",
+      "venue": "arXiv preprint arXiv:1803.04765, 2018.",
+      "year": 1803
+    },
+    {
+      "authors": [
+        "E. Wallace",
+        "S. Feng",
+        "J. Boyd-Graber"
+      ],
+      "title": "Interpreting neural networks with nearest neighbors",
+      "venue": "arXiv preprint arXiv:1809.02847, 2018.",
+      "year": 1809
+    },
+    {
+      "authors": [
+        "P.W. Koh",
+        "P. Liang"
+      ],
+      "title": "Understanding black-box predictions via influence functions",
+      "venue": "arXiv preprint arXiv:1703.04730, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "S.-I. Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "Advances in Neural Inf. Process. Syst., 2017, pp. 4765\u2013 4774.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Bontonou",
+        "C. Lassance",
+        "G.B. Hacene",
+        "V. Gripon",
+        "J. Tang",
+        "A. Ortega"
+      ],
+      "title": "Introducing graph smoothness loss for training deep learning architectures",
+      "venue": "arXiv preprint arXiv:1905.00301, 2019.",
+      "year": 1905
+    },
+    {
+      "authors": [
+        "L. Devroye",
+        "T. Wagner"
+      ],
+      "title": "Distribution-free performance bounds for potential function rules",
+      "venue": "IEEE Trans. on Inf. Theory, vol. 25, no. 5, pp. 601\u2013604, 1979.",
+      "year": 1979
+    },
+    {
+      "authors": [
+        "B. Yu"
+      ],
+      "title": "Stability",
+      "venue": "Bernoulli, vol. 19, no. 4, pp. 1484\u20131500, 2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "O. Bousquet",
+        "A. Elisseeff"
+      ],
+      "title": "Stability and generalization",
+      "venue": "J. of Mach. Learn. research, vol. 2, no. Mar, pp. 499\u2013526, 2002.",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "S. Mukherjee",
+        "P. Niyogi",
+        "T. Poggio",
+        "R. Rifkin"
+      ],
+      "title": "Learning theory: stability is sufficient for generalization and necessary and sufficient for consistency of empirical risk minimization",
+      "venue": "Advances in Computational Mathematics, vol. 25, no. 1-3, pp. 161\u2013193, 2006.",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "F. Doshi-Velez",
+        "B. Kim"
+      ],
+      "title": "Towards a rigorous science of interpretable machine learning",
+      "venue": "arXiv preprint arXiv:1702.08608, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J. De Fauw",
+        "J.R. Ledsam",
+        "B. Romera-Paredes",
+        "S. Nikolov",
+        "N. Tomasev",
+        "S. Blackwell",
+        "H. Askham",
+        "X. Glorot",
+        "B. ODonoghue",
+        "D. Visentin"
+      ],
+      "title": "Clinically applicable deep learning for diagnosis and referral in retinal disease",
+      "venue": "Nature medicine, vol. 24, no. 9, pp. 1342\u20131350, 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "B. Kim",
+        "R. Khanna",
+        "O.O. Koyejo"
+      ],
+      "title": "Examples are not enough, learn to criticize! criticism for interpretability",
+      "venue": "Advances in Neural Inf. Process. Syst., 2016, pp. 2280\u20132288.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "N. Aronszajn"
+      ],
+      "title": "Theory of reproducing kernels",
+      "venue": "Trans. of the American mathematical society, vol. 68, no. 3, pp. 337\u2013404, 1950.",
+      "year": 1950
+    },
+    {
+      "authors": [
+        "T. Hofmann",
+        "B. Sch\u00f6lkopf",
+        "A.J. Smola"
+      ],
+      "title": "Kernel methods in machine learning",
+      "venue": "The annals of statistics, pp. 1171\u20131220, 2008.",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "A.G. Wilson",
+        "Z. Hu",
+        "R. Salakhutdinov",
+        "E.P. Xing"
+      ],
+      "title": "Deep kernel learning",
+      "venue": "Artificial Intelligence and Statistics, 2016, pp. 370\u2013378.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T. Cover",
+        "P. Hart"
+      ],
+      "title": "Nearest neighbor pattern classification",
+      "venue": "IEEE Trans. on Inf. theory, vol. 13, no. 1, pp. 21\u201327, 1967.",
+      "year": 1967
+    },
+    {
+      "authors": [
+        "P. Massart",
+        "\u00c9. N\u00e9d\u00e9lec"
+      ],
+      "title": "Risk bounds for statistical learning",
+      "venue": "The Annals of Statistics, vol. 34, no. 5, pp. 2326\u20132366, 2006.",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "A. Elisseeff",
+        "M. Pontil"
+      ],
+      "title": "Leave-one-out error and stability of learning algorithms with applications",
+      "venue": "NATO science series sub series iii computer and systems sciences, vol. 190, pp. 111\u2013130, 2003.",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "A. Luntz"
+      ],
+      "title": "On estimation of characters obtained in statistical procedure of recognition",
+      "venue": "Technicheskaya Kibernetica, vol. 3, 1969.",
+      "year": 1969
+    },
+    {
+      "authors": [
+        "L. Devroye",
+        "L. Gy\u00f6rfi",
+        "G. Lugosi"
+      ],
+      "title": "A probabilistic theory of pattern recognition",
+      "venue": "Springer Science & Business Media,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "W.H. Rogers",
+        "T.J. Wagner"
+      ],
+      "title": "A finite sample distribution-free performance bound for local discrimination rules",
+      "venue": "The Annals of Statistics, pp. 506\u2013514, 1978. Submitted for review at ICPR 2020 8",
+      "year": 1978
+    },
+    {
+      "authors": [
+        "L. Devroye",
+        "T. Wagner"
+      ],
+      "title": "Distribution-free inequalities for the deleted and holdout error estimates",
+      "venue": "IEEE Trans. on Inf. Theory, vol. 25, no. 2, pp. 202\u2013207, 1979.",
+      "year": 1979
+    },
+    {
+      "authors": [
+        "C. Rogers"
+      ],
+      "title": "Covering a sphere with spheres",
+      "venue": "Mathematika, vol. 10, no. 2, pp. 157\u2013164, 1963.",
+      "year": 1963
+    },
+    {
+      "authors": [
+        "L. Chen"
+      ],
+      "title": "New analysis of the sphere covering problems and optimal polytope approximation of convex bodies",
+      "venue": "J. of Approximation Theory, vol. 133, no. 1, pp. 134\u2013145, 2005.",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "R.-E. Fan",
+        "K.-W. Chang",
+        "C.-J. Hsieh",
+        "X.-R. Wang",
+        "C.-J. Lin"
+      ],
+      "title": "Liblinear: A library for large linear classification",
+      "venue": "J. of Mach. Learn. research, vol. 9, no. Aug, pp. 1871\u20131874, 2008.",
+      "year": 1871
+    },
+    {
+      "authors": [
+        "S. Zagoruyko",
+        "N. Komodakis"
+      ],
+      "title": "Wide residual networks",
+      "venue": "arXiv preprint arXiv:1605.07146, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "E.D. Cubuk",
+        "B. Zoph",
+        "D. Mane",
+        "V. Vasudevan",
+        "Q.V. Le"
+      ],
+      "title": "Autoaugment: Learning augmentation strategies from data",
+      "venue": "Proc. of the IEEE Conf. on computer vision and pattern recognition, 2019, pp. 113\u2013123.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Y. Song",
+        "S. Ermon"
+      ],
+      "title": "Generative modeling by estimating gradients of the data distribution",
+      "venue": "Advances in Neural Inf. Process. Syst., 2019, pp. 11 895\u201311 907.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "F. Croce",
+        "M. Hein"
+      ],
+      "title": "Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks",
+      "venue": "arXiv preprint arXiv:2003.01690, 2020.",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "S. Shekkizhar",
+        "A. Ortega"
+      ],
+      "title": "Graph construction from data using non negative kernel regression (nnk graphs)",
+      "venue": "arXiv preprint arXiv:1910.09383, 2019.",
+      "year": 1910
+    },
+    {
+      "authors": [
+        "H. Bernau"
+      ],
+      "title": "Active constraint strategies in optimization",
+      "venue": "Geophysical Data Inversion Methods and Applications. Springer, 1990, pp. 15\u201331.",
+      "year": 1990
+    }
+  ],
+  "sections": [
+    {
+      "text": "Index Terms\u2014Neural networks, polytope interpolation, interpretability, generalization, leave one out, stability.\nI. INTRODUCTION\nThe goal of any learning system is to identify a mapping from input data space to output classification or regression space based on a finite set of training data with a basic generalization requirement: Models trained to perform well on a given dataset (empirical performance) should perform well on future examples (expected performance), i.e., the gap between expected and empirical performance must be small.\nToday, deep neural networks are at the core of several recent advances in machine learning. An appropriate deep architecture is closely tied to the dataset on which it is trained and is selected with significant manual engineering by practitioners or by random search based on subjective heuristics [1]. Approaches based on resubstitution (training) error, which is often near zero in deep learning systems, can be misleading, while held out data (validation) metrics introduce possible selection bias and the data they use might be more valuable if it can be used to train the model [2]. However, these methods have steadily improved state of the art metrics on several datasets even though only limited understanding of generalization is available [3] and generally it is not known whether a smaller model trained for fewer epochs could have achieved the same performance [4].\nOur work was supported by DARPA\u2019s LwLL program (FA8750-19-2-1005).\nA model is typically said to suffer from overfitting when it performs poorly to test (validation) data while performing well on the training data. The conventional approach to avoid overfitting with error minimization is to avoid training an over-parameterized model to zero loss, for example by penalizing the training process with methods such as weight regularization or early stopping [5], [6]. This perspective has been questioned by recent research, which has shown that a model with a number of parameters several orders of magnitude bigger than the dataset size, and trained to zero loss, generalizes to new data as well as a constrained model [7]. Thus, while conventional wisdom about interpolating estimators [5], [6] is that they can achieve zero training error but generally exhibit poor generalization, Belkin and others [8], [9] propose and theoretically study some specific interpolationbased methods, such as simplicial interpolation and kernel weighted and interpolated nearest neighbors (wiNN), that can achieve generalization with theoretical guarantees. [8] suggests that neural networks perform interpolation in a transformed space and that this could help explain their generalization performance. Though this view has spurred renewed interest in interpolating estimators [10], [11], there have been no studies of interpolation based classifiers integrated with a complete neural network. This is due in part to their complexity: working with d-simplices [8] would be impractical if the dimension of the data space d is high, as is the case for problems of interest where neural networks are used. In contrast, a simpler method such as wiNN does not have the same geometric properties as the simplex approach.\nIn this paper, we propose a practical and realizable interpolation framework based on local polytopes obtained using Non Negative Kernel regression (NNK) [12] on neural network architectures. As shown in a simple setup in Figure 1a, a simplicial interpolation, even when feasible, constrains itself to a simplex structure (triangles in R2) around each test query, which leads to an arbitrary choice of the containing simplex when data lies on one of the simplicial faces. Thus, in the example of Figure 1a only one of the triangles can be used, and only two out of the 4 points in the neighborhood contribute to the interpolation. This situation becomes increasingly common in high dimensions, worsening interpolation complexity. By relaxing the simplex constraint, one can better formulate the interpolation using generalized convex polytope structures, ar X\niv :2\n00 7.\n10 50\n5v 1\n[ cs\n.L G\n] 2\n0 Ju\nl 2 02\n0\nsuch as those obtained using NNK, that are dependent on the sampled training data positions in the classification space. While our proposed method uses k nearest neighbors (KNN) as a starting point, it differs from other KNN-based approaches, such as wiNN schemes [8], [13], [14] and DkNN [15], [16]. In particular, these KNN based algorithms can be potentially biased if data instances have different densities in different directions in space. Instead, as shown in Figure 1b NNK automatically selects data points most influential to interpolation based on their relative position, i.e., only those neighboring representations that provide new (orthogonal) information for data reconstruction are selected for functional interpolation. In summary, our proposed method combines some of the best features of existing methods, providing a geometrical interpretation and performance guarantees as the simplicial interpolation [8], with much lower complexity, of an order of magnitude comparable to KNN-based schemes.\nTo integrate our interpolation framework with a neural network, we replace the final classification layer, typically some type of support vector machine (SVM) with our NNK interpolator during evaluation at training and at test time, while relying on the loss obtained with the original SVM-like layer for backpropagation. This strategy of using a different classifier at final layer is not uncommon in deep learning [17]\u2013 [19] and is motivated by the intuition that each layer of a neural network corresponds to an abstract transformation of the input data space catered to the machine task at hand. Note that, unlike the explicit parametric boundaries defined in general by an SVM-like final layer, local interpolation methods produce boundaries that are implicit, i.e., based on the relative positions of the training data in a transformed space. In other words, the proposed DeepNNK procedure allows us to characterize the network by the output classification space rather than relying on a global boundary defined on the space.\nEquipped with these tools, we tackle model selection in neural networks from an interpolation perspective using data dependent stability: A model is stable for training set D if any change of a single point in D does not affect (or yields very small change in) the output hypothesis [20], [21]. This definition is similar but different from algorithmic stability obtained using jackknifing [22], [23] and related statistical procedures such as cross validation [2]. While the latter is related to using repeatedly the entire training dataset but one for computing many estimators that are combined at the end, the former is concerned with the output estimate at a point not used for its prediction and is the focus of study in our work. Direct evaluation of algorithmic stability in the context of deep learning is impractical for two reasons: First, the increased runtime complexity associated with training the algorithm for different sets. Second, even if computationally feasible, the assessment within each setting is obscured due to randomness in training, for example in weight initialization and batch sampling, which requires repeated evaluation to reduce variance in the performance. Unlike these methods [2], [22], by focusing on stability to input perturbations at interpolation, our method achieves a practical methodology\nnot involving repetitive training for model selection. Another challenging issue that prevents the application of deep neural networks in sensitive domains, such as medicine and defense, is the absence of explanations to a prediction obtained [24]. Explainability or interpretability can be defined as the degree to which a human can understand or rationalize a prediction obtained from a learning algorithm. A model is more interpretable than another model if its decisions are easier for a human to comprehend, for e.g., a health care technician looking at a flagged retinal scan [25], than decisions from the other model. Example based explanations can help alleviate the problem of interpretability by allowing humans to understand complex predictions by analogical reasoning with a small set of influential training instances [17], [26].\nOur proposed DeepNNK classifier is a neighborhood based approach that makes very few modeling assumptions on data. Each prediction in NNK classifier comes with a set of training data points (neighbors selected by NNK) that interpolate to produce the classification/regression. In contrast to earlier methods such as DkNN [15], [16] that rely on hyperparameters such as k, which directly impact explainability and confidence characterizations, our approach adapts to the local data manifold by identifying a stable set of training instances that most influence an estimate. Further, the gains in interpretability using our framework do not incur a penalty in performance, so that, unlike earlier methods [15], [17], there is no loss in overall performance by using an interpolative last layer, and some cases there are gains, as compared to the the performance achieved with standard SVM-like last layer classifiers. Indeed, we demonstrate performance improvements over standard architectures with SVM-like last layers in case where there is overfitting.\nFinally, this paper presents some empirical explanation to generative and adversarial examples, which have gained growing attention in modern machine learning. We show that these instances fall in distinct interpolation regions surrounded by fewer NNK neighbors on average compared to real images."
+    },
+    {
+      "heading": "II. PRELIMINARIES AND BACKGROUND",
+      "text": ""
+    },
+    {
+      "heading": "A. Statistical Setup",
+      "text": "The goal of machine learning is to find a function f\u0302 : X \u2192 Y that minimizes the probability of error on samples drawn from the joint distribution over X \u00d7 Y in Rd \u00d7 [0, 1]. Assume \u00b5 to be the marginal distribution of X \u2208 Rd with its support denoted as supp(\u00b5). Let \u03b7 denote the conditional mean E(Y |X = x). The risk or error associated with a predictor in a regression setting is given by Rgen(f\u0302) = E[R(f\u0302 ,x)] = E[(f\u0302(x)\u2212y)2]. The Bayes estimator obtained as the expected value of the conditional is the best predictor and upper bounds other predictors as E[R(\u03b7\u0302,x)\u2212R(\u03b7,x)] \u2264 E[(\u03b7\u0302(x)\u2212\u03b7(x))2]. Unfortunately, the joint distribution is not known a priori and thus a good estimator is to be designed based on labelled samples drawn from X \u00d7 Y in the form of training data Dtrain = {(x1, y1), (x2, y2) . . . (xN , yN )}. Further, assume each yi is corrupted by i.i.d. noise and hence can deviate from the Bayes estimate \u03b7{xi}. For a binary classification\nSubmitted for review at ICPR 2020 2\nproblem, the domain of Y is reduced to {0, 1}, with the plugin Bayes classifier defined as f\u2217 = I(\u03b7(x) > 1/2) where \u03b7(x) = P (Y = 1|X = x). The risk associated to a classifier is defined as Rgen(f\u0302) = E[R(f\u0302 ,x)] = E[P (f\u0302(x) 6= y)] and is related to the Bayes risk as E[R(f\u0302 ,x) \u2212 R(f\u2217(x),x)] \u2264 E[P (f\u0302(x) 6= f\u2217(x))]. Note that the excess risk associated to f\u0302 in both regression and classification setting is related to E[(\u03b7\u0302(x)\u2212\u03b7(x))2] and E[P (f\u0302(x) 6= f\u2217(x))], and is the subject of our work. Note that the generalization risk defined above is dependent on the data distribution while in practice one uses empirical error, defined as Remp(Dtrain) = 1N \u2211 i l(\u03b7\u0302(xi), y) where l(\u03b7\u0302(xi), y) is the error associated in regression or classification setting. We denote by Ditrain the training set obtained by removing the point (xi, yi) from Dtrain."
+    },
+    {
+      "heading": "B. Deep Kernels",
+      "text": "Given data D = {x1,x2 . . .xN}, kernel based methods observe similarities in a non linearly transformed feature space H referred to as the Reproducing Kernel Hilbert Space (RKHS) [27]. One of the key ingredients in kernel machines is the kernel trick: Inner products in the feature space can be efficiently computed using kernel functions. Due to the non linear nature of the data mapping, linear operations in RKHS correspond to non linear operations in the input data space.\nDefinition 1. If K : Rd \u00d7Rd \u2192 R is a continuous symmetric kernel of a positive integral operator in L2 space of functions, then there exists a space H and mapping \u03c6 : Rd \u2192 H such that by Mercer\u2019s theorem\nK(xi,xj) = \u3008\u03c6(xi),\u03c6(xj)\u3009\nwhere \u3008\u00b7, \u00b7\u3009 denotes the inner product.\nKernels satisfying above definition are known as Mercer kernels and have wide range of applications in machine\nlearning [28]. In this work, we center our experiments around the range normalized cosine kernel defined as,\nK(xi,xj) = 1\n2\n( 1 +\n\u3008xi,xj\u3009 \u2016xi\u2016 \u2016xj\u2016\n) (1)\nthough our theoretical statements and claims make no assumption on the type of kernel, other than it be positive with range [0, 1]. Similar to [29], we combine kernel definitions with neural networks to incorporate the expressive power of neural networks. Given a kernel function K, we transform the input data using the non linear mapping hw corresponding to deep neural networks (DNN) parameterized by w.\nK(xi,xj)\u2192 KDNN (hw(xi),hw(xj)) (2)\nOur normalized cosine kernel of equation (1) is rewritten as\nKDNN (xi,xj) = 1\n2\n( 1 +\n\u3008hw(xi),hw(xj)\u3009 \u2016hw(xi)\u2016 \u2016hw(xj)\u2016\n) (3)"
+    },
+    {
+      "heading": "C. Non Negative Kernel regression (NNK)",
+      "text": "The starting point for our interpolation-based classifier is our previous work on graph construction using non negative kernel regression (NNK) [12]. NNK formulates graph construction as a signal representation problem, where each data point is to be approximated by a weighted sum of functions from a dictionary formed by its neighbors. The NNK objective for graph construction can be written as:\nmin \u03b8\u22650\n\u2016\u03c6i \u2212\u03a6S\u03b8\u20162 (4)\nwhere \u03c6i is a lifting of xi from observation to similarity space and \u03a6S contains the transformed neighbors.\nUnlike k nearest neighbor approaches, which select neighbors having the k largest inner products \u03c6>i \u03c6j and can be viewed as a thresholding-based representation, NNK is an improved basis selection procedure in kernel space leading to a stable and robust representation. Geometrically, NNK can be characterized in the form of kernel ratio interval (KRI) as shown in Figures 1b and 1c. The KRI theorem states that for\nSubmitted for review at ICPR 2020 3\nany positive definite kernel with range in [0, 1] (e.g. the cosine kernel (3)), the necessary and sufficient condition for two data points xj and xk to be both NNK neighbors to xi is\nKj,k < Ki,j Ki,k < 1 Kj,k . (5)\nInductive application of the KRI produces a closed decision boundary around the data to be approximated (xi) with the identified neighbors forming a convex polytope around the data (NNKpoly). Similar to the simplicial interpolation of [8], the local geometry of our NNK classifier can be leveraged to obtain theoretical performance of bounds as discussed next."
+    },
+    {
+      "heading": "III. LOCAL POLYTOPE INTERPOLATION",
+      "text": "In this section, we propose and analyze a polytope interpolation scheme based on local neighbors1 that asymptotically approaches the 1-nearest neighbor algorithm [30]. Like 1- nearest neighbor, the proposed method is not statistically consistent in the presence of label noise, but, unlike the former, it\u2019s risk can be studied in the non-asymptotic case with data dependent bounds under mild assumptions on smoothness.\nProposition 1. Given k nearest neighbors of a sample x, S = {(x1, y1), (x2, y2) . . . (xk, yk)}, the following NNK estimate at x is a valid interpolation function:\n\u03b7\u0302(x) = E(Y |X = x) = k\u0302\u2211 i=1 \u03b8i yi, (6)\nwhere \u03b8 are the k\u0302 non zero weights obtained from the minimization of equation (4), that is:\n\u03b8 = min \u03b8\u22650 \u2016\u03c6(x)\u2212\u03a6S\u03b8\u20162\n= min \u03b8\u22650\n1\u2212 2\u03b8>KS,\u2217 + \u03b8>KS,S\u03b8 (7)\nwhere \u03a6S = [\u03c6(x1) . . .\u03c6(xk)] corresponds to the kernel space representation of the nearest neighbors with KS,\u2217 denoting the kernel similarity with regards to x.\nThe interpolator from Proposition 1 is biased and can be bias-corrected by normalizing the interpolation weights. Thus, the unbiased NNK interpolation estimate is obtained as\n\u03b7\u0302(x) = E(Y |X = x) = k\u0302\u2211 i=1 \u03b8i\u2211k\u0302 j=1 \u03b8j yi (8)\nIn other words, NNK starts with a crude approximation of neighborhood in the form of k nearest neighbors, but instead of directly using these points as sources of interpolation, optimizes and reweighs the selection (most of which are zero) using equation (7) to obtain a stable set of neighbors.\n1All proofs related to theoretical statements in this section are included in the supplementary material"
+    },
+    {
+      "heading": "A. A general bound on NNK classifier",
+      "text": "We present a theoretical analysis based on the simplicial interpolation analysis by [8] but adapted to the proposed NNK interpolation. We first study NNK framework in a regression setting and then adapt the results for classification. Let Dtrain = {(x1, y1), (x2, y2) . . . (xN , yN )} in Rd \u00d7 [0, 1] be the training data made available to NNK. Further, assume each yi is corrupted by independent noise and hence can deviate from the Bayes estimate \u03b7(xi).\nTheorem 1. For a conditional distribution \u03b7\u0302(x) obtained using unbiased NNK interpolation given training data Dtrain = {(x1, y1), (x2, y2) . . . (xN , yN )} in Rd \u00d7 [0, 1], the excess mean square risk is given by\nE[(\u03b7\u0302(x)\u2212 \u03b7(x))2|Dtrain] \u2264 E[\u00b5(Rd\\C)] +A2E[\u03b42\u03b1]\n+ 2A\u2032\nEK [k\u0302] + 1 E[\u03b4\u03b1\n\u2032 ] +\n2\nEK [k\u0302] + 1 E[(Y \u2212 \u03b7(x))2] (9)\nunder the following assumptions 1) \u00b5 is the marginal distribution of X \u2208 Rd. Let C =\nHull(\u03c6(x1),\u03c6(x2) . . .\u03c6(xN )) be the convex hull of the training data in transformed kernel space. 2) The conditional distribution \u03b7 is Holder (A,\u03b1) smooth in kernel space. 3) Similarly, the conditional variance var(Y |X = x) satisfies (A\u2032, \u03b1\u2032) smoothness condition. 4) Let NNKpoly(x) denote the convex polytope around x formed by k\u0302 neighbors identified by NNK with non zero weights. The maximum diameter of the polytope formed with NNK neighbors for any data in C is represented as \u03b4 = maxx\u2208C diam(NNKpoly(x)).\nRemark 1. Theorem (1) provides a non-asymptotic upper bound for the excess squared risk associated with unbiased NNK interpolation using a data dependent bound. The first term in the bound is associated to extrapolation, where the test data falls outside the interpolation area for the given training data while the last term corresponds to label noise. Of interest are the second and third terms, which merely reflect the dependence of the interpolation on the size of each polytope defined for test data and the associated smoothness of the labels over this region of interpolation. In particular, when all test samples are covered by a smaller polytope, the corresponding risk is closer to optimal. Note that NNK approach leads to a polytope having smallest diameter or volume for the number of points (k\u0302) selected from a set of k neighbors. From the theorem, this corresponds to a better risk bound. The bound associated with simplicial interpolation is a special case, where each simplex enclosing the data point is a fixed k\u0302, corresponding to a (d+ 1)-sized polytope. Thus, in our approach the number of points forming the polytope is variable (dependent on local data topology), while in the simplicial case it is fixed and depends on the dimension of the space. Though the latter bound seems better (excess risk is inversely related to k\u0302), the diameter of the polytope (simplex) increases with d making the excess risk possibly sub optimal.\nSubmitted for review at ICPR 2020 4\nCorollary 1.1. Based on an additional assumption that supp(\u00b5) belongs to a simple polytope, the excess mean square risk converges asymptotically as\nlim sup N\u2192\u221e\nE[(\u03b7\u0302(x)\u2212 \u03b7(x))2] \u2264 E[(Y \u2212 \u03b7(x))2] (10)\nRemark 2. The asymptotic risk of proposed NNK interpolation method is bounded like the 1-nearest neighbor method in the regression setting by twice the Bayes risk. The rate of convergence of proposed method is dependent on the convergence of the kernel functions centered at the data points.\nWe now extend our analysis to classification using the plugin classifier f\u0302(x) = I(\u03b7\u0302(x) > 1/2) for a given Dtrain = {(x1, y1), (x2, y2) . . . (xN , yN )} in Rd \u00d7 {0, 1} using the relationship between classification and regression risk [14].\nCorollary 1.2. A plug-in NNK classifier under the assumptions of Corollary 1.1 has excess classifier risk bounded as\nlim sup N\u2192\u221e\nE[R(f\u0302(x))\u2212R(f(x))] \u2264 2 \u221a E[(Y \u2212 \u03b7(x)2] (11)\nRemark 3. The classification bound presented here makes no assumptions on the margin associated to the classification boundary and is thus only a weak bound. The bound can be improved exponentially as in [8] when more assumptions such as h-hard margin condition [31] are made."
+    },
+    {
+      "heading": "B. Leave one out stability",
+      "text": "The leave one out (LOO) procedure (also known as deleted estimate or U-method) is an important statistical measure with a long history in machine learning [32]. Unlike empirical error, it is almost unbiased [33] and has been often used for model (hyperparameter) selection. Formally, this is represented by\nRloo(\u03b7\u0302|Dtrain) = 1\nN N\u2211 i=1 l(\u03b7\u0302(xi)|Ditrain, yi) (12)\nwhere the NNK interpolation estimator in the summation for xi is based on all training points except xi. We focus our attention to LOO in the context of model stability and generalization as defined in [32], [34]. A system is stable when small perturbations (LOO) to the input data do not affect its output predictions i.e., \u03b7\u0302 is \u03b2(\u03b7\u0302) stable when\nED ( |l(\u03b7\u0302(x)|D, y)\u2212 l(\u03b7\u0302(x)|Di, y)| ) \u2264 \u03b2(\u03b7\u0302|D) (13)\nTheoretical results by Rogers, Devroye and Wagner [20], [35], [36] about generalization of k-nearest neighbor methods using LOO performance are very relevant to our proposed NNK algorithm. The choice of k in our method is dependent on the relative positions of points and hence replaces the fixed k from their results by expectation.\nTheorem 2. The leave one out performance of unbiased NNK classifier given \u03b3, the maximum number of distinct points that can share the same nearest neighbor, is bounded as\nP (|Rloo(\u03b7\u0302|Dtrain)\u2212Rgen(\u03b7\u0302)| > ) \u2264 2e\u2212N 2/18 +\n6e\u2212N 3/(108EK [k\u0302](2+\u03b3))\nRemark 4. NNK classifier weighs its neighbors based on RKHS interpolation but obtains the initial set of neighbors based on the input embedded space. This means the value of \u03b3 in NNK setting is dependent on the dimension of the space of points where the data is embedded and not on the possibly infinite dimension of the RKHS. The above bound is difficult to compute in practice due to \u03b3 but bounds do exist for this measure based on convex covering literature [37], [38]. The theorem allows us to relate stability of a model using LOO error to that of generalization. Unlike the bound based on hyperparameter k, the bound presented here is training data dependent due to the data dependent selection of neighbors.\nMore practically, to characterize the smoothness in the classification surface, we introduce variation or spread in LOO interpolation score of the training dataset as\n\u2207(xi) = 1\nk\u0302 k\u0302\u2211 j=1 [ \u03b7\u0302(xi)|Ditrain \u2212 \u03b7\u0302(xj)|D j train ]2 (14)\nwhere k\u0302 is the number of non zero weighted neighbors identified by NNK and \u03b7\u0302(x) is the unbiased NNK interpolation estimate of equation (8). A smooth interpolation region will have variation \u2207(x) in its region close to zero while a spread close to one corresponds to a noisy classification region."
+    },
+    {
+      "heading": "IV. EXPERIMENTS",
+      "text": "In this section, we present an experimental evaluation of DeepNNK for model selection, robustness and interpretability of neural networks. We focus on experiments with CIFAR-10 dataset to validate our analysis and intuitions on generalization and interpretability. We consider a simple 7 layer network comprising 4 convolution layers with reLU activations, 2 maxpool layers and 1 full connected softmax layer to demonstrate model selection. We evaluate the test performance and stability of proposed NNK classifier and compare it to weighted KNN (wiNN) approach for different values of k and 5-fold cross validated linear SVM2 for three different network settings, \u2022 Regularized model training: We used 32 depth channels\nfor each convolution layer with dropout at each convolution layer with keep probability 0.9. The data was augmented with random horizontal flips. \u2022 Underparametrized model: We keep the same model structure and regularization as in the regularized model but reduce the number of depth channels to 16, equivalently the number of parameters of the model by half. \u2022 Overfit model: To simulate overfitting, we remove data augmentation and dropout regularization in the regularized model while training for the same number of epochs.\nFigure 2 shows the difference in performance between our method and weighted KNN (wiNN), in particular, while the proposed DeepNNK method improves marginally with larger values of k, the wiNN approach degrades in performance. This\n2Similar to neighborhood methods, the last layer is replaced and trained at each evaluation using a LIBLINEAR SVM [39] with minimal `2 regularization. We use the default library setting for other parameters of the SVM.\nSubmitted for review at ICPR 2020 5\ncan be explained by the fact that NNK accommodates new neighbors only if they belong to a new direction in space that improves its interpolation unlike its KNN counterparts which simply interpolate with all k neighbors. More importantly, we observe that while NNK method performs on par if not better than the original classifier with SVM last layer, its\nLOO performance is a better indicator of the generalization as opposed to the empirical model performance on training data. One can clearly identify a regularized model with better stability by observing the deviation in performance between training and the LOO estimate using our proposed method. Note that the cross validated linear SVM model performed sub-optimally in all settings, which suggests that it is unable to capture the complexity of input data or the generalization difference in different models. The choice of better model is reinforced again in Figure 3, where we observe that the histogram of interpolation spread for regularized model is more shifted towards zero relative to under-parameterized and overfit models. Note that, the shift is minimal which is expected as the different in test error associated with each model is small as well.\nWe next present a few interpretability results, showing our framework\u2019s ability to capture training instances that are influential in prediction. Neighbors selected from training data for interpolation by DeepNNK can be used as examples to explain the neural network decision. This intepretability can be crucial to problems with transparency requirements by allowing an observer to interpret the region around a test representation as evidence.\nIn Figure 4, we show examples in the training dataset that are responsible for a prediction using the simple regularized model defined previously. Machine models and the\nSubmitted for review at ICPR 2020 6\ndatasets used for their training often contain biases, such as repeated instances with small perturbations for class balance, which are often undesirable for applications where fairness is important. DeepNNK framework can help understand and eliminate sources of bias by allowing practitioners to identify the limitations of their current system in a semi supervised fashion. Figure 5 shows another application of NNK where the fragile nature of a model over certain training images is brought to light using interpolation spread of equation (14). These experiments show the possibility of DeepNNK framework being used as a debugging tool in deep learning.\nFinally, we present experimental analysis of generative and adversarial images from the perspective of NNK interpolation. We study these methods using our DeepNNK framework applied on a Wide-ResNet-28-10 [40] architecture trained with autoaugment [41]3. Generative and adversarial examples leverage interpolation spaces where a model (discriminator in the case of generative images or a classifier in the case of black box attacks) is influenced by a smaller number of neighboring points. This is made evident in Figure 6 where we see that the number of neighbors in the case of generative and adversarial images is on average smaller than that of real images. We conjecture that this is a property of interpolation where realistic images can be obtained in compact interpolation neighborhoods with perturbations along extrapolating, mislabeled sample directions producing adversarial images. Though the adversarial perturbations in the input image space is visually indistinguishable, the change in the embedding of the adversarial image in the interpolation space is significantly larger, in some cases as in Figure 7, belonging to regions completely different from its class."
+    },
+    {
+      "heading": "V. DISCUSSION AND FUTURE WORK",
+      "text": "We discussed various ideas, theoretical and practical, from model interpretability and generalization to adversarial, gen-\n3DeepNNK achieves 97.3% test accuracy on CIFAR-10 similar to that of the original network.\nSubmitted for review at ICPR 2020 7\nerative examples. Underlying each of these applications is a single common tool, a local polytope interpolation, whose neighborhood support is determined automatically and is dependent on the input data. DeepNNK provides a way to incorporate recent theoretical works on interpolation and leads to better understanding of deep learning models by tracing their predictions back to the input data it was trained on. We hope these attempts help progress neural networks to more real world scenarios and motivate further studies, methods of diagnosing machine models from the lens of the training data.\nWe conclude with few open thoughts and questions. \u2022 Leave one out is a particular instance of the more general\nproblem of how a learning system predicts in response to perturbations of its parameters and data. We believe other kind of perturbations could help better understand neural networks, statistically as well as numerically. \u2022 The error in data interpolation of equation (7) can be observed as that of data noise or alternatively error arising due to absence of examples in some directions (extrapolation). In either scenario, this error can be used to characterize a notion of distance between the data being interpolated and that available for interpolation. We believe such a measure could help identify datasets shifts in an unsupervised manner with possible applications in domain adaptation, transfer learning."
+    },
+    {
+      "heading": "A. Proof of Proposition (1)",
+      "text": "Lemma 1 ( [44]). The quadratic optimization problem of (7) satisfies active constraints set4. Given a partition {\u03b8P ,\u03b8P\u0304 }, where \u03b8P > 0 (inactive) and \u03b8P\u0304 = 0 (active), the solution [\u03b8P \u03b8P\u0304 ] > is the optimal solution provided:\nKP,P\u03b8P =KP,\u2217 and K>P,P\u0304\u03b8P \u2212KP\u0304 ,\u2217 \u2265 0\nMoreover, the set P corresponds to non zero support of the constrained problem if and only if KP,P is full rank and \u03b8P > 0 [46]. Thus, the solution to (7) is obtained as\n\u03b8S = [\u03b8P \u03b8P\u0304 ] > = [(KP,P ) \u22121KP,\u2217 0] (15)\nProof of Proposition 1. Let \u03a6P correspond to the matrix containing the k\u0302 neighbors with non zero data interpolation weights and yP the associated labels. The kernel space linear interpolation estimator is obtained by solving\n\u03b1\u0303 = argmin \u03b1 k\u0302\u2211 i=1 (yi \u2212\u03b1>\u03c6(xi)) =K\u22121P,P\u03a6PyP (16)\nTherefore, using matrix identity and equation (15) resulting from lemma 1, the estimate y at x is obtained as\ny = \u03b1\u0303>\u03c6(x) = y>P\u03a6 > PK \u22121 P,P\u03c6(x) = y > PK \u22121 P,P\u03a6 > P\u03c6(x) = y > PK \u22121 P,PKP,\u2217 = y > P \u03b8P = k\u0302\u2211 i=1 \u03b8i yi"
+    },
+    {
+      "heading": "B. Proof of Theorem (1)",
+      "text": "Proof. The proof follows a similar argument as in the simplicial interpolation bound in [8]. The expected excess mean squared risk can be partitioned based on disjoint sets as5\nEX [(\u03b7\u0302(x)\u2212 \u03b7(x))2] = EX [(\u03b7\u0302(x)\u2212 \u03b7(x))2|X /\u2208 C]P (X /\u2208 C) + EX [(\u03b7\u0302(x)\u2212 \u03b7(x))2|X \u2208 C]P (X \u2208 C) \u2264 EX [(\u03b7\u0302(x)\u2212 \u03b7(x))2|X /\u2208 C]P (X /\u2208 C) + EX [(\u03b7\u0302(x)\u2212 \u03b7(x))2|X \u2208 C] (17)\nFor points outside the convex hull, NNK extrapolates labels and no guarantees can be made on the regression without further assumptions. Thus, (\u03b7\u0302(x)\u2212 \u03b7(x))2 \u2264 1 which reduces the first term on the left of equation (17) to that of theorem.\nLet \u03b8k\u0302 be the solution to NNK interpolation objective (7). Let wi = \u03b8i\u2211k\u0302 i=1 \u03b8i denote the weight normalized values. The\nnormalized weights follow a Dirichlet(1, 1 . . . 1) distribution with k\u0302 concentration parameters.\n\u03b7\u0302(x)\u2212 \u03b7(x) = k\u0302\u2211 i=1 wi(yi \u2212 \u03b7(x)) = k\u0302\u2211 i=1 wi(yi \u2212 \u03b7(xi) + \u03b7(xi)\u2212 \u03b7(x)) = k\u0302\u2211 i=1 wi i + k\u0302\u2211 i=1 wibi (18)\nwhere i = yi \u2212 \u03b7(xi) corresponds to Bayesian estimator errors in the training data and bi = \u03b7(xi)\u2212 \u03b7(x) is related to bias. By smoothness assumption on \u03b7 we have\n|bi| = |\u03b7(xi)\u2212 \u03b7(x)| \u2264 A||\u03c6(xi)\u2212 \u03c6(x)||\u03b1 \u2264 A\u03b4\u03b1 (19)\nSince bi and i are independent, we have\nEX [(\u03b7\u0302(x)\u2212 \u03b7(x))2|X \u2208 C] = EX [  k\u0302\u2211 i=1 wi i 2 |X \u2208 C] + EX [  k\u0302\u2211 i=1 wibi 2 |X \u2208 C] (20) By Jensen\u2019s inequality, (\u2211k\u0302 i=1 wibi )2 \u2264 \u2211k\u0302 i=1 wib 2 i and bound in equation (19),\nEX [  k\u0302\u2211 i=1 wibi 2 |X \u2208 C] \u2264 EX [ k\u0302\u2211 i=1 wib 2 i |X \u2208 C] \u2264 EX [ k\u0302\u2211 i=1 wiA 2\u03b42\u03b1|X \u2208 C] = A2\u03b42\u03b1 (21)\n4In constrained optimization problems, some constraints will be strongly binding, i.e., the solution to optimization at these elements will be zero to satisfy the KKT condition of optimality. These constraints are referred to as active constraints, knowledge of which helps reduce the problem size as one can focus on the inactive subset that requires optimization. The constraints that are active at a current feasible solution will remain active in the optimal solution [45].\n5All expectation in this proof are condition on Dtrain. For the sake of brevity, we do not make this conditioning explicit in our statments.\nSubmitted for review at ICPR 2020 10\nLet \u03bd(x) = var(Y |X = x). Under independence assumption on noise, the term with in equation (20) can be rewritten as\nEX [  k\u0302\u2211 i=1 wi i 2 |X \u2208 C] = EX [ k\u0302\u2211 i=1 w2i 2 i |X \u2208 C] = EK  k\u0302\u2211 i=1 EX|K [w2i |X \u2208 C]EX|K [ 2i |X \u2208 C]  \u2264 EK  2 (k\u0302 + 1)(k\u0302) k\u0302\u2211 i=1 \u03bd(xi)  \u2264 EK  2 (k\u0302 + 1)(k\u0302) k\u0302\u2211 i=1 \u03bd(x) + |\u03bd(xi)\u2212 \u03bd(x)|\n where we use the fact that wi follows Dirichlet distribution. Now, the smoothness assumption on var(Y |X) allows us to bound\n|\u03bd(xi)\u2212 \u03bd(x)| \u2264 A\u2032||\u03c6(xi)\u2212 \u03c6(x)||\u03b1 \u2032 \u2264 A\u2032\u03b4\u03b1 \u2032 (22)\n=\u21d2 EX [  k\u0302\u2211 i=1 wi i 2 |X \u2208 C] \u2264 2 (EK [k\u0302] + 1) ( \u03bd(x) +A\u2032\u03b4\u03b1 \u2032 )\n(23)\nCombining with equation (21), the risk bound for points within the convex hull of training data is obtained as\nEX [(\u03b7\u0302(x)\u2212 \u03b7(x))2|X \u2208 C] \u2264 A2\u03b42\u03b1 + 2\n(EK [k\u0302] + 1)\n( \u03bd(x) +A\u2032\u03b4\u03b1 \u2032 )\n(24)\nEquation (24) along with the reduction for points outside the convex hull C obtained earlier gives the excess risk bound and concludes the proof."
+    },
+    {
+      "heading": "C. Proof of Corollary (1.1)",
+      "text": "Proof. The nearest neighbor convergence lemma of [30] states that for an i.i.d sequence of random variables D = {x1,x2 . . .xN} in Rd, the nearest neighbor of x from the set D converges in probability, NN(x) \u2192p x. Equivalently, this would correspond to convergence in kernel representation of the data points. Thus, the solution to NNK data interpolation objective is reduced to 1-nearest neighbor interpolation with EK [k\u0302] = 1 and lim supN\u2192\u221e \u03b4 = 0. Now, under the assumption that the supp(\u00b5) belongs to a polytope, the first term on the right of equation (9) vanishes i.e., lim supN\u2192\u221eEX [\u00b5(Rd\\C)] = 0"
+    },
+    {
+      "heading": "D. Proof of Corollary (1.2)",
+      "text": "Proof. The excess classification risk associated with this classifier is related the regression risk as\nEX [R(f\u0302(x))\u2212R(f(x))] \u2264 EX [I(f\u0302(x) 6= f(x))] \u2264 2EX [|\u03b7\u0302(x)\u2212 \u03b7(x)|] (25)\nFrom Corollary 1.1, we have\nlim sup N\u2192\u221e\nEX [(\u03b7\u0302(x)\u2212 \u03b7(x))2] \u2264 EX [(Y \u2212 \u03b7(x)2]\nBy Jensen\u2019s inequality\nlim sup N\u2192\u221e (EX [|\u03b7\u0302(x)\u2212 \u03b7(x)|])2 \u2264 lim sup N\u2192\u221e EX [(\u03b7\u0302(x)\u2212 \u03b7(x))2] (26)\nCombining with equation (25) gives the required risk bound."
+    },
+    {
+      "heading": "E. Proof of Theorem (2)",
+      "text": "Proof. The proof is based on the k-nearest neighbor result from Theorem 1 in [36] which states that\nP (|Rloo(\u03b7\u0302|Dtrain)\u2212Rgen(\u03b7\u0302)| > ) \u2264 2e\u2212N 2/18 + 6e\u2212N 3/(108k(2+\u03b3)) (27)\nAs in [36], where the result is extended based on the 1-nearest neighbor, here it suffices to replace k by EK [k\u0302] since each data point on average cannot be NNK neighbors to more than EK [k\u0302]\u03b3 + 2 \u2264 EK [k\u0302](\u03b3 + 2) data points.\nSubmitted for review at ICPR 2020 11"
+    }
+  ],
+  "title": "DeepNNK: Explaining deep models and their generalization using polytope interpolation",
+  "year": 2020
+}

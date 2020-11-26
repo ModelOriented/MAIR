@@ -1,0 +1,473 @@
+{
+  "abstractText": "The goal of query performance prediction (QPP) is to automatically estimate the effectiveness of a search result for any given query, without relevance judgements. Post-retrieval features have been shown to be more effective for this task while being more expensive to compute than pre-retrieval features. Combining multiple postretrieval features is even more effective, but state-of-the-art QPP methods are impossible to interpret because of the black-box nature of the employed machine learning models. However, interpretation is useful for understanding the predictive model and providing more answers about its behavior. Moreover, combining many post-retrieval features is not applicable to real-world cases, since the query running time is of utter importance. In this paper, we investigate a new framework for feature selection in which the trained model explains well the prediction. We introduce a step-wise (forward and backward) model selection approach where different subsets of query features are used to fit different models from which the system selects the best one. We evaluate our approach on four TREC collections using standard QPP features. We also develop two QPP features to address the issue of querydrift in the query feedback setting. We found that: (1) our model based on a limited number of selected features is as good as more complex models for QPP and better than non-selective models; (2) our model is more efficient than complex models during inference time since it requires fewer features; (3) the predictive model is readable and understandable; and (4) one of our new QPP features is consistently selected across different collections, proving its usefulness.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "S\u00e9bastien D\u00e9jean"
+    }
+  ],
+  "id": "SP:45ba821aa5b5e15138d7fc01f787db597d3abac6",
+  "references": [
+    {
+      "authors": [
+        "Adrian-Gabriel Chifu",
+        "S\u00e9bastien D\u00e9jean",
+        "Stefano Mizzaro",
+        "Josiane Mothe"
+      ],
+      "title": "Human-based query difficulty prediction",
+      "venue": "In European Conference on Information Retrieval,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Steve Cronen-Townsend",
+        "Yun Zhou",
+        "W Bruce Croft"
+      ],
+      "title": "Predicting query performance",
+      "venue": "In International ACM SIGIR conference on Research and development in information retrieval,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Josiane Mothe",
+        "Ludovic Tanguy"
+      ],
+      "title": "Linguistic features to predict query difficulty. In ACM Conference on research and Development in Information Retrieval, SIGIR, Predicting query difficulty-methods and applications workshop",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "Claudia Hauff",
+        "Leif Azzopardi",
+        "Djoerd Hiemstra"
+      ],
+      "title": "The combination and evaluation of query performance prediction methods",
+      "venue": "In European Conference on IR Research on Advances in Information Retrieval,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Anna Shtok",
+        "Oren Kurland",
+        "David Carmel"
+      ],
+      "title": "Using statistical decision theory and relevance models for queryperformance prediction",
+      "venue": "In Int. ACM SIGIR conference on Research and development in information retrieval,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Ronan Cummins"
+      ],
+      "title": "Document score distribution models for query performance inference and prediction",
+      "venue": "ACM Transactions on Information Systems (TOIS),",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Yun Zhou",
+        "W Bruce Croft"
+      ],
+      "title": "Query performance prediction in web search environments",
+      "venue": "In International ACM SIGIR conference on Research and development in information retrieval,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Fiana Raiber",
+        "Oren Kurland"
+      ],
+      "title": "Query-performance prediction: Setting the expectations straight",
+      "venue": "In International ACM SIGIR Conference on Research and Development in Information Retrieval,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Haggai Roitman"
+      ],
+      "title": "An extended query performance prediction framework utilizing passage-level information",
+      "venue": "In International ACM SIGIR Conference on Theory of Information Retrieval,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Eduardo Vicente-L\u00f3pez",
+        "Luis M de Campos",
+        "Juan M Fern\u00e1ndez-Luna",
+        "Juan F Huete"
+      ],
+      "title": "Predicting ir personalization performance using pre-retrieval query predictors",
+      "venue": "J. of Intelligent Information Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Philip Adler",
+        "Casey Falk",
+        "Sorelle A Friedler",
+        "Tionney Nix",
+        "Gabriel Rybeck",
+        "Carlos Scheidegger",
+        "Brandon Smith",
+        "Suresh Venkatasubramanian"
+      ],
+      "title": "Auditing black-box models for indirect influence",
+      "venue": "Knowledge and Information Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Carlos Castillo"
+      ],
+      "title": "Fairness and transparency in ranking",
+      "venue": "In ACM SIGIR Forum,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Bruno Lepri",
+        "Nuria Oliver",
+        "Emmanuel Letouz\u00e9",
+        "Alex Pentland",
+        "Patrick Vinck"
+      ],
+      "title": "Fair, transparent, and accountable algorithmic decision-making processes",
+      "venue": "Philosophy & Technology,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Sihai Dave Zhao",
+        "Giovanni Parmigiani",
+        "Curtis Huttenhower",
+        "Levi Waldron"
+      ],
+      "title": "M\u00e1s-o-menos: a simple sign averaging method for discrimination in genomic data analysis",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Athanasios Andreou",
+        "Giridhari Venkatadri",
+        "Oana Goga",
+        "Krishna Gummadi",
+        "Patrick Loiseau",
+        "Alan Mislove"
+      ],
+      "title": "Investigating ad transparency mechanisms in social media: A case study of facebook\u2019s explanations",
+      "venue": "In Network and Distributed System Security Symposium (NDSS),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Xuemeng Song",
+        "Xiang Wang",
+        "Liqiang Nie",
+        "Xiangnan He",
+        "Zhumin Chen",
+        "Wei Liu"
+      ],
+      "title": "A personal privacy preserving framework: I let you know who can see what",
+      "venue": "In International ACM SIGIR Conference on Research & Development in Information Retrieval,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Aditya Chattopadhay",
+        "Anirban Sarkar",
+        "Prantik Howlader",
+        "Vineeth N. Balasubramanian"
+      ],
+      "title": "Grad-cam++: Generalized gradient-based visual explanations for deep convolutional networks",
+      "venue": "In IEEE Winter Conference on Applications of Computer Vision (WACV),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ramprasaath R. Selvaraju",
+        "Michael Cogswell",
+        "Abhishek Das",
+        "Ramakrishna Vedantam",
+        "Devi Parikh",
+        "Dhruv Batra"
+      ],
+      "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization",
+      "venue": "In IEEE International Conference on Computer Vision (ICCV),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Gerard V. Trunk"
+      ],
+      "title": "A problem of dimensionality: A simple example",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence,",
+      "year": 1979
+    },
+    {
+      "authors": [
+        "Isabelle Guyon",
+        "Andr\u00e9 Elisseeff"
+      ],
+      "title": "An introduction to variable and feature selection",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "J.H. Stapleton"
+      ],
+      "title": "Linear Statistical Models. Wiley Series in Probability and Statistics",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Carl Edward Rasmussen",
+        "Zoubin Ghahramani"
+      ],
+      "title": "Occam\u2019s razor",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Gerda Claeskens",
+        "Nils Lid Hjort"
+      ],
+      "title": "Model selection and model averaging, volume 330",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Elad Yom-Tov",
+        "Shai Fine",
+        "David Carmel",
+        "Adam Darlow"
+      ],
+      "title": "Learning to estimate query difficulty",
+      "venue": "In International ACM SIGIR conference on Research and development in information retrieval,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "Karen Sp\u00e4rck Jones"
+      ],
+      "title": "A statistical interpretation of term specificity and its application in retrieval",
+      "venue": "Journal of Documentation,",
+      "year": 1972
+    },
+    {
+      "authors": [
+        "Josiane Mothe",
+        "Ludovic Tanguy"
+      ],
+      "title": "Linguistic analysis of users\u2019 queries: towards an adaptive information retrieval system",
+      "venue": "In IEEE Conference on Signal-Image Technologies and Internet-Based System,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Ben He",
+        "Iadh Ounis"
+      ],
+      "title": "Inferring query performance using pre-retrieval predictors",
+      "venue": "In String processing and information retrieval,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Claudia Hauff",
+        "Djoerd Hiemstra",
+        "Franciska de Jong"
+      ],
+      "title": "A survey of pre-retrieval query performance predictors",
+      "venue": "In ACM conference on Information and knowledge management,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Serge Molina",
+        "Josiane Mothe",
+        "Dorian Roques",
+        "Ludovic Tanguy",
+        "Md Zia Ullah"
+      ],
+      "title": "IRIT-QFR: IRIT Query Feature Resource",
+      "venue": "In Int. Conference and Labs of the Evaluation Forum,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Fernando Diaz"
+      ],
+      "title": "Performance prediction using spatial autocorrelation",
+      "venue": "In International ACM SIGIR conference on Research and development in information retrieval,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Anna Shtok",
+        "Oren Kurland",
+        "David Carmel",
+        "Fiana Raiber",
+        "Gad Markovits"
+      ],
+      "title": "Predicting query performance by query-drift estimation",
+      "venue": "ACM Transactions on Information Systems (TOIS),",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Haggai Roitman"
+      ],
+      "title": "An enhanced approach to query performance prediction using reference lists",
+      "venue": "In International ACM SIGIR Conference on Research and Development in Information Retrieval,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Hamed Zamani",
+        "W. Bruce Croft",
+        "J. Shane Culpepper"
+      ],
+      "title": "Neural query performance prediction using weak supervision from multiple signals",
+      "venue": "In International ACM SIGIR Conference on Research and Development in Information Retrieval,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Shariq Bashir"
+      ],
+      "title": "Combining pre-retrieval query quality predictors using genetic programming",
+      "venue": "Applied Intelligence,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Kevyn Collins-Thompson",
+        "Paul N Bennett"
+      ],
+      "title": "Predicting query performance via classification",
+      "venue": "In European Conf. on Information Retrieval,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Ben He",
+        "Iadh Ounis"
+      ],
+      "title": "Query performance prediction",
+      "venue": "Information Systems,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Mattan Winaver",
+        "Oren Kurland",
+        "Carmel Domshlak"
+      ],
+      "title": "Towards robust query expansion: model selection in the language modeling framework",
+      "venue": "In International ACM SIGIR conference on Research and development in information retrieval,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Yun Zhou",
+        "W Bruce Croft"
+      ],
+      "title": "Ranking robustness: a novel framework to predict query performance",
+      "venue": "In ACM International conference on Information and knowledge management,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Claudia Hauff"
+      ],
+      "title": "Predicting the effectiveness of queries and retrieval systems",
+      "venue": "SIGIR Forum,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Thorsten Joachims"
+      ],
+      "title": "Training linear svms in linear time",
+      "venue": "In International ACM SIGKDD Conference on Knowledge Discovery and Data Mining, KDD",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Alvin C Rencher",
+        "G Bruce Schaalje"
+      ],
+      "title": "Linear models in statistics",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "David Carmel",
+        "Elad Yom-Tov"
+      ],
+      "title": "Estimating the query difficulty for information retrieval",
+      "venue": "Synthesis Lectures on Information Concepts, Retrieval, and Services,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Adrian-Gabriel Chifu",
+        "L\u00e9a Laporte",
+        "Josiane Mothe",
+        "Md Zia Ullah"
+      ],
+      "title": "Query performance prediction focused on summarized letor features",
+      "venue": "In International ACM SIGIR Conference on Research and Development in Information Retrieval,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Robert Tibshirani"
+      ],
+      "title": "Regression shrinkage and selection via the lasso",
+      "venue": "Journal of the Royal Statistical Society. Series B (Methodological),",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "Hui Zou",
+        "Trevor Hastie"
+      ],
+      "title": "Regularization and variable selection via the elastic net",
+      "venue": "J. of the Royal Statistical Society: Series B (Statistical Methodology),",
+      "year": 2005
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "In information retrieval (IR), query performance prediction (QPP) aims at automatically predicting the effectiveness of a system for a given query, without relevance judgments. QPP is useful to inform an IR system whether a query is difficult or not, allowing the system to process it differently. For example, in case of a difficult query, the system could either apply a specific automatic query reformulation or engage in an interactive session with the user in order to provide a better answer [1].\nQuery performance prediction uses query features that are extracted prior to running the query through the system (pre-retrieval) and/or from the initially-retrieved documents (post-retrieval). Intuitively, a good QPP feature should significantly correlate with the actual effectiveness of the IR system. Post-retrieval QPP features have been found to be more effective that pre-retrieval features, although they are much more expensive to calculate, as they\nar X\niv :1\n91 2.\n04 10\n7v 1\nneed the IR system to run the query in order to make the prediction. While the first studies on QPP used single features [2, 3, 4, 5, 6], a more recent path is to combine various query features [7, 4, 8, 9, 10]. While combining multiple post-retrieval features improves accuracy, the method becomes applicable in real-world scenarios only if the number of features is limited to just a few, due to the increased computational time required for obtaining these features. A state-of-the-art method for combining QPP features, that, however, does not take into account these critical issues, is Raiber et al.\u2019s [8]. Their system uses a pairwise learning-to-rank model that combines several existing QPP features. It uses a large number of features, deeming it unlikely to be implemented in real-world systems. Moreover, their method results in a non-interpretable model, due to the employed machine learning (ML) method.\nModel interpretability refers to fairness, accountability, and transparency in machine learning [11, 12, 13], either for compulsory reasons (e.g. in the banking domain, the decision on accepting/rejecting mortgage) or because the end users want to understand the decisions taken by the ML model [14, 15]. Although fairness and transparency are not yet considered as requirements by search engine users, these features could become more popular with the growing awareness of the influence of search engines on social media users\u2019 opinion through the information these engines recommend to the users using sophisticated ML algorithms based on past queries (e.g. influence in political pools, fake news diffusion or unwanted ads). Moreover, public authorities may also require transparency in the near future for users\u2019 rights defense and privacy purposes [16]. Linear models (e.g. linear regression, SVM with the linear kernel) ensure this transparency, although some recent studies also explain how deep networks make decisions [17, 18].\nNevertheless, to our best knowledge, there is no previous effort to build interpretable models for QPP. In addition to the previously mentioned advantages, an interpretable QPP model would have another huge advantage over noninterpretable ones, considering our lack of understanding of query difficulty. Gaining additional insights from an interpretable model about the difficulty of a query would allow us to propose means for the system to overcome this difficulty.\nIn this paper, we propose a QPP approach that combines various features, yet, results in an interpretable and transparent model, so that we know the influence of each feature on the prediction. As a matter of fact, interpretability and transparency should not prevail in detriment of effectiveness. Hence, the model interpretability vs. effectiveness trade-off challenge corresponds to our first research question:\nRQ1: Can we design an interpretable and transparent model for QPP that is as effective as complex state-of-the-art black-box models?\nOne could argue that the prediction performance improves as the model considers more and more features. However, this statement holds only up to some point [19], due to the curse of dimensionality. The curse of dimensionality is particularly problematic when few training examples are available, which happens for QPP evaluated on international reference collections (the only ones available for academic research). A smaller number of features reduces the model uncertainty and improves performance because fewer parameters have to be estimated in the model. Moreover, using more features increases the processing time of the model to the point where it becomes less applicable in real-world scenarios. These considerations are mentioned in present guidelines for IR practitioners [20, 21], being crucial for QPP due to the reliance on post-retrieval features which ensure effectiveness. On the other hand, feature selection poses the challenge of finding the appropriate criteria or strategies to select features in an optimal way. We tackle this problem in our second research question:\nRQ2: How selective can a white-box model be, without degrading prediction performance as compared to a non-selective one?\nTo solve our two research questions, we develop a new feature selection model for QPP, whose main advantage compared to other related feature selection and QPP models is that it is parameter-free, making it applicable without tuning.\nMore precisely, our proposed framework is based on an iterative model selection procedure founded on linear regression, one of the most popular yet readable ML approaches. Linear regression is also known for its simplicity, following the Ockham\u2019s razor problem-solving principle that essentially states that \u201csimpler solutions are more likely to be correct than complex ones\" [22, 23]. However, rather than calculating the importance of each feature in one shot as linear regression does, we implement an iterative process which, at each step, adds a new feature to test or removes the least performing feature. Moreover, our approach uses a model selection criterion and is able to consider a large set of candidate features. While this approach has been used in machine learning [24], to our knowledge, it has never been considered in QPP.\nIn terms of performance prediction, we found that our model is consistently better than non-selective linear regression. We also compare our model with the penalized regression model called LASSO [4], which selects features by shrinking some feature coefficients to zero. The results reveal that our proposed model outperforms LASSO in\nmost of the cases. Moreover, compared to LASSO, our method is parameter free and keeps fewer features, thus being less costly to use in the real world. Finally, we compare our model to that of Raiber et al. [8], which is the most recent approach that combines features and uses the same evaluation setting as ours. We found no statistically significant difference between our model and that of Raiber et al. [8], while our model is simpler, interpretable, and uses fewer features. We also investigate the inference times required by our model versus Raiber\u2019s et al. [8] model, during prediction of the query performance. The time evaluation shows that our model requires less time than Raiber\u2019s et al. [8]. We also found that our method consistently selects a specific group of features across collections for different folds and trials; one of these features is the QFTERM proposed in this work.\nThe remainder of this paper is structured as follows. Section 2 includes the related work. Section 3 presents our framework of stepwise model selection for query performance prediction. Section 4 presents the data collections, evaluation metrics, and experimental settings used for the evaluation part. Section 5 reports the evaluation of the proposed framework and the answers to our research questions. Finally, Section 6 concludes this work and presents some future directions."
+    },
+    {
+      "heading": "2 Related Work",
+      "text": "The core objective of our paper is to define an optimal readable model that combines query features, selects the most important ones, and can explain the predicted values as opposed to black-boxes. Work related to our paper is about (a) query performance predictors and (b) methods to combine predictors.\nQuery performance predictors. Query performance prediction aims at automatically estimating the performance of a query [25] without relevance judgment. Pre-retrieval predictors were defined first, and they can be calculated prior to any search for the given query. Examples of pre-retrieval predictors are the Inverse Document Frequency (IDF) [26] or SynSet (the average number of query term senses) [27]. Further pre-retrieval QPPs have been defined in the literature, including the CLARITY score [2], the query complexity [3], and the query scope [28]. However, the post-retrieval features have been shown to be more effective [29, 5, 30].\nPost-retrieval predictors require to search through the documents to compute their scores and thus to predict the query difficulty. For example, Diaz [31] found that \u201clow correlation between scores of topically close documents often implies a poor retrieval performance\" and suggested a spatial analysis of retrieval scores for QPP. Indeed, several QPPs from the literature rely on document scores. Examples of post-retrieval predictors are: the agreement between the entire query results and the results obtained when using sub-queries [25], Query Feedback (QF) [7], Weighted Information Gain (WIG) [7], CLARITY [2], Normalized Query Commitment (NQC) [32], and scoredistribution models [6]. Roitman et al. proposed an enhanced QPP estimator based on calibrating the retrieved document scores through learning document-level features [33]. Zamani et al. [34] proposed a NeuralQPP method based on integrating the retrieval scores, the term distribution, and the continuous representation of the top-retrieved documents by training a neural network with multiple weak supervision signals.\nCombining query features. Several previous studies attempted to combine multiple query features or predictors. Bashir [35] employed a genetic algorithm to combine multiple pre-retrieval features and showed that it is more effective than using any single predictor. However, a straightforward way to combine features to predict a target value is by linear regression, and most of the related works combining features that way [7, 4].\nZhou and Croft [7] combined WIG and QF post-retrieval predictors in a linear way, showing that the combination improves performance. Shtok et al. [5] proposed a framework based on statistical decision theory to estimate the utility of a document ranking for QPP, considering four predictors (WIG, QF, CLARITY, NQC). They reached to the same conclusion as [7], namely that WIG and QF are worth combining. Collins-Thompson et al. [36] used a regression tree for QPP by combining features based on divergences between language or topic model representations, such as simplified clarity [37], query drift [38], clarity [2], expansion drift [39], and expansion clarity [36].\nHauff [40] used the absolute shrinkage and selection operator (LASSO) penalization when combining pre-retrieval features using linear regression. The LASSO penalization in linear regression aims at making the model sparse by removing features that roughly correspond to the smallest coefficients of the model. Even if LASSO exhibits proficiency in selecting the most important features, it relies on a parameter that has to be tuned optimally, for instance, using a cross-validation approach that can be time-consuming. Therefore, we rather opted for a stepwise approach with a straightforward implementation since it is parameter free.\nAnother closely related work is that of Raiber et al. [8]. They proposed a pairwise learning-to-rank model, that combines several existing pre-and post-retrieval QPP features through a two-stage training [41] process. In the first stage, the SVM-rank-based training combines several variants of individual post-retrieval features (e.g. NQC [32]) calculated for different hyper-parameter values and for several QPP features. In the second stage, another SVM-\nrank-based training combines all the QPPs from the first stage, while weighting them according to the weights learned in the first step. The main reason why the two stages are needed is the (large) number of features (and/or feature variants) compared to the relatively small number of training examples. Although this framework [8] shows convincing performance, (a) it is computationally expensive at inference time since all the features are used in the final model, for both training and inference. Moreover, there are as many SVM-rank-based training procedures as the number of QPP features (first stage) plus an additional SVM training in the second stage and (b) the method is not parameter free, specifically in its adaption to sparse SVM. Since it is computationally expensive to extract the many QPP features required by Raiber\u2019s framework [8] in the second stage, we rather develop a selective model which requires only a few features."
+    },
+    {
+      "heading": "3 Stepwise Model Selection for QPP",
+      "text": "In this section, we describe our novel framework for selecting features to be used in the query performance predictive model. It employs an iterative process which relies on model selection theory in the context of linear regression and aims at combining various query features into a readable model. Not all the features are equally important and our model aims at optimizing the feature selection. Moreover, we use an iterative algorithm in order to select the best predictive model. While our model belongs to the group of models that have a solid mathematical background, we think it is worth providing the basics of linear regression for readers unfamiliar to ML, since our model is based on an adaption of it.\nLinear model as a basis for predictor combination. Our model is founded on the theory of linear models [42]. A linear model links a response variable y to several predicting variables xj , j = 1, . . . , p. In our context, xj refers to a query feature and y refers to a performance measure representing the ground-truth effectiveness, that our model aims at predicting. We can model the performance measure according to query features and express it as the following linear model:\nyi = \u03b21 \u00b7 x1i + \u03b22 \u00b7 x2i + \u00b7 \u00b7 \u00b7+ \u03b2p \u00b7 x p i + \u03b20 + \u03b5i,\u2200i \u2208 {1, . . . , n}, (1)\nwhere i is the index of a query. A standard assumption for linear models is that \u03b5i v N (\u00b5, \u03c32), expressing that the residuals contain only noise. Equivalently, the linear model can be expressed using vector and matrix notations: Y = X\u03b2\u2032 + \u03b5, (2) where Y and \u03b5 are n-dimensional vectors, \u03b2 is a (p + 1)-dimensional row vector of weights, \u03b2\u2032 is the transposed (column) vector, and X is a n \u00d7 (p + 1) matrix containing n training examples. Our choice toward a linear model for QPP is driven by better interpretability and by the theoretical background we can rely on.\nParameter estimation. In the linear model, the unknown parameters \u03b2j can be estimated using maximum likelihood. In statistics, the likelihood function expresses the way the parameters to be estimated are associated to the data actually observed. Maximizing the likelihood function consists in finding the values of the parameters that plausibly describe the observations. Using the previously defined setting, the likelihood function is given by:\nL(\u03b2, \u03c32) = (2\u03c0\u03c32) \u2212n/2exp ( \u2212 1 2\u03c32 n\u2211 i=1 (yi \u2212Xi\u03b2)2 ) . (3)\nMaximizing L(\u03b2, \u03c32) is equivalent to maximizing logL(\u03b2, \u03c32) which is easier to handle and maximize. We thus want to maximize:\nlogL(\u03b2, \u03c32) = \u2212n 2 log(2\u03c0)\u2212 n 2 log(\u03c32)\u2212 1 2\u03c32 n\u2211 i=1 (yi \u2212Xi\u03b2)2. (4)\nThe maximum (log-)likelihood is reached when the partial derivative according to each parameter is zero. This leads to the following estimators for \u03b2 and \u03c32: {\n\u03b2\u0302 = (X \u2032X)\u22121X \u2032Y \u03c3\u03022 = 1n (Y \u2212X\u03b2\u0302) \u2032(Y \u2212X\u03b2\u0302)\n(5)\nOnce the parameters are estimated, the model can infer the fitted values for the performance measure y. Statistical testing (or equivalently confidence intervals) can be used to assess the significance of the parameters. The null hypothesis relies on the nullity of the parameters, i.e. on the uselessness of the associated features to predict the effectiveness of the system. It is interpreted through one p-value associated with each parameter. The p-value can be viewed as the probability to make an error when rejecting the null hypothesis. In other words, it is the probability of considering that the feature is not relevant to predict the performance measure, while the opposite is true. Based\non the p-value, a feature could be excluded but that feature might be important if combined with others. Thus, we consider combining features rather than accepting or rejecting individual features.\nAnother crucial issue in linear modeling is variable selection, especially when dealing with a relatively large number of predicting variables. To address this issue, one has to go beyond elementary indicators, that mechanically increase with the number of variables. We chose to focus on the Akaike Information Criterion (AIC) [24] for assessing the goodness of fit of a linear model.\nAkaike Information Criterion. This criterion is defined from the log-likelihood and uses a penalty to limit the number of parameters in the model. The function to minimize is defined as follows:\nAIC = \u22122 logL(\u03b2, \u03c32) + 2 \u00b7 k, (6) where k is the number of retained predictors.\nAIC aims at selecting the most important features of the linear model. If a feature is kept, then a parameter is estimated to assess its influence in the linear model. As mentioned above, the parameters in a linear model can be estimated through the maximization of the (log-)likelihood. AIC is based on the opposite of the log-likelihood, thus requiring minimization. However, the penalty term added in AIC (2 \u00b7 k) depends on the number of parameters k to be estimated in the model (the same as the number of features included to predict the performance): the higher the number of parameters, the higher the penalty. Therefore, using AIC will ensure that the model does not use \u201ctoo many\" features and will keep only the most significant ones. Moreover, AIC can be used as a stopping rule for stepwise algorithms for model selection, as shown below.\nAn iterative stepwise selection algorithm. Our proposed framework is based on a model selection approach. This means different models are fitted with different subsets of features and the system selects the best model. This selection process is iterative.\nMore precisely, we employ a stepwise algorithm which mixes two strategies: forward and backward. Basically, the forward strategy starts from the model with no predictors and adds at each step the feature with the smallest p-value, thus possibly, the most useful because its coefficient in the linear model can be considered as significantly different from zero with a very low risk (quantified by the p-value) to be wrong. A stopping rule is based on a threshold for the p-value. On the other hand, the backward strategy starts from the complete model with all available features and, at each step, removes the feature with the highest p-value. In this case, the p-value can be interpreted as the probability to make an error if we consider that the coefficient of the feature is not null. The stepwise strategy combines the forward and backward strategies by attempting to remove a feature (applying backward) each time another one is added in the model (applying forward). This strategy is improved using AIC as a criterion instead of considering a threshold on the p-value. That is what we use in the following. Although this approach has been used in other ML tasks, it has never been used for QPP. We believe that AIC is worth investigating because of the cost of using multiple post-retrieval prediction features.\nOur stepwise algorithm is an automatic model specification based on the AIC criterion. Starting from the complete model, the stepwise algorithm aims at decreasing the AIC at each step, using one of the two possible operations: (a) Remove one variable (obviously, this is the only option at the first step when starting from the complete model); (b) Add one variable removed in an earlier step.\nThe algorithm stops when the AIC criterion cannot be further decreased by removing or adding a variable. We note that our iterative feature selection algorithm is employed only at train time and it does not affect inference time.\nFigure 1 illustrates the selection process when eight variables are used. The initial model consists of 8 variables. In Step 1, we cannot add any variable, the only possibility is to remove one. Eight models are built consisting each of 7 variables. Let us assume that the model without V6 got the lowest AIC. The model without V6 is the starting point for Step 2. In Step 2, we can either add V6 or remove one of the other 7 variables. We thus test these 8 possible models and keep the one with the lowest AIC. Let us assume that removing V3 is the best. We now have a model with 6 variables where V3 and V6 do not belong to. This model is used to start Step 3. We can either add one of these 2 variables or remove the third one (6 possibilities). Again, we test all the models. Let us assume that removing V5 leads to the smallest AIC; we would keep the model with 5 variables for the next step."
+    },
+    {
+      "heading": "4 Data Collections and Evaluation",
+      "text": "Data collections. We considered four standard TREC collections from the ad-hoc task as follows: Robust, GOV2, WT10G, and ClueWeb12-B13. For Robust, there are approximately 500K newspaper articles. WT10G is composed of 1.6 million web/blog page documents. GOV2 includes 25 million web pages and ClueWeb12-B13 subset includes 50 million web pages. Table 1 summarizes a few features about the collections used for evaluation. The four TREC\ntest collections also include topics. The \u201cstandard\" format of a TREC topic statement comprises a topic ID, a title, a description, and a narrative. In our experiments, a query is composed of the topic title that contains two or three words representing the keywords a user could have used as a search query. Finally, the collections provide qrels (i.e. judged documents, relevant or non-relevant, for each query), which are used by the evaluation program trec_eval1 in order to calculate the effectiveness of the IR system.\nQuery performance predictors. Several post-retrieval features have been proposed in the literature as QPP features and we reuse the main ones in this paper. We also propose two new post-retrieval features named QFTERM and QFJSD as variants of QFDOC [7]. Our proposed QPP features, as well as the state-of-the-art ones, are described as follows: - QFDOC [7]: estimates the query feedback as the percentage of overlap at some rank between the returned document lists for the original query and the expanded query induced from the initially retrieved documents. It measures the query-drift. - QFTERM (ours): we argue that the overlap at the document level, as computed by QFDOC, is too strict to estimate the discrepancy. We thus propose to relax this phenomenon at the term level, computing the percentage\n1http://trec.nist.gov/trec_eval/\nof overlap between the list of terms available in the top-retrieved documents for the original query and the term list for the expanded query. The higher the percentage of term overlaps, the higher is the chance that the top-retrieved documents cover many relevant documents, since the expanded query is not too drifted away from the original query. - QFJSD (ours): instead of computing the percentage of overlap at the document level between the top-retrieved documents for the original and the expanded queries, as QFDOC does, we rather measure the query feedback based on the similarity of term statistics between the two document lists, considering that a higher similarity value should correspond to a lower query-drift and a higher query performance. To estimate the similarity of term statistics between the two lists, we first build language models from the top-retrieved documents for the original query and the expanded query, respectively. Then, we apply the Jensen-Shannon divergence between the two language models to estimate how similar they are. - CLARITY [2]: estimates the relative entropy between the relevance language models of the top retrieved documents and the corpus. - WIG [7]: corresponds to the divergence between the mean of the top-retrieved document scores and the mean of the entire set of document scores. - NQC [32]: is based on the standard deviation of the retrieved document scores. - UQC [32]: is a variant of the NQC predictor, based on the standard deviation of the retrieved document scores without normalization. - SW1 [8]: is the ratio between the number of stop and non-stop words in each document, averaged over the topretrieved documents for a query.\nThese QPP features can be estimated for different numbers of n-top-ranked feedback documents where n is a hyper-parameter. In this work, we consider 6 values of n = {10, 50, 100, 200, 500, and 1000}. Moreover, to compute QFDOC, QFTERM, and QFJSD, we need to know the cutoff rank (termed QFcut) at which the percentage of overlap is computed for each hyper-parameter n. According to common practice [32, 8, 33], we define QFcut = min(50, n), i.e. the percentage of overlap is calculated for at most 50 documents.\nEvaluation metrics. We use the Pearson and Spearman correlations between the predicted effectiveness value and the ground-truth effectiveness, as in previous works [4, 43, 33, 44, 34, 9]. To measure the ground-truth effectiveness of the system, we use AP (average precision) and NDCG (normalized discounted cumulative gain) since they are commonly adopted in related works [4, 8, 33, 44, 34].\nExperimental settings. As a common practice in QPP evaluation [8, 9, 34], we randomly split the queries into two equally-sized sets and conduct two-fold cross-validation. We repeat these steps for 30 times and report the average results. Statistically significant differences of prediction performance are estimated using two-tailed paired t-test with Bonferroni correction (p < 0.05) computed over the 30 splits. Similar to previous works [2, 7, 5, 8], we chose the Language Modeling with Dirichlet smoothing and \u00b5 = 1000 without query expansion (as implemented in Lemur Indri platform, using default parameters) to retrieve n documents for each query and to calculate the performance of the IR system (and thus, determine the results to be predicted in terms of AP or NDCG)."
+    },
+    {
+      "heading": "5 Results and Discussions",
+      "text": "Trade-off between sparsity and effectiveness. To answer our two research questions, we first study the correlation between the predicted and the ground-truth effectiveness (Table 2). When the Pearson correlation coefficient is employed, we measured the correlation between the predicted value and the actual value (the reference system is the language model with \u00b5 = 1000). When the Spearman correlation coefficient is used, we measured the correlation between the ranks of the queries obtained when ordered by the predicted effectiveness and the actual effectiveness.\nIn Table 2, the first row is obtained by using the linear model (LM) with all the features in a single step (1S), a baseline that achieves readability, but not sparsity. The models listed on the subsequent rows use a two-stage approach as in [8], where the second step is either SVM-rank [8] (second row) or one of the models that ensure interpretability, as follows: LM (third row) refers to the linear model; LASSO (fourth row) is the LASSO selection [45] that ensure sparsity. Finally, the last row (AIC FS) corresponds to our proposed method of feature selection (FS) using the AIC criterion.\nFrom the results displayed in Table 2, we observe that Raiber et al.\u2019s [8] two-stage framework outperforms the one-stage linear regression baseline. Indeed, rows 2 to 5 indicate significant increases in correlation compared to the first baseline (see M in the table), irrespective of the model, the collection or the correlation measure being used. This result was expected considering the state-of-the-art results, but was worth checking2.\nMore interestingly, we notice that, in Table 2, the three models we implemented (LM, LASSO and AIC FS) are generally (a) close to one another in terms of results, (b) without significant differences with respect to Raiber et al. [8], apart from a few cases (see \u2193 and \u2191 in the table). These results show that it is possible to use an interpretable model without decreasing effectiveness. From these three models, only LASSO and AIC FS ensure sparsity; we thus focus next on the results obtained by these models.\nLASSO and AIC FS perform almost the same apart from a few cases where LASSO is slightly better (ROBUST AP and GOV2) or, conversely, where AIC is slightly better (WT10G). However, one important observation is that LASSO has a shrinkage parameter \u03bb that needs to be tuned. In our experiments, we fitted it using 10-fold crossvalidation, thus using the same data for both parameter fitting and model training, giving a clear advantage to LASSO in our experiments. In a preliminary set of experiments, we found that the transfer learning of \u03bb (learning the parameter on a collection and using that value for another collection), that would make a fair comparison between LASSO and AIC FS, did not work at all for LASSO. Hence, \u03bb has to be tuned separately for each collection, which is a clear drawback of LASSO compared to our parameter-free selection model based on the AIC criterion.\nWhile one could have hypothesized that using all the features (the 1st and 3rd rows in Table 2) would have outperformed all the selective methods, this is not the case. This result is likely due to the curse of dimensionality [19]. This is an important result, as one crucial advantage of selective methods is to avoid calculating some features at inference time, that are not kept in the trained model. This also follows the Ockham\u2019s principle \u201cthe law of briefness\", that is \u201cmore things should not be used than are necessary.\" In the case of AIC, not only a limited number of features have to be computed, but the results are also better than using all features.\nSparsity and time complexity of the resulting models. As eight predictors are not that many, one may argue that this is a reasonable number which does not require feature selection. However, each feature can take valuable time in order to be computed, e.g. WIG requires 3.8 seconds on average for each query from the TRECROBUST collection on a machine having 8GB of RAM and processing on a single core. Thus, sparsity is an important issue when the number of predictors is large and/or costly to compute. Moreover, a smaller number of predictors leads to a simpler model and easier interpretation [46].\nTo investigate the sparsity of our model, we computed the number of features selected in the second stage for the different models. We start from eight QPP features in the second stage, two folds, and 30 trials. Since different numbers of features may be selected by a model across trials, we compute the average number of selected features. Table 3 reports the average number of features selected by Raiber et al. [8] and AIC FS models. Remarkably, our method, AIC, selects much fewer features than Raiber et al. [8] across all collections. The average number of features selected by AIC ranges from 2 to 5, while maintaining a similar performance to SVM-rank [8], that uses 7 to 8 features. This makes our method more applicable in real-world systems.\nIn Table 3, we also report the inference times required by our model versus Raiber\u2019s et al. [8] model, respectively, during prediction of the query performance. The time evaluation shows that AIC FS takes less time than Raiber\u2019s et al. [8] SVM to predict the query performance, since AIC FS requires fewer QPP features.\nMost important features and interpretability. For a deeper understanding, we analyze the features selected by our AIC model, presenting the usefulness of each feature in Figure 2 (similar results are obtained for NDCG).\n2The linear model with a single step (1S LM) does not work well apart from the Robust collection.\nWe compute the number of times a feature was selected (SF ) by our model, for two folds in 30 trials. Then, we compute the percentage of selecting that feature as SFTF \u00d7100, where TF denotes the number of times a feature could be selected, i.e. the number of folds times the number of trials. This is done for all individual features per collection.\nOne interesting finding is that QFTERM, one of the feature we proposed in this paper, is consistently selected as\nan important feature. WIG is also consistently important. UQC and SW1 are more collection dependant, the first one being more important for ROBUST, WT10G, and GOV2, while the second one being more important for GOV2 and CW12B.\nThe proposed AIC FS method is easily interpretable and enables one to understand the trained model and to know the impact of each query features in QPP. To illustrate this, we include below a model obtained on GOV2 collection:\nQPP = .136 \u00b7 SW1 + .126 \u00b7QFTERM + .101 \u00b7 UQC + .091 \u00b7WIG+ .034 \u00b7 CLARITY + .184\n(7)\nWe can see that the weight of the two most important features (SW1 and QFTERM) are 30% higher than the two following ones (UQC and WIG); CLARITY is much less important."
+    },
+    {
+      "heading": "6 Conclusion",
+      "text": "In this paper, we promoted the use of model selection for combining query performance predictors. Our aim was twofold: (i) we wanted to contribute to shifting the effort from complex predictive models to simpler models and (ii) we wanted to develop a sparse and easy to interpret model. Indeed, we have shown that the trade-off between simplicity and effectiveness is in favour of our model. We showed that our selective framework achieves similar results in terms of correlation measures, while having the great advantage of using a limited number of features, and thus, being much cheaper for implementation in real-world systems. Our predictive approach based on the AIC selection strategy provides the best trade-off between the prediction accuracy and the number of features to be computed. During inference, the features selected by our framework are the only ones which need to be calculated. That gives a key advantage to our framework compared to the literature. Moreover, our model is interpretable, which is very important at this stage of query difficulty research. These results open the path to a better understanding of system failures by analyzing the model deeper.\nTo answer this challenge, in future work, we will analyze the influence of each of the selected features individually as well as their cost/effectiveness trade-off. Because the current results reveal that our new version of QFDOC feature, namely QFTERM, is the most important QPP feature in the model across collections and performance metrics, it will be worth to continue defining new QPP features to try to further improve query difficulty prediction."
+    }
+  ],
+  "title": "Forward and Backward Feature Selection for Query Performance Prediction",
+  "year": 2019
+}

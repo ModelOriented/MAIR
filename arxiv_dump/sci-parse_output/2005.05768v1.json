@@ -1,0 +1,181 @@
+{
+  "abstractText": "Recently, applying deep neural networks in IR has become an important and timely topic. For instance, Neural Ranking Models(NRMs) have shown promising performance compared to the traditional ranking models. However, explaining the ranking results has become even more difficult with NRM due to the complex structure of neural networks. On the other hand, a great deal of research is under progress on Interpretable Machine Learning(IML), including Grad-CAM. Grad-CAM is an attribution method and it can visualize the input regions that contribute to the network\u2019s output. In this paper, we adopt Grad-CAM for interpreting the ranking results of NRM. By adopting Grad-CAM, we analyze how each query-document term pair contributes to the matching score for a given pair of query and document. The visualization results provide insights on why a certain document is relevant to the given query. Also, the results show that neural ranking model captures the subtle notion of relevance. Our interpretation method and visualization results can be used for snippet generation and user query-intent analysis.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Jaekeol Choi"
+    },
+    {
+      "affiliations": [],
+      "name": "Jungin Choi"
+    },
+    {
+      "affiliations": [],
+      "name": "Wonjong Rhee"
+    }
+  ],
+  "id": "SP:1b070c9764267bb4e44eb738609e5db1716d9ab6",
+  "references": [
+    {
+      "authors": [
+        "Sebastian Bach",
+        "Alexander Binder",
+        "Gr\u00e9goire Montavon",
+        "Frederick Klauschen",
+        "Klaus-Robert M\u00fcller",
+        "Wojciech Samek"
+      ],
+      "title": "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation",
+      "venue": "PloS one 10,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Zeon Trevor Fernando",
+        "Jaspreet Singh",
+        "Avishek Anand"
+      ],
+      "title": "A study on the Interpretability of Neural Retrieval Models using DeepSHAP",
+      "venue": "In Proceedings of the 42nd International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Jiafeng Guo",
+        "Yixing Fan",
+        "Liang Pang",
+        "Liu Yang",
+        "Qingyao Ai",
+        "Hamed Zamani",
+        "Chen Wu",
+        "W Bruce Croft",
+        "Xueqi Cheng"
+      ],
+      "title": "A deep look into neural ranking models for information retrieval",
+      "venue": "Information Processing & Management",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Liang Pang",
+        "Yanyan Lan",
+        "Jiafeng Guo",
+        "Jun Xu",
+        "Shengxian Wan",
+        "Xueqi Cheng"
+      ],
+      "title": "Text matching as image recognition",
+      "venue": "In Thirtieth AAAI Conference on Artificial Intelligence",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Anchors: Highprecision model-agnostic explanations",
+      "venue": "In Thirty-Second AAAI Conference on Artificial Intelligence",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Ramprasaath R Selvaraju",
+        "Michael Cogswell",
+        "Abhishek Das",
+        "Ramakrishna Vedantam",
+        "Devi Parikh",
+        "Dhruv Batra"
+      ],
+      "title": "Grad-cam: Visual explanations from deep networks via gradient-based localization",
+      "venue": "In Proceedings of the IEEE international conference on computer vision",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Karen Simonyan",
+        "Andrea Vedaldi",
+        "Andrew Zisserman"
+      ],
+      "title": "Deep inside convolutional networks: Visualising image classification models and saliency maps",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Jaspreet Singh",
+        "Avishek Anand"
+      ],
+      "title": "Posthoc interpretability of learning to rank models using secondary training data",
+      "venue": "arXiv preprint arXiv:1806.11330",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Jaspreet Singh",
+        "Avishek Anand"
+      ],
+      "title": "EXS: Explainable search using local model agnostic interpretability",
+      "venue": "In Proceedings of the Twelfth ACM International Conference on Web Search and Data",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Manisha Verma andDebasis Ganguly"
+      ],
+      "title": "LIRME: Locally Interpretable Ranking Model Explanation",
+      "venue": "In Proceedings of the 42nd International ACM SIGIR Conference on Research and Development in Information Retrieval",
+      "year": 2019
+    }
+  ],
+  "sections": [
+    {
+      "text": "KEYWORDS Interpretablity, neural ranking model, attribution method, GradCAM"
+    },
+    {
+      "heading": "1 INTRODUCTION",
+      "text": "Deep neural network has shown a great promise in various fields including computer vision and natural language processing. Neural network has a superior predictive power thanks to its complex architecture and large number of parameters, but instead it provides a very low level of explainability. To overcome the limitation of neural network being treated as a \"blackbox\", research on ML interpretability is actively under progress. While a great deal of research has been done in image tasks, little progress has been made in IR field, especially in ranking tasks.\nIn this paper, we propose an interpretation method of applying Grad-CAM algorithm to neural ranking model. Grad-CAM [6] is a recently proposed interpretation algorithm which measures each input\u2019s contribution to the target activation. Since Grad-CAM is applicable to CNN-based architecture, we choose MatchPyramid [4] as our model of interest. MatchPyramid, one of the interactionfocused model [3], uses query-document interaction matrix as input to the CNN. Each element of the interaction matrix,Mi j , denotes the similarity between qi , the i-th term in query and dj , the j-th term in document. Given a pair of query and document, we set the target activation as the final ranking score of the document. By deriving the localization map LGrad\u2212CAM , the output of the Grad-CAM algorithm, we measure the contribution of each (qi ,dj ) pair to the ranking score.\nWe provide explanations for following two questions: i)\"Given a query and a document, which components of the document contribute to the ranking result?\" ii) \"Given a query and a set of documents, which characteristics differentiate the ground truth document from the negative documents?\"\nFor the first question, we extracted effective terms and filtered terms from each document, given a query. We conducted an experiment to show that localization map L can be useful to extract the most query-relevant snippet from a document. For the second question, statistical analysis reveals several interesting observations. The ground truth document has higher values for K and \u2211 i \u2211 j Li j than the negative documents. K denotes the kurtosis of localization map L. \u2211 i \u2211 j Li j denotes the sum of contributions of every query-document term pairs within a document."
+    },
+    {
+      "heading": "2 RELATEDWORKS",
+      "text": "Model interpretabilitymethod can be categorized intomodel-agnostic approach and model-introspective approach: Model-agnostic approach [5, 8\u201310] tries to approximate the original \"blackbox\" model by learning an interpretable model. These methods can be applied to any types of model, but are limited to indirect explanations due to approximation. In contrast, model-introspective approach tries to explain the base model\u2019s operation by investigating the internal components such as features and gradients. In [2], they investigate the robustness and accuracy of different reference input methods in attempt to utilize DeepSHAP algorithm for NRM interpretability.\nWe believe that model-introspective approach has its advantage in providing direct explanation of ranking results. For classification tasks, there have been many model-introspective methods [1, 6, 7] to interpret neural network classifiers. In this respect, we propose a model-introspective NRM interpretation method by adapting Grad-CAM algorithm[6], a verified interpretation technique for image classifier. To the best of our knowledge, our work is the first systematic approach to investigate internal functionality of NRM."
+    },
+    {
+      "heading": "3 GRAD-CAM FOR NEURAL RANKING",
+      "text": "Grad-CAM is an attribution method to calculate each input\u2019s contribution to the output. Grad-CAM explains the output layer decision by using gradients flowing into the last convolutional layer of the CNN. In classification tasks, Grad-CAM is used to highlight the image regions that highly contribute to the class prediction score. In the context of ranking task, Grad-CAM can be used to explain how each input contributes to the matching score between a query and a document.\nFigure 1 shows the entire process of applying Grad-CAM algorithm to MatchPyramid ranking model. MatchPyramid[4], our model of interest, uses a query-document interaction matrixM as\nar X\niv :2\n00 5.\n05 76\n8v 1\n[ cs\n.I R\n] 1\n2 M\nay 2\n02 0\nthe CNN input. Each element of the interaction matrixMi j denotes the similarity between qi , the i-th term in query and dj , the j-th term in document. Interaction matrixM enters a CNN, producing high-level matching patterns. The high-level matching patterns are then fed into a multi-layer perceptron to produce the final matching score between a query and a document.\nGrad-CAM produces a localization map L \u2208 Ru\u00d7v which indicates the contribution of each term pair to the matching score. In order to obtain L, we first calculate the importance weight \u03b1k of each feature map Ak in the final convolutional layer.\n\u03b1k = 1 Z \u2211 i \u2211 j \u2202S(Q,D) \u2202Aki j\n(1)\nImportance weight \u03b1k is calculated by global-average pooling the gradients over the feature map dimensions. S(Q,D) denotes the matching score between a query Q and a document D. Ak denotes the k-th feature map of the last convolutional layer. Z denotes the number of elements in the feature map Ak .\nLGrad\u2212CAM = ReLU ( \u2211 k \u03b1kA k ) (2)\nLocalization map L is calculated by applying ReLU activation function to a weighted combination of feature map activations. In equation 2, L has the same size as Ak . We upsample L to the input size using bilinear interpolation. Each element of the upsampled localization map, Li j , denotes the contribution of the term pair (qi ,dj ) to the matching score. qi denotes the i-th term in query and dj denotes the j-th term in document. Heatmap visualization of the localization map is shown in Figure 2. By calculating the cumulative sum for each column of L, a flattened 1D-array l is obtained. Each element of the flattened array, lj , denotes the cumulative contribution of document term dj . By calculating the cumulative sum for each column of M , a flattened 1D-arraym is obtained. Each element of the flattened array,mj , denotes the cumulative correlation between the document term dj and the given query Q ."
+    },
+    {
+      "heading": "4 EXPERIMENTS",
+      "text": "Our experiment provides explanations for following questions.\n(1) Given a query and a document, which components of the document contribute to the ranking result?\n(2) Given a query and a set of documents, which characteristics differentiate the ground truth document from the negative documents?"
+    },
+    {
+      "heading": "4.1 Experimental Setup",
+      "text": "We used the TREC 2019 Deep Learning Track Document Ranking Dataset1. Training set is composed of 350,000 unique queries and validation set is composed of 5,000 unique queries. In both training set and validation set, each query has a positive labeled document. We used the MatchZoo2 implementation of MatchPyramid model and the pretrained GloVe3 embedding to vectorize queries and documents. The hyperparameters are tuned using the same setup as described in the original paper[4]. The trained model achieved 0.5243 for NDCG@3, 0.593 for NDCG@5, 0.5407 for MAP."
+    },
+    {
+      "heading": "4.2 Evaluation Method",
+      "text": "To answer the questions stated above, we first conducted qualitative analysis on the localization map L and the interaction matrix M . We designed an experiment to verify that L can be useful to extract the most query-relevant snippet from a document. We performed a statistical analysis on the set of ground truth documents and the set of negative documents.\nQualitative AnalysisWe extracted effective terms and filtered terms using the information from the flattened localization map l and the flattened interaction matrix m. Effective term refers to the document term that contributes highly to the ranking score. Filtered term refers to the document term that do not contribute highly to the ranking score, despite its high embedding similarity with a query term.\nSnippet Generation We compared vanilla snippet generator and our Grad-CAM snippet generator. Vanilla snippet generator returns the snippet with the highest density of query terms in a fixed window sizew . Vanilla snippet generator assigns binary value to each document term dj , 1 if the document term exactly matches a query term and 0 otherwise. Our Grad-CAM snippet generator adds lj w to the binary value, where lj denotes the value of cumulative contribution of a document term dj . We set the window sizew for a 1https://microsoft.github.io/TREC-2019-Deep-Learning/ 2https://github.com/NTMC-Community/MatchZoo-py 3http://nlp.stanford.edu/data/glove.6B.zip\nsnippet as 20. For the 5,000 ground truth documents in validation set, we applied both types of snippet generators. From the 5,000 pairs of snippet, we sampled ten pairs that show significant difference. We conducted a survey on 87 assessors to choose a more relevant snippet given ten pairs of snippet.\nStatistical Analysis To answer the second question, we performed a statistical analysis on the set of ground truth documents and the set of negative documents.\n(1) Kurt(L) = E[( L\u2212\u00b5\u03c3 )4] (2) \u2211 i \u2211 j Li j\nGiven a query, we measured Kurt(L) and \u2211i \u2211j Li j for each document. Kurt(L) denotes the kurtosis, which is the fourth standardized moment. \u2211 i \u2211 j Li j refers to the sum of contributions of every query-document term pairs given a query and a document. We tested the following hypothesis: Ground truth document has larger Kurt(L) and \u2211i \u2211j Li j than the negative sample documents."
+    },
+    {
+      "heading": "5 RESULTS",
+      "text": ""
+    },
+    {
+      "heading": "5.1 Qualitative Analysis",
+      "text": "By investigating localization map L, interaction matrixM , flattened localization map l , flattened interaction matrixm, we were able to interpret the NRM ranking results. Figure 2 shows the visualization of L, l ,M ,m, effective terms, filtered terms for the query \"blood diseases that are sexually transmitted\" and its ground truth document. Top image in Figure 2(a) shows the heat map visualization of localization map L, which we used \"blue-red\" color schema as the min-max mapping of the values. Query term \"diseases\" and document term \"in f ection\" was the term pair of the largest contribution to the ranking score. Bottom image in Figure 2(a) shows the flattened 1D-array l for the localization map L. By calculating the vertical sum for each column in L, we were able to measure the cumulative contribution of each document term. Top image in Figure 2(b) shows the visualization of interaction matrix M . The darker the region, the larger the embedding similarity between term pair (qi ,dj ). Query term \"diseases\" and document term \"blood\" was the term pair of the largest embedding similarity.\nBy comparing L andM , we observed that the highlighted regions of each image were roughly aligned. The highlighted regions in\nlocalization map represent the effective terms. However, we detected that some regions highlighted on M were not highlighted on the corresponding location in L. Based on such observation, we defined filtered terms as the document terms that do not contribute highly to the ranking score, despite its high embedding similarity with a query term. Effective terms and filtered terms of the sample query\u2019s ground truth document are listed in Figure 2(c). For a document term dj , the blue bar represents the value lj and the gray bar represents the value mj . Document term \"in f ection\" is an effective term which is intuitive considering its semantic similarity with the query term \"transmitted\". Document term \"prevention\" shows the largest difference between two values, which indicates that the NRM captures the subtle query intent of focusing on \"in f ection\" rather than \"prevention\".\nTable 1 shows the effective terms and filtered terms for sampled queries. By observing effective terms and filtered terms, we could qualitatively assess the NRM\u2019s capability of capturing user\u2019s query intent. For instance, given the query \"what kind of oil is good for dry hair\", we observe that the NRM captures the user intent which focuses on dry hair rather than fragrance or aromatherapy."
+    },
+    {
+      "heading": "5.2 Snippet Generation",
+      "text": "For each of the 5,000 ground truth documents in validation set, we produced a pair of snippets using two types of snippet generation algorithm. Both vanilla generator and Grad-CAM generator produced exactly the same snippets for 83%(4163) of the documents. For the 17%(837) of the documents which resulted in different snippets, we sampled 10 pairs to conduct survey. Figure 3 shows a sample question of our survey, which is composed of a single query and two randomly ordered snippets.\nSurvey result shows that 78.37% of the assessors chose our snippet produced fromGrad-CAM generator to be more relevant. Figure 3 shows that our Grad-CAM snippet includes the main information, number of people, while the vanilla snippet highlights less relevant part. The result implies that Grad-CAM algorithm can be useful for extracting the most query-relevant snippet from the document."
+    },
+    {
+      "heading": "5.3 Statistical Analysis",
+      "text": "By comparing the visualization results for ground truth document and negative documents, we observed that the distributions showed difference in size of tail and area under curve. This led us to perform statistical analysis on two measures: Kurt(L) and \u2211i \u2211j Li j . For the 5,000 ground truth documents in validation set, we calculated the values for each measure. Figure 4 shows the box plot of two measures. We performed Mann\u2013Whitney U test to test the following hypothesis: Ground truth document has larger Kurt(L) and \u2211 i \u2211 j Li j than the negative sample documents. The p-value, smaller than 0.0001, indicates that the hypothesis holds true for both measures."
+    },
+    {
+      "heading": "6 DISCUSSION AND FUTUREWORK",
+      "text": "In this paper, we propose an NRM interpretation method by adopting Grad-CAM algorithm. Grad-CAM algorithm is a gradient-based attribution method which has been verified through sanity checks. Our method provides explanations through qualitative analysis, snippet generation, and statistical analysis. Our method can quantify the contributions of each query-document term pair and the cumulative contribution of each document term. We extracted effective terms and filtered terms for each document. Snippet generation is a practical application of our method to extract the most queryrelevant snippet from a document. Statistical analysis proves that the ground truth documents have larger values for kurtosis and sum of elements in L, when compared to the negative sample documents.\nIn the future work, we would like to utilize these measures as neural ranking model features. Furthermore, since Grad-CAM algorithm is limited to CNN architectures, we would like to generalize our method to other gradient-based methods."
+    }
+  ],
+  "title": "Interpreting Neural Ranking Models using Grad-CAM",
+  "year": 2020
+}

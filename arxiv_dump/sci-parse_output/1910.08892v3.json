@@ -1,0 +1,352 @@
+{
+  "abstractText": "Interpretability is crucial for machine learning in many scenarios such as quantitative finance, banking, healthcare, etc. Symbolic regression (SR) is a classic interpretable machine learning method by bridging X and Y using mathematical expressions composed of some basic functions. However, the search space of all possible expressions grows exponentially with the length of the expression, making it infeasible for enumeration. Genetic programming (GP) has been traditionally and commonly used in SR to search for the optimal solution, but it suffers from several limitations, e.g. the difficulty in incorporating prior knowledge in GP; overly-complicated output expression and reduced interpretability etc. To address these issues, we propose a new method to fit SR under a Bayesian framework. Firstly, Bayesian model can naturally incorporate prior knowledge (e.g., preference of basis functions, operators and raw features) to improve the efficiency of fitting SR. Secondly, to improve interpretability of expressions in SR, we aim to capture concise but informative signals. To this end, we assume the expected signal has an additive structure, i.e., a linear combination of several concise expressions, of which complexity is controlled by a well-designed prior distribution. In our setup, each expression is characterized by a symbolic tree, and therefore the proposed SR model could be solved by sampling symbolic trees from the posterior distribution using an efficient Markov chain Monte Carlo (MCMC) algorithm. Finally, compared with GP, the proposed BSR(Bayesian Symbolic Regression) method doesn\u2019t need to keep an updated \u201cgenome pool\u201d and so it saves computer memory dramatically. Numerical experiments show that, compared with GP, the solutions of BSR are closer to the ground truth and the expressions are more concise. Meanwhile we find the solution of BSR is robust to hyper-parameter specifications such as the number of trees in the model.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Ying Jin"
+    },
+    {
+      "affiliations": [],
+      "name": "Weilin Fu"
+    },
+    {
+      "affiliations": [],
+      "name": "Jian Kang"
+    },
+    {
+      "affiliations": [],
+      "name": "Jiadong Guo"
+    },
+    {
+      "affiliations": [],
+      "name": "Jian Guo"
+    }
+  ],
+  "id": "SP:b162dbcd198494dd2d7027a298716f53442ea9ef",
+  "references": [
+    {
+      "authors": [
+        "Amir Haeri, M.",
+        "Ebadzadeh"
+      ],
+      "title": "M",
+      "venue": "M.; and Folino, G.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Anjum"
+      ],
+      "title": "A novel continuous representation of genetic programmings using recurrent neural networks for symbolic regression",
+      "venue": "CoRR abs/1904.03368",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Chen"
+      ],
+      "title": "Improving generalisation of genetic programming for symbolic regression with structural risk minimisation",
+      "venue": "In Proceedings of the Genetic and Evolutionary Computation Conference",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Luo Chen",
+        "C. Jiang 2017] Chen",
+        "C. Luo",
+        "Z. Jiang"
+      ],
+      "title": "Elite bases regression: A real-time algorithm for symbolic regression",
+      "venue": "CoRR abs/1704.07313",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Xue Chen",
+        "Q. Zhang 2015] Chen",
+        "B. Xue",
+        "M. Zhang"
+      ],
+      "title": "Generalisation and domain adaptation in gp with gradient descent for symbolic regression",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Zhang Chen",
+        "Q. Xue 2017] Chen",
+        "M. Zhang",
+        "B. Xue"
+      ],
+      "title": "Feature selection to improve generalization of genetic programming for high-dimensional symbolic regression",
+      "venue": "IEEE Transactions on Evolutionary Computation",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "H.A. Chipman",
+        "E.I. George",
+        "McCulloch"
+      ],
+      "title": "R",
+      "venue": "E.",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "H.A. Chipman",
+        "E.I. George",
+        "McCulloch"
+      ],
+      "title": "R",
+      "venue": "E.",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "V.K. Dabhi",
+        "Vij"
+      ],
+      "title": "S",
+      "venue": "K.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "J.W. Davidson",
+        "D. Savic",
+        "Walters"
+      ],
+      "title": "G",
+      "venue": "A.",
+      "year": 1999
+    },
+    {
+      "authors": [
+        "Savic Davidson",
+        "J. Walters 2003] Davidson",
+        "D. Savic",
+        "G. Walters"
+      ],
+      "title": "Symbolic and numerical regression: experiments and applications",
+      "venue": "Information Sciences",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "F.O. de Frana 2018] de Frana"
+      ],
+      "title": "A greedy search tree heuristic for symbolic regression. Information Sciences",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "E.F. Fama",
+        "French"
+      ],
+      "title": "K",
+      "venue": "R.",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "Green"
+      ],
+      "title": "P",
+      "venue": "J.",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "T. Hastie"
+      ],
+      "title": "and Tibshirani",
+      "venue": "R.",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Hastings"
+      ],
+      "title": "W",
+      "venue": "K.",
+      "year": 1970
+    },
+    {
+      "authors": [
+        "I. Icke",
+        "Bongard"
+      ],
+      "title": "J",
+      "venue": "C.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Kommenda"
+      ],
+      "title": "M",
+      "venue": "V.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Korns"
+      ],
+      "title": "M",
+      "venue": "F.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Li"
+      ],
+      "title": "Neural-guided symbolic regression with semantic prior",
+      "venue": "CoRR abs/1901.07714",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Chen Luo",
+        "C. Jiang 2017] Luo",
+        "C. Chen",
+        "Z. Jiang"
+      ],
+      "title": "A divide and conquer method for symbolic regression",
+      "venue": "IEEE Transactions on Evolutionary Computation",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "N. Metropolis",
+        "A.W. Rosenbluth",
+        "M.N. Rosenbluth",
+        "Teller"
+      ],
+      "title": "A",
+      "venue": "H.; and Teller, E.",
+      "year": 1953
+    },
+    {
+      "authors": [
+        "M. Nicolau"
+      ],
+      "title": "and Agapitos",
+      "venue": "A.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Topchy",
+        "Punch"
+      ],
+      "title": "W",
+      "venue": "F.",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Vladislavleva, E.J.",
+        "Smits"
+      ],
+      "title": "G",
+      "venue": "F.; and den Hertog, D.",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "M. . Willis",
+        "H.G. Hiden",
+        "P. Marenbach",
+        "B. McKay",
+        "Montague"
+      ],
+      "title": "G",
+      "venue": "A.",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "J. Zegklitz"
+      ],
+      "title": "and Pos\u0131\u0301k",
+      "venue": "P.",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Introduction",
+      "text": "Symbolic regression is a special regression model which assembles different mathematical expressions to discover the association between the response variable and the predictors, with applications studied in (Willis et al. 1997), (David-\nCopyright c\u00a9 2020, Association for the Advancement of Artificial Intelligence (www.aaai.org). All rights reserved.\nson, Savic, and Walters 1999), (Davidson, Savic, and Walters 2003), etc. Without a pre-specified model structure, it is challenging to fit symbolic regression, which requires to search for the optimal solution in a large space of mathematical expressions and estimate the corresponding parameters simultaneously.\nTraditionally, symbolic regression is solved by combinatorial optimization methods like Genetic Programming (GP) that evolves over generations, see (Vladislavleva, Smits, and den Hertog 2009), (Dabhi and Vij 2011), (Chen, Zhang, and Xue 2017), (Vladislavleva 2008), etc. However, GP suffers from high computational complexity and overly complicated output expressions, and the solution is sensitive to the initial value, see (Korns 2011). Some modifications of the original GP algorithm have been proposed to address those problems including (Amir Haeri, Ebadzadeh, and Folino 2017) which incorporates statistical information of generations, (McConaghy 2011) which deterministically builds higher-level expressions from \u2019elite\u2019 building blocks, (Icke and Bongard 2013) which employs a hybrid of GP and deterministic methods, (Luo, Chen, and Jiang 2017) uses a divide and conquer strategy to decompose the search space and reduce the model complexity, and (Kommenda 2018) which proposes a local optimization method to control the complexity of symbolic regression.\nAlthough some efforts have been made to improve GP, its intrinsic disadvantages still remain unsolved. Some research work explores SR estimation methods other than GP. For example, (de Frana 2018) which introduces a new data structure called Interaction-Transformation to constrain the search space and simplify the output symbolic expression, (McConaghy 2011) which uses pathwise regularized learning to rapidly prune a huge set of candidate basis functions down to compact models, (Chen, Luo, and Jiang 2017) assumes regression models are spanned by a number of elite bases selected and updated by their proposed algorithm, (Anjum et al. 2019) introduces a neuro-encoded expression programming with recurrent neural networks to improve smoothness and stability of the search space, (Li et al. 2019)which introduces an expression generating neural network and proposes an Monte Carlo tree search algorithm to produce expressions that match given leading powers. ar X\niv :1\n91 0.\n08 89\n2v 3\n[ st\nat .M\nE ]\n1 6\nJa n\n20 20\nIn this work, we consider to fit symbolic regression under a Bayesian framework, which can naturally incorporate prior knowledge, can improve model interpretability and can potentially simplify the structure and find prominent components of complicated signals. The key idea is to represent each mathematical expression as a symbolic tree, where each child node denotes one input value and the parent node denotes the output value of applying the mathematical operator to all the input values from its child nodes. To control model complexity, the response variable y is assumed to be a linear combination of multiple parent nodes whose descendant nodes (or leaf nodes) are the predictor x. We develop a prior model for the tree structures and assign informative priors to the associated parameters. Markov chain Monte Carlo (MCMC) methods are employed to simulate the posterior distributions of the underlying tree structures which correspond to a combination of multiple mathematical expressions.\nThe paper is organized as follows. First, we present our Bayesian symbolic regression model by introducing the tree representation of mathematical expressions. Then we develop an MCMC-based posterior computation algorithm for the proposed model. Finally, we demonstrate the superiority of the proposed method compared to existing alternatives via numerical experiments.\nIn the following parts, we will refer to our symbolic regression method based on Bayesian framework as Bayesian Symbolic Regression or BSR in exchange."
+    },
+    {
+      "heading": "Bayesian Symbolic Regression with Linearly-Mixed Tree Representations",
+      "text": "Denote by x = (x1, . . . , xd) \u2208 Rd the predictor variables and by y \u2208 R the response variable. We consider a symbolic regression model:\ny = g(x) + ,\nwhere g(\u00b7) is a function represented by a combination of mathematical expressions taking predictors x as the input variable. Specifically, the mathematical operators such as +, \u00d7, . . ., and arithmetic functions like exp(\u00b7), cos(\u00b7), . . ., can be in the search space of mathematical expressions. For example, g(x) = x1 + 2 cos(x2) + exp(x3) + 0.1."
+    },
+    {
+      "heading": "Choice of Basic Operators",
+      "text": "All possible mathematical expressions are combinations of elements in a set of basic functions. The choice of basic operators is a building block of our tree representation, see (Nicolau and Agapitos 2018). In this paper, we adopt the commonly-used operators +, \u00d7, exp(), inv(x) = 1/x, neg(x) = \u2212x and linear transformation lt(x) = ax + b with parameters (a, b) \u2208 R2. They are able to express\u2212 and \u00f7 with symmetric binary operators. In practice, the basic operators can be specified by users."
+    },
+    {
+      "heading": "From Expressions to Trees",
+      "text": "The mathematical expression can be equivalently represented by a tree denoted by T , with non-terminal nodes indicating operations and terminal nodes indicating the selected\nfeatures. T is a binary tree but not necessarily a complete tree.\nSpecifically, a non-terminal node has one child node if it is assigned a unary operator, and two if assigned a binary operator. For example, a non-terminal node with operator + represents the operation that the values of its two child nodes are added up. For a non-terminal unary operator, for example exp(), it means taking exponential of the value of its child node. Note that some operators may also be associated with parameters, like linear transformation lt(x) = ax+ b with parameters (a, b) \u2208 R2. We collect these parameters in a vector \u0398.\nOn the other hand, each terminal node \u03b7 specified by ik \u2208 M represents a particular feature xik of the data vector. Here M is the vector including features of all terminal nodes. For a tree of depth d, we start from the terminal nodes by performing the operations indicated by their parents, then go to their parents and perform upper-level operations accordingly. We obtain the output at the root node. For example, the tree in Figure 1 represents g(x) = cos(x1 + x2), which consists of two terminal nodes 1, 2 and two nonterminal nodes cos, +.\nIn short, the tree structure T is the set of nodes T = (\u03b71, . . . , \u03b7t), corresponding to operators with zero to two child nodes. Some operators involve parameters aggregated in \u0398. From predictor x, terminal nodes select features specified by M = (i1, . . . , ip), where ik indicates adopting xik of vector x as the input of the corresponding node \u03b7k. The specification of T , \u0398 and M represents an equivalent tree for a mathematical expression g(\u00b7;T,M,\u0398)."
+    },
+    {
+      "heading": "Priors on Tree Representations",
+      "text": "Under a Bayesian modeling framework, it is critical to specify appropriate priors for parameters, as it has the flexibility to incorporate prior knowledge to facilitate more accurate posterior inferences. In our model, we are interested in making inferences on the tree structure T , the parameter \u0398 and the selected feature indices M .\nTo ensure the model interpretability, we aim to control the size of tree representations, or equivalently, the complexity of mathematical expressions. The default prior of operators and features are uniform distributions, indicating no preference for any particular operator or feature. They can be user-specified weight vectors to pose preferences.\nFor a single tree, we adopt prior distributions on T , M and \u0398 in a similar fashion as those for Bayesian regression tree models in (Chipman, George, and McCulloch 1998) as follows. Of note, although the prior models are similar, our\nmodel and tree interpretations are completely different from the Bayesian regression tree model.\nPrior of Tree Structure T We specify the prior p(T ) by assigning the probabilities to each event in the process of constructing a specific tree. The prior construction starts from the root node.\nA node is randomly assigned a particular operator according to the prior. The operator indicates whether it extends to one child node, or split into two child nodes, or function as a terminal node. Starting from the root, such growth performs recursively on newly-generated nodes until all nodes are assigned operators or terminated.\nSpecifically, for a node with depth d\u03b7 , i.e. the number of nodes passed from it to the node, with probability p1(\u03b7, T ) = \u03b1(1 + d\u03b7)\n\u2212\u03b2 . It is a non-terminal node, which means it has descendants. Here \u03b1, \u03b2 are prefixed parameters that guides the general sizes of trees in practice. The prior also includes a user-specified basic operator set and a corresponding weight vector indicating the probabilities of adopting each operator for a newly-grown node. For example, we specify the operator set (operator) as Ops= (exp(), lt(), inv(), neg(), +, \u00d7) where lt(x) = ax + b, inv(x) = 1/x, neg(x) = \u2212x, and the uniform weight vector wop = (1/6, 1/6, 1/6, 1/6, 1/6, 1/6). Such default choice shows no preference for any particular operator.\nWith probability p1(\u03b7, T ), the node \u03b7 is assigned an operator according to wop if it is non-terminal and grows its one or two child nodes. Then its child nodes grow recursively. Otherwise it is a terminal node and assigned some feature in a way specified later. The construction of a tree is completed if all nodes are assigned or terminated.\nPrior of Terminal Nodes M When a node is terminated, it is assigned a feature of x according to the prior of features as input of the expression. The number and locations of terminal nodes are decided by structure of T . Conditioned on T , the specific feature that one terminal node takes is randomly generated with probabilities indicated by weight vector wft. The default choice is uniform among all features, i.e., wft = (1/d, . . . , 1/d). It can also be user-specified to highlight some preferred features.\nPrior of lt() Parameters An important operator we adopt here is linear transformation lt(x) = ax + b associated with linear parameters (a, b) \u2208 R2. lt() includes scalings and well enriches the set of potential expressions. Such operation is discussed in (Keijzer 2003) and proved to improve the fitting. Pairs of linear parameters (a, b) are assembled in \u0398 and are considered independent.\nLet L(T ) be the set of lt() nodes in T , and each node \u03b7 is associated with parameters (a\u03b7, b\u03b7), then the prior of \u0398 is\np(\u0398 | T ) = \u220f\n\u03b7\u2208L(T )\np(a\u03b7, b\u03b7),\nwhere a\u03b7\u2019s, b\u03b7\u2019s are independent and\na\u03b7 \u223c N(1, \u03c32a), b\u03b7 \u223c N(0, \u03c32b ).\nThis indicates that the prior of the linear transformation is a Gaussian and centered around identity function. The prior\nof \u03c3\u0398 = (\u03c3a, \u03c3b) is conjugate prior of normal distribution, which is\n\u03c32a \u223c IG(\u03bda/2, \u03bda\u03bba/2), \u03c32b \u223c IG(\u03bdb/2, \u03bdb\u03bbb/2),\nwhere \u03bda, \u03bba, \u03bdb, \u03bbb are pre-specified hyper-parameters."
+    },
+    {
+      "heading": "Find the Signal: Linear Mixture of Simpler Trees",
+      "text": "Many popular machine learning techniques, such as neural networks, can approximate functions very well, but they are difficult to interpret. A widely celebrated advantage of symbolic regression is its interpretability and good performance of approximating functions. The model fitting of symbolic regression usually results in relatively simple mathematical expressions, it is straightforward to understand the relationship between the predictors x and the response variable y.\nHowever, if symbolic regression produces too complicated expressions, the interpretation of the model fitting becomes challenging: there exists a tradeoff between simplicity and accuracy. To highlight the superiority of symbolic regression in interpretability over other methods, we aim at finding the most prominent and concise signals. If the features are strong and expressive, we assume that the expression should not involve too many features, and the transformation should not be too complicated.\nMoreover, the real-world signal may be a combination of simple signals, where only a small amount of simpler ones play a significant role. A simpler idea has its roots in (Keijzer 2004), where the output is appropriately scaled. SR has also been addressed with methods related to generalized linear models, summarized in (Zegklitz and Pos\u0131\u0301k 2017).\nIn this sense, we model the final output y to be centered at some linear combination of relatively simple expressions\ny = \u03b20 + k\u2211 i=1 \u03b2i \u00b7 g(x;Ti,Mi,\u0398i) + , \u223c N(0, \u03c32)\nwhere k is a pre-specified number of simple components, g(x;Ti,Mi,\u0398i) is a relatively simple expression represented by a symbolic tree, and \u03b2i is the linear coefficient for the i-th expression. The coefficients \u03b2i, i = 0, . . . , k is obtained by OLS linear regression using intercept and g(\u00b7;Ti,Mi,\u0398i), i = 1, . . . , k. Let {(Ti,Mi,\u0398i)}ki=1 denote the series of tuples (Ti,Mi,\u0398i), i = 1, . . . , k. Let OLS() denote the OLS fitting result, then a simpler form is\ny = OLS ( x, {(Ti,Mi,\u0398i)}ki=1 ) + , \u223c N(0, \u03c32)\nwhere the prior of the noise scale is the conjugate inverse gamma distribution\n\u03c32 \u223c IG(\u03bd/2, \u03bd\u03bb/2)\nwhere \u03bd and \u03bb are pre-specified parameters. Additionally let (T,M,\u0398) = {(Ti,Mi,\u0398i)}ki=1, the joint likelihood is\np(y, (T,M,\u0398), \u03c3, \u03c3\u0398 | x) =p(y | OLS ( x, T,M,\u0398 ) , \u03c32)p(M,T )p(\u0398 | T, \u03c32\u0398)p(\u03c32\u0398)p(\u03c32) =p(y | OLS ( x, T,M,\u0398 ) , \u03c32)p(\u03c32)\u00d7\nk\u220f i=1 p(Mi | Ti)p(Ti)p(\u0398i | Ti, \u03c32\u0398).\nPosterior Inference We employ the Metropolis-Hastings (MH) algorithm proposed in (Metropolis et al. 1953) and (Hastings 1970) to make posterior inferences on the proposed model. Note that (T,M,\u0398) represents the set of k trees {Ti,Mi,\u0398i}ki=1, and (T s,Ms,\u0398s) denotes the set of k trees that the MH algorithm accepts at the s-th iteration.\nWith a pre-specified number of trees k, our method modifies the structure of the i-th tree by sampling from the proposal q(\u00b7 | \u00b7), and accepts the new structure with probability \u03b1, which can be calculated according to MH algorithm. Otherwise the i-th tree stays at its original form. The k trees are updated sequentially, so to illustrate, we first show how a single tree is modified at each time.\nThe sampling of a new tree consists of three parts. The first is the structure specified by T and M , which is discrete. Here T and M stand for a single tree. The second part is \u0398 aggregating parameters of all lt() nodes. The dimensionality of \u0398 may change with (T,M) since the number of lt() nodes vary among different trees. To address the trans-dimensional problem, we use the reversible jump MCMC algorithm proposed by (Green 1995). For simplicity, denote by S = (T,M) the structure parameters. The third part is sampling \u03c32 from an inverse gamma prior."
+    },
+    {
+      "heading": "Structure Transition Kernel",
+      "text": "We first specify how the sampling algorithm jumps from a tree structure to a new one. Inspired by (Chipman, George, and McCulloch 1998) and considering the nature of calculation trees, we design the following seven reversible actions. The probabilities from S = (T,M) to new structure S\u2217 = (T \u2217,M\u2217) is denoted as the proposal q(S\u2217 | S). \u2022 Stay: If the expression involves nl \u2265 0 lt() operators,\nwith probability p0 = nl/4(nl + 3), the structure S = (T,M) stays unchanged, and ordinary MH step follows to sample new linear parameters.\n\u2022 Grow: Uniformly pick a terminal node and activate it. A sub-tree is then generated iteratively, where each time a node is randomly terminated or assigned an operator from the prior until all nodes are terminated or assigned. To regularize the complexity of the expression, the proposal grows with lower probability when the tree depth and amount of nodes are large. The probability of Grow is pg = 1\u2212p03 \u00b7min { 1, 8Nnt+2 } ,where Nnt is the number\nof non-terminal nodes.\n\u2022 Prune: Uniformly pick a non-terminal node and turn it into a terminal node by discarding its descendants. Then randomly choose a feature of x to the newly pruned node. We set the probability of Prune as pp = 1\u2212p03 \u2212 pg such that Grow and Prune share one-third of the probability that the structure does not Stay.\n\u2022 Delete: Uniformly pick a candidate node and delete it. Specifically, the candidate should be non-terminal. Also, if it is a root node, it needs to have at least one nonterminal child node to avoid leaving a terminal node as the root node. If the picked candidate is unary, then we\njust let its child replace it. If it is binary but not root, we uniformly select one of its children to replace it. If the picked candidate is binary and the root, we uniformly select one of its non-terminal children to replace it. We set the probability of Delete as pd = 1\u2212p03 \u00b7 Nc Nc+3\n, where Nc is the number of aforementioned candidates.\n\u2022 Insert: Uniformly pick a node and insert a node between it and its parent. The weight of nodes assigned is wop. If the inserted node is binary, the picked node is set as left child of the new node, and the new right child is generated according to the prior. The probability of Insert is set as pi = 1\u2212p03 \u2212 pd such that Delete and Insert share one-third of the probability that the structure does not Stay.\n\u2022 ReassignOperator: Uniformly pick a non-terminal node, and assign a new operator according to wop. If the node changes from unary to binary, its original child is taken as the left child, and we grow a new sub-tree as right child. If the node changes from binary to unary, we preserve the left sub-tree (this is to make the transition reversible).\n\u2022 ReassignFeature: Uniformly pick a terminal node and assign another feature with weight wft. The probability of ReassignOperator and ReassignFeature is set as pro = prf = 1\u2212p06 Note that the generation of the \u2019tree\u2019 is top-down, creating sub-trees from nodes. However, the calculation is bottomup, corresponding to transforming the original features and combine different sources of information.\nThe above discrepancy can be alleviated by our design of proposal. Grow and Prune creates and deletes sub-trees in a top-down way, which corresponds to changing a \u201dblock\u201d, or a higher level feature represented by the sub-tree in the expression. On the other hand, Delete and Insert modify the higher-level structure by changing the way such \u201dblocks\u201d combine and interact in a bottom-up way.\nThe choice of trainsition probabities q(S\u2217 | S) penalizes tree structures with high complexity, e.g., too many lt() nodes, which helps control complexity of the output. Constants in q(S\u2217 | S) guarantee well-definedness of the probabilities, which can be changed to favor certain transitions over others."
+    },
+    {
+      "heading": "Jump between Spaces of Parameters",
+      "text": "Another issue of proposing new structure S\u2217 is that the number of linear transformation nodes may change. Therefore the dimensionality of \u0398 may be different and RJMCMC (reversible jump Markov Chain Monte Carlo) proposed in (Green 1995) settles the problem well.\nAfter we generate S\u2217 from S, there are three situations. \u2022 No Change. When the new structure does not change the\nnumber of lt() nodes, the dimensionality of parameters does not change. In this case, it is sufficient to use ordinary MH step. Here the set of lt() nodes may change, but the sampling of new parameters is i.i.d., so we are satisfied with the MH step.\n\u2022 Expansion. When the number of lt() nodes increases, the dimensionality of \u0398, denoted by p\u0398, increases. We may simultaneously lose some original lt() nodes and have more new ones. But due to the i.i.d. nature of parameters we only consider the number of all lt() nodes. Denote the new parameter as \u0398\u2217. According to RJMCMC, we sample auxiliary variablesU = (u\u0398, un) where dim(u\u0398) = dim(\u0398), dim(un) + dim(\u0398) = dim(\u0398\u2217). The hyper-parameters U\u03c3 = (\u03c32a, \u03c3 2 b ) are independently\nsampled from the inverse gamma prior, then each element of u\u0398 and un is independently sampled from N(1, \u03c32a) or N(0, \u03c32b ) accordingly. The new parameter \u0398\n\u2217 along with new auxiliary variable U\u2217 is obtained by\n(U\u2217,\u0398\u2217, \u03c3\u2217\u0398) = je(\u0398, U, U\u03c3) = je(\u0398, u\u0398, un, U\u03c3) = (\u0398\u2212 u\u0398\n2 , \u0398 + u\u0398 2\n, un, U\u03c3 ) ,\nwhere U\u2217 = \u0398\u2212u\u03982 , \u0398 \u2217 = (\u0398+u\u03982 , un), \u03c3 \u2217 \u0398 = U\u03c3 .\nThen we discard U\u2217 and get \u0398\u2217, \u03c3\u2217\u0398. \u2022 Shrinkage. \u0398 shrinks when the number of lt() nodes\ndecreases. Similar to the Expansion case, we may lose some lt() nodes and also have new ones (especially in the ReassignOperator transition), but only the dimensionality is of interest. Assume that the original parameter is \u0398 = (\u03980,\u0398d) where \u0398d corresponds to the parameters of nodes to be dropped. Denote the new parameter as \u0398\u2217. Firstly, U\u03c3 = (\u03c32a, \u03c3 2 b ) are sampled independently from the inverse gamma prior. The new parameter candidate is then obtained by first sampling U , whose elements are independently sampled from N(0, \u03c32a) and N(0, \u03c3 2 b ), respectively, with dim(U) = dim(\u03980). Then the new candidate \u0398\u2217 as well as the corresponding auxiliary variable U\u2217 is obtained by\n(\u03c3\u2217\u0398,\u0398 \u2217, U\u2217) = js(U\u03c3, U,\u0398) = js(U\u03c3, U,\u03980,\u0398d)\n= (U\u03c3,\u03980 + U,\u03980 \u2212 U,\u0398d),\nwhere \u03c3\u2217\u0398 = U\u03c3, \u0398 \u2217 = \u03980+U, U \u2217 = (\u03980\u2212U,\u0398d). Then we discard U\u2217 and obtain U\u2217, \u03c3\u2217\u0398. For simplicity, we denote the two transformations je and js as jS,S\u2217 , indicating a parameter transformation from S to S\u2217, and the associated auxiliary variables are denoted as U and U\u2217 respectively. Note that dim(\u0398) + dim(U) = dim(\u0398\u2217) + dim(U\u2217) in both cases."
+    },
+    {
+      "heading": "Accepting New Candidates",
+      "text": "Return to the K-tree case. We sequentially update the K trees in a way similar to (Chipman, George, and McCulloch 2010) and (Hastie and Tibshirani 2000). Suppose we start from tree (T (t)j ,M (t) j ,\u0398 (t) j ), that is, the j-th tree of the tth accepted model, and that the newly proposed structure is (T \u2217j ,M \u2217 j ,\u0398 \u2217 j ). Denote\n(T (t),M (t),\u0398(t)) = {(T (t)i ,M (t) i ,\u0398 (t) i )} k i=1, (T \u2217,M\u2217,\u0398\u2217) = {(T \u2217i ,M\u2217i ,\u0398\u2217i )}ki=1,\nwhere (T \u2217i ,M \u2217 i ,\u0398 \u2217 i ) = (T (t) i ,M (t) i ,\u0398 (t) i ) for i 6= j. Also let S\u2217 = (T \u2217,M\u2217), S(t) = (T (t),M (t)). And (\u03c3\u2217)2 is the\nnewly-sampled version of (\u03c3(t))2. For simplicity, let \u03a3(t) =( (\u03c3(t))2, \u03c3\n(t) \u0398\n) and \u03a3\u2217 = ( (\u03c3\u2217)2, \u03c3\u2217\u0398 ) .\nIf dim(\u0398(t)i ) = dim(\u0398 \u2217), the ordinary MH step gives the\nacceptance rate\nR = f(y | OLS(x, S\u2217,\u0398\u2217),\u03a3\u2217)f(S\u2217)q(S(t) | S\u2217)\nf(y | OLS(x, S(t),\u0398(t)),\u03a3(t))f(S(t))q(S\u2217 | S(t)) . (1)\nIf dim(\u0398(t)i ) 6= dim(\u0398\u2217), the RJMCMC method gives the acceptance rate\nR = f(y | OLS(x, S\u2217,\u0398\u2217),\u03a3\u2217)f(\u0398\u2217 | S\u2217)q(S(t) | S\u2217)\nf(y | OLS(x, S(t),\u0398(t)),\u03a3(t))f(\u0398(t) | S(t))q(S\u2217 | S(t))\n\u00b7 f(S \u2217)p(\u03a3\u2217)h(U\u2217 | \u0398\u2217, S\u2217, S(t)) f(S(t))p(\u03a3(t))h(U (t) | \u0398(t), S(t), S\u2217) \u00b7 \u2223\u2223\u2223\u2223\u2202jS(t),S\u2217(\u0398(t), U (t))\u2202(\u0398(t), U (t)) \u2223\u2223\u2223\u2223 (2)\nIn each case, we accept the new candidate with probability \u03b1 = min{1, R} with R in Equation (1) or (2). If the new candidate is accepted, we next update the (j+1)-th tree starting from (T (t+1),M (t+1),\u0398(t+1)) = (T \u2217,M\u2217,\u0398\u2217) and \u03a3(t+1) = \u03a3\u2217. Otherwise we update the (j + 1)-th tree starting at (T (t),M (t),\u0398(t)) with \u03a3(t)."
+    },
+    {
+      "heading": "Experiments",
+      "text": "We carry out BSR on both simulated data and real-world data. Firstly, we compare fitness and generalization ability by comparing RMSEs on training and testing data. Secondly, we compare the complexity of the expressions generated by BSR and GP. Meanshile, we examine the robustness of the proposed BSR method by testing whether the estimated model is sensitive to the parameter K, which is the number of trees used in the linear regression. We also apply BSR on financial data to find effective \u2019signals\u2019."
+    },
+    {
+      "heading": "Simualtion Designs",
+      "text": "Benchmark Problems We set up a benchmark mathematical expression sets with six tasks presented in Equations (3) to (8). We fit a BSR model on each of the tasks. These formulas have been widely used to test other symbolic regression methods, including those based on GP, see (Chen, Xue, and Zhang 2015),(Topchy and Punch 2001) and (Chen et al. 2016).\nf1(x0, x1) = 2.5x 4 0 \u2212 1.3x30 + 0.5x21 \u2212 1.7x1 (3)\nf2(x0, x1) = 8x 2 0 + 8x 3 1 \u2212 15 (4)\nf3(x0, x1) = 0.2x 3 0 + 0.5x 3 1 \u2212 1.2x1 \u2212 0.5x0 (5)\nf4(x0, x1) = 1.5 exp(x0) + 5 cos(x1) (6) f5(x0, x1) = 6.0 sin(x0) cos(x1) (7) f6(x0, x1) = 1.35x0x1 + 5.5 sin{(x0 \u2212 1)(x1 \u2212 1)} (8)\nDatasets Simulation studies in (Chen, Xue, and Zhang 2015) are adopted here. For each target formula, we have one training dataset and three testing datasets. The training set consists of 100 samples with predictors generated independently from U [\u22123, 3], and form the response variable\nwith the corresponding formula above. We consider three different testing sets, all with size of 30. Predictors of the three testing sets are generated from U [\u22123, 3], U [\u22126, 6] and U [3, 6], respectively.\nParameter Settings Note that the GP algorithm consists of two nested iterations, the inner loop for population and the outer loop for generation. Therefore, the number of trees generated by GP is Ng \u00d7 Np, where Ng is the number of generations and Np is the population size. We set Ng = 200 and Np = 100 here, generating a total of 200,000 trees. For BSR, 100,000 trees are generated in total (in experiments, it typically consumes less than 10,000 candidates to stable results). In addition, we specify K = 2 additive components for BSR for all tasks. The basis function pool is {+,\u2212,\u00d7,\u00f7, sin, cos, exp, x2, x3} for both methods. In order to see the stability of their performances, we run the two methods in each task for 50 times independently."
+    },
+    {
+      "heading": "Simualtion Results",
+      "text": "Accuracy and Generalization Abilities We use root mean square error (RMSE) to measure fitness on training data, and use RMSE on testing set to see generalization. The performances including mean and standard deviation of RMSEs are summarized in Table 1. It turns out that BSR outperforms GP in most tasks, except Equation ((8)). A plausible reason is that the structure is far from linear structure, which is one of the key assumptions of BSR.\nComplexity of Expressions One of the most important aim for BSR is to improve interpretability by restricting the\nformula to a concise and readable form. Specifically, we introduce an additive symbolic tree structure for BSR model.\nTo check if BSR achieves this aim, we summarize the complexity of the output from BSR and GP in Table 2, namely the means and standard deviations of number of nodes in each tree in the 50 replications.\nAccording to Table 2, the number of nodes on trees generated by BSR is significantly less that those generated by GP, leading to more concise and readable expressions. Table 5 lists some typical expressions output from BSR and GP, where only two cases are exhibited due to limitations of paper length, leaving others to appendix. It turns out that expressions estimated by BSR are generally closer to the ground truth and they are shorter and more comprehensible. The simulation study here verifies that, in favourable scenarios, BSR reaches its aim and shows its advantage in both prediction accuracy and interpretability.\nTo further illustrate the performance of BSR versus GP in typical training processes, we plot the RMSEs of training data and testing dataset on [\u22123, 3] for BSR at every acceptence during the training (See Figure 2). We also include the training RMSE of best individual at generations of GP, which are evenly-paced to match the number of records.\nAlso we compare the complexity of models, evaluated by number of nodes in the tree. Due to limitation of paper length, we only exhibit results for f1 and f2, leaving others to appendix. Figure 2 shows that BSR reduces both training and testing RMSE during the training process, with less complex outputs compared to GP.\nSensitivity to the Number of Components K The number of additive components K is an important hyperparameter in BSR model and it is interesting to study if the optimal expression selected by BSR is sensitive to the choice of K. To check this, we summarize the average RMSEs on testing set [\u22123, 3] out of 50 replications in Table 4.\nIt turns out that RMSEs of these tasks are smaller as K grows, but the improvement of performance is not significant whenK is large enough. It is interesting to see that even if K is set to be smaller than ground truth, BSR can automatically find an approximately equivalent additive component structure in some single trees. On the other hand, when K is significantly larger than what it should be, BSR automatically \u201ddiscards\u201d the redundant trees by producing small coefficients in linear combination, making them similar to white noise."
+    },
+    {
+      "heading": "Experiments on Real World Data",
+      "text": "In the quantitative finance industry, the most important task is to find \u2019alpha signals\u2019 effective in predicting returns of financial securities such as stocks, futures and other derivatives. These signals can be expressed as mathematical formulas such as classic factors (Fama and French 1996). How-\never, mining signals manually is extremely inefficient, and search directions are usually biased by human knowledge. BSR provides an automatic way to select effective signals. We apply BSR on financial data to this end.\nDatasets and Experimental Setting We collected the CSI 300 INDEX data, which includes time series about daily prices from 2004 to 2019. Each record consists of five attributes: open price, high price, low price, and close price, which corresponds to the trading date. A total of 3586 records are collected in this study.\nIn our experiments, we define the label as the sign of the return derived from the close price in Equation (9). The other four attributes are predictors. In Equation (9), Close Price(t) is the close price on the tth trading day, and Close Price(t+ 1) means the close price on the next trading day. We set the sequence from 2004 to 2016 as the training set, and those from 2017 to 2019 as the testing set.\nReturn(t) = Close Price(t+ 1)\u2212 Close Price(t)\nClose Price(t) (9)\nWe set the number of trees generated by BSR as 10,000 and the number of additive components as 2. The basis function pool is set as {+,\u2212,\u00d7,\u00f7, exp, x2, x3} Experiment Result To check if BSR can generate effective factors, we run the task for 200 times independently. A single factor with an accuracy larger than 0.5 in both the train set and the test set is considered useful. Finally, 15 expressions in the posterior modes meet that requirement. We only exhibit one expression in Expression (10) due to limitations of paper length, leaving others to appendix. Expression (10) achieves an accuracy of 0.539 in the train set and an accuracy of 0.518 in the test set. An intuitive explanation for Expression (10) is that the relative sizes of open price and low price can predict the return, and if the open price is much higher than the low price, the return will be more likely to be positive than negative.\n2.9 \u2217 10\u22124 \u2212 1.2 \u2217 10\u22123 \u2217 1 open2 + 1.9 \u2217 10\u22123 1 low2\n(10)"
+    },
+    {
+      "heading": "Conclusions and Future Research",
+      "text": "This paper proposes a new symbolic regression method based on Bayesian statistics framework. Compared with traditional GP, the proposed method exhibits its advantage in better model interpretability, simpler way to incorporate prior knowledge and more cost-effective memory usage etc.\nIn the future, we are to continue to improve BSR in several ways. For example, we will study new MCMC algorithms to improve the search and sampling efficiency; we will study a dynamic empirical bayes method to optimize hyper-parameters in BSR; we will also study how to extend the proposed algorithm for distributed computing to improve computational efficiency."
+    },
+    {
+      "heading": "Appendix",
+      "text": ""
+    },
+    {
+      "heading": "Pseudo-codes of BSR",
+      "text": "We sum up the BSR algorithm as follows.\nAlgorithm 1 pseudo-codes of MCMC-based Symbolic Regression for linearly-mixed signals\nInput: Datapoints x1, . . . , xn, labels y = (y1, . . . , yn); number of components K, number of acceptance N ; transition kernel (proposal) q(\u00b7 | \u00b7), prior distributions p(T,M,\u0398), likelihood function f(y | OLS(S,\u0398, x)); Output: A chain of accepted models (T (t),M (t),\u0398(t)); 1: From prior p(T,M,\u0398), generate independentlyK tree models\n(structures and parameters) (T (1)i ,M (1) i ,\u0398 (1) i ), i = 1, . . . ,K; 2: Calculate linear regression coefficients \u03b2(1) from datapoints xi, labels yi and models (T (1) i ,M (1) i ,\u0398 (1) i ), i = 1, . . . , n us-\ning OLS; 3: Number of accepted models m = 1; 4: while m < N do 5: for i = 1\u2192 K do 6: Propose S\u2217i = (T \u2217 i ,M \u2217 i ) by sampling S \u2217 i | S (m) i \u223c\nq(\u00b7;S(m)i ); 7: if dim(\u0398\u2217i ) 6= dim(\u0398 (m) i ) then 8: Sample U (m)i \u223c h(U (m) i | \u0398 (m) i , S (m) i , S \u2217 i ); 9: Obtain (U\u2217i ,\u0398 \u2217 i ) = jS(m)i ,S\u2217i (\u0398 (m) i , U (m) i );\n10: Calculate linear regression coefficients \u03b2\u2217 from datapoints xi, labels yi and models (T \u2217,M\u2217,\u0398\u2217) using OLS; 11: Calculate the ratio R in Equation (2); 12: else 13: Directly sample \u0398\u2217i \u223c p(\u00b7 | S\u2217i ); 14: Calculate coefficients \u03b2\u2217 from xi, yi, i = 1, . . . , n\nand models (T (m),M (m),\u0398(m)) using OLS; 15: Calculate the ratio R in Equation (1); 16: end if 17: \u03b1\u2190 min(1, R); 18: Sample u \u223c U(0, 1); 19: if u < \u03b1 then 20: for j = 1\u2192 K do 21: if j = i then 22: S(m+1)j \u2190 S \u2217 j , \u0398 (m+1) j \u2190 \u0398 \u2217 j ; 23: else 24: S(m+1)j \u2190 S (m) j , \u0398 (m+1) j \u2190 \u0398 (m) j ; 25: end if 26: end for 27: \u03b2(m+1) \u2190 \u03b2\u2217; 28: m\u2190 m+ 1; 29: end if 30: end for 31: end while"
+    },
+    {
+      "heading": "Simulation results",
+      "text": "Performance visualizations Figures on accuracy and complexity of BSR and GP on simulated data which are not included in the paper are summarized below.\n(a) RMSEs in training f3 (b) Complexity in training f3\n(c) RMSEs in training f3 (d) Complexity in training f3\n(e) RMSEs in training f3 (f) Complexity in training f3\n(g) RMSEs in training f4 (h) Complexity in training f4\n(i) RMSEs in training f5 (j) Complexity in training f5\n(k) RMSEs in training f6 (l) Complexity in training f6\nTypical expressions Typical expressions produced by BSR and GP in the simulation studies are summarized below."
+    },
+    {
+      "heading": "Expressions for Financial data",
+      "text": "Here we present results of BSR on financial data omitted in the paper. Results include training accuracy, testing accuracy and the corresponding expression BSR finds."
+    }
+  ],
+  "title": "Bayesian Symbolic Regression",
+  "year": 2020
+}

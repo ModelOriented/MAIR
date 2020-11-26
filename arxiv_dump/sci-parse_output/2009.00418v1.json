@@ -1,0 +1,2250 @@
+{
+  "abstractText": "As a field of AI, Machine Reasoning (MR) uses largely symbolic means to formalize and emulate abstract reasoning. Studies in early MR have notably started inquiries into Explainable AI (XAI) \u2013 arguably one of the biggest concerns today for the AI community. Work on explainable MR as well as on MR approaches to explainability in other areas of AI has continued ever since. It is especially potent in modern MR branches, such as argumentation, constraint and logic programming, planning. We hereby aim to provide a selective overview of MR explainability techniques and studies in hopes that insights from this long track of research will complement well the current XAI landscape. This document reports our work in-progress on MR explainability.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Kristijonas \u010cyras"
+    },
+    {
+      "affiliations": [],
+      "name": "Ramamurthy Badrinath"
+    },
+    {
+      "affiliations": [],
+      "name": "Swarup Kumar Mohalik"
+    },
+    {
+      "affiliations": [],
+      "name": "Anusha Mujumdar"
+    },
+    {
+      "affiliations": [],
+      "name": "Alexandros Nikou"
+    },
+    {
+      "affiliations": [],
+      "name": "Alessandro Previti"
+    },
+    {
+      "affiliations": [],
+      "name": "Vaishnavi Sundararajan"
+    },
+    {
+      "affiliations": [],
+      "name": "Aneta Vulgarakis Feljan"
+    }
+  ],
+  "id": "SP:785e9e80636fd04e89c059d51fa97afb582c3480",
+  "references": [
+    {
+      "authors": [
+        "Amina Adadi",
+        "Mohammed Berrada"
+      ],
+      "title": "Peeking Inside the Black-Box: A Survey on Explainable Artificial Intelligence (XAI)",
+      "venue": "IEEE Access,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "AK Agogino",
+        "Ritchie Lee",
+        "Dimitra Giannakopoulou"
+      ],
+      "title": "Challenges of explaining real-time planning",
+      "venue": "In ICAPS Workshop on Explainable Planning (XAIP),",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Emanuele Albini",
+        "Antonio Rago",
+        "Pietro Baroni",
+        "Francesca Toni"
+      ],
+      "title": "Relation-Based Counterfactual Explanations for Bayesian Network Classifiers",
+      "venue": "29th International Joint Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Mohammed Alshiekh",
+        "Roderick Bloem",
+        "R\u00fcdiger Ehlers",
+        "Bettina K\u00f6nighofer",
+        "Scott Niekum",
+        "Ufuk Topcu"
+      ],
+      "title": "Safe Reinforcement Learning via Shielding",
+      "venue": "AAAI Conference on Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Leila Amgoud",
+        "Henri Prade"
+      ],
+      "title": "Using Arguments for Making and Explaining Decisions",
+      "venue": "Artificial Intelligence,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Leila Amgoud",
+        "Mathieu Serrurier"
+      ],
+      "title": "Agents that Argue and Explain Classifications",
+      "venue": "Autonomous Agents and Multi-Agent Systems,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "J\u00e9r\u00f4me Amilhastre",
+        "H\u00e9l\u00e8ne Fargier",
+        "Pierre Marquis"
+      ],
+      "title": "Consistency Restoration and Explanations in Dynamic CSPs - Application to Configuration",
+      "venue": "Artificial Intelligence,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Ofra Amir",
+        "Finale Doshi-Velez",
+        "David Sarne"
+      ],
+      "title": "Summarizing Agent Strategies. Autonomous Agents and Multi-Agent Systems, 33(5):628\u2013644, sep 2019",
+      "venue": "ISSN 1387-2532",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Robert Andrews",
+        "Joachim Diederich",
+        "Alan B Tickle"
+      ],
+      "title": "Survey and Critique of Techniques for Extracting Rules from Trained Artificial Neural Networks",
+      "venue": "Knowledge-Based Systems,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Sule Anjomshoae",
+        "Davide Calvaresi",
+        "Amro Najjar",
+        "Kary Fr\u00e4mling"
+      ],
+      "title": "Explainable Agents and Robots: Results from a Systematic Literature Review",
+      "venue": "editors, 18th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Krzysztof R Apt",
+        "Roland N Bol"
+      ],
+      "title": "Logic Programming and Negation: A Survey",
+      "venue": "The Journal of Logic Programming,",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "Abdallah Arioua",
+        "Nouredine Tamani",
+        "Madalina Croitoru"
+      ],
+      "title": "Query Answering Explanation in Inconsistent Datalog +/- Knowledge Bases",
+      "venue": "Database and Expert Systems Applications - 26th International Conference,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Alejandro Barredo Arrieta",
+        "Natalia D\u0131\u0301az-Rodr\u0131\u0301guez",
+        "Javier Del Ser",
+        "Adrien Bennetot",
+        "Siham Tabik",
+        "Alberto Barbado",
+        "Salvador Garcia",
+        "Sergio Gil-Lopez",
+        "Daniel Molina",
+        "Richard Benjamins",
+        "Raja Chatila",
+        "Francisco Herrera"
+      ],
+      "title": "Explainable Explainable Artificial Intelligence (XAI): Concepts, Taxonomies, Opportunities and Challenges Toward Responsible AI",
+      "venue": "Information Fusion,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "K. Belahcene",
+        "C. Labreuche",
+        "N. Maudet",
+        "V. Mousseau",
+        "W. Ouerdane"
+      ],
+      "title": "Explaining Robust Additive Utility Models by Sequences of Preference Swaps",
+      "venue": "Theory and Decision,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Leopoldo Bertossi"
+      ],
+      "title": "An ASP-Based Approach to Counterfactual Explanations for Classification",
+      "venue": "In 4th International Joint Conference on Rules and Reasoning,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Yves Bertot",
+        "Pierre Cast\u00e9ran"
+      ],
+      "title": "Interactive Theorem Proving and Program Development - Coq\u2019Art: The Calculus of Inductive Constructions",
+      "venue": "Texts in Theoretical Computer Science. An EATCS Series. Springer,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Floris Bex"
+      ],
+      "title": "An Integrated Theory of Causal Stories and Evidential Arguments",
+      "venue": "15th International Conference on Artificial Intelligence and Law, pages 13\u201322,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Floris Bex",
+        "Douglas Walton"
+      ],
+      "title": "Combining Explanation and Argumentation in Dialogue",
+      "venue": "Argument & Computation,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Meghyn Bienvenu",
+        "Camille Bourgaux",
+        "Fran\u00e7ois Goasdou\u00e9"
+      ],
+      "title": "Computing and Explaining Query Answers over Inconsistent DL-Lite Knowledge Bases",
+      "venue": "Journal of Artificial Intelligence Research,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Or Biran",
+        "Courtenay Cotton"
+      ],
+      "title": "Explanation and Justification in Machine Learning: A Survey",
+      "venue": "In 1st Workshop on Explainable Artificial Intelligence,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Bart Bogaerts",
+        "Emilio Gamba",
+        "Jens Claes",
+        "Tias Guns"
+      ],
+      "title": "Step-Wise Explanations of Constraint Satisfaction Problems",
+      "venue": "In 24th European Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Arthur Boixel",
+        "Ulle Endriss"
+      ],
+      "title": "Automated Justification of Collective Decisions via Constraint Solving",
+      "venue": "19th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Andrei Bondarenko",
+        "Phan Minh Dung",
+        "Robert Kowalski",
+        "Francesca Toni"
+      ],
+      "title": "An Abstract, Argumentation-Theoretic Approach to Default Reasoning",
+      "venue": "Artificial Intelligence,",
+      "year": 1997
+    },
+    {
+      "authors": [
+        "Richard Booth",
+        "Dov M Gabbay",
+        "Souhila Kaci",
+        "Tjitze Rienstra",
+        "Leendert van der Torre"
+      ],
+      "title": "Abduction and Dialogical Proof in Argumentation and Logic Programming",
+      "venue": "21st European Conference on Artificial Intelligence,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "L\u00e9on Bottou"
+      ],
+      "title": "From Machine Learning to Machine Reasoning: An Essay",
+      "venue": "Machine Learning,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Maxime Bouton",
+        "Jesper Karlsson",
+        "Alireza Nakhaei",
+        "Kikuo Fujimura",
+        "Mykel J Kochenderfer",
+        "Jana Tumova"
+      ],
+      "title": "Reinforcement Learning with Probabilistic Guarantees for Autonomous Driving",
+      "venue": "CoRR, abs/1904.0,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ronald J Brachman",
+        "Hector J Levesque"
+      ],
+      "title": "Knowledge Representation and Reasoning",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Martin Brain",
+        "Marina De Vos"
+      ],
+      "title": "Answer Set Programming: A Domain in Need of Explanation - A Position Paper",
+      "venue": "3rd International and ECAI-08 Workshop on Explanation-Aware Computing,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Gerhard Brewka"
+      ],
+      "title": "Preferred Subtheories: An Extended Logical Framework for Default Reasoning",
+      "venue": "11th International Joint Conference on Artificial Intelligence,",
+      "year": 1989
+    },
+    {
+      "authors": [
+        "Gerhard Brewka",
+        "Thomas Eiter",
+        "Miros\u0142aw Truszczy\u0144ski"
+      ],
+      "title": "Answer Set Programming at a Glance",
+      "venue": "Communications of the ACM,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Cristian E. Briguez",
+        "Maximiliano C.D. Bud\u00e1n",
+        "Cristhian A.D. Deagustini",
+        "Ana G. Maguitman",
+        "Marcela Capobianco",
+        "Guillermo R. Simari"
+      ],
+      "title": "Argument-based Mixed Recommenders and their Application to Movie Suggestion",
+      "venue": "Expert Systems with Applications,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Adrian Bussone",
+        "Simone Stumpf",
+        "Dympna O\u2019Sullivan"
+      ],
+      "title": "The Role of Explanations on Trust and Reliance in Clinical Decision Support Systems",
+      "venue": "International Conference on Healthcare Informatics,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Ruth M.J. Byrne"
+      ],
+      "title": "Counterfactuals in Explainable Artificial Intelligence (XAI): Evidence from Human Reasoning",
+      "venue": "Sarit Kraus, editor, 28th International Joint Conference on Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Pedro Cabalar",
+        "Jorge Fandinno",
+        "Michael Fink"
+      ],
+      "title": "Causal Graph Justifications of Logic Programs",
+      "venue": "Theory and Practice of Logic Programming,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Roberta Calegari",
+        "Giovanni Ciatto",
+        "Jason Dellaluce",
+        "Andrea Omicini"
+      ],
+      "title": "Interpretable Narrative Explanation for ML Predictors with LP: A Case Study for XAI",
+      "venue": "Research K. C\u030cyras et al. Report on Explainability in Machine Reasoning editors, 20th Workshop \u201dFrom Objects to Agents\u201d,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Sandra Carberry"
+      ],
+      "title": "Techniques for Plan Recognition",
+      "venue": "User Modeling and User-Adapted Interaction,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Diogo V. Carvalho",
+        "Eduardo M. Pereira",
+        "Jaime S. Cardoso"
+      ],
+      "title": "Machine Learning Interpretability: A Survey on Methods and Metrics",
+      "venue": "jul",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Michael Cashmore",
+        "Anna Collins",
+        "Benjamin Krarup",
+        "Senka Krivic",
+        "Daniele Magazzeni",
+        "David Smith"
+      ],
+      "title": "Towards Explainable AI Planning as a Service",
+      "venue": "In 2nd International Workshop on Explainable AI Planning,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "\u0130smail \u0130lkan Ceylan",
+        "Thomas Lukasiewicz",
+        "Enrico Malizia",
+        "Andrius Vaicenavi\u010dius"
+      ],
+      "title": "Explanations for Query Answers under Existential Rules",
+      "venue": "In Sarit Kraus, editor, 28th International Joint Conference on Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Tathagata Chakraborti",
+        "Sarath Sreedharan",
+        "Yu Zhang",
+        "Subbarao Kambhampati"
+      ],
+      "title": "Plan Explanations as Model Reconciliation: Moving Beyond Explanation as Soliloquy",
+      "venue": "26th International Joint Conference on Artificial Intelligence,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Tathagata Chakraborti",
+        "Kshitij P. Fadnis",
+        "Kartik Talamadupula",
+        "Mishal Dholakia",
+        "Biplav Srivastava",
+        "Jeffrey O. Kephart",
+        "Rachel K.E. Bellamy"
+      ],
+      "title": "Planning and Visualization for a Smart Meeting Room Assistant",
+      "venue": "AI Communications,",
+      "year": 2171
+    },
+    {
+      "authors": [
+        "Tathagata Chakraborti",
+        "Anagha Kulkarni",
+        "Sarath Sreedharan",
+        "David E. Smith",
+        "Subbarao Kambhampati"
+      ],
+      "title": "Explicability? Legibility? Predictability? Transparency? Privacy? Security? The Emerging Landscape of Interpretable Agent Behavior",
+      "venue": "editors, 29th International Conference on Automated Planning and Scheduling,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Tathagata Chakraborti",
+        "Sarath Sreedharan",
+        "Sachin Grover",
+        "Subbarao Kambhampati"
+      ],
+      "title": "Plan Explanations as Model Reconciliation. An Empirical Study",
+      "venue": "In 14th ACM/IEEE International Conference on Human-Robot Interaction,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Tathagata Chakraborti",
+        "Sarath Sreedharan",
+        "Subbarao Kambhampati"
+      ],
+      "title": "The Emerging Landscape of Explainable Automated Planning & Decision Making",
+      "venue": "29th International Joint Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Martin Chapman",
+        "Panagiotis Balatsoukas",
+        "Mark Ashworth",
+        "Vasa Curcin",
+        "Nadin K\u00f6kciyan",
+        "Kai Essers",
+        "Isabel Sassoon",
+        "Sanjay Modgil",
+        "Simon Parsons",
+        "Elizabeth I Sklar"
+      ],
+      "title": "Computational Argumentationbased Clinical Decision Support Demonstration",
+      "venue": "editors, 18th International Conference on Autonomous Agents and MultiA- 41 Ericsson Research K. C\u030cyras et al. Report on Explainability in Machine Reasoning gent Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Giovanni Ciatto",
+        "Roberta Calegari",
+        "Andrea Omicini",
+        "Davide Calvaresi"
+      ],
+      "title": "Towards XMAS: eXplainability through Multi-Agent Systems",
+      "venue": "1st Workshop on Artificial Intelligence and Internet of Things,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Gabriele Ciravegna",
+        "Francesco Giannini",
+        "Stefano Melacci",
+        "Marco Maggini",
+        "Marco Gori"
+      ],
+      "title": "A Constraint-Based Approach to Learning and Explanation",
+      "venue": "In 34th AAAI Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Oana Cocarascu",
+        "Kristijonas \u010cyras",
+        "Francesca Toni"
+      ],
+      "title": "Explanatory Predictions with Artificial Neural Networks and Argumentation",
+      "venue": "2nd Workshop on Explainable Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Oana Cocarascu",
+        "Antonio Rago",
+        "Francesca Toni"
+      ],
+      "title": "Extracting Dialogical Explanations for Review Aggregations with Argumentative Dialogical Agents",
+      "venue": "18th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Oana Cocarascu",
+        "Andria Stylianou",
+        "Kristijona\u0161 Cyras",
+        "Francesca Toni"
+      ],
+      "title": "Data-Empowered Argumentation for Dialectically Explainable Predictions",
+      "venue": "In 24th European Conference on Artificial Intelligence, Santiago de Compostela,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Anna Collins",
+        "Daniele Magazzeni",
+        "Simon Parsons"
+      ],
+      "title": "Towards an Argumentation-Based Approach to Explainable Planning",
+      "venue": "2nd ICAPS Workshop on Explainable Planning,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Anthony C. Constantinou",
+        "Norman Fenton"
+      ],
+      "title": "Things to Know about Bayesian Networks: Decisions Under Uncertainty, Part 2. Significance, 15(2):19\u201323, apr 2018",
+      "venue": "ISSN 17409705",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Mark G. Core",
+        "H.C. Lane",
+        "Michael Van Lent",
+        "Dave Gomboc",
+        "Steve Solomon",
+        "Milton Rosenberg"
+      ],
+      "title": "Building Explainable Artificial Intelligence Systems",
+      "venue": "In 21st National Conference on Artificial Intelligence (AAAI),",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Kristijonas \u010cyras",
+        "Ken Satoh",
+        "Francesca Toni"
+      ],
+      "title": "Explanation for Case-Based Reasoning via Abstract Argumentation",
+      "venue": "In 6th International Conference on Computational Models of Argument,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Kristijonas \u010cyras",
+        "Xiuyi Fan",
+        "Claudia Schulz",
+        "Francesca Toni"
+      ],
+      "title": "Assumption-Based Argumentation: Disputes, Explanations, Preferences",
+      "venue": "Research K. C\u030cyras et al. Report on Explainability in Machine Reasoning",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Kristijonas \u010cyras",
+        "David Birch",
+        "Yike Guo",
+        "Francesca Toni",
+        "Rajvinder Dulay",
+        "Sally Turvey",
+        "Daniel Greenberg",
+        "Tharindi Hapuarachchi"
+      ],
+      "title": "Explanations by Arbitrated Argumentative Dispute",
+      "venue": "Expert Systems with Applications,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Kristijonas \u010cyras",
+        "Dimitrios Letsios",
+        "Ruth Misener",
+        "Francesca Toni"
+      ],
+      "title": "Argumentation for Explainable Scheduling",
+      "venue": "AAAI Conference on Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Kristijonas \u010cyras",
+        "Amin Karamlou",
+        "Myles Lee",
+        "Dimitrios Letsios",
+        "Ruth Misener",
+        "Francesca Toni"
+      ],
+      "title": "AI-assisted Schedule Explainer for Nurse Rostering",
+      "venue": "19th International Conference on Autonomous Agents and MultiAgent Systems - Demo Track,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Darwiche"
+      ],
+      "title": "Model-Based Diagnosis using Structured System Descriptions",
+      "venue": "Journal of Artificial Intelligence Research,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "Ernest Davis"
+      ],
+      "title": "Logical Formalizations of Commonsense Reasoning: A Survey",
+      "venue": "Journal of Artificial Intelligence Research,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Martin Davis",
+        "Hilary Putnam"
+      ],
+      "title": "A Computing Procedure for Quantification Theory",
+      "venue": "Journal of the ACM,",
+      "year": 1960
+    },
+    {
+      "authors": [
+        "Marc Denecker",
+        "Bart Bogaerts",
+        "Joost Vennekens"
+      ],
+      "title": "Explaining Actual Causation in Terms of Possible Causal Processes",
+      "venue": "Logics in Artificial Intelligence - 16th European Conference,",
+      "year": 1957
+    },
+    {
+      "authors": [
+        "Carmine Dodaro",
+        "Philip Gasteiger",
+        "Kristian Reale",
+        "Francesco Ricca",
+        "Konstantin Schekotihin"
+      ],
+      "title": "Debugging Non-ground ASP Programs: Technique and Graphical Tools",
+      "venue": "Theory and Practice of Logic Programming,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Nicholas Downing",
+        "Thibaut Feydy",
+        "Peter J. Stuckey"
+      ],
+      "title": "Explaining alldifferent",
+      "venue": "25th Australasian Computer Science Conference,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Phan Minh Dung"
+      ],
+      "title": "On the Acceptability of Arguments and Its Fundamental Role in Nonmonotonic Reasoning, Logic Programming and n-person Games",
+      "venue": "Artificial Intelligence,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Phan Minh Dung",
+        "Robert Kowalski",
+        "Francesca Toni"
+      ],
+      "title": "Dialectic Proof Procedures for Assumption- Based, Admissible Argumentation",
+      "venue": "Artificial Intelligence,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Rebecca Eifler",
+        "Michael Cashmore",
+        "J\u00f6rg Hoffmann",
+        "Daniele Magazzeni",
+        "Marcel Steinmetz"
+      ],
+      "title": "Explaining the Space of Plans through Plan-Property Dependencies",
+      "venue": "In 2nd International Workshop on Explainable AI Planning, Berkeley,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Rebecca Eifler",
+        "Michael Cashmore",
+        "J\u00f6rg Hoffmann",
+        "Daniele Magazzeni",
+        "Marcel Steinmetz"
+      ],
+      "title": "A New Approach to Plan-Space Explanation: Analyzing Plan-Property Dependencies in Oversubscription Planning",
+      "venue": "In 34th AAAI Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Rebecca Eifler",
+        "Marcel Steinmetz",
+        "\u00c1lvaro Torralba",
+        "J\u00f6rg Hoffmann"
+      ],
+      "title": "Plan-Space Explanation via Plan-Property Dependencies: Faster Algorithms & More Powerful Properties",
+      "venue": "29th International Joint Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Kave Eshghi",
+        "Robert Kowalski"
+      ],
+      "title": "Abduction Compared with Negation by Failure",
+      "venue": "Logic Programming, the 6th International Conference,",
+      "year": 1989
+    },
+    {
+      "authors": [
+        "Richard Evans",
+        "Edward Grefenstette"
+      ],
+      "title": "Learning Explanatory Rules from Noisy Data",
+      "venue": "Journal of Artificial Intelligence Research,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Marcelo A. Falappa",
+        "Gabriele Kern-Isberner",
+        "Guillermo R. Simari"
+      ],
+      "title": "Explanations, Belief Revision and Defeasible Reasoning",
+      "venue": "Artificial Intelligence,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Xiuyi Fan"
+      ],
+      "title": "On Generating Explainable Plans with Assumption-Based Argumentation",
+      "venue": "editors, 21th International Conference on Principles and Practice of Multi-Agent Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Xiuyi Fan",
+        "Francesca Toni"
+      ],
+      "title": "A General Framework for Sound Assumption-Based Argumentation Dialogues",
+      "venue": "Artificial Intelligence,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Xiuyi Fan",
+        "Francesca Toni"
+      ],
+      "title": "On Computing Explanations in Argumentation",
+      "venue": "In Blai Bonet and Sven Koenig, editors, 29th AAAI Conference on Artificial Intelligence,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Xiuyi Fan",
+        "Francesca Toni"
+      ],
+      "title": "On Computing Explanations for Non-Acceptable Arguments",
+      "venue": "Theory and Applications of Formal Argumentation - 3rd International Workshop,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Jorge Fandinno",
+        "Claudia Schulz"
+      ],
+      "title": "Answering the \u201cWhy\u201d in Answer Set Programming - A Survey of Explanation Approaches",
+      "venue": "Theory and Practice of Logic Programming,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Melvin Fitting"
+      ],
+      "title": "First-Order Logic and Automated Theorem Proving, Second Edition",
+      "venue": "Graduate Texts in Computer Science. Springer,",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "John Fox"
+      ],
+      "title": "Cognitive Systems at the Point of Care: The CREDO Program",
+      "venue": "Journal of Biomedical Informatics,",
+      "year": 1532
+    },
+    {
+      "authors": [
+        "Maria Fox",
+        "Derek Long",
+        "Daniele Magazzeni"
+      ],
+      "title": "Explainable Planning",
+      "venue": "1st Workshop on Explainable Artificial Intelligence, Melbourne,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Eugene C. Freuder"
+      ],
+      "title": "Explaining Ourselves: Human-Aware Constraint Reasoning",
+      "venue": "31st AAAI Conference on Artificial Intelligence,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Eugene C. Freuder",
+        "Chavalit Likitvivatanavong",
+        "Manuela Moretti",
+        "Francesca Rossi",
+        "Richard J. Wallace"
+      ],
+      "title": "Computing Explanations and Implications in Preference-Based Configurators",
+      "venue": "Recent Advances in Constraints, Joint ERCIM/CologNet International Workshop on Constraint Solving and Constraint Logic Programming,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Yosuke Fukuchi",
+        "Masahiko Osawa",
+        "Hiroshi Yamakawa",
+        "Michita Imai"
+      ],
+      "title": "Autonomous self-explanation of behavior for interactive reinforcement learning agents",
+      "venue": "In Proceedings of the 5th International Conference on Human Agent Interaction,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Ganesalingam",
+        "W.T. Gowers"
+      ],
+      "title": "A fully automatic theorem prover with human-style output",
+      "venue": "Journal of Automated Reasoning,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Alejandro Javier Garc\u0131\u0301a",
+        "Guillermo Ricardo Simari"
+      ],
+      "title": "Defeasible Logic Programming: DeLP-servers, Contextual Queries, and Explanations for Answers",
+      "venue": "Argument & Computation,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Martin Gebser",
+        "J\u00f6rg P\u00fchrer",
+        "Torsten Schaub",
+        "Hans Tompits"
+      ],
+      "title": "A Meta-Programming Technique for Debugging Answer-Set Programs",
+      "venue": "23rd AAAI Conference on Artificial Intelligence,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Hector Geffner"
+      ],
+      "title": "Causal Theories for Nonmonotonic Reasoning",
+      "venue": "8th National Conference on Artificial Intelligence,",
+      "year": 1990
+    },
+    {
+      "authors": [
+        "Hector Geffner"
+      ],
+      "title": "Model-free, Model-based, and General Intelligence",
+      "venue": "27th International Joint Conference on Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Shafi Goldwasser",
+        "Silvio Micali",
+        "Charles Rackoff"
+      ],
+      "title": "The Knowledge Complexity of Interactive Proofsystems",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Sinan G\u00f6n\u00fcl",
+        "Dilek \u00d6nkal",
+        "Michael Lawrence"
+      ],
+      "title": "The Effects of Structural Characteristics of Explanations on Use of a DSS",
+      "venue": "Decision Support Systems,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Benjamin Grosof",
+        "Michael Kifer",
+        "Paul Fodor",
+        "Janine Bloomfield"
+      ],
+      "title": "Rulelog: Highly Expressive, Yet Scalable, Semantic Rules",
+      "venue": "Technical report,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Benjamin N Grosof",
+        "Michael Kifer",
+        "Paul Fodor"
+      ],
+      "title": "Rulelog: Highly Expressive Semantic Rules with Scalable Deep Reasoning",
+      "venue": "RuleML+RR: International Joint Conference on Rules and Reasoning,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Riccardo Guidotti",
+        "Anna Monreale",
+        "Salvatore Ruggieri",
+        "Franco Turini",
+        "Fosca Giannotti",
+        "Dino Pedreschi"
+      ],
+      "title": "A Survey of Methods for Explaining Black Box Models. ACM Computing Surveys, 51(5):1\u201342, aug 2019",
+      "venue": "ISSN 03600300",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Mark Hall",
+        "Daniel Harborne",
+        "Richard Tomsett",
+        "Vedran Galetic",
+        "Santiago Quintana-Amate",
+        "Alistair Nottle",
+        "Alun Preece"
+      ],
+      "title": "A Systematic Method to Understand Requirements for Explainable AI (XAI) Systems",
+      "venue": "3rd Workshop on Explainable Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ned Hall"
+      ],
+      "title": "Two Concepts of Causation",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Ned Hall"
+      ],
+      "title": "Structural Equations and Causation",
+      "venue": "Philosophical Studies: An International Journal for Philosophy in the Analytic Tradition,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Lars Kai Hansen",
+        "Laura Rieger"
+      ],
+      "title": "Interpretability in Intelligent Systems \u2013 A New Concept",
+      "venue": "Lecture Notes in Computer Science,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Abdelraouf Hecham",
+        "Abdallah Arioua",
+        "Gem Stapleton",
+        "Madalina Croitoru"
+      ],
+      "title": "An Empirical Evaluation of Argumentation in Explaining Inconsistency-Tolerant Query Answering",
+      "venue": "30th International Workshop on Description Logics, Montpellier,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "David Heckerman"
+      ],
+      "title": "A Bayesian Approach to Learning Causal Networks",
+      "venue": "11th Annual Conference on Uncertainty in Artificial Intelligence,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Christopher Hitchcock"
+      ],
+      "title": "Causal Models",
+      "venue": "In Edward N Zalta, editor, The Stanford Encyclopedia of Philosophy. Metaphysics Research Lab, Stanford University, summer 202 edition,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Matthew Horridge",
+        "Bijan Parsia",
+        "Ulrike Sattler"
+      ],
+      "title": "Explaining Inconsistencies in OWL Ontologies",
+      "venue": "Scalable Uncertainty Management - 3rd International Conference,",
+      "year": 2043
+    },
+    {
+      "authors": [
+        "Alexey Ignatiev"
+      ],
+      "title": "Towards Trustable Explainable AI",
+      "venue": "29th International Joint Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Alexey Ignatiev",
+        "Nina Narodytska",
+        "Jo\u00e3o Marques-Silva"
+      ],
+      "title": "Abduction-Based Explanations for Machine Learning Models",
+      "venue": "AAAI Conference on Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Alexey Ignatiev",
+        "Nina Narodytska",
+        "Joao Marques-Silva"
+      ],
+      "title": "On Relating Explanations and Adversarial Examples",
+      "venue": "33rd Annual Conference on Neural Information Processing Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "David Isele",
+        "Alireza Nakhaei",
+        "Kikuo Fujimura"
+      ],
+      "title": "Safe Reinforcement Learning on Autonomous Vehicles",
+      "venue": "In IEEE/RSJ International Conference on Intelligent Robots and Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Hilary Johnson",
+        "Peter Johnson"
+      ],
+      "title": "Explanation Facilities and Interactive Systems",
+      "venue": "1st International Workshop on Intelligent User Interfaces,",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "Ulrich Junker"
+      ],
+      "title": "QUICKXPLAIN: Preferred Explanations and Relaxations for Over-Constrained Problems",
+      "venue": "19th National Conference on Artificial Intelligence,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Zoe Juozapaitis",
+        "Anurag Koul",
+        "Alan Fern",
+        "Martin Erwig",
+        "Finale Doshi-Velez"
+      ],
+      "title": "Explainable reinforcement learning via reward decomposition",
+      "venue": "In IJCAI/ECAI Workshop on Explainable Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Antonis C Kakas",
+        "Robert Kowalski",
+        "Francesca Toni"
+      ],
+      "title": "Abductive Logic Programming",
+      "venue": "Journal of Logic and Computation,",
+      "year": 1992
+    },
+    {
+      "authors": [
+        "Aditya Kalyanpur",
+        "Bijan Parsia",
+        "Matthew Horridge",
+        "Evren Sirin"
+      ],
+      "title": "Finding All Justifications of OWL DL Entailments",
+      "venue": "The Semantic Web,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Amin Karamlou",
+        "Kristijonas \u010cyras",
+        "Francesca Toni"
+      ],
+      "title": "Complexity Results and Algorithms for Bipolar Argumentation",
+      "venue": "editors, 18th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Dmitry Kazhdan",
+        "Zohreh Shams",
+        "Pietro Li\u00f2"
+      ],
+      "title": "Marleme: A multi-agent reinforcement learning model extraction library",
+      "venue": "arXiv preprint arXiv:2004.07928,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Omar Zia Khan",
+        "Pascal Poupart",
+        "James P Black"
+      ],
+      "title": "Minimal sufficient explanations for factored markov decision processes",
+      "venue": "In ICAPS. Citeseer,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "J\u00fcrg Kohlas",
+        "Dritan Berzati",
+        "Rolf Haenni"
+      ],
+      "title": "Probabilistic Argumentation Systems and Abduction",
+      "venue": "Annals of Mathematics and Artificial Intelligence,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Benjamin Krarup",
+        "Michael Cashmore",
+        "Daniele Magazzeni",
+        "Tim Miller"
+      ],
+      "title": "Model-Based Contrastive Explanations for Explainable Planning",
+      "venue": "ICAPS 2019 Workshop on Explainable AI Planning (XAIP),",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Sarit Kraus",
+        "Amos Azaria",
+        "Jelena Fiosina",
+        "Maike Greve",
+        "Noam Hazon",
+        "Lutz Kolbe",
+        "Tim-Benjamin Lembcke",
+        "J\u00f6rg P. M\u00fcller",
+        "S\u00f6ren Schleibaum",
+        "Mark Vollrath"
+      ],
+      "title": "AI for Explaining Decisions in Multi-Agent Environments",
+      "venue": "In 34th AAAI Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Robbert Krebbers",
+        "Xavier Leroy",
+        "Freek Wiedijk"
+      ],
+      "title": "Formal C Semantics: CompCert and the C Standard",
+      "venue": "Interactive Theorem Proving - 5th International Conference,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Todd Kulesza",
+        "Margaret Burnett",
+        "Weng-keen Wong",
+        "Simone Stumpf"
+      ],
+      "title": "Principles of Explanatory Debugging to Personalize Interactive Machine Learning",
+      "venue": "20th International Conference on Intelligent User Interfaces,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Anagha Kulkarni",
+        "Satya Gautam Vadlamudi",
+        "Yantian Zha",
+        "Yu Zhang",
+        "Tathagata Chakraborti",
+        "Subbarao Kambhampati"
+      ],
+      "title": "Explicable Planning as Minimizing Distance from Expected Behavior",
+      "venue": "In 18th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Christophe Labreuche"
+      ],
+      "title": "A General Framework for Explaining the Results of a Multi-Attribute Preference Model",
+      "venue": "Artificial Intelligence,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Christophe Labreuche",
+        "Simon Fossier"
+      ],
+      "title": "Explaining Multi-Criteria Decision Aiding Models with an Extended Shapley Value",
+      "venue": "27th International Joint Conference on Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Christophe Labreuche",
+        "Nicolas Maudet",
+        "Wassila Ouerdane"
+      ],
+      "title": "Minimal and Complete Explanations for Critical Multi-attribute Decisions",
+      "venue": "Algorithmic Decision Theory - 2nd International Conference,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Carmen Lacave",
+        "Francisco J"
+      ],
+      "title": "D\u0131\u0301ez. A Review of Explanation Methods for Bayesian Networks",
+      "venue": "Knowledge Engineering Review,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Lu\u0131\u0301s C. Lamb",
+        "Artur D\u2019Avila Garcez",
+        "Marco Gori",
+        "Marcelo O.R. Prates",
+        "Pedro H.C. Avelar",
+        "Moshe Y. Vardi"
+      ],
+      "title": "Graph Neural Networks Meet Neural-Symbolic Computing: A Survey and Perspective",
+      "venue": "In Christian Bessiere, editor, 29th International Joint Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Pat Langley",
+        "Ben Meadows",
+        "Mohan Sridharan",
+        "Dongkyu Choi"
+      ],
+      "title": "Explainable Agency for Intelligent Autonomous Systems",
+      "venue": "31st AAAI Conference on Artificial Intelligence,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Martin Lauer",
+        "Martin A Riedmiller"
+      ],
+      "title": "An Algorithm for Distributed Reinforcement Learning in Cooperative Multi-Agent Systems",
+      "venue": "In Pat Langley, editor, 17th International Conference on Machine Learning,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Mark Law",
+        "Alessandra Russo",
+        "Krysia Broda"
+      ],
+      "title": "Logic-Based Learning of Answer Set Programs",
+      "venue": "Reasoning Web. Explainable Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "David B. Leake"
+      ],
+      "title": "Abduction, Experience, and Goals: A Model of Everyday Abductive Explanation",
+      "venue": "Journal of Experimental and Theoretical Artificial Intelligence,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Freddy L\u00e9cu\u00e9"
+      ],
+      "title": "On the Role of Knowledge Graphs in Explainable AI",
+      "venue": "Semantic Web,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Xiao Li",
+        "Yao Ma",
+        "Calin Belta"
+      ],
+      "title": "A Policy Search Method For Temporal Logic Specified Reinforcement Learning Tasks",
+      "venue": "Annual American Control Conference,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Vladimir Lifschitz"
+      ],
+      "title": "Answer Set Programming. Springer, 2019",
+      "venue": "ISBN 978-3-030-24657-0",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Brian Y. Lim",
+        "Anind K. Dey"
+      ],
+      "title": "Toolkit to Support Intelligibility in Context-Aware Applications",
+      "venue": "In 12th ACM International Conference on Ubiquitous Computing,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Zachary C. Lipton"
+      ],
+      "title": "The Mythos of Model Interpretability",
+      "venue": "Communications of the ACM,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Thomas Lukasiewicz",
+        "Enrico Malizia",
+        "Cristian Molinaro"
+      ],
+      "title": "Explanations for Inconsistency-Tolerant Query Answering under Existential Rules",
+      "venue": "In 34th AAAI Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Scott M Lundberg",
+        "Su-In Lee"
+      ],
+      "title": "A Unified Approach to Interpreting Model Predictions",
+      "venue": "Advances in Neural Information Processing Systems,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Prashan Madumal",
+        "Tim Miller",
+        "Liz Sonenberg",
+        "Frank Vetere"
+      ],
+      "title": "A Grounded Interaction Protocol for Explainable Artificial Intelligence",
+      "venue": "18th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Prashan Madumal",
+        "Tim Miller",
+        "Liz Sonenberg",
+        "Frank Vetere"
+      ],
+      "title": "Explainable Reinforcement Learning through a Causal Lens",
+      "venue": "In 34th AAAI Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Peter McBurney",
+        "Simon Parsons"
+      ],
+      "title": "Games that Agents Play: A Formal Framework for Dialogues Between Autonomous Agents",
+      "venue": "Journal of Logic, Language and Information,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Tim Miller"
+      ],
+      "title": "Explanation in Artificial Intelligence: Insights from the Social Sciences",
+      "venue": "Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Pasquale Minervini",
+        "Matko Bo\u0161njak",
+        "Tim Rockt\u00e4schel",
+        "Sebastian Riedel",
+        "Edward Grefenstette"
+      ],
+      "title": "Differentiable Reasoning on Large Knowledge Bases and Natural Language",
+      "venue": "In 34th AAAI Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Brent Mittelstadt",
+        "Chris Russell",
+        "Sandra Wachter"
+      ],
+      "title": "Explaining Explanations in AI",
+      "venue": "ACM. ISBN 9781450361255",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Sanjay Modgil"
+      ],
+      "title": "Reasoning About Preferences in Argumentation Frameworks",
+      "venue": "Artificial Intelligence,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Sanjay Modgil",
+        "Martin Caminada"
+      ],
+      "title": "Proof Theories and Algorithms for Abstract Argumentation Frameworks",
+      "venue": "Argumentation in Artificial Intelligence,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Sina Mohseni",
+        "Niloofar Zarei",
+        "Eric D. Ragan"
+      ],
+      "title": "A Multidisciplinary Survey and Framework for Design and Evaluation of Explainable AI Systems",
+      "venue": "ACM Transactions on Interactive Intelligent Systems,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Johanna D. Moore",
+        "William R. Swartout"
+      ],
+      "title": "Pointing: A Way Toward Explanation Dialogue",
+      "venue": "8th National Conference on Artificial Intelligence,",
+      "year": 1990
+    },
+    {
+      "authors": [
+        "Bernard Moulin",
+        "Hengameh Irandoust",
+        "Micheline B\u00e9langer",
+        "G Desbordes"
+      ],
+      "title": "Explanation and Argumentation Capabilities: Towards the Creation of More Persuasive Agents",
+      "venue": "Artificial Intelligence Review,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Shane T. Mueller",
+        "Robert R. Hoffman",
+        "William Clancey",
+        "Abigail Emrey",
+        "Gary Klein"
+      ],
+      "title": "Explanation in Human-AI Systems: A Literature Meta-Review, Synopsis of Key Ideas and Publications, and Bibliography for Explainable AI",
+      "venue": "Technical report,",
+      "year": 1902
+    },
+    {
+      "authors": [
+        "Stephen Muggleton",
+        "Luc de Raedt"
+      ],
+      "title": "Inductive Logic Programming: Theory and Methods",
+      "venue": "The Journal of Logic Programming,",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "Robert Neches",
+        "William R Swartout",
+        "Johanna D Moore"
+      ],
+      "title": "Explainable (and Maintainable) Expert Systems",
+      "venue": "9th International Joint Conference on Artificial Intelligence,",
+      "year": 1985
+    },
+    {
+      "authors": [
+        "Ulf H. Nielsen",
+        "Jean Philippe Pellet",
+        "Andr\u00e9 Elissee"
+      ],
+      "title": "Explanation Trees for Causal Bayesian Networks",
+      "venue": "24th Conference on Uncertainty in Artificial Intelligence,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Andreas Niskanen",
+        "Matti J\u00e4rvisalo"
+      ],
+      "title": "Smallest Explanations and Diagnoses of Rejection in Abstract Argumentation",
+      "venue": "In 17th International Conference on Principles of Knowledge Representation and Reasoning,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Ingrid Nunes",
+        "Dietmar Jannach"
+      ],
+      "title": "A Systematic Review and Taxonomy of Explanations in Decision Support and Recommender Systems. User Modeling and User-Adapted Interaction, 27(3-5):393\u2013444, dec 2017",
+      "venue": "ISSN 0924-1868. doi: 10.1007/s11257-017-9195-0. URL http://link.springer. com/10.1007/s11257-017-9195-0",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Ingrid Nunes",
+        "Simon Miles",
+        "Michael Luck",
+        "Simone Barbosa",
+        "Carlos Lucena"
+      ],
+      "title": "Pattern-based Explanation for Automated Decisions",
+      "venue": "21st European Conference on Artificial Intelligence,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Barry O\u2019Callaghan",
+        "Barry O\u2019Sullivan",
+        "Eugene C. Freuder"
+      ],
+      "title": "Generating Corrective Explanations for Interactive Constraint Satisfaction",
+      "venue": "Principles and Practice of Constraint Programming,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "Johannes Oetsch",
+        "J\u00f6rg P\u00fchrer",
+        "Hans Tompits"
+      ],
+      "title": "Catching the Ouroboros: On Debugging Non-ground Answer-Set Programs",
+      "venue": "Theory and Practice of Logic Programming,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Barry O\u2019Sullivan",
+        "Alexandre Papadopoulos",
+        "Boi Faltings",
+        "Pearl Pu"
+      ],
+      "title": "Representative Explanations for Over-Constrained Problems",
+      "venue": "In 22nd AAAI Conference on Artificial Intelligence,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Judea Pearl"
+      ],
+      "title": "The Seven Tools of Causal Inference, with Reflections on Machine Learning",
+      "venue": "Communications of the ACM,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Rafael Pe\u00f1aloza",
+        "Bar\u0131\u015f Sertkaya"
+      ],
+      "title": "Understanding the Complexity of Axiom Pinpointing in Lightweight Description Logics",
+      "venue": "Artificial Intelligence,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Ram\u00f3n Pino-P\u00e9rez",
+        "Carlos Uzc\u00e1tegui"
+      ],
+      "title": "Preferences and Explanations",
+      "venue": "Artificial Intelligence,",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "Enrico Pontelli",
+        "Tran Cao Son",
+        "Omar Elkhatib"
+      ],
+      "title": "Justifications for Logic Programs under Answer Set Semantics",
+      "venue": "Theory and Practice of Logic Programming,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "David Poole"
+      ],
+      "title": "On the Comparison of Theories: Preferring the Most Specific Explanation",
+      "venue": "9th International Joint Conference on Artificial Intelligence,",
+      "year": 1985
+    },
+    {
+      "authors": [
+        "Henry Prakken",
+        "Giovanni Sartor"
+      ],
+      "title": "Modelling Reasoning with Precedents in a Formal Dialogue Game",
+      "venue": "Artificial Intelligence and Law,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "Alun Preece"
+      ],
+      "title": "Asking \u2018Why\u2019 in AI: Explainability of Intelligent Systems \u2013 Perspectives and Challenges",
+      "venue": "Intelligent Systems in Accounting, Finance and Management,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Alessandro Previti",
+        "Jo\u00e3o Marques-Silva"
+      ],
+      "title": "Partial MUS Enumeration",
+      "venue": "27th AAAI Conference on Artificial Intelligence,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Christopher Pulte",
+        "Jean Pichon-Pharabod",
+        "Jeehoon Kang",
+        "Sung Hwan Lee",
+        "Chung-Kil Hur"
+      ],
+      "title": "Promising-ARM/RISC-V: A Simpler and Faster Operational Concurrency Model",
+      "venue": "40th ACM SIGPLAN Conference on Programming Language Design and Implementation,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Antonio Rago",
+        "Oana Cocarascu",
+        "Francesca Toni"
+      ],
+      "title": "Argumentation-Based Recommendations: Fantastic Explanations and How to Find Them",
+      "venue": "27th International Joint Conference on Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Alex Raymond",
+        "Hatice Gunes",
+        "Amanda Prorok"
+      ],
+      "title": "Culture-Based Explainable Human-Agent Deconfliction",
+      "venue": "19th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Raymond Reiter"
+      ],
+      "title": "A Logic for Default Reasoning",
+      "venue": "Artificial Intelligence,",
+      "year": 1980
+    },
+    {
+      "authors": [
+        "Raymond Reiter"
+      ],
+      "title": "A Theory of Diagnosis from First Principles",
+      "venue": "Artificial Intelligence,",
+      "year": 1987
+    },
+    {
+      "authors": [
+        "Mireia Ribera",
+        "Agata Lapedriza"
+      ],
+      "title": "Can We Do Better Explanations? A Proposal of User-Centered Explainable AI",
+      "venue": "In 24th Annual Meeting of the Intelligent Interfaces Community Workshops,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Avi Rosenfeld",
+        "Ariella Richardson"
+      ],
+      "title": "Explainability in Human-Agent Systems. Autonomous Agents and Multi-Agent Systems, pages 1\u201333, may 2019",
+      "venue": "ISSN 1387-2532",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Francesca Rossi",
+        "Peter van Beek",
+        "Toby Walsh",
+        "editors"
+      ],
+      "title": "Handbook of Constraint Programming, volume 2 of Foundations of Artificial Intelligence",
+      "venue": "URL http://www.sciencedirect.com/science/bookseries/15746526/2",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Chiaki Sakama"
+      ],
+      "title": "Abduction in Argumentation Frameworks",
+      "venue": "Journal of Applied Non-Classical Logics,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Claudia Schulz",
+        "Francesca Toni"
+      ],
+      "title": "ABA-Based Answer Set Justification",
+      "venue": "Theory and Practice of Logic Programming,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Claudia Schulz",
+        "Francesca Toni"
+      ],
+      "title": "Justifying Answer Sets Using Argumentation",
+      "venue": "Theory and Practice of Logic Programming,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Naziha Sendi",
+        "Nadia Abchiche-Mimouni",
+        "Farida Zehraoui"
+      ],
+      "title": "A new Transparent Ensemble Method based on Deep learning",
+      "venue": "Procedia Computer Science,",
+      "year": 1931
+    },
+    {
+      "authors": [
+        "Dunja \u0160e\u0161elja",
+        "Christian Stra\u00dfer"
+      ],
+      "title": "Abstract Argumentation and Explanation Applied to Scientific Debates",
+      "venue": "aug",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Kostyantyn M Shchekotykhin"
+      ],
+      "title": "Interactive Query-Based Debugging of ASP Programs",
+      "venue": "29th AAAI Conference on Artificial Intelligence,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Andy Shih",
+        "Arthur Choi",
+        "Adnan Darwiche"
+      ],
+      "title": "A Symbolic Approach to Explaining Bayesian Network Classifiers",
+      "venue": "27th International Joint Conference on Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Elizabeth I. Sklar",
+        "Mohammad Q. Azhar"
+      ],
+      "title": "Explanation through Argumentation",
+      "venue": "6th International Conference on Human- Agent Interaction,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Dylan Slack",
+        "Sophie Hilgard",
+        "Emily Jia",
+        "Sameer Singh",
+        "Himabindu Lakkaraju"
+      ],
+      "title": "Fooling LIME and SHAP: Adversarial Attacks on Post hoc Explanation Methods",
+      "venue": "AAAI/ACM Conference on AI, Ethics, and Society,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Kacper Sokol",
+        "Peter Flach"
+      ],
+      "title": "Conversational Explanations of Machine Learning Predictions Through Class-Contrastive Counterfactual Statements",
+      "venue": "27th International Joint Conference on Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Kacper Sokol",
+        "Peter Flach"
+      ],
+      "title": "Explainability Fact Sheets: A Framework for Systematic Assessment of Explainable Approaches",
+      "venue": "Conference on Fairness, Accountability, and Transparency,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Kacper Sokol",
+        "Peter Flach"
+      ],
+      "title": "One Explanation Does Not Fit All",
+      "venue": "KI - Ku\u0308nstliche Intelligenz,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Frode S\u00f8rmo",
+        "J\u00f6rg Cassens",
+        "Agnar Aamodt"
+      ],
+      "title": "Explanation in Case-Based Reasoning - Perspectives and Goals",
+      "venue": "Artificial Intelligence Review,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "Mohammed H. Sqalli",
+        "Eugene C. Freuder"
+      ],
+      "title": "Inference-Based Constraint Satisfaction Supports Explanation",
+      "venue": "editors, 13th National Conference on Artificial Intelligence,",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "Sarath Sreedharan",
+        "Siddharth Srivastava",
+        "David Smith",
+        "Subbarao Kambhampati"
+      ],
+      "title": "Why Can\u2019t You Do That HAL? Explaining Unsolvability of Planning Tasks",
+      "venue": "In Sarit Kraus, editor, 28th International Joint Conference on Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Ramya Srinivasan",
+        "Ajay Chander"
+      ],
+      "title": "Explanation Perspectives from the Cognitive Sciences - A Survey",
+      "venue": "29th International Joint Conference on Artificial Intelligence,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Geoff Sutcliffe",
+        "Christian B Suttner"
+      ],
+      "title": "Evaluating General Purpose Automated Theorem Proving Systems",
+      "venue": "Artificial Intelligence,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "William R Swartout",
+        "C\u00e9cile Paris",
+        "Johanna D Moore"
+      ],
+      "title": "Explanations in Knowledge Systems: Design for Explainable Expert Systems",
+      "venue": "IEEE Expert,",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "Sjoerd T. Timmer",
+        "John-Jules Ch. Meyer",
+        "Henry Prakken",
+        "Silja Renooij",
+        "Bart Verheij"
+      ],
+      "title": "A Two- Phase Method for Extracting Explanatory Arguments from Bayesian Networks",
+      "venue": "International Journal of Approximate Reasoning,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Richard Tomsett",
+        "Dave Braines",
+        "Dan Harborne",
+        "Alun Preece",
+        "Supriyo Chakraborty"
+      ],
+      "title": "Interpretable to Whom? A Role-Based Model for Analyzing Interpretable Machine Learning Systems",
+      "venue": "2nd Workshop on Explainable Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Francesca Toni"
+      ],
+      "title": "Automated Information Management via Abductive Logic Agents",
+      "venue": "Telematics and Informatics,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Gianluca Torta",
+        "Luca Anselma",
+        "Daniele Theseider Dupr\u00e9"
+      ],
+      "title": "Exploiting Abstractions in Cost-sensitive Abductive Problem Solving with Observations and Actions",
+      "venue": "AI Communications,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Gianluca Torta",
+        "Roberto Micalizio",
+        "Samuele Sormano"
+      ],
+      "title": "Temporal Multiagent Plan Execution: Explaining What Happened",
+      "venue": "Explainable, Transparent Autonomous Agents and Multi-Agent Systems - 1st International Workshop,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Carlos Viegas Dam\u00e1sio",
+        "Anastasia Analyti",
+        "Grigoris Antoniou"
+      ],
+      "title": "Justifications for Logic Programming",
+      "venue": "Logic Programming and Nonmonotonic Reasoning, 12th International Conference,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Sandra Wachter",
+        "Brent Mittelstadt",
+        "Chris Russell"
+      ],
+      "title": "Counterfactual Explanations without Opening the Black Box: Automated Decisions and the GDPR",
+      "venue": "Harvard Journal of Law & Technology,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Douglas Walton"
+      ],
+      "title": "A New Dialectical Theory of Explanation",
+      "venue": "Philosophical Explorations,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Douglas Walton"
+      ],
+      "title": "A Dialogue System Specification for Explanation",
+      "venue": "doi: 10.1007/s11229-010-9745-z. URL http://link.springer.com/ 10.1007/s11229-010-9745-z",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Douglas Walton"
+      ],
+      "title": "A Dialogue System for Evaluating Explanations",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Danding Wang",
+        "Qian Yang",
+        "Ashraf Abdul",
+        "Brian Y. Lim"
+      ],
+      "title": "Designing Theory-Driven User- Centric Explainable AI",
+      "venue": "Conference on Human Factors in Computing Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Felix Winter",
+        "Peter J Stuckey",
+        "Nysret Musliu"
+      ],
+      "title": "Explaining Propagators for String Edit Distance Constraints",
+      "venue": "19th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Xiaoxin Yin",
+        "Jiawei Han"
+      ],
+      "title": "CPAR: Classification Based on Predictive Association Rules",
+      "venue": "SIAM International Conference on Data Mining,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Zhiwei Zeng",
+        "Xiuyi Fan",
+        "Chunyan Miao",
+        "Cyril Leung",
+        "Chin Jing Jih",
+        "Ong Yew Soon"
+      ],
+      "title": "Context- Based and Explainable Decision Making with Argumentation",
+      "venue": "In 17th International Conference on Autonomous Agents and MultiAgent Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Kaiqing Zhang",
+        "Zhuoran Yang",
+        "Tamer Basar"
+      ],
+      "title": "Multi-Agent Reinforcement Learning: A Selective Overview of Theories and Algorithms",
+      "venue": "CoRR, abs/1911.1,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Qiaoting Zhong",
+        "Xiuyi Fan",
+        "Francesca Toni",
+        "Xudong Luo"
+      ],
+      "title": "Explaining Best Decisions via Argumentation",
+      "venue": "European Conference on Social Intelligence,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Qiaoting Zhong",
+        "Xiuyi Fan",
+        "Xudong Luo",
+        "Francesca Toni"
+      ],
+      "title": "An Explainable Multi-Attribute Decision Model Based on Argumentation",
+      "venue": "Expert Systems with Applications,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Yishan Zhou",
+        "David Danks"
+      ],
+      "title": "Different \u201dIntelligibility\u201d for Different Folks",
+      "venue": "AAAI/ACM Conference on AI, Ethics, and Society,",
+      "year": 2020
+    }
+  ],
+  "sections": [
+    {
+      "text": "As a field of AI, Machine Reasoning (MR) uses largely symbolic means to formalize and emulate abstract reasoning. Studies in early MR have notably started inquiries into Explainable AI (XAI) \u2013 arguably one of the biggest concerns today for the AI community. Work on explainable MR as well as on MR approaches to explainability in other areas of AI has continued ever since. It is especially potent in modern MR branches, such as argumentation, constraint and logic programming, planning. We hereby aim to provide a selective overview of MR explainability techniques and studies in hopes that insights from this long track of research will complement well the current XAI landscape. This document reports our work in-progress on MR explainability."
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Machine Reasoning (MR) is a field of AI that complements the field of Machine Learning (ML) by aiming to computationally mimic abstract thinking. This is done by way of uniting known (yet possibly incomplete) information with background knowledge and making inferences regarding unknown or uncertain information. MR has outgrown Knowledge Representation and Reasoning (KR, see e.g. [27]) and now encompasses various symbolic and hybrid AI approaches to automated reasoning. Central to MR are two components: a knowledge base (see e.g. [61]; common in Axiom Pinpointing, Automated Theorem Proving (ATP) and Proof Assistants, Non-classical Logic-Based Reasoning (Logic Programming), Argumentation) or a model of the problem (see e.g. [89]; common in Constraint Programming (CP), Planning, Decision Theory, Reinforcement Learning), which\n\u2217Corresponding author. Email: kristijonas.cyras@ericsson.com, ORCiD: 0000-0002-4353-8121\n1\nar X\niv :2\n00 9.\n00 41\n8v 1\n[ cs\n.A I]\n1 S\nformally represents knowledge and relationships among problem components in symbolic, machineprocessable form; and a general-purpose inference engine or solving mechanism, which allows to manipulate those symbols and perform semantic reasoning.1\nThe field of Explainable AI (XAI, see e.g. [1, 13, 20, 54, 130, 146, 149, 155, 169, 177, 196]) encompasses endeavors to make AI systems intelligible to their users, be they humans or machines. XAI comprises research in AI as well as interdisciplinary research at the intersections of AI and subjects ranging from Human-Computer Interaction (HCI), see e.g. [149], to social sciences, see e.g. [33, 144]. Explainability of AI is often seen as a crucial driver for the real-world deployment of trustworthy modern AI systems.\nAccording to e.g. Hansen and Rieger in [100], explainability was one of the main distinctions between the 1st (dominated by KR and rule-based systems) and the 2nd (expert systems and statistical learning) waves of AI, with expert systems addressing the problems of explainability and ML approaches treated as black boxes. With the ongoing 3rd wave of AI, ML explainability has received a great surge of interest [13, 54, 149]. By contrast therefore, it seems that a revived interest in MR explainability is only just picking up pace (e.g. ECAI 2020 Spotlight tutorial on Argumentative Explanations in AI2 and KR 2020 Workshop on Explainable Logic-Based Knowledge Representation3). However, explainability in MR dates over four decades, see e.g. [100, 110, 151, 155, 196]. Explainability in MR can be roughly outlined thus.\n1st generation expert systems provide only so-called (reasoning) trace explanations, showing inference rules that led to a decision. A major problem with trace explanations is the lack of \u201cinformation with respect to the system\u2019s general goals and resolution strategy\u201d[151, p. 174]. 2nd generation expert systems instead provide so-called strategic explanations, revealing \u201cwhy information is gathered in a certain order, why one knowledge piece is invoked before others and how reasoning steps contribute to high-level goals\u201d[151, p. 174]. Going further, so-called deep explanations separating the domain model from the structural knowledge have been sought, where \u201cthe system has to try to figure out what the user knows or doesn\u2019t know, and try to answer the question taking that into account.\u201d[204, p. 73] Progress in MR explainability notwithstanding, it can been argued (see e.g. [137, 151, 169]) that to date, explainability in MR particularly and perhaps in AI at large is still insufficient in aspects such as justification, criticism, and cooperation. These aspects, among others, are of concern in the modern MR explainability scene (around year 2000 onwards), whereby novel approaches to explainability in various branches of MR have been making appearances. We review some of them here and spell out the explainability questions addressed therein.\n1See, however, e.g. [25] for an alternative view of MR stemming from a sub-symbolic/connectionist perspective. 2https://www.doc.ic.ac.uk/ afr114/ecaitutorial/ 3https://lat.inf.tu-dresden.de/XLoKR20/\n2 Ericsson Research"
+    },
+    {
+      "heading": "1.1 Motivation",
+      "text": "The following summarizes our motivations and assumptions in this work. 1. We appreciate that MR is not yet a commonplace AI term, unlike e.g. ML or KR. We recognize\nthat MR has evolved from KR and comprises other, mostly symbolic, forms of reasoning in AI. However, we here do not attempt to characterize MR, let alone cover all of its branches. Rather, we focus on the MR branches that most prominently exhibit approaches to explainability. Our overview of MR explainability is therefore bounded in scope. Nonetheless, it is dictated by our (invariably limited) professional understanding of the most relevant (e.g. historically important, well established and widely applicable, or trending) MR contributions to XAI. 2. Accordingly, we acknowledge that explainability in AI has been studied for a while and has in time evolved in terms of (a) areas of AI and (b) desiderata. Yet, we maintain that the foundational contributions and the lessons learnt (as well as forgotten) from the research on explainability in KR and expert systems are still very much relevant to both MR explainability in particular, and XAI at large. Specifically:\n(a) Adaptations of long established MR explainability techniques (Classical Logic-Based Reasoning and Non-classical Logic-Based Reasoning (Logic Programming); see Sections 3.1 and 3.2 respectively) have found their ways into newer MR areas (for instance, Axiom Pinpointing in Description Logics and Planning; see Sections 3.1.1 and 3.5 respectively). (b) Relatively newer MR branches, such as Answer Set Programming (ASP, Section 3.2.3) and Argumentation (Section 3.3), necessitate and inform newer forms of explainability. In particular, previously established techniques of mostly logical inference attribution do not suffice anymore, see e.g. [82, 123, 151, 204]. On the one hand, some modern MR approaches, such as ASP and Constraint Programming (CP, Section 3.1.2), currently provide techniques that can effectively be considered interpretable but whose workings are nevertheless difficult to explain. On the other hand, XAI desiderata now include aiming for dialogical/conversational explanations, interactivity, actionability as well as causality. These rediscovered concerns are being addressed by modern MR approaches to explainability. Thus, various branches of MR are concerned with explainability anew.\n3. We maintain that modern MR systems can hardly be called explainable just by virtue of being symbolic4, in contrast to early expert and intelligent systems often being referred to thus [1]. However, we speculate and contend that MR presumably offers more immediate intelligibility than e.g. ML. Perhaps this is what lends MR explainability approaches to be applied to both MR itself and other areas of research, such as ML (e.g. [3, 15, 51, 106, 185]), decision support and recommender systems (e.g. [45, 80, 158, 172]), planning (e.g. [38, 44, 69, 74, 81]), scheduling\n4Where symbolic entities carry intrinsic semantical meaning and are perhaps more readily interpretable and intelligible than the algebraic-symbolic entities in sub-symbolic/connectionist AI.\n3 Ericsson Research\n(e.g. [58]), legal informatics (e.g. [17, 57]), scientific debates (e.g. [183]). We speculate that it is also potentially the theoretical guarantees often ensured by MR methods that make MR explainability appealing, cf. e.g. [105, 187]. 4. Most recent overviews of general XAI appear to focus mostly on ML and somewhat ignore MR, e.g. [1, 13, 96, 146, 149, 177], apart from potentially briefly discussing early expert systems. (See however [158] for a systematic review of explanations in decision support and recommender systems, where MR constitutes majority of the referenced approaches; reviews of explainability in e.g. ASP [78] and Planning [44] are also welcome examples of not-so-common area-specific MR overviews.) We feel that having a broader view of the XAI agenda is crucial in general and that an overview of MR explainability is due for at least the following reasons.\n(a) Explainable MR constitutes a rich body of research whose works span many branches of MR with long histories. A consolidated, even if limited, overview will provide guidance to exploring and building on this research. (b) MR explainability techniques are also used for e.g. explainable ML and an overview will help AI researchers to see a bigger picture of XAI as well as to promote innovation and collaboration. (c) XAI has arguably started with explainable MR and some of the same conceptual MR explainability techniques can be (and are being) applied to achieve current XAI goals. An MR explainability overview may allow researchers to rediscover known problems and solutions (potentially saving from reinventing things) and to give credit where it is due."
+    },
+    {
+      "heading": "1.2 Contributions",
+      "text": "Our contributions in this report are as follows. 1. Building on conceptual works on XAI as well as XAI overviews, we propose a loose catego-\nrization of MR explainability approaches in terms of broad families of explanations, namely attributive, contrastive and actionable. 2. We provide an overview of some prominent approaches to MR explainability, differentiating by branches of MR and indicating the families that such explanations roughly belong to. 3. We indicate what kinds of questions the explanations aim to answer. This is not a systematic review, but rather an overview of conceptual techniques that MR brings to XAI. We do not claim to be exhaustive or even completely representative of the various MR approaches to explainability, let alone to characterize what counts as a branch of MR. Rather, we hope to enable the reader to see a bigger picture of XAI, focusing specifically on what we believe amounts to MR explainability.\n4 Ericsson Research"
+    },
+    {
+      "heading": "1.3 Omissions",
+      "text": "In this report, we omit the following aspects of XAI. \u2022 We leave out the following research areas that could potentially be considered related to MR.\n1. Rule-based classification/prediction, e.g. [209], which comprises of largely ML-focused approaches for associative/predictive rule generation and/or extraction. Overviews of such rule-based ML explainability can be found in e.g. [1, 9, 13, 96]. 2. Neuro-symbolic computing and graph neural networks, see e.g. [129] for an overview, where the use of classical logics alongside ML techniques has recently been argued as a factor enabling explainability. Other works use classical logic for approximation and human-readable representation of ML workings. For instance, the authors in [47, 48] use neural networks to learn relationships between ML classifier outputs and interpret those relationships using Boolean variables that represent neuron activations as well as predicates that represent the classification outputs. These then yield human-readable firstorder logic descriptions of the learned relationships. Neuro-symbolic computing comprises heavily of ML-focused approaches that we deem beyond the scope of this report on MR explainability. 3. Probabilistic reasoning, which is a field (of Mathematics as well as Computer Science) in itself, and spans AI at large. We meet several explanation-oriented approaches when discussing various MR branches, but we do not separately consider Bayesian Networks or Probabilistic Graphical Models among MR branches with a focus on explainability. 4. Game theory, which is a field of Mathematics that studies strategic interaction between rational decision makers. In AI, game theory provides foundations to reasoning with preferences, multi-agent systems (MAS) and mechanism design among others, possibly with the benefit of enabling explainability. SHAP (Shapley additive explanations) [140] is a well-known example of application of game theory to explainability in ML as well as MR (e.g. [126]). We do not think that game-theoretic approaches constitute a branch of MR, or at least not one with a particular focus to explainability. We do, however, review some related approaches to explainability from Decision Theory. 5. Robotics, which is an interdisciplinary branch of Engineering and Computer Science. In terms of explainability, the cornerstone notion there is explainable agency [130], which amounts to an autonomous agent being able to do the following: (a) explain decisions made during plan generation; (b) report which actions it executed; (c) explain how actual events diverged from a plan and how it adapted in response; (d) communicate its decisions and reasons. In [10] Anjomshoae et al. review explainable agency approaches where goal-driven agents\n5 Ericsson Research\nand robots purport to explain their actions to a human user. We encounter some approaches to explainability of autonomous agents which belong to specific branches of MR such as Planning. Generally, however, explainable agency considers human-AI interaction aspects which we do not cover in this report.\n\u2022 Medium of explanations, i.e. whether explanations are textual, graphical, etc., see e.g. [93, 128, 149, 189]. However important, these are largely human-AI interaction aspects, beyond the scope of this report. \u2022 Evaluation of explanations is beyond the scope of this report too. We believe that, on the one\nhand, well-established computational metrics for systematic comparison and evaluation of explanations are generally lacking [97],5 which we believe is especially true with respect to MR approaches to explainability. On the other hand, we believe that research on evaluation of, particularly, MR explainability approaches via human user studies is complicated and not yet mature either, see e.g. [149]. We hope these omissions do not lessen our contribution of a conceptual overview of MR explainability."
+    },
+    {
+      "heading": "2 Explainability",
+      "text": "We briefly discuss here the main purposes of explanations in AI systems and present a categorization of explanations. We propose that, intuitively, the main purpose of explanations in XAI is to enable the user of an AI system to not only understand (to a certain extent) the system, but also to do something with the explanation. We suggest this entails that the explanations answer some sort of questions about the AI system dealing with the problem at hand. The kinds of answers provided by the explanations will help us to loosely categorize them, enabled by approaches to explainability in MR."
+    },
+    {
+      "heading": "2.1 Purpose of Explanations",
+      "text": "At large, the purpose of explainability of an AI system can be seen to be two-fold, to quote from [110, p. 160]:\nThe system either provides knowledge and explanations necessary for the user to carry out his or her task, or alternatively, the system carries out some action and then explains the need and reason for the action the system itself has taken to the user.\nBorrowing from [13, p. 85, our emphasis], we stipulate what an explainable AI system entails:\nGiven an audience, an explainable Artificial Intelligence is one that produces details or reasons to make its functioning clear or easy to understand.\n5Though the literature on computational measures of explainability in ML is expanding, see e.g. [37, 149].\n6 Ericsson Research\nIn other words, an explainable AI system has to first produce details and reasons underlying its functioning \u2013 call this an explanation. It is then upon the explainee (i.e. the recipient or user of the explanation, also called the audience) to take in the explanation. Thus, we are interested in the purpose of an explanation (see e.g. [149, 158, 176, 194]) from the explainee point-of-view:\n\u201cWhat will I (i.e. the agent, human or artificial) do with the explanation?\u201d\nWe do not attempt a representative list of the purposes of explanations, but nevertheless give some examples. For instance, an expert in the domain in which an AI system is applied may want to do any one of the following:\na) Understand how the system functions in general, in mundane situations, whence they expect explanations to pertain to certain known aspects of the domain; b) Learn how the system outputs aspects of the domain that are unexpected to the expert; c) Confirm and compare the system\u2019s behavior in both expected and unexpected situations; d) Act on the produced knowledge, whence they expect guidance towards desirable results. Different purposes of explanations are well reflected by what are called XAI design goals in [149], that amount to \u201cidentifying the purpose for explanation and choosing what to explain for the targeted end-user and dedicated application.\u201d See also e.g. [158, 194] for purposes of, particularly, human-centric explanations in AI. Note, however, that we do not limit ourselves to human users of AI systems. Instead, we allow AI (or otherwise intelligent machine) agents themselves to require explanations from AI systems. Considering the progress in developing intelligent machines and autonomous systems, it seems natural to foresee situations where an AI agent probes another for e.g. a justification of the latter\u2019s (intended) actions in order to achieve or negotiate common goals.\nWe do acknowledge that the intended purpose is part of the explanation\u2019s context, among other factors such as the explainer, the explainee and the communication medium [194]. The context, specifically the explainee, may inform or correlate with the purpose of explanations, especially in cases of human audiences [13, 149, 198, 214]. But that need not generally be the case: if the explainees are people, then it is \u201cpeople\u2019s goals or intended uses of the technology, rather than their social role\u201d [214] that shape the explainability desiderata. Note that there can be both AI-to-human and AI-to-AI explainability, but we consider the purpose of explanations, rather than the nature of the explainee, to be primary.\nFinally, we recognize that various usability desiderata [189], including actionability (see e.g. [59, 123, 189]), are key to the purpose of explainability. We thus maintain that irrespective of the purpose of explanations, for the explainee to consume and act upon, i.e. \u201cto do something with\u201d an explanation, the explanation has to answer some question(s) about the AI system and its functioning. We discuss next how explanations in MR (and potentially in AI at large) can be categorized according to the questions they aim to answer.\n7 Ericsson Research"
+    },
+    {
+      "heading": "2.2 High-level Questions",
+      "text": "Intuitively, answering what-, why-, when-, how-types of questions about an AI system\u2019s functioning falls under the purview of explainability [81, 137, 149, 155]. At a high-level, we are interested in the following questions:\nQ1 Given a representation of the problem and given a query, e.g. a decision taken or an observation, what are the reasons underlying the inference pertaining to the query? Q2 Given a representation of the problem and its solution or an answer to a query, why is something else not a solution or an answer? Q3 Given different information or query, e.g. a different decision or observation, would the solution/answer change too, and how? (Purely based on explanation, without recomputing!) Q4 Given a representation of the problem and its current solution, and given a representation of a desired outcome, what decisions or actions can be taken to improve the current solution and to achieve an outcome as close as possible to the desired one? These questions need not be limited to MR, but may well apply to e.g. ML too. Questions of type Q1 pertain to inputs to the system (see e.g. [137, p. 14]), definitions and meaning of internal representations (see e.g. [155, p. 387], [128, p. 110], [32, p. 164]) and attribution of those to the outputs (see e.g. [149]). Such questions aim at soliciting \u201cinsight about the information that is utilized and the rules, processes or steps that are used by the system to reach the recommendation or the outcome it has generated for a particular case.\u201d[93, p.1483] Answers to Q1 type of questions thus \u201cinform users of the current (or previous) system state\u201d and how the system \u201cderived its output value from the current (or previous) input values\u201d[137, p. 14].\nQuestions of type Q2 and Q3 pertain to reasons against the current outcome and in favor of alternative outcomes as well as to alternative inputs and parameters (see e.g. [32, 81, 128, 137, 149, 155]). Such questions solicit characterization of \u201cthe reasons for differences between a model prediction and the user\u2019s expected outcome.\u201d[149] Answers to Q2 and Q3 types of questions thus \u201cinform users why an alternative output value was not produced given the current input values\u201d and \u201ccould provide users with enough information to achieve the alternative output value\u201d[32, p. 167].\nQuestions of type Q4 pertain to changes to inputs, modelling or the problem itself that would lead to user-desired outputs (see e.g. [137, 149]). Such questions aim at soliciting \u201chypothetical adjustments to the input or model that would result in a different output\u201d[149]. Answers to Q4 type of questions thus provide guidelines that help the user to achieve a (more) desired outcome.\nWe next propose a loose categorization of explanations in MR (and potentially AI at large) that places explanations in families of types of explanations aiming to answer the high-level questions.\n8 Ericsson Research"
+    },
+    {
+      "heading": "2.3 Categorization for Explanations",
+      "text": "The driving factors of our categorization are the questions that explanations specifically in various MR approaches aim to answer. Building on other works that aim at classifications/categorizations of explanations, see [93, 100, 110, 123, 128, 137, 144, 149, 151, 152, 169, 177, 189, 207], we distinguish three families/types of explanations: attributive (e.g. logical inference attribution, feature importance association), contrastive (e.g. reasons con as well as pro, counterfactuals), actionable (e.g. guidelines towards a desired outcome, realizable actions). We characterize these families of explanations using the following notions.6\nAbstractly, we assume at hand\nan AI system S that given information i yields outcome o.\nFor instance, in some forms of MR, the system can be instantiated by a knowledge base KB consisting of background knowledge, that given information (e.g. a query) i represented in symbolic form entails (for some variant of formally defined entailment |=) inference o:\nKB \u222a {i} |= o\nIn some forms of ML, the role of the system can be taken by a model or function f : X \u2192 Y (trained on some set X \u2032 \u2286 X of data), that given instance i \u2208 X assigns to it a label o \u2208 Y :\nf(i) = o\nThe above are but examples of high-level descriptions of AI methodologies. They are nevertheless helpful to find intuitions behind the explanation categories suggested as follows."
+    },
+    {
+      "heading": "2.3.1 Attributive Explanations",
+      "text": "Attributive explanations (see e.g. [140, 144, 151]) rely on the notions such as trace, justification, attribution and association, widely used in MR and ML literature alike. At a high level, they aim to answer the following question:\nQ1 Given a representation of the problem and given a query, e.g. a decision taken or an observation, what are the reasons underlying the inference pertaining to the query?\nOr, using the notions above:\nWhat are the details and reasons for system S yielding outcome o, given information i? 6Note that these are not formal definitions or descriptions. We believe that due to diversity of MR a formalization of such terms would be incomplete, controversial and unhelpful, if not impractical or outright impossible. Instead, we use natural language descriptions to practically convey our ideas and supply intuition.\n9 Ericsson Research\nAttributive explanations justify o by attributing to/associating with o (parts of) S and i. If applicable, attributive explanations may contain a trace of such attribution/association. In MR, for instance, using the above notation, an attributive explanation for o given i can be\nKB \u2032 \u2286 KB such that KB \u2032 \u222a {i} |= o\nNormally, if applicable, such KB \u2032 would be required to be minimal (for some form of minimality, e.g. subset inclusion), consistent (for some notion of consistency or non-contradiction) and informative (or non-trivial), see e.g. [73] for formalization in logical terms. As a trace, KB \u2032 can contain e.g. inference rules, proof or some sort of argument for o given i. In the case of ML, an attributive explanation can be some minimal part i\u0302 of instance i that suffices for f to yield o (irrespective of the rest of i), see e.g. [105] for examples of such explanations for ML classifications, formalized as well in logical terms. In another form, for instance in planning, an attributive explanation could exhibit (the relevant part of) the model of the problem or the state the model is in, given i, together with relational or causal links to o.\nAttributive explanations are easy to design and are therefore commonplace [93, p.1483]. They are prevalent in all MR branches we consider in this report, perhaps most prominently in Classical LogicBased Reasoning (Section 3.1). That they are prominent among classical-logic based approaches to explainability is not surprising because, as we have seen, explainability started with early AI systems which were largely based on classical logics. That attributive explanations are prevalent in all MR approaches to explainability is not surprising either, because attribution can be seen to be necessary for building the more advanced contrastive and actionable explanations (see e.g. [149])."
+    },
+    {
+      "heading": "2.3.2 Contrastive Explanations",
+      "text": "Contrastive explanations (see e.g. [110, 120, 144, 149, 188, 191]) pertain to the notions such as criticism, contrast, counterfactual and dialogue. At a high level, they aim to answer the following questions:\nQ2 Given a representation of the problem and its solution or an answer to a query, why is something else not a solution or an answer? Q3 Given different information or query, e.g. a different decision or observation, would the solution/answer change too, and how? (Purely based on explanation, without recomputing!)\nIn other words:\nWhat are the details and reasons of system S yielding outcome o rather than different outcome o\u2032, given information i? And supposing that the given information is not i (but some different i\u2032), would o\u2032 be the outcome?\n10 Ericsson Research\nContrastive explanations address potential criticisms of the yielded outcome o given information i by dealing with contrastive outcomes o\u2032 and information i\u2032.\nOn the one hand, in addition to an attributive explanation as to why S yields o given i, contrastive explanations can provide counterexamples attributing to (parts of) S and i why o\u2032 is not possible. For instance, consider a classical logic-based setting where background knowledge KB is queried with i, expecting a \u2018yes\u2019 or \u2018no\u2019 outcome o \u2208 {y, n} (regarding e.g. provability of i from KB ). If o = n, then a contrastive explanation as a counterexample to the alternative outcome o\u2032 = y could be a model M in which KB \u222a{\u00aci} hold true. In forms of ML, a contrastive explanation as a counterexample can be some minimal part i\u0302 of instance i that prevents f from yielding o (irrespective of the rest of i without i\u0302). In, say, planning, a contrastive explanation as a counterexample can be some part of the model that together with the given information makes some goal unachievable.\nOn the other hand, contrastive explanations can work via counterfactuals, see e.g. [33, 90, 203]. Taken plainly, a \u201ccounterfactual is a statement such as, \u2018if p, then q,\u2019 where the premise p is either known or expected to be false.\u201d[90, p. 35] In contrast to attributive explanations and counterexamples, \u201ccounterfactuals continue functioning in an end-to-end integrated approach\u201d[203, p. 850], indicating consequences of changing the given information. So counterfactual contrastive explanations are about making or imagining different choices and analyzing what could happen or could have happened. Often, counterfactual contrastive explanations address changes with respect to more desirable outcomes than the one yielded by the AI system [33, 90, 203].\nIn our terms, where i is information at hand, a counterfactual invites one to consider what happens if different (and thus currently false) information i\u2032 were at hand, speculating that it may lead to a different, perhaps more desirable, outcome o\u2032. In more conventional MR terms then, a contrastive explanation as a counterfactual can for instance be a\nmodification i\u2032 of i such that KB \u222a {i\u2032} |= o\u2032\nTaken together with the system S yielding outcome o given information i, this expresses that \u2018if i\u2032 rather than i was given, then o\u2032 rather than o would be the outcome\u2019. Note though that it may be that no such modification is achievable or desirable, perhaps due to restrictions placed by the underlying application. However, if it is, then it may be reasonable to strive for some minimal modification i\u2032 that is in some sense most similar to i. In addition, an attributive explanation could be incorporated by, for instance, exhibiting some minimal KB \u2032 \u2286 KB such that KB \u2032 \u222a {i\u2032} |= o\u2032, so that the counterfactual explanation indicates some minimal modification of the given information which together with some background knowledge suffices to yield a more desirable outcome. Similarly, in ML terms, if at least part i\u0302 of instance i needs to be changed for f to yield o\u2032 instead of o, then a contrastive explanation as a counterfactual can be some minimal modification i\u2032 of i (if it exists) that necessitates f to yield o\u2032. In planning, a given difficult goal can be reduced to\n11 Ericsson Research\na sub-goal by considering counterfactual \u201cif only thus-and-so were true, I would be able to solve the original problem\u201d as a contrastive explanation, which then entails \u201carranging for thus-and-so to be true\u201d[90, p. 36], if possible.\nAnother variant of contrastive explanations in MR takes form in graph-like representations of pros and cons of reasoning outcomes. Explanations of this type amount to defining a formal structure, which can usually be represented as a graph, that consists of information KB \u2032 \u2286 KB most relevant for yielding the outcome o given i, together with relationships among KB \u2032 \u222a {i, o} revealing information dependencies and/or which information is in favor or against o. Such graph-like explanations are popular in Answer Set Programming (ASP), where they can be comprised of the (positive and negative) literals and rules considered in deriving the answer o to the query i from a logic program KB , see Section 3.2.3. They are also prevalent in Argumentation, where graphs capture the relevant supporting and conflicting information from KB \u222a{i} that allows to contrast the justifications of, and counterexamples to o. Such graph-based explanations provide basis for dialogical explanations that formalize criticism and defense of the yielded outcome. Just as counterfactual explanations, dialogical ones allow the explainee to be engaged, rather than simply presented, with explanations.\nContrastive explanations of these and similar various forms appear in Constraint Programming (CP), Automated Theorem Proving (ATP) and Proof Assistants, forms of abductive reasoning, Answer Set Programming (ASP), Argumentation, Planning. They are non-trivial to define and design, given the usually numerous contrastive situations, alternative answers and solutions. Overall, contrastive explanations, especially counterfactual and dialogical ones, are strongly related to actionable explanations, in that contrastive explanations can support provision of actions and guidelines following which the AI system will yield a desired outcome."
+    },
+    {
+      "heading": "2.3.3 Actionable Explanations",
+      "text": "We maintain that actionable explanations (see e.g. [59, 123, 189]) should be interventional, interactive, collaborative, pedagogic. At a high level, they aim to answer the following question:\nQ4 Given a representation of the problem and its current solution, and given a representation of a desired outcome, what decisions or actions can be taken to improve the current solution and to achieve an outcome as close as possible to the desired one?\nIn other words:\nWhat can be done in order for system S to yield outcome o, given information i?\nActionable explanations address potential interventions that may yield a desired outcome o, given information i. They entail both interaction and collaboration between the system and its user in that actionable explanations guide or teach the user on what actions/changes can be taken/made and the user may choose to follow them or not to. Importantly, actionable explanations allow to take actions or\n12 Ericsson Research\nmake changes that alter the system and possibly the problem themselves. For instance, in MR terms, an actionable explanation can be a\nmodification KB \u2032 of KB such that KB \u2032 \u222a {i} |= o\nAs with contrastive explanations, it would obviously be normal to require some minimality of the modification KB \u2032 and its similarity to KB (note that minimality may be a complicated aspect especially with respect to non-monotonic entailment). Additionally, an actionable explanation can supply a modification i\u2032 of i such that KB \u2032 \u222a {i\u2032} |= o, similarly to a counterfactual contrastive explanation.\nIn forms of ML, an actionable explanation can be some designation of the model\u2019s f parameter changes that result in a modified model f \u2032 such that f \u2032(i) = o. (This can be achieved e.g. by directly modifying the weights, or the classification thresholds or even the training set, see e.g. [123] for examples of such actionable explanations for Naive Bayes Classifiers). In planning or scheduling, an actionable explanation can be some minimal change of goals or resources (i.e. modification of the problem and hence the solver\u2019s model) that are needed to attain a (solvable problem and its) solution satisfying as much as possible the initial goals and constraints.\nActionable explanations also apply to the situations where the world itself changes (i.e. not necessarily as a consequence of the user\u2019s actions) and the previous outcomes/solutions are no longer good or do not exist at all, so that explanations provide guidance in order to obtain new or better outcomes/solutions. For instance, the background knowledge KB or the input space X of the model f may change and the previous queries or inferences become invalid, whence actionable explanations answer why and how to react. Ideally, actionable explanations would enable a meaningful interaction between an AI system and its user (again, human or machine, indifferently) leading to a fruitful collaboration. Such an interaction could be for instance conversational, formalized as dialogue between the user and the system, see e.g. [18, 51, 57, 101, 110, 121, 128, 144, 146, 150, 151, 186, 188, 190, 204].\nPerhaps due to their inherent complexity of taking into account arguably more consequential changes as well as attributions and contrasts, actionable explanations are not very prominent in MR. We believe that they exist perhaps to a limited extent in e.g. Argumentation."
+    },
+    {
+      "heading": "3 MR Branches and Explanations",
+      "text": "We here overview branches of MR where explainability is studied. We do not claim to define what counts as MR but offer our perspective. We think that assignment to MR of some approaches, particularly those falling into Classical Logic-Based Reasoning, Non-classical Logic-Based Reasoning (Logic Programming) and Argumentation, will not be controversial. We likewise feel that Decision Theory and Planning belong well to MR too. However, we admit that Multi-Agent Systems and Causal Approaches can be regarded as more interdisciplinary branches, but we maintain to consider\n13 Ericsson Research\napproaches within the realm of MR. Finally, Reinforcement Learning is traditionally an area within ML, but there are some approaches (that we focus on) that use MR techniques (as understood in this report) for explainability."
+    },
+    {
+      "heading": "3.1 Classical Logic-Based Reasoning",
+      "text": "Arguably the most well established and far-back dating MR explainability techniques rest on classical logic-based derivation/deduction. Falappa et al. outline well in [73] the notion of explanation used in logic-based reasoning formalisms as follows. An explanation for a sentence a is a minimal, consistent and informative set A of sentences deducing a (where minimality is with respect to subset inclusion \u2286, consistency and deduction are formalized with respect the underlying logic and informativeness requires the consequences of A to not be properly included among the consequences of a):\nA ` a,\nA 0 \u22a5,\nB 6` a for B ( A,\nCn(A) * Cn(a).\nAt large, such logic-based explanations aim to answer the following kinds of questions: \u2022 What explains a given observation (o)? \u2022 Which information logically entails a given inference (o)? \u2022 Why is a given formula derived or not? \u2022 Why is a set of formulas a solution? Since such and similar explanations in logic-based reasoning are generally non-unique, preferred explanations are often selected using some specific ordering criteria [165] with various forms of minimality (e.g. cardinality, depth of proof/inference) being a frequent choice. Different works apply these logic-based explanation ideas for explainability in various settings, including the so-called Model Diagnosis (e.g. [60, 167, 175]), abductive reasoning (see Sections 3.1.5, 3.2.1) and non-classical logicbased approaches such as Logic Programming (LP, see Section 3.2). In this section we review some prominent MR explainability techniques from various classical logic-based approaches to reasoning."
+    },
+    {
+      "heading": "3.1.1 Axiom Pinpointing",
+      "text": "Axiom pinpointing [164] in description logics (which are decidable fragments of first-order logic) is a very good example of the well established logic-based explanation concepts still being very much relevant in modern MR explainability. Axiom pinpointing amounts to finding axioms in a knowledge base that entail or prevent a given consequence/query, whereby minimal such sets of axioms are taken\n14 Ericsson Research\nas justifications/explanations. Such explanations aim to answer the following question: \u2022 given a knowledge base KB (possibly inconsistent, with an inconsistency-tolerant semantics) and a query Q (e.g. a Boolean conjunctive), why is Q (not) entailed by KB? [12, 19] Works of [19, 39, 104, 114, 139] are examples of explaining knowledge base query answering where explanations are defined as (minimal) subsets entailing or contradicting a given query with respect to a (consistent or inconsistent) knowledge base. Roughly then, in our terms, given a knowledge base KB and query i, an explanation for the outcome o \u2208 {y, n} (representing \u2018yes\u2019 for \u2018entailed\u2019 and \u2018no\u2019 for \u2018not entailed\u2019, respectively) is a \u2286-minimal KB \u2032 \u2286 KB such that KB \u2032 |= i, if o = y, and a \u2286-minimal KB \u2032 \u2286 KB such that KB \u2032 \u222a {i} |= bot, if o = n. Such explanations are attributive."
+    },
+    {
+      "heading": "3.1.2 Constraint Programming (CP)",
+      "text": "Constraint Programming (CP) [178] is a paradigm for solving combinatorial search problems, often called Constraint Satisfaction Problems (CSPs). CSPs are represented in terms of decision variables and constraints, usually in classical logic vocabulary, and solving them amounts to finding value assignments to variables that satisfy all the constraints.7\nAlready in mid-90s it was understood that explanations in CP cannot simply amount to tracing of solutions but need to be much more sophisticated. To quote from [82, p. 4860],\nA natural approach to providing a richer explanation of a solution would be to \u2018trace\u2019 the program\u2019s solution process. However, constraint solvers generally employ search, and tracing search tends not to provide a very satisfying explanation. For backtrack search: \u201cI tried this and then that and hit a dead end, so I tried the other instead\u201d. Even worse, for local search: \u201cI kept getting better, but then I tried some other random thing\u201d.\nApart from search, inference is a critical part of constraint solving and was used early for explainability. For instance, in [192], a \u201ctrace of the inference, with some rudimentary natural language processing, provided explanations for puzzles taken from newsstand puzzle booklets that were reasonably similar to the answer explanations provided in the back of the booklets.\u201d[82, p. 4860] Overall in CP, \u201cmuch of the work on explaining failure actually is focused on programs explaining intermediate failures to themselves in order to reach a solution more efficiently.\u201d[82, p. 4860]. The questions that explanations in CP aim to answer include the following. \u2022 Why is there a conflict between these parts of the system? [83] \u2022 Which constraints result into failure? [111] \u2022 Why does this parameter have to have this value? [83] \u2022 What are the next propagation steps? [65, 208] \u2022 Which choices should I relax in order to recover consistency? [7, 82]\n7We note that it is also very natural to use LP (see Section 3.2) in solving CSPs.\n15 Ericsson Research\n\u2022 Which choices should I relax in order to render such a value available for such a variable? [7, 82] \u2022 From which subsets of current choices did inconsistency follow? [7, 82] \u2022 Why is this value not available any longer for this variable? [7, 82] We review below several approaches in CP to devising explanations that answer such questions. In his seminal paper [111] from 2004, Junker proposed QuickXplain \u2013 a general purpose technique for explainability in constraint programming. In a general setting of constraints (including e.g. CP, Satisfiability (SAT) and Beyond, description logics), relaxations (resp. conflicts) are defined as sets of constraints for which (resp. no) solution exists. Conflicts thus explain solution failure, relaxations restore consistency. However, both are generally exponential to construct and present, whereas a user may desire explanations pertaining to the most important constraints. Thus, preferred relaxations and preferred conflicts are defined to be minimal with respect to lexicographic orderings (over relaxations and conflicts) defined using any total order over constraints. In practice, this amounts to successively adding the most preferred constraints until they fail and then removing the least preferred constraints as long as that preserves failure. Explainability-wise, \u201cpreferred conflicts explain why best elements cannot be added to preferred relaxations\u201d.[111, p. 169]8 Further, the described \u201cchecking based methods for computing explanations work for any solver and do not require that the solver identifies its precise inferences.\u201d[111, p. 172] In a more general CP setting [162] similar to [111], O\u2019Sullivan et al. propose representative explanations (and algorithms thereof) in which \u201cevery constraint that can be satisfied is shown in a relaxation and every constraint that must be excluded is shown in an exclusion set.\u201d[162, p. 328]\nOther works, notably alldifferent [65], produce explanations for improving solver strategies. The motivation of Downing et al. is as follows [65, p. 116, emphasis original]:\nWhenever a propagator changes a domain it must explain how the change occurred in terms of literals, that is, each literal l that is made true must be explained by a clause L \u2192 l where L is a (set or) conjunction of literals. When the propagator causes failure it must explain the failure as a nogood, L \u2192 \u22a5, with L a conjunction of literals which cannot hold simultaneously.\nRoughly then, the propagator\u2019s actions can be explained using cut-sets, where an explanation is effectively a logical constraint on (the values of) variables. Similar ideas using a lazy clause generation solver for explaining propagation via constraints from which nogoods can be computed can be applied to string edit distance constraints, e.g. in [208] Winter et al. use explanations that consist of literals which logically entail the truth of a Boolean variable that encodes propagation of some variable\u2019s value.\n8Effectively, such explanations can be seen as a form of Brewka\u2019s preferred subtheories [29] in the language of constraints.\n16 Ericsson Research\nIn [7] Amilhastre et al. provide \u201cexplanations for some user\u2019s choices and ways to restore consistency\u201d, whereby \u201cthe user specifies her requirements by interactively giving values to variables or more generally by stating some unary constraints that restrict the possible values of the decision variables.\u201d The goal is to \u201cprovide the user with explanations of the conflicts\u201d in terms of \u201c(minimal) inconsistent subsets of the current set of choices.\u201d From a technical point-of-view, \u201cin order to circumvent intractability from the practical side, [the] approach relies on a compilation of the original problem into a data structure from which much better performances can be obtained\u201d, specifically an \u201cautomaton that represents the set of solutions of the CSP.\u201d\nO\u2019Callaghan, O\u2019Sullivan, and Freuder argue in [160] that \u201cdesirable is an explanation that is corrective in the sense that it provides the basis for moving forward in the problem-solving process\u201d and formally define a corrective explanation intuitively as \u201ca reassignment of a subset of the user\u2019s unary decision constraints that enables the user to assign at least one more variable\u201d, providing as well an algorithm for computing corrective explanations of minimal length.\nRecently, there have also been works that consider a constraint solver assisting a human user in solving some logical problem. For instance, in [21] Bogaerts et al. \u201cthe propagation of a constraint solver through a sequence of small inference steps\u201d. They use minimal unsatisfiable sets of constraints for generating explanations of the solver\u2019s individual inference steps and the explanations can overall be seen as proofs or traces of the solver\u2019s working towards a solution.\nOverall, explanations in CP can be roughly described as follows. Given a set KB of constraints, with i being the latest propagation, variable assignment or user added constraint(s), an explanation for the latest inference o (variable value restriction, e.g. l = > or v \u2208 [1, 3], or failure \u22a5) is a \u2286-minimal KB \u2032 \u2286 KB such that KB \u2032 \u222a {i} |= o. This falls into the category of attributive explanations.\nInstead, contrastive explanations that answer questions pertaining to indication of constraints or variable values leading to inconsistencies and consistency restoration can be defined as follows. Given KB \u222a {i} |= o and an alternative outcome o\u2032 6= o, an explanation as a counterfactual can be a modification i\u2032 of i such that KB \u222a {i\u2032} |= o\u2032. In particular, if the outcome o = \u22a5 means that i cannot be satisfied given KB (i.e. i cannot be extended to a solution of the CSP) then an explanation for an alternative outcome (i.e. where a solution can be found) is a minimal KB \u2032 \u2286 KB such that KB \u2032 \u222a {i} |= \u22a5 and a modification i\u2032 of i such that KB \u222a {i\u2032} 6|= \u22a5."
+    },
+    {
+      "heading": "3.1.3 Satisfiability (SAT) and Beyond",
+      "text": "Solving Satisfiability (SAT) problems [62] is a special case of CSP solving. Satisfying assignments are also referred to as implicants. Prime implicants are then implicants of minimal size, in the sense that they satisfy the formula using a minimal set of assigned variables. Prime implicants can thus be seen as attributive explanations. Indeed, Ignatiev, Narodytska, and Marques-Silva exploit prime implicants in [107] to define logical explanations and counterexamples with respect to ML model\n17 Ericsson Research\nclassifications. Specifically, given a Mixed-Integer Linear Programming (MILP)/Satisfiability Modulo Theories (SMT) encoding of an ML model (exactly representing its behavior), an assignment to variables corresponds to an input/instance, with each variable corresponding to a feature. A satisfying assignment, for an ML model in which the prediction has been fixed, represents an instance which maps to that prediction. For a given instance then, a corresponding prime implicant explains the model\u2019s prediction/inference.9\nAs with general CP, another challenge is that of explaining inconsistency or unsolvability. Given an unsatisfiable formula, modern SAT solvers are able to report a proof of its unsatisfiability together with its support, also known as (unsatisfiable) core. A core is a subset of the original formula which is itself unsatisfiable. Although usually smaller than the original formula, a core might not yet be minimal. Instead, Minimal Unsatisfiable Subformulas (MUSes) are cores of minimal size, in the sense that every subset of a MUS is satisfiable. MUSes can thus be regarded as explanations of unsatisfiability [170] since they represent the culprits generating an inconsistency, and in fact suffice to generate a conflict in the formula, regardless of the rest. Multiple MUSes can exist in a formula and so multiple explanations abound, giving rise to both attributive and contrastive explanations, answering the following questions. \u2022 Which information minimally entails a given inference? \u2022 Which information prevents a given logical expression to be satisfied? Analysis of inconsistent formulas plays an important role in MR explainability, since many, if not all, of the approaches for extracting classical logic-based explanations can be reduced to this problem. In addition, MUSes are widely used as building blocks of explanations in other MR approaches, for instance Planning (see e.g. [69, 70]), Argumentation (see e.g. [157]), Decision Theory (see e.g. [22])."
+    },
+    {
+      "heading": "3.1.4 Automated Theorem Proving (ATP) and Proof Assistants",
+      "text": "Automated Theorem Proving (ATP) is a procedure whereby a tool known as a \u201ctheorem prover\u201d is provided a proposition, and it returns \u2018true\u2019 or \u2018false\u2019 (or runs out of time). Theorem provers have matured tremendously in recent years, and are now used in many settings, not only for arithmetic. In general, SAT solvers, SMT solvers, and model checkers also fall under the ambit of theorem proving. If a theorem prover returns \u2018false\u2019, it also generates a falsifying counterexample, as a contrastive explanation to the user as to why the proposition does not hold. However, most theorem provers provide no explanation for a proposition which is verified to be true [79, 195].\nProof assistants are special kinds of theorem provers (often called interactive theorem provers). These are hybrid tools that automate the more routine aspects of building proofs while depending on human guidance for more difficult aspects. One can write a theory of one\u2019s choice, and verify\n9In the basence of logical representation, one can instead define prime implicant explanations for ML classification directly as minimal sets of features of an instance that suffice to yield the classification, see e.g. [185].\n18 Ericsson Research\nwhether or not a proposition holds of this theory. Well known examples of general proof assistants are Isabelle10, F*, Coq11 etc. [16]. Specialized proof assistants exist as well, such as Tamarin for security protocol verification. The user can write any theory supported by a proof assistant and verify a proposition in that theory, rather than being limited to some theory of the designer\u2019s choice. Proof assistants are being widely used for a variety of applications, including building verified compilers [122] and verified implementations of processors [171].\nHowever, a proof assistant might return a true/false answer, run out of time, or stop at a subgoal that it does not \u201cknow\u201d how to solve. In the last case, the user might need to write helper code and expand the theory. In essence, proof assistants are interactive, that is, they often require more input from the user to solve \u201cdifficult\u201d goals. If a proof assistant returns \u2018true\u2019, it generates a sequence of steps that one can then use to replicate the proof by hand for better understanding. Some specialized proof assistants generate counterexamples if the proposition is found to be \u2018false\u2019, but not all of them do \u2013 Coq, for instance, would just show the user some pending goals which it cannot solve (and the statements corresponding to these goals might themselves be false), or throw an error message to say that the proposition cannot be proved true by some underlying decision procedure.\nIn sum, explanations from theorem provers aim at answering the following questions. \u2022 If a proposition is true, what is a (shortest/most readable) proof? \u2022 If a proposition is false, what is a counterexample?\nThe first type of explanations are attributive, whereas the second are contrastive (as counterexamples).\nThere are obviously open problems pertaining to explainability in ATP, to name a few. 1. Can a theorem prover/proof assistant also be optimized to provide the \u201cbest\u201d counterexample, according to some measure? 2. Can non-interactive theorem provers also provide explanations/proof descriptions for propositions that are verified to be true? What would these explanations look like? 3. If a (sub)goal involves an unsolvable loop which leads to a timeout, can this be output as an explanation instead of (or in addition to) timing out? Furthermore, currently the explanations generated by most theorem provers and proof assistants are not very human-friendly. Some proofs/counterexamples generated by some theorem provers can take hundreds of lines, making it difficult for a human to use these to understand the underlying (mal)functioning of the system. There is some work [85] along the lines of designing provers which produce proofs that look like ones humans might write, but only for very specific domains.\nIn terms of AI-to-AI or machine-to-machine explanations, one can consider the example of proofcarrying code, where an application downloaded from an untrustworthy location comes with a proof of its \u201ccorrectness\u201d for the host system to verify before installation. No human intervention is needed in order to either generate the proof or to verify it. This can be considered an example of the general\n10https://isabelle.in.tum.de/ 11https://coq.inria.fr/\n19 Ericsson Research\nidea of an interactive proof system [92]. An interactive proof system models computation as the exchange of messages between two parties: a prover and a verifier. The prover has vast computational resources, but cannot be trusted, while the trusted verifier has bounded computation power. As the name suggests, the prover tries to prove some statement to the verifier. Interactive proofs often proceed in \u201crounds\u201d, where the parties send messages to each other based on previous messages they have received, till the verifier is \u201cconvinced\u201d of the truth of the statement. One can also have one-round (often referred to as non-interactive) proofs where the prover only needs to send one message to convince the verifier of a true statement, and no further rounds of interaction are necessary.\nInteractive proof systems have two requirements: soundness and completeness. Essentially, soundness claims that no prover \u2013 even a dishonest one \u2013 can convince the verifier of a false statement. Completeness says that for every true statement, there is a proof that the prover can produce to the verifier to convince it. The verifier may choose to \u201cprobe\u201d various parts of the proof sent by the prover to convince itself of the verity of the statement. This is often done in an efficient manner by picking random bits and using them to identify which parts of the proof to inspect. Depending on what the abilities of the prover and the verifier are, one can get different classes of proofs. One can get (slightly) different systems based on whether the random values chosen by the verifier are made public or kept private. If one assumes the existence of special objects like one-way functions, one can construct \u201czero-knowledge proofs\u201d, where the verifier is convinced exactly of the intended statement, but no further information about said statement is revealed. One can also have systems where multiple provers can interact with the verifier (but not with each other) to prove a statement.\nInteractive proof systems can be seen as an excellent example of AI-to-AI explainability approaches that have existed for a long time. However, as previously noted, there are still plenty of interesting open problems in this area."
+    },
+    {
+      "heading": "3.1.5 Abduction",
+      "text": "Abductive reasoning, e.g. [113, 118, 133], aims at explaining phenomena such as observations, abnormalities, anomalies, false predictions. The notion of an explanation follows closely that of explanations in classical logic-based reasoning delineated above, but in addition allows for inventing, i.e. abducing, additional knowledge. This abduced knowledge, possibly together with existing background knowledge, is seen as an explanation in that it allows to deduce a given phenomenon. Minimal (in various forms) sets of abducibles as explanations can be used for explaining abductive reasoning via causal knowledge graphs [200], or, as in e.g. [15, 107], for explaining ML model classifications by logically encoding ML models and abducing minimal assignments representing feature attributions that guarantee classifications.\nExplanations via abducibles aim at answering the following kinds of questions.\n20 Ericsson Research\n\u2022 What information would entail this observation? [118] \u2022 Why was the wrong belief or expectation formed? [133]\nAbducibles as explanations are thus largely attributive: given background knowledge KB and a (possibly hypothetical) inference o, the abducible knowledge ab is an explanation for o just in case KB \u222a {ab} |= o. However, hints of contrastive and actionable explanations appear in abducibles in that they indicate knowledge that, if present, would allow to achieve a hypothetical/alternative outcome/inference."
+    },
+    {
+      "heading": "3.2 Non-classical Logic-Based Reasoning (Logic Programming)",
+      "text": "Logic Programming (LP, see e.g. [11, 119]) is both a knowledge representation formalism and computational mechanism for non-classical, particularly non-monotonic, reasoning. Often, explainability in LP is enabled by the declarative reading of rules in logic programs, which allows for attributive explanations in terms of knowledge and rules that yield a specific inference. Further, if the knowledge and rules carry immediate semantic meaning, then deductive inference paths or proof trees are readily interpretable and can be translated into natural language, as e.g. in Rulelog [94, 95]. Still further, contrastive explanations can be obtained by inspecting conflict resolution strategies.\nIn general, LP takes various forms, most notably abductive, inductive and answer set programming, each with different computational procedures and different approaches to explainability. We discuss some of these below."
+    },
+    {
+      "heading": "3.2.1 Abductive Logic Programming (ALP)",
+      "text": "Abductive Logic Programming (ALP) [71, 113] is a form of abductive reasoning expressed using LP vocabulary. Abductive logic programs are used for knowledge representation and abductive proof procedures for automated reasoning. Abductive proof procedures interleave backward and forward reasoning and can be used for checking and enforcing properties of knowledge representation (via queries or inputs to the program) as well as for agents to abduce and/or explain actions required to check/enforce such properties.\nFormally, given an abductive logic program P , an abductive explanation for an observation o (conjunctive formula) is a pair (D, \u03b8) consisting of a (possibly empty) set D of abducibles and a (possibly empty) variable substitution \u03b8 for the variables in o such that P together with abducibles D entail o\u03b8 and satisfy integrity constraints. Different notions of entailment and satisfaction can be adopted, for example classical first-order entailment P \u222aD |= o\u03b8 and consistency P \u222aD 6` \u22a5.\nIntuitively, abductive explanations answer the following questions [113, 199]: \u2022 Why did this observation occur? \u2022 What explains this observation? \u2022 How to reach this goal/query?\n21 Ericsson Research\nAccordingly, as in Section 3.1.5 Abduction, abductive explanations in ALP are attributive, with flavors of actionability: \u201cexplanations can be thought of as data to be actually added to the beliefs of the agents and actions that, if successfully performed by the agents, would allow for the agents to achieve the given objectives while taking into account the agents\u2019 beliefs, prohibitions, obligations, rules of behavior and so on, in the circumstances given by the current inputs.\u201d[199, p. 100]"
+    },
+    {
+      "heading": "3.2.2 Inductive Logic Programming (ILP)",
+      "text": "Inductive Logic Programming (ILP) [153] studies the inductive construction of logic programs from examples and background knowledge. Briefly, \u201cgiven a set of positive examples, and a set of negative examples, an ILP system constructs a logic program that entails all the positive examples but does not entail any of the negative examples.\u201d[72, p. 1] The set of induced rules, called hypotheses, possibly together with a proof trace, is viewed as an explanation of the examples in the context of the background knowledge: given background knowledge KB and sets P and N of positive and negative examples, respectively, a set R of clauses (i.e. hypotheses) is an explanation for given examples just in case KB \u222a R ` p for all p \u2208 P and KB \u222a R 6` n for all n \u2208 N . Hypotheses as explanations thus aim to answer the following question: \u2022 What general hypothesis best explains the given specific examples/observations? As such, explanations in ILP are closely related to explanations in ALP. The two LP techniques can indeed be considered complementary [153], noting that \u201cabduction is the process of explanation \u2013 reasoning from effects to possible causes, whereas induction is the process of generalization \u2013 reasoning from specific cases to general hypothesis.\u201d[132, p. 205] Some recent works, e.g. [72, 145], use integrated ILP and ML techniques to learn explanatory logic programs from non-symbolic data. Overall, ILP explanations as hypotheses or proof paths are attributive in nature."
+    },
+    {
+      "heading": "3.2.3 Answer Set Programming (ASP)",
+      "text": "Fandinno and Schulz provide an excellent overview in [78] of explanations in Answer Set Programming (ASP) [30, 136], which have been researched for some 25 years. There are two main families of approaches, namely justification and debugging. The respectively aim at answering these kind of questions: \u2022 Why is a literal (not) contained in an answer set? \u2022 Why is an unexpected or no answer set computed? Both families first-and-foremost provide attributive explanations, albeit with different flavors: justifications can be inspired by, for instance, causal or argumentative reasoning; debugging can be based, for instance, on reporting unsatisfied rules or unsatisfiable cores. Both justification and debugging approaches may also supply contrastive explanations by including conflicting information and revealing conflict resolution that takes place in reasoning. We briefly summarize the main ideas below,\n22 Ericsson Research\nfollowing [78]. Justification approaches by and large concern consistent logic programs and provide \u201csomewhat minimal explanation as to why a literal in question belongs to an answer set\u201d. Off-line justifications [166] are graph structures describing the derivations of atoms\u2019 truth values via program rules and can be seen to provide traces of dependencies. Labelled Assumption-Based Argumentation (ABA)-based answer set justifications (LABAS) [180, 181] abstract away from intermediate rule applications and focus on the literals occurring in rules used in the derivation and can be seen to provide traces via (supporting and attacking) arguments (see Argumentation), thus exhibiting reasons pro and con the inference in question.\nIn a similar vain, causal graph justifications [34] associate with each literal a set of causal justifications that can be graphically depicted and can be seen as causal chain traces. Causal graph justifications are inspired by why-not provenance [202], which itself provides non-graphical justifications expressing modifications to the program that can change the truth value of the atom in question. (By extension, justifications for the actual truth values do not imply any modifications.) These can be seen to approach the realm of actionable explanations, though unlike causal graph justifications, why-not provenance does not discriminate between productive causes and other counterfactual dependencies (see e.g. [98, 99]).\nDebugging approaches instead by and large concern inconsistent logic programs and provide explanations as to why a set of literals is not an answer set. The spock system [28, 87] transforms a logic program into a meta-(logic)program expressing conditions for e.g. rule applicability and whose answer sets capture violations of the given candidate answer set of the original program in terms of rule satisfaction, unsupported atoms or unfounded loops. The Ouroboros system [161] extends these ideas to logic programs possibly with variables, tackling also the issue of multiple explanations by requiring the user to specify an intended answer set. Instead, [64, 184] propose interactive debugging whereby the user is queried for about specific atoms to produce the relevant explanations of inconsistencies.\nThe above summary shows the wealth of explainability techniques in ASP, but there are also works that use ASP for explanations in other areas. For instance, in [35] Calegari et al. map decision trees (DTs) into logic programs to explain DT predictions via natural language explanations generated from logic program rules.\nIn another recent research direction [15], Bertossi uses ASP to generate contrastive explanations for discrete, structured data classification. Briefly, there: a) causal explanations are sets of feature\u2013 value pairs such that changing at least one value changes the classification label; b) counterfactual (value-)explanations are individual feature-value pairs such that changing the value changes the classification; c) actual (value-)explanations are individual feature-value pairs together with a set of feature-value pairs such that changing the value of the former does not suffice to change the classification, but changing the values of both the former and the latter does. Actual and counterfactual explanations can be assigned explanatory responsibility measure, which amounts to the inverted size of the small-\n23 Ericsson Research\nest set accompanying an actual explanation, with the explanatory responsibility of a counterfactual explanation always being 1 (because it suffices to flip only that feature-value to change the classification). Overall, Bertossi proposes to encode the inputs-outputs of an ML classifier into an ASP program, together with predicates and constraints capturing interventions (i.e. feature-value flipping) to extract the various explanations defined by computing answer sets."
+    },
+    {
+      "heading": "3.3 Argumentation",
+      "text": "\u201cComputational Argumentation is a logical model of reasoning that has its origins in philosophy and provides a means for organizing evidence for (or against) particular claims (or decisions).\u201d[186, p. 277] Moulin et al. review in [151] a large body of literature on MR explainability and argue for the use of argumentation to support interactive and collaborative explanations of reasoning that take into account the aspects of justification as well as criticism of claims/decisions/solutions. Indeed, \u201c[t]here is a natural pairing between Explainable AI and Argumentation: the first requires the need to explain decisions and the second provides a method for linking any decision to the evidence supporting it.\u201d[186, p. 277]\nBy and large, data and knowledge in argumentation formalisms can be represented using various forms of directed graphs, whereby nodes represent arguments modelling individual pieces of information and edges represent relationships among arguments (e.g. attacks for conflicting information, supports for supporting information). Reasoning then amounts to find the sets of \u201cgood\u201d arguments, for instance arguments acceptable under some semantics, i.e. a collection of formal criteria such as not attacking each other and defending against all attackers. (See Figure 1 (i).)\nA common approach to explaining decisions in argumentation, one which encompasses both justification and criticism, essentially amounts to traversing (a part of) an argument graph to show the attacking and defending arguments (together with their relationships) relevant to the decision, where the decision essentially amounts to accepting (resp. rejecting) an argument as (resp. not) \u201cgood\u201d. In addition, one can speculate what kind of changes to the argument graph, such as additions or removals of arguments or relationships, would result into different acceptance status(es) of the argument(s) in question. Argumentative explanations thus aim to answer the following questions: \u2022 Given a set of arguments, why is a particular argument a \u201cgood\u201d? [76] \u2022 What are the reasons (i.e. other arguments) for and against accepting a? \u2022 Can the given reasons for acceptance of a be contested? \u2022 Which arguments/relationships should be removed or added to accept argument a? [77, 179] Intuitively, to explain acceptability of an argument x, \u201cone would need to show how to defend x by showing that for every argument y that is put forward (moved) as an attacker of x, one must move an argument z that attacks y, and then subsequently show how any such z can be reinstated against attacks (in the same way that z reinstates x). The arguments moved can thus be organised into a graph\n24 Ericsson Research\nof attacking arguments that constitutes an explanation as to why x is [acceptable]\u201d[148, p. 109]. So, given a graph G representing an argumentation framework and a query regarding a statement (e.g. (the claim of) an argument) i, an explanation for the acceptance status o of i is a minimal (in some sense) subgraph G\u2032 \u2286 G consisting of arguments for and counterarguments against o that (fully or partially) determine o. The subgraph G\u2032 can be turned into a formal dispute tree [67, 148] where two fictional players \u2013 proponent P and opponent O \u2013 put forward arguments in favor (pro) and against (con) a topic argument, see Figure 1 (ii). This can accompanied by dialogical explanation to the effect of establishing o by using the arguments for (pros) to defend from the counterarguments (cons), see Figure 1 (iii). Such explanations are contrastive and answer the first two questions above. Relatedly, an explanation can be a modification G\u2032 of the original argument graph G such that the desired acceptance status o of i is achieved. Such explanations can be seen as actionable and answer the last two questions above.\nIn practice, constructing argumentative explanations amounts to one or both of the following two phases. \u2022 Extract a connected subgraph (e.g. a path, branch, cycle; possibly depth-, width- or otherwise\nbounded) that consists of the relevant arguments and counterarguments together with their acceptability statuses, and potentially indicate arguments and/or relationships that if added and/or removed would change the acceptability statuses. Examples include [58, 59, 75, 77, 115, 172, 180, 181, 183, 210, 212]. \u2022 Construct a formal dialogue [168] or an argument game [143, 148] in \u201cwhich participants\nengage in structured, rule-guided, goal-oriented exchange [of arguments] according to specific protocols.\u201d[186, p. 208] Such dialogue games underly argumentation-supported dialogi-\n25 Ericsson Research\ncal/conversational explanations [141, 186, 205, 206]. The \u201cwinning\u201d arguments are determined by argumentation semantics, so such dialogue games show how one player justifies the decision while the other criticizes it. Examples include [12, 50, 51, 55, 57, 67, 74, 76, 77, 148, 181]. These ideas are not limited to various argumentation formalisms. On the one hand, they can be directly applied to reasoning formalisms that can be captured or reinterpreted in argumentative terms:\n1. In [24] Booth et al. construct explanatory dialogues for logic programs using abstract argumentation (AA, [66]). 2. In [180, 181] Schulz and Toni use correspondence between answer sets in Answer Set Programming (ASP) and stable extensions in Assumption-Based Argumentation (ABA, [23, 56]) to explain why a literal is or is not contained in an answer set of a logic program. The idea behind an explanation, or rather a justification, \u201cfor a literal l is to find the underlying literals, necessary to derive l, as well as conflicts with other literals which influence whether or not l is part of an answer set.\u201d[180, p. 3] 3. In [86] Garc\u0131\u0301a and Simari define argumentative dialogical explanations for queries in Defeasible Logic Programming (DeLP). 4. In [213] Zhong et al. map decision frameworks into ABA frameworks so that best decisions in the former correspond to acceptable arguments in the latter, and use ABA dispute trees as explanations. 5. In [74] Fan captures planning problems in ABA and extracts explanations pertaining to actions and/or their preconditions and goals relevant to the (in)validity of a plan.\nOn the other hand, ideas based on argumentative and dialogical explanations can be applied to explain reasoning in other fields:\n6. In [183] S\u030ces\u030celja and Stra\u00dfer extend AA frameworks with explanatory and incompatibility relations to define explanations as explanatory paths in conflict- and incompatibility-free preferred extensions, applying this to scientific debates. 7. In [31] Briguez et al. propose an argumentation-supported recommender system using DeLP, which allows to naturally extract explanations in terms of reasons for and against a recommendation. Similarly, in [50, 172] the authors propose and evaluate empirically a gradual argumentation-based recommender system where items and their aspects are captured via arguments, gradual semantics is used to determine the recommendations and explanations amount to argument subgraphs that are turned into natural language explanations. 8. In [12, 101] the authors use variants of dispute trees and argumentation dialogues for explaining answers to queries in ontology-based knowledge bases. 9. In [197] Timmer et al. extract probabilistically supported arguments from a Bayesian network to construct a support graph and, given a set of observations, build arguments from that support graph. Such arguments can facilitate the correct interpretation and explanation of the evidence modelled in Bayesian networks.\n26 Ericsson Research\n10. In [186] Sklar and Azhar illustrate argumentative natural language explanations arising from argumentation dialogue games in a collaborative human-autonomous agent scenario. 11. In [49] Cocarascu et al. use machine learning (autoencoders) to populate case-based reasoning (CBR)-inspired argumentation frameworks for data classification/prediction. There, explanations can be extracted in two equivalent ways: dialectical explanations as subgraphs with arguments comprising relevant data instances with known labels that support and/or contrast with the prediction; rule-based explanations as logic programming (LP) rules (with exceptions) comprised of features. Cocarascu et al. further such dialectical explanations in [51] to classification of categorical data, annotated images and text. 12. In [182] Sendi et al. extract probabilistic classification rules from deep neural networks which then constitute arguments explaining any given classification. 13. In [57] C\u030cyras et al. use CBR-inspired, AA-driven reasoning formalism to classify and explain legislative data. 14. In [58] C\u030cyras et al. use AA frameworks to capture schedules and their properties for defining, extracting and presenting [59] explanations in makespan scheduling.\nOther forms of argumentation-enabled explainable reasoning have been proposed too: (i) In [52] Collins et al. propose structured argumentation as a good candidate for representing causality and forming as well as communicating explanations in the planning domain; (ii) in [173] Raymond et al. propose an argumentation-based architecture for designing explainable human-agent systems for deconfliction environments."
+    },
+    {
+      "heading": "3.4 Decision Theory",
+      "text": "Decision theory gathers different domains such as Multi-Criteria Decision Making, Decision Making under Uncertainty and Computational Social Choice (SC). \u201cThe typical decision problem studied in decision theory consists in selecting one alternative among a set X of candidate options, where the alternatives are described by several dimensions. This selection is obtained by the construction of a preference relation over X .\u201d[125, p. 1411] The final part of the decision process, i.e. explaining the outcome of the decision model to the user, is by and large not readily supported by decision theory models due to their complexity. It is nonetheless arguably as important as the recommendation of the outcome itself (see e.g. [14, p. 152]) and attempts at answering the following kind of question (see e.g. [22, 125]): \u2022 Can this recommendation (i.e. the chosen alternative) be justified under the given preference\nprofile? Explainability in decision theory has been researched in modern MR. On the one hand, forms of Argumentation have been proposed for explainable decision making, see e.g. [5, 6, 212, 213]. Specifically, in [5, 6] the authors propose to use abstract argumentation with preferences for multiple\n27 Ericsson Research\nagents to argue about acceptable decisions. There, explainability is assumed to arise naturally from the argumentative process, but is not specified at all. Instead, Zhong et al. map decision frameworks into Assumption-Based Argumentation and use dispute trees (see Section 3.3) to generate explanations as to why a decision is best, better than or as good as others. They also translate such contrastive dialogical explanations into natural language and perform an empirical user study in a legal reasoning setting to evaluate their approach. These works effectively define argumentation-supported decision making procedures where explainability arises from the argumentative methods employed.\nOn the other hand, Labreuche in [125] provides solid theoretical foundations to produce explanations for a range of decision-theoretic models via provision of arguments, but not using formal argumentation. There, arguments, and therefore explanations, essentially are \u201cbased on the identification of the decisive criteria.\u201d[125, p. 1415] They are thus attributive, supplying justifications in terms of higher-level criteria that support the recommended decision.\nSimilar in spirit, Labreuche, Maudet, and Ouerdane in [127] consider the setting of qualitative multi-criteria decision making with preferential information regarding the importance of the criteria and preference rankings over different options (choices). They define explanations as collections of factored preference statements (roughly of the form \u2018on criteria I , option o is better than options P \u2019) that justify the choice of the weighted Condorcet winner. Such explanations pertain to the relevant data (problem inputs) supporting a proof that the recommended decision/choice is the best one.\nSome more recent works essentially apply to various settings the same conceptual idea that explanations of decisions made pertain to important criteria or principles based on which the model makes a decision. For instance, in [159] explaining amounts to identification of decisive criteria as sets of attributes that are most important for preferring one option over another. Nunes et al. thus propose attributive explanations via several decision criteria in a quantitative multi-attribute decision making setting. Belahcene et al. deal with incomplete preference specifications in [14] and thereby use preference swaps to explain/justify decisions. Intuitively, their explanations transform a complex preference statement (over many attributes) that needs to be understood by the user into a series of simpler preference statements (over few attributes). In [126], Labreuche and Fossier consider hierarchical models of multi-criteria decision aiding. They use Shapley values to define axiomatic indices regarding the influence of different criteria and provide attributive explanations pertaining to the importance of different criteria. In a setting where different audiences may adhere to different norms [22], Boixel and Endriss explain the decision making outcome by presenting axioms (with respect to audience\u2019s norms) for which no voting rule would yield a different outcome. We deem such explanations pertaining to the importance of decision-making criteria to be attributive.\n28 Ericsson Research"
+    },
+    {
+      "heading": "3.5 Planning",
+      "text": "Automated planning (or AI planning) is a class of decision making techniques that deals with computing sequences of actions towards achieving a goal. The solution to a planning problem is found by a planner, typically one based on heuristic search. Chakraborti et al. review in [44] the most recent advances in explainable AI planning. They emphasize the importance of user modelling, or \u201cpersona\u201d of the explainee. Although their classification is broad \u2013 in terms of end-user, algorithm designer and model designer personas \u2013 it is clear that more granular models are possible. Their work reinforces Miller\u2019s view on the characteristics of effective explanations [144], namely that explanations should be \u201csocial in being able to model the expectations of the explainee, selective in being able to select explanations among several competing hypothesis, and contrastive in being able to differentiate properties of two competing hypothesis.\u201d[44, p. 4805] Further, Chakraborti et al. also point to the use of abstractions as a means to provide effective explanations. They go on to provide a useful categorization of recent approaches to explanations in AI planning, based on whether explanations reveal the working of an algorithm, details of the underlying model, or attempt to reconcile the differences between the user and system\u2019s mental models. The kinds of questions that explanations in planning aim to answer pertain to goodness of plans, alternative choices and unsolvability, and are as follows: \u2022 What changes (in the current state) would make this solvable? (I.e. making excuses.) [91] \u2022 What are possible reasons you could not compute a plan from your current state to the given\ngoal state? [91] \u2022 Why a plan fails to be a solution, which actions are invalid? [74] \u2022 Why fail and what (temporal) repercussions does the first failure have? [201] \u2022 Why did the agent take action A (at that time) rather than action B (resp. earlier or later)? [38] \u2022 Why was a particular predicate (agent/object) involved in the plan? [38] \u2022 How good is a given plan from the point of view of the human observer (their computational\nmodel)? [42] To answer questions about unsolvability and failures, some approaches provide contrastive explanations in terms of a part KB \u2032 of the model KB that together with the initial state i and the desired goal(s) o lead to unsolvability \u22a5. For instance, Fan in [74] captures STRIP-like planning in Assumption-Based Argumentation and extracts explanations pertaining to actions and/or their preconditions and goals relevant to both validity and invalidity of a plan. The unsolvability of planning tasks can also be explained to the user by pointing out unreachable but necessary goals in terms of propositional fluents, assuming appropriate abstractions of the user\u2019s model of the problem, e.g. [193]. Similarly, pointing out actions executed in a faulty node and their propagations (subsequent failed actions and their relationships) can be used to define explanations in temporal multi-agent planning [201]. Such explanations mostly work by attributing counterexamples to solvability in the current system S. However, counterfactual contrastive explanations in terms of excuses \u2013 minimal, restrictive\n29 Ericsson Research\nchanges to the initial state i that would allow to reach the desired goal o \u2013 are also possible [91]. Regarding alternative courses of action, contrastive explanations can be supplied that pertain to higher-level properties satisfied or not by the (current or alternative) plan. The general idea in answering questions about a given plan \u03c0 not satisfying some property p is to produce a new plan \u03c0\u2032 that does satisfy p and compare the two plans [69]. For instance, in [68] Eifler et al. develop a means to qualify how good or poor a plan is, beyond the obvious properties such as cost or plan length. Such planproperty dependencies allow oversubscribed goals to be reasoned over, and explained by an agent. Specifically, in [69] Eifler et al. define explanations via plan-property entailment of soft goals so that an answer to the question \u201cwhy is a property (set of soft goals) not achieved?\u201d amounts to exhibiting other properties (sets of soft goals) that would not be achieved otherwise. In the specific case of goal exclusions, explanations amount to \u2286-minimal unsolvable goal subsets. [70] is an extension of this approach to plan properties formulated in Linear Temporal Logic (LTL).\nAnother prominent challenge in explaining planning that has recently attracted a fair amount of research interest is that of model reconciliation [40, 41, 42, 43, 124], aiming to answer the last question above. Here the assumption is that humans have a domain and task model that differs significantly from that used by the AI agent, and explanations suggest changes to the human\u2019s model to reconcile the differences between the two. The objective of model reconciliation is not to completely balance the information asymmetry, but is selective to knowledge updates that can minimally cause humancomputed plans to match those computed by the system. Such explanations are contrastive too [44], in that they contrast the models of the AI system and its user and aim to bring modification to the latter so as to convince the user of the goodness of the plan. Relatedly but orthogonally, Krarup et al. show in [120] how user constraints can instead be added to the formal planning model so that contrastive explanations as differences between the solutions to the initial and the new model can be extracted. We note that model reconciliation is in some aspects closely related to plan/goal recognition [36]. Essentially, recognizing the AI agent\u2019s goals may be seen as a prerequisite to providing rationale for its behavior. And the other way round, recognizing the user\u2019s plans and goals can serve as a means to improve explanations."
+    },
+    {
+      "heading": "3.6 Multi-Agent Systems",
+      "text": "Explainability in AI-supported Multi-Agent Systems (MAS) (sometimes also called Distributed AI [134]) concerns interactions among multiple intelligent agents so as to agree on and explain individual actions/decisions. Roughly, the questions of interest can be posed as follows: \u2022 How were the user\u2019s (and the interacting agents\u2019) preferences taken into account when making\na decision? \u2022 What is the user\u2019s satisfaction with the decision? There are a few works in MR, specifically in Argumentation (see Section 3.3), that aim to address\n30 Ericsson Research\nat least the first question above. On the one hand, in [5, 6] the authors propose to use abstract argumentation with preferences for multiple agents to argue about acceptable decisions. Explainability is assumed to arise naturally from the argumentative process, via relationships among arguments, given preferences and argumentation semantics. On the other hand, Raymond et al. propose in [173] an argumentation-based architecture for designing explainable human-agent systems for deconfliction environments. There, agents exchange conflict-free sets of arguments/rules in a dialogue D and an explanation of some topic argument a is a set S of related-admissible arguments [76] that recursively defend a. The approach focuses \u201con generating post-hoc explanations derived from the history of a dialogue D\u201d. These are examples of contrastive argumentative explanations in MAS settings.\nHowever, more generally and with respect to the user\u2019s satisfaction, Kraus et al. stipulate in [121] that there has so far been little explainability in multi-agent environments. They claim explainability in MAS is more challenging than in other settings because \u201cin addition to identifying the technical reasons that led to the decision, there is a need to convey the preferences of the agents that were involved.\u201d Murukannaiah, Ajmeri, Jonker, and Singh echo this concern in [154] from the points-ofview of multi-agent ethics, fairness etc. Several recent works suggest ways to address the challenges. At a high-level, in [46] Ciatto et al. propose to integrate symbolic and connectionist approaches via a multi-agent system to achieve explainability. More specifically, Kraus et al. propose to use ML for generating \u201cpersonalized explanations that will maximize user satisfaction\u201d, which necessitates collecting \u201cdata about human satisfaction from decision-making when various types of explanations are given in different contexts.\u201d[121, pp. 13534-13535] Along similar lines, in [8] Amir et al. suggest research directions for agent strategy summarization to complement explainability in MAS. It remains to be seen what lines of research will be instigated by these recent calls to renew interest in MAS explainability, and whether MR, for instance the argumentation-based approaches discussed above, will play a significant role."
+    },
+    {
+      "heading": "3.7 Reinforcement Learning",
+      "text": "Reinforcement learning (RL) has recently become visible as a promising solution for dealing with the general problem of optimal decision and control of agents that interact with uncertain environments. Application areas range from telecommunication systems, traffic control, autonomous driving, robotics, economics and games. In the general setting, an RL agent is usually operating in an environment repetitively applying one of the possible available actions and receives a state observation and a reward as feedback. The goal of the RL framework is to maximize the overall utility over a time horizon. The choices of right actions are critical; while some actions exploit the existing knowledge, some actions explore to how to increase the collected reward in future, at the cost of performing a locally sub-optimal behavior.\nExplaining control decisions produced by RL algorithms is crucial [2], since the rationale is often\n31 Ericsson Research\nobfuscated, and the outcome is difficult to trust for two reasons: 1. lack of coverage in the exploration, and 2. generalizability of the learned policies. Explainability in RL is complicated due to its real-time nature, since control strategies develop over time, and are typically not evaluated over snapshots. Several techniques for explanations are proposed in [2] such as Bayesian rule lists, function analysis, Grammar-based decision trees, sensitivity analysis combined with temporal modeling using longshort term memory networks, and explanation templates. Albeit such techniques are relevant as early attempts towards explaining RL decisions, we do not review them in this paper since we do not think they fall within MR. Instead we next briefly discuss some approaches that use symbolic techniques for explainability in RL.\nApproaches in the literature that integrate the RL framework with explanations have been investigated in [84, 112, 117]. In particular, the authors in [84] introduce a framework of instructions-based behavior explanation in order to explain the future actions of RL agents. In this way, the agent can reuse the instructions from the human which leads to faster convergence. In [112], the method of reward decomposition is proposed in order to explain the actions taken by an RL agent. The idea is to split the reward in semantically meaningful types such that such that the action of the RL agent can be compared with reference to trade-offs between the rewards. The study in [117] deals with the general framework of explaining the policies over Markov Decision Policies (MDP). Under the assumption that the MDP is factored, a subset a minimum set of explanations that justify the actions of MDP is proposed. We believe these type of justifying explanations are a form of attributive explanations.\nThere is recent work on contrastive explanations in RL too. Specifically, in [142] Madumal et al. define causal and counterfactual explanations for MDP-based RL agents given their action influence models (which extend structural causal models [163] with actions). Specifically, they define a (complete) causal explanation for an action A \u201cas the complete causal chain from A to any future reward that it can receive\u201d, with a minimal such explanation omitting intermediate nodes in such a chain, leaving source and destination nodes only. Further, they define a (minimally complete) explanation as the difference between the actual causal chain for the taken action A, and the counterfactual causal chain for some other action B. They show experimentally with human users that their explanations are subjectively good enough and help the users to better understand the RL agent\u2019s actions. However, the method requires a correct model of the world to be given upfront."
+    },
+    {
+      "heading": "3.7.1 Constrained RL",
+      "text": "State-of-the-art RL is associated with several challenges: guaranteed safety during exploration in the real world is one of them, and intricacy of reward construction is another. Many recent works introduced preliminary results on mitigating these challenges through formal methods [4, 108, 109, 135]. The most related ones to MR focus on shielding or constraining exploration in general or in various specific contexts, presenting objectives in the form of a linear temporal logic (LTL) formula\n32 Ericsson Research\n[4, 109]. Recent works also include the design of control policies using RL methods to find policies which guarantee the satisfaction of properties described in temporal logic [26, 108, 135]."
+    },
+    {
+      "heading": "3.7.2 Multi-Agent RL (MARL)",
+      "text": "When it comes to Multi-Agent RL (MARL) frameworks, the main challenge to be addressed is the dependency between the action and rewards of different agents in the environment [131, 211]. It is natural when two or more agents are trying to optimize their local behavior over a horizon of time, and conflicts might occur with respect to the team or global behavior of the agents. In such a setting, different local optimal actions might lead to conflicting collaborative behavior. Thus, such scenarios render the collaborative reward design challenging, and new algorithms should be designed in order to address such problems. The MARL scenario imposes additional constraints and an efficient way to handle them is to use a symbolic framework by presenting the constraints in a more convenient ways, such as logical description. Kazhdan, Shams, and Lio\u0300 in [116] provide such model extraction techniques that enhance explainability of MARL frameworks."
+    },
+    {
+      "heading": "3.8 Causal Approaches",
+      "text": "Causal models (see e.g. [88, 128, 163]) are useful in guiding interventional decisions and analyzing counterfactual hypothetical situations. Using causal models one can not only provide a decision but also provide a basis for what-if analysis, thus providing explanations. Lacave and D\u0131\u0301ez provide in [128] a summary of the work done on explaining AI models where the models are causal, quite often Bayesian networks. The authors distinguish three classes of explanations. 1. Explanation of evidence \u2013 this is basically abduction where the explanation is finding most probably explanations of variables not directly observable, based on the observed evidence variables. This can be seen as a form of attributive explanations. 2. Explanation of the model \u2013 this is simply a description (graphically or in text) the causal model. 3. Explanation of reasoning \u2013 here the objective is to explain the reasoning process for the result obtained, for specific results not obtained, or for counterfactual reasoning. We see these largely as contrastive explanations.\nAs regards the first class, [88] can be seen as an early example. There, Geffner equates \u201cbeing caused\u201d with \u201cbeing explained\u201d. In contrast to earlier explanation techniques that used logical derivations (roughly as antecedents of rules that explain the consequents), Geffner augments default theories [174] with a causality/explanations operator C which is used to define an order over classes of models of default theories in terms of explained abnormalities (ab predicates). The kind of rule-based attributive explanations therefore have an abductive flavor. [156] is instead a modern MR example to explaining causality. Nielsen et al. show that given a set of variables, the values of which an explanation is sought after, it is possible to determine a set of other variables (explanatory variables)\n33 Ericsson Research\nwhich probabilistically explain the given set of observed variables. Some of these are possibly observed while the others are not. Indeed this includes abducing some variables from others. The use of a causal Bayesian network to trace these other variables is particularly interesting in the case of causal explanations.\nNielsen et al. further show how to use the interventional distribution on a Causal Bayesian network to compute a causal explanation, thus approaching the realm of contrastive explanations. Another recent example of attributive explanations with a counterfactual flavor is the work of [142] which uses structural causal models to explain actions of RL agents. In principle, to support counterfactual reasoning and thus contrastive explanations, one can use pure regression techniques factoring in time to do some causal correlation For instance, in Granger-causal inferencing the idea is to use time series data analysis and hypothesis testing to extract possible causal influences. However, much more informative models are structural equation models (see e.g. [163]) and causal Bayesian networks (see e.g. [103]).\nStructural equation models allow specification of equations that denote the effect of one variable on the other. That is most helpful in doing interventional analysis. The model also supports a logic with an algebra that allows counterfactual analysis. On the other hand, Bayesian networks allow for probabilistic relations between variables and thus also enable interventional and counterfactual analysis. The Structural Causal Model is possibly the most evolved and combines the benefits of both these models. The rich set of analytical tools that it comes with is described in [163].\nGenerally, Pearl argues in [163] that explainability and other obstacles \u201ccan be overcome using causal modeling tools, in particular, causal diagrams and their associated logic.\u201d Methods for creating such causal models are therefore of great importance. The main challenge of these methods in practice, however, is learning the model from data. Very often expert input is used in conjunction with data to build the models. Heckerman describes in [102] how it is possible to build Causal Bayesian Networks from data, under some assumptions. Causal Bayesian Networks can be extended to Bayesian Decision Networks where the decision variables and the utility (optimization) variables are explicitly identified and used for decision making. See e.g. [53] for a concise introduction to the area.\nOverall, we contend that despite the progress with techniques for causality, we are still far from formalizing and being able to explain other more nuanced interpretations of causality that humans are familiar with. This is exemplified by the works on \u2018actual\u2019 causality, e.g. [63], which illustrates with simple examples the challenges or explainability using simple causal diagrams."
+    },
+    {
+      "heading": "4 Remarks",
+      "text": "We briefly discuss a few aspects related to our categorization of explanations (Section 2.3) and its relationship to MR approaches overviewed in this report.\n34 Ericsson Research\nCausality We have discussed Causal Approaches loosely as a branch of MR where explainability is investigated. Instead, causality can be viewed as a property or even constitute a category of explanations, see e.g. [110]. However, following e.g. [144, 189, 207], we contend that explanations may, but need not in general be causal. It is for instance acknowledged that \u201cit does not seem possible to develop a formal connection between counterfactuals and causality.\u201d[90, p. 69] We thus maintain that the aspect of causality is orthogonal to our categorization of explanations.\nHierarchy of explanation families We see the three categories of explanations forming a hierarchy of increasing complexity in the following intuitive sense. Attributive explanations may act as components of contrastive explanations (e.g. attributions pro and con), and contrastive explanations can pave way for actionable explanations (e.g. contrasting outcomes lead to actions). This complexity also well reflects the maturity of different types of explanations, with attributive ones being the oldest and most pervasive, contrastive ones more recent and advanced, and actionable explanations arguably the most challenging and least explored.\nUser-centrism In addition to the three families of explanations that we proposed, we recognize the property of explanations being user-centric, see e.g. [40, 149, 150, 176, 207, 214]. While it clearly applies to attributive, contrastive and actionable explanations, here we also have in mind a slightly different, more general notion of user-centrism. Specifically, it pertains to approaches to explainability directly taking into account the user (human or AI, indifferently) model, preferences, intentions etc. It is not only about the explanations being e.g. accessible, comprehensible, informative, but also about the relation between the explainee and the explanation. For instance, in the human user case,\n1. an attributive explanation may need to take into account the relevance of the attributions to the user, e.g. domain vs procedural knowledge in the inference from knowledge to outcome; 2. a contrastive explanation may need to take into account the context in terms of which counterfactual situations are attainable to the user, e.g. the controllable aspects of the problem domain such as resource availability; 3. an actionable explanation may need to take into account the user\u2019s preferences over decisions, e.g. costs of resources and actions.\nUser-centric explanations concern the system\u2019s understanding of its user, and include aspects of cooperation and adaptation. At a high level, they aim to answer the following question: \u2022 Given a representation of the problem and of the user, e.g. their preferences or mental model,\nand given an object of interest (e.g. a query, a decision, a solution, a change, a desideratum), how are the user and the object related?\nThe challenges with attaining such explanations (and hence the current scarcity of them, at least in MR) have been brought forward in e.g. [44, 121, 194]. We hope that the developing landscape of MR explainability may soon allow (and require) an overview of the user-centric aspects of explanations.\n35 Ericsson Research\nExplanation desiderata In addition to such overarching properties as user-centrism and the categories of explanations suggested herein, explanations in AI can be studied and classified in terms of the desiderata (or desirable properties) they fulfil. To appreciate the evolution of desiderata for AI explainability over the previous decades we invite the reader to consult the following works: [96, 100, 110, 123, 128, 137, 138, 189, 204]. We agree that a discussion of the various desiderata would be complementary to our overview, but it is beyond the scope of this work. We believe that our categorization works at a sufficiently high-level and is adequate for the purposes of this report.\nApplicability of categories We speculate that our loose categorization of explanations in AI applies to ML as well as to MR. For instance, post-hoc ML explanation techniques summarized in [13, p. 89,\nFigure 4], are attributive, except for local explanations, which can also be seen as contrastive. It is reasonable to expect our categories to be applicable to other XAI approaches, given that our work builds on and borrows from recent XAI overviews. However, we by no means claim that our loose categorization is exhaustive: there may obviously be types of explanations that are not covered by our three families, e.g. explanations by example that are rather popular in ML (see e.g. [149]). We leave it for future work to see how broadly our categorization applies to non-MR approaches."
+    },
+    {
+      "heading": "5 Conclusions",
+      "text": "In this report, we have provided a high-level conceptual overview of selected Machine Reasoning (MR) approaches to explainability. We have summarised what we believe are the most relevant MR contributions to Explainable AI (XAI), from early to modern MR research, perhaps with a stronger focus on the more recent studies. We have discussed explainability in MR branches of Classical Logic-Based Reasoning, Non-classical Logic-Based Reasoning (Logic Programming), Argumentation, Decision Theory and Planning as well as the related areas of Multi-Agent Systems, Reinforcement Learning and Causal Approaches. In particular, we have seen that MR explainability approaches are suited not only for explainable MR (i.e. explaining MR-based AI systems) but also for explainability in other fields or areas of AI, such Machine Learning (ML).\nWe have loosely categorized the various kinds of explanations provided by MR approaches into three families of explanations: attributive, contrastive and actionable. Attributive explanations give details as to why an AI system yields a particular output given a particular input in terms of attribution and association of the (parts of the) system and the input with the output. These type of explanations have been studied since the very early MR and continue to be relevant and widely used in modern MR as well as its approaches to XAI at large. Contrastive explanations give details as to why an AI system yields one but not another output given some input in terms of reasons for and against different outputs. This type of explanations has been advocated for in MR for a long time too and appears in\n36 Ericsson Research\nmodern MR in the form of counterexamples, criticisms, counterfactuals and dialogues. Such and similar forms of contrastive explanations are being actively explored in MR and its applications to XAI. Finally, actionable explanations give details as to what can be done in order for an AI system to yield a particular output given input in terms of actions available to the system\u2019s user (human or AI, indifferently). This kind of explanations should enable interventions to the system and eventually an interactive collaboration between the user and the system so as to reach desirable outcomes. We see actionable explanations as belonging to the frontier of MR explainability where novel research approaches and directions are being proposed.\nOur categorization of explanations is informed by the different types of questions about the AI system\u2019s workings which explanations seek to answer. We have indicated some of the questions addressed in the overviewed MR branches and summarized the higher-level questions. In answering the latter, an explanation provides some details and reasons about the AI system and its functioning. This pertains to what we believe are the main purposes of explanations in XAI, namely to enable the user of an AI system to both understand the system and to do something with the explanation.\nThe main lesson in writing this report was perhaps the (re)discovery of the evolution of XAI challenges and the wealth of MR approaches aiming to address those challenges. Importantly, we want to stress that XAI research in MR is very much active to date, as seen from our overview of modern MR explainability studies. Still, despite the advances over the years, challenges in MR explainability abound and it seems that lessons from the past hold well today too [110, p. 161]:\nIf explanation provision is to become a characteristic feature of many future interfaces, then there is a special responsibility for researchers in both HCI [human-computer interaction] and AI to provide input to the debate about the nature of the explanations to be provided in future information systems. The onus on us as researchers in the area is to ensure that we profit by past research on explanation provision, identify the strengths and weaknesses in present research and build on the strengths and address the problems in the future.\nWe hope that this report will inform the XAI community about the progress in MR explainability and its overlap with other areas of AI, thus contributing to the bigger picture of XAI.\n37 Ericsson Research"
+    }
+  ],
+  "title": "Machine Reasoning Explainability",
+  "year": 2020
+}

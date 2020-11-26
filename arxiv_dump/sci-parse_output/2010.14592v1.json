@@ -1,0 +1,441 @@
+{
+  "abstractText": "Many existing approaches for estimating feature importance are problematic because they ignore or hide dependencies among features. A causal graph, which encodes the relationships among input variables, can aid in assigning feature importance. However, current approaches that assign credit to nodes in the causal graph fail to explain the entire graph. In light of these limitations, we propose Shapley Flow, a novel approach to interpreting machine learning models. It considers the entire causal graph, and assigns credit to edges instead of treating nodes as the fundamental unit of credit assignment. Shapley Flow is the unique solution to a generalization of the Shapley value axioms to directed acyclic graphs. We demonstrate the benefit of using Shapley Flow to reason about the impact of a model\u2019s input on its output. In addition to maintaining insights from existing approaches, Shapley Flow extends the flat, set-based, view prevalent in game theory based explanation methods to a deeper, graph-based, view. This graph-based view enables users to understand the flow of importance through a system, and reason about potential interventions.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Jiaxuan Wang"
+    },
+    {
+      "affiliations": [],
+      "name": "Jenna Wiens"
+    },
+    {
+      "affiliations": [],
+      "name": "Scott Lundberg"
+    }
+  ],
+  "id": "SP:a32f3a69584b9812bca77e6ec3473b477054d7a2",
+  "references": [
+    {
+      "authors": [
+        "K. Aas",
+        "M. Jullum",
+        "A. L\u00f8land"
+      ],
+      "title": "Explaining individual predictions when features are dependent: More accurate approximations to shapley values",
+      "venue": "arXiv preprint arXiv:1903.10464.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Adadi",
+        "M. Berrada"
+      ],
+      "title": "Peeking inside the black-box: A survey on explainable artificial intelligence (xai)",
+      "venue": "IEEE Access, 6:52138\u201352160.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D. Baehrens",
+        "T. Schroeter",
+        "S. Harmeling",
+        "M. Kawanabe",
+        "K. Hansen",
+        "M\u00fcller",
+        "K.-R."
+      ],
+      "title": "How to explain individual classification decisions",
+      "venue": "The Journal of Machine Learning Research, 11:1803\u20131831.",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "A. Binder",
+        "G. Montavon",
+        "S. Lapuschkin",
+        "K.R. M\u00fcller",
+        "W. Samek"
+      ],
+      "title": "Layer-wise relevance propagation for neural networks with local renormalization layers",
+      "venue": "International Conference on Artificial Neural Networks, pages 63\u201371. Springer.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "L. Breiman"
+      ],
+      "title": "Random forests",
+      "venue": "Machine learning, 45(1):5\u201332.",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "H. Chen",
+        "J.D. Janizek",
+        "S. Lundberg",
+        "S.I. Lee"
+      ],
+      "title": "True to the model or true to the data? arXiv preprint arXiv:2006.16234",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "C.S. Cox"
+      ],
+      "title": "Plan and operation of the NHANES I Epidemiologic Followup Study, 1992",
+      "venue": "Number 35. National Ctr for Health Statistics.",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "A. Datta",
+        "S. Sen",
+        "Y. Zick"
+      ],
+      "title": "Algorithmic transparency via quantitative input influence: Theory and experiments with learning systems",
+      "venue": "2016 IEEE symposium on security and privacy (SP), pages 598\u2013617. IEEE.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "K. Dhamdhere",
+        "M. Sundararajan",
+        "Q. Yan"
+      ],
+      "title": "How important is a neuron? arXiv preprint arXiv:1805.12233",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Fisher",
+        "C. Rudin",
+        "F. Dominici"
+      ],
+      "title": "All models are wrong but many are useful: Variable importance for black-box, proprietary, or misspecified prediction models, using model class reliance",
+      "venue": "arXiv preprint arXiv:1801.01489, pages 237\u2013246.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C. Frye",
+        "D. de Mijolla",
+        "L. Cowton",
+        "M. Stanley",
+        "I. Feige"
+      ],
+      "title": "Shapley-based explainability on the data manifold. arXiv preprint arXiv:2006.01272",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "C. Frye",
+        "I. Feige",
+        "C. Rowat"
+      ],
+      "title": "Asymmetric shapley values: incorporating causal knowledge into model-agnostic explainability",
+      "venue": "arXiv preprint arXiv:1910.06358.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C. Glymour",
+        "K. Zhang",
+        "P. Spirtes"
+      ],
+      "title": "Review of causal discovery methods based on graphical models",
+      "venue": "Frontiers in genetics, 10:524.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D. Janzing",
+        "L. Minorics",
+        "P. Bl\u00f6baum"
+      ],
+      "title": "Feature relevance quantification in explainable ai: A",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "S. L\u00f3pez",
+        "M. Saboya"
+      ],
+      "title": "On the relationship between shapley and owen values",
+      "venue": "Central European Journal of Operations Research, 17(4):415.",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "G. Erion",
+        "H. Chen",
+        "A. DeGrave",
+        "J.M. Prutkin",
+        "B. Nair",
+        "R. Katz",
+        "J. Himmelfarb",
+        "N. Bansal",
+        "Lee",
+        "S.-I."
+      ],
+      "title": "From local explanations to global understanding with explainable ai for trees",
+      "venue": "Nature machine intelligence, 2(1):2522\u2013",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "G.G. Erion",
+        "Lee",
+        "S.-I."
+      ],
+      "title": "Consistent individualized feature attribution for tree ensembles",
+      "venue": "arXiv preprint arXiv:1802.03888.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "Lee",
+        "S.-I."
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "Advances in neural information processing systems, pages 4765\u20134774.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B. Mittelstadt",
+        "C. Russell",
+        "S. Wachter"
+      ],
+      "title": "Explaining explanations in ai",
+      "venue": "Proceedings of the conference on fairness, accountability, and transparency, pages 279\u2013288.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J. Pearl"
+      ],
+      "title": "Causality",
+      "venue": "Cambridge university press.",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "J. Peters",
+        "D. Janzing",
+        "B. Sch\u00f6lkopf"
+      ],
+      "title": "Elements of causal inference",
+      "venue": "The MIT Press.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "L.S. Shapley"
+      ],
+      "title": "A value for n-person games",
+      "venue": "Contributions to the Theory of Games, 2(28):307\u2013 317.",
+      "year": 1953
+    },
+    {
+      "authors": [
+        "A. Shrikumar",
+        "P. Greenside",
+        "A. Kundaje"
+      ],
+      "title": "Learning important features through propagating activation differences",
+      "venue": "arXiv preprint arXiv:1704.02685.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Shrikumar",
+        "P. Greenside",
+        "A. Shcherbina",
+        "A. Kundaje"
+      ],
+      "title": "Not just a black box: Learning important features through propagating activation differences",
+      "venue": "arXiv preprint arXiv:1605.01713.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "K. Simonyan",
+        "A. Vedaldi",
+        "A. Zisserman"
+      ],
+      "title": "Deep inside convolutional networks: Visualising image classification models and saliency maps",
+      "venue": "arXiv preprint arXiv:1312.6034.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "J.T. Springenberg",
+        "A. Dosovitskiy",
+        "T. Brox",
+        "M. Riedmiller"
+      ],
+      "title": "Striving for simplicity: The all convolutional net",
+      "venue": "arXiv preprint arXiv:1412.6806.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "E. \u0160trumbelj",
+        "I. Kononenko"
+      ],
+      "title": "Explaining prediction models and individual predictions with feature contributions",
+      "venue": "Knowledge and information systems, 41(3):647\u2013665.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "M. Sundararajan",
+        "A. Najmi"
+      ],
+      "title": "The many shapley values for model explanation",
+      "venue": "arXiv preprint arXiv:1908.08474.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Sundararajan",
+        "A. Taly",
+        "Q. Yan"
+      ],
+      "title": "Axiomatic attribution for deep networks",
+      "venue": "International Conference on Machine Learning.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "B. Zhou",
+        "A. Khosla",
+        "A. Lapedriza",
+        "A. Oliva",
+        "A. Torralba"
+      ],
+      "title": "Learning deep features for discriminative localization",
+      "venue": "Proceedings of the IEEE conference on computer vision and pattern recognition, pages 2921\u20132929.",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "text": "Many existing approaches for estimating feature importance are problematic because they ignore or hide dependencies among features. A causal graph, which encodes the relationships among input variables, can aid in assigning feature importance. However, current approaches that assign credit to nodes in the causal graph fail to explain the entire graph. In light of these limitations, we propose Shapley Flow, a novel approach to interpreting machine learning models. It considers the entire causal graph, and assigns credit to edges instead of treating nodes as the fundamental unit of credit assignment. Shapley Flow is the unique solution to a generalization of the Shapley value axioms to directed acyclic graphs. We demonstrate the benefit of using Shapley Flow to reason about the impact of a model\u2019s input on its output. In addition to maintaining insights from existing approaches, Shapley Flow extends the flat, set-based, view prevalent in game theory based explanation methods to a deeper, graph-based, view. This graph-based view enables users to understand the flow of importance through a system, and reason about potential interventions."
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Explaining a model\u2019s predictions by assigning importance to its inputs (i.e., feature attribution) is critical to many applications in which a user interacts with a model to either make decisions or gain a better understanding of a system (Simonyan et al., 2013; Lundberg and Lee, 2017; Zhou et al., 2016; Shrikumar\nFigure 1: Causal graph for the sprinkler example from (Pearl, 2009, Chapter 1.2). The model, \ud835\udc53 , can be expanded into its own graph. To simplify the exposition, although \ud835\udc53 takes 4 variables as input, we arbitrarily assumed that it only depends on \ud835\udc4b3 and \ud835\udc4b4 directly (i.e., \ud835\udc53 (\ud835\udc4b1, \ud835\udc4b2, \ud835\udc4b3, \ud835\udc4b4) = \ud835\udc54(\ud835\udc4b3, \ud835\udc4b4) for some \ud835\udc54).\net al., 2017; Baehrens et al., 2010; Binder et al., 2016; Springenberg et al., 2014; Sundararajan et al., 2017; Fisher et al., 2018; Breiman, 2001). However, correlation among input features presents a challenge when estimating feature importance.\nConsider a motivating example adapted from Pearl (2009), in which we are given a model \ud835\udc53 that takes as input four features: the season of the year (\ud835\udc4b1), whether or not it\u2019s raining (\ud835\udc4b2), whether the sprinkler is on (\ud835\udc4b3), and whether the pavement is wet (\ud835\udc4b4) and outputs a prediction \ud835\udc53 (x), representing the probability that the pavement is slippery (capital \ud835\udc4b denotes a random variable; lower case x denotes a particular sample). Assume, the inputs are related through the causal graph in Figure 1. When assigning feature importance, existing approaches that ignore this causal structure (Janzing et al., 2020; Sundararajan and Najmi, 2019; Datta et al., 2016) may assign zero importance to the season, since it only indirectly affects the outcome through the other input variables. However, such a conclusion may lead a user astray - since changing \ud835\udc4b1 would most definitely affect the outcome.\nRecognizing this limitation, researchers have recently proposed approaches that leverage the causal structure among the input variables when assigning credit (Frye et al., 2019). However, such approaches provide an\nar X\niv :2\n01 0.\n14 59\n2v 1\n[ cs\n.L G\n] 2\n7 O\nct 2\n02 0\nincomplete picture of a system as they assign all credit to the source nodes in a graph. Though this solves the earlier problem of ignoring indirect or upstream effects, it does so by ignoring downstream effects. In our example, season would get all the credit despite the importance of the other variables. This again may lead a user astray - since intervening on \ud835\udc4b3 or \ud835\udc4b4 would affect the outcome, yet they are given no credit.\nGiven that current approaches end up ignoring either downstream (i.e., direct) or upstream (i.e., indirect) effects, we develop Shapley Flow, a comprehensive approach to interpreting a model (or system) that incorporates the causal relationship among input variables, while accounting for both direct and indirect effects. In contrast to prior work, we accomplish this by reformulating the problem as one related to assigning credit to edges in a causal graph, instead of nodes (Figure 2c). Our key contributions are as follows.\n\u2022 We propose the first (to the best of our knowledge) generalization of Shapley value feature attribution to graphs, providing a complete systemlevel view of a model.\n\u2022 Our approach unifies three previous game theoretic approaches to estimating feature importance.\n\u2022 Through examples on real data, we demonstrate how our approach facilitates understanding.\nIn this work, we take an axiomatic approach motivated by cooperative game theory, extending Shapley values to graphs. The resulting algorithm, Shapley Flow, generalizes past work in estimating feature importance (Lundberg and Lee, 2017; Frye et al., 2019; Lo\u0301pez and Saboya, 2009). The estimates produced by Shapley Flow represent the unique allocation of credit that conforms to several natural axioms. Applied to real-world systems, Shapley Flow can help a user understand both the direct and indirect impact of changing a variable, generating insights beyond current feature attribution methods."
+    },
+    {
+      "heading": "2 Problem Setup & Background",
+      "text": "Given a model, or more generally a system, that takes a set of inputs and produces an output, we focus on the problem of quantifying the effect of each input on the output. Here, building off previous work, we formalize the problem setting."
+    },
+    {
+      "heading": "2.1 Problem Setup",
+      "text": "Quantifying the effect of each input on a model\u2019s output can be formulated as a credit assignment problem.\nFormally, given a target sample input \ud835\udc99, a reference sample input \ud835\udc99\u2032, and a model \ud835\udc53 : R\ud835\udc51 \u2192 R, we aim to explain the difference in output i.e., \ud835\udc53 (\ud835\udc99) \u2212 \ud835\udc53 (\ud835\udc99\u2032). We assume \ud835\udc99 and \ud835\udc99\u2032 are of the same dimension \ud835\udc51, and each entry could be either discrete or continuous.\nWe also assume access to a causal graph, as formally defined in (Peters et al., 2017, Chapter 6), over the \ud835\udc51 input variables. Given this graph, we seek an assignment function \ud835\udf19 that assigns credit \ud835\udf19(\ud835\udc52) \u2208 R to each edge \ud835\udc52 in the causal graph such that they collectively explain the difference \ud835\udc53 (\ud835\udc99) \u2212 \ud835\udc53 (\ud835\udc99\u2032). In contrast with the classical setting (Lundberg and Lee, 2017; Sundararajan et al., 2017; Frye et al., 2020; Aas et al., 2019) in which credit is placed on features (\u0131.e., seeking a node assignment function \ud835\udf13(\ud835\udc56) \u2208 R for \ud835\udc56 \u2208 [1 \u00b7 \u00b7 \u00b7 \ud835\udc51]), our edge-based approach is more flexible because we can recover node \ud835\udc56\u2019s importance by defining \ud835\udf13(\ud835\udc56) = \u2211\ud835\udc52\u2208i\u2019s outgoing edges \ud835\udf19(\ud835\udc52). Here, the effect of input on output is measured with respect to a reference or background sample. For example, in a healthcare setting, we may set the features in the background sample to values that are deemed typical for a disease. We assume a single background value for notational convenience, but the formalism easily extends to the common scenario of multiple background values or a distribution of background values, \ud835\udc43, by defining the explanation target to be \ud835\udc53 (\ud835\udc99) \u2212 E\ud835\udc99\u2032\u223c\ud835\udc43 \ud835\udc53 (\ud835\udc99\u2032)."
+    },
+    {
+      "heading": "2.2 Feature Attribution with a Causal Graph",
+      "text": "Even given a causal graph, feature attribution remains challenging because it is unclear how to rightfully allocate credit for a prediction among the nodes and/or\nJiaxuan Wang, Jenna Wiens, Scott Lundberg\nedges of the graph. To address this we generalize game theoretic fairness principles to graphs.\nGiven a graph, G, that consists of a causal graph over the the model of interest \ud835\udc53 and its inputs, we define the boundary of explanation as a cut B := (\ud835\udc37, \ud835\udc39) that partitions the input variables and the output of the model (i.e., the nodes of the graph) into \ud835\udc37 and \ud835\udc39 where source nodes (nodes with no incoming edges) are in \ud835\udc37 and sink nodes (nodes with no outgoing edges) are in \ud835\udc39. Note that G has a single sink, \ud835\udc53 (\ud835\udc99) \u2208 R. A cut set is the set of edges with one endpoint in \ud835\udc37 and another endpoint in \ud835\udc39, denoted as \ud835\udc50\ud835\udc62\ud835\udc61 (B). It is helpful to think of \ud835\udc39 as an alternative model definition, where a boundary of explanation (aka. a model boundary) defines what part of the graph we consider to be the \u201cmodel\u201d. If we collapse \ud835\udc39 into a single node that subsumes \ud835\udc53 , then \ud835\udc50\ud835\udc62\ud835\udc61 (B) represents the direct inputs to this new model.\nDepending on the causal graph, multiple boundaries of explanation may exist. Recognizing this multiplicity of choices helps shed light on an ongoing debate in the community regarding feature attribution and whether one should perturb features while staying on the data manifold or perturb them independently (Chen et al., 2020; Janzing et al., 2020; Sundararajan and Najmi, 2019). On one side, many argue that perturbing features independently reveals the functional dependence of the model, and is thus true to the model (Janzing et al., 2020; Sundararajan and Najmi, 2019; Datta et al., 2016). However, independent perturbation of the data can create unrealistic or invalid sets of model input values. Thus, on the other side, researchers argue that one should perturb features while staying on the data manifold, and so be true to the data (Aas et al., 2019; Frye et al., 2019). However, this can result in situations in which features not used by the model are given non-zero attribution. Explanation boundaries help us unify these two viewpoints. As illustrated in Figure 2a, when we independently perturb features, we assume the causal graph is flat and the explanation boundary lies between \ud835\udc99 and \ud835\udc53 (i.e., \ud835\udc37 contains all of the input variables). In this example, since features are assumed independent all credit is assigned to the features that directly impact the model output, and indirect effects are ignored (no credit is assigned to \ud835\udc4b1 and \ud835\udc4b2). In contrast, when we perform on-manifold perturbations with a causal structure, as is the case in Asymmetric Shapley Values ( ASV) (Frye et al., 2019), all the credit is assigned to the source node because the source node determines the value of all nodes in the graph (Figure 2b). This results in a different boundary of explanation, one between the source nodes and the remainder of the graph. Although giving \ud835\udc4b1 credit does not reflect the true func-\ntional dependence of \ud835\udc53 , it does for the model defined by \ud835\udc392 (Figure 2c). Perturbations that were previously faithful to the data are faithful to a \u201cmodel\u201d, just one that corresponds to a different boundary. See Appendix 6 for how on-manifold perturbation (without a causal graph) can be unified using explanation boundaries.\nBeyond the boundary directly adjacent to the model of interest, \ud835\udc53 , and the boundary directly adjacent to the source nodes, there are other potential boundaries (Figure 2c) a user may want to consider. However, simply generating explanations for each possible boundary can quickly overwhelm the user (Figures 2a 2b 8a). Our approach sidesteps the issue of selecting a single explanation boundary by considering all explanation boundaries simultaneously. This is made possible by assigning credit to the edges in a causal graph (Figure 2c). Edge attribution is strictly more powerful than feature attribution because we can simultaneously capture the direct and indirect impact of edges.\nWhile other approaches to assign credit on a graph exist, (e.g., Conductance from Dhamdhere et al. (2018) and DeepLift from Shrikumar et al. (2016)), they were proposed in the context of understanding internal nodes of a neural network, and depend on implicit linearity and continuity assumptions about the model. We aim to understand the causal structure among the input nodes in a fully model agnostic manner, where discrete variables are allowed, and no differentiability assumption is made. To do this we generalize the widely used Shapley value (Adadi and Berrada, 2018; Mittelstadt et al., 2019; Lundberg et al., 2018; Sundararajan and Najmi, 2019; Frye et al., 2019; Janzing et al., 2020; Chen et al., 2020) to graphs."
+    },
+    {
+      "heading": "3 Proposed Approach: Shapley Flow",
+      "text": "Our proposed approach, Shapley Flow, attributes credit to edges of the causal graph. In this section, we present the intuition behind our approach and then formally show that it uniquely satisfies a generalization of the classic Shapley value axioms, while unifying previously proposed approaches."
+    },
+    {
+      "heading": "3.1 Assigning Credit to Edges: Intuition",
+      "text": "Given a causal graph defining the relationship among input variables, we re-frame the problem of feature attribution to focus on the edges of a graph rather than nodes. Our approach results in edge credit assignments as shown in Figure 2c. As mentioned above, this eliminates the need for multiple explanations (i.e., bar charts) pertaining to each explanation boundary.\nMoreover, it allows a user to better understand the nuances of a system by providing information regarding what would happen if a single causal link breaks.\nShapley Flow is the unique assignment of credit to edges such that classic Shapley value axioms are satisfied for all possible boundaries of explanation. Specifically, we extend the efficiency, dummy, and linearity axioms from (Shapley, 1953) and add a new axiom related to boundary consistency. Efficiency states that the attribution of edges on any boundary must add up to \ud835\udc53 (x) \u2212 \ud835\udc53 (x\u2032). Linearity states that explaining a linear combination of models is the same as explaining each model, and linearly combining the resulting attributions. Dummy states that if adding an edge does not change the output in all scenarios, the edge should be assigned 0 credit. Boundary consistency states that edges shared by different boundaries need to have the same attribution when explained using either boundary. These concepts are illustrated in Figure 4 and formalized in Section 3.3.\nAn edge is important if removing it causes a large change in the model\u2019s prediction. However, what does it mean to remove an edge? If we imagine every edge in the graph as a channel that sends its source node\u2019s current value to its target node, then removing an edge \ud835\udc52 simply means messages sent through \ud835\udc52 fail. In the context of feature attribution, in which we aim to measure the difference between \ud835\udc53 (x) \u2212 \ud835\udc53 (x\u2032), this means that \ud835\udc52\u2019s target node still relies on the source\u2019s background value in x\u2032 to update its current value, as op-\nposed to the source node\u2019s foreground value in x, as illustrated in Figure 3a. However, we cannot simply toggle edges one at a time. Consider a simple OR function \ud835\udc54(\ud835\udc4b1, \ud835\udc4b2) = \ud835\udc4b1 \u2228 \ud835\udc4b2, with \ud835\udc651 = 1, \ud835\udc652 = 1, \ud835\udc65 \u20321 = 0, \ud835\udc65 \u2032 2 = 0. Removing either of the edges alone, would not affect the output and both \ud835\udc651 and \ud835\udc652 would be (erroneously) assigned 0 credit.\nTo account for this, we consider all scenarios (or partial histories) in which the edge we care about can be added (see Figure 3b). Here, \ud835\udf08 is a function that takes a list of edges and evaluates the network with edges updated in the order specified by the list. For example, \ud835\udf08( [\ud835\udc521]) corresponds to the evaluation of \ud835\udc53 when only \ud835\udc521 is updated. Similarly \ud835\udf08( [\ud835\udc521, \ud835\udc522]) is the evaluation of \ud835\udc53 when \ud835\udc521 is updated followed by \ud835\udc522. The list [\ud835\udc521, \ud835\udc522] is also referred to as a (complete) history as it specifies how x\u2032 changes to x.\nFor the same edge, attributions derived from different explanation boundaries should agree, otherwise simply including more details of a model in the causal graph would change upstream credit allocation, even though the model implementation was unchanged. We refer to this property as boundary consistency. The Shapley Flow value for an edge is the difference in model output when removing the edge averaged over all histories that are boundary consistent (as defined below)."
+    },
+    {
+      "heading": "3.2 Model explanation as value assignments in games",
+      "text": "The concept of Shapley value stems from game theory, and has been extensively applied in model interpretability (S\u030ctrumbelj and Kononenko, 2014; Datta et al., 2016; Lundberg and Lee, 2017; Frye et al., 2019; Janzing et al., 2020). Before we formally extend it to the context of graphs, we define the credit assignment problem from a game theoretic perspective.\nGiven the message passing system in Section 3.1, we formulate the credit assignment problem as a game specific to an explanation boundary B := (\ud835\udc37, \ud835\udc39). The game consists of a set of players PB , and a payoff function \ud835\udf08B . We model each edge external to \ud835\udc39 as a player. A history is a list of edges detailing the event from \ud835\udc61 = 0 (values being x\u2032) to \ud835\udc61 = \ud835\udc47 (values being x). For example, the history [\ud835\udc56, \ud835\udc57 , \ud835\udc56] means that the edge \ud835\udc56 finishes transmitting a message containing its source node\u2019s most recent value to its target node, followed by the edge \ud835\udc57 , and followed by the edge \ud835\udc56 again. A coalition is a partial history from \ud835\udc61 = 0 to any \ud835\udc61 \u2208 [0 \u00b7 \u00b7 \u00b7\ud835\udc47]. The payoff function, \ud835\udf08, associates each coalition with a real number, and is defined in our case as the evaluation of \ud835\udc39 following the coalition.\nThis setup is a generalization of a typical cooperative game in which the ordering of players does not matter\nJiaxuan Wang, Jenna Wiens, Scott Lundberg\n(only the set of players matters). However, given our physical system, history is important. In the following sections, we denote \u2018+\u2019 as list concatenation, \u2018[]\u2019 as an empty coalition, and HB as the set of all possible histories. We denote H\u0303B \u2286 HB as the set of boundary consistent histories. The corresponding coalitions for HB and H\u0303B are denoted as CB and C\u0303B respectively. A sample game setup is illustrated in Figure 3."
+    },
+    {
+      "heading": "3.3 Axioms",
+      "text": "We formally extend the classic Shapley value axioms (efficiency, linearity, and dummy) and include one additional axiom, the boundary consistency axiom, that connects all boundaries together.\n\u2022 Boundary consistency: for any two boundaries B1 = (\ud835\udc371, \ud835\udc391) and B2 = (\ud835\udc372, \ud835\udc392), \ud835\udf19\ud835\udf08B1 (\ud835\udc56) = \ud835\udf19\ud835\udf08B2 ( \ud835\udc57) for \ud835\udc56, \ud835\udc57 \u2208 \ud835\udc50\ud835\udc62\ud835\udc61 (B1) \u2229 \ud835\udc50\ud835\udc62\ud835\udc61 (B2) For edges that are shared between boundaries, their attributions must agree. In Figure 4a, the edge wrapped by a teal band is shared by both the blue and green boundaries, forcing them to give the same attribution to the edge.\nIn the general setting, not all credit assignments are boundary consistent; different boundaries could result in different attributions for the same edge. This occurs when histories associated with different boundaries are inconsistent (Figure 2c). Moving the boundary from B to B\u2217 (where B\u2217 is the boundary with \ud835\udc37 containing \ud835\udc53 \u2019s inputs), results in a more detailed set of histories. This expansion has 2 constraints. First, any history in\nthe expanded set must follow the physical system in Section 3.1. Second, when a message passes through the boundary, it immediately reaches the end of computation, because \ud835\udc39 is assumed to be a black-box.\nDenoting the history expansion function into B\u2217 as \ud835\udc3b\ud835\udc38 and denoting the set of all boundaries asM, a history \u210e is boundary consistent if \u2203\u210eB \u2208 HB for all B \u2208 M such that\n( \u22c2 B\u2208M \ud835\udc3b\ud835\udc38 (\u210eB)) \u2229 \ud835\udc3b\ud835\udc38 (\u210e) \u2260 \u2205\nThat is \u210e needs to have a least one fully detailed history in which all boundaries can agree on. H\u0303 is all histories in H that are boundary consistent. We rely on this notion of boundary consistency in generalizing the Shapley axioms to any explanation boundary, B:\n\u2022 Efficiency: \u2211 \ud835\udc56\u2208\ud835\udc50\ud835\udc62\ud835\udc61 (B) \ud835\udf19\ud835\udf08B (\ud835\udc56) = \ud835\udc53 (x) \u2212 \ud835\udc53 (x\u2032).\nIn the general case where \ud835\udf08B can depend on the ordering of \u210e, the sum is \u2211 \u210e\u2208H\u0303B \ud835\udf08B (\u210e) |H\u0303B |\n\u2212 \ud835\udf08B ( []). But when the game is defined by a model function \ud835\udc53 ,\u2211\n\u210e\u2208H\u0303B \ud835\udf08B (\u210e)/|H\u0303B | = \ud835\udc53 (\ud835\udc99) and \ud835\udf08B ( []) = \ud835\udc53 (\ud835\udc99 \u2032). An illustration with 3 boundaries is shown in Figure 4a.\n\u2022 Linearity: \ud835\udf19\ud835\udefc\ud835\udc62+\ud835\udefd\ud835\udc63 = \ud835\udefc\ud835\udf19\ud835\udc62+\ud835\udefd\ud835\udf19\ud835\udc63 for any payoff functions \ud835\udc62 and \ud835\udc63 and scalars \ud835\udefc and \ud835\udefd.\nLinearity enables us to compute a linear ensemble of models by independently explaining each model and then linearly weighting the attributions. Similarly, we can explain \ud835\udc53 (x) \u2212 E( \ud835\udc53 (\ud835\udc4b \u2032)) by independently computing attributions for each baseline sample x(i) \u2032 and then taking the average of the attributions, without recomputing from scratch whenever the background sample\u2019s distribution changes. An illustration with 2 baseline samples is shown in Figure 4c.\n\u2022 Dummy player: \ud835\udf19\ud835\udf08B (\ud835\udc56) = 0 if \ud835\udf08B (\ud835\udc46 + [\ud835\udc56]) = \ud835\udf08B (\ud835\udc46) for all \ud835\udc46, \ud835\udc46 + [\ud835\udc56] \u2208 C\u0303B for \ud835\udc56 \u2208 \ud835\udc50\ud835\udc62\ud835\udc61 (B). Dummy player states that if an edge does not change the model\u2019s output when added to in all possible coalitions, it should be given 0 attribution. In Figure 4b, \ud835\udc522 is a dummy edge because starting from any coalition, adding \ud835\udc522 wouldn\u2019t change the output.\nThese last three axioms are extensions of Shapley\u2019s axioms. Note that we no longer need the symmetry axiom because it is implied by the updated dummy player with history."
+    },
+    {
+      "heading": "3.4 Shapley Flow is the unique solution",
+      "text": "Shapley Flow uniquely satisfies all axioms from the previous section. Here, we describe the algorithm, show its formulae, and state its properties. Please refer to Appendix 8 and 7 for proofs and code.\nDescription: Define a configuration of a graph as an arbitrary ordering of outgoing edges of a node when it\nis traversed by depth first search. For each configuration, we run depth first search starting from the source node, processing edges in the order of the configuration. When processing an edge, we update the value of the edge\u2019s target node by making the edge\u2019s source node value visible to its function. If the edge\u2019s target node is the sink node, the difference in the sink node\u2019s output is credited to every edge along the search path from source to sink. The final result averages over attributions for all configurations.\nFormulae: Denote the attribution of Shapley Flow to a path as \ud835\udf19\ud835\udf08, and the set of all possible orderings of source nodes to a sink path generated by depth first search (DFS) as \u03a0dfs. For each ordering \ud835\udf0b \u2208 \u03a0dfs, the inequality of \ud835\udf0b( \ud835\udc57) < \ud835\udf0b(\ud835\udc56) denotes that path \ud835\udc57 precedes path \ud835\udc56 under \ud835\udf0b. Since \ud835\udf08\u2019s input is a list of edges, we define \ud835\udf08 to work on a list of paths. The evaluation of \ud835\udf08 on a list of path is the value of \ud835\udc63 evaluated on the corresponding edge traversal ordering. Then\n\ud835\udf19\ud835\udf08 (\ud835\udc56) = \u2211\ufe01\n\ud835\udf0b\u2208\u03a0dfs\n\ud835\udf08( [ \ud835\udc57 : \ud835\udf0b( \ud835\udc57) \u2264 \ud835\udf0b(\ud835\udc56)]) \u2212 \ud835\udf08( [ \ud835\udc57 : \ud835\udf0b( \ud835\udc57) < \ud835\udf0b(\ud835\udc56)]) |\u03a0dfs |\n(1)\nTo obtain an edge \ud835\udc52\u2019s attribution \ud835\udf19\ud835\udc63 (\ud835\udc52), we sum the path attributions for all paths that contains \ud835\udc52.\n\ud835\udf19\ud835\udf08 (\ud835\udc52) = \u2211\ufe01\n\ud835\udc5d\u2208paths in G 1p contains (\ud835\udc52)\ud835\udf19\ud835\udf08 (\ud835\udc5d) (2)\nAdditional properties: Shapley Flow has the following beneficial properties beyond the axioms.\nGeneralization of SHAP: if the graph is flat, the edge attribution is equal to feature attribution from SHAP because each input node is paired with a single edge leading to the model.\nGeneralization of ASV: the attribution to the source\nnodes is the same as in ASV if all the dependencies among features are modeled by the causal graph.\nGeneralization of Owen value: if the graph is a tree, the edge attribution for incoming edges to the leaf nodes is the Owen value with a coalition structure defined by the tree.\nImplementation invariance: boundary consistency is equivalent to ensuring the attributions are invariant to how \ud835\udc53 is implemented or modeled.\nConservation of flow: efficiency and boundary consistency imply that the sum of attributions on a node\u2019s incoming edges equals the sum of its outgoing edges.\nModel agnostic: Shapley Flow can explain arbitrary\n(non-differentiable) machine learning pipelines."
+    },
+    {
+      "heading": "4 Practical Application",
+      "text": "Shapley Flow highlights both the direct and indirect impact of features. In this section, we consider several applications of Shapley Flow. First, in the context of a linear model, we verify that the attributions match our intuition. Second, we show how current feature attribution approaches lead to an incomplete understanding of a system compared to Shapley Flow."
+    },
+    {
+      "heading": "4.1 Experimental Setup",
+      "text": "We illustrate the application of Shapley Flow to a synthetic and a benchmark dataset. In addition, we include results for a third dataset in the Appendix. Note that our algorithm assumes a causal graph is provided as input. In recent years there has been significant progress in causal graph estimation (Glymour et al., 2019; Peters et al., 2017). However, since our focus is not on causal inference, we make simplifying assumptions in estimating the causal graphs (see Appendix).\nDatasets. Synthetic: As a sanity check, we first experiment with synthetic data. We create a random graph dataset with 10 nodes. A node \ud835\udc56 is randomly connected to node \ud835\udc57 (with \ud835\udc57 pointing to \ud835\udc56) with 0.5 probability if \ud835\udc56 > \ud835\udc57 , otherwise 0. The function at each node is linear with weights generated from a standard normal distribution. Sources follow a \ud835\udc41 (0, 1) distribution. This results in a graph with a single sink node associated with function \ud835\udc53 (i.e., the \u2018model\u2019 of interest). The remainder of the graph corresponds to the causal structure among the input variables.\nNational Health and Nutrition Examination Survey : This dataset consists of 9, 932 individuals with 18 demographic and laboratory measurements (Cox, 1998). We used the same preprocessing as described by Lundberg et al. (2020). Given these inputs, the model, \ud835\udc53 ,\nJiaxuan Wang, Jenna Wiens, Scott Lundberg\naims to predict survival.\nModel training. We train \ud835\udc53 using an 80/20 random train/test split. For experiments with linear models, \ud835\udc53 is trained with linear regression. For experiments with non-linear models, \ud835\udc53 is fitted by 100 XGBoost trees with a max depth of 3 for up to 1000 epochs, using the cox loss.\nCausal Graph. We construct a causal graph based on domain knowledge Figure 9b. Attributes predetermined at birth (age, race, and sex) are treated as source nodes. Poverty index is placed at the second level because economic status could impact one\u2019s health. Other features have directed edges coming from age, race, sex, and poverty index. Note that the relationship among some features is deterministic. For example, pulse pressure is the difference between systolic and diastolic blood pressure. We add the appropriate causal edges to account for such facts. We also account for when features have natural groupings. For example, transferrin saturation (TS), total iron binding capacity (TIBC), and serum iron are all related to blood iron. Serum albumin and serum protein are both blood protein measures. Systolic and diastolic blood pressure can be grouped into blood pressure. Sedimentation rate and white blood cell counts both measure inflammation. We add these higher level grouping concepts as new latent variables in the graph. The resulting causal structure is an oversimplification of the true causal structure; the relationship between source nodes (e.g., race) and biomarkers is far more complex. Nonetheless, it can help in understanding the in/direct effects of input variables on the outcome."
+    },
+    {
+      "heading": "4.2 Baselines",
+      "text": "We compare Shapley Flow with other game theoretic feature attribution methods: independent SHAP (Lundberg and Lee, 2017), on-manifold SHAP (Aas et al., 2019), and ASV (Frye et al., 2019), covering both independent and on-manifold feature attribution.\nSince Shapley Flow and all baselines are expensive to compute exactly, we use a Monte Carlo approximation of Equation 1. In particular, we sample orderings from \u03a0dfs and average across those orderings.We randomly selected a baseline sample from each dataset and share it across methods so that each uses the same baseline. A single baseline allows us to ignore differences in methods due to variations in baseline sampling (A multiple baseline version is easily attainable due to linearity as explained in Figure 4c). We sample 100 orderings from each approach to generate the results. Since there\u2019s no publicly available implementation for ASV, we show the attribution for source nodes obtained from Shapley Flow (summing attributions of\nMethods Nutrition (D) Synthetic (D) Nutrition (I) Synthetic (I) Independent 0.0 (\u00b1 0.0) 0.0 (\u00b1 0.0) 0.8 (\u00b1 2.7) 1.1 (\u00b1 1.4) On-manifold 1.3 (\u00b1 2.5) 0.8 (\u00b1 0.7) 0.9 (\u00b1 1.6) 1.5 (\u00b1 1.5) ASV 1.5 (\u00b1 3.3) 1.2 (\u00b1 1.4) 0.6 (\u00b1 1.9) 1.1 (\u00b1 1.5) Shapley Flow 0.0 (\u00b1 0.0) 0.0 (\u00b1 0.0) 0.0 (\u00b1 0.0) 0.0 (\u00b1 0.0)\nTable 1: Mean absolute error (std) for all methods on direct (D) and indirect (I) effect for linear models. Shapley Flow makes no mistake across the board.\noutgoing edges) as they are equivalent given the same causal graph. For convenience of visual inspection, we show top 10 links used by Shapley Flow (credit measured in absolute value) on the nutrition dataset."
+    },
+    {
+      "heading": "4.3 Sanity checks with linear models",
+      "text": "To build intuition, we first examine linear models (i.e., \ud835\udc53 (x) = w>x + \ud835\udc4f where w \u2208 R\ud835\udc51 and \ud835\udc4f \u2208 R; the causal dependence inside the graph is also linear). When using a linear model the ground truth direct impact of changing feature \ud835\udc4b\ud835\udc56 is \ud835\udc64\ud835\udc56 (\ud835\udc65\ud835\udc56 \u2212 \ud835\udc65 \u2032\ud835\udc56) (that is the change in output due to \ud835\udc4b\ud835\udc56 directly), and the ground truth indirect impact is defined as the change in output when an intervention changes \ud835\udc65 \u2032\n\ud835\udc56 to \ud835\udc65\ud835\udc56.\nResults for explaining the datasets are included in Table 1. We report the mean absolute error from the ground truth attribution for 1, 000 randomly selected examples in both datasets across features. We also report the standard deviation of error in parentheses. Note that only Shapley flow results in no error for both direct and indirect effects."
+    },
+    {
+      "heading": "4.4 Examples with non-linear models",
+      "text": "We demonstrate the benefits of Shapley Flow with non-linear models containing both discrete and continuous variables. As a reminder, the baseline methods are not competing with Shapley Flow as the latter can recover all the baselines given the corresponding causal structure (Figure 2). Instead, we highlight why a holistic understanding of the system is better.\nIndependent SHAP ignores the indirect impact of features. Take an example from the nutrition dataset (Figure 6). The race feature is given low attribution with independent SHAP, but high importance in ASV. This happens because race, in addition to its direct impact, indirectly affects the output through blood pressure, serum magnesium, and blood protein, as shown by Shapley Flow (Figure 6a). In particular, race partially accounts for the impact of serum magnesium because changing race from Black to White on average increases serum magnesium by 0.07 meg/L in the dataset (thus partially explaining the increase in serum magnesium changing from the background sample to the foreground). Independent\nSHAP fails to account for the indirect impact of race, leaving the user with a potentially misleading impression that race is irrelevant for the prediction.\nOn-manifold SHAP provides a misleading interpretation. With the same example (Figure 6), we observe that on-manifold SHAP strongly disagrees with independent SHAP, ASV, and Shapley Flow on the importance of age. Not only does it assign more credit to age, it also flips the sign, suggesting that age is protective. However, Figure 7a shows that age and earlier mortality are positively correlated; then how could age be protective? Figure 7b provides an explanation. Since SHAP considers all partial histories regardless of the causal structure, when we focus on serum magnesium and age, there are two cases: serum magnesium updates before or after age. We focus on the first case because it is where on-manifold SHAP differs from other baselines (all baselines already consider the second case as it satisfies the causal ordering). When serum magnesium updates before age, the expected age given serum magnesium is higher than the foreground age (yellow line above the black marker). Therefore when age updates to its foreground value, we observe a decrease in age, leading to a decrease in the output (so age appears to be protective). Serum magnesium is just one variable from which age steals credit. Similar logic applies to TIBC, red blood cells, serum iron, serum protein, serum cholesterol, and diastolic BP. From both an in/direct impact perspective, on-manifold perturbation can be misleading since it is based not on causal but on observational relationships.\nASV ignores the direct impact of features. As shown in Figure 6, serum magnesium appears to be more important in independent SHAP compared to ASV. From Shapley Flow (Figure 6a), this difference is explained by race as its edge to serum magnesium has a negative impact. However, looking at ASV alone, one fails to understand that intervening on serum magnesium could have a larger impact on the output.\nShapley Flow shows both direct and indirect impacts of features. Focusing on the attribution given by Shapley Flow (Figure 6a). We not only observe similar direct impacts in variables compared to independent SHAP, but also can trace those impacts to their source nodes, similar to ASV. Furthermore, Shapley Flow provides more detail compared to other approaches. For example, using Shapley Flow we gain a better understanding of the ways in which race impacts survival. The same goes for all other features. This is useful because causal links can change (or break) over time. Our method provides a way to reason through the impact of such a change.\nWe provide more examples and an additional\ndataset highlighting the utility of Shapley Flow in the Appendix."
+    },
+    {
+      "heading": "5 Conclusion",
+      "text": "We extend the classic Shapley value axioms to causal graphs, resulting in a unique edge attribution method: Shapley Flow. It unifies three previous Shapley value based feature attribution methods, and enables the joint understanding of both the direct and indirect impact of features. This more comprehensive understanding is useful when interpreting any machine learning model, both \u2018black box\u2019 methods, and \u2018interpretable\u2019 methods.\nJiaxuan Wang, Jenna Wiens, Scott Lundberg"
+    },
+    {
+      "heading": "6 Explanation boundary for on-manifold methods without a causal graph",
+      "text": "On-manifold perturbation using conditional expectations can be unified with Shapley Flow using explanation boundaries (Figure 8a). Here we introduce \ud835\udc4b\ud835\udc56 as an auxiliary variable that represent the imputed version of \ud835\udc4b\ud835\udc56. Perturbing any feature \ud835\udc4b\ud835\udc56 affects all input to the model (\ud835\udc4b1, \ud835\udc4b2, \ud835\udc4b3, \ud835\udc4b4) so that they respect the correlation in the data after the perturbation. When \ud835\udc4b\ud835\udc56 has not been perturbed, \ud835\udc4b \ud835\udc57 treats it as missing for \ud835\udc56, \ud835\udc57 \u2208 [1, 2, 3, 4] and would sample \ud835\udc4b \ud835\udc57 from the conditional distribution of \ud835\udc4b \ud835\udc57 given non-missing predecessors. The red edges contain causal links from Figure 1, whereas the black edges are the causal structure used by the on-manifold perturbation method. The credit is equally split among the features because they are all correlated. Again, although giving \ud835\udc4b1 and \ud835\udc4b2 credit is not true to \ud835\udc53 , it is true to the model defined by \ud835\udc39."
+    },
+    {
+      "heading": "7 The Shapley Flow algorithm",
+      "text": "A pseudo code implementation highlighting the main ideas for Shapley Flow is included in Algorithm 1. For approximations, instead of trying all edge orderings in line 15 of Algorithm 1, one can try random orderings and average over the number of orderings tried. We will release the code."
+    },
+    {
+      "heading": "8 Shapley Flow\u2019s uniqueness proof",
+      "text": "Without loss of generality, we can assume G has a single source node \ud835\udc60. We can do this because every node in a causal graph is associated with an independent noise node (Peters et al., 2017, Chapter 6). For deterministic relationships, the function for a node doesn\u2019t depend on its noise. Treating those noise node as a single node, \ud835\udc60, wouldn\u2019t have changed any boundaries that already exist in the original graph. Therefore we can assume there is a single source node \ud835\udc60."
+    },
+    {
+      "heading": "8.1 At most one solution satisfies the axioms",
+      "text": "Assuming that a solution exists, we show that it must be unique.\nProof. We adapt the argument from the Shapley value uniqueness proof 1, by defining basis payoff functions as carrier games. Choose any boundary B, we show here that any game defined on the boundary is unique. We also drop the subscript B in the proof as there is no ambiguity. Note that since every edge will appear in some boundary, if all boundary edges are uniquely attributed to, all edges have unique attributions. A carrier game associated with coalition (ordered list) \ud835\udc42 is a game with payoff function \ud835\udc63\ud835\udc42 such that \ud835\udc63\ud835\udc42 (\ud835\udc46) = 1(0) if coalition \ud835\udc46 starts with \ud835\udc42 (otherwise 0). By dummy player, we know that only the last edge \ud835\udc52 in \ud835\udc42 gets credit and all other edges in the cut set are dummy because a coalition is constructed in order (only adding \ud835\udc52 changes the payoff from 0 to 1). Note that \ud835\udc52 must be an edge in the boundary to form a valid game because boundary edges are\n1https://ocw.mit.edu/courses/economics/14-126-game-theory-spring-2016/lecture-notes/MIT14_126S16_ cooperative.pdf\nAlgorithm 1 Shapley Flow pseudo code Input: A computational graph G (each node \ud835\udc56 has a function \ud835\udc53\ud835\udc56), foreground sample x, background sample x\u2032 Output: Edge attribution \ud835\udf19 : \ud835\udc38 \u2192 R Initialization: G: add an new source node pointing to original source nodes. 1: function ShapleyFlow(G, x\u2032, x) 2: Initialize(G, x\u2032, x) \u22b2 Set up game \ud835\udf08 for any boundary in G 3: \ud835\udc60 \u2190 source(G) \u22b2 Obtain the source node 4: return DFS(\ud835\udc60, {}, []) 5: end function\n6: function DFS(\ud835\udc60, \ud835\udc37, \ud835\udc46) 7: \u22b2 \ud835\udc60 is a node, \ud835\udc37 is the data side of the current boundary, \ud835\udc46 is coalition 8: \u22b2 Using Python list slice notation 9: Initialize \ud835\udf19 to output 0 for all edges\n10: if IsSinkNode(s) then 11: \u22b2 Here we overload \ud835\udc37 to refer to its boundary 12: \ud835\udf19(\ud835\udc46[\u22121]) \u2190 \ud835\udf08\ud835\udc37 (\ud835\udc46) \u2212 \ud835\udf08\ud835\udc37 (\ud835\udc46[: \u22121]) \u22b2 Difference in output is attributed to the edge 13: return \ud835\udf19 14: end if\n15: for \ud835\udc5d \u2190 AllOrderings(Children(\ud835\udc60)) do \u22b2 Try all orderings/permutations of the node\u2019s children 16: for \ud835\udc50 \u2190 \ud835\udc5d do \u22b2 Follow the permutation to get the node one by one 17: edgeCredit \u2190 DFS(\ud835\udc50, \ud835\udc37 \u222a {\ud835\udc60}, \ud835\udc46 + [(\ud835\udc60, \ud835\udc50)]) \u22b2 Recurse downward\n18: \ud835\udf19 \u2190 \ud835\udf19 + edgeCreditNumChildren(\ud835\udc60)! \u22b2 Average attribution over number of runs 19: \ud835\udf19(\ud835\udc46[\u22121]) \u2190 \ud835\udf19(\ud835\udc46[\u22121]) + edgeCredit(\ud835\udc60,\ud835\udc50)NumChildren(\ud835\udc60)! \u22b2 Propagate upward 20: end for 21: end for 22: return \ud835\udf19 23: end function\nJiaxuan Wang, Jenna Wiens, Scott Lundberg\nthe only edges that are connected to the model defined by the boundary. Therefore we give 0 credit to edges in the cut set other than \ud835\udc52 (because they are dummy players). By the efficiency axiom, we give 1/|H\u0303 | credit to \ud835\udc52 where H\u0303 is the set of all possible boundary consistent histories as defined in Section 3.3. This uniquely attributed the boundary edges for this game.\nWe show that the set of carrier games associated with every coalition that ends in a boundary edge (denoted as C\u0302) form basis functions for all payoff functions associated with the system. Recall from Section 3.2 that C\u0303 is the set of boundary consistent coalitions. We show here that payoff value on coalitions from C\u0303 is redundant given C\u0302. Note that C\u0303 \\C\u0302 represents all the coalitions that do not end in a boundary edge. For \ud835\udc50 \u2208 C\u0303 \\C\u0302, \ud835\udc63\ud835\udc42 (\ud835\udc50) = \ud835\udc63\ud835\udc42 (\ud835\udc50[: \u22121]) (using Python\u2019s slice notation on list) because only boundary edges are connected to the model defined by the boundary. Therefore it suffices to show that \ud835\udc63\ud835\udc42 is linearly independent for \ud835\udc42 \u2208 C\u0302. For a contradiction, assume for all \ud835\udc50 \u2208 C\u0302, \u2211\n\ud835\udc42\u2286C\u0302 \ud835\udefc \ud835\udc42\ud835\udc63\ud835\udc42 (\ud835\udc50) = 0, with some non zero \ud835\udefc\ud835\udc42 \u2208 R (definition of linear dependence). Let \ud835\udc46 be a coalition with minimal length such that \ud835\udefc\ud835\udc46 \u2260 0. We have \u2211\n\ud835\udc42\u2286C\u0302 \ud835\udefc \ud835\udc42\ud835\udc63\ud835\udc42 (\ud835\udc46) = \ud835\udefc\ud835\udc46, a\ncontradiction. Therefore for any \ud835\udf08 we have unique \ud835\udefc\u2019s such that \ud835\udf08 = \u2211\n\ud835\udc42\u2286C\u0302 \ud835\udefc \ud835\udc42\ud835\udc63\ud835\udc42. Using the linearity axiom, we have\n\ud835\udf19\ud835\udf08 = \ud835\udf19\u2211 \ud835\udc42\u2286C\u0302 \ud835\udefc \ud835\udc42\ud835\udc63\ud835\udc42 = \u2211\ufe01 \ud835\udc42\u2286C\u0302 \ud835\udefc\ud835\udc42\ud835\udf19\ud835\udc63\ud835\udc42\nThe uniqueness of \ud835\udefc and \ud835\udf19\ud835\udc63\ud835\udc42 makes the attribution unique if a solution exists. Axioms used in the proof are italicized."
+    },
+    {
+      "heading": "8.2 Shapley Flow satisfy the axioms",
+      "text": "Proof. We first demonstrate how to generate all boundaries. Then we show that Shapley Flow gives boundary consistent attributions. Following that, we look at the set of histories that can be generated by DFS in boundary B, denoted as \u03a0dfsB . We show that \u03a0 dfs B = H\u0303B . Using this fact, we check the axioms one by one.\n\u2022 Every boundary can be \u201cgrown\u201d one node at a time from \ud835\udc37 = {\ud835\udc60} where \ud835\udc60 is the source node: Since the computational graph G is a directed acyclic graph (DAG), we can obtain a topological ordering of the nodes in G. Starting by including the first node in the ordering (the source node \ud835\udc60), which defines a boundary as (\ud835\udc37 = {\ud835\udc60}, \ud835\udc39 = Nodes(G)\\\ud835\udc37), we grow the boundary by adding nodes to \ud835\udc37 (removing nodes from \ud835\udc39) one by one following the topological ordering. This ordering ensures the corresponding explanation boundary is valid because the cut set only flows from \ud835\udc37 to \ud835\udc39 (if that\u2019s not true, then one of the dependency nodes is not in \ud835\udc37, which violates topological ordering).\nNow we show every boundary can be \u201cgrown\u201d in this fashion. In other words, starting from an arbitrary boundary B1 = (\ud835\udc371, \ud835\udc391), we can \u201cshrink\u201d one node at a time to \ud835\udc37 = {\ud835\udc60} by reversing the growing procedure. First note that, \ud835\udc371 must have a node with outgoing edges only pointing to nodes in \ud835\udc391 (if that\u2019s not the case, we have a cycle in this graph because we can always choose to go through edges internal to \ud835\udc371 and loop indefinitely). Therefore we can just remove that node to arrive at a new boundary (now its incoming edges are in the cut set). By the same argument, we can keep removing nodes until \ud835\udc37 = {\ud835\udc60}, completing the proof.\n\u2022 Shapley Flow gives boundary consistent attributions: We show that every boundary grown has edge attribution consistent with the previous boundary. Therefore all boundaries have consistent edge attribution because the boundary formed by any two boundary\u2019s common set of nodes can be grown into those two boundaries using the property above. Let\u2019s focus on the newly added node \ud835\udc50 from one boundary to the next. Note that a property of depth first search is that every time \ud835\udc50\u2019s value is updated, its outgoing edges are activated in an atomic way (no other activation of edges occur between the activation of \ud835\udc50\u2019s outgoing edges). Therefore, the change in output due to the activation of new edges occur together in the view of edges upstream of \ud835\udc50, thus not changing their attributions. Also, since \ud835\udc50\u2019s outgoing edges must point to the model defined by the current boundary (otherwise it cannot be a valid topological ordering), they don\u2019t have down stream edges, concluding the proof.\n\u2022 \u03a0dfsB = H\u0303B : Since attribution is boundary consistent, we can treat the model as a blackbox and only look at the DFS ordering on the data side. Observe that the edge traversal ordering in DFS is a valid history because a) every edge traversal can be understood as a message received through edge , b) when every message is received, the node\u2019s value is updated, and c) the new node\u2019s value is sent out through every outgoing edge by the recursive call in DFS. Therefore the two side of the equation are at least holding the same type of object.\nWe first show that \u03a0dfsB \u2286 H\u0303B . Take \u210e \u2208 \u03a0 dfs B , we need to find a history \u210e \u2217 in B\u2217 such that a) \u210e can be expanded into \u210e\u2217 and b) for any boundary, there is a history in that boundary that can be expanded into \u210e\u2217. Let \u210e\u2217 be any history expanded using DFS that is aligned with \u210e. To show that every boundary can expand into \u210e\u2217, we just need to show that the boundaries generated through growing process introduced in the first bullet point can be expanded into \u210e\u2217. The base case is \ud835\udc37 = {\ud835\udc60}. There must have an ordering to expand into \u210e\u2217 because \u210e\u2217 is generated by DFS, and that DFS ensures that every edge\u2019s impact on the boundary is propagated to the end of computation before another edge in \ud835\udc37 is traversed. Similarly, for the inductive step, when a new node \ud835\udc50 is added, we just follow the expansion of its previous boundary to reach \u210e\u2217.\nNext we show that H\u0303B \u2286 \u03a0dfsB . First observe that for history \u210e1 in B1 = (\ud835\udc371, \ud835\udc391) and history \u210e2 in B2 = (\ud835\udc372, \ud835\udc392) with \ud835\udc392 \u2286 \ud835\udc391, if \u210e1 cannot be expanded into \u210e2, then \ud835\udc3b\ud835\udc38 (\u210e1) \u2229 \ud835\udc3b\ud835\udc38 (\u210e2) = \u2205 because they already have mismatches for histories that doesn\u2019t involve passing through B1. Assume we do have \u210e \u2208 H\u0303B but \u210e \u2209 \u03a0dfsB . To derive a contradiction, we shrink the boundary one node at a time from B, again using the procedure described in the first bullet point. We denote the resulting boundary formed by removing \ud835\udc5b nodes as B\u2212\ud835\udc5b. Since \u210e is assumed to be boundary consistent, there exist \u210eB\u22121 \u2208 H\u0303B\u22121 such that \u210eB\u22121 must be able to expand into \u210e. Say the two boundaries differ in node \ud835\udc50. Note that any update to \ud835\udc50 crosses B\u22121, therefore its impact must be reached by \ud835\udc39 before another event occurs in \ud835\udc37\u22121. Since all of \ud835\udc50\u2019s outgoing edges crosses B, any ordering of messages sent through those edges is a DFS ordering from \ud835\udc50. This means that if \u210eB\u22121 can be reached by DFS, so can \u210eB , violating the assumption. Therefore, \u210eB\u22121 \u2209 \u03a0 dfs B\u22121 and \u210eB\u22121 \u2209 H\u0303B\u22121 (the latter because \u210eB\u22121 can expand into a history that is consistent with all boundaries by first expanding into \u210e). We run the same argument until \ud835\udc37 = {\ud835\udc60}. This gives a contradiction because in this boundary, all histories can be produced by DFS.\n\u2022 Efficiency: Since we are attributing credit by the change in the target node\u2019s value following a history \u210e given by DFS, the target for this particular DFS run is thus \ud835\udf08B (\u210e) \u2212 \ud835\udf08B ( []). Average over all DFS runs and noting that H\u0303B = \u03a0dfsB gives the target \u2211 \u210e\u2208H\u0303B \ud835\udf08B (\u210e)/|H\u0303B | \u2212 \ud835\udf08B ( []). Noting that each update in the\ntarget node\u2019s value must flow through one of the boundary edges. Therefore the sum of boundary edges\u2019 attribution equals to the target.\n\u2022 Linearity: For two games of the same boundary \ud835\udc63 and \ud835\udc62, following any history, the sum of output differences between the two games is the output difference of the sum of the two games, therefore \ud835\udf19\ud835\udc63+\ud835\udc62 would not differ from \ud835\udf19\ud835\udc63 + \ud835\udf19\ud835\udc62. It\u2019s easy to see that extending addition to any linear combination wouldn\u2019t matter.\n\u2022 Dummy player: Since Shapley Flow is boundary consistent, we can just run DFS up to the boundary (treat \ud835\udc39 as a blackbox). Since every step in DFS remains in the coalition C\u0303B because \u03a0dfsB \u2286 H\u0303B , if an edge is dummy, every time it is traversed through DFS, the output won\u2019t change by definition, thus giving it 0 credit.\nTherefore Shapley Flow uniquely satisfies the axioms. We note that efficiency requirement simplifies to \ud835\udc53 (\ud835\udc99) \u2212 \ud835\udc53 (\ud835\udc99\u2032) when applying it to an actual model because all histories from DFS would lead the target node to its target value. We can prove a stronger claim that actually all nodes would reach its target value when DFS finishes. To see that, we do an induction on a topological ordering of the nodes. The source nodes reaches its final value by definition. Assume this holds for the \ud835\udc58th node. For the \ud835\udc58 + 1th node, its parents achieves target value by induction. Therefore DFS would make the parents\u2019 final values visible to this node, thus updating it to the target value."
+    },
+    {
+      "heading": "9 Causal graphs",
+      "text": "While the nutrition dataset is introduced in the main text, we describe an additional dataset to further demonstrate the usefulness of Shapley Flow. Moreover, we describe in detail how the causal relationship is estimated. The resulting causal graphs for the nutrition dataset and the income dataset are visualized in Figure 9."
+    },
+    {
+      "heading": "9.1 The Census Income dataset",
+      "text": "The Census Income dataset consists of 32, 561 samples with 12 features. The task is to predict whether one\u2019s annual income exceeds 50\ud835\udc58. We assume a causal graph, similar to that used by Frye et al. (2019) (Figure 9a). Attributes determined at birth e.g., sex, native country, and race act as source nodes. The remaining features (marital status, education, relationship, occupation, capital gain, work hours per week, capital loss, work class) have fully connected edges pointing from their causal ancestors. All features have a directed edge pointing to the model."
+    },
+    {
+      "heading": "9.2 Causal Effect Estimation",
+      "text": "Given the causal structure described above, we estimate the relationship among variables using XGBoost. More specifically, using an 80/20 train test split, we use XGBoost to learn the function for each node. If the node value is categorical, we train minimize cross entropy loss. Otherwise, they we minimize mean squared error. Models are fitted by 100 XGBoost trees with a max depth of 3 for up to 1000 epochs. Since features are rarely perfectly determined by their dependency node, we add independent noise nodes to account for this effect. That is, each non-sink node is pointed to by a unique noise node that account for the residue effect of the prediction.\nDepending on whether the variable is discrete or continuous, we handle the noise differently. For continuous variables, the noise node\u2019s value is the residue between the prediction and the actual value. For discrete variables, we assume the actual value is sampled from the categorical distribution specified by the prediction. Therefore the noise node\u2019s value is any possible random number that could result in the actual value."
+    },
+    {
+      "heading": "10 Additional Results",
+      "text": "In this section, we first present additional sanity checks with synthetic data. Then we show additional examples from both the nutrition and income datasets to demonstrate how a complete view of boundaries should be preferable over single boundary approaches."
+    },
+    {
+      "heading": "10.1 Additional Sanity Checks",
+      "text": "We include further sanity check experiments in this section. The first sanity check consists of a chain with 4 variables. Each node along the chain is an identical copy of its predecessor and the function to explain only depends on \ud835\udc4b4 (Figure 10). The dataset is created by sampling \ud835\udc4b1 \u223c N(0, 1), that is a standard normal distribution, with 1000 samples. We use the first sample as baseline, and explain the second sample (one can choose arbitrary samples to obtain the same insights). As shown in Figure 10, independent SHAP fails to show the indirect impact of \ud835\udc4b1, \ud835\udc4b2, and \ud835\udc4b3, ASV fails to show the direct impact of \ud835\udc4b4, on manifold SHAP fails to fully capture both the direct and indirect importance of any edge.\nThe second sanity check consists of linear models as described in 4.3. We include the full result with the income\nJiaxuan Wang, Jenna Wiens, Scott Lundberg\ndataset added in Table 2 and Table 3 for direct and indirect effects respectively. The trend for the income dataset algins with the nutrition and synthetic dataset: only Shapley Flow makes no mistake for estimating both direct and indirect impact. Independent Shap only does well for direct effect. ASV only does well for indirect effects (it only reaches zero error when evaluated on source nodes)."
+    },
+    {
+      "heading": "10.2 Additional examples",
+      "text": "Figure 11 gives an example of applying Shapley Flow and baselines on the income dataset. Note that the attribution to capital gain drops from independent SHAP to on-manifold SHAP and ASV. From Shapley Flow, we know the decreased attribution is due to age and race. More examples are shown in Figure 12 13."
+    },
+    {
+      "heading": "10.3 A global understanding with Shapley Flow",
+      "text": "In addition to explaining a particular example, one can explain an entire dataset with Shapley Flow. Specifically, for multi-class classification problems, we take the average of attributions for the probability predicted for the actual class, in accordance with (Frye et al., 2019). A demonstration on the income dataset using 1000 randomly selected examples is included in Figure 14. As before, we use a single shared background sample for explanation. Here, we observe that although the relative importance across independent SHAP, on-manifold SHAP, and ASV are similar, age and sex have opposite direct versus indirect impact as shown by Shapley Flow.\nBackground sample Foreground sample\nAge 39 35 Workclass State-gov Federal-gov Education-Num 13 5 Marital Status Never-married Married-civ-spouse Occupation Adm-clerical Farming-fishing Relationship Not-in-family Husband Race White Black Sex Male Male Capital Gain 2174 0 Capital Loss 0 0 Hours per week 40 40 Country United-States United-States\nJiaxuan Wang, Jenna Wiens, Scott Lundberg\nBackground sample foreground sample\nAge 39 30 Workclass State-gov State-gov Education-Num 13 13 Marital Status Never-married Married-civ-spouse Occupation Adm-clerical Prof-specialty Relationship Not-in-family Husband Race White Asian-Pac-Islander Sex Male Male Capital Gain 2174 0 Capital Loss 0 0 Hours per week 40 40 Country United-States India\nBackground sample Foreground sample\nAge 39 30 Workclass State-gov Federal-gov Education-Num 13 10 Marital Status Never-married Married-civ-spouse Occupation Adm-clerical Adm-clerical Relationship Not-in-family Own-child Race White White Sex Male Male Capital Gain 2174 0 Capital Loss 0 0 Hours per week 40 40 Country United-States United-States\nJiaxuan Wang, Jenna Wiens, Scott Lundberg"
+    }
+  ],
+  "title": "Shapley Flow: A Graph-based Approach to Interpreting Model Predictions",
+  "year": 2020
+}

@@ -1,0 +1,237 @@
+{
+  "abstractText": "Equal Opportunity and Fairness are receiving increasing attention in artificial intelligence. Stereotyping is another source of discrimination, which yet has been unstudied in literature. GAN-made faces would be exposed to such discrimination, if they are classified by human perception. It is possible to eliminate the human impact on fictitious faces classification task by the use of statistical approaches. We present a novel approach through penalized regression to label stereotype-free GANgenerated synthetic unlabeled images. The proposed approach aids labeling new data (fictitious output images) by minimizing a penalized version of the least squares cost function between realistic pictures and target pictures.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Mohammadhossein Toutiaee"
+    },
+    {
+      "affiliations": [],
+      "name": "Soheyla Amirian"
+    },
+    {
+      "affiliations": [],
+      "name": "John A. Miller"
+    },
+    {
+      "affiliations": [],
+      "name": "Sheng Li"
+    }
+  ],
+  "id": "SP:8228125b96096bd68b40967e771c344b1573c5c6",
+  "references": [
+    {
+      "authors": [
+        "Michael Feldman",
+        "Sorelle A Friedler",
+        "John Moeller",
+        "Carlos Scheidegger",
+        "Suresh Venkatasubramanian"
+      ],
+      "title": "Certifying and removing disparate impact",
+      "venue": "In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Ian Goodfellow",
+        "Jean Pouget-Abadie",
+        "Mehdi Mirza",
+        "Bing Xu",
+        "David Warde-Farley",
+        "Sherjil Ozair",
+        "Aaron Courville",
+        "Yoshua Bengio"
+      ],
+      "title": "Generative adversarial nets",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Nina Grgic-Hlaca",
+        "Muhammad Bilal Zafar",
+        "Krishna P Gummadi",
+        "Adrian Weller"
+      ],
+      "title": "The case for process fairness in learning: Feature selection for fair decision making",
+      "venue": "In NIPS Symposium on Machine Learning,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Moritz Hardt",
+        "Eric Price",
+        "Nati Srebro"
+      ],
+      "title": "Equality of opportunity in supervised learning",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Madeline E Heilman"
+      ],
+      "title": "Gender stereotypes and workplace bias",
+      "venue": "Research in organizational Behavior,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Matthew Joseph",
+        "Michael Kearns",
+        "Jamie H Morgenstern",
+        "Aaron Roth"
+      ],
+      "title": "Fairness in learning: Classic and contextual bandits",
+      "venue": "In Advances in NIPS,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Faisal Kamiran",
+        "Toon Calders",
+        "Mykola Pechenizkiy"
+      ],
+      "title": "Discrimination aware decision tree learning",
+      "venue": "In 2010 IEEE International Conference on Data Mining,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Tero Karras",
+        "Samuli Laine",
+        "Timo Aila"
+      ],
+      "title": "A stylebased generator architecture for generative adversarial networks",
+      "venue": "In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Matt J Kusner",
+        "Joshua Loftus",
+        "Chris Russell",
+        "Ricardo Silva"
+      ],
+      "title": "Counterfactual fairness",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Ziwei Liu",
+        "Ping Luo",
+        "Xiaogang Wang",
+        "Xiaoou Tang"
+      ],
+      "title": "Deep learning face attributes in the wild",
+      "venue": "In Proceedings of International Conference on Computer Vision (ICCV),",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Yossi Rubner",
+        "Carlo Tomasi",
+        "Leonidas J Guibas"
+      ],
+      "title": "The earth mover\u2019s distance as a metric for image retrieval",
+      "venue": "International journal of computer vision,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Yossi Rubner",
+        "Jan Puzicha",
+        "Carlo Tomasi",
+        "Joachim M Buhmann"
+      ],
+      "title": "Empirical evaluation of dissimilarity measures for color and texture",
+      "venue": "Computer vision and image understanding,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Depeng Xu",
+        "Shuhan Yuan",
+        "Lu Zhang",
+        "Xintao Wu"
+      ],
+      "title": "Fairgan: Fairness-aware generative adversarial networks",
+      "venue": "IEEE International Conference on Big Data (Big Data),",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Rich Zemel",
+        "Yu Wu",
+        "Kevin Swersky",
+        "Toni Pitassi",
+        "Cynthia Dwork"
+      ],
+      "title": "Learning fair representations",
+      "venue": "In International Conference on Machine Learning,",
+      "year": 2013
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "Despite the appealing application and success in Machine Learning tasks, a major field within Artificial Intelligence that began more slower, but has expanded enormously in the recent years is Fairness. Discrimination refers to the effect of bias against people\u2019s lives due to their membership to different population subgroups. These subgroups are differentiated by the sensitive (protected) attributes recognized by national and international legislation. Many applications of machine learning including decision making process can, perhaps unintentionally, result in an unfortunate lack of fairness. As an example their outcomes can asymmetrically deprive (or, enrich) certain subgroups of people with one or more common protected attributes such as race, gender, caste and religion. [7] enumerated a few examples of applications in policing, hiring and lending where the systematic decision process discrimination might be inevitable. Thus, this realization encourages a new era of research in machine learning in the light of fairness affirmative actions.\nScientist have extensively practiced around structured data. In fairness through unawareness work (FTU) [4] proposed a definition of a fair algorithm provided that sensitive attributes A are not explicitly trained in the model. Experts in individual fairness study (IF) [1] presented that individuals i and j \u2217Contact Author\nare similar under a pre-defined metric function if their predictions are similar. [16] discusses demographic parity/disparity impact (DP) in that Y\u0302 satisfies DP if\nP (Y\u0302 |A = 0) = P (Y\u0302 |A = 1). Another group of researchers introduced equality of opportunity (EO) [5] in which they suggest that Y\u0302 satisfies EO if:\nP (Y\u0302 = 1|A = 0, Y = 1) = P (Y\u0302 = 1|A = 1, Y = 1), and the counterfactual fairness study [10] which generalizes the previous work and postulates a mathematical definition, namely as:\nP (Y\u0302A\u2190a = U |A = a,X = x) = P (Y\u0302A\u2190a\u2032 = U |A = a,X = x) for all y and for any value a\u2032 attainable by A, the predictor y\u0302 is counterfactually fair.\nDiscrimination-aware decision making approaches have been targeted by many researchers, each of which proposing a new quantification of discrimination. Thus, fairness definition in predictive models is still controversial with absence of consensus among researchers, and a new school of thought in fairness function is published quite often via research papers to dampen the discrimination effect. The variety of approaches leads to a difficulty for evaluation of the progress in the field, and no strengths and weaknesses can be assessed for further recommendations accordingly.\nWe will focus on generative adversarial network (GAN) in this study for two reasons; first, it is capable of producing fictitious outputs (imaginary images). Second, it has inspired a legion of scientists to evolve GAN under the impression of producing more realistic looking data [9]. GANs have been widely applied to many domains due to their impressive performance especially on image generation paradigm. In literature, GANs have only been used to help mitigate bias in data. [15] presented a GAN architecture in which two discriminators and one generator play the adversarial games. The generator produces fake data conditioned on the sensitive features, while two discriminators are trained separately to identify whether the generated samples are real or fake, and whether or not they\u2019re coming from the protected or unprotected group.\nWe observe that the super-high-quality fictitious images of humans generated by a state-of-the-art GAN, such as StyleGAN [9], might be prejudiced by gender or race stereotyping. In that case, a GAN-made picture of a person with\nar X\niv :2\n00 5.\n02 15\n7v 1\n[ cs\n.C V\n] 2\n9 A\npr 2\n02 0\nlong hair should not be realized necessarily as a woman (gender Stereotyping), and a dark complexion person would not be an African-American individual (skin color Stereotyping). The protected attributes of a person induce more sensitivity around the subject, and \u201cStereotyping\u201d is another source of discrimination, according to the literature.\nThe evolutionary of GANs output images (or videos) and Stereotyping issue encourages us to study a new topic in this field. Although the \u201cfairGAN\u201d article [15] in addition to many other topics in fairness are admiring, no research has previously addressed how to propagate protected attributes (such as gender or race) to GAN-made images without the interference of the human mind judging pictures predominantly based on Stereotypes.\nIn this work, we propose an interpretable and effective approach to classify synthetic faces of Style-GAN [9] without symptoms of discrimination.\nTypically, fairness scientists have assumed that almost every machine learning algorithm produces outcomes with issues of bias and discrimination. Thus, they propose a way to manage such issues in the system, either in the pre-processing step or post-processing, based on a pre-defined fairness metric function. Our method is applied after an image is generated. For simplicity, we consider two binary sensitive attributes (race and gender), however, our approach can be easily extended to non-binary or more attributes.\nA property of a GAN architecture is the lack of ground truth in the outcomes. In other words, faces that appear in outputs should not be labeled based on stereotypes such as White woman or Asian man, since these attributes (i.e. race, gender) are self-reported, and in this case, the fictitious images cannot be self-reported by an individual who does not even exist. In this paper, we present a novel approach to alleviate the prejudiced view of sensitive attributes (such as gender or race) by minimizing the distance of a given output image from all other realistic input images which contribute in producing that target output. We call this process \u201cbringto-life\u201d since the attributes of a target image can be described by the most similar real images."
+    },
+    {
+      "heading": "2 Preliminary",
+      "text": ""
+    },
+    {
+      "heading": "2.1 Background",
+      "text": "Generally, discrimination-free machine learning algorithms are grouped into three broader categories: \u2022 The pre-processing techniques in which input data is\nadjusted, so that a target machine learning method deployed upon that data will be fair. [2] proposed a feature modification technique so that each marginal distribution of attribute including sensitive values are all equally likely without touching the training labels. \u2022 The algorithm adjustment techniques are those either\nwith improvements to the existing algorithms or designing entirely new algorithms that perform fairly fair under any input. This is the main motivation of [16], in which they combined pre-processing and algorithm adjustment (modification) techniques together to learn a modified version of the data trained through a representation process.\n\u2022 And any technique that modifies outputs after being processed through a model are grouped as post-processing. This category has received much attention such as [8] in which, the authors introduce a mechanism for decision tree based methods to modify the labels of leaves after training phase to stabilize the fairness state.\nAdditionally, there are many metric functions in literature defined for fairness evaluation, and this topic is mainly or partly practiced by scientists.\nIn this study, we aim to develop a policy through a statistical method to regulate the attributes tagging to generated images without any sign of discrimination against protected groups. Our method is useful when there is zero information available in the picture for labeling, however, this method is not applicable when the ground truth is available. Put in another way, our approach is not expected to approve labels that have been already assigned to real images (with ground truth), but we argue that it works well for labeling imaginary pictures (without ground truth)."
+    },
+    {
+      "heading": "2.2 Related Work",
+      "text": "Scientists are able to generate astonishing pictures of any kind. The widely used dataset, such as CelebA [11], is utilized by many GAN practitioners to create super natural imaginary pictures with 40 face attributes. One can argue that how can a face be considered to be a \u201cwoman\u201d or \u201cwhite\u201d when the images are not existing in life? When output images are produced in a GAN setting, no ground truths are available for the labels of generated images. This constraint is due to the fact that GANs try to clone the latent distributions of inputs with different realizations. In other words, the outputs of a GAN are generated from approximately the same distribution of the inputs but in different samples.\nOn the other hand, sex and gender, for instance, are used to refer to biological distinctions between males and females, and psychological characteristics that are learned through the socialization process, respectively [12]. Furthermore, stereotypes and discrimination is a well-studied research in Law and Social Studies where the central arguments are that gender or race stereotypes, for example, lead to biased decisions, discrimination and misrepresentations [6], (see Figure 1). Therefore, any self-report attributes such as race or gender are not inferred through descriptive features that are recognized from a face in a given GAN-made picture. There is no relation between an individuals portrayal aspects and their gender or race. As an example, it cannot be implied that an individual\nwith make-up and long hair is a female, unless it is report by themselves.\nThus, this study attempts to address this non-trivial problem in the next sections."
+    },
+    {
+      "heading": "2.3 Adversarial Network Architecture",
+      "text": "Generative Adversarial Networks [3] are machine learning models that can imagine new samples. A generative model G trained on training data X sampled from some true distributionD is one which, given some standard random distribution Z , produces a distribution D\u2032 which is close to D, according to a pre-defined metric function.\nThe objective function ofD andG are respectively defined as:\nmax D Ex\u223cPdata [logD(x)] + Ez\u223cPz [log(1\u2212D(G(z)))],\nmin G Ez\u223cPz [log(1\u2212D(G(z)))].\nDuring the training process, the discriminator is shown real images from the training set %50 of the time, and fake images from the generator the other %50 of the time. Over time, the generator is forced to produce more realistic outputs in order to fool the discriminator. The generator takes random noise values z from a prior distribution Pz and maps them to output values x via function G(z). Wherever the generator maps more values of z, the probability distribution over x, represented by the model, becomes denser. The discriminator outputs high values wherever the density of real data is greater than the density of generated data. Thus, the GAN (Figure 2) is formulated as minG maxD V (G,D), namely as:\nV (G,D) = Ex\u223cPdata [logD(x)]+Ez\u223cPz [log(1\u2212D(G(z)))].\nThere are many variants on GAN extended by machine learning enthusiasts, while some of them are very prominent. We chose Style-GAN as the main architecture to bear imaginary faces, then we classify faces (bring them to life). Style-GAN [9]. The researchers in Style-GAN tried to improve the quality of output images by proposing an alternative generator architecture in adversarial training. They claimed that their new generator is superior to the traditional GAN architecture. We utilize Style-GAN in this study, since it produces high quality of images."
+    },
+    {
+      "heading": "3 Proposed Approach",
+      "text": "The purpose of imaginary face classification is to copy the sensitive attributes of real faces to unreal faces in such a way that this process is unbiased. Linear regression and unbiasedness in our work are very similar, in that both try to minimize the average distances of data points to a particular line, which is the regression line (or fair line). The position of this line leads us to classify unreal images fairly. In our study, Ridge regression would help locate this fair line. The Ridge regression model we construct (Figure 3) would determine the attributes of GAN-made faces by finding the relation between real and imaginary faces. Coefficients estimation, as a process of minimizing the cost function, would ultimately aid to perform the task. More details are provided in the next sections."
+    },
+    {
+      "heading": "3.1 Stereotype-Free Classification Method",
+      "text": "Each coefficient Xj represents j-th GAN-made image that is supposed to be labeled. Thus, a dataset containing a number of observations ni (real images) with several features Xj (imaginary images), and a response variable yi (a protective attribute) which is given as the ground truth per observation form a classic dataset which all the statistics assessments and principles can be applied to. The Earth Mover Distance (EMD) which reflects the similarity between content-base images, can be computed by various effective algorithms in image retrieval domain. EMD helps us capture the relation between Xj and yi, and it is discussed in the following.\nAlgorithm 1 Stereotype-free Classification Method INPUT: ni, Xj and yi OUTPUT: Sign of \u03b2j and Unreal Face Classification\n1: EMD Extraction 2: method EMD(ni, Xj) 3: for i, j = 1 To I, J 4: Compute similarity between ni and Xj 5: end for 6: Ridge Regression Estimate 7: argmin\n\u03b2\n\u2211n i=1(Yi \u2212 \u03b20 \u2212 \u2211k j=1 \u03b2jXij) 2 + \u03bb \u2211k j=1 \u03b2 2 j\n8: Goal: \u03b2\u0302j Estimate 9: Classification Task\n10: Classify Unreal Faces by Sign of \u03b2\u0302j : 11: (-) sign means dissimilar to yi class reference 12: (+) sign means similar to yi class reference"
+    },
+    {
+      "heading": "3.2 Similarity Measure",
+      "text": "Our proposed method refers to the classification of unreal faces based on the similarity between real and unreal faces. We evaluate image similarity between Xj and ni by Earth Mover\u2019s Distance (EMD), which has been studied in computer vision and image retrieval for a long time [13]. Discrete Kantorovich formulation (i.e. EMD), which arises from the idea of optimal transport, provides better distinction between the images approximated by the histograms, as opposed to other conventional measures such as Euclidean distance.\nFormally, the EMD between two histogram images q = (q1, . . . , qn) and p = (p1, . . . , pn) is defined as follows:\nEMD(q, p) = min F n\u2211 i=1 n\u2211 j=1 fi,jci,j ,\nsuch that \u2200i, j \u2208 [1, n] : fi,j \u2265 0,\n\u2200i \u2208 [1, n] : n\u2211 j=1 fi,j = qi,\n\u2200j \u2208 [1, n] : n\u2211 i=1 fi,j = pj\nwhere q and p are assumed to be normalized such that\u2211n i=1 qi = \u2211n i=1 pi, and F is a flow matrix, where fi,j indicates flow (i.e. earth) to move from qi to pj , and a cost matrix C, where ci,j models cost of transporting flow from i\u2212th bin to the j\u2212th bin. EMD(q, p) is the minimum cost needed to move q to p, and EMD(q, p) is equal to EMD(p, q) when the cost matrix C is symmetric.\nThis similarity function (EMD) is mainly used as the metric comparison between imaginary output images and actual input images in this study (see Figure 3). This source of variability is obtained per artificial output image, and it is fed into a Ridge Regression model for detecting the most significant variations."
+    },
+    {
+      "heading": "3.3 Implementation Method",
+      "text": "Logistic Function The ordinary logistic regression with binary response is given by the probability of the response success:\nP (yi = 1) = \u03c0i = exi\u03b2\n1 + exi\u03b2\nwhere xi is the i\u2212th row of a matrix of n observations, and \u03b2 is the column vector of the regression coefficients. The parameters are estimated by maximizing the log-likelihood function:\nl(\u03b2) = n\u2211 i=1 [yixi\u03b2 \u2212 log(1 + exi\u03b2)]\nOne can consider protected attributes to be modeled as binary response where \u03c0 is the probability of success for the corresponding attribute (e.g. race, gender). We use this paradigm for ethnicity (African-American vs. White) and gender (Male vs. Female) separately, as the binary responses in this study (Figure 1).\nRidge Estimation In Ridge regression, one finds the set of \u03b2\u2032js that minimize the expression:\nn\u2211 i=1 (Yi \u2212 \u03b20 \u2212 k\u2211 j=1 \u03b2jXij) 2 + \u03bb k\u2211 j=1 \u03b22j\nwhere \u03bb is known as \u201ctuning parameter\u201d. If \u03bb = 0, this simply reproduces the least-squares estimator for the full (k\u2212variable) model. As \u03bb becomes large, the \u03b2\u2032js (other than \u03b20 = Y\u0304 ) collapse to zero, so that exactly the null model emerges.\nThe idea is to choose \u03bb so as to keep important variables\u2019 \u03b2j\u2019s at high magnitude and to shrink the others to near zero. The name \u201cRidge Regression\u201d, when the idea was originally proposed by Hoerl, arose from the fact that this method frequently helped in cases where there was strong multi-collinearity between two or more predictor variables (Xj). In such cases, it is hard to find a true maximum to logLikelihood function (or equivalently, a true minimum to the negative log-likelihood function) because the max/min lies along a ridge/valley. Incorporating the penalty term allows a true peak or minimum to appear.\nRidge Logistic Regression The Logistic Ridge Regression estimator depends on the choice of a tuning parameter \u03bb \u2265 0, and the coefficients parameters are obtained when the following slightly different log-likelihood function with extra L2 Ridge penalty is maximized. The constrained maximization equation is as follows:\nlR\u03bb (\u03b2) = n\u2211 i=1 [yixi\u03b2 \u2212 log(1 + exi\u03b2)]\u2212 \u03bb p\u2211 j=1 \u03b22j\nwhere \u03b2j is the unlabeled output coefficient, xi is the EMD value, yi is binary response, n is the number of labeled inputs, p is the number of unlabeled outputs, and \u03bb, \u03b1 are the hyperparameters obtained through Cross-Validation process."
+    },
+    {
+      "heading": "3.4 Implementation Process",
+      "text": "The backbone of our approach is based on image similarity calculated between the imaginary outputs and every real input image. One positive side-effect of the similarity distance between inputs and outputs is a tendency of our approach to be less prone to classify unfairly. The earth mover distance (EMD) discussed earlier provides a similarity measure between images. EMD is chosen as a similarity metric, since it matches better with the human perception of differences compared to other distances such as Euclidean distance or \u03c72 divergence [14]. The EMD level obtained per output image encodes the relation between the unlabeled imaginary image and previously labeled images fed into the Adversarial training network (Figure 2). Having extracted all the EMD values, one can interpret the problem as a classification task, in which n is the number of observations (i.e. labeled inputs), X is the number of features (i.e. unlabeled outputs) and y is the binary response (i.e. gender or race). As the number of unlabeled images increase, the dataset may suffer from\nthe curse of dimensionality, and all the principles affected in high-dimensional dataset are enforced. This encourages us to choose a model which is appropriate for a high-dimensional classification (labeling) problem such as penalized regression family discussed in the previous sections. We primarily adopt the Ridge Logistic Regression model with extra regularization term (penalty) to handle such high-dimensional data. One positive property of Ridge Logistic Regression is that it preserves the features in the model which ensures all the imaginary faces are tagged by the true attributes. Fairness Evaluation: Race preference study of GANs is another contribution of this work as it measures which race is preferred over another. In comparison with the baseline and face classification methods, we construct the null hypothesis H0 to test statistically whether the protected attributes are equally preferred vs. the alternative (Ha) that they are not equally preferred across all the methods (Table 1). Then a sign test, with an \u03b1-level of 0.05, of the null hypothesis (H0) is evaluated statistically by the two-tailed P-values in each approach, calculated by Binomial distribution."
+    },
+    {
+      "heading": "4 Experiments",
+      "text": "Baselines. To evaluate the effectiveness of our method, we compare its performance with human perception (by 10 dif-\nferent individuals) and pre-trained face classification1. Dataset: The dataset Face Place2 contains 930 images of African-American and Caucasian each with a resolution of 128 \u00d7 128. Two goals are ultimately pursued to determine first, the imaginary faces created by GAN are labeled fairly Man or Woman, African-American or White, and second, to\n1https://github.com/wondonghyeon/face-classification 2http://wiki.cnbc.cmu.edu/Face Place\ncompare it with the baseline approaches as to whether the two races or genders are equally preferred or not. The synthetic images generated from STYLE-GAN are given in Figure 5. The results presented in the figure reveal that our produced faces are outstandingly looking natural to viewers. One reason is that STYLE-GAN utilizes more sophisticated architecture with better representation training. So it can achieve state-of-the-art performance."
+    },
+    {
+      "heading": "4.1 Model Performance",
+      "text": "For ease of exposition, we will focus on penalized regression family when the response variable is binary (i.e. race with two classes), but our method can be adopted for other types of classifier models as well. In this experiment, we evaluate the effectiveness of the proposed methods in terms of classification accuracy and efficiency and compare all the obtained results together. The results are summarized in Table 1 and Figure 5.\nTables 1 indicates, human perception as a baseline approach is biased in favour of White group (p-value < 0.05 indicating that H0 is rejected). This is the result of the biased human mind in determining the race of the artificial faces.\nAlthough the face classification method performs on par with human perception in the gender attribute, it raises this concern that it has been trained unfairly against minorities. In our experiments, our approach (Ridge) tends to label all the imaginary faces (64), without any signs of bias presented in Figure 6 and 7."
+    },
+    {
+      "heading": "4.2 Experimental Results",
+      "text": "According to the proposed method, White and AfricanAmerican people, Man and Woman are labeled based on negative and positive signs obtained through a weights estimation process. The interpretation of the sign is entirely based on how the response variable (y) is referenced in the model. In the race labeling process, for example, y accepts values of 0 and 1 for African-American and Caucasian, respectively. So the negative signs that appear in the coefficients estimation represent African-American, because negative relation-\nship in the equation determines more similarity with the referenced response variable. We are interested in studying as to whether the null hypothesis (H0 : the two races are equally preferred) evaluated by P-value at \u03b1-level of 0.05 is rejected or not. Same H0 can also be evaluated for the gender attribute. The two-tailed p-values in each case can be found from the same Binomial distribution discussed in the previous sections. The calculated p-values would determine whether the H0 hypotheses is rejected, which indicates that the corresponding method violates fairness policy.\nIn our experiments, Ridge Logistic Regression tends to yield stereotyping-free labeling in generated unlabeled images in both tasks, without any signs of performance degradation. These evidences are provided in Table 1."
+    },
+    {
+      "heading": "5 Conclusion and Future Work",
+      "text": "There is no ground truth for outputs of GAN-made images of fictitious people, since GANs generate imaginary data. Images generated from GANs are mostly classified by human perception, and human perception suffers from stereotyping paradigm. We discussed that stereotype is another source of discrimination, which leads to behavioural bias against subgroups of people. We presented a stereotype-free labeling approach to eliminate such discrimination as a result of human perception. This is a new angel of view which stimulates a viewer\u2019s attention by looking at the super natural imaginary faces. Our method is useful when there is no ground truth for faces, and it is not applicable on images with true labels. We also utilized the Earth Mover Distance (EMD) as the similarity metric to evaluate the classification process, and the artificial output images are ultimately labeled according to the relations between predictor variables (fictitious faces) and the response variable(s) (real faces attribute). The results revealed that Ridge Logistic Regression labeled fairly all the imaginary images due to its shrinkage property, while human perception and the deep trained face classification are biased in favour of one sub-group. Based on our experiment, it is becoming clear that human perception is not a reliable source for judging synthetic faces, and it is governed by stereotypes. In general, we expect that this study for stereotype-free labeling of the GAN-made faces will provide interesting avenues for future work. We plan to expand this research into other applications and domains by use of other unbiased techniques."
+    }
+  ],
+  "title": "Stereotype-Free Classification of Fictitious Faces",
+  "year": 2020
+}

@@ -1,0 +1,224 @@
+{
+  "abstractText": "The rule extraction literature contains the notion of a fidelity-accuracy dilemma: when building an interpretable model of a black box function, optimising for fidelity is likely to reduce performance on the underlying task, and vice versa. I reassert the relevance of this dilemma for the modern field of explainable artificial intelligence, and highlight how it is compounded when the black box is an agent interacting with a dynamic environment. I then discuss two independent research directions \u2013 building white box agents and interpreting black box agents \u2013 which are both coherent and worthy of attention, but must not be conflated by researchers embarking on projects in the domain of agent interpretability.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Tom Bewley"
+    }
+  ],
+  "id": "SP:3dfa1846ca0b4093988c9868984a88ce4aab5a36",
+  "references": [
+    {
+      "authors": [
+        "R. Andrews",
+        "J. Diederich",
+        "A.B. Tickle"
+      ],
+      "title": "Survey and critique of techniques for extracting rules from trained artificial neural networks",
+      "venue": "Knowledge-based systems,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "O. Bastani",
+        "Y. Pu",
+        "A. Solar-Lezama"
+      ],
+      "title": "Verifiable reinforcement learning via policy extraction",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "T. Bewley",
+        "J. Lawry",
+        "A. Richards"
+      ],
+      "title": "Modelling agent policies with interpretable imitation learning",
+      "venue": "arXiv preprint arXiv:2006.11309,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Y. Coppens",
+        "K. Efthymiadis",
+        "T. Lenaerts",
+        "A. Now\u00e9",
+        "T. Miller",
+        "R. Weber",
+        "D. Magazzeni"
+      ],
+      "title": "Distilling deep reinforcement learning policies in soft decision trees",
+      "venue": "In Proceedings of the IJCAI 2019 Workshop on Explainable Artificial Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M.W. Craven",
+        "J.W. Shavlik"
+      ],
+      "title": "Extracting comprehensible concept representations from trained neural networks",
+      "venue": "Working Notes on the IJCAI,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "J. Ho",
+        "S. Ermon"
+      ],
+      "title": "Generative adversarial imitation learning",
+      "venue": "In Advances in neural information processing systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "G. Liu",
+        "O. Schulte",
+        "W. Zhu",
+        "Q. Li"
+      ],
+      "title": "Toward interpretable deep reinforcement learning with linear model u-trees",
+      "venue": "In Joint European Conference on Machine Learning and Knowledge Discovery in Databases,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "V. Mnih",
+        "K. Kavukcuoglu",
+        "D. Silver",
+        "A.A. Rusu",
+        "J. Veness",
+        "M.G. Bellemare",
+        "A. Graves",
+        "M. Riedmiller",
+        "A.K. Fidjeland",
+        "G Ostrovski"
+      ],
+      "title": "Human-level control through deep reinforcement learning",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "S. Nageshrao",
+        "B. Costa",
+        "D. Filev"
+      ],
+      "title": "Interpretable approximation of a deep reinforcement learning agent as a set of if-then rules",
+      "venue": "IEEE International Conference On Machine Learning And Applications (ICMLA),",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "L.D. Pyeatt"
+      ],
+      "title": "Reinforcement learning with decision trees",
+      "venue": "IASTED International Multi-Conference on Applied Informatics,",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "S. Ross",
+        "G. Gordon",
+        "D. Bagnell"
+      ],
+      "title": "A reduction of imitation learning and structured prediction to no-regret online learning",
+      "venue": "In Proceedings of the fourteenth international conference on artificial intelligence and statistics,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "A.M. Roth",
+        "N. Topin",
+        "P. Jamshidi",
+        "M. Veloso"
+      ],
+      "title": "Conservative q-improvement: Reinforcement learning for an interpretable decision-tree policy",
+      "year": 1907
+    },
+    {
+      "authors": [
+        "C. Rudin"
+      ],
+      "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+      "venue": "Nature Machine Intelligence,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R. Setiono"
+      ],
+      "title": "Extracting m-of-n rules from trained neural networks",
+      "venue": "IEEE Transactions on Neural Networks,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "A. Silva",
+        "M. Gombolay",
+        "T. Killian",
+        "I. Jimenez",
+        "Son",
+        "S.-H"
+      ],
+      "title": "Optimization methods for interpretable differentiable decision trees applied to reinforcement learning",
+      "venue": "In International Conference on Artificial Intelligence and Statistics,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Zhou",
+        "Z.-H"
+      ],
+      "title": "Rule extraction: Using neural networks or for neural networks",
+      "venue": "Journal of Computer Science and Technology,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Zhou",
+        "Z.-H",
+        "Y. Jiang",
+        "Chen",
+        "S.-F"
+      ],
+      "title": "Extracting symbolic rules from trained neural network ensembles",
+      "venue": "Ai Communications,",
+      "year": 2003
+    }
+  ],
+  "sections": [
+    {
+      "text": "ar X\niv :2\n00 7.\n01 18\n7v 3\n[ cs\n.A I]\n8 J\nul 2\n02 0\nof a fidelity-accuracy dilemma: when building an interpretable model of a black box function, optimising for fidelity is likely to reduce performance on the underlying task, and vice versa. I reassert the relevance of this dilemma for the modern field of explainable artificial intelligence, and highlight how it is compounded when the black box is an agent interacting with a dynamic environment. I then discuss two independent research directions \u2013 building white box agents and interpreting black box agents \u2013 which are both coherent and worthy of attention, but must not be conflated by researchers embarking on projects in the domain of agent interpretability."
+    },
+    {
+      "heading": "1. Introduction",
+      "text": "The rule extraction literature, most vibrant in the late 1990s and early 2000s, was in many ways the ideological precursor to the modern field explainable artificial intelligence (XAI). Two decades ago, state-of-the-art machine learning models were modestly-sized by today\u2019s standards, but there was nonetheless an understanding that impactful real-world applications, particularly those that are safety-critical, demand a depth of scrutiny and assurance that is unattainable with opaque black boxes. The objective of rule extraction was to approximate trained machine learning models, most commonly artificial neural networks, with propositional rule structures that can be more readily understood and analysed. In those times as in these, there was great interest in the instrumental goal of defining quantitative performance measures for the extraction process, which provide some agreed-upon standard for judging candidate approaches.\nAmongst the most influential proposals from this period is the FACC framework (Andrews et al., 1995), which outlines four criteria for evaluating rule extraction:\n1Department of Engineering Mathematics, University of Bristol, Bristol, United Kingdom. Correspondence to: Tom Bewley <tom.bewley@bristol.ac.uk>.\nFidelity The degree to which the rule set\u2019s outputs agree with those of the black box model.\nAccuracy The ability of the extracted rule set to correctly predict outputs for unseen samples; its performance on the underlying task.\nConsistency The stability of extracted rules over reasonable variations in the training conditions, such as using different subsets of a training dataset.\nComprehensibility The ease with which the rule set can be read and understood by a human end-user, which might be quantified in terms of the number of rules, or the number of antecedents per rule.\nSeveral years after the introduction of FACC, Zhou published a highly-perceptive critique of this and similar evaluation frameworks (Zhou, 2004). While he takes no issue with any of the four criteria in isolation, he identifies a fundamental conflict between the first two: fidelity and accuracy. Unless the black box represents a perfect and unique solution to the underlying task, a rule set with zero accuracy loss will have nonzero fidelity loss, and vice versa. Furthermore, if either loss is nonconvex, there may be solutions with very high performance on one metric, but very low performance on the other. Zhou argues that a compromise is never truly what is needed for any realistic application, and that either fidelity or accuracy should be chosen at the exclusion of the other.\nThis point has been partly internalised by XAI researchers in the years since, but many continue to evaluate their models through an ad hoc combination of metrics, some of which are in conflict. I suggest that this is a significant source of muddled thinking in the XAI field, and may indeed be hampering progress.\nMy particular interest is in the analysis and interpretation of black box agents, such as those trained by reinforcement learning (RL), rather than supervised classification or regression models. This context boasts the added complexities of non-i.i.d. data (due to the presence of closed-loop interaction) and nontrivial credit assignment (via possiblydelayed rewards). Here, the force of Zhou\u2019s point is not only preserved but amplified. There are many more ways\nin which an agent model may be evaluated, all of which appear similar at first glance but are mutually-contradictory in the details. Several recent papers (Bastani et al., 2018; Coppens et al., 2019; Nageshrao et al., 2019; Bewley et al., 2020) do not fully disambiguate the various objectives, and as a result, appear to leave both author and reader alike somewhat conflicted as to what the purpose of the whole exercise has been. Going forward, I propose that researchers interested in the general problem of interpretable agents should frequently ask themselves the following question, which this paper seeks to clarify:\n\u201cAm I building a white box agent\nor interpreting a black box agent?\u201d"
+    },
+    {
+      "heading": "2. Summary of Zhou\u2019s Argument",
+      "text": "Consider the supervised learning problem of mapping input vectors x \u2208 X to discrete or continuous action labels y \u2208 Y . We can frame this problem as that of approximating a latent function h that performs the mapping exactly: y = h(x). In the domain of rule extraction (and likewise in XAI), our typical starting point is to be given a trained black box function fB which goes some way to approximating h but is almost certaintly not optimal1. Using our favourite method, we create a white box approximation of fB, denoted by fW (this might be a rule set, but could equally be a linear regressor, Na\u0131\u0308ve Bayes classifier or any other model class that we deem interpretable). For a given loss function Y \u00d7 Y \u2192 [0, 1], the fidelity and accuracy of fW can be measured on a test dataset X :\nfidelity W = 1\u2212 Ex\u2208X \u2113(fW (x), fB(x)); (1)\naccuracy W = 1\u2212 Ex\u2208X \u2113(fW (x), h(x)). (2)\nGiven a particular sample x\u2217 for which \u2113(fB(x \u2217), h(x\u2217)) > 0 (i.e. the black box\u2019s prediction has some error), we have the choice of either updating fW to match fB on this sample, or updating it to match h. The first approach would improve fidelity W at the expense of accuracy W , and the second would improve accuracy W at the expense of fidelity W . Our inability to improve both metrics in general is the fidelity-accuracy dilemma.\nZhou identifies two valid approaches to resolving the dilemma. I retain his original names for these, noting that they can be updated for the XAI era by reading \u201crule extraction\u201d as \u201cwhite box induction\u201d or \u201cexplainability\u201d, and generalised by reading \u201cneural networks\u201d as \u201cblack boxes\u201d:\nRule extraction using neural networks Here the goal is to obtain accurate and interpretable white box models, and\n1If we knew that fb perfectly matched h, we may have significantly less of an incentive to explain it in the first place.\nas such, the key metric is accuracy. Black boxes are used to guide learning, either by assisting with data augmentation or providing \u2018soft labels\u2019 that convey additional information about uncertainties. Ultimately, the aim is to replace them entirely, so they have the role of stepping stones to the interpretable models we really want, rather than the stars of the show in themselves. As Zhou notes, several researchers have found that extracted rule sets can generalise better than the original neural networks when tested on unseen samples (Craven & Shavlik, 1995; Setiono, 2000; Zhou et al., 2003). In such cases, pursuing increased fidelity would be harmful to the ultimate objective.\nRule extraction for neural networks Here the goal is to understand the working mechanisms of trained black box models, by finding interpretable approximations that replicate their behaviour as faithfully as possible. We are now interested in optimising for fidelity, and accuracy on the underlying task is an irrelevant and misleading metric since we ultimately intend to continue using the black box in deployment. In fact, if the white box generalises better than the black box this is an actively bad result, because it may obscure our understanding of the black box\u2019s limitations.\nIt is Zhou\u2019s view, and ours alike, that there is no coherent halfway point between these two objectives. Either we want to replace the black box with a white box, in which case we optimise for accuracy, or we want to retain the black box and use the white box to understand it, so we optimise for fidelity. A great deal of confusion and miscommunication could be avoided by splitting the popular FACC framework into (1) ACC for the former case, and (2) FCC for the latter."
+    },
+    {
+      "heading": "3. The Agent-based Context",
+      "text": "Zhou\u2019s argument refers exclusively to the supervised learning domain. It sentiment remains valid in the dynamic agent-based context, but the situation also becomes significantly more complicated. In this discussion, we can adopt the formalism of a Markov Decision Process (MDP).\nAt each timestep t in an MDP, a dynamical system referred to as an environment has a state St = s \u2208 S, which is perceived by an agent and used to condition the sampling of its action At = a \u2208 A from a policy function \u03c0(a|s). The state for the following timestep, St+1 = s \u2032, and a scalar reward value Rt+1 = r, are sampled from a dynamics function p(s\u2032, r|s, a) and the process continues iteratively until a termination condition is met (e.g. a time limit t = T or one of a set of terminal states). A complete sequence of states, actions and rewards from initialisation to termination is called an episode.\nOf particular interest for many problems in the MDP con-\ntext is the return G(St), defined as the sum of reward obtained after visiting St, discounted by a factor \u03b3 \u2208 [0, 1]: G(St) = \u2211termination k=1 \u03b3kRt+k. The goal of a reinforcement learning (RL) agent is to use exploration to find a policy \u03c0 that maximises the expected return, referred to as the value, V\u03c0(s) = E\u03c0[G(s)], across the full distribution of states encountered when following that same policy.\nSituating ourselves once more at the starting point of the XAI investigation, we assume the existence of some black box policy \u03c0B , which may or may not have been induced by RL, and a class of white box models \u03a0. A popular choice for \u03a0 is the class of binary, axis-aligned decision trees (Bastani et al., 2018; Bewley et al., 2020). Remaining for the moment entirely agnostic about the data and learning algorithms used, our objective is to find the white box model \u03c0W \u2208 \u03a0 that optimises... what, exactly?\nWhat is it that we truly wish to achieve by our creation of the white box model \u03c0W , and how does this relate to the existing black box \u03c0B? I believe that the answer to this question, frequently bypassed or deemed too obvious to ask explicitly, is completely application-dependent.\nA first point to note here is that there is no unambiguous notion of accuracy in an MDP. There are no ground truth \u201ccorrect\u201d actions for an agent to take, and task performance is measured at a higher level of abstraction in terms of return and value. The FACC framework can therefore not be ported over directly for critique. The closest equivalent would be to replace the accuracy criterion with the expected value V\u0304W = Es\u223cdW V\u03c0W (s), where dW : S \u2192 [0, 1] is the distribution of states encountered by the white box when deployed as a closed-loop control policy in the MDP. This quantifies how well the white box is able to solve the underlying task and obtain high reward. The FACC acronym can be updated to read FVCC.\nThe expected value V\u0304W may indeed be the metric we wish to optimise, but it should be clear by now that doing so gives absolutely no guarantee of fidelity to the black box. \u03c0B may be a very poor policy, which obtains low reward in the MDP and frequently exhibits calamitous failure. A high-performing \u03c0W would differ from such a \u03c0B in every sense worth talking about. An alternative problem we might pose, then, is to optimise for the similarity of value between the two policies, which we can denote by |V\u0304W \u2212 V\u0304B|. This is a completely valid objective, but also does not imply good fidelity. Expected value is generally highly nonconvex in the policy itself (this is what makes RL so difficult), meaning there are many ways to obtain identical overall task performance with radically divergent policies.\nNotice that here the possible divergence is twofold. The actions taken by \u03c0B and \u03c0W in any given state may differ\nin themselves, but this difference also results in the MDP transitioning to different states for the following timestep, which gradually leads the two policies to move into separate regions of the state space. This compounding divergence between two MDP policies when deployed is called covariate shift, and is a primary source of difficulty in imitation learning (Ross et al., 2011). Of course, such discrepancies need not concern us if our objective is solely to create a high-value white box, or to match the aggregate value of the black box, but any shred of doubt about this issue is an indication that we may have chosen the wrong objective.\nThe notion of fidelity may initially seem easier to define unambiguously, but closer inspection shows there are just as many complexities. The key question is: over what dataset should we calculate a fidelity score? The most obvious choice is to use samples from the state distribution encountered by the black box, dB , which gives us one measure of fidelity FB that is closest to a conventional supervised learning loss. Alternatively, we could use the white box\u2019s own state distribution dW , which differs from dB due to covariate shift, and gives us a different fidelity measure FW . Another option is to evaluate only on selected states that we deem to be interesting in some way, perhaps due to their critical influence on expected return, or because they are relevant to a particular question about the black box\u2019s behaviour. This gives a third fidelity measure, Finteresting, which once again will give different results in general. As tempting as it may be, we should not attempt to evaluate a white box agent trained for any variant of fidelity by measuring its expected value V\u0304W ; this is simply the wrong perspective to take. Some high-fidelity white boxes may achieve high expected value, others may achieve low value, and optimising for fidelity alone provides no mechanism for disambiguating between the two.\nA final and distinct metric worth considering is the difference \u2206 between the state-action occupancy measures of the two policies \u03c0W and \u03c0B , which are the distributions of state-action pairs (not just states) encountered by the policies when deployed in the MDP. The white box\u2019s occupancy is \u03c1W : S \u00d7 A \u2192 [0, 1], and \u03c1B is similarly defined for the black box. Minimising \u2206(\u03c1W , \u03c1B), where \u2206 is the Jensen-Shannon divergence, is the objective in generative adversarial imitation learning (Ho & Ermon, 2016). It can be shown that there is a unique policy for any given occupancy measure \u03c1, so any \u03c0W that is perfectly optimised for occupancy will also obtain a perfect score on all measures of fidelity, and the same value as \u03c0B , because it will be identical to that policy. However, whenever the available policy class \u03a0 is heavily constrained for interpretability, and optimisation power is limited by the algorithmic tools available, our search is realistically for a local optimum, and improvements towards this point will not monotonically improve\neither fidelity or expected value2.\nGiven all of these reasonable evaluation options, the FVCC acronym expands to become rather unwieldy, and almost certainly includes terms beyond those discussed here:\nFB , FW , Finteresting, ..., V\u0304W , |V\u0304W\u2212V\u0304B|,\u2206(dW , dB)..., C, C\nAn extension of the FACC philosophy, which would have us attempt a compromise between all of these objectives, would result in a gruesomely complicated loss function, and an optimised \u03c0W that is likely to be somewhat unsatisfactory from all perspectives. A common approach taken in the literature is to pick one of the fidelity- or value-based objectives, train \u03c0W to optimise that metric alone, but then proceed to evaluate on one or more different metrics.\nFor instance, in (Coppens et al., 2019) a fuzzy decision tree model is trained to minimise FB with respect to a black box RL model in a Mario game emulator, but is then evaluated by measuring the average reward it obtains when deployed. As the tree grows larger, this metric stabilises at a value around 30% less than the black box, with no improvement when the depth increases from 6 to 7. The fact that no performance gain is obtained despite the model doubling in size (and thus becoming significantly less interpretable) clearly illustrates the difference between optimising for fidelity and value. In (Bewley et al., 2020), CART decision trees are optimised for FB with a selection of car driving policies, but then evaluated in terms of the frequency of crashes (a rough proxy for V\u0304W ). Medium-sized trees are around twice as effective at avoiding crashes compared with the largest ones, despite the latter having upwards of 99.9% accuracy on an unseen test set; more evidence that the two metrics do not correspond. In (Bastani et al., 2018), an interactive training method is followed to optimise a decision tree for FW , and this is shown to indirectly improve V\u0304W compared with optimising for FB , but the authors then analyse the tree in order to prove stability and robustness properties of the black box itself. The validity of these analyses is debatable if the data distribution seen by the tree during training (dW ) is not representative of that actually encountered by the black box (dB). And in (Nageshrao et al., 2019), a car following controller is approximated with a Takagi-Sugeno rule set by optimisation of FB , but the two policies are compared through the visual similarity in their outputted actions at each point in time. This is a misleading metric, different from the similarity of outputs in state, since the two policies will inevitably diverge to some extent in state space as a consequence of covariate shift.\nBy not being fully clear about the ultimate purpose of creating \u03c0W , the above works risk misinterpreting its statistical\n2There are also various similarity measures \u2206 that could be chosen besides the Jensen-Shannon divergence, which would give different local optima.\nrelationship to \u03c0B , and coming to false conclusions about the quality and validity of the proposed method. They may benefit from being unambiguously committed to a single research direction and optimisation problem. In the following section I briefly discuss two such directions, and the methods most suited to pursuing them."
+    },
+    {
+      "heading": "4. Two Alternative Research Directions",
+      "text": ""
+    },
+    {
+      "heading": "4.1. Building White Box Agents",
+      "text": "This direction approximately corresponds to \u201crule extraction using neural networks\u201d from Zhou\u2019s original paper. Here, the goal is to obtain an interpretable white box policy \u03c0W with strong performance in the underlying MDP environment as measured by the expected value V\u0304W . While RL is the most explicit approach for finding high-value policies, it is notoriously sample-inefficient and commonly requires tens of millions of samples to solve reasonablesized problems (Mnih et al., 2015). In addition, some interpretable models, such as decision trees, are poorly suited to RL3 due to their lack of a differentiable loss function (Silva et al., 2020). For these reasons, a pre-existing black box policy \u03c0B may serve as a useful stepping stone for guiding the induction of \u03c0W , especially during the earliest stages. This is the mentality of imitation learning.\nThe widespread effectiveness of the DAGGER algorithm (Ross et al., 2011) testifies to the value of interactive, online learning in this context. Rounds of learning may be mixed with periods of deployment of \u03c0W , during which we can identify the current performance limitations of this policy, and use the knowledge gained to inform targeted querying of \u03c0B where it would be most useful.\nSuch selectivity with respect to the data obtained from the black box is likely to skew the white box away from being an exact replica of its behaviour, but this is no cause for concern, since researchers pursuing the direction of building white box agents should be passionately disinterested in measures of fidelity for its own sake. They should also recognise the auxiliary status of the black box, which will have served its purpose once the white box has attained a suitable level of performance, and may even be permanently discarded at this point. For high-stakes decisions, the complete removal of black box functionality may be precisely the result we are aiming for (Rudin, 2019)."
+    },
+    {
+      "heading": "4.2. Interpreting Black Box Agents",
+      "text": "This direction corresponds to Zhou\u2019s \u201crule extraction for neural networks\u201d. The black box policy \u03c0B is placed frontand-centre in this analysis, which aims to accurately distil\n3Some notable efforts to rectify this shortcoming include (Pyeatt, 2003), (Roth et al., 2019) and (Silva et al., 2020).\nits behaviour into an interpretable representation. The extracted white box model, which we can call \u03c0W for consistency with the rest of this paper, should be viewed less as a policy in its own right, and more as as a scientific instrument with which to scrutinise \u03c0B , explain its actions, and reveal its flaws, biases and sources of instability. Where uncertainties are present in the white box approximation, these should be made explicit rather than hidden or resolved away.\nIn this direction, it simply does not occur to us to try deploying \u03c0W as a policy in the underlying MDP, just as we would never attempt to win a soccer game by fielding a piece of sports analytics software. Its role is as a companion to \u03c0B , providing a reason to trust the black box when it is deployed. When optimising for this direction, some variant of fidelity is the correct measure of quality. FB is the obvious default, but other options would be reasonable, depending on which practical questions we wish to answer about \u03c0B and which regions of the state space we are most interested in.\nThis direction also leaves room for different kinds of interpretable model, trained to predict something other than the black box agent\u2019s single next action given the current state. A good example of this is the Linear Model U-tree (Liu et al., 2018), which attempts to approximate the policy\u2019s value function, as well as the environment\u2019s transition probabilities, in addition to the policy itself. I am particularly interested in the prospect of entirely new interpretable architectures, specialised for the task of modelling the dynamic interactions of black box agents with their environments, and freed from the constraint of being unnecessarily evaluated as policies in their own right."
+    },
+    {
+      "heading": "5. Conclusion",
+      "text": "I have sought to direct the attention of contemporary XAI researchers towards Zhou\u2019s fidelity-accuracy dilemma, and highlight how the dilemma is compounded by the additional complexities of a dynamic, agent-based context. When creating white box approximations of black box agent policies, a lack of clarity about the ultimate objective brings a risk of confused evaluation, and a misinterpretation of the statistical relationship between the black and white boxes. The two research directions of building white box agents and interpreting black box agents are both coherent and worthy of sustained effort, but must not be conflated since their optimisation problems are different. Before embarking on projects in the domain of agent interpretability, researchers should ask themselves which of the two problems they ultimately wish to solve, and remain committed to their answers."
+    }
+  ],
+  "title": "Am I Building a White Box Agent or Interpreting a Black Box Agent?",
+  "year": 2020
+}

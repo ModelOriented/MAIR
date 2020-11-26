@@ -1,0 +1,556 @@
+{
+  "abstractText": "Detecting biases in artificial intelligence has become difficult because of the impenetrable nature of deep learning. The central difficulty is in relating unobservable phenomena deep inside models with observable, outside quantities that we can measure from inputs and outputs. For example, can we detect gendered perceptions of occupations (e.g., female librarian, male electrician) using questions to and answers from a word embedding-based system? Current techniques for detecting biases are often customized for a task, dataset, or method, affecting their generalization. In this work, we draw from Psychophysics in Experimental Psychology\u2014meant to relate quantities from the real world (i.e., \u201cPhysics\u201d) into subjective measures in themind (i.e., \u201cPsyche\u201d)\u2014to propose an intellectually coherent and generalizable framework to detect biases inAI. Specifically, we adapt the two-alternative forced choice task (2AFC) to estimate potential biases and the strength of those biases in black-box models. We successfully reproduce previously-known biased perceptions in word embeddings and sentiment analysis predictions. We discuss how concepts in experimental psychology can be naturally applied to understanding artificial mental phenomena, and how psychophysics can form a useful methodological foundation to study fairness in AI.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Lizhen Liang"
+    },
+    {
+      "affiliations": [],
+      "name": "Daniel E. Acuna"
+    }
+  ],
+  "id": "SP:b161ef360ddf516931ff5fbe82f1f7f40f3524b8",
+  "references": [
+    {
+      "authors": [
+        "P. Stone",
+        "R. Brooks",
+        "E. Brynjolfsson",
+        "R. Calo",
+        "O. Etzioni",
+        "G. Hager",
+        "A. Teller"
+      ],
+      "title": "One hundred year study on artificial intelligence",
+      "venue": "Artificial Intelligence and Life in, vol. 2030, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "J. Dastin"
+      ],
+      "title": "Amazon scraps secret ai recruiting tool that showed bias against women",
+      "venue": "San Fransico, CA: Reuters. Retrieved on October, vol. 9, p. 2018, 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Angwin",
+        "J. Larson",
+        "S. Mattu",
+        "L. Kirchner"
+      ],
+      "title": "Machine bias",
+      "venue": "ProPublica, May, vol. 23, p. 2016, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M. Hurley",
+        "J. Adebayo"
+      ],
+      "title": "Credit scoring in the era of big data",
+      "venue": "Yale JL & Tech., vol. 18, p. 148, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "P. Stock",
+        "M. Cisse"
+      ],
+      "title": "Convnets and imagenet beyond accuracy: Explanations, bias detection, adversarial examples and model criticism",
+      "venue": "arXiv preprint arXiv:1711.11443, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "I. Chen",
+        "F.D. Johansson",
+        "D. Sontag"
+      ],
+      "title": "Why is my classifier discriminatory?",
+      "venue": "Advances in Neural Information Processing Systems,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "L.E. Celis",
+        "L. Huang",
+        "V. Keswani",
+        "N.K. Vishnoi"
+      ],
+      "title": "Classification with fairness constraints: A metaalgorithm with provable guarantees",
+      "venue": "Proceedings of the Conference on Fairness, Accountability, and Transparency. ACM, 2019, pp. 319\u2013328. 15",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "T. Hastie",
+        "R. Tibshirani",
+        "J. Friedman",
+        "J. Franklin"
+      ],
+      "title": "The elements of statistical learning: data mining, inference and prediction",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "M. Tan",
+        "Q.V. Le"
+      ],
+      "title": "Efficientnet: Rethinking model scaling for convolutional neural networks",
+      "venue": "arXiv preprint arXiv:1905.11946, 2019.",
+      "year": 1905
+    },
+    {
+      "authors": [
+        "C. O\u2019Neil",
+        "Weapons"
+      ],
+      "title": "destruction: How big data increases inequality and threatens democracy",
+      "venue": "Broadway Books,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "F.K. Do\u0161ilovi\u0107",
+        "M. Br\u010di\u0107",
+        "N. Hlupi\u0107"
+      ],
+      "title": "Explainable artificial intelligence: A survey",
+      "venue": "2018 41st International convention on information and communication technology, electronics andmicroelectronics (MIPRO). IEEE, 2018, pp. 0210\u20130215.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Sarkar",
+        "T. Weyde",
+        "A. Garcez",
+        "G.G. Slabaugh",
+        "S. Dragicevic",
+        "C. Percy"
+      ],
+      "title": "Accuracy and interpretability trade-offs in machine learning applied to safer gambling",
+      "venue": "CEUR Workshop Proceedings, vol. 1773. CEUR Workshop Proceedings, 2016.",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "P. Domingos"
+      ],
+      "title": "The master algorithm: How the quest for the ultimate learning machine will remake our world",
+      "venue": "Basic Books,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "D.McDuff",
+        "S.Ma",
+        "Y. Song",
+        "A. Kapoor"
+      ],
+      "title": "Characterizing bias in classifiers using generative models",
+      "venue": "arXiv preprint arXiv:1906.11891, 2019.",
+      "year": 1906
+    },
+    {
+      "authors": [
+        "A. Caliskan",
+        "J.J. Bryson",
+        "A. Narayanan"
+      ],
+      "title": "Semantics derived automatically from language corpora contain human-like biases",
+      "venue": "Science, vol. 356, no. 6334, pp. 183\u2013186, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J.Z. Leibo",
+        "C. d. M. d\u2019Autume",
+        "D. Zoran",
+        "D. Amos",
+        "C. Beattie",
+        "K. Anderson",
+        "A.G. Casta\u00f1eda",
+        "M. Sanchez",
+        "S. Green",
+        "A. Gruslys"
+      ],
+      "title": "Psychlab: a psychology laboratory for deep reinforcement learning agents",
+      "venue": "arXiv preprint arXiv:1801.08116, 2018.",
+      "year": 1801
+    },
+    {
+      "authors": [
+        "D.M. Green",
+        "J.A. Swets"
+      ],
+      "title": "Signal detection theory and psychophysics",
+      "venue": "Wiley New York,",
+      "year": 1966
+    },
+    {
+      "authors": [
+        "D.E. Acuna",
+        "M. Berniker",
+        "H.L. Fernandes",
+        "K.P. Kording"
+      ],
+      "title": "Using psychophysics to ask if the brain samples or maximizes",
+      "venue": "Journal of vision, vol. 15, no. 3, pp. 7\u20137, 2015.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "A. Charpentier"
+      ],
+      "title": "Analyse experimentale de quelques elements de la sensation de poids",
+      "venue": "Archive de Physiologie normale et pathologiques, vol. 3, pp. 122\u2013135, 1891.",
+      "year": 1891
+    },
+    {
+      "authors": [
+        "W.M. Harmening",
+        "W.S. Tuten",
+        "A. Roorda",
+        "L.C. Sincich"
+      ],
+      "title": "Mapping the perceptual grain of the human retina",
+      "venue": "Journal of Neuroscience, vol. 34, no. 16, pp. 5667\u20135677, 2014.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "S. Bornstein"
+      ],
+      "title": "Antidiscriminatory algorithms",
+      "venue": "Ala. L. Rev., vol. 70, p. 519, 2018.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S. Benthall",
+        "B.D. Haynes"
+      ],
+      "title": "Racial categories inmachine learning",
+      "venue": "inProceedings of the Conference on Fairness, Accountability, and Transparency. ACM, 2019, pp. 289\u2013298.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "K.P. Murphy"
+      ],
+      "title": "Machine learning: a probabilistic perspective",
+      "venue": "MIT press,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "G.W. Imbens",
+        "D.B. Rubin"
+      ],
+      "title": "Causal inference in statistics, social, and biomedical sciences",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M.J. Kusner",
+        "J. Loftus",
+        "C. Russell",
+        "R. Silva"
+      ],
+      "title": "Counterfactual fairness",
+      "venue": "Advances in Neural Information Processing Systems, 2017, pp. 4066\u20134076.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "N. Kilbertus",
+        "P.J. Ball",
+        "M.J. Kusner",
+        "A. Weller",
+        "R. Silva"
+      ],
+      "title": "The sensitivity of counterfactual fairness to unmeasured confounding",
+      "venue": "arXiv preprint arXiv:1907.01040, 2019.",
+      "year": 1907
+    },
+    {
+      "authors": [
+        "Y. Wu",
+        "L. Zhang",
+        "X. Wu"
+      ],
+      "title": "Counterfactual fairness: Unidentification, bound and algorithm",
+      "venue": "Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, IJCAI, 2019, pp. 10\u201316.",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "D.J. Murray"
+      ],
+      "title": "A perspective for viewing the history of psychophysics",
+      "venue": "Behavioral and Brain Sciences, vol. 16, no. 1, pp. 115\u2013137, 1993.",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "M. Berniker",
+        "M. Voss",
+        "K. Kording"
+      ],
+      "title": "Learning priors for bayesian computations in the nervous system",
+      "venue": "PloS one, vol. 5, no. 9, p. e12686, 2010.",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "K.P. K\u00f6rding",
+        "D.M. Wolpert"
+      ],
+      "title": "Bayesian integration in sensorimotor learning",
+      "venue": "Nature, vol. 427, no. 6971, p. 244, 2004.",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "M.O. Ernst",
+        "M.S. Banks"
+      ],
+      "title": "Humans integrate visual and haptic information in a statistically optimal fashion",
+      "venue": "Nature, vol. 415, no. 6870, p. 429, 2002.",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "A.L. Yuille",
+        "H.H. B\u00fclthoff"
+      ],
+      "title": "Bayesian decision theory and psychophysics",
+      "venue": "1993.",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "D.C. Knill",
+        "W. Richards"
+      ],
+      "title": "Perception as Bayesian inference",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "A.N. Sanborn",
+        "T.L. Griffiths",
+        "R.M. Shiffrin"
+      ],
+      "title": "Uncovering mental representations with markov chain monte carlo",
+      "venue": "Cognitive psychology, vol. 60, no. 2, pp. 63\u2013106, 2010.",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "M.D. Hoffman",
+        "A. Gelman"
+      ],
+      "title": "The no-u-turn sampler: adaptively setting path lengths in hamiltonian monte carlo.",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "T. Schnabel",
+        "I. Labutov",
+        "D. Mimno",
+        "T. Joachims"
+      ],
+      "title": "Evaluation methods for unsupervised word embeddings",
+      "venue": "Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing, 2015, pp. 298\u2013307.",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "J. Pennington",
+        "R. Socher",
+        "C. Manning"
+      ],
+      "title": "Glove: Global vectors for word representation",
+      "venue": "Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP), 2014, pp. 1532\u20131543.",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "B. of Labor Statistics"
+      ],
+      "title": "Employed persons by detailed occupation, sex, race, and hispanic or latino ethnicity",
+      "venue": "2012.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "A.L. Maas",
+        "R.E. Daly",
+        "P.T. Pham",
+        "D. Huang",
+        "A.Y. Ng",
+        "C. Potts"
+      ],
+      "title": "Learning word vectors for sentiment analysis",
+      "venue": "Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies. Portland, Oregon, USA: Association for Computational Linguistics, June 2011, pp. 142\u2013150. [Online]. Available: http://www.aclweb.org/anthology/P11-1015 17",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "S. Kiritchenko",
+        "S.M. Mohammad"
+      ],
+      "title": "Examining gender and race bias in two hundred sentiment analysis systems",
+      "venue": "CoRR, vol. abs/1805.04508, 2018. [Online]. Available: http://arxiv.org/abs/1805.04508",
+      "year": 1805
+    },
+    {
+      "authors": [
+        "N. Chamandy",
+        "O. Muralidharan",
+        "A. Najmi",
+        "S. Naidu"
+      ],
+      "title": "Estimating uncertainty for massive data streams",
+      "venue": "Google, Tech. Rep., 2012.",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "C. Funk",
+        "B. Kennedy"
+      ],
+      "title": "Public confidence in scientists has remained stable for decades",
+      "venue": "Pew Research Center, 2017.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J.B. Tenenbaum",
+        "C. Kemp",
+        "T.L. Griffiths",
+        "N.D. Goodman"
+      ],
+      "title": "How to grow a mind: Statistics, structure, and abstraction",
+      "venue": "science, vol. 331, no. 6022, pp. 1279\u20131285, 2011.",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "M. Honnibal",
+        "I. Montani"
+      ],
+      "title": "spaCy 2: Natural language understanding with Bloom embeddings, convolutional neural networks and incremental parsing",
+      "venue": "2017, to appear.",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J. Buolamwini",
+        "T. Gebru"
+      ],
+      "title": "Gender shades: Intersectional accuracy disparities in commercial gender classification",
+      "venue": "Conference on fairness, accountability and transparency, 2018, pp. 77\u201391.",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "P. Croskerry",
+        "G. Singhal",
+        "S. Mamede"
+      ],
+      "title": "Cognitive debiasing 1: origins of bias and theory of debiasing",
+      "venue": "BMJ Qual Saf, vol. 22, no. Suppl 2, pp. ii58\u2013ii64, 2013.",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "J. Stern"
+      ],
+      "title": "Deradicalization or disengagement of terrorists: Is it possible",
+      "venue": "Future Challenges in National Security and Law, pp. 1\u201318, 2010. 18",
+      "year": 2010
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "Recent artificial intelligence models have shown remarkable performance in a variety of tasks that were once thought to be solvable only by humans [1]. With such promising results, companies and governments begun deploying such systems for increasingly critical tasks, including job candidate screening [2], justice system decisions [3], and credit scoring [4]. Due to training with data that might contain biases, however, deep learning models inadvertently fit those biases and create decisions that discriminate against gender and other protected statuses. If we were to find those biases in humans, we could interrogate them and determine whether such biases have occurred. Several researchers have attempted to develop methods for detecting biases in AI models, but these methods are specific to the task (e.g., [5]), data (see [6]), or type of model [7]\u2014hindering their potential adoption. Here we entertain the idea of using Experimental Psychology to develop novel and coherent methods for probing AI systems. Experimental Psychology has a very rich tradition of treating human consciousness as a black box, developing and extracting potential biases from subjective judgements in behavioral tasks [8]. We hypothesize that we can adapt these methods to uncover biases in AI models in a similar way. In particular, Psychophysics and signal detection theory offer a concrete\n\u2217Corresponding author: deacuna@syr.edu\nar X\niv :1\n91 2.\n10 81\n8v 1\n[ cs\n.C L\n] 1\n5 D\nset of tools for querying black boxes and extracting useful measures on the direction and strength of bias. In this work, we describe how we adapt the standard two-alternative forced choice (2AFC) task, the workhorse of Psychophysics, to extract biases in word embeddings and sentiment analysis predictions.\nThe dramatic increase in the usage of AI systems has called into question potential biases made against vulnerable groups. Part of the issue is that current systems have exploded in their complexity, going from hundreds of parameters linearly related to outputs, to billions of parameters non-trivially related to outputs (as discussed broadly in [9], [10], and [11]). If biases are present in modern AI systems, they are therefore significantly harder to detect just by inspecting fitted parameters. This has resulted in dramatic cases of discrimination in recidivism prediction [3] and credit scoring [4], which are only discovered once systems are deployed. One proposed solution to the problem of veiled discrimination, recently implemented in Europe\u2019s General Data Protection Regulation (GDPR), is to force AI models to be \u201cexplainable\u201d [12]. While forcing explainability appears as a natural countermeasure, the well-known interpretability\u2013accuracy trade-off would predict that these systems have decreased accuracy [13]. This is not always desirable [14].\nOne solution for preventing biases present in AI models is to develop techniques for detecting them, as a natural first step to fixing them. There have been several research programs aimed at detecting biases in AI models. Many of them, however, require detailed knowledge of the inner workings of the algorithm or the datasets. For example, in the work of [15], the authors propose a form of \u201cclassifier interrogation\u201d which requires labeled data to explore the space of parameters that might cause biases. Also, techniques for detecting biases are somewhat task specific and difficult to generalize. In [16], for example, the authors adapt the Implicit Association Task (IAT) for detecting biases in word embeddings. While this is a natural application of the original intention of IAT, it is unclear how to move beyond bias detection in unsupervised settings. Recently, researchers in DeepMind proposed Psychlab, a highly-complex synthetic environment to test AI models as if they were humans living in a virtual world [17]. Detecting biases of AI models is an important step but it would be beneficial to develop more general-purpose and simpler techniques.\nInterestingly, Experimental Psychology has had to develop methods for understanding latent, mental phenomena based on questions and answers that are exerted verbally or physically. In particular, the field of Psychophysics uses methods to measure the perception biases and sense\u2019s accuracies of animals [18]. Importantly, a key requirement of Psychophysics is to avoid relying on verbal or other highly-cognitive responses that are prone to noise and rather use simple behavioral responses that are hard to fake (e.g., movements, yes/no answers). In the whole of Psychophysics, perhaps one of the oldest and most welldeveloped techniques for performing estimations based on these cues is the two-alternative forced choice task (2AFC) [19]. This method is used, for example, to measure how the size of objects biases our perception of weight [20], and to measure the precision of the human retina when detecting light [21]. We hypothesize that we can adapt these techniques for measuring biases and the strength of those biases in AI models. Thus, Experimental Psychology is a rich area of research with potential applications to examine artificial intelligence decisions.\nIn this work, we develop a framework to study biases in AI models. Our primary goal is to develop a framework that is coherent across datasets, tasks, and algorithms, allowing a researcher to describe biased perception using a common language. We draw inspiration from Psychophysics, a field of Experimental Psychology, and adapt the two-alternative forced choice (2AFC) task. As an example, we examine potential biases in word embeddings and sentiment analysis predictions and we validate our results with real-world data. Our findings show that we are able to detect biases and the strength of them in decisions that involve gender and occupations. In sum, our work contributes to the field of fairness, accountability, and transparency in the following manner:\n\u2022 A discussion of the current bias detection techniques for AI models\n\u2022 A new method for detecting biases and measuring the strength of those biases based on a coherent set of concepts and language drawn from Experimental Psychology\n\u2022 A demonstration of the application of the technique to word embeddings and sentiment analysis prediction"
+    },
+    {
+      "heading": "2 Background",
+      "text": ""
+    },
+    {
+      "heading": "2.1 Different Kinds of Biases",
+      "text": "Psychophysical bias Perceptual biases are decision deviations about stimuli that should be perceived exactly the same. A classic example is the size-weight illusion (known as the Charpentier illusion) in which people underestimate the weight of a large object compared to small objects of the same mass [20]. Formulated differently, if presented with a small object of a known weight, subjects would tend to judge objects of larger size to have the same weight as the small object. Therefore, even though the known small object has the same size of another object of unknown weight, subjects would not judge the other unknown-weight object as having the same weight: they would have a bias against small sizes in weight space. This is the kind of bias that we are expecting to detect with the techniques introduced here.\nDiscriminatory bias/Anti-discrimination laws Discrimination towards gender, race, sex, and ethnicity is generally considered a violation to the fourteenth amendment [22]. This kind of bias lives in the judiciary system where laws and acts have been designed to protect the rights of certain groups of people. Some AI models being utilized by companies, governments and other organizations may inherit discriminatory biases that are unlawful in this sense [11]. This is the kind of bias we want to help detect by adapting the Psychophysical experiments explained above. However, there must be a human judge or an external validation of whether these detected biases go against, for example, anti-discrimination laws [23].\nStatistical Biases This bias represents the difference between an estimated data distribution and a real data distribution [9]. A statistical model with low bias indicates that the model has low training error but overfits and performs poorly on testing (e.g., out-of-sample) data. In this context, bias might help prevent overfitting by forcing the model not to fit the data too well. Several techniques in machine learning and statistical modeling (such as prior probabilities, regularization, dropout, and data augmentation [24]) are meant to introduce bias in the system with the purpose of preventing overfitting.\nCounterfactual Biases In this kind of bias, the question is more specific: would the response of the system change had one protected attribute in the input been different? In this instance, of course, it is not possible to go back in time and change the situation, and thus many assumptions must be made. With the mathematical framework of causal reasoning (e.g., [25, 26]), researchers have proposed ways to use counterfactual reasoning to think about these issues (e.g., [27, 28, 29]). Counterfactual biases are orthogonal and complementary to psychophysical biases. In general, Psychophysics does not deal with causal inference because it is believed that the experimenter controls for potential confounders or relies on randomization to assign subjects to experimental conditions."
+    },
+    {
+      "heading": "2.2 Psychophysics and the two-alternative forced choice task (2AFC)",
+      "text": "Psychophysics is perhaps one of the oldest parts of Psychology, established in a book by Fechner in 1860 [8]. It emphasizes the quantification of the relationship between physical stimulus (light, sound, touch) with the contents of \u201cconsciousness\u201d, which are unmeasurable (This stands in contrast to other approaches based on behavior and verbal interviews [30].) Psychophysics had an early influence from sophisticated\nmathematical tools rooted in signal detection theory\u2014a field that seeks to model responses of systems based on a mathematical/statistical treatment of signals [18]. One of the simplest and perhaps most widely used methods in Psychophysics is the two-alternative forced choice (2AFC) task. In this task, subjects are asked to repeatedly answer one of two questions based on stimuli carefully selected by the experimenter. Depending on the set of answers, then, Psychophysics uses curve fitting and interpretation to extract perception biases. This task has been used to establish many important findings about our memory, visual, and auditory systems [18]. Thus, Psychophysics is one of the oldest branches of Psychology and 2AFC is a workhorse paradigm, widely used to measure biases.\nIn the 2AFC task, there are two important quantities that are obtained from a repeated set of questions. One quantity is the Point of Subjective Equivalence (PSE). As its name indicates, in the 2AFC task, a subject is \u201cforced\u201d to make one of two choices about a stimulus even if neither of the answers seems correct. The stimulus at which this extreme confusion happens is called the Point of Subjective Equivalence (PSE) because both choices are \u201csubjectively\u201d similar. Another quantity is the Just-Noticeable Difference (JND) which is the amount of stimulus that the experiment needs to modify in order for the subject to reliably shift answers. If the PSE is not where the experimenter expects it to be, then we say that the subject has a bias [18]. This entire process of querying and estimating PSE and JNE can be observed in Fig. 1A. There, the experimenter presents a stimulus selected from an spectrum of choices. This stimulus is then taken as an input by the subject (AI system), who is asked to decide whether one of two cues was used to generate the stimulus. Based on many of these responses, a psychometric curve is fit using standard cumulative functions such as the sigmoid or cumulative normal distribution (Fig. 1B). The point at which this psychometric curve passes through the 50/50 is the PSE. The JND is related to the inverse of the steepness of such curve.\nMathematically, and without loss of generality, we can assume that the subject (or AI system) is presented with a stimulus s selected from a stimulus spectrum. This stimulus in turn is a combination (e.g., linear) of two cues c1 and c2 using a parameter \u03b1 \u2208 [0, 1], as follows\ns = (1 \u2212 \u03b1)c1 + \u03b1c2. (1)\nThe subject only perceives a noisy version of Eq. 1 denoted by s\u2032. The subject has a prior on the general\nvalues of cue 1 and 2, p(c1) and p(c2), respectively. Also, the subject has a general idea of the perception of the stimulus, sp , given a hypothesized stimulus, s\u0302, p(sp | s\u0302). With all these pieces of information, the subject can estimate the distribution of the real stimulus, s\u0302, given the perceived stimulus using Bayes\u2019 rule\np(s\u0302 | sp) = p(sp | s\u0302)p(s\u0302)\np(sp) . (2)\nBased on Eq. 2, and using some scoring function score(s, c) relating the stimulus s with cue c, the decision of the subject, \u03c9, for a given perception sp and a hypothesized stimulus s\u0302 is\n\u03c9(s\u0302) = { cue 1 score(s\u0302, c1) > score(s\u0302, c2) cue 2 o.w.\n(3)\nBecause there is noise in the perception (i.e., p(sp | s\u0302)), then this decision might change from trial to trial for a given stimulus s. This is largely similar to the Bayesian treatment of the 2AFC task (see [19, 31, 32, 33, 34, 35]). As it generally assumed that there is no bias in s\u0302 with respect to the real s, the hypothesized stimulus s\u0302 (or s) is largely determined through the mixture \u03b1. A function that produces the probability of whether to pick c2 over c1 is called a psychometric curve (\u03a8) and it is defined as follows\n\u03a8(\u03b1) = \u2a0c p(\u03c9(s\u0302) = \"cue 2\", c1, c2, sp, s\u0302) dc1 dc2 dspds\u0302 . (4)\nThis psychometric curve is usually assumed to be a cumulative distribution function and thus monotonically increasing in \u03b1.\nIn this context, then, the Point of Subjective Equivalence (PSE) can be defined as the value of \u03b1 for which the psychometric curve has a 50/50 chance of answering either cue 1 or 2\nPSE = arg solve\u03b1\u03a8(\u03b1) = 1 2 . (5)\nAnd the Just-Noticeable Difference (JND) is the amount of \u03b1 where there is a noticeable difference in the decisions in the psychometric curve of say 50%\nJND = arg solve\u2206\u03b1\u03a8(PSE + \u2206\u03b1 2 ) \u2212 \u03a8(PSE \u2212 \u2206\u03b1 2 ) = 1 2 . (6)\nOne of our interests in this study is to understand biases in the perception of cues. If there were no biases, it would be expected that the PSE is 1/2 because a mixture of \u03b1 = 1/2 should make the stimulus equally similar to cue 1 and cue 2. However, this is not always the case. A PSE > 1/2 can be interpreted as a bias for cue 1 (or against cue 2) as a higher than 50% proportion of cue 2 (and lower than 50% proportion of cue 1) would be needed to make the cues perceptually indistinguishable. Conversely, a PSE < 1/2 can be interpreted as a bias for cue 2 (or against cue 1). The value of JND depends on the perception noise of the task. A large JND means that perceptions are noisy and biases (if any) are less sharply defined. It is typically assumed that there is no correlation between PSE and JND."
+    },
+    {
+      "heading": "2.3 Markov Chain Monte Carlo (MCMC) for stimulus representations",
+      "text": "While the 2AFC task allows to measure biases and the strength of those biases based on stimulus chosen by the experimenter, it would be desirable to reverse the process. This is, it would be interesting to understand\nthe distribution of the stimulus for a given response. In a classification task, for example, this would be useful to understand the distribution of the texts that give rise to positive sentiment predictions. This idea has been explored before in the context of psychological experiments [36] by using a specific type of Markov Chain Monte Carlo (MCMC) sampler. Because in our experiment we can control how we treat the probabilistic outcome of a classifier, we can use a highly-efficient MCMC method such as the No-U-Turn sampler [37].\nConcretely, imagine that we want to understand how the input of a classifier, s, is related to its decision, \u03c9. Without loss of generality, we assume that we have access to the classifier\u2019s distribution on \u03c9 given the input s as p(\u03c9 | s). We reverse this distribution by simply applying Bayes\u2019 rule\np(s | \u03c9) = p(\u03c9 | s)p(\u03c9) p(\u03c9) . (7)\nWhen the dimensionality of the input s is high, such as in most modern deep learning applications, estimating p(\u03c9) is prohibitively expensive because we need to integrate out all dimensions of s from the join distribution p(\u03c9, s). Therefore, we can use a Markov Chain Monte Carlo (MCMC) scheme where, in a similar fashion to the 2AFC task, we repeatedly ask the system for its judgements about an input. In our context, a sampler like this, being at a certain embedding st attempts to move to another embedding s\u2032t which is only accepted if the MCMC acceptance function is met (Fig. 1C). For more information on MCMC, see [38]."
+    },
+    {
+      "heading": "3 Proposed method",
+      "text": ""
+    },
+    {
+      "heading": "3.1 Estimating bias and bias strength in word embeddings using the 2AFC task",
+      "text": "Based on artificial neural networks, word embedding models compute a continuous representation of a word using contextual word co-occurrences within documents. These representations work especially well for language translation and word analogy tasks [39]. For our experiments, we use a word embedding method called GloVe [40] but we believe any other embedding method should produce similar results.\nTo examine potential biases in word embeddings, we design an artificial 2AFC task where a system is asked to answer questions about a concept that should be unbiased as it relates to two potentially biasing concepts. Consider a real 2AFC task examining genderless occupations and their relationship to genders. For example, we can ask participants to guess the gender of an electrician\u2014e.g., a person with a voltage meter and a blue coat\u2014whose face and body have been experimentally manipulated to be a blend between a male and a female face. By modifying the percent of maleness blending, we would obtain a psychometric curve based on responses. If such psychometric curve crosses the 50/50 threshold away from a 50/50 gender blending, it would suggest a biased perception of the occupation. It is worth mentioning that this experiment would be challenging to perform in humans because of inter-trial memory effects and because the visual blending of faces and body needs to be believable. With an AI model, however, these issues are not present.\nWe need to create an artificial 2AFC task with word embeddings. We use a simple question\u2013answering system solely based on distances. In word embeddings, close relationships between words are well correlated with the angles between their respective embeddings (i.e., cosine distances). The adaptation of the task explained above would be as follows: we would ask the AI system about the gender in the question \u201cWhat is the gender of this [manipulated gendered pronoun] electrician?\u201d with the answers being a female attribute or male attribute (e.g., female/male, woman/man, her/him). The manipulated gender pronoun would be the stimulus and \u201celectrician\u201d would be the occupation of interest. The stimulus would be represented by a mixture of a female attribute embedding c1 and a male attribute embedding c2, and the occupation would be represented by the occupation\u2019s embedding w. Each answer, then, would be given a score\nscore(s\u0302, ci) = (1 \u2212 \u03b1)sim(c1, ci) + \u03b1sim(c2, ci) + sim(w, ci), (8) where sim(a, b) is the cosine similarity between embeddings a and b. The method then picks the answer ci with the highest score. This score simplifies to\nscore(s\u0302, c1) = (1 \u2212 \u03b1) + \u03b1sim(c2, c1) + sim(w, c1)\nand score(s\u0302, c2) = (1 \u2212 \u03b1)sim(c1, c2) + \u03b1 + sim(w, c2)\nbecause sim(a, a) = 1. To produce the psychometric curve, we would modify the value of \u03b1 and obtain several responses. For the combination of all responses for a particular word w, cue 1, and cue 2, we can fit a function to build the psychometric curve (Eq. 4). Based on this psychometric curve, then, we can extract the PSE and JNE. If the PSE is not exactly at \u03b1 = 0.5, we might conclude that the system is biased. If it is between \u03b1 \u2208 [0, 12 ], we might say that there is a bias against cue 1. An example of several psychometric curves is in Fig. 2.\nIn our work, the word embeddings model we used is based on skip-gram. It maps each word into a 100-dimentional continuous vector. If the input contains multiple words, the embedding is combined by averaging the embeddings of each word."
+    },
+    {
+      "heading": "3.2 Estimating distribution of inputs conditioned on outputs",
+      "text": "Using the representation of word embeddings, we can examine the distribution of embeddings conditioned on classifications that we can be make using those embeddings. For example, we could compute the posterior distribution of Glove embeddings using a classifier that predicts sentiments based on those embeddings. In particular, we train a classifier of positive (or negative) sentiment p(+ | s) for an embedding s, and are able to estimate the distribution of embeddings p(s | +) conditioned on positive sentiments. We create the distribution p(+ | s) using a multilayer perceptron."
+    },
+    {
+      "heading": "4 Experiments",
+      "text": ""
+    },
+    {
+      "heading": "4.1 Datasets",
+      "text": "We use several datasets with curated labels of gender and other demographic information. We also use a dataset for training the word embedding and another dataset for training sentiment analysis.\nLabor statistics For some analysis, we need to validate our estimated biases with external data. We use data from labor statistics on occupations, the number of workers in those occupations, and the gender breakdown of those workers. The data is based on the U.S. Bureau of Labor Statistics [41]. This data has been used before in [16] to also externally validate their method.\nWikipedia dataset For training the word embedding vectors, we use a dump of the English Wikipedia dataset from March, 2019.\nLarge Movie Review For training the sentiment analysis predictor, we use the Large Movie Review Dataset. This is a very popular sentiment dataset [42] and it contains movie reviews from the Internet Movie Database (IMDB) in which reviews with more than 7 stars (from 1 to 10) get assigned a positive sentiment and fewer than 4 stars get assigned a negative sentiment.\nEquity Evaluation Corpus (EEC) To evaluate biases in sentiment analysis, we use a dataset of names and relationships associated with genders. For example, John and uncle are male and Alice and aunt are female. These relationships are part of the EEC dataset by [43]."
+    },
+    {
+      "heading": "4.2 Bootstrapping word embedding estimation",
+      "text": "For each word embedding model, we were able to get a PSE from word pairs given a target word. However, to form a proper psychometric curve, we need to understand the uncertainty that exists in the model. We can think of these variations as the noise in the perceptual system of the AI model, related to p(sp | s\u0302) in Eq. 1. To estimate this uncertainty, we bootstrapped 32 GloVe word embedding models. Concretely, we trained word embedding models with theWikipedia dataset. Given the size of the dataset, it was unfeasible to perform direct bootstrap by keeping all data in memory and sampling with replacement. Instead, we perform a streaming bootstrap repeating each line a random number of times sampled from a Poisson distribution with mean \u03bb = 1 (see [44]). After fitting a psychometric curve to these decisions, if we found any biases in the PSE, the JND would help us understand how stringent these biases are. High confidence, in this case, would be represented by low JND. An example of a set of psychometric curves from this bootstrap process is depicted in Fig. 2."
+    },
+    {
+      "heading": "4.3 Sentiment analysis and sampler",
+      "text": "Weuse amulti-layer perceptron to learn the probability distribution ofword embeddings to sentiment p(+ | s). We learn a 100-dimensional word2vec embedding using the movie review dataset. The dataset consists of 12500 positive reviews and 12500 negative reviews. We tokenized reviews, removed symbols, process each reviews using the skip-gram word embedding model, and generate an embedding by averaging word2vec vectors for each word. In cross validation, the classifier achieves a 0.953 AUC score.\nFor the sampler, we use the Python package pyro to perform MCMC using a No-U-Turn Sampler [37]. The sampler used 10,000 warm-up samples and run 10,000 steps after that."
+    },
+    {
+      "heading": "5 Results",
+      "text": "In this paper, we wanted to adapt the methods developed in experimental psychology to detect biases in decisions made by artificial intelligence models. In particular, we adapted the two-alternative forced choice (2AFC) task to understand biases in word embeddings. We developed two kinds of experiments: a signal detection theory experiment that estimates the bias and uncertainty on the bias and a sampling experiment that estimates the distribution of word embeddings conditioning on positive sentiment. Both types of experiments provide a window into how powerful the analogy of psychophysics could be for uncovering biases in artificial intelligence methods."
+    },
+    {
+      "heading": "5.1 Measured biases of word embeddings based on 2AFC",
+      "text": "The results show relatively intuitive trends in occupations. We first examine whether the psychometric curves for an example occupation (\u201celectrician\u201d) vs female\u2013male continuum stimuli based on bootstrap produced sensible results (Fig. 2). It indeed produces a bias against females. A more systematic examination of the phenomenon for a sample of occupations and a set of gendered attributes reveals an intuitive pattern (Fig. 3a). Each point in this graph represents one PSE and JND extracted from a psychometric curve of one pair of female/male attributes out of the set female/male, woman/man, girl/boy, sister/brother, she/he her/him, hers/his, and daughter/son (from [16]). More female-perceived occupations have a bias against male, and vice versa. There are some biases for which the model is more certain about which can be observed in the JND results (Fig. 3b). For example, hairdresser is a highly biased occupation against man but with high uncertainty. On the other hand, lawyer is an occupation relatively biased against woman with significantly lower uncertainty than hairdresser. It is important to correlate our results with real datasets that may point to some ground truth. Therefore, we externally validate the results on a real-world dataset of gender occupations based on labor statistics. We found that PSE correlates well with the percent of total occupations held by man within each occupation \u03c1 = 0.368 (p = 0.049) and the JNE correlates well with the standard deviation of such proportion \u03c1 = 0.401 (p = 0.031).\nWe perform a similar analysis to the one above but now choosing as stimulus that is a combination of love and hate. We found interesting patterns as well where intuitively more likable occupations such as teacher have a bias in favor of love whereas (medical) examiner has a bias in favor of hate (Fig. 4a). Additionally, the bias for teacher is highly confident, as can be observed in the JND estimations (not shown). For this dataset, however, we do not have external validation."
+    },
+    {
+      "heading": "5.2 Measured biases of sentiment analysis predictions based on MCMC",
+      "text": "We first wanted to check that the MCMC sampler has achieved stationarity. We have used the standard approach of computing autocorrelations of all dimensions. The sampler has a warmup of 10,000 steps followed by sample of 10,000 steps. Visual inspection of the autocorrelation reveals a sharp decline after 1 time lag (Fig. 5.), which is a sign that the Markov chain has properly mixed [38].\nThe posterior distribution of embeddings is hard to visualize because it has 100 dimensions. We perform a dimensionality reduction using PCA to do so (Fig. 6). The distributions of this projection for the posterior conditioned on positive and negative sentiments are slightly different. This fact could be used to examine where both distributions differ. However, because we used sentiment analysis of movie reviews, there is no simple approach to extract a review from an embedding because our embedding is the average embedding of each word in the review.\n10\nWe then wanted to measure whether there are biases in the estimated distributions. We measured if there are biases in gender from the posterior distribution. In particular, we measured whether names and relationships that are usually associated with a gender are closer or farther to the posterior distribution conditioned on positive sentiment (Fig. 7). Indeed, we found that female names are significantly farther away from this posterior distribution compared to male names, suggesting that the posterior distribution has more male-dominated embeddings. However, these results are relatively minor because we are using movie reviews to learn the embeddings.\nWe externally validate the sampler using a curated dictionary of sentiments. We compute the average distance of the embeddings of all these words to the posterior distributions conditioned on positive and negative sentiments. We found a negative correlation between distance to the posterior conditioned on positive sentiment and positive words (\u03c1 = \u22120.4, n = 6, 789, p < 0.001). Similarly, we found a positive correlation between distance to the posterior conditioned on negative sentiment and positive words. These results suggest that the distance to the distribution provides not only a predictor to the sentiment of words but also a natural ordering of those words with respect to the conditioning of the MCMC sampler."
+    },
+    {
+      "heading": "6 Discussion",
+      "text": "In this work, we use artificial psychophysics to detect biases in AI. We show its application to word embeddings and sentiment analysis predictions. Our method was able to capture similar biases that have been reported in the literature but using a more coherent and perhaps simpler set of ideas. However, there are some shortcomings that we now discuss.\nWe need a more systematic evaluation of the method. We need to see if we find similar effects to those found by more specialized techniques such as IAT. For example, while we find a correlation between the labor statistics data and the PSE (Pearson\u2019s correlation coefficient \u03c1 = 0.39), this correlation was not as strong as the one found through the IAT task in [16] (Pearson\u2019s correlation coefficient \u03c1 = 0.9). One disadvantage of IAT is that it needs a basket of words to represent the attributes that one wants to analyze. For example, while our method only needs the embedding of \u201cwoman\u201d for one option and the embedding of \u201cman\u201d for\nthe other, IAT used a set of female names and a set of male names. We could easily extend our technique to include all pairwise PSEs and JNDs that then would be average and could perhaps improve the correlation. However, this seems unlikely given the large dispersion of values in the current estimations. We will explore this approach in the future.\nThe two-alternative forced choice task (2AFC) has limitations that also apply to our task. For one, it can only handle two alternatives at the same time which makes it inefficient to explore multiple, simultaneous relationships. A possible fix to this issue is to fit several pairwise psychometric curves but the interpretation becomes significantly more cumbersome [18]. However, we believe that the rich history and theoretical foundation of the method outweigh the issues of multiple comparisons. If anything, our use of MCMC can domultiple, simultaneous examinations of the underlyingmethod but theway to apply is not as straightforward as the 2AFC.\nAs with all the methods in this area, the evaluation of our results is difficult. While we have a dataset from labor statistics that relates to the PSE of occupation vs female\u2013male attributes, if we did not find such relationship, the bias would still be there\u2014high false negatives. This is apparent for the occupation vs love\u2013 hate experience. We found intuitive relationships between lovable and undesirable occupations (e.g., teacher being the most lovable and (medical) examiner being the most hated) but so far we do not have a validation set for it. In the future, we will attempt to validate these results using survey information, such as the Pew Research Center survey on trust of different occupations [45]. Similarly, checking the posterior distribution of the MCMC result is perhaps even more challenging. In a sense, we need a way to generate interpretable data from a point in the posterior distribution. For example, in our sentiment analysis predictor, the posterior is on the embedding space, making it almost impossible to map the embedding into a movie review. While this seems that defeats the purpose of the posterior, we are still able to capture some trends in the data whereas the embeddings of positive words are intuitively closer to the posterior distribution conditioned on positive sentiment. In the future, we will explore representations that are more interpretable and that therefore will allow to examine the posterior more easily. One obvious experiment to try is an embedding that involves images.\nThe biases we are detecting do not necessarily constitute a problematic feature of an AI system that is attempting to make the most accurate predictions. After all, biases in the statistical sense can help a system prevent overfitting, and a great deal of modern machine learning techniques uses an array of methods for introducing biases explicitly\u2014e.g., regularization, dropout, and data augmentation can all be seen as increasing bias [46]. Also, humans themselves seem to incorporate biases in an optimal manner in the form of a-priori knowledge [47]. However, these kinds of biases are best understood in supervised learning scenarios where there is a clear measure of performance [9]. As such, it seems problematic that systems that are unsupervised, such as word embeddings, contain biases on attributes that are protected. Companies and the public seem to agree: anecdotally, almost a year ago, we were able to reproduce biases using the built-in word embedding in the Python\u2019s software package spaCy [48]. When we re-attempted such experiment with a more recent version of the software, however, we were not able find such biases. This suggests that software companies and the general machine learning community recognizes that these types of biases might be unacceptable (e.g., [49]).\nOne of the ideal goals of this work is to not only detect biases but fix them. There are many proposals to fix biases in AI models but to the best of our knowledge we are not aware of debiasing methods based on experimental psychology or psychophysics. Perhaps building a system that fixes these issues would greatly inform how we design our detection task. Maybe some of the biases that we detect are not fixable or biases that we think are hard to detect are easily fixable. We will explore this interplay in the future.\nWe believe that our proposal can open the door to collaboration across disciplines. For example, there is rich literature on quantitative methods for cognitive-behavior therapy for cognitive debiasing [50]. More\ninterestingly, perhaps the methods other researchers have developed for detecting and fixing biases in AI systems can be transported back to cognitive-behavioral therapy."
+    },
+    {
+      "heading": "7 Conclusion",
+      "text": "In this work, we proposed a method for detecting biases in AI models using a coherent intellectual framework rooted in Experimental Psychology and Psychophysics. We adapted the alternative forced choice (2AFC) task and a sampling mechanism based on MCMC to examine these biases. We evaluated gender biases in a word embedding model trained on Wikipedia and a sentiment analysis model trained on movie reviews. Our results suggest that we are able to detect these biases while keeping a conceptual language that is common to what is used in Psychophysics.\nIn the future, we will explore how to adapt other ideas from experimental psychology to detect and even fix issues found in AI models. We believe that many of the issues found in AI can be fixed effectively without significant loss of performance. Also, we believe that akin to how humans who have been subjected to racist, sexist, and extremist views can be rehabilitated through deradicalization and disengagement [51], AI models can also be rehabilitated."
+    },
+    {
+      "heading": "Acknowledgements",
+      "text": "L. Liang and D. E. Acuna were partially funded by NSF grant #1800956 and ORI grant \u201cMethods and tools for scalable figure reuse detection with statistical certainty reporting\u201d. The authors would like to thank Xinxuan Wei for preliminary discussions and contributions to the work."
+    }
+  ],
+  "title": "Artificial mental phenomena: Psychophysics as a framework to detect perception biases in AI models",
+  "year": 2019
+}

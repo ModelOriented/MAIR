@@ -1,0 +1,645 @@
+{
+  "abstractText": "Compressive sensing (CS) has been studied and applied in structural health monitoring for data acquisition and reconstruction, wireless data transmission, structural modal identification, and spare damage identification. The key issue in CS is finding the optimal solution for sparse optimization. In the past several years, many algorithms have been proposed in the field of applied mathematics. In this paper, we propose a machine-learning-based approach to solve the CS data-reconstruction problem. By treating a computation process as a data flow, the solving process of CS-based data reconstruction is formalized into a standard supervised-learning task. The prior knowledge, i.e., the basis matrix and the CS-sampled signals, are used as the input and the target of the network; the basis coefficient matrix is embedded as the parameters of a certain layer; and the objective function of conventional compressive sensing is set as the loss function of the network. Regularized by l1-norm, these basis coefficients are optimized to reduce the error between the original CS-sampled signals and the masked reconstructed signals with a common optimization algorithm. In addition, the proposed network is able to handle complex bases, such as a Fourier basis. Benefiting from the nature of a multi-neuron layer, multiple signal channels can be reconstructed simultaneously. Meanwhile, the disassembled use of a large-scale basis makes the method memory-efficient. A numerical example of multiple sinusoidal waves and an example of field-test wireless data from a suspension bridge are carried out to illustrate the data-reconstruction ability of the proposed approach. The results show that high reconstruction accuracy can be obtained by the machine learning-based approach. In addition, the parameters of the network have clear meanings; the inference of the mapping between input and output is fully transparent, making the CS data reconstruction neural network interpretable.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Yuequan Bao"
+    },
+    {
+      "affiliations": [],
+      "name": "Zhiyi Tang"
+    }
+  ],
+  "id": "SP:dc8f214e0d99f6ffbc6f1d14633408c73880b99e",
+  "references": [
+    {
+      "authors": [
+        "Hui Li",
+        "Jinping Ou",
+        "Xigang Zhang",
+        "Minshan Pei",
+        "Na Li"
+      ],
+      "title": "Research and practice of health monitoring for long-span bridges in the mainland of china",
+      "venue": "Smart Struct Syst,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Keith Worden",
+        "Charles R Farrar",
+        "Jonathan Haywood",
+        "Michael Todd"
+      ],
+      "title": "A review of nonlinear dynamics applications to structural health monitoring",
+      "venue": "Struct Control Hlth,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Charles R Farrar",
+        "Keith Worden"
+      ],
+      "title": "Structural health monitoring: a machine learning perspective",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Jeong-Beom Ihn",
+        "Fu-Kuo Chang"
+      ],
+      "title": "Pitch-catch active sensing methods in structural health monitoring for aircraft structures",
+      "venue": "Struct Health Monit,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Billie F Jr Spencer",
+        "Manuel E Ruiz-Sandoval",
+        "Narito Kurata"
+      ],
+      "title": "Smart sensing technology: opportunities and challenges",
+      "venue": "Struct Control Hlth,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Peter C Chang",
+        "Alison Flatau",
+        "SC Liu"
+      ],
+      "title": "Health monitoring of civil infrastructure",
+      "venue": "Struct Health Monit,",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "Jinping Ou",
+        "Hui Li"
+      ],
+      "title": "Structural health monitoring in mainland china: review and future trends",
+      "venue": "Struct Health Monit,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "JM Ko",
+        "Yi Qing Ni"
+      ],
+      "title": "Technology developments in structural health monitoring of large-scale bridges",
+      "venue": "Eng Struct,",
+      "year": 2005
+    },
+    {
+      "authors": [
+        "David L Donoho"
+      ],
+      "title": "Compressed sensing",
+      "venue": "IEEE T Inform Theory,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Emmanuel J Cand\u00e8s"
+      ],
+      "title": "Compressive sampling",
+      "venue": "In Proceedings of the international congress of mathematicians,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Scott Shaobing Chen",
+        "David L Donoho",
+        "Michael A Saunders"
+      ],
+      "title": "Atomic decomposition by basis pursuit",
+      "venue": "SIAM Rev,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "M\u00e1rio AT Figueiredo",
+        "Robert D Nowak",
+        "Stephen J Wright"
+      ],
+      "title": "Gradient projection for sparse reconstruction: Application to compressed sensing and other inverse problems",
+      "venue": "IEEE J-STSP,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Michael Lustig",
+        "David Donoho",
+        "John M Pauly"
+      ],
+      "title": "Sparse mri: The application of compressed sensing for rapid mr imaging",
+      "venue": "Magnetic Resonance in Medicine: An Official Journal of the International Society for Magnetic Resonance in Medicine,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Elaine T Hale",
+        "Wotao Yin",
+        "Yin Zhang"
+      ],
+      "title": "Fixed-point continuation for l1-minimization: Methodology and convergence",
+      "venue": "SIAM J Optimiz,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Zaiwen Wen",
+        "Wotao Yin",
+        "Donald Goldfarb",
+        "Yin Zhang"
+      ],
+      "title": "A fast algorithm for sparse reconstruction based on shrinkage, subspace optimization, and continuation",
+      "venue": "SIAM J Sci Comput,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Tom Goldstein",
+        "Stanley Osher"
+      ],
+      "title": "The split bregman method for l1-regularized problems",
+      "venue": "SIAM J Imaging Sci,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Amir Beck",
+        "Marc Teboulle"
+      ],
+      "title": "A fast iterative shrinkage-thresholding algorithm for linear inverse problems",
+      "venue": "SIAM J Imaging Sci,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Stephen J Wright",
+        "Robert D Nowak",
+        "M\u00e1rio AT Figueiredo"
+      ],
+      "title": "Sparse reconstruction by separable approximation",
+      "venue": "IEEE T Signal Process,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Stephen Becker",
+        "J\u00e9r\u00f4me Bobin",
+        "Emmanuel J Cand\u00e8s"
+      ],
+      "title": "Nesta: A fast and accurate first-order method for sparse recovery",
+      "venue": "SIAM J Imaging Sci,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Shihao Ji",
+        "Ya Xue",
+        "Lawrence Carin"
+      ],
+      "title": "Bayesian compressive sensing",
+      "venue": "IEEE T Signal Process,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Ming Yuan",
+        "Yi Lin"
+      ],
+      "title": "Model selection and estimation in regression with grouped variables",
+      "venue": "J R Stat Soc B,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Dharmpal Takhar",
+        "Jason N Laska",
+        "Michael B Wakin",
+        "Marco F Duarte",
+        "Dror Baron",
+        "Shriram Sarvotham",
+        "Kevin F Kelly",
+        "Richard G Baraniuk"
+      ],
+      "title": "A new compressive imaging camera architecture using optical-domain compression",
+      "venue": "In Computational Imaging IV,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Marco F Duarte",
+        "Mark A Davenport",
+        "Dharmpal Takhar",
+        "Jason N Laska",
+        "Ting Sun",
+        "Kevin F Kelly",
+        "Richard G Baraniuk"
+      ],
+      "title": "Single-pixel imaging via compressive sampling",
+      "venue": "IEEE Signal Proc Mag,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Jianwei Ma"
+      ],
+      "title": "Single-pixel remote sensing",
+      "venue": "J IEEE Geoscience Remote Sensing Letters,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Felix J Herrmann",
+        "Michael P Friedlander",
+        "Ozgur Yilmaz"
+      ],
+      "title": "Fighting the curse of dimensionality: Compressive sensing in exploration seismology",
+      "venue": "IEEE Signal Proc Mag,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Chong Luo",
+        "Feng Wu",
+        "Jun Sun",
+        "Chang Wen Chen"
+      ],
+      "title": "Compressive data gathering for large-scale wireless sensor networks",
+      "venue": "In Proceedings of the 15th annual international conference on Mobile computing and networking,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Carlo Caione",
+        "Davide Brunelli",
+        "Luca Benini"
+      ],
+      "title": "Compressive sensing optimization for signal ensembles in wsns",
+      "venue": "IEEE T Ind Inform,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Roman Klis",
+        "Eleni N Chatzi"
+      ],
+      "title": "Vibration monitoring via spectro-temporal compressive sensing for wireless sensor networks",
+      "venue": "Struct Infrastruct E,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Sean O\u2019Connor",
+        "Jerome P Lynch",
+        "Anna Gilbert"
+      ],
+      "title": "Compressed sensing embedded in an operational wireless sensor network to achieve energy efficiency in long-term monitoring applications",
+      "venue": "Smart Mater Struct,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Yuequan Bao",
+        "Hui Li",
+        "Xiaodan Sun",
+        "Yan Yu",
+        "Jinping Ou"
+      ],
+      "title": "Compressive sampling\u2013based data loss recovery for wireless sensor networks used in civil structural health monitoring",
+      "venue": "Struct Health Monit,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Zilong Zou",
+        "Yuequan Bao",
+        "Hui Li",
+        "Billie F Spencer",
+        "Jinping Ou"
+      ],
+      "title": "Embedding compressive sensing-based data loss recovery algorithm into wireless smart sensors for structural health monitoring",
+      "venue": "IEEE Sens J,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Yongchao Yang",
+        "Satish Nagarajaiah"
+      ],
+      "title": "Harnessing data structure for recovery of randomly missing structural vibration responses time history: Sparse representation versus low-rank structure",
+      "venue": "Mech Syst Signal Pr,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Yuequan Bao",
+        "Zuoqiang Shi",
+        "Xiaoyu Wang",
+        "Hui Li"
+      ],
+      "title": "Compressive sensing of wireless sensors based on group sparse optimization for structural health monitoring",
+      "venue": "Struct Health Monit,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "CA Peckens",
+        "Jerome P Lynch"
+      ],
+      "title": "Utilizing the cochlea as a bio-inspired compressive sensing technique",
+      "venue": "Smart Mater Struct,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Jae Young Park",
+        "Michael B Wakin",
+        "Anna C Gilbert"
+      ],
+      "title": "Modal analysis with compressive measurements",
+      "venue": "IEEE T Signal Process,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Yongchao Yang",
+        "Satish Nagarajaiah"
+      ],
+      "title": "Output-only modal identification by compressed sensing: Non-uniform low-rate random sampling",
+      "venue": "Mech Syst Signal Pr,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Ying Wang",
+        "Hong Hao"
+      ],
+      "title": "Damage identification scheme based on compressive sensing",
+      "venue": "J Comput Civil Eng,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Ruigen Yao",
+        "Shamim N Pakzad"
+      ],
+      "title": "Compressive sensing based structural damage detection and localization using theoretical and metaheuristic statistics",
+      "venue": "Struct Control Hlth,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Shumei Zhou",
+        "Yuequan Bao",
+        "Hui Li"
+      ],
+      "title": "Structural damage identification based on substructure sensitivity and l1 sparse regularization. In Sensors and Smart Structures Technologies for Civil, Mechanical, and Aerospace Systems 2013, volume 8692, page 86923N",
+      "venue": "International Society for Optics and Photonics,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Xiao-Qing Zhou",
+        "Yong Xia",
+        "Shun Weng"
+      ],
+      "title": "L1 regularization approach to structural damage detection using frequency data",
+      "venue": "Struct Health Monit,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Chaodong Zhang",
+        "Youlin Xu"
+      ],
+      "title": "Comparative studies on damage identification with tikhonov regularization and sparse regularization",
+      "venue": "Struct Control Hlth,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Rongrong Hou",
+        "Yong Xia",
+        "Yuequan Bao",
+        "Xiaoqing Zhou"
+      ],
+      "title": "Selection of regularization parameter for l 1-regularized damage detection",
+      "venue": "J Sound Vib,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Yuequan Bao",
+        "Hui Li",
+        "Zhicheng Chen",
+        "Fujian Zhang",
+        "Anxin Guo"
+      ],
+      "title": "Sparse l 1 optimization-based identification approach for the distribution of moving heavy vehicle loads on cable-stayed bridges",
+      "venue": "Struct Control Hlth,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Jian Sun",
+        "Huibin Li",
+        "Zongben Xu"
+      ],
+      "title": "Deep admm-net for compressive sensing mri",
+      "venue": "In Advances in Neural Information Processing Systems,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Kyong Hwan Jin",
+        "Michael T McCann",
+        "Emmanuel Froustey",
+        "Michael Unser"
+      ],
+      "title": "Deep convolutional neural network for inverse problems in imaging",
+      "venue": "IEEE T Image Process,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jonas Adler",
+        "Ozan \u00d6ktem"
+      ],
+      "title": "Solving ill-posed inverse problems using iterative deep neural networks",
+      "venue": "Inverse Probl,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Joan Bruna",
+        "Pablo Sprechmann",
+        "Yann LeCun"
+      ],
+      "title": "Super-resolution with deep convolutional sufficient statistics",
+      "venue": "arXiv preprint arXiv:.05666,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Patrick Putzky",
+        "Max Welling"
+      ],
+      "title": "Recurrent inference machines for solving inverse problems",
+      "venue": "arXiv preprint arXiv:.04008,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Jen-Hao Rick Chang",
+        "Chun-Liang Li",
+        "Barnabas Poczos",
+        "BVK Vijaya Kumar",
+        "Aswin C Sankaranarayanan"
+      ],
+      "title": "One network to solve them all-solving linear inverse problems using deep projection models",
+      "venue": "In IEEE Int Conf Comput Vision,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Richard Zhang",
+        "Phillip Isola",
+        "Alexei A Efros"
+      ],
+      "title": "Colorful image colorization",
+      "venue": "In Eur Conf on Comput Vision,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Gustav Larsson",
+        "Michael Maire",
+        "Gregory Shakhnarovich"
+      ],
+      "title": "Learning representations for automatic colorization",
+      "venue": "In Eur Conf on Comput Vision,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "John R Hershey",
+        "Jonathan Le Roux",
+        "Felix Weninger"
+      ],
+      "title": "Deep unfolding: Model-based inspiration of novel deep architectures",
+      "venue": "arXiv preprint arXiv:1409.2574,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Krishna M. Kavi",
+        "Bill P. Buckles",
+        "U. Narayan Bhat"
+      ],
+      "title": "A formal definition of data flow graph models",
+      "venue": "IEEE T Comput,",
+      "year": 1986
+    },
+    {
+      "authors": [
+        "Joel A Tropp",
+        "Anna C Gilbert",
+        "Martin J Strauss"
+      ],
+      "title": "Algorithms for simultaneous sparse approximation. part i: Greedy pursuit",
+      "venue": "Signal Process,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Joel A Tropp"
+      ],
+      "title": "Algorithms for simultaneous sparse approximation. part ii: Convex relaxation",
+      "venue": "Signal Process,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Massimo Fornasier",
+        "Holger Rauhut"
+      ],
+      "title": "Recovery algorithms for vector-valued data with joint sparsity constraints",
+      "venue": "SIAM J Numer Anal,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Diederik P Kingma",
+        "Jimmy Ba"
+      ],
+      "title": "Adam: A method for stochastic optimization",
+      "venue": "arXiv preprint arXiv:1412.6980,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "David E Rumelhart",
+        "Geoffrey E Hinton",
+        "Ronald J Williams"
+      ],
+      "title": "Learning representations by back-propagating errors",
+      "year": 1986
+    },
+    {
+      "authors": [
+        "Tijmen Tieleman",
+        "Geoffrey Hinton"
+      ],
+      "title": "Lecture 6.5-rmsprop: Divide the gradient by a running average of its recent magnitude",
+      "venue": "COURSERA: Neural networks for machine learning,",
+      "year": 2012
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords Structural health monitoring \u00b7 Compressive sensing \u00b7 Model-driven machine learning \u00b7 interpretable machine learning \u00b7 Sparse data reconstruction"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Structural health monitoring (SHM) is a technology used to maintain the safety of structures that has been widely used in aerospace, civil, and mechanical engineering [1\u20138]. Generally, a SHM system consists of various sensors, a data-acquisition and -transmission system, data analysis and modeling, structural health diagnosis (including data processing, data mining, damage detection, model updating, safety evaluation, and reliability analysis), alarming devices, a visualization user interface, and software as well as an operating system [7].\n\u2217Correspondence to: Dr. Yuequan Bao (Professor), School of Civil Engineering, Harbin Institute of Technology, Harbin, China. Artificial Intelligence Lab, Harbin Institute of Technology, Harbin, China. E-mail: baoyuequan@hit.edu.cn\nar X\niv :1\n90 1.\n01 99\n5v 2\n[ ee\nss .S\nP] 2\n2 M\nData acquisition is the fundamental part in a SHM system. Traditional data acquisition must obey the NyquistShannon sampling theorem, which requires a signal to be sampled at least two times at the highest frequency in the signal. Thus, the amount of data collected by the SHM system will be huge. Compressive sensing (CS), also known as compressive sampling as proposed by Donoho and Candes, provides a new sampling theory for signals with sparse features in a certain domain [9, 10]. The signal is randomly collected, the size of which is much smaller than that recorded following the Nyquist-Shannon sampling theorem. Then, the original signal then can be exactly reconstructed with sparse optimization algorithms [9, 10].\nIn CS theory, the raw signal y \u2208 Rn can be sampled using a linear measurement,\nys = \u03a6y + e, (1)\nwhere \u03a6 denotes a measurement matrix or sampling operator in an m\u00d7 n matrix, ys is the sampled signal vector, and e is the measurement noise.\nAs \u03a6 is an m \u00d7 n matrix with m n, the problem of reconstructing the signal x is ill-posed. However, CS theory proved that if the signal is sparse (i.e., the signal has a sparse representation in some basis \u03a8 or a redundant dictionary D, y = \u03a8x or y = Dx) and the \u03a6 satisfies the restrictive isometry property (RIP), then the coefficient can be reconstructed by the l1 optimization problem:\ny = \u03a6\u03a8x+ e = \u0398x+ e, (2)\nx\u0302 = min \u2016x\u20161 such that \u2016y \u2212\u0398x\u0302\u20162 \u2264 \u03b5, (3)\nwhere \u03b5 is the bound on the level of the measurement error, \u2016e\u20162 \u2264 \u03b5 . Many algorithms have been proposed to solve the optimization problem of equation (3), such as basic pursuit (BP) [11], gradient projection for sparse reconstruction (GPSR) [12], l1 regularized least squares (l1-ls) [13], fixed-point continuation (FPC) [14] and the FPC active set (FPC-AS) [15], split Bregman [16], the fast iterative shrinkagethresholding algorithm [17], sparse reconstruction by separable approximation (SpaRSA) [18], NESTA (Nesterov\u2019s algorithm) [19], the Bayesian methods [20], and the group least absolute shrinkage and selection operator (LASSO) [21].\nCS has been widely used in many fields, including consumer camera imaging [22, 23], medical magnetic-resonance imaging [13], remote sensing [24], seismic exploration [25], and communications, especially for wireless sensor networks (WSN) [26, 27]. In SHM, the applications of CS theory have also been investigated in structural vibration data acquisition [28], wireless data transmission and lost data recovery [29\u201334], structural modal identification [35, 36], structural sparse damage identification [37\u201342], and sparse heavy-vehicle-loads identification of long-span bridges [43].\nAs mentioned above, the nature of CS is to solve an ill-posed inverse problem. By constructing an efficient objective function and regularization, the original data can be reconstructed by iterative optimization procedures. The recent advanced deep-learning techniques, as iterative methods, are naturally exploited to solve ill-posed inverse problems, especially in imaging, including image reconstruction [44\u201346], super-resolution [47\u201349], image denoising and inpainting [48, 49], and image colorization [50, 51]. The state-of-the-art performance of the above-listed deep neural networks (DNNs) are mainly accomplished by a large-scale data-driven strategy; meanwhile, the inner workings of the DNNs continue to be difficult to understand and interpret. More recently, several works have been devoted to incorporate machine-learning techniques and domain prior knowledge [44, 46, 52], which not only accomplished superior performance for inverse-problem solving, but also have interpretable inner mechanisms. To date, little effort has been made to develop the hybrid strategy outside the field of image processing and computer vision. In this paper, by treating a computation process as a data flow [53], we formalize the CS problem into a standard supervised-learning task for time-series signal reconstruction. We design a fully transparent neural network embedded with regularization. Unlike conventional black-box neural networks, the parameters of the network are interpretable with clear meaning; the inference of the mapping between input and output is fully transparent; and the large-scale basis matrix is distributedly utilized, which makes the method memory-efficient. In addition, the proposed network is able to handle complex bases, such as a Fourier basis. Benefiting from the multi-neuron layer, multiple channels of a signal can be reconstructed simultaneously.\nThe rest of the paper is organized as follows. The formalization of compressive sensing into a machine-learning task is explained in Section 2.1. Detailed architecture of the network and mathematics are given in Section 2.2. For method validation, a numerical example using synthetic signals is presented and discussed in Section 3.1, followed by another example using extensive field test wireless data in Section 3.2. Finally, discussion and conclusions are drawn in Section 4."
+    },
+    {
+      "heading": "2 Machine-learning approach for CS data reconstruction",
+      "text": ""
+    },
+    {
+      "heading": "2.1 Formalizing CS into a machine-learning task",
+      "text": "Suppose there are K sensors (channels) implemented on a structure. Each channel of the sensors is sampled N points uniformly in duration T , i.e., the sampling frequency is fs = N/T . Collecting all the data, we obtain an N \u00d7K matrix U ,\nU = u11 . . . u1K... unk ... uN1 . . . uNK  , U \u2208 RN\u00d7K , (4) where unk is the data measured by the kth sensor at time tn.\nThen, let P denote a masking matrix to random sample the original signals U via element-wise multiplication, in which all elements inside are either 0 or 1 in the Bernoulli distribution with sampling ratio \u03b3 [equation (5)]. The sampled signal matrix Y is then Y = P U , and the problem is how to calculate the original signal matrix U from the given signal matrix Y :\nf(pnk) = { \u03b3 for pnk = 1 1\u2212 \u03b3 for pnk = 0 , pnk \u2208 P \u2208 ZN\u00d7K . (5)\nAs mentioned above, CS is an ill-posed inverse problem with a general representation like equation (6). When facing multiple signals simultaneously, which is commonly encountered, the CS problem of equation (3) can be represented based on \u201csimultaneous sparsity\u201d [54, 55] or \u201cjoint sparsity\u201d [56] in different areas as follows:\nU = \u03a6X + e,\u03a6 \u2208 CN\u00d7N , X \u2208 CN\u00d7K , e \u2208 CN\u00d7K , (6)\nwhere X is the basis coefficient matrix of N points and K channels, \u03a6 the basis matrix, and e the error. The basis coefficient matrix X is reconstructed by solving the following optimization problem [33]:\nmin X\u2208CN\u00d7K\n\u2016X\u0302\u20161 + \u00b5\n2 \u2016P U \u2212 P \u03a6X\u0302\u20162, (7)\nwhere X\u0302 is the possible solution of the Fourier coefficients matrix and \u00b5 the penalty weight. Once the optimal solution Xrec is obtained, the reconstructed signal matrix is given by\nUrec = \u03a6Xrec. (8)\nIt is shown that the form of equation (7) is equivalent to the loss function of a regression task with regularization of parameters in the context of machine learning. Figure 1(a) illustrates the mind map of formalizing CS into a supervised-learning task. One can consider the prior knowledge, i.e., the basis matrix and the CS-sampled signals as input and output, respectively; each row of them constitutes a pair of samples as shown in Figure 1(b). The basis coefficient matrix and masking matrix are embedded into a machine neural network as weights and neurons, respectively. Then, the computation process of conventional CS is constructed as the feed-forward of the network. Different from a regular black-box neural network, the proposed network for data reconstruction is prior-knowledge-embedded and interpretable for each layer. Mathematics and examples of the network are given in the following subsections."
+    },
+    {
+      "heading": "2.2 Construction of the novel CS-embedded neural network",
+      "text": "As shown in Figure 2, the proposed network consists of four modules: input, basis coefficients solving, masking, and output. In the first module, the basis matrix \u03a6 acts as the input, and each row of the basis matrix is a training sample. For example, a basis matrix \u03a6 of dimension 1024 \u00d7 1024 will generate 1024 samples, and the size of each sample is 1 \u00d7 1024. Note that the proposed network is able to handle complex bases, such as a Fourier basis. The real and imaginary parts of the basis are input into the network separately. If the basis matrix is real, then the imaginary-part inputs are all zero. Meanwhile, the disassembled use of the large-scale basis makes the method memory-efficient because there is no need to load the basis matrix into memory all at once.\nInput Basis coeffs solving with l1 optimization Masking Output\n\u03a8real = \u03a8 real 11 . . . \u03a8 real 1N\n... \u03a8realnn ...\n\u03a8realN1 . . . \u03a8 real NN\n ,\u03a8real \u2208 RN\u00d7N , (9)\n\u03a8imag = \u03a8 imag 11 . . . \u03a8 imag 1N\n... \u03a8 imagnn ...\n\u03a8 imagN1 . . . \u03a8 imag NN  ,\u03a8imag \u2208 RN\u00d7N , (10) \u03a8 = \u03a8real + i \u00b7\u03a8imag,\u03a8 \u2208 CN\u00d7N . (11)\nAccordingly, the basis coefficient matrix X is written as follows:\nXreal = x real 11 . . . x real 1K\n... xrealnk ...\nxrealN1 . . . x real NK\n , Xreal \u2208 RN\u00d7K , (12)\nXimag = x imag 11 . . . x imag 1K\n... ximagnk ...\nximagN1 . . . x imag NK  , Ximag \u2208 RN\u00d7K , (13) X = Xreal + i \u00b7Ximag, X \u2208 CN\u00d7K . (14)\nIn the basis-coefficients-solving module, the real and imaginary parts of the basis coefficients are embedded as two sets of weights between the input layer and first hidden layer, which are expressed in red and green, respectively, in Figure 2. For the first hidden layer, the activation function of each neuron is simply the linear function , which is omitted in the following equations. Note that there is a set of mirrors of Xreal and Ximag for the complex operation. The architecture of the basis-coefficients-solving layer is determined by the complex algorithm as follows:\nU\u0302 = \u03a8X\u0302 = (\u03a8realX\u0302real \u2212\u03a8imagX\u0302imag) + i \u00b7 (\u03a8realX\u0302imag + \u03a8imagX\u0302real), U\u0302 \u2208 CN\u00d7K . (15)\nThe masking module is designed to sample the reconstructed signal matrix by as follows:\nY\u0302 = P U\u0302 , Y\u0302 \u2208 CN\u00d7K , (16)\nwhere Y\u0302 denotes the masked reconstructed signals. In real-world applications, the masking matrices embedded in the transmitter and receiver are identical. Then, in the output layer, the target is the given signals Y\u0302 .\nThe loss function of the network is twofold: one is the mean-squared error (MSE) that measures the error between the masked reconstructed signals Y\u0302 and the actual sampled signals Y ; another is the l1 regularizer that applys penalties on the weights Xreal and Ximag during optimization. The loss function is given as\nL = 1\nK N\u2211 n=1 K\u2211 k=1 (ynk \u2212 y\u0302nk)2 + \u00b5 2 (\u2016Xreal\u20161 + \u2016Ximag\u20161)\n= 1\nK N\u2211 n=1 K\u2211 k=1 (ynk \u2212 y\u0302nk)2 + \u00b5 2 N\u2211 n=1 K\u2211 k=1 (|xrealnk |+ |x imag nk |),\n(17)\nwhere the lower-case variables denote the elements of corresponding matrix. So far, the feed-forward procedure has been established. In this work, we use the Adam [57] algorithm [equation (18)] to optimize the random initialized basis coefficients due to its superior convergence performance by combining stochastic gradient descent with momentum (SGDM) [58] and root-mean-square propagation (RMSProp) [59]:\nu (t+1) X = \u03b21u (t) X + (1\u2212 \u03b21)\u2207XL (t), (18a)\nv (t+1) X = \u03b22v (t) X + (1\u2212 \u03b22)(\u2207XL (t))2, (18b)\nu\u0302X = u (t+1) X\n1\u2212 (\u03b21)t+1 , (18c)\nv\u0302X = v (t+1) X\n1\u2212 (\u03b22)t+1 , (18d)\nX(t+1) = X(t) \u2212 \u03b7 u\u0302X\u221a v\u0302X + \u03b5 , (18e)\nwhere X refers to both Xreal and Ximag for simplicity, t denotes the step of iteration, u (t) X is the gradient with momentum of X , v(t)X the gradient with second momentum of X , \u2207XL(t) the gradient of L(t) with respect to X , and \u03b21, \u03b22 are the respective hyperparameters used to weight the momentum and second momentum terms.\nOnce we obtain the reconstructed signals, the reconstruction error between the original and reconstructed signals is calculated by\n\u03be = | \u2016U \u2212 Urec\u20162 \u2016U\u20162 |col, (19)\nwhere | \u00b7 |col denotes column-wise operation, i.e., the norm is separately calculated for each channel; therefore, the reconstruction error \u03be is a row vector of dimension 1\u00d7K."
+    },
+    {
+      "heading": "3 Examples",
+      "text": ""
+    },
+    {
+      "heading": "3.1 Examples using simple synthetic signals",
+      "text": "To validate the performance of the proposed CS-embedded network for data reconstruction, numerical simulations were conducted on multiple sinusoidal waves. First, five sinusoidal waves of frequency 10, 20, 30, 40, and 50 Hz were generated at a sampling frequency ; then, a superposed wave was synthesized from the first five waves by linear superposition. All six waves were sampled at by the masking module of the network; therefore, the equivalent sampling frequency is 80 Hz, which is already lower than twice the maximum predominant frequency (50 Hz) of signals 5 and 6, thus breaking the Nyquist-Shannon sampling theorem. The specific expressions of each simulated signal are given in equations (19). A Fourier-basis matrix of dimension is used as the input; correspondingly, the original signal matrix is split into four matrices of dimension (i.e., 5.12 s in duration) as the targets:\nT = 20.48 s, fs = 400 Hz, t \u2208 [0, T ], dt = 1/fs = 0.0025 s,\nsn = An cos (2\u03c0 \u00b7 fn \u00b7 t+ phasen). (20)\n s1 = cos (2\u03c0 \u00b7 10 \u00b7 t) s2 = 0.1 \u00b7 cos (2\u03c0 \u00b7 20 \u00b7 t+ 0.1\u03c0) s3 = 0.3 \u00b7 cos (2\u03c0 \u00b7 30 \u00b7 t+ 0.3\u03c0) s4 = 0.5 \u00b7 cos (2\u03c0 \u00b7 40 \u00b7 t+ 0.5\u03c0) s5 = 0.7 \u00b7 cos (2\u03c0 \u00b7 50 \u00b7 t+ 0.7\u03c0) s6 = s1 + s2 + s3 + s4 + s5\n2.0 2.2 2.4 2.6 2.8 3.0 Time ( ec)\n\u22121\n0\n1\nVe lo cit\ny (m\nm / ) Signal 1 - Comparison\nOriginal Sampled Recovered Error\n0 10 20 30 40 50 60 Frequency (Hz)\n0\n500\n1000\nVe lo\ncit y\n(m m\n/s ) Signal 1 - Comparison\nOriginal Recovered Error\n2.0 2.2 2.4 2.6 2.8 3.0 Time (sec)\n\u22120.1\n0.0\n0.1\nVe lo cit\ny (m\nm /s ) Signal 2 - Comparison\n0 10 20 30 40 50 60 Frequency (Hz)\n0\n50\nVe lo cit\ny (m\nm /s ) Signal 2 - Comparison\n2.0 2.2 2.4 2.6 2.8 3.0 Time (sec)\n\u22120.25\n0.00\n0.25\nVe lo cit\ny (m\nm /s ) Signal 3 - Comparison\n0 10 20 30 40 50 60 Frequency (Hz)\n0\n100\n200\nVe lo cit\ny (m\nm /s ) Signal 3 - Comparison\nThe comparison results in Figure 3 show that although the sampled points are quite sparse, all six signals are well reconstructed both in the time and frequency domains. Signals 5 and 6 even achieved better reconstruction compared with the other signal channels. Moreover, without any constraints except for l1-norm minimization for X , in Figure 4 the real and imaginary parts of the reconstructed basis coefficients show the fine characteristics of even and odd symmetry, respectively, which agree on the nature of the Fourier basis."
+    },
+    {
+      "heading": "3.2 Examples using field test wireless data of a long-span bridge",
+      "text": "Next, we used more complex data collected from a field test on Xiamen Haicang Bridge to evaluate the performance of the proposed approach. As shown in Figure 5(a), the bridge is a steel-box-girder suspension bridge with a span distribution of 230 m+648 m+230 m, two towers with a height of 140 m, and a bridge deck 32 m wide. To avoid disturbing the normal traffic, the test was carried out at midnight. The test schemes are shown in Figure 6. Specifically, the tests were repeated nine times and tested a total of 62 test points. Test 1 had seven test points (Nos. 1\u20136 and No. 26); wireless sensors were placed on the seven test points to measure the vibration data. The time duration of each test was 20 min. After Test 1 finished, the wireless sensors were moved for Test 2, which also included seven test points (Nos. 7\u201312 and No. 26). Considering the effective wireless-data-transmission distances, test point No. 26 was selected as the reference point for all nine tests. Tests 3\u20139 were conducted in the same way. The field test used nine commercial wireless velocity sensors as shown in Figure 5(b); the sampling frequency for data acquisition was 100 Hz.\nWe simulate the CS-sampling procedure at nine different sampling ratios ranging from 10% to 50% in steps of 5% for all 62 points. The length of the signal slice and the dimension of the basis matrix are both set to 2048. Table 1 lists the schedule of parameters during optimization. It is found that the real part of the signal is slower to converge in\nthe optimization procedures, so the loss weight pair is introduced in the output layer to magnify the loss individually, which mainly speeds up the training of the real part. Figure 7 and Figure 8 demonstrate the typical signal-reconstruction process (Test 2, point 26, \u03b3 = 0.3). Specifically, Figure 7 visualizes the reconstructed time response at epochs 100, 150, 200, 400, and 600. It is shown that the reconstructed response remains almost zero after 100 epochs of training; then, it gradually converges to the original. Figure 8 shows the loss history of Xreal and Ximag , as well as the evolution of the shapes of Xreal and Ximag .\n(a)\nNine grouped test results in Figure 9 show the consistent decrease of reconstruction error as the sampling ratio increases from 10% to 50% in steps of 5%. At a sampling ratio of 0.3, the best reconstruction appears at Test 6, channel 7, which achieves an error of only 0.0474; meanwhile, the reconstruction errors of other signals are approximately 0.1; at a sampling ratio of 0.5, again, channel 7 of Test 6 accomplishes the minimal reconstruction error of 0.0196; other signals are reconstructed with errors ranging approximately between 0.05 and 0.1.\n0.1 0.2 0.3 0.4 0.5 Sampling ratio\n0.00 0.05 0.10 0.15 0.20 0.25 0.30\n0.40\n0.50\n0.60\n0.70\n0.80\nRe co\nns tru\nct io n er ro r\nNo. 1 No. 2 No. 3 No. 4 No. 5 No. 6 No. 26-1\n0.1 0.2 0.3 0.4 0.5 Sampling ratio\n0.00 0.05 0.10 0.15 0.20 0.25 0.30\n0.40\n0.50\n0.60\n0.70\n0.80\nRe co\nns tru\nct io n er ro r\nNo. 7 No. 8 No. 9 No. 10 No. 11 No. 12 No. 26-2\n0.1 0.2 0.3 0.4 0.5 Sampling ratio\n0.00 0.05 0.10 0.15 0.20 0.25 0.30\n0.40\n0.50\n0.60\n0.70\n0.80\nRe co\nns tru\nct io n er ro r\nNo. 13 No. 14 No. 15 No. 16 No. 17 No. 18 No. 19 No. 20 No. 26-3\n0.1 0.2 0.3 0.4 0.5 Sampling ratio\n0.00 0.05 0.10 0.15 0.20 0.25 0.30\n0.40\n0.50\n0.60\n0.70\n0.80\nRe co\nns tru\nct io n er ro r\nNo. 21 No. 22 No. 23 No. 24 No. 25 No. 26 No. 27 No. 28 No. 26-4\n0.1 0.2 0.3 0.4 0.5 Sampling ratio\n0.00 0.05 0.10 0.15 0.20 0.25 0.30\n0.40\n0.50\n0.60\n0.70\n0.80\nRe co\nns tru\nct io n er ro r\nNo. 29 No. 30 No. 31 No. 32 No. 33 No. 34 No. 35 No. 36 No. 26-5\n0.1 0.2 0.3 0.4 0.5 Sampling ratio\n0.00 0.05 0.10 0.15 0.20 0.25 0.30\n0.40\n0.50\n0.60\n0.70\n0.80\nRe co\nns tru\nct io n er ro r\nNo. 37 No. 38 No. 39 No. 40 No. 41 No. 42 No. 43 No. 44 No. 26-6"
+    },
+    {
+      "heading": "4 Discussion and conclusions",
+      "text": "In this paper, we proposed a novel neural network approach to solve the CS data-reconstruction problem. The prior knowledge, i.e., the Fourier-basis matrix and CS-sampled signals, are used as the input and the target of the network; the coefficient matrix is embedded as the parameters of a certain layer; and the objective function of conventional CS is set as the loss function of the network. Regularized by l1-norm, these basis coefficients are optimized to reduce the error between the original CS-sampled signals and masked reconstructed signals with a common gradient-descent optimization algorithm. Multiple signal channels can be reconstructed simultaneously. Validations using numerical data and field-test data show that data can be well reconstructed with low sampling ratio.\nIt is noteworthy that, although the neural network-based approach was used only to reconstruct the time-series SHM data, it is an open architecture for other conventional optimization problems. Essentially, a neural network can be considered as a computation graph, in which other objective functions or regularizations can be mapped into as elements such as nodes or weights. The integration of classical optimization problems and machine-learning techniques not only enables neural networks to be used to solve conventional optimization, but also makes the neural network interpretable and more trustworthy for users, which promotes the incorporation of machine-learning techniques into processes with well-grounded rationales or critical outputs. In the big data and AI times, machine learning will have a good potential to solve the optimization problems in civil engineering."
+    },
+    {
+      "heading": "5 Acknowledgment",
+      "text": "This research was supported by grants from the National Key R&D Program of China (Grant No. 2017YFC1500603), the National Natural Science Foundation of China (Grant No. U1711265, 51678203 and 51638007)."
+    }
+  ],
+  "title": "COMPRESSIVE-SENSING DATA RECONSTRUCTION FOR STRUCTURAL HEALTH MONITORING: A MACHINE-LEARNING APPROACH",
+  "year": 2019
+}

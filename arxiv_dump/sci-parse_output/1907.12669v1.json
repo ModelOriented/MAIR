@@ -1,0 +1,212 @@
+{
+  "abstractText": "Explainable models in Artificial Intelligence are often employed to ensure transparency and accountability of AI systems. The fidelity of the explanations are dependent upon the algorithms used as well as on the fidelity of the data. Many real world datasets have missing values that can greatly influence explanation fidelity. The standard way to deal with such scenarios is imputation. This can, however, lead to situations where the imputed values may correspond to a setting which refer to counterfactuals. Acting on explanations from AI models with imputed values may lead to unsafe outcomes. In this paper, we explore different settings where AI models with imputation can be problematic and describe ways to address such scenarios.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Muhammad Aurangzeb Ahmad"
+    },
+    {
+      "affiliations": [],
+      "name": "Carly Eckert"
+    },
+    {
+      "affiliations": [],
+      "name": "Ankur Teredesai"
+    }
+  ],
+  "id": "SP:9691db11353be10190b02483844617bfafd6f211",
+  "references": [
+    {
+      "authors": [
+        "Muhammad A Ahmad",
+        "Carly Eckert",
+        "Greg McKelvey",
+        "Kiyana Zolfagar",
+        "Anam Zahid",
+        "Ankur Teredesai"
+      ],
+      "title": "Death vs. data science: Predicting end of life",
+      "venue": "In Thirty-Second AAAI Conference on Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Muhammad Aurangzeb Ahmad",
+        "Carly Eckert",
+        "Ankur Teredesai"
+      ],
+      "title": "Interpretable machine learning in healthcare",
+      "venue": "In Proceedings of the 2018 ACM International Conference on Bioinformatics, Computational Biology, and Health Informatics,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Melissa J Azur",
+        "Elizabeth A Stuart",
+        "Constantine Frangakis",
+        "Philip J Leaf"
+      ],
+      "title": "Multiple imputation by chained equations: what is it and how does it work",
+      "venue": "International journal of methods in psychiatric research,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Richard Berk",
+        "Hoda Heidari",
+        "Shahin Jabbari",
+        "Michael Kearns",
+        "Aaron Roth"
+      ],
+      "title": "Fairness in criminal justice risk assessments: The state of the art",
+      "venue": "Sociological Methods & Research,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Tianqi Chen",
+        "Carlos Guestrin"
+      ],
+      "title": "Xgboost: A scalable tree boosting system",
+      "venue": "In Proceedings of the 22nd acm sigkdd international conference on knowledge discovery and data mining,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Federico Cismondi",
+        "Andr\u00e9 S Fialho",
+        "Susana M Vieira",
+        "Shane R Reti",
+        "Jo\u00e3O MC Sousa",
+        "Stan N Finkelstein"
+      ],
+      "title": "Missing data in medical databases: Impute, delete or classify",
+      "venue": "Artificial intelligence in medicine,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Setsuro Ebashi",
+        "Takeyuki WAKABAYASHI",
+        "Fumiko EBASHI"
+      ],
+      "title": "Troponin and its components",
+      "venue": "The Journal of Biochemistry,",
+      "year": 1971
+    },
+    {
+      "authors": [
+        "David Gunning"
+      ],
+      "title": "Explainable artificial intelligence (xai)",
+      "venue": "Defense Advanced Research Projects Agency (DARPA), nd Web,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Roderick JA Little",
+        "Donald B Rubin"
+      ],
+      "title": "Statistical analysis with missing data, volume 793",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Yuan Luo",
+        "Peter Szolovits",
+        "Anand S Dighe",
+        "Jason M Baron"
+      ],
+      "title": "3d-mice: integration of cross-sectional and longitudinal imputation for multi-analyte longitudinal clinical data",
+      "venue": "Journal of the American Medical Informatics Association,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Sendhil Mullainathan",
+        "Ziad Obermeyer"
+      ],
+      "title": "Does machine learning automate moral hazard and error",
+      "venue": "American Economic Review,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why should i trust you?: Explaining the predictions of any classifier",
+      "venue": "In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Lloyd S Shapley"
+      ],
+      "title": "A value for n-person games",
+      "venue": "Contributions to the Theory of Games,",
+      "year": 1953
+    },
+    {
+      "authors": [
+        "Megha Srivastava",
+        "Hoda Heidari",
+        "Andreas Krause"
+      ],
+      "title": "Mathematical notions vs. human perception of fairness: A descriptive approach to fairness for machine learning",
+      "year": 1902
+    },
+    {
+      "authors": [
+        "Adrian Weller"
+      ],
+      "title": "Challenges for transparency",
+      "venue": "arXiv preprint arXiv:1708.01870,",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "text": "ar X\niv :1\n90 7.\n12 66\n9v 1\n[ cs\n.L G\n] 2\n9 Ju\nl 2 01\nten employed to ensure transparency and accountability of\nAI systems. The fidelity of the explanations are dependent\nupon the algorithms used as well as on the fidelity of the\ndata. Many real world datasets have missing values that can\ngreatly influence explanation fidelity. The standard way to deal\nwith such scenarios is imputation. This can, however, lead\nto situations where the imputed values may correspond to a\nsetting which refer to counterfactuals. Acting on explanations\nfrom AI models with imputed values may lead to unsafe\noutcomes. In this paper, we explore different settings where"
+    },
+    {
+      "heading": "AI models with imputation can be problematic and describe ways to address such scenarios.",
+      "text": ""
+    },
+    {
+      "heading": "1. Introduction",
+      "text": "Even though the field of Artificial Intelligence is more than sixty years old, it is only in the last decade or so that AI systems are being increasingly interwoven into the fabric of the socio-technical apparatus of the society and are thus having a massive impact on society. This increasing incorporation of AI has led to increased calls for accountability and regulation of AI systems [8]. Model explanations are considered to be one of the most important ways to provide accountability of AI systems. The model explanations, however, can only be as good as the data on which the algorithms are based. This is where the issue of missing and imputed data becomes pivotal for model explanations. In some domains like healthcare, almost all datasets have missing values [6]. As many applications of AI in healthcare are patient-oriented, decisions that are informed by AI and ML models can potentially have significant clinical consequences. Additionally, the requirements for a responsible and robust AI solution in critical domains like healthcare, criminal justice system etc. require additional considerations that affect safety and compliance with regulations [2].\nOne of the main reasons why imputation is used in AI and machine learning models is that it allows the use of all available data for model building instead of restricting oneself to a subset of completed records, likely achieve via deletion. The net effect is that models built using imputed data often result in better predictive performance. Consequently, imputation may be necessary if performance is\nmore important than explainability. Even outside of data missingness, researchers acknowledge that there is a tradeoff between explainable AI models and their predictive performance [16] i.e., in general the more explainable a model is the less predictive power it will have and vice versa. Thus, Deep Learning models, which are epitome of black box models, are relatively opaque but models like linear regression models are more straightforward to interpret. The choice of the underlying algorithm for model explanation is often dependent upon the risk involved [2]. For example, in a problem predicting the likely need for palliative care, the physician must know why the prediction is being made since the prediction may changes the plan of care for a patient. In this scenario predictive performance could be sacrificed for intelligibility of the prediction. On the other hand, if the application is to predict the upcoming patient census in an emergency department the ED charge nurse may be less concerned with model explainability.\nConcerns regarding the safety of AI systems become paramount when we consider that incorrect imputation can lead to explanations that may not have fidelity with the underlying phenomenon and thus may lead to potentially harmful actions, especially in decision support systems. Consequently, questions regarding imputation are of paramount importance from a safety and even regulatory perspective in high risk fields like healthcare, criminal justice system, and elsewhere. In this paper we will explore multiple scenarios that can arise when dealing with imputation in model explanations in AI. To illustrate the problems with imputation, we consider use cases in the healthcare domain using data from a hospital system in the mid-Western United States consisting of data from 76 thousand patients, similar but not identical to the dataset used in [1]."
+    },
+    {
+      "heading": "2. Imputation with Unsafe Outcomes",
+      "text": "It is important to note that explainability is just one mechanism to ensure safety of AI systems and to mitigate against unwarranted and unforeseen outcomes. Optimizing for explinability via post-hoc models while simultaneously optimizing for performance via imputation may lead to unsafe outcomes as we demonstrate with examples from healthcare and the criminal justice system."
+    },
+    {
+      "heading": "2.1. Use Case: Imputation and Patient Safety",
+      "text": "One of the main dangers for using imputed values for model explanations is that the explanations that are produced may in fact have factors which are absurd or do not make domain sense. To illustrate, consider the following example based off of the problem of predicting the length of stay of a patient at a hospital at the time of admission. Suppose that a black box model is used (e.g., Extreme Gradient Boosting) as the underlying predictive model. One way to extract explanations from this models is to use post-hoc models like LIME [13] or Shapley Values [14]. To illustrate such a case, consider the output for model explanation in Table 1 for predicting length of stay in a hospital using the LIME model. The Table gives the factor and its associated value, as well as the relative importance of the factor for the explanation and whether it was imputed or not. The third most important factor, the albumin level which refers to a lab test, is an imputed value.\nSuppose the end user for this system is a clinician who is trying to understand why the predictions are being made. To get the full context she looks at her patient\u2019s lab results (e.g., a list of the most recent lab tests and results for the patient.) She will observe a missing value for Albumin but when she looks at the explanation for the predictions and sees the lab value for a lab which was not actually performed. The problem with this scenario is that it could cast doubt on the entire machine learning solution in the mind of the user since the explanation for the prediction is at odds with the patient history. Consider the alternative ways in which this scenario can play out e.g., if the explanation for the prediction is that the patient has a low readmission risk due to a low Troponin. Troponin refers to a group of proteins found in skeletal and heart muscle fibers that are responsible for regulating muscular contraction [7]. However if Troponin has not been evaluated, the physician may overlook that fact and assume that an acute coronary event has already been ruled out. However if the acute coronary event is indeed the real reason for the patient is at risk then it is may lead to a catastrophic outcome.\nAdditionally imputing from a biased population (hospitalized patients, for example) does not give one a true representation of the value in a patient without pathology e.g., Troponin is only measured in people with an expected heart attack or other acute cardiac issue. Therefore, the distribution of values for Troponin does not represent that of the non-diseased population. If a 20 year old is in the Emergency Department for abdominal pain from appendicitis, one should not impute a Troponin. What this example illustrates is that in some contexts there is additional context which may not be captured by data and imputing without domain knowledge can be potentially hazardous."
+    },
+    {
+      "heading": "2.2. Use Case: Imputation in Criminal Justice System",
+      "text": "Another use case where imputation can lead to adverse consequences is in the criminal justice system. If the predic-\ntion task is to predict if the person is likely to re-offend or not, then imputing values may lead to scenarios where the person is deemed low risk because variables related to the person\u2019s risk profile are imputed based on people who are similar to him in the larger population. The problem with this approach using imputation is that if the sample is biased against minority populations then imputation may always leads to imputing negative tendencies and thus higher risk scores for the minority population. This may happen even if demographic features are not used in model building [4] and because such factors are not used they will also not show up as explanation factors. The end user will only see that the person is a high risk because of certain, possibly violent, tendencies or past history. If the imputed nature of such explanations is not highlighted then this is likely to lead to faulty recommendations and even wrongfully long sentences."
+    },
+    {
+      "heading": "3. Alternates to Imputation in Model Explanations",
+      "text": "Since model performance is a requirement in most machine learning applications and explanation fidelity is needed, it is important to consider alternatives to imputation. One way to address the problem of missing values in some domains is to use indicator variables because the presence and absence of certain variable is still useful information. In Electronic Health Records (EHR) datasets majority of the labs and vitals are missing for most patients because testing for all labs is unnecessary and thus the labs were never ordered. Most machine learning predictive models infer the missing values via imputation. If a result exists for a lab then that implies that the ordering clinician deemed it necessary. Therefore, the fact that the lab was ordered is itself useful information. We propose that this information can be incorporated in machine learning models in at least two ways. In the first scheme, indicator variables for features like labs and vitals can be used. Instead of the original values for the variables we record their presence and absence as follows:\nf(x) =\n{\n0, if x = null 1, otherwise (1)\nThe alternate method is to use central values i.e., average, median, truncated average etc. or central values by cohort for variables like labs and vitals as follows:\nf(x) =\n{\nnorm(x), if x = null x, otherwise (2)\nIt should be noted that even though one can use imputed variables instead of the corresponding variable with the actual and missing values, in most cases the expected performance of a model based on the indicator variables would be less as compared to a model with imputed values. Consider Decision Trees where the split of the decision tree branch needs to be decided for a variable in integer space e.g., age. A popular scheme to do this is to consider the midpoints between actual data points and determine which splits give the best information gain or other information theoretic criteria.\nAssuming that most variable spaces will be non-binary spaces, the split that one gets from the indicator variables will be different since the loss of entropy given by the equation would be different. In other words the models which are created from the imputed variables vs. the indicator variables would be different. To illustrate this, we build multiple prediction models on the mid-Western EHR data described above. The results of prediction for the models are given in Table 2. The model with no missing values refers to a model that was built with only using variables with no missing values. We note that even for the model which used variables with missing values, we did not use a variable where more than fifty percent of the values were missing. Since the space of such variables is much smaller as compared to the space considered for all the variables, the performance of the models is quite mediocre i.e., an MAE of 4.09 days. The results for the model with a sophisticated imputation technique like MICE are quite good with an MAE of 2.08 days and that for the model with indicator variables is 2.46 days.\nLastly, we also tried model building with average values and the results are better than what we get for indicator variables model but with the caveat that these values do not correspond to anything that was measured but rather the values are inferred for normalcy. While the indicator variables models is not as good as the imputation model, it may still be sufficiently good to be used in a production setting. The added advantage of using such a model would be that the model explanations would actually correspond to how the data is i.e., indicate the presence or absence of a variable."
+    },
+    {
+      "heading": "4. Explanability vs. Types of Data Missingness",
+      "text": "All imputation methods add bias to the data which in turn affects the fidelity of the model built based on the imputed data. This implies that model fidelity is dependent upon the nature of the missing data and the imputation technique. Data can be, Missing at random, not missing at random and completely missing at random [9]. Consider\nhow each of these missingness types affect model explanations: If the data is missing completing at random (MCAR) then even though imputation adds bias to the data, the introduced bias would be local i.e., at the instance level and not global since the data is not systematically missing. On the other hand, if the data is missing at random (MAR) then it means that the missing data is at least partially dependent upon other variables in the data e.g., in a survey people who are in the service sector may be less likely to report their income, clinicians may not order certain labs to be tested if they think that the patient is less likely to have certain conditions. Imputing in such cases, add bias to the data at the global level.\nImputation for data that is missing at random can be done by employing domain knowledge or some other known aspect of data e.g., expected values for populations with normal characteristics may be imputed for some laboratory tests if the patients do not have certain conditions. Lastly, if the data is not missing at random (NAMR) then sophisticated statistical methods like MICE, 3D-MICE are often used used for imputation. MICE or multiple imputation by chained equations [3] is a method where each missing variable is imputed by a separate model but it maintains consistency between imputations by means of passive imputation. It should be noted that however, all imputation methods introduce biases and studies have shown that imputed values can be wildly off from real values [10]. If the values are off then the explanations will be incorrect. Thus, explanations for AI models are less likely to be off in case of the data missingness is because of MAR or MCAR but imputation for NMAR data could occasionally lead to explanations that may not correspond to how the model actually works. We address these and other concerns in the section on operationalization of explanations.\nImplementations of tree based models like XGBoost handle missing values by having a default direction for nodes with missing values in the current instance set [5]. The direction of the missing data is thus used as a proxy of data missingness. Such implementations of tree based algorithms minimize error loss in the training phase. However this also means that if the distribution of missing values in the test set is different from that of the training set then the performance of the predictive models will suffer and consequently the quality of explanations generated by the models would also degrade."
+    },
+    {
+      "heading": "5. Operationalizing Explanations with Imputation",
+      "text": "An important axis of accountability of Artificial Intelligence systems is Fairness. There are multiple notions of what constitutes fairness in machine learning [15], to illustrate the effect of imputation on fairness and explainability we focus on group level notions of fairness. A system that is fair need not be explainable if the underlying algorithm can ensure that the various groups of interest are being scored in a fair manner even when the model is blackbox. Requiring\nthe model to be explainable and interpretable may require it impute values about groups which could render the model unfair since imputed values can add bias against certain protected groups e.g., ethnicity, race, gender etc. The choice of the trade-off should be made with respect to the use case and the application domain.\nIt has been noted that generating and operationalizing explanations is not strictly a machine learning problem [16]. The same machine learning model may be used to generate disparate explanations if the use case or the end users are different [2]. The risk profile of the end user determines how explanations should be operationalized. If the use of explainable models is an absolute requirement in a setting where there are a large number of missing values then appropriate disclaims regarding data missing and imputation should be given to the end user. Even with such messaging it is still possible that automation bias can creep in and lead to unsafe recommendations and outcomes [12]. Additionally, imputation of missing values can lead to models which are unfair and thus require special attention [11]."
+    },
+    {
+      "heading": "6. Conclusion",
+      "text": "In this paper we have highlighted a number of issues related to extracting explanations from AI and machine learning models that use imputation of missing data. If such issues are not surfaced to the end user then acting upon explanations from such models can lead to dire consequence in terms of human safety and well being. The case of incorrect explanations in the healthcare domain is especially acute. At the minimum use of explanations at the local instance level should be accompanied by appropriate disclaimers and end users should be properly educated about the potential hazards of incorrect explanations. The other alternative is to take an engineering approach to explanations and assume that assurance of AI systems takes precedence over explainability. Just as one\u2019s choice of algorithm for prediction problems needs to take into account the risk profile of the prediction, the same should also apply for imputation."
+    }
+  ],
+  "title": "The Challenge of Imputation in Explainable Artificial Intelligence Models",
+  "year": 2019
+}

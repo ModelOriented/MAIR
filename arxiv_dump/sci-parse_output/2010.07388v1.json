@@ -1,0 +1,678 @@
+{
+  "abstractText": "A method for the local and global interpretation of a black-box model on the basis of the well-known generalized additive models is proposed. It can be viewed as an extension or a modification of the algorithm using the neural additive model. The method is based on using an ensemble of gradient boosting machines (GBMs) such that each GBM is learned on a single feature and produces a shape function of the feature. The ensemble is composed as a weighted sum of separate GBMs resulting a weighted sum of shape functions which form the generalized additive model. GBMs are built in parallel using randomized decision trees of depth 1, which provide a very simple architecture. Weights of GBMs as well as features are computed in each iteration of boosting by using the Lasso method and then updated by means of a specific smoothing procedure. In contrast to the neural additive model, the method provides weights of features in the explicit form, and it is simply trained. A lot of numerical experiments with an algorithm implementing the proposed method on synthetic and real datasets demonstrate its efficiency and properties for local and global interpretation.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Andrei V. Konstantinov"
+    },
+    {
+      "affiliations": [],
+      "name": "Lev V. Utkin"
+    }
+  ],
+  "id": "SP:ddf4f6d87d9ec07cc00f7ee7f2ae1335636a6dfe",
+  "references": [
+    {
+      "authors": [
+        "A. Adadi",
+        "M. Berrada"
+      ],
+      "title": "Peeking inside the black-box: A survey on explainable artificial intelligence (XAI)",
+      "venue": "IEEE Access, 6:52138\u201352160,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R. Agarwal",
+        "N. Frosst",
+        "X. Zhang",
+        "R. Caruana",
+        "G.E. Hinton"
+      ],
+      "title": "Neural additive models: Interpretable machine learning with neural nets",
+      "venue": "arXiv:2004.13912, April",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A.B. Arrieta",
+        "N. Diaz-Rodriguez",
+        "J. Del Ser",
+        "A. Bennetot",
+        "S. Tabik",
+        "A. Barbado",
+        "S. Garcia",
+        "S. Gil-Lopez",
+        "D. Molina",
+        "R. Benjamins",
+        "R. Chatila",
+        "F. Herrera"
+      ],
+      "title": "Explainable artificial intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI",
+      "venue": "arXiv:1910.10045, October",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "V. Belle",
+        "I. Papantonis"
+      ],
+      "title": "Principles and practice of explainable machine learning",
+      "venue": "arXiv:2009.11698, September",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "G. Biau",
+        "E. Scornet"
+      ],
+      "title": "A random forest guided tour",
+      "venue": "Test, 25(2):197\u2013227,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "C.D. Blakely",
+        "O.C. Granmo"
+      ],
+      "title": "Closed-form expressions for global and local interpretation of Tsetlin machines with applications to explaining high-dimensional data",
+      "venue": "arXiv:2007.13885, July",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "L. Breiman"
+      ],
+      "title": "Random forests",
+      "venue": "Machine learning, 45(1):5\u201332,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "R. Caruana",
+        "Y. Lou",
+        "J. Gehrke",
+        "P. Koch",
+        "M. Sturm",
+        "N. Elhadad"
+      ],
+      "title": "Intelligible models for healthcare: Predicting pneumoniarisk and hospital 30-day readmission",
+      "venue": "Proceedings of the 21th ACM SIGKDD international conference on knowledge discovery and data mining, pages 1721\u20131730,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "D.V. Carvalho",
+        "E.M. Pereira",
+        "J.S. Cardoso"
+      ],
+      "title": "Machine learning interpretability: A survey on methods and metrics",
+      "venue": "Electronics, 8(832):1\u201334,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "C.-H. Chang",
+        "S. Tan",
+        "B. Lengerich",
+        "A. Goldenberg",
+        "R. Caruana"
+      ],
+      "title": "How interpretable and trustworthy are gams? arXiv:2006.06466",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "J. Chen",
+        "J. Vaughan",
+        "V.N. Nair",
+        "A. Sudjianto"
+      ],
+      "title": "Adaptive explainable neural networks (AxNNs)",
+      "venue": "arXiv:2004.02353v2, April",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "T. Chen",
+        "C. Guestrin"
+      ],
+      "title": "Xgboost: A scalable tree boosting system",
+      "venue": "Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pages 785\u2013794, New York, NY,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A. Das",
+        "P. Rad"
+      ],
+      "title": "Opportunities and challenges in explainableartificial intelligence (XAI): A survey",
+      "venue": "arXiv:2006.11371v2, June",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M. Du",
+        "N. Liu",
+        "X. Hu"
+      ],
+      "title": "Techniques for interpretable machine learning",
+      "venue": "arXiv:1808.00033, May",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "J. Feng",
+        "Y.X. Xu",
+        "Y. Jiang",
+        "Z.-H. Zhou"
+      ],
+      "title": "Soft gradient boosting machine",
+      "venue": "arXiv:2006.04059, June",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "J. Feng",
+        "Y. Yu",
+        "Z.-H. Zhou"
+      ],
+      "title": "Multi-layered gradient boosting decision trees",
+      "venue": "Advances in Neural Information Processing Systems, pages 3551\u20133561. Curran Associates, Inc.,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R. Fong",
+        "A. Vedaldi"
+      ],
+      "title": "Explanations for attributing deep neural network predictions",
+      "venue": "Explainable AI, volume 11700 of LNCS, pages 149\u2013167. Springer, Cham,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R.C. Fong",
+        "A. Vedaldi"
+      ],
+      "title": "Interpretable explanations of black boxes by meaningful perturbation",
+      "venue": "Proceedings of the IEEE International Conference on Computer Vision, pages 3429\u20133437. IEEE,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J.H. Friedman"
+      ],
+      "title": "Greedy function approximation: A gradient boosting machine",
+      "venue": "Annals of Statistics, 29:1189\u2013 1232,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "J.H. Friedman"
+      ],
+      "title": "Stochastic gradient boosting",
+      "venue": "Computational statistics & data analysis, 38(4):367\u2013378,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "D. Garreau",
+        "U. von Luxburg"
+      ],
+      "title": "Explaining the explainer: A first theoretical analysis of LIME",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "D. Garreau",
+        "U. von Luxburg"
+      ],
+      "title": "Looking deeper into tabular LIME",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "P. Geurts",
+        "D. Ernst",
+        "L. Wehenkel"
+      ],
+      "title": "Extremely randomized trees",
+      "venue": "Machine learning, 63:3\u201342,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "R. Guidotti",
+        "A. Monreale",
+        "S. Ruggieri",
+        "F. Turini",
+        "F. Giannotti",
+        "D. Pedreschi"
+      ],
+      "title": "A survey of methods for explaining black box models",
+      "venue": "ACM computing surveys, 51(5):93,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "T. Hastie",
+        "R. Tibshirani"
+      ],
+      "title": "Generalized additive models, volume 43",
+      "venue": "CRC press,",
+      "year": 1990
+    },
+    {
+      "authors": [
+        "A. Holzinger",
+        "G. Langs",
+        "H. Denk",
+        "K. Zatloukal",
+        "H. Muller"
+      ],
+      "title": "Causability and explainability of artificial intelligence in medicine",
+      "venue": "WIREs Data Mining and Knowledge Discovery, 9(4):e1312,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Q. Huang",
+        "M. Yamada",
+        "Y. Tian",
+        "D. Singh",
+        "D. Yin",
+        "Y. Chang"
+      ],
+      "title": "GraphLIME: Local interpretable model explanations for graph neural networks",
+      "venue": "arXiv:2001.06216, January",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "T. Huber",
+        "K. Weitz",
+        "E. Andre",
+        "O. Amir"
+      ],
+      "title": "Local and global explanations of agent behavior: Integrating strategy summaries with saliency maps",
+      "venue": "arXiv:2005.08874, May",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Jung"
+      ],
+      "title": "Explainable empirical risk minimization",
+      "venue": "arXiv:2009.01492, September",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "I. Karlsson",
+        "J. Rebane",
+        "P. Papapetrou",
+        "A. Gionis"
+      ],
+      "title": "Locally and globally explainable time series tweaking",
+      "venue": "Knowledge and Information Systems, 62:1671\u20131700,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A.V. Konstantinov",
+        "L.V. Utkin"
+      ],
+      "title": "A generalized stacking for implementing ensembles of gradient boosting machines",
+      "venue": "arXiv:2010.06026, October",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A.V. Konstantinov",
+        "L.V. Utkin"
+      ],
+      "title": "Gradient boosting machine with partially randomized decision trees",
+      "venue": "arXiv:2006.11014, June",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "M.S. Kovalev",
+        "L.V. Utkin",
+        "E.M. Kasimov"
+      ],
+      "title": "SurvLIME: A method for explaining machine learning survival models",
+      "venue": "Knowledge-Based Systems, 203:106164,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Y. Lou",
+        "R. Caruana",
+        "J. Gehrke"
+      ],
+      "title": "Intelligible models for classification and regression",
+      "venue": "Proceedings of the 18th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, pages 150\u2013158. ACM, August",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "G. Erion",
+        "H. Chen",
+        "A. DeGrave",
+        "J.M. Prutkin",
+        "B. Nair",
+        "R. Katz",
+        "J. Himmelfarb",
+        "N. Bansal",
+        "S.-I. Lee"
+      ],
+      "title": "From local explanations to global understanding with explainable AI for trees",
+      "venue": "Nature Machine Intelligence, 2:56\u201367,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "S.M. Lundberg",
+        "S.-I. Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "Advances in Neural Information Processing Systems, pages 4765\u20134774,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Mikolajczyk",
+        "M. Grochowski",
+        "Kwasigroch A"
+      ],
+      "title": "Global explanations for discovering bias in data",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "C. Molnar"
+      ],
+      "title": "Interpretable Machine Learning: A Guide for Making Black Box Models Explainable",
+      "venue": "Published online, https://christophm.github.io/interpretable-ml-book/,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Natekin",
+        "A. Knoll"
+      ],
+      "title": "Gradient boosting machines, a tutorial",
+      "venue": "Frontiers in neurorobotics, 7(Article 21):1\u201321,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "H. Nori",
+        "S. Jenkins",
+        "P. Koch",
+        "R. Caruana"
+      ],
+      "title": "InterpretML: A unified framework for machine learning interpretability",
+      "venue": "arXiv:1909.09223, September",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "V. Petsiuk",
+        "A. Das",
+        "K. Saenko"
+      ],
+      "title": "Rise: Randomized input sampling for explanation of black-box models",
+      "venue": "arXiv:1806.07421, June",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Rabold",
+        "H. Deininger",
+        "M. Siebers",
+        "U. Schmid"
+      ],
+      "title": "Enriching visual with verbal explanations for relational concepts: Combining LIME with Aleph",
+      "venue": "arXiv:1910.01837v1, October",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Why should I trust You?\u201d Explaining the predictions of any classifier",
+      "venue": "arXiv:1602.04938v3, Aug",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "M.T. Ribeiro",
+        "S. Singh",
+        "C. Guestrin"
+      ],
+      "title": "Anchors: High-precision model-agnostic explanations",
+      "venue": "AAAI Conference on Artificial Intelligence, pages 1527\u20131535,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "C. Rudin"
+      ],
+      "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+      "venue": "Nature Machine Intelligence, 1:206\u2013215,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "O. Sagi",
+        "L. Rokach"
+      ],
+      "title": "Ensemble learning: A survey",
+      "venue": "WIREs Data Mining and Knowledge Discovery, 8(e1249):1\u201318,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S.M. Shankaranarayana",
+        "D. Runje"
+      ],
+      "title": "ALIME: Autoencoder based approach for local interpretability",
+      "venue": "arXiv:1909.02437, Sep",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A.J. Smola",
+        "B. Scholkopf"
+      ],
+      "title": "A tutorial on support vector regression",
+      "venue": "Statistics and Computing, 14:199\u2013222,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "E. Strumbel",
+        "I. Kononenko"
+      ],
+      "title": "An efficient explanation of individual classifications using game theory",
+      "venue": "Journal of Machine Learning Research, 11:1\u201318,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "R. Tibshirani"
+      ],
+      "title": "Regression shrinkage and selection via the Lasso",
+      "venue": "Journal of the Royal Statistical Society. Series B (Methodological), 58(1):267\u2013288,",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "M.N. Vu",
+        "T.D. Nguyen",
+        "N. Phan",
+        "M.T. Thai R. Gera"
+      ],
+      "title": "Evaluating explainers via perturbation",
+      "venue": "arXiv:1906.02032v1, Jun 2019",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "N. Xie",
+        "G. Ras",
+        "M. van Gerven",
+        "D. Doran"
+      ],
+      "title": "Explainable deep learning: A field guide for the uninitiated",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "C. Yang",
+        "A. Rangarajan",
+        "S. Ranka"
+      ],
+      "title": "Global model interpretation via recursive partitioning",
+      "venue": "20th International Conference on High Performance Computing and Communications; IEEE 16th International Conference on Smart City; 4th International Conference on Data Science and Systems (HPCC/SmartCity/DSS), pages 1563\u20131570. IEEE,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Z. Yang",
+        "A. Zhang",
+        "A. Sudjianto"
+      ],
+      "title": "Gami-net: An explainable neural networkbased on generalized additive models with structured interactions",
+      "venue": "arXiv:2003.07132, March",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "X. Zhang",
+        "S. Tan",
+        "P. Koch",
+        "Y. Lou",
+        "U. Chajewska",
+        "R. Caruana"
+      ],
+      "title": "Axiomatic interpretability for multiclass additive models",
+      "venue": "In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining, pages 226\u2013234. ACM,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Z.-H. Zhou",
+        "J. Feng"
+      ],
+      "title": "Deep forest: Towards an alternative to deep neural networks",
+      "venue": "Proceedings of the 26th International Joint Conference on Artificial Intelligence (IJCAI\u201917), pages 3553\u20133559, Melbourne, Australia,",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords: interpretable model, XAI, gradient boosting machine, decision tree, ensemble model, Lasso method."
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Machine learning models play an important role for making decision and inferring predictions in various applications. However, a lot of machine learning models are regarded as black boxes, and they cannot easily explain their predictions or decisions in a way that humans could understand. This fact contradicts with a requirement of understanding results provided by the models, for example, a doctor has to have an explanation of a stated diagnosis and has to understand why a machine learning model provides the diagnosis in order to choose a preferable treatment [26], the doctor cannot effectively use predictions provided by the models without their interpretation and explanation. To cope with the problem of interpretation of black-box models, a lot of interpretable models have been developed to explain predictions of the deep classification and regression algorithms, for example, deep neural network predictions [4, 24, 38, 52].\nInterpretation methods can be divided into two groups: local and global methods. Local methods try to explain a black-box model locally around a test example whereas global methods derive interpretations on the whole dataset or its part. In spite of importance and interest of the global interpretation methods, most applications aim to understand decisions concerning with an object to answer the question what features of the analyzed object are responsible for a black-box model prediction. Therefore, we focus on both the groups of interpretation methods, including local as well as global interpretations.\nOne of the most popular post-hoc approaches to interpretation is to approximate a black-box model by the linear model. The well-known methods like SHAP (SHapley Additive exPlanations) [36, 49] and LIME (Local Interpretable Model-Agnostic Explanation) [43] are based on building a linear model around the instance to be explained. Coefficients of the linear model are interpreted as the feature\u2019s importance. The linear regression for solving the regression problem or logistic regression for solving the classification problem allow us to construct the corresponding linear models.\nar X\niv :2\n01 0.\n07 38\n8v 1\n[ cs\n.L G\n] 1\n4 O\nHowever, the simple linear model cannot adequately approximate a black-box model in some cases. Therefore, its generalization in the form of Generalized Additive Models (GAMs) [25] is used. GAMs are a class of linear models where the outcome is a linear combination of some functions of features. They aim to provide a better flexibility for the approximation of the black-box model and to determine the feature importance by analyzing how the feature affects the predicted output through its corresponding function [34, 55]. GAMs can be written as follows:\ny(x) = w0 + w1g1(x1) + ...+ wmgm(xm). (1)\nwhere x = (x1, ..., xm) is the feature vector; y is the target variable; gi is a univariate shape function with E(gi) = 0; w = (w1, ..., wm) is the vector of coefficients.\nThe feature contribution to the black-box model output can be understood by looking at the shape functions gi [40, 10].\nOne of the interpretation methods using GAMs is Explainable Boosting Machine (EBM) proposed by Nori et al. [40]. According to EBM, shape functions are gradient-boosted ensembles of bagged trees, each tree operating on a single variable. Another interesting class of models called Neural Additive Models (NAMs) was proposed by Agarwal et al. [2]. NAMs learn a linear combination of neural networks such that a single feature is fed to each network which performs the function gi(xi). The networks are trained jointly. The impact of every feature on the prediction is determined by its corresponding shape function gi.\nSimilar approaches using neural networks for constructing GAMs and performing shape functions called GAMI-Net and the Adaptive Explainable Neural Networks (AxNNs) were proposed by Yang et al. [54] and Chen et al. [11], respectively.\nOne of the popular models to explain the black-box model by means of GAMs is the well-known gradient boosting machine (GBM) [19, 20]. GBMs have illustrated their efficiency for solving regression problems. An idea behind their using as interpretation models is that all features are sequentially considered in each iteration of boosting to learn shape function for all features. For example, it is shown by Lou et al. [34] that all shape functions are set to zero to initialize the algorithm. For each feature, residuals are calculated, the onedimensional function is learned on residuals, and it is added to the shape function. This procedure is performed over a predefined number of iterations. It should be noted that regression trees are often used to predict new residuals. They are built in the GBM such that each successive tree predicts the residuals of the preceding trees given an arbitrary differentiable loss function [46].\nAnother modification of the GBM for interpretation is based on the boosting package XGBoost [12]. Chang et al. [10] propose to limit the tree depth to 1 to avoid interactions of features and to convert XGBoost to the GAM.\nIn order to extend the set of interpretation methods using GAMs, we propose another method based on applying GBMs with partially randomized decision trees [32]. In contrast to extremely randomized trees proposed by Geurts et al. [23], the cut-point for partitioning each feature in these trees is determined randomly from the uniform distribution, but the best feature is selected such that it maximizes the score. The proposed method is based on a weighted sum of separate GBMs such that each GBM depends on a single feature.\nIn contrast to the NAM [2], the proposed model calculates coefficients w1, ..., wm of the GAM in the explicit form because GBMs are built in parallel, but not sequentially. Moreover, the problem of a long training of neural networks is partially solved because the proposed algorithm implementing the model optimally fits coefficients w1, ..., wm in each iteration of the gradient boosting due to using the Lasso method and a cross-validation procedure. When the weights stop changing, the training process can be stopped, unlike EBM, where the stopping criterion is an accuracy measure. In addition, if there exist correlations between features, the proposed model detects them. In this case, the weights continue to grow and will not reach a plateau.\nIn contrast to models proposed in [8], the proposed method builds many decision trees for every feature. Moreover, all GBMs are trained simultaneously and dependently. First, coefficients of the GAM play the role of an adaptive learning rate [32], which allows us to reduce the overfitting problem. Second, if the prediction is a non-linear function, for example, in the case of classification, then derivatives of the loss function for each GBM depend on predictions of other GBMs. It is important to note that the GBMs in the proposed method can be used jointly with neural networks when a part of features is processed by trees, another part is used by networks.\nA lot of numerical experiments with an algorithm implementing the proposed method on synthetic and real datasets demonstrate its efficiency and properties for local and global interpretation.\nThe code of the proposed algorithmn can be found in https://github.com/andruekonst/egbm-gam. The paper is organized as follows. Related work is in Section 2. An introduction to the GBM, brief introductions to LIME and the NAM are provided in Section 3 (Background). A detailed description of the proposed interpretation method and an algorithm implementing it are provided in Section 4. Numerical experiments with synthetic data and real data using the global interpretation are given in Section 5. Numerical experiments with the local interpretation are given in Section 6. Concluding remarks can be found in Section 7."
+    },
+    {
+      "heading": "2 Related work",
+      "text": "Local and global interpretation methods. Due to importance of the machine learning model interpretation in many applications, a lot of methods have been proposed to explain black-box models locally. One of the first local interpretation methods is the Local Interpretable Model-agnostic Explanations (LIME) [43], which uses simple and easily understandable linear models to approximate the predictions of black-box models locally. Following the original LIME [43], a lot of its modifications have been developed due to a nice simple idea underlying the method to construct a linear approximating model in a local area around a test example. Examples of these modifications are ALIME [47], Anchor LIME [44], LIME-Aleph [42], GraphLIME [27], SurvLIME [33]. Another explanation method, which is based on the linear approximation, is the SHAP [36, 49], which takes a game-theoretic approach for optimizing a regression loss function based on Shapley values. A comprehensive analysis of LIME, including the study of its applicability to different data types, for example, text and image data, is provided by Garreau and Luxburg [21]. The same analysis for tabular data is proposed by Garreau and Luxburg [22]. An interesting information-theoretic justification of interpretation methods on the basis of the concept of explainable empirical risk minimization is proposed by Jung [29].\nAn important group of interpretation methods is based on perturbation techniques [17, 18, 41, 51]. The basic idea behind the perturbation techniques is that contribution of a feature can be determined by measuring how a prediction score changes when the feature is altered [14]. Perturbation techniques can be applied to a black-box model without any need to access the internal structure of the model. However, the corresponding methods are computationally complex when samples are of the high dimensionality.\nGlobal interpretations are more difficult tasks, and there are a few papers devoted to solving the global interpretation tasks [6, 28, 30, 35, 37, 53]. We also have to point out models which can be used as local and global interpretations [2, 8, 10, 11, 34, 40, 54].\nA lot of interpretation methods, their analysis, and critical review can be found in survey papers [1, 3, 4, 9, 13, 24, 45, 52].\nGradient boosting machines with randomized decision trees. GBMs are efficient tool for solving regression and classification problems. Moreover, it is pointed out by Lundberg et al. [35] that GBMs with decision trees as basic models can be more accurate than neural networks and more interpretable than linear models. Taking into account this advantage of decision trees in GBMs, a modification of the GBM on the basis of the deep forests [56] called the multi-layered gradient boosting decision tree model is proposed by Feng et al. [16]. Another modification is the soft GBM [15]. It turns out that randomized decision trees [23] may significantly improve GBMs with decision trees. As a results, several models are implemented by using different modifications of randomized decision trees [31]. These methods can be successfully applied to the local and global interpretation problems."
+    },
+    {
+      "heading": "3 Background",
+      "text": ""
+    },
+    {
+      "heading": "3.1 A brief introduction to the GBM for regression",
+      "text": "The standard regression problem can be stated as follows. Given N training examples D = {(x1, y1), ..., (xN , yN )}, in which xi belongs to a set X \u2282 Rm and represents a feature vector involving m features, and yi \u2208 R represents the observed output or the target value such that yi = q(xi) + \u03b5. Here \u03b5 is the\nrandom noise with expectation 0 and unknown finite variance. Machine learning aims to construct a regression model or an approximation g of the function f that minimizes the expected risk or the expected loss function\nL(g) = E(x,y)\u223cP l(y, g(x)) = \u222b X\u00d7R L(y, g(x))dP (x, y), (2)\nwith respect to the function parameters. Here P (x, y) is a joint probability distribution of x and y; the loss function L(\u00b7, \u00b7) may be represented, for example, as follows:\nL(y, g(x)) = (y \u2212 g(x))2 . (3)\nThere are many powerful machine learning methods for solving the regression problem, including regression random forests [5, 7], the support vector regression [48], etc. One of the powerful methods is the GBM [20], which will be briefly considered below.\nGBMs iteratively improve the predictions of y from x with respect to L by adding new weak or base learners that improve upon the previous ones, forming an additive ensemble model of size M :\ng0(x) = c, gi(x) = gi\u22121(x) + \u03b3ihi(x), i = 1, ...,M. (4)\nwhere i is the iteration index; hi is the i-th base model, for example, a decision tree; \u03b3i is the coefficient or the weight of the i-th base model.\nThe algorithm aims to minimize the loss function L, for example, the squared-error L2-loss, by iteratively computing the gradient in accordance with the standard gradient descent method. If to say about decision trees as the base models, then a single decision tree is constructed in each iteration to fit the negative gradients. The function hi can be defined by parameters \u03b8i, i.e., hi(x) = h(x, \u03b8i). However, we will not use the parametric representation of the function.\nThe gradient boosting algorithm can be represented be means of Algorithm 1.\nAlgorithm 1 The GBM algorithm\nRequire: Training set D; the number of the GBM iterations T Ensure: Predicted function g(x) 1: Initialize the zero base model g0(x), for example, with the constant value. 2: for t = 1, t \u2264M do 3: Calculate the residual q\n(t) i as the partial derivative of the expected loss function L(yi, gt(xi)) at every\npoint of the training set, t = 1, ..., N , (the negative gradient)\nq (t) i = \u2212\n\u2202L(yi, z)\n\u2202z\n\u2223\u2223\u2223\u2223 z=gi\u22121(xi)\n(5)\n4: Build a new base model (a regression tree) ht(xi) on dataset {(xi, q(t)i )} 5: Find the best gradient descent step-size \u03b3t:\n\u03b3t = arg min \u03b3 N\u2211 i=1 L(yt, gt\u22121(xi) + \u03b3ht(xi)) (6)\n6: Update the whole model gt(x) = gt\u22121(x) + \u03b3tht(x); 7: end for 8: Output\ngM (x) = M\u2211 t=1 \u03b3tht(x) = gM\u22121(x) + \u03b3MhM (x). (7)\nThe above algorithm minimizes the expected loss function by using decision trees as base models. Its parameters include depths of trees, the learning rate, the number of iterations. They are selected to provide a high generalization and accuracy depending on an specific task.\nThe gradient boosting algorithm is a powerful and efficient tool for solving regression problems, which can cope with complex non-linear function dependencies [39]."
+    },
+    {
+      "heading": "3.2 Neural Additive Models",
+      "text": "The proposed interpretation method can be regarded as a modification of the NAM because this method takes some ideas behind the NAM, namely, the separate training on single features and summing the shape functions gi. Therefore, we consider it in detail. According to [2], a general scheme of the NAM is shown in Fig. 1. The separate networks with inputs x1, ...,xm are trained jointly using backpropagation. They can realize arbitrary shape functions because there are no restrictions on these networks. However, a difficulty of learning the neural network may be a possible small amount of training data in case of the global interpretation. In this case, the network may be overfitted. On the one hand, to cope with the overfitting problem, the separate networks can be constructed as small as possible to reduce the number of their training parameters. On the other hand, simple neural networks may have difficulties in realizing the corresponding shape functions."
+    },
+    {
+      "heading": "3.3 LIME",
+      "text": "It is important to point out that methods based on using GAMs and NAMs [2, 8, 10, 11, 34, 40, 54] as well as the proposed method can be regarded as some modifications of LIME for local interpretation to some extent. In the case of local interpretation, the methods have to use the perturbation technique and to minimize the loss function which measures how the interpretation is close to the prediction. The same elements are used in LIME [43]. Therefore, we briefly consider the original LIME.\nLIME aims to approximate a black-box interpretable model denoted as f with a simple linear function g in the vicinity of the point of interest x, whose prediction by means of f has to be interpreted, under condition that the approximation function g belongs to a set of linear functions G. According to LIME, a new dataset consisting of perturbed examples xk around point x is generated to construct the function g, and predictions corresponding to the perturbed examples are obtained by means of the black-box model, i.e., by computing f(xk) for many points xk. Weights wx are assigned to new examples in accordance with their proximity to the point of interest x by using a distance metric, for example, the Euclidean distance.\nAn interpretation (local surrogate) model is trained on new generated samples by solving the following\noptimization problem: arg min\ng\u2208G L(f, g, wx) + \u03a6(g). (8)\nHere L is a loss function, for example, mean squared error, which measures how the model g is close to the prediction of the black-box model f ; \u03a6(g) is the regularization term.\nThe obtained local linear model g interprets the prediction by analyzing coefficients of g. It should be noted that LIME can also apply GAMs as an extension of G. However, the shape functions of features have to be known for constructing the optimization problem."
+    },
+    {
+      "heading": "4 The interpretation method and the algorithm for regression",
+      "text": "The basic idea behind the proposed interpretation method is to realize a weighted sum of GBMs such that each GBM depends on a single feature. Moreover, weights of features obtained by means of the proposed algorithm can be used for interpretation because their absolute values can be viewed as impacts of the features.\nThe proposed method of interpretation can play roles of the local interpretation when a test example x is interpreted and a new dataset consisting of perturbed samples at a local area around the test example x is generated, as well as the global interpretation when the interpretation model is built on the entire dataset. Plots showing the corresponding shape functions gk of features describe the model behavior. The difference between the local and global models from the implementation point of view is in a dataset for training the proposed interpretation model. In particular, outcomes yi of the black-box model in the local case are values of f(xi) obtained for examples xi generated in a local area around the test example x. In case of the global interpretation, outcomes yi of the black-box model are values of f(xi) obtained for examples from the initial dataset.\nThe algorithm implementing the proposed interpretation method for regression is based on the iterative use of a GBM ensemble consisting of m parallel GBMs such that each GBM deals with a separate feature. The corresponding model is composed as a weighted sum of separate GBMs such that each GBM depends on a single feature. Partially randomized decision trees [32] are used for implementing each GBM. The cut-point for partitioning each feature in these trees is randomly selected from the uniform distribution, but the optimal feature is selected to maximize the score. The tree depth is limited to 1. It is important to point out that arbitrary trees can be used for implementing the GBMs. However, various experiments show that the used depth 1 significantly reduces the risk of overfitting. Moreover, the training time is significantly reduced when the depth of trees is 1. It is a very interesting and unexpected observation that trees of depth 1 with the random splitting of each feature provide better results than deep trees. This observation again illustrates the strength of the GBM as a machine learning model.\nInitially, each GBM computes functions g(s)(xi,k) of the k-th feature in the s-th iteration of the whole\nalgorithm by using residuals r (s) i \u00b7w (s) k , i = 1, ..., N , obtained from all training examples, and the feature vectors xi, i = 1, ..., N , as input data. Here w (s) k is the weight of the k-th feature. The upper index s shows the iteration number of the ensemble. It is assumed that all weights are initially equal to 1, i.e., w (0) k = 1 for k = 1, ...,m. In other words, the input data is the set of pairs (xi,k, r (s) i ), i = 1, ..., N . If to initialize residuals as r (s) i = 0, then the iteration with s = 0 starts with the training set (xi,k, 0), i = 1, ..., N . One should distinguish residuals q (t) i obtained in each GBM (5) (see Algorithm 1) and residuals r (s) i obtained in the ensemble of GBMs. Moreover, in order to avoid misunderstanding, we will consider every GBM based on decision trees and predicting a separate feature as a minimal element without its detal.\nA general scheme of the algorithm implementing the proposed interpretation method is shown in Fig. 2. Let us denote the N -dimensional vector of functions g(s)(xi,k) for all examples from the dataset computed by the k-th GBM as g (s) k , and the N \u00d7m matrix of functions g(s)(xi,k) as G(s), where G(s) = [g (s) 1 , ...,g (s) m ]. The importance of features can be estimated by computing weights w (s) k , k = 1, ...,m, of every shape function or every vector g (s) k . In order to assign weights to vectors g (s) k , k = 1, ...,m, the Lasso method [50] is used. It should be noted that other methods for assigning the weights can be used, for example, the ridge regression or\nthe elastic net regression. However, our numerical experiments show that the Lasso method significantly reduces time (and the number of the ensemble iterations) for convergence of the weights. Denote weights computed by using the Lasso method as v (s) k . In order to smooth the weight changes in each iteration, we propose to update the weights by means of the following rule:\nw (s) k = (1\u2212 \u03b1)w (s\u22121) k + \u03b1 \u00b7 v (s) k , k = 1, ...,m. (9)\nHere \u03b1 \u2208 (0, 1] is the smoothing parameter. In particular, if \u03b1 = 1, then \u201cold\u201d weights w(s\u22121)k obtained in the previous iteration are not used and weights w\n(s) k are totally determined by the current iteration. This case\nmay lead to a better convergence of weights due to their possible large deviations.\nHaving the updated weights, new target values y \u2217(s) i , i = 1, ..., N , are computed by multiplying matrix G (s)\nby vector [w (s) 1 , ..., w (s) m ]T. The values y \u2217(s) i can be viewed as current predictions of the model after s iterations. Hence, the residual r (s) i can be computed as the partial derivative (the negative gradient) of the expected loss function L(yi, y \u2217(s) i ) at every point of the training set, t = 1, ..., N ,\nr (s) i = \u2212\n\u2202L(yi, z)\n\u2202z\n\u2223\u2223\u2223\u2223 z=y\n\u2217(s) i\n. (10)\nIn contrast to the standard GBM, we have to get residual r (s) i,k for every example as well as every feature\nbecause every feature is separately processed by the corresponding GBM. It should be noted that there holds\ny \u2217(s) i = m\u2211 k=1 g(s)(xi,k)w (s) k . (11)\nHence, we get\nr (s) i,k = \u2212\n\u2202L ( yi, \u2211m k=1 zikw (s) k ) \u2202zik \u2223\u2223\u2223\u2223\u2223\u2223 zik=g(s)(xi,k)\n= \u2212 \u2202L(yi, z) \u2202z \u2223\u2223\u2223\u2223 z=y\n\u2217(s) i\n\u00b7 \u2202z \u2202t \u2223\u2223\u2223\u2223 t=g(s)(xi,k)\n= r (s) i \u00b7 w (s) k . (12)\nThe above implies that the training set for learning the k-th GBM at the next iteration is represented by\npairs (xi,k, r (s) i \u00b7 w (s) k ), i = 1, ..., N . The same training sets are used by all GBMs which correspond to features with indices k = 1, ...,m. One of the problems is that the obtained weights may be of different scales. In order to overcome this problem and to correct the weights, coefficients are multiplied by the standard deviation of every feature computed with using all points from the dataset. The obtained corrected weights will be viewed as the feature importance. The same procedure has been performed by Chen et al. [11].\nSeveral rules for stopping the algorithm can be proposed. The algorithm can stop iterations when the weights do not change or they insignificantly change with some relative deviation . However, this rule may lead to an enormous number of iteration when weights are not stabilized due to overfitting problems. Therefore, we use just some predefined value T of iterations, which can be tuned in accordance with the weight changes.\nAlgorithm 2 can be viewed as a formal scheme for computing the weights and shape functions. In fact, we have the gradient boosting algorithms in the \u201cglobal\u201d boosting algorithm which computes weights\nand shape functions wk = w (T ) k ; gk(x) = g (T ) k for every feature. An outline scheme of this \u201cglobal\u201d boosting algorithm is shown in Fig. 3. It conditionally can be represented as a series of the gradient boosting machine ensembles (EGBMs), where every EGBM is the algorithm given in Fig. 2. Each EGBM uses the initial\nAlgorithm 2 The interpretation algorithm for regression\nRequire: Training set D; point of interest x; the number of generated or training points N ; the smoothing parameter \u03b1; the black-box survival model for explaining f(x); the number of iterations T Ensure: Vector of weights wk; shape functions gk(x) for every feature\n1: Initialize weights w (0) k = 1, k = 1, ...,m 2: Initialize residuals r (0) i,k = 0, k = 1, ...,m, i = 1, ..., N 3: Standardize yi, i = 1, ..., N 4: Generate N \u2212 1 random nearest points xk in a local area around x, point x is the N -th point 5: for s = 0, s \u2264 T do 6: for k = 1, k \u2264 m do 7: Learn the GBM with partially randomized decision trees of depth 1 on the dataset ( xi,k, r (s) i,kw (s) k ) ,\ndataset for training in the s-th iteration as well as matrix G(s\u22121) of the shape function values and weights w (s\u22121) 1 , ..., w (s\u22121) m computed in the previous iteration.\nThe number of iterations T is chosen large enough. It will be illustrated below by means of numerical examples that a lack of the weight w (s) k stabilization means that there is a strong correlation between features, which leads to overfitting of the GBMs. The interpretation algorithm for classification is similar to the studied above algorithm. However, in contrast to the regression problem, we have softmax function and the cross-entropy loss for computing residuals. Moreover, it also makes sense to pre-train each GBM in classification to predict the target value by means of performing several iterations. The pre-training iterations aim to separate points by a hyperplane at the beginning of the training process, otherwise all points may be equal to 0."
+    },
+    {
+      "heading": "5 Numerical experiments using the local interpretation",
+      "text": ""
+    },
+    {
+      "heading": "5.1 Numerical experiments with synthetic data",
+      "text": "In order to study the proposed interpretation method, we consider several numerical examples for which training examples are randomly generated."
+    },
+    {
+      "heading": "5.1.1 Linear regression function",
+      "text": "Let us suppose that the studied regression function is known, and it is\ny(x) = 10x1 \u2212 20x2 \u2212 2x3 + 3x4 + 0x5 + 0x6 + 0x7 + \u03b5. (13)\nThere are 7 features whose impacts should be estimated. We generate N = 1000 points of \u03b5 with expectation 0 and standard deviation 0.05. It is assumed that outputs of the black-box model correspond to these points. We expect to get the same relationship between weights obtained by means of the explanation model and coefficients of the above linear regression function. Fig. 4 illustrates how the weights are changed with increase of the number of iterations T . One can see that the weights tend to converge. This is a very important property which means that there is no overfitting of the explanation model. Moreover, one can see from Fig. 4 that the weights totally correspond to coefficients of the linear regression. In particular, weights of features 5, 6, 7 tend to 0, weights of features 1, 2, 3, 4 tend to 18.77, 21.77, 9.16, 11.37, respectively. Fig. 5 shows changes of every feature, where large points (the wide band) are generated points of the dataset. They can be regarded as true values. The narrow band in the middle of the wide band corresponds to predictions of a single GBM in accordance with the feature which is fed to this GBM. The x-axis corresponds to the feature values, the y-axis is predictions of a single GBM.\nThe obtained weights are (18.77, 21.77, 9.16, 11.37, 1.24, 1.01, 0.37). These weights are given before their correction. After the correction, we get the feature importance values (0.42, 0.86, 0.08, 0.12, 0, 0, 0). It can be seen from the numerical results that relationships between interpreted weights and between coefficients of the regression function are quite the same. This implies that the proposed method provides correct interpretation results for the linear function."
+    },
+    {
+      "heading": "5.1.2 Non-linear regression function",
+      "text": "Let us return to the previous numerical example, but the seventh term in (13) is g7(x) = 100 (x7 \u2212 0.5)2 instead of 0x7 now. We again generate N = 1000 points with the same parameters of the normal distribution for \u03b5 (expectation 0 and standard deviation 0.05).\nThe obtained weights are (17.68, 22.31, 7.49, 9.29, 0.37, 0.74, 21.07). These weights are presented before their correction. After the correction, we get the feature importance values (0.28, 0.58, 0.04, 0.07, 0, 0, 0.75). It can be seen from the numerical results that the seventh feature x7 (its function g7(x)) has the largest weight. Moreover, relationships between interpreted weights and between coefficients of the regression function are quite the same. This implies that the proposed method provides correct interpretation results. It is interesting to point out that\nthe interpretation linear model used, for example, in LIME, could not detect the non-linearity in many cases. Fig. 6 shows how the weights are changed with increase of the number of iterations T . We again observe the convergence of weights to values given above. Fig. 7 is similar to Fig. 5, and we clearly observe how the seventh feature impacts on predictions."
+    },
+    {
+      "heading": "5.1.3 The chess board",
+      "text": "So far, we have considered interpretation of the regression models. The next numerical example illustrates the binary classification task. Training examples having two labels \u22121, 1 and consisting of two features are generated such that the corresponding points depict a small chess board as it is shown in Fig. 8. Black and white points belong to classes y = 1 and y = \u22121, respectively. This is a very interesting example which illustrates inability of the proposed algorithm to correctly classify the given dataset due to overfitting of GBMs. Indeed, Fig. 9 shows that weights of features are not converged and are not stabilized with increase of the iteration number T . The overfitting problem arises because there is a strong correlation between features. The same can be seen in Fig. 10, where outputs of the black-box model are depicted in the form of two lines with y = 1 and y = \u22121. Outcomes of the proposed algorithm are irregularly located because the algorithm is subjected to overfitting. It is also interesting to note that the points are scattered such that the sum of GBM outcomes for all features\nprovides correct values. It should also be pointed out that the standard GBM with decision trees of depth 1 cannot solve this problem. This implies that the proposed parallel architecture of the tree training is better in comparison with the serial architecture. Fig. 11 illustrates predicted values of the trained explanation model.\nThe computed weights of features before their correction are (29.21, 30.46). After correction, they are (0.52, 0.52). In this numerical example, weights do not have a specific sense, but one can see that the correction method itself provides accurate results because both the features are identical and equal to 0.52."
+    },
+    {
+      "heading": "5.1.4 The polynomial regression with pairwise interactions",
+      "text": "The next numerical example uses the following regression function for interpretation:\ny(x) = x21 + x1x2 \u2212 x3x4 + x4 + 0x5 + \u03b5. (14)\nIt contains pairwise interactions of features (x1x2 and x3x4). Fig. 6 shows how the weights are changed with increase of the number of iterations T . The stabilization of weights is observed in Fig. 6. This is an interesting fact because many features are interacted. In spite of this interaction, the proposed algorithm copes with this problem and provides the stabilized weights. Fig. 13 shows how predictions of each GBM depend on values of\nthe corresponding feature (see the explained similar Fig. 5). One can see from Fig. 13 that the first feature significantly impacts on the prediction y because the narrow band rises significantly with the feature x1.\nThe computed weights of features before their correction are (21.8, 18.65, 19.65, 17.89, 1.56). Weights after correction are (0.83, 0.27, 0.3, 0.28, 0.0). The weights imply that the first feature has the highest importance. Indeed, it is presented in the polynomial twice: in x21 and in x1x2."
+    },
+    {
+      "heading": "5.2 Numerical experiments with real data",
+      "text": ""
+    },
+    {
+      "heading": "5.2.1 Boston Housing dataset",
+      "text": "Let us consider the real data called the Boston Housing dataset. It can be obtained from the StatLib archive (http://lib.stat.cmu.edu/datasets/boston). The Boston Housing dataset consists of 506 examples such that each example is described by 13 features.\nImportance of all features obtained by means of the proposed algorithm are shown in Fig. 14. It can be seen from Fig. 14 that features CRIM, RM, B, LSTAT have the highest importance values. Fig. 15 shows how weights are changed with increase of the number of iterations T . Only four features having the highest\nimportance are shown in Fig. 15 in order to avoid a confused mixture of many curves. We plot individual shape functions gk(xk) also only for four important features: RM, LSTAT, CRIM, B. They are depicted in Fig. 16. Contributions of features (y-axis) are biased to 0 and scaled in order to have the same interval from 0 to 1 for all plots. The shape plot for the most important feature RM (the average number of rooms per dwelling) shows that contribution of the RM rises significantly with the average number of rooms. It is interesting to note that the contribution decreases when the number of rooms is smaller than 4. The shape plot for the second important feature LSTAT (% lower status of the population) shows that its contribution tends to decrease. A small increase of the contribution when LSTAT is larger than 25 may be caused by overfitting. Features CRIM and B have significantly smaller weights. This fact can be seen from plots in Fig. 16 where changes of their contributions are small in comparison with the RM and the LSTAT."
+    },
+    {
+      "heading": "5.2.2 Breast Cancer dataset",
+      "text": "The next real dataset is the Breast Cancer Wisconsin (Diagnostic). It can be found in the well-known UCI Machine Learning Repository (https://archive.ics.uci.edu). The Breast Cancer dataset contains 569 examples such that each example is described by 30 features. For classes of the breast cancer diagnosis, the malignant and the benign are assigned by classes 0 and 1, respectively. We consider the corresponding model in the framework of regression with outcomes in the form of probabilities from 0 (malignant) to 1 (benign).\nThe importance values of features obtained by using the proposed algorithm are depicted in Fig. 17. It can be seen from Fig. 17 that features \u201cworst texture\u201d, \u201cworst perimeter\u201d, \u201cworst concave points\u201d, \u201cworst smoothness\u201d are of the highest importance. Fig. 18 shows how weights are changed with increase of the number of iterations T . We again consider only four important features in Fig. 18.\nIndividual shape functions are plotted for four important features: \u201cworst texture\u201d, \u201cworst perimeter\u201d, \u201cworst concave points\u201d, \u201cworst smoothness\u201d. Fig. 19 illustrates them. The shape plot for the \u201cworst perimeter\u201d shows that the probability of benign drops with increase of the worst perimeter and increases for the worst perimeter above 140. The shape plot for the second important feature \u201cworst concave points\u201d shows that the probability of benign decreases with decrease of the worst concave points. Features \u201cworst texture\u201d and \u201cworst smoothness\u201d have significantly smaller impact on the target probability."
+    },
+    {
+      "heading": "6 Numerical experiments with the local interpretation",
+      "text": "So far, we have studied the global interpretation when tried to interpret all examples in training sets. Let us consider numerical examples with the local interpretation."
+    },
+    {
+      "heading": "6.1 Numerical experiments with synthetic data",
+      "text": "First, we return to the chess board example and investigate a bound between two checkers. A neural network is used as a black-box regression model for interpretation. The network is trained by using the quadratic loss function. The black and white checkers are labelled by 1 and 0, respectively. The network consists of 3 layers having 100 units with the ReLU activation function and optimizer Adam. N = 1000 perturbed points are generated around point (0.35, 0.2) from the normal distribution with the standard deviation 0.025. The perturbed points are depicted in Fig. 20 (the right picture). Predictions of the neural network learned on the generated \u201cchess board\u201d training set are depicted in Fig. 20 (the left picture).\nFig. 21 depicts the shape function of the second feature x2 for the chess board example. It follows from Fig. 21 that the probability of the class 1 (the black checker) decreases with increase of the second feature. This is also seen from Fig. 20, where generated points \u201cmove\u201d from the black checker to the white checker."
+    },
+    {
+      "heading": "6.2 Numerical experiments with real data",
+      "text": ""
+    },
+    {
+      "heading": "6.2.1 Boston Housing dataset",
+      "text": "Let us consider the Boston Housing dataset for the local interpretation. A point of interest is randomly selected by means of the following procedure. First, two points x1 and x2 are randomly selected from the dataset. Then the point for interpretation is determined as the middle point between x1 and x2. The neural network consisting of 3 layers having 100 units with the ReLU activation function and optimizer Adam is used for training on the Boston Housing dataset. The learning rate is 10\u22123, the number of epochs is 1000. N = 1000 perturbed points are generated around the point of interest from the uniform distribution with bounds x1 and x2. All features are standardized before training the neural network and interpreting results.\nImportance values of all features obtained by means of the proposed method are shown in Fig. 22. It follows from Fig. 22 that features NOX, AGE, DIS, RAD have the highest importance. They differ from the important features obtained for the case of global interpretation (see Fig. 14). Fig. 23 shows how the weights are changed with increase of the number of iterations T . Only four important features are shown in Fig. 23.\nShape functions are depicted for four important features NOX, AGE, DIS, RAD in Fig. 24. The shape plot for the most important feature RM shows that contribution of the RM rises significantly with the average number of rooms. It is interesting to note that the contribution decreases when the number of rooms is smaller than 4. The shape plot for the second important feature LSTAT shows that its contribution tends to decrease. A small increase of the contribution, when LSTAT is larger than 25, may be caused by overfitting. Features CRIM and B have significantly smaller weights. This fact can be seen from plots in Fig. 24 where changes of their contributions are small in comparison with the RM and LSTAT."
+    },
+    {
+      "heading": "6.2.2 Breast Cancer dataset and the regression black-box model",
+      "text": "For illustrating the local interpretation, we again use the Breast Cancer Wisconsin (Diagnostic) dataset. For classes of the breast cancer diagnosis, the malignant and the benign are assigned by labels 0 and 1, respectively. We consider the corresponding model in the framework of regression with outcomes in the form of probabilities from 0 (malignant) to 1 (benign), i.e., we use the regression black-box model based on the SVM with the RBF\nkernel having parameter \u03b3 = 1/m. The penalty parameter C of the SVM is 1.0. The point of interest is determined by means of the same procedure as for the Boston Housing dataset. The perturbation procedure also coincides with the same procedure for the Boston Housing dataset. All features are standardized before training the SVM and interpreting results.\nImportance of features obtained by using the proposed algorithm are depicted in Fig. 25. It can be seen from Fig. 25 that features \u201cworst symmetry\u201d, \u201cmean concave points\u201d, \u201cworst concavity\u201d, \u201cworst concave points\u201d are of the highest importance. They mainly differ from the important features obtained for the global interpretation. Fig. 26 shows how the weights are changed with increase of the number of iterations T for the above important features.\nFor these important features, individual shape functions are plotted in Fig. 27. The shape plot for the \u201cworst concave points\u201d shows that the probability of benign drops with increase of the worst concave points. The shape plot for the second important feature \u201cworst concavity\u201d also shows that the probability of benign significantly decreases with increase of the worst concavity. Features \u201cworst symmetry\u201d and \u201cmean concave points\u201d have significantly smaller impacts on the target probability."
+    },
+    {
+      "heading": "6.2.3 Breast Cancer dataset and the classification black-box model",
+      "text": "We consider the Breast Cancer Wisconsin (Diagnostic) dataset and corresponding model in the framework of classification with the same outcomes in the form of probabilities from 0 (malignant) to 1 (benign), i.e., we use the classification black-box model based on the SVM. Parameters of the black-box model, the point of interest and the perturbation procedure do not differ from those used for the Breast Cancer dataset with the regression black-box model. All features are standardized before training the SVM and interpreting results.\nThe importance values of features obtained by using the proposed algorithm are depicted in Fig. 25. It can be seen from Fig. 28 that the same features as in the example with the regression black-box, including \u201cworst symmetry\u201d, \u201cmean concave points\u201d, \u201cworst concavity\u201d, \u201cworst concave points\u201d, are of the highest importance. Fig. 29 shows how the weights are changed with increase of the number of iterations T for the above important features. Individual shape functions for these important features are plotted in Fig. 30. They are similar to those computed for the regression black-box model."
+    },
+    {
+      "heading": "7 Conclusion",
+      "text": "A new interpretation method which is based on applying an ensemble of parallel GBMs has been proposed for interpreting black-box models. The interpretation algorithm implementing the method learns a linear combination of GBMs such that a single feature is processed by each GBM. GBMs use randomized decision trees of depth 1 as base models. In spite of this simple implementation of the base models, they show correct results whose intuitive interpretation coincides with the obtained interpretation. Various numerical experiments with synthetic and real data have illustrated the advantage of the proposed method.\nThe method is based on the parallel and independent usage of GBMs during one iteration. Indeed, each GBM deals with a single feature. However, the architecture of the proposed algorithm leads to the idea to develop a method which could consider combinations of features. In this case, the feature correlation can be taken into account. This is a direction for further research. Another interesting direction for research is to consider a combination of the NAMs [2] with the proposed algorithm.\nThe proposed algorithm consists of several components, including, the Lasso method, a specific scheme for updating weights. Every component can be replaced by another implementation which could lead to better results. The choice of the best configuration for the algorithm is also an important direction for further research.\nThe proposed method is efficient mainly for tabular data. However, it can be also adapted to the image processing which has some inherent peculiarities. The adaptation is another interesting direction for research in future."
+    }
+  ],
+  "title": "Interpretable Machine Learning with an Ensemble of Gradient Boosting Machines",
+  "year": 2020
+}

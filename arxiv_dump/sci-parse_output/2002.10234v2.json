@@ -1,0 +1,622 @@
+{
+  "abstractText": "Trustworthy AI is a critical issue in machine learning where, in addition to training a model that is accurate, one must consider both fair and robust training in the presence of data bias and poisoning. However, the existing model fairness techniques mistakenly view poisoned data as an additional bias to be fixed, resulting in severe performance degradation. To address this problem, we propose FR-Train, which holistically performs fair and robust model training. We provide a mutual information-based interpretation of an existing adversarial training-based fairness-only method, and apply this idea to architect an additional discriminator that can identify poisoned data using a clean validation set and reduce its influence. In our experiments, FR-Train shows almost no decrease in fairness and accuracy in the presence of data poisoning by both mitigating the bias and defending against poisoning. We also demonstrate how to construct clean validation sets using crowdsourcing, and release new benchmark datasets1.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Yuji Roh"
+    },
+    {
+      "affiliations": [],
+      "name": "Kangwook Lee"
+    },
+    {
+      "affiliations": [],
+      "name": "Steven Euijong Whang"
+    },
+    {
+      "affiliations": [],
+      "name": "Changho Suh"
+    }
+  ],
+  "id": "SP:c0e4ce11a3f186179ef7a13071e801dc03a2fbc9",
+  "references": [
+    {
+      "authors": [
+        "A. Agarwal",
+        "A. Beygelzimer",
+        "M. Dud\u0131\u0301k",
+        "J. Langford",
+        "H.M. Wallach"
+      ],
+      "title": "A reductions approach to fair classification",
+      "venue": "In ICML,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Angwin",
+        "J. Larson",
+        "S. Mattu",
+        "L. Kirchner"
+      ],
+      "title": "Machine bias: There\u2019s software used across the country to predict future criminals",
+      "venue": "And its biased against blacks.,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "B. Biggio",
+        "B. Nelson",
+        "P. Laskov"
+      ],
+      "title": "Support vector machines under adversarial label noise",
+      "venue": "In ACML, pp",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "B. Biggio",
+        "I. Corona",
+        "D. Maiorca",
+        "B. Nelson",
+        "N. Srndic",
+        "P. Laskov",
+        "G. Giacinto",
+        "F. Roli"
+      ],
+      "title": "Evasion attacks against machine learning at test time",
+      "venue": "In ECML PKDD, pp",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "A. Chouldechova",
+        "A. Roth"
+      ],
+      "title": "The frontiers of fairness in machine",
+      "venue": "learning. CoRR,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "E. Chzhen",
+        "C. Denis",
+        "M. Hebiri",
+        "L. Oneto",
+        "M. Pontil"
+      ],
+      "title": "Leveraging labeled and unlabeled data for consistent fair binary classification",
+      "venue": "In NeurIPS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Cotter",
+        "M.R. Gupta",
+        "H. Jiang",
+        "N. Srebro",
+        "K. Sridharan",
+        "S. Wang",
+        "B.E. Woodworth",
+        "S. You"
+      ],
+      "title": "Training wellgeneralizing classifiers for fairness metrics and other datadependent",
+      "venue": "constraints. CoRR,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Cotter",
+        "H. Jiang",
+        "K. Sridharan"
+      ],
+      "title": "Two-player games for efficient non-convex constrained optimization",
+      "venue": "In ALT,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "F. du Pin Calmon",
+        "D. Wei",
+        "B. Vinzamuri",
+        "K.N. Ramamurthy",
+        "K.R. Varshney"
+      ],
+      "title": "Optimized pre-processing for discrimination prevention",
+      "venue": "In NeurIPS,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "C. Dwork",
+        "M. Hardt",
+        "T. Pitassi",
+        "O. Reingold",
+        "R. Zemel"
+      ],
+      "title": "Fairness through awareness",
+      "venue": "In ITCS, pp",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "M. Feldman",
+        "S.A. Friedler",
+        "J. Moeller",
+        "C. Scheidegger",
+        "S. Venkatasubramanian"
+      ],
+      "title": "Certifying and removing disparate impact",
+      "venue": "In KDD, pp",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "B. Fr\u00e9nay",
+        "M. Verleysen"
+      ],
+      "title": "Classification in the presence of label noise: A survey",
+      "venue": "IEEE Trans. Neural Netw. Learning Syst.,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "I.J. Goodfellow",
+        "J. Pouget-Abadie",
+        "M. Mirza",
+        "B. Xu",
+        "D. Warde-Farley",
+        "S. Ozair",
+        "A.C. Courville",
+        "Y. Bengio"
+      ],
+      "title": "Generative adversarial nets",
+      "venue": "In NeurIPS,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "I.J. Goodfellow",
+        "J. Shlens",
+        "C. Szegedy"
+      ],
+      "title": "Explaining and harnessing adversarial examples",
+      "venue": "In ICLR,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M. Hardt",
+        "E. Price",
+        "N. Srebro"
+      ],
+      "title": "Equality of opportunity in supervised learning",
+      "venue": "In NeurIPS,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "T. Hashimoto",
+        "M. Srivastava",
+        "H. Namkoong",
+        "P. Liang"
+      ],
+      "title": "Fairness without demographics in repeated loss minimization",
+      "venue": "In ICML,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "D. Hendrycks",
+        "M. Mazeika",
+        "D. Wilson",
+        "K. Gimpel"
+      ],
+      "title": "Using trusted data to train deep networks on labels corrupted by severe noise",
+      "venue": "In NeurIPS,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "H. Jiang",
+        "O. Nachum"
+      ],
+      "title": "Identifying and correcting label bias in machine learning",
+      "year": 1901
+    },
+    {
+      "authors": [
+        "F. Kamiran",
+        "T. Calders"
+      ],
+      "title": "Data preprocessing techniques for classification without discrimination",
+      "venue": "Knowl. Inf. Syst.,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "F. Kamiran",
+        "A. Karim",
+        "X. Zhang"
+      ],
+      "title": "Decision theory for discrimination-aware classification",
+      "venue": "In ICDM, pp",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "T. Kamishima",
+        "S. Akaho",
+        "H. Asoh",
+        "J. Sakuma"
+      ],
+      "title": "Fairness-aware classifier with prejudice remover regularizer",
+      "venue": "In ECML PKDD,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "D.R. Karger",
+        "S. Oh",
+        "D. Shah"
+      ],
+      "title": "Iterative learning for reliable crowdsourcing systems",
+      "venue": "In NIPS,",
+      "year": 1953
+    },
+    {
+      "authors": [
+        "A. Karpathy"
+      ],
+      "title": "Software 2.0. https://medium.com/ @karpathy/software-2-0-a64152b37c35, 2017",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Khademi",
+        "V.G. Honavar"
+      ],
+      "title": "Algorithmic bias in recidivism prediction: A causal perspective (student abstract)",
+      "venue": "In AAAI,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "A. Khademi",
+        "S. Lee",
+        "D. Foley",
+        "V. Honavar"
+      ],
+      "title": "Fairness in algorithmic decision making: An excursion through the lens of causality",
+      "venue": "In WWW,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "N. Kilbertus",
+        "M. Rojas-Carulla",
+        "G. Parascandolo",
+        "M. Hardt",
+        "D. Janzing",
+        "B. Sch\u00f6lkopf"
+      ],
+      "title": "Avoiding discrimination through causal reasoning",
+      "venue": "In NeurIPS,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "D.P. Kingma",
+        "J. Ba"
+      ],
+      "title": "Adam: A method for stochastic optimization",
+      "venue": "arXiv preprint arXiv:1412.6980,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "P.W. Koh",
+        "J. Steinhardt",
+        "P. Liang"
+      ],
+      "title": "Stronger data poisoning attacks break data sanitization",
+      "venue": "defenses. CoRR,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R. Kohavi"
+      ],
+      "title": "Scaling up the accuracy of naive-bayes classifiers: A decision-tree hybrid",
+      "venue": "In KDD, pp",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "A. Kurakin",
+        "I.J. Goodfellow",
+        "S. Bengio"
+      ],
+      "title": "Adversarial machine learning at scale",
+      "venue": "In ICLR,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Y. Li",
+        "J. Yang",
+        "Y. Song",
+        "L. Cao",
+        "J. Luo",
+        "L. Li"
+      ],
+      "title": "Learning from noisy labels with distillation",
+      "venue": "In ICCV,",
+      "year": 1936
+    },
+    {
+      "authors": [
+        "J. Lin"
+      ],
+      "title": "Divergence measures based on the Shannon entropy",
+      "venue": "IEEE Transactions on Information theory,",
+      "year": 1991
+    },
+    {
+      "authors": [
+        "N. Natarajan",
+        "I.S. Dhillon",
+        "P. Ravikumar",
+        "A. Tewari"
+      ],
+      "title": "Learning with noisy labels",
+      "venue": "In NeurIPS, pp",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "N. Noy",
+        "M. Burgess",
+        "D. Brickley"
+      ],
+      "title": "Google dataset search: Building a search engine for datasets in an open web ecosystem",
+      "venue": "In 28th Web Conference (WebConf",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Paszke",
+        "S. Gross",
+        "S. Chintala",
+        "G. Chanan",
+        "E. Yang",
+        "Z. DeVito",
+        "Z. Lin",
+        "A. Desmaison",
+        "L. Antiga",
+        "A. Lerer"
+      ],
+      "title": "Automatic differentiation in PyTorch",
+      "venue": "In NIPS Autodiff Workshop,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Paudice",
+        "L. Mu\u00f1oz-Gonz\u00e1lez",
+        "E.C. Lupu"
+      ],
+      "title": "Label sanitization against label flipping poisoning attacks",
+      "venue": "In ECML PKDD,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "G. Pleiss",
+        "M. Raghavan",
+        "F. Wu",
+        "J.M. Kleinberg",
+        "K.Q. Weinberger"
+      ],
+      "title": "On fairness and calibration",
+      "venue": "In NeurIPS,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "M. Ren",
+        "W. Zeng",
+        "B. Yang",
+        "R. Urtasun"
+      ],
+      "title": "Learning to reweight examples for robust deep learning",
+      "venue": "In ICML,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Sinha",
+        "H. Namkoong",
+        "J.C. Duchi"
+      ],
+      "title": "Certifying some distributional robustness with principled adversarial training",
+      "venue": "In ICLR,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "A. Veit",
+        "N. Alldrin",
+        "G. Chechik",
+        "I. Krasin",
+        "A. Gupta",
+        "S.J. Belongie"
+      ],
+      "title": "Learning from noisy large-scale datasets with minimal supervision",
+      "venue": "In CVPR,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Venkatasubramanian"
+      ],
+      "title": "Algorithmic fairness: Measures, methods and representations",
+      "venue": "In PODS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "S. Verma",
+        "J. Rubin"
+      ],
+      "title": "Fairness definitions explained",
+      "venue": "In FairWare@ICSE,",
+      "year": 1947
+    },
+    {
+      "authors": [
+        "E. Wong",
+        "J.Z. Kolter"
+      ],
+      "title": "Provable defenses against adversarial examples via the convex outer adversarial polytope",
+      "venue": "In ICML,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "T. Xiao",
+        "T. Xia",
+        "Y. Yang",
+        "C. Huang",
+        "X. Wang"
+      ],
+      "title": "Learning from massive noisy labeled data for image classification",
+      "venue": "In CVPR,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M.B. Zafar",
+        "I. Valera",
+        "M. Gomez-Rodriguez",
+        "K.P. Gummadi"
+      ],
+      "title": "Fairness constraints: Mechanisms for fair classification",
+      "venue": "In AISTATS,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "R.S. Zemel",
+        "Y. Wu",
+        "K. Swersky",
+        "T. Pitassi",
+        "C. Dwork"
+      ],
+      "title": "Learning fair representations",
+      "venue": "In ICML, pp",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "B.H. Zhang",
+        "B. Lemoine",
+        "M. Mitchell"
+      ],
+      "title": "Mitigating unwanted biases with adversarial learning",
+      "venue": "In AIES, pp",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "J. Zhang",
+        "E. Bareinboim"
+      ],
+      "title": "Fairness in decision-making the causal explanation formula",
+      "venue": "In AAAI,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "X. Zhang",
+        "X. Zhu",
+        "S.J. Wright"
+      ],
+      "title": "Training set debugging using trusted items",
+      "venue": "In AAAI,",
+      "year": 2018
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1. Introduction",
+      "text": "As machine learning becomes widespread in the Software 2.0 era (Karpathy, 2017), trustworthy AI is becoming increasingly critical. In addition to simply training accurate models, there is an urgent need to address multiple requirements including fairness, robustness, explainability, transparency, and accountability altogether (IBM, 2020). In particular, we focus on fairness and robustness, which are closely related issues that are affected by the same training data. For sensitive applications like healthcare, finance, and self-driving cars, a trained model must not discriminate cus-\n1School of Electrical Engineering, Korea Advanced Institute of Science and Technology (KAIST), Daejeon, Korea 2Department of Electrical and Computer Engineering, University of WisconsinMadison, Madison, Wisconsin, USA. Correspondence to: Steven Euijong Whang <swhang@kaist.ac.kr>.\nProceedings of the 37 th International Conference on Machine Learning, Vienna, Austria, PMLR 119, 2020. Copyright 2020 by the author(s).\n1https://github.com/yuji-roh/fr-train\ntomers based on sensitive attributes including age, sex, or religion. In addition, as applications often rely on external datasets for their training data, the model training must be resilient against noisy, subjective, or even adversarial data.\nTraditionally, model fairness research (Venkatasubramanian, 2019; Chouldechova & Roth, 2018; Verma & Rubin, 2018) has focused on developing metrics such as disparate impact (Feldman et al., 2015), equalized odds (Hardt et al., 2016), and equal opportunity (Hardt et al., 2016), which capture various notions of discrimination. More recently, there has been a surge in unfairness mitigation techniques (Bellamy et al., 2018b), which improve the model fairness by either fixing the training data, training process, or trained model. Unfairness mitigation usually involves some tradeoff between the model\u2019s accuracy and fairness. Most recently, generative adversarial networks (GANs) are being adapted to a fairness setting (Zhang et al., 2018a). The architecture of GANs is suitable because accuracy and fairness are not always aligned, and it makes sense to simultaneously train two models: a classifier that predicts labels using input features and an adversary that predicts sensitive attributes using the classifier\u2019s predicted labels.\nRobust model training is also important and needs to be concurrently taken into consideration. As dataset publishing is becoming mainstream as demonstrated by systems like Kaggle and Google Dataset Search (Noy et al., 2019), it is easy to publish data that is noisy, subjective, and even adversarial, which we hereafter refer to as poisoned data. As a result, there has been a proliferation of algorithms that make model training resilient to data poisoning as well (Natarajan et al., 2013; Biggio et al., 2011; Fre\u0301nay & Verleysen, 2014). However, data poisoning attacks have become increasingly sophisticated, and defending against all of them is difficult (Koh et al., 2018).\nSolving model fairness without addressing data poisoning may lead to a worse tradeoff between accuracy and fairness. For example, consider a banking system that is giving out loans where there are two sensitive groups: men and women. Suppose we use disparate impact (Feldman et al., 2015) as the fairness measure. If the model\u2019s positive prediction rate is M for men and W for women, the disparate impact is min{MW , W M } where a value of 1 is considered perfectly fair. Figure 1 shows a toy example of five men and five women\nar X\niv :2\n00 2.\n10 23\n4v 2\n[ cs\n.L G\n] 3\nJ ul\n2 02\n0\nwho need loans. Each person is associated with a singledimensional feature x, and only the ones with a rounded box would pay back their loans (i.e., their labels are positive). Let us train a threshold classifier that divides the people into two groups where those on the left are denied loans and those on the right are granted loans. On the clean data above, a classifier that does not consider fairness (non-fair classifier, red dotted line) can have perfect accuracy at the cost of having a disparate impact of 0.5 because 40% of females are granted loans while 80% of males are granted loans. On the other hand, a fair classifier (blue solid line) can divide the people such that the disparate impact is perfect, but the accuracy is only 0.8. Now suppose we poison the data where we flip the labels of the 5th and 7th persons (both male) from positive to negative as shown below. While each classifier is trained on the poisoned data, its accuracy is measured using the clean data labels. For the non-fair classifier trained on this data, the results are mixed where the accuracy decreases from 1 to 0.9, but the disparate impact increases from 0.5 to 0.67. However, the fair classifier has strictly worse results where the accuracy decreases from 0.8 to 0.6 without any change in the disparate impact. Hence, the fair classifier\u2019s accuracy-fairness tradeoff is worse when the data is poisoned. One proposal is to sanitize the data prior to the model training, but it is known that removing poisoning without any knowledge of the model is extremely difficult (Koh et al., 2018).\nOur main contribution is an integrated solution called FR-Train, which trains accurate models that are also fair and robust to poisoning. FR-Train extends a state-ofthe-art fairness-only method called Adversarial Debiasing (AD) (Zhang et al., 2018a), which consists of a generator used for classification and a discriminator that distinguishes predictions from one sensitive group against others, similar to GANs (Goodfellow et al., 2014). The discriminator ensures that the prediction y\u0302 is independent of the sensitive attribute z. We first provide interpretation of such an adversarial learning approach using mutual information. We then use the results as an inspiration to add a new robustness discriminator that uses mutual information to distinguish (training examples, predictions) of the training data from (validation examples, validation labels) of a separate and clean validation set. This discriminator ensures that the model predictions on the training data are \u201cconsistent\u201d with labels on clean data, where the clean validation set acts as a reference to the training. In addition, we also utilize the robustness discriminator results to further improve the fairness training by re-weighting examples. In our experiments, we show that addressing robustness and fairness sequentially during model training is not as effective as addressing them concurrently as in FR-Train.\nAnother contribution is addressing the challenge of constructing a clean validation set and gracefully handling the\ncase where it is small or unavailable. To this end, we demonstrate a practical crowdsourcing method using majority voting for constructing a clean validation set, which has less poisoning than the input data. We construct clean validation sets from real datasets using Amazon Mechanical Turk and release them as a community resource. In the worst case when the validation set is non-existent, we show how the parameters of FR-Train can be adjusted to still maintain reasonable accuracy and fairness.\nIn the following sections, we demonstrate the weaknesses of current fairness methods, propose FR-Train with experiments, and present the related work."
+    },
+    {
+      "heading": "2. Vulnerability of Fairness Methods",
+      "text": "We perform experiments to demonstrate that state-of-the-art fairness methods are indeed vulnerable even to simple poisoning attacks. We generate a synthetic dataset as shown in Figure 2a (see the generation details in Section 4.1). There are two non-sensitive attributes x1 and x2, which are reflected in the x-axis and y-axis, respectively. The examples are further divided into two classes based on the sensitive attribute z. For generation of poisoned data, we poison 10% of the training data by flipping the labels of examples that belong to a specific z attribute (for this experiment z = 1) so as to maximize the accuracy performance degradation. This approach is similar to an existing label flipping method (Paudice et al., 2018). To make a validation set, we randomly select clean examples that amount to 10% of the entire training data.\nWe use disparate impact as the fairness measure and evaluate a fairness method called Fairness Constraints (Zafar et al., 2017), which incorporates a regularization term that reflects fairness constraints in the context of convex margin-based classifiers such as logistic regression and support vector machines (SVMs). As this method involves a regularization\nfactor \u03bb that balances the accuracy and fairness objectives, we can obtain a tradeoff curve by adjusting its value. Figure 2b shows two accuracy-fairness tradeoff curves obtained with the clean and poisoned synthetic datasets. Notice that adding data poisoning clearly shifts the curve to the left, which means accuracy decreases. This coincides with our intuition. The poisoning confuses the model so that there are more biased examples to fix, which in turn makes it overreact and thus sacrifice more on accuracy. We also leave in the supplementary the accuracy-fairness tradeoff curves of Fairness Constraints on real datasets. The results clearly show that both accuracy and fairness decrease on the poisoned data. In Section 4, we will show how data poisoning affects other fairness methods."
+    },
+    {
+      "heading": "3. FR-Train",
+      "text": "We now describe FR-Train (see Figure 3). Unlike traditional GANs, the generator is a classifier that receives an example x \u2208 X and returns a prediction y\u0302. There are two discriminators that respectively optimize fairness and robustness using mutual information. In addition, the outputs of the robustness discriminator can be used to further improve the\nfairness training by re-weighting examples."
+    },
+    {
+      "heading": "3.1. Fairness",
+      "text": "We denote by Dtr the training data set. Suppose Dtr has m examples {(x(i), z(i), y(i))}mi=1 where x(i) contains the non-sensitive attributes, z(i) contains the sensitive attributes, and y(i) is the label. Both the sensitive attribute and label can be multi-class, i.e., they can have one of multiple values. For notational simplicity, we assume there is one sensitive attribute, which can be viewed as a merged result of multiple sensitive attributes with a larger alphabet size. For illustrative purposes, we focus on disparate impact, leaving in the supplementary our formulation and experimental results for equalized odds and equal opportunity. Disparate impact aims for the same positive prediction ratio for each sensitive attribute z \u2208 Z where Z is the set of possible sensitive attribute values. We use the following definition for disparate impact:\nDefinition 1. (Disparate Impact) P (Y\u0302 = 1|Z = z1) = P (Y\u0302 = 1|Z = z2), \u2200z1, z2 \u2208 Z .\nThe first discriminator in FR-Train distinguishes predictions w.r.t. one sensitive group from those in the others. Disparate impact intends the sensitive attribute to be independent of the model\u2019s prediction, i.e., I(Z; Y\u0302 ) = 0.\nWe explain how FR-Train can enforce the above constraint. Let PZ(z) be the distribution of Z where z \u2208 Z . Let Y\u0302 |Z = z \u223c PY\u0302 |z(\u00b7) and Y\u0302 \u223c PY\u0302 (\u00b7). Then PY\u0302 (\u00b7) =\u2211\nz\u2208Z PZ(z)PY\u0302 |z(\u00b7).\nThe following theorem asserts that mutual information is equivalent to the following function optimization where the optimal discriminator D?z(y\u0302) = PZ|Y\u0302 (z|y\u0302) and\u2211\nz\u2208Z D ? z(y\u0302) = 1, \u2200y\u0302 \u2208 Y .\nTheorem 1. I(Z; Y\u0302 ) = max\nDz(y\u0302): \u2211 z Dz(y\u0302)=1, \u2200y\u0302 \u2211 z\u2208Z PZ(z)EPY\u0302 |z [ logDz(Y\u0302 ) ] +H(Z).\nWhile deferring the detailed proof to the supplemental materials, we provide a brief overview of the proof. As the optimization problem in the RHS is convex, we find the optimal discriminator by solving the KKT conditions. We then show that the maximum value attained by the optimal discriminator is equal to the mutual information by using\nthe properties of mutual information and the generalized Jensen-Shannon divergence (Lin, 1991).\nWhat is more involved than showing the above equality is designing the right optimization problem. One needs to carefully handcraft a plausible optimization problem so that its unique solution matches the desired quantity. Here, we design the optimization problem via a \u2018guess-&-check\u2019 approach aided by the structural insights across the KL divergences that appear in an alternative expression of mutual information.\nWe now discuss how to implement the above expression. Since we do not know PY\u0302 |z(\u00b7) exactly, we compute the following empirical version:\nmax Dz(y\u0302): \u2211 z Dz(y\u0302)=1, \u2200y\u0302 \u2211 z\u2208Z PZ(z) \u2211 i:z(i)=z 1 mz logDz(y\u0302 (i)) +H(Z).\nNow for sufficiently large m, the number mz of examples with z(i) = z is approximately the same as PZ(z)m. Therefore, the above expression becomes:\nmax Dz(y\u0302): \u2211 z Dz(y\u0302)=1, \u2200y\u0302 \u2211 z\u2208Z \u2211 i:z(i)=z 1 m logDz(y\u0302 (i)) +H(Z).\nInterestingly, this formulation is exactly the same as that in the original GAN (Goodfellow et al., 2014) when |Z| = 2. We also remark that our formulation does not require a prior knowledge on PZ(z).\nWe note that Adversarial Debiasing (AD) (Zhang et al., 2018a) has an additional projection term that is used to force the classifier to never decrease the discriminator\u2019s loss. However, we do not use this term in FR-Train because it worsens the training stability in our experiments."
+    },
+    {
+      "heading": "3.2. Robustness",
+      "text": "The robustness discriminator ensures robust training by using mutual information to distinguish examples and predictions from a clean validation set. For now, let us assume such a validation set exists (in Section 4.2, we demonstrate how to construct one). The discriminator then distinguishes the training data with predictions {(x(i), z(i), y\u0302(i))}mi=1 from the validation set {(x(i)val , z (i) val , y (i) val )} mval i=1 . Intuitively, if the classifier is confused by data poisoning in the training data, then its predictions will not be consistent with the labels of the clean data, and the discriminator would be able to detect that difference. Our use of a validation set is inspired by meta learning-based robust training algorithms (Ren et al., 2018), which also defends against poisoning attacks by using the validation data loss as a meta objective. However, a key difference is that we take an adversarial learning approach, which introduces a knob that controls the emphasis of robust training. We find that this knob enables FR-Train to be more robust to the validation set size (see details in\nSection 4.1). In Section 3.3, we also use the robustness discriminator to further improve the fairness training using example re-weighting.\nWe first define X = V X + (1\u2212 V )Xval, Z = V Z + (1\u2212 V )Zval, and Y = V Y\u0302 + (1 \u2212 V )Yval. Here, note that V is an indicator random variable that denotes whether an example is generated (V = 1) or comes from the validation set (V = 0). We then want to ensure that the distribution of (X,Z, Y\u0302 ) matches that of (Xval, Zval, Yval). This can be done by enforcing I(V ;X,Z, Y ) = 0, i.e., the predictions on the training data are indistinguishable from the labels of the validation set. Thus we can mimic the clean dataset while expecting an indirect sanitization effect.\nAnalogous to the fairness discriminator, we show that mutual information is equivalent to the following function optimization where the optimal discriminator D?v(x, z, y) = PV |X,Z,Y (v|x, z, y) and\u2211\nv\u2208V D ? v(x, z, y) = 1, \u2200(x, z, y) \u2208 X \u00d7 Z \u00d7 Y . The\nproof is similar to that of Theorem 1. Theorem 2. I(V ;X,Z, Y ) =\nmax Dv(x,z,y): \u2211 v Dv(x,z,y)=1, \u2200(x,z,y)\u2211 v\u2208V PV (v)EPX,Z,Y |v [ logDv(X,Z, Y ) ] +H(V )."
+    },
+    {
+      "heading": "3.3. Architecture",
+      "text": "We describe the FR-Train architecture in Figure 3. For the loss function of the generator, we employ cross entropy:\nL1 = 1\nm m\u2211 i=1 \u2212y(i) log y\u0302(i) \u2212 (1\u2212 y(i)) log(1\u2212 y\u0302(i)).\nWe set the loss function w.r.t. the fairness discriminator as:\nL2 = max D(\u00b7) \u2211 z\u2208Z \u2211 i:z(i)=z 1 m logDz(y\u0302 (i)) +H(Z)\nwhere D(\u00b7) := (D1(\u00b7), . . . , D|Z|(\u00b7)). The condition\u2211 z\u2208Z D ? z(Y\u0302 ) = 1 can be enforced by adding a softmax layer to the discriminator.\nFinally, implementing I(V ;X,Z, Y ), we set the loss function w.r.t. the robustness discriminator as:\nL3 =max Dr(\u00b7) \u2211 i:v(i)=0 1 m logDr(x (i) val, z (i) val, y\n(i) val)+\u2211\ni:v(i)=1\n1 m log(1\u2212Dr(x(i), z(i), y\u0302(i))) +H(V ).\nThe final objective function is the weighted sum of these value functions:\nmin G(\u00b7) L1 + \u03bb1L2 + \u03bb2L3.\nHere \u03bb1 and \u03bb2 are tuning knobs that play roles to emphasize fair and robust training, respectively.\nExample Re-weighting for Fairness Training In addition to the above architecture, we also utilize the decision values Dr(X,Z, Y\u0302 ) of the robustness discriminator as example weights to further improve the fairness training (in Figure 3, the arrow from the robustness discriminator\u2019s output to the classifier\u2019s input). In particular, the two losses L1 and L2 are now computed using the example weights. The intuition is that, by giving more weight to the clean examples, we can improve the accuracy-fairness tradeoff. A question is when to apply these weights. If we apply the weights too early, then D(X,Z, Y\u0302 ) may not be accurate enough and actually harm the fairness training. Intuitively, we would like to use the discriminator\u2019s results when we know it is performing at least as well as the classifier. Hence, for a more reliable signal, we use the relative performance between the classifier and robustness discriminator to generate the weights. Given the classifier\u2019s loss Lc and the robustness discriminator\u2019s loss Ld, we compute the final example weights as W = R+D(X,Z, Y\u0302 )\u00d7 (1\u2212R) where R = \u03c3(LcLd \u2212C) is a conversion of the loss ratio into a probability using the sigmoid function \u03c3 and hyperparameter C. We note that C acts as a threshold on the loss ratio."
+    },
+    {
+      "heading": "4. Experiments",
+      "text": "We provide experimental results for FR-Train. For the fairness measure, we use disparate impact, while leaving in the supplementary the results for equalized odds and equal opportunity. We evaluate all models on separate clean test sets. In our experiments, we use two sensitive attributes z1 and z2, and disparate impact is measured as the ratio min{P (Y\u0302=1|Z=z1)\nP (Y\u0302=1|Z=z2) , P (Y\u0302=1|Z=z2) P (Y\u0302=1|Z=z1) }. We use PyTorch (Paszke et al., 2017), and all experiments are performed on a server with Intel i7-6850 CPUs. More implementation details are in the supplementary."
+    },
+    {
+      "heading": "4.1. Synthetic Data Results",
+      "text": "For the synthetic data, we generate 2,000 examples with two non-sensitive attributes x1 and x2, a sensitive attribute z, and a label y, using a method similar to the algorithm proposed by (Zafar et al., 2017). Both z and y are binary, and the (x1, x2) pair consists of two normal distributions: (x1, x2)|y = 0 \u223c N ([\u22122;\u22122], [10, 1; 1, 3]) and (x1, x2)|y = 1 \u223c N ([2; 2], [5, 1; 1, 5]). The z attribute has the Bernoulli distribution p(z = 1) = p((x\u20321, x \u2032 2)|y = 1)/[p((x\u20321, x \u2032 2)|y = 0) + p((x\u20321, x\u20322)|y = 1)] where (x\u20321, x \u2032 2) = (x1 cos(\u03c0/4) \u2212 x2 sin(\u03c0/4), x1 sin(\u03c0/4) + x2 cos(\u03c0/4)). Finally for each example, the x1 and x2 values are sampled as per the normal distribution associated with the y. For data poisoning, we flip the labels of examples with z = 1 so as to maximize the accuracy performance degradation as described in Section 2, and the amount of poisoning is 10% of Dtr. In the supplementary, we also\nperform FR-Train varying the amount of poisoning from 10% to 40%.\nAccuracy and Fairness We compare FR-Train with various baselines. First, there are the fairness methods: Fairness Constraints (Zafar et al., 2017) (FC), Label Bias Correction (Jiang & Nachum, 2019) (LBC), and Adversarial Debiasing (Zhang et al., 2018a) (AD). As described in the previous sections, FC adds a penalty term that captures the prediction differences across sensitive groups, while AD utilizes adversarial learning to achieve high fairness. LBC is an example re-weighting algorithm, which assumes the existence of true unbiased yet unknown labels. LBC provides theoretical guarantees that training on the resulting loss corresponds to training on the true unbiased labels, which yields a fair model. While there exist other re-weighting techniques including (Agarwal et al., 2018), we choose LBC because it performs the best in experiments (Jiang & Nachum, 2019).\nSince FR-Train is to our knowledge the first method to address both fairness and robustness in model training, there is no fairness method that also performs data sanitization using a clean validation set. However, (Ren et al., 2018) is a state-of-the-art robust training method based on meta learning using a clean validation set, which we call RML. For a fair comparison, we thus extend the three fairness methods by first performing RML and then utilizing the example weights in the fairness training in a straightforward fashion. In addition, we compare with non-fairness methods: logistic regression (LR) and RML.\nTable 1 compares FR-Train with the baselines. We use a validation set that amounts to 10% of Dtr. We also apply proper hyperparameters so that the disparate impacts are similar (around 0.8) across all methods, if possible. When setting \u03bb1 and \u03bb2 for FR-Train, we usually fix \u03bb2 to some value and then adjust \u03bb1 using one-round cross validation. There is no hyperparameter tuning for logistic regression and the meta learning-based robust training algorithm, as they have no knobs for adjusting fairness. The results show that for the fairness methods, data poisoning aggravates accuracy-fairness trade-offs. For example, the accuracy of FC falls by 5.7%, while the disparate impact of it remains a similar value. On the other hand, the performance for FR-Train does not degrade: disparate impact and accuracy increase by 1.1% and 0.9%, respectively. Table 1 also shows that combining the fairness methods with RML (rows 4\u20136) does not always yield better accuracy and fairness. In fact, using sanitization may lower the accuracy or fairness (e.g., RML+FC has an accuracy of 0.529 on poisoned data while FC has 0.760). The results suggest that removing poisoning and then bias is not that effective.\nWe observe how accuracy trades off with fairness on clean and poisoned datasets. The results for FC are shown in Figure 2b. For LBC, we employ the number of training as a knob to trade accuracy off fairness since LBC gradually improves fairness by repeatedly updating example weights per training. As shown in Figure 4a, the tradeoff curve shifts to the left, which demonstrates a clear tradeoff degradation. For AD, we employ the \u03b1 parameter (Zhang et al., 2018a) analogous to \u03bb1 as a knob to trade accuracy off fairness. Figure 4b shows the tradeoff curve again shifts to the left.\nValidation Set Size Figures 4c to 4e show how the validation set size affects the robustness of FR-Train. In particular, we compare the accuracy-fairness tradeoff of FR-Train on clean data and that on poisoned data while varying the size of the validation set. When running on poisoned data, we fixed \u03bb2 = 0.4 and varied \u03bb1. We see that even a 5% validation set (Figure 4d) is sufficient to maintain the accuracy and fairness obtained on the clean data. When using 0.1% (Figure 4e), the validation set is too small and has an adverse\neffect on the training. However, by decreasing the tuning knob \u03bb2 down to 0.1, we can de-emphasize robust training, thereby avoiding the adverse effect (Figure 4e, green triangles). This is in contrast to RML, which suffers from a non-negligible performance degradation for a very small validation set. See details in the supplementary."
+    },
+    {
+      "heading": "4.2. Real Data Results",
+      "text": "We use two real datasets: ProPublica COMPAS (Angwin et al., 2016) and AdultCensus (Kohavi, 1996), which have 7,214 and 45,222 examples, respectively. We use the same preprocessing as in IBM\u2019s AI Fairness 360 (Bellamy et al., 2018a) and use the sensitive attribute SEX for both datasets. For data poisoning, we use the same method employed on synthetic data: flipping the labels with z = 1 so as to maximize the accuracy performance degradation. The amount of poisoning is 10% of Dtr.\nWhile we assumed that a small yet clean validation set is available in the previous synthetic data experiments, such an assumption does not hold in practice. Thus, for realdata experiments, we consider a scenario where one first constructs a small (which amounts to 5% of Dtr) validation set based on crowdsourcing, and then uses it for FR-Train. We provide details on how to construct this validation set in Section 4.5.\nSummarized in Tables 2 and 3 are the fairness and accuracy performances of various training algorithms on the COMPAS and AdultCensus datasets, respectively. As in Table 1, we apply proper hyperparameters so that the disparate impacts are similar across all distinct methods, both for the clean and poisoned datasets. The results are similar to Table 1: the three fairness methods have worse disparate impact and accuracy due to data poisoning; LR and RML exhibit poor disparate impacts; and FR-Train again shows little degradation both in fairness and accuracy. Tables 2 and 3 also show that combining the fairness methods with sanitization using RML (rows 4\u20136) does not always yield better accuracy and fairness and may even lower them, which is consistent with the results on synthetic data. One may wonder if the fairness baselines would perform better if they are\ntrained on the clean validation set. In the supplementary, we show that the performances are actually worse than those in Tables 2 and 3. This is because the clean validation set is too small to be used as a stand-alone train data. Indeed, a similar observation is made in (Zhang et al., 2018b).\nTable 4 shows the confusion matrix comparison for disparate impact between FR-Train, AD, and FC with sanitization using RML, using the poisoned AdultCensus dataset. The results are reported when FR-Train, AD, and FC achieve (Acc, DI) = (0.809, 0.847), (0.647, 0.834), and (0.780, 0.821), respectively. FR-Train outperforms AD and FC in all aspects because its robustness discriminator is more effective in sanitizing poisoned data."
+    },
+    {
+      "heading": "4.3. Ablation Study",
+      "text": "In Table 5, we perform an ablation study to investigate the effect of each component of FR-Train. (Without \u2018R\u2019) When \u03bb2 = 0 (i.e., no robust training), disparate impact is high, but accuracy is low on the poisoned data, just like the other fairness-only methods (Table 2, rows 1\u20133). (Without \u2018F\u2019) On the other hand, when \u03bb1 = 0 (i.e., no fair training), the accuracy is high, but the disparate impact is low, just like the other non-fairness methods (Table 2, rows 7\u20138). (Without Re-weighting) Finally, when not using example re-weighting, both accuracy and disparate impact are similar to or worse than FR-Train.\nIn summary, only a holistic framework like FR-Train can achieve both excellent model fairness and training robustness. In comparison, other methods tailored for only one of these objectives lose either accuracy, fairness or both."
+    },
+    {
+      "heading": "4.4. Error range of FR-Train",
+      "text": "We investigate the error range of FR-Train. All the FR-Train experiments on the poisoned data are re-conducted with ten different random seeds to generate error ranges with mean (m) and standard deviation (s) values. The performances are reported in the form of m\u00b1 s/2 in Table 6. On the synthetic and AdultCensus datasets, the lowest performances\n(i.e., m\u2212 s/2) of FR-Train are still better than the secondbest performances in Tables 1 and 3, respectively. For the COMPAS dataset, the lowest performance of FR-Train is slightly worse than those of the LBC-related algorithms, which can be explained by the fact that the LBC algorithms were not affected much by the poisoning in the first place."
+    },
+    {
+      "heading": "4.5. Constructing a Clean Validation Set",
+      "text": "We now demonstrate how to construct a clean validation set using crowdsourcing. We construct validation sets for the COMPAS and AdultCensus datasets using Amazon Mechanical Turk (AMT). Although these datasets have labels, we assume that they are not available to use as clean data. We also release the datasets as a community resource (see the supplementary for the description and data) and believe our construction can be generalized to other datasets. While crowdsourcing is not the only way to construct a clean validation set, it is sufficient for our purposes.\nWe design the AMT task for each dataset by asking a worker to classify each example. For the AdultCensus dataset, a worker looks at various attributes of a person and predicts if a person has an income of at least $50K. Instead of a yes/no answer, the answer must be on a scale of 1 to 4, which reflects the worker\u2019s opinion more accurately. The COMPAS dataset has a similar setting where the only difference is that the workers need to predict if a criminal will reoffend in two years. Each task displays about 30 questions where we pay 3 cents per answer. For quality control, each task also contains quizzes to educate the workers, and some questions are used to evaluate the performance of the workers. After collecting answers, we filter out poor performers, take the average of at most a fixed number of N responses per question, and compare with the threshold 2.5 to produce the final labels. The number of answers per question can be fewer than N if inaccurate workers are filtered out. We used workers of all demographics in the US, Canada, and UK. While this majority voting approach already works well in our experiments, one could additionally apply various quality control techniques like peer-reviewing that are known to further reduce bias (Karger et al., 2011).\nThe important questions are how accurate the crowdsourced labels are and whether the constructed validation set results\nin high accuracy and fairness for FR-Train. Table 7 shows the crowdsourced labels accuracies when N increases from 1 to 11. Even for the highest accuracies, the predictions are not perfect because the workers are looking at limited information (i.e., only the features) without any other context. To see if the workers can do better, we also train logistic regression models on ground truth labels and show their accuracies on test data as upperbounds. As a result, the accuracies are comparable when N = 11 for both the COMPAS and AdultCensus datasets. We thus use this setting for all experiments. Table 8 shows how useful our constructed validation set is compared to using a \u201cperfect\u201d validation set of the same size made of ground truth labels. For both datasets, using a ground truth validation set results in slightly higher, but comparable disparate impacts while obtaining near-identical accuracies, justifying the use of crowdsourced validation sets for FR-Train."
+    },
+    {
+      "heading": "5. Related Work",
+      "text": "Model Fairness The notion of discrimination has many definitions and usually comes from certain social goals that one wants to guarantee. As a result, many fairness measures have been proposed (Verma & Rubin, 2018). While we focus on group fairness, which ensures similar statistics between two sensitive groups, an interesting future work is to consider individual fairness (Dwork et al., 2012), which guarantees similar prediction results across nearby examples. Recently, there has also been a surge of research on unfairness mitigation techniques (Bellamy et al., 2018b). Depending on where a fix occurs, there are mainly three approaches: (1) pre-processing techniques (Kamiran & Calders, 2011; du Pin Calmon et al., 2017; Zemel et al., 2013; Feldman et al., 2015) that fix the training data; (2) in-processing techniques (Zafar et al., 2017; Jiang & Nachum, 2019; Zhang\net al., 2018a; Kamishima et al., 2012; Cotter et al., 2019; 2018; Agarwal et al., 2018) that address the issue during model training; and (3) post-processing techniques (Hardt et al., 2016; Pleiss et al., 2017; Kamiran et al., 2012; Chzhen et al., 2019) that manipulate predictions while maintaining the model. Among the three, the in-processing techniques have the advantages that one can work with any data and that there is more control on model training (Venkatasubramanian, 2019).\nAlthough not our immediate focus, there are other noteworthy directions in fairness research. Causality-based fairness (Kilbertus et al., 2017; Kusner et al., 2017; Zhang & Bareinboim, 2018; Nabi & Shpitser, 2018; Khademi et al., 2019; Khademi & Honavar, 2020) suggests how to understand the causal relationship between attributes to overcome the limitations of non-causal approaches. Just as non-causal fairness can be captured by mutual information, we suspect there may be a connection between causal fairness and directed information. Another important approach (Hashimoto et al., 2018) is based on distributionally robust optimization (DRO) (Sinha et al., 2017), which focuses on when the sensitive attribute z is unknown. The DRO-based fairness approach ensures fair results by equalizing risks over all distributions without the knowledge of z, but it does not directly minimize the fairness metrics such as disparate impact and equalized odds. In comparison, FRTrain assumes full knowledge of z and utilizes it to directly minimize the fairness metrics.\nAs we demonstrate in Section 2, the existing fairness techniques are not tailored for robust training, so they are vulnerable to data poisoning attacks. In comparison, FR-Train addresses both model fairness and robust training within the same model training process because they are closely related and affected by the same training data.\nRobust Training There is a heavy literature on how to make the model training robust against noisy or even adversarial data (Natarajan et al., 2013; Biggio et al., 2011; Fre\u0301nay & Verleysen, 2014; Kurakin et al., 2017). A major challenge is that there can be a wide range of data poisoning attacks that keep on evolving. While sanitizing the training data before model training is an option, defending against all possible attacks seems fundamentally infeasible as demonstrated by (Koh et al., 2018). A more recent trend is to develop general defense algorithms for any attack during model training using meta learning (Veit et al., 2017; Li et al., 2017; Xiao et al., 2015; Hendrycks et al., 2018). Our FR-Train framework is inspired by robustness training with meta learning (Ren et al., 2018), but employs a GAN-based model to support fair and robust training without using meta learning. In particular, the design of FR-Train\u2019s robustness discriminator is based on mutual-information-based theoretical insights (Section 3.2). Another line of research is defending against adversarial attacks during test time (Big-\ngio et al., 2013; Goodfellow et al., 2015; Wong & Kolter, 2018). In comparison, our focus is on defending against data poisoning on the training data."
+    },
+    {
+      "heading": "6. Conclusion",
+      "text": "We proposed FR-Train, which is a holistic framework for trustworthy AI by performing both unfairness mitigation and robust training. Our key contribution is providing interpretation of an adversarial learning approach using mutual information and proposing a novel GAN architecture that enjoys the synergistic effect of combining two approaches: (1) employing a fairness discriminator that distinguishes predictions w.r.t. one sensitive group from others and (2) employing a robustness discriminator that distinguishes training data with predictions from a clean validation set and is also used to further improve the fairness training through example re-weighting. In addition, we demonstrated how a clean validation set can be constructed using crowdsourcing and released two new datasets built from Amazon Mechanical Turk as a community resource. In our experiments, we showed that existing fairness methods are vulnerable to data poisoning, even when combined with data sanitization. In comparison, FR-Train is robust to the poisoning and can be adjusted to maintain reasonable accuracy and fairness even if the validation set is too small or unavailable."
+    },
+    {
+      "heading": "Acknowledgements",
+      "text": "Yuji Roh and Steven E. Whang were supported by a Google AI Focused Research Award and by the Engineering Research Center Program through the National Research Foundation of Korea (NRF) funded by the Korean Government MSIT (NRF-2018R1A5A1059921). This material is based upon work supported by the Air Force Office of Scientific Research under award number FA2386-19-1-4050."
+    },
+    {
+      "heading": "A. Appendix",
+      "text": "Appendix A.1 proves Theorem 1. Appendix A.2 extends the theoretical results of the fairness discriminator to other measures. Appendix A.3 shows additional experiments. Appendix A.4 provides more details of the model training setup.\nA.1. Proof for Theorem 1\nBefore we present the proof of the main theorem, we first recall our notation. Let PZ(z) be the distribution of Z where z \u2208 Z and Z is the set of possible sensitive attribute values. Let Y\u0302 |Z = z \u223c PY\u0302 |z(\u00b7) and Y\u0302 \u223c PY\u0302 (\u00b7). Then PY\u0302 (\u00b7) = \u2211 z\u2208Z PZ(z)PY\u0302 |z(\u00b7). Also, let Y \u223c PY (\u00b7).\nFor convenience, let us repeat the statement of Theorem 1 here:\nI(Z; Y\u0302 ) =\nmax Dz(y\u0302): \u2211 z Dz(y\u0302)=1, \u2200y\u0302 \u2211 z\u2208Z PZ(z)EPY\u0302 |z [ logDz(Y\u0302 ) ] +H(Z).\nWe now prove the theorem.\nProof. Denote byD the collection ofDz(y\u0302) for all possible values of z and y\u0302, and by \u03bd the collection of \u03bdy\u0302 for all values of y\u0302. We can construct the Lagrangian function as follows:\nL(D,\u03bd) = \u2211 z\u2208Z PZ(z)EPY\u0302 |z [ logDz(Y\u0302 ) ] +H(Z)\n+ \u2211 y\u0302\u2208Y \u03bdy\u0302\n( 1\u2212\n\u2211 z\u2208Z Dz(y\u0302)\n) .\nWe use the following KKT conditions:\n\u2202L(D,\u03bd) \u2202Dz(y\u0302) = PZ(z) PY\u0302 |z(y\u0302) D?z(y\u0302) \u2212 \u03bd?y\u0302 = 0, \u2200(y\u0302, z) \u2208 Y \u00d7 Z,\n1\u2212 \u2211 z\u2208Z D?z(y\u0302) = 0, \u2200y\u0302 \u2208 Y.\nSolving the two equations, we obtain \u03bd?y\u0302 = PY\u0302 (y\u0302) for all y\u0302. Thus,\nD?z(y\u0302) = PZ(z)PY\u0302 |z(y\u0302)\nPY\u0302 (y\u0302) .\nPutting this to the above optimization,\n\u2211 z\u2208Z PZ(z)EPY\u0302 |z\n[ log PZ(z)PY\u0302 |z(Y\u0302 )\nPY\u0302 (Y\u0302 )\n] +H(Z)\n= \u2211 z\u2208Z PZ(z)EPY\u0302 |z\n[ log PZ(z)PY\u0302 |z(Y\u0302 )\nPY\u0302 (Y\u0302 )\n]\n+ \u2211 z\u2208Z PZ(z) log 1 PZ(z)\n= \u2211 z\u2208Z PZ(z)EPY\u0302 |z\n[ log PY\u0302 |z(Y\u0302 )\nPY\u0302 (Y\u0302 ) ] = \u2211 z\u2208Z PZ(z)DKL(PY\u0302 |z\u2016PY\u0302 )\n, JSPZ (PY\u0302 |z1 , . . . , PY\u0302 |z|Z|) = I(Z; Y\u0302 ).\nHere, the second last equality is due to the definition of the generalized Jensen-Shannon divergence, and the last equality is due to its equivalence to the mutual information (Lin, 1991).\nA.2. Extensions to other fairness measures\nWe now extend FR-Train to the case of equalized odds, which is another important fairness metric, defined as follows:\nDefinition 2. (Equalized Odds) P (Y\u0302 = 1|Y = y, Z = z1) = P (Y\u0302 = 1|Y = y, Z = z2), \u2200y \u2208 Y, \u2200z1, z2 \u2208 Z .\nThe following theorem relates the conditional mutual information I(Z; Y\u0302 |Y ) to the solution of an optimization problem.\nTheorem 3. I(Z; Y\u0302 |Y ) = maxDz|y(y\u0302): \u2211 z\u2208Z Dz|y(y\u0302)=1, \u2200y\u0302\u2211\ny\u2208Y \u2211 z\u2208Z PY,Z(y, z)EPY\u0302 |y,z [ logDz|y(Y\u0302 ) ] +H(Z|Y ).\nThis conditional mutual information term can be used to capture equalized odds. We also note that the following theorem can be modified in a straightforward manner so that it can handle I(Z; Y\u0302 |Y = 1), which can be used to capture equal opportunity.\nWe now prove the theorem.\nProof. Denote by D the collection of Dz|y(y\u0302) for all possible values of (z, y\u0302, and y) and by \u03bd the collection of \u03bdy,y\u0302 for all values of y and y\u0302. We can construct the Lagrangian\nfunction as follows: L(D,\u03bd) = \u2211 y\u2208Y \u2211 z\u2208Z PY,Z(y, z)EPY\u0302 |y,z [ logDz|y(Y\u0302 ) ]\n+H(Z|Y ) + \u2211 y\u0302\u2208Y \u2211 y\u2208Y \u03bdy,y\u0302\n( 1\u2212\n\u2211 z\u2208Z Dz|y(y\u0302)\n) .\nWe use the following KKT conditions:\n\u2202L(D,\u03bd) \u2202Dz|y(y\u0302) = PY,Z(y, z) PY\u0302 |y,z(y\u0302) D?z|y(y\u0302) \u2212 \u03bdy,y\u0302 = 0,\n\u2200(y\u0302, y, z) \u2208 Y \u00d7 Y \u00d7 Z 1\u2212 \u2211 z\u2208Z D?z|y(y\u0302) = 0, \u2200(y\u0302, y) \u2208 Y \u00d7 Y.\nSolving the two equations, we obtain \u03bd?y,y\u0302 = PY,Y\u0302 (y, y\u0302) for all (y, y\u0302) \u2208 Y \u00d7 Y . Thus,\nD?z|y(y\u0302) = PZ|y(z)PY\u0302 |y,z(y\u0302)\nPY\u0302 |y(y\u0302) , \u2200y, y\u0302 \u2208 Y \u00d7 Y.\nPutting this to the above optimization,\n\u2211 y\u2208Y \u2211 z\u2208Z PY,Z(y, z)EPY\u0302 |y,z\n[ log PZ|y(z)PY\u0302 |y,z(Y\u0302 )\nPY\u0302 |y(Y\u0302 ) ] +H(Z|Y )\n= \u2211 y\u2208Y \u2211 z\u2208Z PY,Z(y, z)EPY\u0302 |y,z\n[ log PZ|y(z)PY\u0302 |y,z(Y\u0302 )\nPY\u0302 |y(Y\u0302 )\n]\n+ \u2211 y\u2208Y \u2211 z\u2208Z PY,Z(y, z) log 1 PZ|y(z)\n= \u2211 y\u2208Y \u2211 z\u2208Z PY,Z(y, z)EPY\u0302 |y,z\n[ log PY\u0302 |y,z(Y\u0302 )\nPY\u0302 |y(Y\u0302 )\n]\n= \u2211 y\u2208Y \u2211 z\u2208Z PY (y)PZ|y(z)EPY\u0302 |y,z\n[ log PY\u0302 |y,z(Y\u0302 )\nPY\u0302 |y(Y\u0302 )\n]\n= \u2211 y\u2208Y PY (y) \u2211 z\u2208Z PZ|y(z)EPY\u0302 |y,z\n[ log PY\u0302 |y,z(Y\u0302 )\nPY\u0302 |y(Y\u0302 ) ] = \u2211 y\u2208Y PY (y) \u2211 z\u2208Z PZ|y(z)DKL(PY\u0302 |y,z\u2016PY\u0302 |y)\n, \u2211 y\u2208Y PY (y) \u00b7 JSPZ|y (PY\u0302 |z1,y, . . . , PY\u0302 |z|Z|,y)\n= \u2211 y\u2208Y PY (y)I(Z; Y\u0302 |Y = y) = I(Z; Y\u0302 |Y ).\nThe third last equality is due to the definition of the generalized Jensen-Shannon divergence; the second last equality is due to its equivalence to the mutual information (Lin, 1991); and the last equality is due to the definition of conditional mutual information.\nWe now discuss how to actually compute the mutual information. We compute the following empirical version using the examples {(x(i), z(i), y(i))}mi=1.\nmax Dz|y(y\u0302): \u2211 z\u2208Z Dz|y(y\u0302)=1;\u2200y\u0302 \u2211 y\u2208Y \u2211 z\u2208Z PY,Z(y, z)\n\u2211 i:(y(i),z(i))=(y,z) 1 my,z logDz|y(y\u0302 (i)) +H(Z|Y ).\nNow for a sufficiently large value of m, my,z \u2248 PY,Z(y, z)m. Therefore, the above expression is approximated as:\nmax Dz|y(y\u0302): \u2211 z\u2208Z Dz|y(y\u0302)=1;\u2200y\u0302 \u2211 y\u2208Y \u2211 z\u2208Z\u2211\ni:(y(i),z(i))=(y,z)\n1 m logDz|y(y\u0302 (i)) +H(Z|Y ).\nHence, we can set L2 (i.e., the loss w.r.t. the fairness discriminator) to the above expression. The rest of the objective function is the same. Figure 5 shows the resulting FR-Train architecture.\nA.3. Additional experiments\nA.3.1. SYNTHETIC DATA\nWe continue our experiments from Section 4.1. In particular, we perform FR-Train with different amounts of poisoning, and evaluate robust training with meta learning using smaller validation sets.\nFR-Train with different amounts of poisoning Table 9 shows FR-Train performances with the different levels of poisoning. Even on the heavily poisoned (say 40%) data, FR-Train shows marginal performance degradations (< 6.5% decrease in DI).\nMeta learning with different validation set sizes Table 10 shows the accuracy and fairness results for RML for different validation set sizes. We observe a drastic decrease of accuracy and fairness when the validation set size is 0.1% of the training data.\nA.3.2. REAL DATA\nWe continue our experiments from Sections 2 and 4.2.\nFairness Constraints on real datasets We show the accuracy-fairness tradeoffs of Fairness Constraints (Zafar et al., 2017) on the COMPAS and AdultCensus datasets. Figures 6a and 6b show that both accuracy and fairness of Fairness Constraints decrease on the poisoned data, showing a strictly-worse tradeoff.\nTraining with only validation set We evaluate the baseline that simply trains fairness algorithms on the clean validation set. Table 11 shows that the baseline performs worse than those in Tables 2 and 3. For example, training FC on the AdultCensus crowdsourced validation set yields (DI, Acc) = (0.756, 0.761), which is worse than the FC baseline result (DI, Acc) = (0.826, 0.825) as shown in Table 3. We thus observe that the validation set is sufficient to help discern clean and poisoned data in FR-Train, but not large enough for algorithms to obtain high performance.\nFR-Train using other fairness measures As we showed in Appendix A.2, FR-Train respects equalized odds and equal opportunity. Table 12 shows the experimental results on the synthetic and real datasets for equalized odds. We see that FR-Train significantly improves equalized odds with reasonable accuracy. The results w.r.t. equal opportunity are similar and thus not shown here.\nA.4. Training methodology\nThe generator G is a neural network with zero or one hidden layer. The discriminator Df is a single layer neural network, and the discriminator Dr is a neural network with one hidden layer. We used 8 or 16 nodes in the hidden layers. We set an Adam optimizer (Kingma & Ba, 2014) for the generator, and a stochastic gradient descent (SGD)"
+    },
+    {
+      "heading": "FC 0.796 0.647 0.761 0.756",
+      "text": "optimizer for each discriminator. We empirically observe that one can stabilize the training procedure by freezing the parameters of the fairness discriminator Df for the initial phase of training. Thus, we choose to freeze the parameters of the fairness discriminator Df for the first few epochs until the generator achieves a certain accuracy. We pre-train the generator for the first few epochs and use the generator/discriminator update ratio of 1:3 (or 1:5) for the rest of training.\nAlso, we use the following details for choosing the values of \u03bb1, \u03bb2, and C. For clean data, we set \u03bb2 as a small value (e.g., 0.1) and vary \u03bb1 from 0 to 0.85. For poisoned data, we set \u03bb2 as 0.2, 0.3, or 0.4, and vary \u03bb1 from 0 to 0.95\u2212 \u03bb2. Given the values of \u03bb1 and \u03bb2, we also normalize L1 (the generator loss) by multiplying it with (1 \u2212 \u03bb1 \u2212 \u03bb2). We set C to be a value between 0 to 3."
+    }
+  ],
+  "title": "FR-Train: A Mutual Information-Based Approach to Fair and Robust Training",
+  "year": 2020
+}

@@ -1,0 +1,184 @@
+{
+  "abstractText": "Artificial Intelligence based systems may be used as digital nudging techniques that can steer or coerce users to make decisions not always aligned with their true interests. When such systems properly address the issues of Fairness, Accountability, Transparency, and Ethics, then the trust of the user in the system would just depend on the system\u2019s output. The aim of this paper is to propose a model for exploring how good and bad recommendations affect the overall trust in an idealized recommender system that issues recommendations over a resource with limited capacity. The impact of different users attitudes on trust dynamics is also considered. Using simulations, we ran a large set of experiments that allowed to observe that: 1) under certain circumstances, all the users ended accepting the recommendations; and 2) the user attitude (controlled by a single parameter balancing the gain/loss of trust after a good/bad recommendation) has a great impact in the trust dynamics.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "David A. Pelta"
+    },
+    {
+      "affiliations": [],
+      "name": "Jos\u00e9 L. Verdegay"
+    },
+    {
+      "affiliations": [],
+      "name": "Mar\u0131\u0301a T. Lamata"
+    },
+    {
+      "affiliations": [],
+      "name": "Carlos Cruz Corona"
+    }
+  ],
+  "id": "SP:f984ba9ffe7ba84cdce82bff2c77c239b83e8e44",
+  "references": [
+    {
+      "authors": [
+        "W.B. Arthur"
+      ],
+      "title": "Inductive reasoning and bounded rationality",
+      "venue": "The American Economic Review, 84(2):406\u2013411",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "D. Challet",
+        "M. Marsili",
+        "Y.-C. Zhang"
+      ],
+      "title": "Minority Games: Interacting agents in financial markets",
+      "venue": "Number 9780199686698 in OUP Catalogue. Oxford University Press",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "J.-H. Cho",
+        "K. Chan",
+        "S. Adali"
+      ],
+      "title": "A survey on trust modeling",
+      "venue": "ACM Comput. Surv.,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "T. Dutton"
+      ],
+      "title": "An overview of national ai strategies",
+      "venue": "https://medium.com/politicsai/an-overview-of-national-ai-strategies-2a70ec6edfd - Accessed: 5/11/2019",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Jugovac",
+        "D. Jannach"
+      ],
+      "title": "Interacting with recommenders: Overview and research directions",
+      "venue": "ACM Trans. Interact. Intell. Syst.,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "J. Larus",
+        "C. Hankin",
+        "S.G. Carson",
+        "M. Christen",
+        "S. Crafa",
+        "O. Grau",
+        "C. Kirchner",
+        "B. Knowles",
+        "A. McGettrick",
+        "D.A. Tamburri",
+        "S. Wachter",
+        "H. Werthner"
+      ],
+      "title": "When computers decide: European recommendations on machine-learned automated decision making",
+      "venue": "Technical report,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "A. Mathur",
+        "G. Acar",
+        "M. Friedman",
+        "E. Lucherini",
+        "J. Mayer",
+        "M. Chetty",
+        "A. Narayanan"
+      ],
+      "title": "Dark patterns at scale: Findings from a crawl of 11k shopping websites",
+      "venue": "Proc. ACM Hum.-Comput. Interact., 1(CSCW)",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "M. Mitchell"
+      ],
+      "title": "Complexity: A Guided Tour",
+      "venue": "Oxford University Press, Inc., New York, NY, USA",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "C. Schneider",
+        "M. Weinmann",
+        "J. vom Brocke"
+      ],
+      "title": "Digital nudging",
+      "venue": "Communications of the ACM,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "R.H. Thaler",
+        "C.R. Sunstein"
+      ],
+      "title": "NUDGE: Improving Decisions About Health",
+      "venue": "Wealth, and Happiness. Yale University Press, New Haven & London",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "N.M. Villegas",
+        "C. Snchez",
+        "J. Daz-Cely",
+        "G. Tamura"
+      ],
+      "title": "Characterizing contextaware recommender systems: A systematic literature review",
+      "venue": "Knowledge-Based Systems, 140:173 \u2013 200",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "M. Weinmann",
+        "C. Schneider"
+      ],
+      "title": "and J",
+      "venue": "vom Brocke. Digital nudging. SSRN Electronic Journal",
+      "year": 2015
+    }
+  ],
+  "sections": [
+    {
+      "text": "that can steer or coerce users to make decisions not always aligned with their true interests. When such systems properly address the issues of Fairness, Accountability, Transparency, and Ethics, then the trust of the user in the system would just depend on the system\u2019s output.\nThe aim of this paper is to propose a model for exploring how good and bad recommendations affect the overall trust in an idealized recommender system that issues recommendations over a resource with limited capacity. The impact of different users attitudes on trust dynamics is also considered.\nUsing simulations, we ran a large set of experiments that allowed to observe that: 1) under certain circumstances, all the users ended accepting the recommendations; and 2) the user attitude (controlled by a single parameter balancing the gain/loss of trust after a good/bad recommendation) has a great impact in the trust dynamics."
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Decision making is an ubiquitous task that is not done in vacuum. Our decisions are constrained by our own preferences, by our social network, by the context, by the environment and so on. Moreover, we are surrounded by little nudges: indirect suggestions that are generated by some external agent to influence the decision making process of groups or individuals [13].\nAn example are the so called \u201cDark Patterns\u201d defined as \u201cuser interface design choices that benefit an online service by coercing, steering, or deceiving users into making unintended and potentially harmful decisions\u201d [10]. In such paper, authors make recommendations to study, mitigate, and minimize the use of these patterns. These and other nudging techniques are gaining attention in the last years [15, 12]\nBut these nudges can be issued by more sophisticated systems which through the use of proper data collection, modeling and learning are able to exploit our \u201chistory\u201d\n\u2217Authors are with the Department of Computer Science and A.I, Models of Decision and Optimization Research Group, Universidad de Granada, Spain. e-mail: {dpelta, verdegay}@ugr.es, {mtl,carloscruz}@decsai.ugr.es\nar X\niv :2\n00 2.\n04 30\n2v 1\n[ cs\n.M A\n] 1\n1 Fe\nand preferences trying to induce us taking some decisions. In what follows, we will refer to these systems as ADM: Automated Decision Making systems .\nNowadays, there is an increasing concern on how such ADM are designed and deployed and several countries, research centers and institutions are devoting efforts on how to best address this concern. As relevant examples we can cite\nAs relevant examples we can cite a white paper (written by Informatics Europe and the ACM Europe Policy Committee), presenting specific recommendations from the European technical and scientific community about how policy makers, legislators, and concerned individuals might best respond to the rapid growth of ADM [9]. We can also mention the European approach to Artificial Intelligence, where there is a High-Level Expert Group on Artificial Intelligence (AI-HLEG)[4] that recently (June 2019) presented their Policy and Investment Recommendations for Trustworthy AI [5] during the first European AI Alliance Assembly1. Besides these initiatives, the interested reader may find in [6], a summary of 26 strategies for A.I. from different countries worldwide.\nOverall, many of the principles, recommendations and guidelines can be summarized in four key issues: Fairness, Accountability, Transparency, and Ethics.\nIf we focus on the people using those ADM, the concept of \u201ctrust\u201d emerges as one of the most relevant ones. The European Policy mentioned before makes clear that trust is a prerequisite to ensure a human-centric approach to AI and identify seven key requirements that AI applications should respect to be considered trustworthy.\nWhy a user should trust the output (a decision, a recommendation) of such ADM? how good/bad decisions/recommendations affect the level of trust on the behavior of the system? How aspects like data collection, privacy management, strategic manipulation, nudging and so on affect trust? These are all relevant questions.\nIn this context, one may argue that as the ADM start to behave following the key issues mentioned above, the trust of the people in the system will be only affected by the system\u2019s output, as other aspects (like privacy management) will be properly managed by some external certification authority.\nIt is well known that defining trust is far from trivial as different disciplines define it differently. Here, and considering the so called recommender systems [7, 14, 8] as a particular case of an ADM, we define trust as the willingness of the user to accept a recommendation based on a subjective belief that the recommender tool will exhibit reliable behavior to maximize the users interest under uncertainty of a given situation, based on past experiences with the tool. Our definition resembles the one presented in [3].\nThus, the aim of this paper is to study the dynamics of trust on an multi-user scenario with an ideal recommender system. We depart from a fair and unbiased idealized recommendation tool which issues binary suggestions on using or not a resource with limited capacity. Typical examples are take/do not take a given route, go/do not go to a restaurant or a bar, and so on. The use of a limited capacity resource forces the use of different recommendations even for users with the same profile. Consider, for example, route navigation apps. If all the drivers are recommended an alternative route\n1https://ec.europa.eu/digital-single-market/en/news/ first-european-ai-alliance-assembly\nto avoid a traffic jam ahead, then, the alternative route will be also congested within a short period of time and can generate disturbances in the neighborhoods where the traffic was diverted. So, it becomes clear that not all the users should receive the same recommendation (this is an aspect related with \u201cfairness\u201d).\nIn our model, users simultaneously receive a recommendation on going or not going to a bar. The users decide at the same time whether they will go to the bar or not. As the bar has a limited capacity, it\u2019s no fun to go there if it is too crowded. Every user has a level of trust on the recommender that is increased/decreased if the recommendation was good or not. The amount of increase/decrease in the level of trust is the key to model different user attitudes2.\nWe will explore how good/bad recommendations may affect the trust in the recommender, considering different users attitude towards recommendation errors: tolerant, neutral or intolerant (in a continuum and not as discrete categories). In situations of repeated interactions, we will analyze how the overall trust in the recommender evolves and how the users attitude significantly affects the results.\nUsing simulations, experiments will be done and conclusions will be outlined. Consequently, the paper is structured as follows. In Section 2 the components and the inner working of proposed model is described. Then, in Section 3 the main experiments and results are described and analyzed. They are related with a) the evolution of trust in the recommendations, and b) the influence of the user attitude on trust dynamics. Finally, Section 4 is devoted to conclusions and further work."
+    },
+    {
+      "heading": "2 Model Description",
+      "text": "The proposed model is based on three components: a resource, the users and the recommender. These components are described below and then, the interactions among them is presented.\na) The Resource We depart from a resource with a limited capacity (let\u2019s suppose a bar) C and a \u201ccomfort level\u201d L (as in the El Farol problem [1]) which is the maximum number of users that makes the place not crowded. We assume that a number N > L of users exist (not all the users can simultaneously go to the bar).\nThe attendance Ot is the number of users that decided to go to the bar at time t.\nb) Users We have a set of homogeneous users A = {a1, a2, . . . , aN}, where every ai has:\n\u2022 \u03b1ti \u2208 [0, 1]: level of trust on the recommendation at time t. 2 This model resembles the \u201cEl Farol\u201d bar problem [1], a typical example of the so called Minority Games [2]. Here, we eliminate some assumptions like the existence of payoffs (in terms of game theory), a history of bar attendances and the use of several prediction strategies by the users. In turn, all the users employ the same trust based decision rule, while the recommender system (not present in the original problem) uses a very simple recommendation strategy.\n\u2022 recomti, decti \u2208 {GO,STAY }: recommendation received and the decision taken at time t, respectively.\nDecision Rule: the user will accept the recommendation (decti = recomti) with a value proportional to \u03b1ti. If the user rejects the recommendation, it will do the other action.\nNotice that when \u03b1ti = 1, the user will always accept the recommendation, but when \u03b1ti = 0, it will do the opposite of the recommendation.\nTrust Revision Protocol: every user has a protocol to modify its level of trust \u03b1t+1i in the recommender in terms of the last recommendation received ( recomti) and the last attendance to the bar (Ot).\nThe users have two parameters \u03b2, \u03b3 called the positive and negative feedback (or learning factor) respectively. In this initial setting, all users are considered homogeneous (they share the same decision rule and the trust revision protocol).\nThe trust will increase, making \u03b1t+1i = \u03b1 t i + \u03b2 if the recommendation was \u201cgood\u201d. This will happen either when:\n1. the tool recommended to GO and the bar was not crowded (recomti = GO and Ot \u2264 L), or\n2. the tool recommended to STAY and the bar was crowded (recomti = STAY and Ot > L)\nIn turn, the trust will decrease, making \u03b1t+1i = \u03b1 t i \u2212 \u03b3 if the recommendation was \u201cbad\u201d. Either when:\n1. the tool recommended to GO and the bar was crowded (recomti = GO and Ot > L), or\n2. the tool recommended to STAY and the bar was not crowded (recomti = STAY and Ot \u2264 L)\nThe use of different values for \u03b2, \u03b3 has two reasons: 1) trust can be gained or lost at different rates, 2) the relation between both parameters allows to represent different user attitudes, leading to:\n\u2022 Neutral User: \u03b3 = \u03b2, the same feedback is added/substracted to the current level of trust.\n\u2022 Tolerant User: \u03b3 < \u03b2, the loose of trust occurs slower than trust gain: which means that the agent is tolerant to recommendation errors.\n\u2022 Intolerant User: \u03b3 > \u03b2: the agent penalizes the recommendation errors. For example, when \u03b3 = 2 \u00d7 \u03b2 then an error in the recommendation has two times more impact in the level of trust than a good recommendation. In other words, after a bad recommendation, the user will need two good ones to recover the original level of trust.\nc) The Recommender The recommender knows the set of users but does not have access to their internal levels of trust (the \u03b1ti values). Just the last decision taken by every user ai (the value decti) is available to the recommender.\nGiven that the users are homogeneous, a profile based recommendation would not be possible (remember that the bar has a limited capacity). So, as a starting point, the recommender uses a very simple rule for the assignment of recommendations:\n\u2022 randomly select a set G of L users.\n\u2022 every user ai \u2208 G receives a GO recommendation\n\u2022 every user ai /\u2208 G receives a STAY recommendation\nThis recommender would be an ideal one from the user perspective: it has no room for manipulation, its behavior is clearly unbiased, it does not have access to the user\u2019s private information, it does not store any users\u2019 historical data and so on.\nWorking scheme The elements of the model are depicted in Fig. 1 (top). At every time step t, there are three stages.\n1. Recommendation Stage: the recommender sends a recommendation recti to every user ai.\n2. Decision Stage: using the decision rule described previously, every user takes a decision decti. As expected, the recommendation can be followed or not.\n3. Update Statistics Stage: taking into account the users decisions, some measures are calculated (see below) and informed to the users. Then they adapt their levels of trust using the revision protocol described previously.\nAt every time step t the following measures are calculated.\n\u2022 Attendance Ot: number of users that decided to go to the bar.\n\u2022 Average trust on the recommendations:\n\u03b1\u0304t = 1\nN N\u2211 i=1 \u03b1ti\nPlease note that the value \u03b1\u0304t is just informative and does not affect neither the decision of the users, nor the way recommendations are issued.\nLet\u2019s suppose N = 5, L = 3, \u03b2 = \u03b3 = 0.05 (neutral users). An example with five iterations is displayed in Fig. 1 (bottom). For each user, three values are shown: (reci, deci) \u03b1i. We use the value \u2018G\u2019 in recti or dec t i to denote a GO recommendation or decision while \u2018S\u2019 states a STAY one. Then, the attendance Ot and the average trust \u03b1\u0304t appear.\nConsider user a1 when t = 1 (first row). The recommendation was GO but the user decided to STAY. As the bar was not crowded (Ot = 2), the recommendation was good so the level of trust of a1 is increased. In turn, consider user a3. The recommendation was STAY but the user decided to GO. As the bar was not crowded (Ot = 2), the recommendation was bad. Trust should be decreased but as it could not be lower than zero, it stays in the minimum possible value.\nWe can also consider the dynamic behavior of every user. If we focus on user a5, we observe that for t = 1, 2, 3, it received a GO recommendation that the user does not follow. In those time steps, the bar was not crowded, so the level of trust of the user was increased. When t = 4, the recommendation was STAY but it decided to GO. The bar was not crowded, so the trust was reduced. A similar analysis can be done for the rest of users.\nIn this example, the average trust increased in every iteration. It is important to remark that as the recommender has no access to the (private) level of trust of the users, it can not broadcast any sort of average trust to them. Neither is possible the communication among the users. Both aspects, although important, would add additional features to the model that may affect the analysis of the trust dynamics."
+    },
+    {
+      "heading": "3 Experiments",
+      "text": "Two experiments are conducted. The first one is aimed at understanding trust dynamics (how the average trust change with the time), while the second one focuses on how trust dynamics is affected by the user attitudes with respect to recommendation errors."
+    },
+    {
+      "heading": "3.1 The evolution of the average level of trust",
+      "text": "This experiment is aimed to understand how the trust changes with the time. Some preliminary experiments showed us that the average level of trust converge to 1, so here we pose the following questions:\n1. Is there any t\u2217 which makes the individual values \u03b1t \u2217\ni , \u2200 i \u2208 [1 . . . N ] converge?.\n2. In such a case, the convergence value is the same for all the users?.\n3. Does the number of users has any implications on the results?\nFor different values of N , L = 0.6\u00d7N , and \u03b3 = \u03b2 = 0.05 and a maximum of 250 iterations, we run 100 independent repetitions of the simulation.\nResults are shown in Table 1, where for each value of N , the number of repetitions that converged (runs), out of 100, and the average number of iterations done to converge (I2C) are displayed.\nThe first element to highlight is that all the repetitions converged, and the average level of trust reached the value 1. In other words, always \u2203 t\u2217 |\u03b1t\u2217i = 1, \u2200i \u2208 [1 . . . N ], where t\u2217 is the time (or iterations) to convergence. This is extremely relevant because when such situation occurs, all the users will accept the recommendation, which means that (from the point of view of the recommender and the resource usage) the problem became an assignment problem instead of a recommendation one.\nAnother point to analyze is the relation between the number of users N and the average number of iterations to converge I2C. The plot in Fig. 2 shows this relation, which perfectly adjusts to a power law with y = 25.586x0.3021, R2 = 0.9977."
+    },
+    {
+      "heading": "3.2 On the influence of users\u2019 attitude",
+      "text": "Now, in this experiment, we explore how the trust dynamics change in terms of the users attitude. The question we posed here is: Does the user attitude (the relation between \u03b3 and \u03b2) has any impact in the time to convergence?.\nRecall that a good recommendation makes \u03b1t+1i = \u03b1 t i +\u03b2; otherwise trust changes\nas \u03b1t+1i = \u03b1 t i \u2212 \u03b3.\nWe fix N = 100, L = 60. We keep \u03b2 = 0.05 and we define \u03b3 as \u03c6 \u00d7 \u03b2 with \u03c6 = {0.5, 0.6, . . . 1.8, 1.9, 2.0}\nThe \u03c6 value allows to model the user attitude as a continuum between tolerant to intolerant attitude. When \u03c6 = 1, then a neutral user is modeled while \u03c6 < 1 allows to model a tolerant one. Finally, when \u03c6 > 1 an intolerant user is obtained. For each value of \u03c6 we run 100 repetitions of the simulation, each one with a maximum of 5000 iterations.\nThe results are shown in Table 2. Focusing first in the left part of the Table, two different behaviors are clearly observed. The first one is when \u03c6 \u2264 1.4, where all the runs converged. In these cases, a clear exponential relation is observed between \u03c6 (\u03b3) and the time to converge. When the negative feedback is lower than the positive one \u03b3 < \u03b2 (i.e. \u03c6 < 1) the time to converge is shorter than when \u03b3 = \u03b2 (\u03c6 = 1). These would be the behavior of \u201ctolerant\u201d users that forgive the recommendation errors. When 1 < \u03c6 \u2264 1.4 we are in the presence of users that are less tolerant to recommendation errors. The higher the \u03b3 (the negative feedback), the harder the convergence.\nWhen \u03c6 = 1.5 an important change in the behavior of the model appeared. Just 60 % of the runs converged while such percentage reduced to just 3% when \u03c6 = 1.6 . Moreover, when \u03c6 > 1.6, the simulations did not converge within the iterations limits posed.\nTo better understand the changes between 1.4 \u2264 \u03c6 \u2264 1.6, we made another experiment with fine grained values for \u03c6 = {1.4, 1.41, 1.42, . . . 1.59, 1.6}. The results are shown in Table 2 (right). The simulation converged in all the runs when \u03c6 \u2264 1.46. For\nhigher \u03c6 values, the number of converged runs reduces following a cuadratic relation (y = 4226.7x2 \u2212 13689x + 11084 ,R2 = 0.973) (see Fig. 3). Please note that these changes in \u03c6 values imply just a modification of \u03b3 at the fourth decimal place.\nThese results raise another question: when a simulation does not converge, which is the average level of trust reached?\nFigure 4 shows boxplots corresponding to the average trust values achieved for \u03c6 \u2265 1.6. It is clear that as the negative feedback increases (the users are more intolerant to recommendation errors), it becomes harder to the average trust to increase. In fact, such value never gets higher than 0.4. Recall that when \u03c6 = 2, then a recommendation error has two times more impact in the trust than a good recommendation. The plot shows that in this case, the average trust is almost always below than 0.3 which in turn means that 7 out of 10 recommendations (70%) are rejected by the users."
+    },
+    {
+      "heading": "4 Conclusions",
+      "text": "We focused in an idealized recommender tool that issues binary recommendations over using or not a resource with limited capacity.\nWe proposed a simple model to study both: 1) the evolution of trust and 2) the impact of users attitude on the trust dynamics.\nWe focused on two research questions for which, the main conclusions are outlined. 1) Is there any t\u2217 which makes the individual confidences \u03b1t \u2217\ni , \u2200 i \u2208 [1 . . . N ] converge?. In such a case, the convergence value is the same for all the users?.\nThe experiments confirmed that the answer to this question is YES. Using neutral\nusers (the same positive and negative learning factors \u03b2 = \u03b3 = 0.05), all the simulations ended with all the users having \u03b1i = 1. In other words, at some point in time, all the users accept the recommendation. It was also observed that the value t\u2217 (the time to convergence) follows a power law relation with the number of users.\nFrom the point of view of the resource usage, this is very important: if the users accept the recommendation, then the recommender can properly balance the attendance to bar. Moreover, the recommendation problem can be transformed onto an assignment problem and then a more \u201cfair\u201d approach for recommendations can be implemented (instead of a random one). 2) Does the user attitude (the relation between \u03b3 and \u03b2) has any impact in the time to convergence?. The answer is YES. The relation between both parameters has a very strong impact in the time (or number of iterations) to converge. Recall that each time the recommender produced a good recommendation, the user\u2019s trust is increased in \u03b2 units, while it is decreased by \u03b3 if the recommendation was bad. When \u03b2 > \u03b3, users are tolerant to recommendation errors. A good recommendation weights more than an error. Under this configuration, the simulation always converged. As the difference \u03b3 \u2212 \u03b2 became bigger, the number of simulations that converged reduced following a quadratic relation. This is related with the fact that the average trust on the recommendation stayed in low values (below 0.4).\nAnother important observation is how sensitive is this simple model with respect to small variations in \u03b3. With \u03b3 = 0.07, all the simulations converged, while using \u03b3 = 0.085 none of them did.\nThis \u201csensitivity to initial conditions\u201d is a very well known situation in the complex systems field [11].\nIf using this simple model, such variations are observed, then one should be very careful when analyzing more complex ones, as very small variations may lead to very big changes in the system behavior.\nOverall, we consider this model and the results obtained as first step towards understanding the impact of trust dynamics in recommendation tools for resources with limited capacity."
+    },
+    {
+      "heading": "Acknowledgments",
+      "text": "Research supported in part by project TIN2017-86647-P (Spanish Ministry of Economy and Competitiveness, includes FEDER funds from the European Union)."
+    }
+  ],
+  "title": "Trust dynamics and user attitudes on recommendation errors: preliminary results",
+  "year": 2020
+}

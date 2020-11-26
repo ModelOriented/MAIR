@@ -1,0 +1,525 @@
+{
+  "abstractText": "When analysing a complex system, very often an answer to one question raises new questions. This also applies to the explanatory analysis of machine learning models. We cannot sufficiently explain a complex model using a single method that gives only one perspective. Isolated explanations are prone to misunderstanding, which inevitably leads to wrong reasoning. Surprisingly, the majority of methods developed for Explainable Artificial Intelligence (XAI) focus on a single aspect of the model behaviour. In this paper, we show the problem of model explainability as an interactive and sequential analysis of a model. We show how different XAI methods complement each other and why it is essential to juxtapose them together. The proposed process of Interactive Explanatory Model Analysis (IEMA) derives from the theoretical, algorithmic side of the model explanation and aims to embrace ideas developed in cognitive sciences. Its grammar is implemented in the modelStudio framework that adopts interactivity, customisability and automation as its main traits.",
+  "authors": [],
+  "id": "SP:66e0f7c0b542d0ff720d59626a9df9de1044a379",
+  "references": [
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why Should I Trust You?\u201d: Explaining the Predictions of Any Classifier",
+      "venue": "In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Scott M Lundberg",
+        "Su-In Lee"
+      ],
+      "title": "A Unified Approach to Interpreting Model Predictions",
+      "venue": "In Advances in Neural Information Processing Systems",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Przemyslaw Biecek"
+      ],
+      "title": "DALEX: Explainers for Complex Predictive Models in R",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Christoph Molnar",
+        "Giuseppe Casalicchio",
+        "Bernd Bischl"
+      ],
+      "title": "iml: An R package for Interpretable Machine Learning",
+      "venue": "Journal of Open Source Software,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Zachary C. Lipton"
+      ],
+      "title": "The Mythos of Model Interpretability",
+      "venue": "URL https: //dl.acm.org/doi/abs/10.1145/3236386.3241340",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Tim Miller"
+      ],
+      "title": "Explanation in artificial intelligence: Insights from the social sciences",
+      "venue": "Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Inioluwa Raji",
+        "Joy Buolamwini"
+      ],
+      "title": "Actionable Auditing: Investigating the Impact of Publicly Naming Biased Performance",
+      "venue": "Results of Commercial AI Products. pages 429\u2013435,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Bryce Goodman",
+        "Seth Flaxman"
+      ],
+      "title": "European Union Regulations on Algorithmic Decision-Making and a \u201cRight to Explanation",
+      "venue": "AI Magazine,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Giang Nguyen",
+        "Stefan Dlugolinsky",
+        "Martin Bob\u00e1k",
+        "Viet Tran",
+        "\u00c1lvaro L\u00f3pez Garc\u00eda",
+        "Ignacio Heredia",
+        "Peter Mal\u00edk",
+        "Ladislav"
+      ],
+      "title": "Hluch. Machine Learning and Deep Learning Frameworks and Libraries for Large-Scale Data Mining: A Survey",
+      "venue": "Artif. Intell. Rev.,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Navdeep Gill",
+        "Patrick Hall",
+        "Kim Montgomery",
+        "Nicholas Schmidt"
+      ],
+      "title": "A Responsible Machine Learning Workflow with Focus on Interpretable Models, Post-hoc Explanation, and Discrimination Testing",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Cynthia Rudin"
+      ],
+      "title": "Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead",
+      "venue": "Nature Machine Intelligence, 1:206\u2013215,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Michael Feldman",
+        "Sorelle A. Friedler",
+        "John Moeller",
+        "Carlos Scheidegger",
+        "Suresh Venkatasubramanian"
+      ],
+      "title": "Certifying and Removing Disparate Impact",
+      "venue": "In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, page 259\u2013268,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Mateusz Staniak",
+        "Przemys\u0142aw Biecek"
+      ],
+      "title": "Explanations of Model Predictions with live and breakDown Packages",
+      "venue": "The R Journal,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Daniel W. Apley",
+        "Jingyu Zhu"
+      ],
+      "title": "Visualizing the Effects of Predictor Variables in Black Box Supervised Learning Models",
+      "venue": "CoRR, abs/1612.08468,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Jerome Friedman"
+      ],
+      "title": "Greedy Function Approximation: A Gradient Boosting Machine",
+      "venue": "The Annals of Statistics, 29,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Robert R. Hoffman",
+        "Shane T. Mueller",
+        "Gary Klein",
+        "Jordan Litman"
+      ],
+      "title": "Metrics for Explainable AI: Challenges and Prospects",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Marcus Westberg",
+        "Amber Zelvelder",
+        "Amro Najjar"
+      ],
+      "title": "A Historical Perspective on Cognitive Science and Its Influence on XAI Research",
+      "venue": "In Explainable, Transparent Autonomous Agents and Multi-Agent Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Alejandro Barredo Arrieta",
+        "Natalia Diaz Rodriguez",
+        "Javier Del Ser",
+        "Adrien Bennetot",
+        "Siham Tabik",
+        "Alberto Barbado Gonz\u00e1lez",
+        "Salvador Garcia",
+        "Sergio Gil-Lopez",
+        "Daniel Molina",
+        "V. Richard Benjamins",
+        "Raja Chatila",
+        "Francisco Herrera"
+      ],
+      "title": "Explainable Artificial Intelligence (XAI): Concepts, Taxonomies, Opportunities and Challenges toward Responsible AI",
+      "venue": "Information Fusion,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Clement Henin",
+        "Daniel Le M\u00e9tayer"
+      ],
+      "title": "A Multi-layered Approach for Interactive Black-box Explanations",
+      "venue": "Research Report RR-9331, Inria - Research Centre Grenoble \u2013 Rho\u0302ne-Alpes ; Ecole des Ponts ParisTech,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Kacper Sokol",
+        "Peter Flach"
+      ],
+      "title": "One Explanation Does Not Fit All",
+      "venue": "KI - Ku\u0308nstliche Intelligenz,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Malin Eiband",
+        "Hanna Schneider",
+        "Mark Bilandzic",
+        "Julian Fazekas-Con",
+        "Mareike Haug",
+        "Heinrich Hussmann"
+      ],
+      "title": "Bringing Transparency Design into Practice",
+      "venue": "In 23rd International Conference on Intelligent User Interfaces,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Danding Wang",
+        "Qian Yang",
+        "Ashraf Abdul",
+        "Brian Y. Lim"
+      ],
+      "title": "Designing Theory-Driven User-Centric Explainable AI",
+      "venue": "In Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Tim Miller",
+        "Piers Howe",
+        "Liz Sonenberg"
+      ],
+      "title": "Explainable AI: Beware of Inmates Running the Asylum Or: How I Learnt to Stop Worrying and Love the Social and Behavioural Sciences",
+      "venue": "CoRR, abs/1712.00547,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Mireia Ribera",
+        "\u00c0gata Lapedriza"
+      ],
+      "title": "Can we do better explanations? A proposal of user-centered explainable AI",
+      "venue": "In IUI Workshops,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Amina Adadi",
+        "Mohammed Berrada"
+      ],
+      "title": "Peeking inside the black-box: A survey on Explainable Artificial Intelligence (XAI)",
+      "venue": "IEEE Access,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Shixia Liu",
+        "Xiting Wang",
+        "Mengchen Liu",
+        "Jun Zhu"
+      ],
+      "title": "Towards better analysis of machine learning models: A visual analytics perspective",
+      "venue": "Visual Informatics,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Hubert Baniecki",
+        "Przemyslaw Biecek"
+      ],
+      "title": "modelStudio: Interactive studio with explanations for ML predictive models",
+      "venue": "Journal of Open Source Software,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Patrick Hall",
+        "Navdeep Gill",
+        "Megan Kurka",
+        "Wen Phan"
+      ],
+      "title": "Machine Learning Interpretability with H2O Driverless AI. H2O.ai, Inc., October 2019",
+      "venue": "URL http://docs.h2o.ai",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Harsha Nori",
+        "Samuel Jenkins",
+        "Paul Koch",
+        "Rich Caruana"
+      ],
+      "title": "InterpretML: A Unified Framework for Machine Learning Interpretability",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "James Wexler",
+        "Mahima Pushkarna",
+        "Tolga Bolukbasi",
+        "Martin Wattenberg",
+        "Fernanda Vi\u00e9gas",
+        "Jimbo Wilson"
+      ],
+      "title": "The What-If Tool: Interactive Probing of Machine Learning Models. 2019",
+      "venue": "URL https://arxiv.org/pdf/",
+      "year": 1907
+    },
+    {
+      "authors": [
+        "Benjamin Hoover",
+        "Hendrik Strobelt",
+        "Sebastian Gehrmann"
+      ],
+      "title": "exBERT: A Visual Analysis Tool to Explore Learned Representations in Transformers Models. 2019",
+      "venue": "URL https://arxiv.org/abs/1910.05276",
+      "year": 1910
+    },
+    {
+      "authors": [
+        "Przemyslaw Biecek",
+        "Tomasz Burzykowski"
+      ],
+      "title": "Explanatory Model Analysis. 2020",
+      "venue": "URL https://pbiecek. github.io/ema/",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Margaret Mitchell",
+        "Simone Wu",
+        "Andrew Zaldivar",
+        "Parker Barnes",
+        "Lucy Vasserman",
+        "Ben Hutchinson",
+        "Elena Spitzer",
+        "Inioluwa Deborah Raji",
+        "Timnit Gebru"
+      ],
+      "title": "Model cards for model reporting",
+      "venue": "Proceedings of the Conference on Fairness, Accountability, and Transparency - FAT*",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Gary King"
+      ],
+      "title": "Replication, Replication",
+      "venue": "Political Science and Politics, 28:444\u2013452,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Monya Baker"
+      ],
+      "title": "Is there a reproducibility crisis",
+      "venue": "Nature, 533:452\u2013454,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Ulrich Aivodji",
+        "Hiromi Arai",
+        "Olivier Fortineau",
+        "S\u00e9bastien Gambs",
+        "Satoshi Hara",
+        "Alain Tapp"
+      ],
+      "title": "Fairwashing: the risk of rationalization",
+      "venue": "In Proceedings of the 36th International Conference on Machine Learning,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Dylan Slack",
+        "Sophie Hilgard",
+        "Emily Jia",
+        "Sameer Singh",
+        "Himabindu Lakkaraju"
+      ],
+      "title": "Fooling LIME and SHAP: Adversarial Attacks on Post Hoc Explanation Methods",
+      "venue": "In Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society, AIES \u201920,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Ann-Kathrin Dombrowski",
+        "Maximillian Alber",
+        "Christopher Anders",
+        "Marcel Ackermann",
+        "Klaus-Robert M\u00fcller",
+        "Pan Kessel"
+      ],
+      "title": "Explanations can be manipulated and geometry is to blame",
+      "venue": "In Advances in Neural Information Processing Systems",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Laura Rieger",
+        "Lars Kai Hansen"
+      ],
+      "title": "A simple defense against adversarial attacks on heatmap explanations. 2020",
+      "venue": "URL https://arxiv.org/abs/2007.06381. 2020 Workshop on Human Interpretability in Machine Learning (WHI)",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Aaron Fisher",
+        "Cynthia Rudin",
+        "Francesca Dominici"
+      ],
+      "title": "All Models are Wrong, but Many are Useful: Learning a Variable\u2019s Importance by Studying an Entire Class of Prediction Models Simultaneously",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Guolin Ke",
+        "Qi Meng",
+        "Thomas Finley",
+        "Taifeng Wang",
+        "Wei Chen",
+        "Weidong Ma",
+        "Qiwei Ye",
+        "Tie- Yan Liu"
+      ],
+      "title": "LightGBM: A Highly Efficient Gradient Boosting Decision Tree",
+      "venue": "In Advances in Neural Information Processing Systems",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Brandon M. Greenwell"
+      ],
+      "title": "pdp: An R Package for Constructing Partial Dependence Plots",
+      "venue": "The R Journal,",
+      "year": 2017
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords Explainable Artificial Intelligence \u00b7 Interactive Explanations \u00b7 Black-Box Models \u00b7 Human-Oriented XAI \u00b7 Explanatory Model Analysis \u00b7 Responsible Artificial Intelligence"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": ""
+    },
+    {
+      "heading": "1.1 Background",
+      "text": "A rapidly increasing number of machine learning applications has demonstrated high efficiency of complex and flexible predictive models, aka black-boxes. At the same time, there is a growing awareness among users of these models, that we require better tools for exploration and explanation. There are a lot of technical discoveries in the field of Explainable Artificial Intelligence (XAI) praised for their mathematical brilliance and software ingenuity [1\u20135]. However, in all this rapid development, we forgot about how important is the interface between human and model. Interactive interpreters available in tools such as R or Python significantly facilitate data analysis process. Another breakthrough was notebooks that speed up the feedback loop. Still, there is a huge margin for improvement in the area of human-oriented XAI [6, 7].\nPeople must trust models predictions to support their everyday lives and not harm them while doing so. Because of some spectacular AI failures even among the most technologically mature companies (see examples related to Google [8], Amazon [9] or Apple [10]), governments and unions step up to provide guidelines and regulations on AI to ensure its safeness, robustness and transparency [11, 12]. The debate on the necessity of XAI is long over. With a right to an explanation comes great responsibility for everyone creating algorithmic decision-making to deliver some form of proof that this decision is fair [13].\nConstructing and assessing such evidence becomes a troublesome and demanding task. Surprisingly we have a growing list of end-to-end frameworks for model development [14], yet not that many complete and convenient frameworks for model interpretation, explanation and validation. According to [15], the three main approaches to black-box model\nar X\niv :2\n00 5.\n00 49\n7v 2\n[ cs\n.L G\n] 1\nexploration are: evading it and using interpretable by design algorithms [16], applying discrimination testing techniques [17], or using post-hoc explanation methods. Although the first two are precise, the last solution is of particular interest of ours in this article. We will limit ourselves here to models for tabular data, but the presented approach can also be generalized to other types of data.\nFocusing on overcoming the opacity in machine learning has led to the development of many model-agnostic explanations [1, 2, 18\u201320]. There is a great need to condense many of those explanations into comprehensive frameworks for machine learning practitioners. Because of that, numerous technical solutions were born that aim to unify the natural and programming language for model exploration [3\u20135]. They calculate various local and global level model explanations, which help to understand models predictions next to its overall complex behaviour. It is common practice to produce visualisations of these explanations as it is more straightforward to interpret plots than raw numbers. Despite unquestionable usefulness of XAI frameworks, they have a high entry threshold that requires programming proficiency as well as technical knowledge of machine learning.\nResearch in cognitive sciences shows that there is a lot to be gained from the interdisciplinary look at XAI [21, 22]. There is a room for improvement in existing solutions, as most of them rarely take into account the human side of the black-box problem [7]. While developing XAI frameworks, we should take into consideration the needs of multiple diverse stakeholders [23\u201325], which might require a thoughtful development of the user interface [26]. It is a different approach than in the case of machine learning frameworks, where we mostly care about the view of machine learning practitioners."
+    },
+    {
+      "heading": "1.2 Objectives",
+      "text": "As learned in [27], we can extend XAI designs in many ways to embrace the human-oriented, user-centric approach. For us, the key ideas are: (1) Provide contrastive explanations that cross-compare different aspects of a model. (2) Give exploratory information about the data that hides under the model in question. (3) Integrate multiple explanations into a single, more cohesive dashboard. (4) Support the process with useful, additional factors (e.g. explanation uncertainty, feature correlation). In this paper, we introduce grammar of the Interactive Explanatory Analysis, thus significantly facilitate our understanding of black-box models through a sequence of single aspect model explanations.\nStructure of the paper is the following. We overview challenges in providing meaningful insights on black-box models for multiple machine learning stakeholders at once (Section 2). We present basics of the grammar of Interactive Explanatory Model Analysis and its implementation in the modelStudio framework (Section 4). Finally, we refer to the principles of responsible machine learning and discuss the potential use of our contribution as a defense from adversarial attacks on model explanations (Section 5)."
+    },
+    {
+      "heading": "2 Challenges in Human-Oriented XAI",
+      "text": "Explaining complex predictive models has a high entry threshold, as it may require:\n\u2022 Know-how: We produce explanations using frameworks which involve high programming skills. \u2022 Know-why: We need to understand the algorithmic part of the model and heavy math behind explanations to\nreason properly. \u2022 Domain knowledge: We validate explanations against the domain knowledge. \u2022 Manual exploration: We need to approach various aspects of a model and data differently because all valid\nmodels are alike, and each wrong model is wrong in its way.\nIt is possible to enhance the model explanation process to lower the entry threshold and facilitate the exploration of different aspects of a model. In this section, we introduce three main traits that a modern XAI framework should possess to overcome some of the challenges in the interface between a human and a model."
+    },
+    {
+      "heading": "2.1 Interactivity",
+      "text": "Interactive dashboards are popular in business intelligence tools for data visualisation and analysis due to their ease of use and instant feedback loop. Decision-makers are enabled to work in an agile manner, avoid producing redundant reports and need less know-how to perform demanding tasks. Unfortunately, this is not the case with XAI tools, where most of the current three-dimensional outputs are mainly targeted at machine learning practitioners or field-specialists as oppose to nontechnical users [28]. As an alternative, we could focus on developing interactive model explanations that will better suit wider audiences. Such a fourth dimension helps in the interpretation of raw outputs because users can access more information. Additionally, the experience of using interactive tools is far more engaging for users."
+    },
+    {
+      "heading": "2.2 Customisability",
+      "text": "Interactivity provides an open window for customisation of presented pieces of information. In our means, customisability allows modifying the explanations dynamically. It means that all of the interested parties can freely view and explore model explanations in their way. This trait is essential because human needs may vary over time or be different for different models. With overcoming of this challenge, we reassure that calculated XAI outputs can be adequately and compactly served to multiple diverse consumers [29]. Furthermore, looking at only a few potential plots or measures is not enough to grasp the whole picture. They may very well contradict each other or only together suggest evident model behaviour."
+    },
+    {
+      "heading": "2.3 Automation",
+      "text": "In the model development process [30], a quick feedback loop is desirable. However, endless, manual and laborious model exploration may be a slow and demanding task. For this process to be successful and productive, we have developed fast model debugging methods. By fast, we mean easily reproducible in every iteration of the model development process. While working in an iterable manner, we often reuse our pipelines to explain the model. This task can be fully automated and allow for more active time in interpreting the explanations. Especially in the context of XAI, analysing the results should take most of the time, instead of producing them."
+    },
+    {
+      "heading": "2.4 Conclusion",
+      "text": "Automation and customisablity make the framework approachable for diverse stakeholders apparent in the XAI domain. Interactivity allows for a continuous model exploration process. Standard and well-established libraries for model interpretation and explanation documented in [31] are not entirely going out towards emerging challenges. Although some ideas are discussed in [32], we are relating to tools that recently appeared in this area, especially new developments used in the machine learning practice. They are mostly dashboard-like XAI frameworks that aim to implement the introduced traits [33\u201340]. We provide a comparison of such tools in Appendix A."
+    },
+    {
+      "heading": "3 The Grammar of Interactive Explanatory Model Analysis",
+      "text": "Figure 1 shows how the perception of explainability changes with time. For some time the interpretability of the model was not considered important, the main focus was put to model performance. The next step was the first generation of explanations focused on individual aspects of the model, like the effects of particular variables. The next generation will focus on the analysis of multiple aspects of a model. Requirements for the second generation involve a well-defined taxonomy of model explanations, and definition of the grammar generating their sequences.\nBlack Box Model I generation explanations\n(single aspect model explanation)\nII generation explanations (interactive explanatory\nmodel analysis)\nFigure 1: The first generation of model explanations aims at exploring individual aspects of model behaviour. The second generation of model explanation aims at the integration of individual aspects into a vibrant and multi-threaded customisable story about the model that addresses the needs of different stakeholders."
+    },
+    {
+      "heading": "3.1 Taxonomy of explanations for IEMA",
+      "text": "In this subsection, we introduce a new taxonomy of methods for model explanation. Figure 2 shows the two main dimensions of this taxonomy. In the next subsection, on the basis of this taxonomy, we show how different methods can complement each other. The taxonomy is based on two dimensions. The first dimension categorizes the methods according to the question \u201cWhat to explain?\u201d. The second dimension groups the methods according to the question\n\u201cHow to explain?\u201d.\nThe proposed taxonomy distinguishes three groups of explanations in the \u201eWhat to explain?\u201d question. It is consistent with taxonomies introduced in [4, 5, 41].\n1. Data exploration. These techniques have the longest history (see for example [42]). They focus on the presentation of the distribution of individual variables or relationships between pairs of variables. Often data exploration is conducted to identify outliers or abnormal observations. Data exploration may be interesting to every stakeholder, but most important is for model developers. Understanding data allows them to build better models.\n2. Global model explanation. Techniques for model explanations are focused on the behaviour of models on a certain dataset. Unlike data explanations, the main focus here is that we are interested in the behaviour of some particular model. For one dataset we can have many models, which differ, i.e. in the number of variables. Different stakeholders can use global methods, but most often they are of interest to model validators, which check whether a model behaves as expected. Examples of such methods are Performance metrics, Variable importance or Partial dependence profiles.\n3. Local model explanation. These techniques deal with the prediction of the model for a single observation. This type of analysis is useful for detailed model debugging. These explanations can also be presented to end-users of the model to justify the decision proposed by the model. Examples of such methods are Shapley values or Ceteris Paribus profiles.\nThe second dimension groups the explanation methods based on the nature of the performed analysis. Similarly, we distinguish three groups here.\n1. Analysis of the distribution. These explanations focus on showing the distribution of certain variables. The results make it easier to understand how typical are certain values.\nWe use the following notation to formalise this taxonomy. Global methods operate on a dataset. Let D stand for a dataset with n rows and p columns. Here p stands for the number of variables while n stands for the number of observations. Local methods operate on a single observation. Let x\u2217 \u2208 Rp stand for the observation of interest. Let f : X \u2192 R denote for the model of interest, where X = Rp is the p-dimensional input space. When we refer to the analysis of a profile, we are interested in a function that summarises how the model f responds for changes in variable xi. For local methods such as Ceteris paribus the profile g(z) for variable xi and observation x\u2217 is defined as\ngx\u2217(z) = f(x \u2217|xi = z).\nGlobal methods such as Partial dependence profile are defined as some aggregation of individual profiles over the whole dataset. For Partial dependence profile G(z) it is an average of Ceteris paribus overall observations xj\nG(z) = n\u2211 j=1 gxj (z).\nWhen we refer to the analysis of parts, we are interested in the attribution of some measure to individual variables. For local methods, such as Shapley values, we ask for attributions h(i) for variables xi that sum up to a model response for data point x\u2217\np\u2211 i=1 h(i) = f(x\u2217)."
+    },
+    {
+      "heading": "3.2 Complementary explanations in IEMA",
+      "text": "The main results of this paper are based on the observation that each explanation generates further cognitive questions. Model exploration adds up to chains of questions joined with the explanations of different types. Juxtapositioning of different explanations helps us to better understand the behaviour of the model itself.\nThe explanatory techniques presented in the previous subsection are focused on explaining a single perspective of the model. However, they are not sufficient because every answer raises new questions. Therefore, when designing a system for explanations, we should also plan possible paths between aspects of a model that complement each other.\nIn this paper, we define interactions with the machine learning system as a set of possible paths between different aspects of the model. Figure 2 shows a proposed graph of interactions. It creates the grammar of interactive exploration. The edge in the graph means that the selected two aspects of the explanations complete their content. For example Figure 3 shows an example for edge 1, Figure 4 shows an example for edge 6, while Figure 5 shows an example for edge 3."
+    },
+    {
+      "heading": "3.3 Use-case: FIFA 20",
+      "text": "We have already introduced the taxonomy of methods for model explanation and the grammar of multi-aspect model explanation. Now, we will present these developments based on the evident data example. There is a regression problem associated with the FIFA 20 dataset [43]. We want to estimate the worth of a player based on his characteristics. For this example, a Gradient Boosting Machine model will be explained using the IEMA approach. We use model-agnostic explanations so it could be any other predictive model. Since its structure is irrelevant, we will refer to it as a back-box model.\nThe introduced grammar allows for the construction of the sequence of questions and associated answers. In the case of our model, we will start with a prediction of the worth of one of the most famous footballers, Christiano Ronaldo. The black-box model estimates the value of CR7 at 38M Euro.\nConsider the following human-model dialogue:\n1. First question: What factors have the greatest influence on the estimation of the worth of Christiano Ronaldo? In the taxonomy, this is the local level question about parts. To answer this question, we may present Shapley values or Break down techniques as in Figure 3. The movement_reactions and skill-ball-control variable increases worth the most, while the age is the only variable that decreases Ronaldo\u2019s worth.\n2. This suggests another question: What is the relationship between age and the worth of CR7? What would the valuation be if CR7 was younger or older? This is a local level question about the profile. As the answer, we"
+    },
+    {
+      "heading": "4 Framework for Interactive Explanatory Model Analysis",
+      "text": "The modelStudio framework [33] allows performing Interactive Explanatory Model Analysis. It automatically computes various (instance and dataset level) model explanations and produces a customisable dashboard1, which consists of multiple panels for plots with their short descriptions. These are model agnostic explanations and data exploration visualisations. Such a serverless dashboard is easy to save, share and explore by all the interested parties. Interactive features allow for full customisation of the visualisation grid and productive model examination. Different views presented next to each other broaden the understanding of the path between the model\u2019s inputs and outputs, which improves human interpretation of its decisions.\nThe key feature of the output produced with modelStudio is its interface. It is constructed to be user-friendly so that non-technical users have an easy time navigating through the process. There is a possibility to investigate myriad of observations for local model explanations at once, by switching between them freely. The same goes for all of the variables present in the model. Any user can choose a custom grid of panels and change their position at any given time.\nThis solution puts a vast emphasise on overcoming the challenges discussed in Section 2 and implementing the process presented in Section 3. Overall, working with the produced dashboard is very engaging and effective. modelStudio lowers the entry threshold for all humans that want to understand the black-box models. Due to its automated nature, no sophisticated technical skills are required to produce it. Additionally, it shortens the user-model feedback loop in the machine learning development stage, and creators may efficiently debug models to actively improve their work. We provide a comparison of similar tools in Appendix A."
+    },
+    {
+      "heading": "5 Discussion",
+      "text": "In this section, we discuss further how our contribution corresponds to the recent relevant research topics."
+    },
+    {
+      "heading": "5.1 Responsible machine learning",
+      "text": "Responsibility is being brought up as a critical factor in the machine learning domain [15, 23]. An interesting proposition concerning of model transparency, fairness and security is the Model Cards framework introduced in [44]. It aims at providing complete documentation of the model in the form of a short report. There are various information, e.g. textual descriptions, performance benchmarks, model explanations, and valid context. Apart from introduced advantages of the modelStudio framework, its output can serve as a supplementary resource for black-box predictive models generated after model development.\nThe idea of reproducible research is important now more than ever [45, 46]. In the machine learning domain, there is a debate about adding available data and models as an appendix to research papers. We believe that researchers should also be able to easily support their contributions with model explanations. It would allow others (especially reviewers) to explore models reasoning and interpret the findings themselves. The modelStudio framework allows for that because its serverless output is simple to produce, save and share. The same principle stays for machine learning used in the commercial domain. Decision-making models could have their reasoning put out to the world, and thus make them more transparent for interested parties."
+    },
+    {
+      "heading": "5.2 Adversarial attacks on model explanations",
+      "text": "There are various adversarial attacks on machine learning models; hence, ways of defending, e.g. by using XAI techniques. Nowadays, more and more specific attacks on model explanations come to light [47, 48], also in the Computer Vision domain. In [49], authors showcase that a slight manipulation of the input data can result in artificially made model explanations. As a defense to such adversary, [50] presents how a simple aggregation of multiple explanation methods makes the model robust against manipulation.\nThe idea of aggregation of multiple explanation methods is at the core of the IEMA process and the modelStudio framework. Not in the technical side, but the integration of individual model aspects into a multi-faceted view of a model. The juxtaposition of these aspects gives far more complementary information; thus, XAI methods become robust against deception. We believe, that our contribution has a high potential to be a solid defense against adversarial attacks on isolated model explanations, especially where manipulation of the data is involved, because of the addition of data exploration visualisations.\n1modelStudio dashboard for the FIFA 20 use-case: https://pbiecek.github.io/explainFIFA20/ code: https://github.com/pbiecek/explainFIFA20"
+    },
+    {
+      "heading": "5.3 Conclusions",
+      "text": "The topic of Explainable Artificial Intelligence brings much attention recently. However, the literature is dominated by works either focused on a list of requirements for its better adoption or contributions with a very technical approach to model explanation.\nIn this paper, we propose a third way. First, we argue that explaining a single aspect of the model is incomplete. Second, we propose a taxonomy of methods for explanations, which focuses on the needs of different stakeholders apparent in the lifecycle of machine learning models. Third, we describe that model explanation is an interactive process in which we analyse a sequence of complementary model aspects. Therefore, the appropriate interface for unrestricted model exploration must adopt interactivity, customisation, and automation to lower the entry threshold.\nThe introduced grammar of Interactive Explanatory Model Analysis has been designed to allow for effective adoption of a human-oriented approach to XAI. Its practical implementation is available through the modelStudio framework. Such a complete solution could also be utilised as a supplementary resource for black-box predictive models, and as a defense from attacks on model explanations. In the future, we would like to aggregate the data from the user-centric experiments, using the extensive telemetry possibilities of this tool, to look at how different stakeholders analyse the information."
+    },
+    {
+      "heading": "6 Acknowledgements",
+      "text": "We would like to thank Anna Kozak for the design of graphical abstract and Alicja Gosiewska for reviewing this paper. This work was financially supported by the NCN (Poland) Opus grant 2017/27/B/ST6/01307."
+    },
+    {
+      "heading": "A Comparison of dashboard-like XAI frameworks",
+      "text": "Here we present work related to the modelStudio framework [33] presented in Section 4. We explicitly omit standard and well-established libraries for model interpretation and explanation as it is a widely documented ground [31]. As discussed in Section 2, they are not entirely going out towards emerging challenges. Although some ideas are discussed in [32], we are looking at tools that recently appeared in this area, especially new developments used in the machine learning practice. We can divide them into two groups:\n1. XAI modules attached to the machine learning frameworks that mostly adopt the automation feature, while also continuously trying to bridge the gap between the humans and AI.\n2. Interactive dashboard-like tools that focus on treating the model exploration as an extended process and take into account the human side of the black-box problem.\nThe general incorporation of model explanations into machine learning workflow is rapidly increasing. The most popular are the global Feature importance measures [51]. For example, the model-agnostic Feature importance is available in comprehensive machine learning frameworks [14], while the model-specific Feature importance measures often appear next to libraries that focus on a single model [52]. There more and more are improvements like Partial dependence profiles [20, 53] and Shapley values [2] in such software.\nDriverless AI [34] developed by H2O is a comprehensive state-of-the-art commercial machine learning platform. It automates feature engineering, model building, visualisation, and interpretability. The last module supports some of the local and global explanations and, most importantly, does not require the user to know how to produce them. While doing a great job at that, it also delivers documentation which describes all of the complex Interpretable machine learning nuances. The main disadvantages of this framework are its commercial nature and lack of customisation options.\nInterpretML [35] developed by Microsoft provides a unified API for model exploration. It can be used to produce explanations for both white-box and black-box models. The ability to create a fully customisable interactive dashboard, that also compares many models at the same time, is a crucial advantage of this tool. Unfortunately, it does not support automation, which, especially for inexperienced people, could be a helpful addition to such a complete package.\nTensorBoard [36] developed by TensorFlow is a dashboard, which visualises model behaviour from various angles. It allows tracking models structure, project embeddings to a lower-dimensional space or display audio, image and text data. Furthermore, it promotes adding plugins like the tf-explain [54] library that provides XAI tools tailored for TensorFlow Image Processing models. More related is the What-If Tool [37] developed by Google that allows machine learning practitioners to explain algorithmic decision-making systems with minimal coding. Using it to join all the metrics and plots into a single, interactive dashboard embraces the grammar of IEMA. What differentiates it from modelStudio is its sophisticated user interface that becomes a barrier for non-technical users. It also requires a server architecture which might be an inconvenience, as oppose to a serverless modelStudio dashboard.\nexBERT [38] is an interactive tool that aims to explain the state-of-the-art Natural Language Processing (NLP) model BERT. It enables users to explore what and how transformers learn to model languages. It is possible to input any sentence which will be then parsed into tokens and passed through the model. The attentions and ensuing word embeddings of each encoder are then extracted and displayed for interaction. This example shows a different proposition adapted for the NLP use case but still possesses key traits like automation and interactivity of the dashboard.\nFinally, the newest additions to the list are explainX (Python) [39] and ArenaR (R) [40] packages. In Table 1, we present a brief comparison of relevant, meaning such as discussed at the start of this Section, XAI frameworks. All of them take a step ahead to provide interactive dashboards with multiple various complementary explanations that allow for a continuous model exploration process. Some of these frameworks produce such outputs automatically, which is a high convenience for the user. As stated before, the ultimate XAI framework should be customisable and interactive to suit different needs and scenarios. Automation and customisablity make the tool approachable for multiple diverse stakeholders apparent in the XAI domain."
+    }
+  ],
+  "year": 2020
+}

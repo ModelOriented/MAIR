@@ -1,0 +1,169 @@
+{
+  "abstractText": "At the core of interpretable machine learning is the question of whether humans are able to make accurate predictions about a model\u2019s behavior. Assumed in this question are three properties of the interpretable output: coverage, precision, and effort. Coverage refers to how often humans think they can predict the model\u2019s behavior, precision to how accurate humans are in those predictions, and effort is either the up-front effort required in interpreting the model, or the effort required to make predictions about a model\u2019s behavior.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Marco Tulio Ribeiro"
+    },
+    {
+      "affiliations": [],
+      "name": "Sameer Singh"
+    }
+  ],
+  "id": "SP:156d77df7ad62ae0b044e18bddae01dd1ae529e8",
+  "references": [
+    {
+      "authors": [
+        "Stanislaw Antol",
+        "Aishwarya Agrawal",
+        "Jiasen Lu",
+        "Margaret Mitchell",
+        "Dhruv Batra",
+        "C. Lawrence Zitnick",
+        "Devi Parikh"
+      ],
+      "title": "Vqa: Visual question answering",
+      "venue": "In International Conference on Computer Vision (ICCV),",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "David Baehrens",
+        "Timon Schroeter",
+        "Stefan Harmeling",
+        "Motoaki Kawanabe",
+        "Katja Hansen",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "How to explain individual classification decisions",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Pedro Domingos",
+        "Geoff Hulten"
+      ],
+      "title": "Mining high-speed data streams",
+      "venue": "In Proceedings of the Sixth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Jerome H. Friedman"
+      ],
+      "title": "Lazy decision trees",
+      "venue": "Proceedings of the Thirteenth National Conference on Artificial Intelligence - Volume 1,",
+      "year": 1996
+    },
+    {
+      "authors": [
+        "Yash Goyal",
+        "Akrit Mohapatra",
+        "Devi Parikh",
+        "Dhruv Batra"
+      ],
+      "title": "Interpreting visual question answering models",
+      "venue": "ICML Workshop on Visualization for Deep Learning,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "W Hoeffding"
+      ],
+      "title": "Probability inequalities for sums of bounded random variables",
+      "venue": "Journal of the American Statistical Association,",
+      "year": 1963
+    },
+    {
+      "authors": [
+        "Johan Huysmans",
+        "Karel Dejaeger",
+        "Christophe Mues",
+        "Jan Vanthienen",
+        "Bart Baesens"
+      ],
+      "title": "An empirical evaluation of the comprehensibility of decision table, tree and rule based predictive models",
+      "venue": "Decis. Support Syst.,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Been Kim",
+        "Cynthia Rudin",
+        "Julie A Shah"
+      ],
+      "title": "The bayesian case model: A generative approach for case-based reasoning and prototype classification",
+      "venue": "Advances in Neural Information Processing Systems",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Himabindu Lakkaraju",
+        "Stephen H. Bach",
+        "Jure Leskovec"
+      ],
+      "title": "Interpretable decision sets: A joint framework for description and prediction",
+      "venue": "In Proceedings of the 22Nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Gr\u00e9goire Montavon",
+        "Sebastian Bach",
+        "Alexander Binder",
+        "Wojciech Samek",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "Explaining nonlinear classification decisions with deep taylor decomposition",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "why should I trust you?\u201d: Explaining the predictions of any classifier",
+      "venue": "In Knowledge Discovery and Data Mining (KDD),",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Model-agnostic interpretability of machine learning",
+      "venue": "In Human Interpretability in Machine Learning workshop,",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "text": "Nothing Else Matters: Model-Agnostic Explanations By Identifying Prediction Invariance\nMarco Tulio Ribeiro University of Washington\nSeattle, WA 98105 marcotcr@cs.uw.edu\nSameer Singh University of California, Irvine\nIrvine, CA 92697 sameer@uci.edu\nCarlos Guestrin University of Washington\nSeattle, WA 98105 guestrin@cs.uw.edu"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "At the core of interpretable machine learning is the question of whether humans are able to make accurate predictions about a model\u2019s behavior. Assumed in this question are three properties of the interpretable output: coverage, precision, and effort. Coverage refers to how often humans think they can predict the model\u2019s behavior, precision to how accurate humans are in those predictions, and effort is either the up-front effort required in interpreting the model, or the effort required to make predictions about a model\u2019s behavior.\nOne approach to interpretable machine learning is designing inherently interpretable models. Visualizations of these models usually have perfect coverage, but there is a trade-off between the accuracy of the model and the effort required to comprehend it - especially in complex domains like text and images, where the input space is very large, and accuracy is usually sacrificed for models that are compact enough to be comprehensible by humans. Experiments usually involve showing humans these visualizations, and measuring human precision when predicting the model\u2019s behavior on random instances, and the time (effort) required to make those predictions [7, 8, 9].\nModel-agnostic explanations [12] avoid the need to trade off accuracy by treating the model as a black box. Explanations such as sparse linear models [11] (henceforth called linear LIME) or gradients [2, 10] can still exhibit high precision and low effort (which are de-facto requirements, as there is little point in explaining a model if explanations lead to poor understanding or are too complex) even for very complex models by providing explanations that are local in their scope (i.e. not perfect coverage). However, the coverage of such explanations are not explicit, which may lead to human error. Take the example on Figure 1: we explain a prediction of a complex model, which predicts that the person described by Figure 1a makes less than $50K. The linear LIME explanation (Figure 1b) sheds some light into why, but it is not clear whether we can apply the insights from this explanation to other instances. In other words, even if the explanation is faithful locally, it is not easy to know what that local region is. Furthermore, it is not clear when the linear approximation is more or less faithful, even within the local region.\nIn this paper, we introduce Anchor Local Interpretable Model-Agnostic Explanations (aLIME), a system that explains individual predictions with if-then rules (similar to Lakkaraju et al. [9]) in a model-agnostic manner. Such rules are intuitive to humans, and usually require low effort to comprehend and apply. In particular, an aLIME explanation (or an anchor) is a rule that sufficiently \u201canchors\u201d a prediction \u2013 such that changes to the rest of the instance do not matter (with high probability). For example, the anchor in Figure 1c states that the model will almost always predict Salary \u2264 50K if a person is not educated beyond high school, regardless of the other features. Such explanations make their coverage very clear - they only apply when the conditions in the rule are met. We propose a method to compute such explanations that guarantees high precision with a high probability. Further, we present empirical comparison against linear LIME and qualitative evaluation on a variety of tasks (such as text/image classification and visual question answering) to demonstrate that anchors are intuitive, have high precision, and very clear coverage boundaries.\n30th Conference on Neural Information Processing Systems (NIPS 2016), Barcelona, Spain.\nar X\niv :1\n61 1.\n05 81\n7v 1\n[ st\nat .M\nL ]\n1 7\nN ov\n2 01\n6"
+    },
+    {
+      "heading": "2 Anchors as Model-Agnostic Explanations",
+      "text": "Let the model being explained be denoted f , such that we explain individual predictions f(x) = y. Let an anchor c \u2208 Cx be defined as a set of constraints (i.e. a rule with conjunctions), Cx being the set of all possible constraints that are met by x. For example, in Figure 1c, c = {Education \u2264 High School}. We assume we have a distribution of interest D, and that we can sample from D(z|c, x) - that is, we can sample inputs where the constraints for the anchor c are met. The reason to condition on x is that D may depend on the instance being explained (for example, see image classification in Section 4). The precision of an anchor is then defined as the expected accuracy (under D) of applying the anchor to instances that meet its constraints, formalized in Equation 1.\nPrecision(f, x, c,D) = ED(z|c,x)[1f(x)=f(z)] (1) As argued before, high precision is a requirement of model-agnostic explanations. It is trivial to get a perfectly precise (yet useless) anchor by having the constraint set be so specific that only the example being explained meets it. In order to balance precision, coverage and effort, we optimize the objective in Equation 2, where we try to find the shortest anchor with high precision. The length of the anchor can be used as a proxy for effort, and more specific (longer) anchors will naturally have less coverage.\nmin c\u2286Cx |c| s.t. Precision(f, x, c,D) \u2265 1\u2212 (2)\nAlgorithm: Solving Equation 2 exactly is unfeasible \u2013 precision cannot be computed exactly for arbitrary D and f , and finding the best c has combinatorial complexity. To address the former, we approximate the precision via sampling, and solve the probably approximately correct (PAC) version of Equation 2 so that the chosen anchor will have high precision with high probability. For the latter, we employ an algorithm similar in spirit to lazy decision trees [4], where we construct c greedily. In particular, at each step, we want to pick the constraint that dominates all other constraints in terms of precision, until the stopping criterion in Equation 2 is met. For efficiency, we want to sample as few instances as possible to make each greedy decision. We use Hoeffding bounds [6] for the differences in precision to decide when a constraint dominates all the other constraints with high probability. This uses the same insight as Hoeffding trees [3], with the key difference that we can control the sampling distribution, and thus can use the bounds to sample the regions of the input space that reduce the uncertainty between the precision estimates with as few samples as possible. Due to lack of space, we omit the details of the algorithm."
+    },
+    {
+      "heading": "3 Simulated Experiments",
+      "text": "In order to evaluate the difference between linear LIME and anchor LIME (aLIME) in terms of coverage and precision, we perform simulated experiments on two UCI datasets: adult and hospital readmission. The latter is a 3-class classification problem, where the task is to predict if a patient will be readmitted to the hospital after an inpatient encounter within 30 days, after 30 days, or never.\nFor each dataset, we learn a gradient boosted tree classifier with 400 trees, and generate explanations for instances in the validation dataset. We then evaluate the coverage and precision of these explanations on a separate test dataset. We use = 0.05 for anchor (that is, we expect precision to be close to 95%) unless noted otherwise, and consider that a linear LIME explanation covers every\nother instance within distance \u03c4 , where \u03c4 is a parameter that we vary. For aLIME, we sample from D(Z|c, x) by sampling whole rows from the dataset except for the features constrained by c. We evaluate K explanations, chosen either at random (RP) or via Submodular Pick (SP), a procedure that picks explanations to maximize the coverage [11], on the validation.\nWe show precision-coverage plots of a single explanation (K = 1) in Figures 2a and 3a, where we vary \u03c4 for linear LIME and for aLIME. The results show that for any level of coverage, aLIME has better precision than linear LIME. Furthermore, using submodular pick greatly increases the coverage at the same precision level. Linear LIME performs particularly worse in the dataset with the highest number of dimensions (hospital readmission), where the distance degrades. We note that one of the main advantages of aLIME over linear LIME is making its coverage clear to humans - without human experiments, there is no way to know what these plots look like for linear LIME, but we can expect them to be the same for aLIME.\nWe vary the number of explanations the simulated user sees (K) in Figures 2b, 2c, 3b and 3c. In order to keep the results comparable, we set = 0.05 and picked \u03c4 such that the average precision at K = 1 for linear LIME was at least 0.95. In both datasets, aLIME is able to maintain higher precision regardless of how many explanations are shown, with coverage that dominates linear LIME. It is worth noting that both datasets are of the same data type (tabular), and are such that the behavior of the model is simple in a large part of the input space (good conditions for aLIME), as demonstrated by the top 2 anchors that maximize coverage for each dataset in Figure 4. While these models are complex, their behavior on most of the input space (65% for adult and 81% for hospital readmission) is covered by these simple rules with high precision."
+    },
+    {
+      "heading": "4 Qualitative Examples",
+      "text": "Part-of-Speech tagging: We use a black box state-of-the-art POS tagger (http://spacy.io), and explain tag predictions for the word play in different contexts in Table 1. The anchors demonstrate that the POS picks up on the correct patterns. Furthermore, they are short and easy to understand. Anchors are particularly suited for this task, where the dimensionality is small and the behavior of good models is more easily captured by IF-THEN rules than linear models.\nImage classification: We use aLIME to explain a prediction from the Inception V3 classifier on an image of a Zebra in Figure 5, where we first split the image into superpixels. The anchor in Figure 5b means that if we fix the non-grey superpixels, we can substitute the greyed-out superpixels by a random image, and the model will predict \u201czebra\u201d around 95% of the time. To illustrate this, we display on Figure 5c a set of images from D(z|c, x) (i.e. where the anchor is fixed), and the model predicts \u201czebra\u201d. While this choice of distribution produces images that look nothing like real images (Figure 5c), it makes for more robust explanations than distributions that only hide parts of the image with gray or dark patches ([5, 11]). This anchor demonstrates that the model picks up on a pattern that does not require a zebra to have four legs, or even a head - which is a pattern very different than the patterns humans use to detect zebras.\nVisual Question Answering: Visual QA [1] models are multi-modal, and thus can be explained in terms of the image, the question or both. Here, we find anchors on the questions, leaving the image fixed, and use a bigram language model trained on input questions as D. We select two questions to explain, which are the top rows (in purple) of Figures 6b and 6c. The anchors (in bold), are respectively \u201cWhat\u201d and \u201cmany\u201d, and we show questions drawn from D(z|c, x) below the original question. The first anchor states that if \u201cWhat\u201d is in the question, the answer will be \u201cbanana\u201d about 95% of the time, while the latter states the same about \u201cmany\u201d and \u201c2\u201d, respectively \u2013 both explanations clearly indicate undesirable behavior from the model. Again, this kind of explanation is intuitive and easier to understand than a linear model, even one with high weight on the words \u201cWhat\u201d and \u201cbanana\u201d, as one knows exactly when it applies and when it does not."
+    },
+    {
+      "heading": "5 Conclusion",
+      "text": "In this work, we argued that high precision and clear coverage bounds are very desirable properties of model-agnostic explanations. We introduced aLIME, a system is designed to produce rule-based explanations that exhibit both these properties. IF-THEN rules are intuitive and easy to understand, and identifying parts of the input that result in prediction invariance (i.e. the rest does not matter) is similar to how humans explain many of their choices. We demonstrated aLIME\u2019s flexibility by explaining predictions from a variety of classifiers on a myriad of domains, outperforming linear explanations from LIME on simulated experiments."
+    }
+  ],
+  "title": "Nothing Else Matters: Model-Agnostic Explanations By Identifying Prediction Invariance",
+  "year": 2018
+}

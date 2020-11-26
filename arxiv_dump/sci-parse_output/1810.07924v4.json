@@ -1,0 +1,404 @@
+{
+  "abstractText": "In this paper, we present a new explainability formalism designed to explain how the input variables of the testing set impact the predictions of black-box decision rules. Hence we propose a group explainability frame for machine learning algorithms based on the variability of the distribution of the input variables. Our formalism is based on an information theory framework that quantifies the influence of all input-output observations when emphasizing the impact of each input variable, based on entropic projections. This formalism is thus the first unified and model agnostic framework enabling us to interpret the dependence between the input variables, their impact on the prediction errors, and their influence on the output predictions. In addition and most importantly, we prove that computing an explanation in our framework has a low algorithmic complexity making it scalable to real-life large datasets. We illustrate our strategy by explaining complex decision rules learned using XGBoost, Random Forest or Deep Neural Network classifiers. We finally make clear its differences with explainability strategies based on single observations, such as those of LIME or SHAP. A toolbox is proposed at https:// xai-aniti.github.io/ethik/.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Fran\u00e7ois Bachoc"
+    },
+    {
+      "affiliations": [],
+      "name": "Fabrice Gamboa"
+    },
+    {
+      "affiliations": [],
+      "name": "Max Halford"
+    },
+    {
+      "affiliations": [],
+      "name": "Jean-Michel Loubes"
+    },
+    {
+      "affiliations": [],
+      "name": "Laurent Risser"
+    }
+  ],
+  "id": "SP:b6aef7273b3829cb6b7d0b2566cbd56ee87d0c4c",
+  "references": [
+    {
+      "authors": [
+        "Trevor Hastie",
+        "Robert Tibshirani",
+        "Jerome H. Friedman"
+      ],
+      "title": "The elements of statistical learning: data mining, inference, and prediction",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "Jonathan L Herlocker",
+        "Joseph A Konstan",
+        "John Riedl"
+      ],
+      "title": "Explaining collaborative filtering recommendations",
+      "venue": "In Proceedings of the 2000 ACM conference on Computer supported cooperative work,",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "Mark Craven",
+        "Jude W. Shavlik"
+      ],
+      "title": "Extracting tree-structured representations of trained networks",
+      "venue": "In Advances in Neural Information Processing Systems 8,",
+      "year": 1995
+    },
+    {
+      "authors": [
+        "Mary T Dzindolet",
+        "Scott A Peterson",
+        "Regina A Pomranky",
+        "Linda G Pierce",
+        "Hall P Beck"
+      ],
+      "title": "The role of trust in automation reliance",
+      "venue": "International journal of human-computer studies,",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "Yin Lou",
+        "Rich Caruana",
+        "Johannes Gehrke"
+      ],
+      "title": "Intelligible models for classification and regression",
+      "venue": "In Proceedings of the 18th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, KDD",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "David Baehrens",
+        "Timon Schroeter",
+        "Stefan Harmeling",
+        "Motoaki Kawanabe",
+        "Katja Hansen",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "How to explain individual classification decisions",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Zachary C. Lipton"
+      ],
+      "title": "The mythos of model interpretability",
+      "venue": "In Proceedings of the ICML Workshop on Human Interpretability in Machine Learning (WHI 2016),",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Gr\u00e9goire Montavon",
+        "Wojciech Samek",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "Methods for interpreting and understanding deep neural networks",
+      "venue": "Digital Signal Processing,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Ramprasaath R Selvaraju",
+        "Abhishek Das",
+        "Ramakrishna Vedantam",
+        "Michael Cogswell",
+        "Devi Parikh",
+        "Dhruv Batra"
+      ],
+      "title": "Grad-cam: Why did you say that",
+      "venue": "arXiv preprint arXiv:1611.07450,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Sara Hooker",
+        "Dumitru Erhan",
+        "Pieter-Jan Kindermans",
+        "Been Kim"
+      ],
+      "title": "A benchmark for interpretability methods in deep neural networks",
+      "venue": "In NeurIPS,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Patrick Hall",
+        "Navdeep Gill",
+        "Mark Chan"
+      ],
+      "title": "Practical techniques for interpreting machine learning models: Introductory open source examples using python, h2o, and xgboost, 2018",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "Why should I trust you?: Explaining the predictions of any classifier",
+      "venue": "In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Sandra Wachter",
+        "Brent Mittelstadt",
+        "Chris Russell"
+      ],
+      "title": "Counterfactual explanations without opening the black box: Automated decisions and the gdpr",
+      "venue": "Harvard journal of law & technology, 31:841\u2013887,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Yash Goyal",
+        "Ziyan Wu",
+        "Jan Ernst",
+        "Dhruv Batra",
+        "Devi Parikh",
+        "Stefan Lee"
+      ],
+      "title": "Counterfactual visual explanations",
+      "venue": "In Proceedings of the 36th International Conference on Machine Learning,",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Mukund Sundararajan",
+        "Ankur Taly",
+        "Qiqi Yan"
+      ],
+      "title": "Axiomatic attribution for deep networks",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning - Volume 70,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Matt J Kusner",
+        "Joshua Loftus",
+        "Chris Russell",
+        "Ricardo Silva"
+      ],
+      "title": "Counterfactual fairness",
+      "venue": "In Advances in Neural Information Processing Systems",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Emily Black",
+        "Samuel Yeom",
+        "Matt Fredrikson"
+      ],
+      "title": "Fliptest: fairness testing via optimal transport",
+      "venue": "Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency,",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "Alexey Ignatiev",
+        "Nina Narodytska",
+        "Joao Marques-Silva"
+      ],
+      "title": "On relating explanations and adversarial examples",
+      "venue": "In Advances in Neural Information Processing Systems",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "Pang Wei Koh",
+        "Percy Liang"
+      ],
+      "title": "Understanding black-box predictions via influence functions",
+      "venue": "In Proceedings of the 34th International Conference on Machine Learning",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Paul Lem\u00e2\u0131tre",
+        "Ekatarina Sergienko",
+        "Aur\u00e9lie Arnaud",
+        "Nicolas Bousquet",
+        "Fabrice Gamboa",
+        "Bertrand Iooss"
+      ],
+      "title": "Density modification-based reliability sensitivity analysis",
+      "venue": "Journal of Statistical Computation and Simulation,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Andrea Saltelli",
+        "Marco Ratto",
+        "Terry Andres",
+        "Francesca Campolongo",
+        "Jessica Cariboni",
+        "Debora Gatelli",
+        "Michaela Saisana",
+        "Stefano Tarantola"
+      ],
+      "title": "Global sensitivity analysis: the primer",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Scott M Lundberg",
+        "Su-In Lee"
+      ],
+      "title": "A unified approach to interpreting model predictions",
+      "venue": "In Advances in Neural Information Processing Systems (NIPS),",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Peter B\u00fchlmann",
+        "Sara Van De Geer"
+      ],
+      "title": "Statistics for High-Dimensional Data",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Laura Elena Raileanu",
+        "Kilian Stoffel"
+      ],
+      "title": "Theoretical comparison between the gini index and information gain criteria",
+      "venue": "Annals of Mathematics and Artificial Intelligence,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Nicolas Fournier",
+        "Arnaud Guillin"
+      ],
+      "title": "On the rate of convergence in wasserstein distance of the empirical measure",
+      "venue": "Probability Theory and Related Fields,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Aaron Kramer",
+        "Pramit Choudhary"
+      ],
+      "title": "Model Interpretation with Skater",
+      "venue": "https: //oracle.github.io/Skater/,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Leslie Valiant"
+      ],
+      "title": "Probably Approximately Correct: Nature\u2019s Algorithms for Learning and Prospering in a Complex World",
+      "venue": "Basic Books (AZ),",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Imre Csisz\u00e1r"
+      ],
+      "title": "I-divergence geometry of probability distributions and minimization problems",
+      "venue": "The Annals of Probability,",
+      "year": 1975
+    },
+    {
+      "authors": [
+        "Imre Csisz\u00e1r"
+      ],
+      "title": "Sanov property, generalized I-projection and a conditional limit theorem",
+      "venue": "The Annals of Probability,",
+      "year": 1984
+    },
+    {
+      "authors": [
+        "C\u00e9dric Villani"
+      ],
+      "title": "Optimal transport: old and new, volume 338",
+      "venue": "Springer Science & Business Media,",
+      "year": 2008
+    }
+  ],
+  "sections": [
+    {
+      "heading": "1 Introduction",
+      "text": "Machine learning algorithms build predictive models which are nowadays used for a large variety of tasks. Over the last decades, the complexity of such algorithms has grown, going from simple and interpretable prediction models based on regression rules to very complex models such as random forests, gradient boosting, and models using deep neural networks. We refer to Hastie et al. (2009) for a description of these methods. Such models are designed to maximize the accuracy of their predictions at the expense of the interpretability of the decision rule. Little is also known about how the information is processed in order to obtain a prediction, which explains why such models are widely considered as black boxes.\nThis lack of interpretability gives rise to several issues. When an empirical risk is minimized, the training procedure may be unstable or highly dependent on the optimization procedure due to e.g. non-convexity and multimodality. Another subtle, though critical, issue is that the optimal decision rules learned\nar X\niv :1\n81 0.\n07 92\n4v 4\n[ st\nat .M\nL ]\n2 6\nJu n\nby a machine learning algorithm highly depend on the properties of the learning sample. If a learning sample presents unwanted trends or a bias, then the learned decision rules will reproduce these trends or bias, even if there is no intention of doing so. As a consequence, many users express a lack of trust in these algorithms. The European Parliament even adopted a law called GDPR (General Data Protection Regulation) to protect the citizens from decisions made without the possibility of explaining why they were taken, introducing a right for explanation in the civil code. Hence, building intelligible models is nowadays an important challenge for data scientists.\nDifferent methods have been proposed to make understandable the reasons leading to a prediction, each author using a different notion of explainability and interpretability. We mention early works by Herlocker et al. (2000) for recommender systems, Craven and Shavlik (1995) for neural networks, Dzindolet et al. (2003) or Lou et al. (2012) for generalized additive models. Another generic solution, described in Baehrens et al. (2010) and Caruana et al. (2015), focused on medical applications. In Lipton (2016), a discussion was recently opened to refine the discourse on interpretability. Recently, a special attention has also been given to deep neural systems. We refer for instance to Montavon et al. (2017), Selvaraju et al. (2016), Hooker et al. (2019) and references therein. Clues for real-world applications are given in Hall et al. (2018). Ribeiro et al. (2016) (LIME) recently proposed to locally mimic a black-box model and then to give a feature importance analysis of the variables at the core of the prediction rule. A counterfactual model Wachter et al. (2018) was also proposed in Goyal et al. (2019) to explain how the prediction made by a classifier on a query image can be changed by transforming a region of this image. In the same vein, a method called integrated gradients was specifically designed in Sundararajan et al. (2017) for the interpretability of single predictions using neural networks. In the Fair learning community, counterfactual models are also used to assess whether the predictions of machine learning models are fair Kusner et al. (2017); Black et al. (2020). An individual explanation method on images through adversarial examples was also presented in Ignatiev et al. (2019). In Koh and Liang (2017) the authors finally proposed a strategy to understand black-box models, as we do, but in a parametric setting.\nOur conception of the notion of interpretability for machine learning algorithms is the ability to quantify the specific influence of each of the p \u2265 1 variables in a test set. We specifically determine the global effect of each variable in the learning rule and how a particular variation of this variable affects the accuracy of the prediction. This allows to understand how the predictions evolve when a characteristic of the observations is modified. To achieve this, we propose in this paper a sensitivity analysis strategy for machine learning algorithms. It is directly inspired by the field of sensitivity analysis for computer code experiments (see e.g. Lema\u0302\u0131tre et al. (2015)), where the relative importance of the input variables involved in an abstract input-output relationship modeling a computer code is computed Saltelli et al. (2008).\nWe emphasize that contrary to e.g. Ribeiro et al. (2016), Sundararajan et al. (2017) or Lundberg and Lee (2017) (SHAP), our method deals with global\nexplainability since it quantifies the global effect of the variables for all the test samples instead of individual observations. We also highlight that our point of view is different from previous works where the importance of each variable was also considered. Sparse models (see Bu\u0308hlmann and Van De Geer (2011) for a general introduction on the importance of sparsity) enable to identify important variables. Importance indicators have also been developed in machine learning to detect which variables play a key role in the algorithm. For instance, importance of variables is often computed using feature importance or Gini indices (see in Raileanu and Stoffel (2004) or Hastie et al. (2009)). Yet such indexes are computed without investigating the particular effects of each variable and without explaining their particular role in the decision process. We also strongly believe that running the algorithm over observations which are created artificially by increasing stepwise the value of a particular variable is not a desirable solution. By doing so, the correlations between variables are indeed not taken into account. Moreover, newly generated observations may be outliers with respect to the learning and test samples.\nThe paper falls into the following parts: Methodology is explained in Sections 2 and 3. Results are given in Section 4 and the discussions are finally developed in Section 5."
+    },
+    {
+      "heading": "2 Optimal perturbation of Machine Learning datasets",
+      "text": "We consider a test set {(Xi, Yi)}i=1,...,n (Xi = (X1i , . . . , X p i ) are input observations while Yi is the true output), on which we consider the outcome of black box decision rules f : Rp \u2192 R. We consider throughout this paper that f has been learned by a training set and is fixed. We set Y\u0302i = f(Xi) the predicted values. Hence we have at hand values {(Xi, Y\u0302i, Yi)} for i = 1, . . . , n.\nOur goal is to explain the global behaviour of f . For this, we propose to study the response of f to distributional perturbations of the input variables. Since f has been learnt using data following a given distribution, the domain of validity of the algorithm should not deviate too much from this initial distribution. Hence we propose to build perturbed observations with a distribution as close as possible to the initial distribution using an information theory method. We will show that this amounts to reweighing the observations by proper weights calibrated to incorporate the chosen perturbation on the input variables as explained in Sections 2.2 and 2.3. The methodology to make this problem well posed and to quickly compute the optimal weights is the core of this paper."
+    },
+    {
+      "heading": "2.1 General optimal perturbations under moment constraints in machine learning",
+      "text": "In order to experience and to explore the behavior of a predictive model, a natural idea is to study its response to stressed inputs. There exist different solutions to create modifications of a probability measure. In this paper, we consider an information theory framework in which we modify the distribution\nof the original test set Qn = \u2211n i=1 1 n\u03b4Xi,Y\u0302i,Yi , by stressing the mean value of a function \u03a6 of its variables (or simply by stressing the mean value of given variables), while minimizing the Kullback-Leibler information (also called mutual entropy) between the modified distribution Qt and Qn, making the problem well posed.\nFirst, let us recall the definition of the Kulback-Leibler information. Let (E,B(E)) be a measurable space and Q a probability measure on E. If P is another probability measure on (E,B(E)), then the Kullback-Leibler information KL(P,Q) is defined as equal to \u222b E log dPdQ dP , if P Q and log dP dQ \u2208 L\n1(P ), and equal to +\u221e otherwise.\nFor a given k \u2265 1, let\n\u03a6 : (X,Y, Y\u0302 ) \u2208 Rp+2 \u2192 \u03a6(X,Y, Y\u0302 ) \u2208 Rk\nbe a measurable function representing the shape of the stress deformation on the whole input. Note that all results are given with respect to a generic \u03a6, function of all variables (X,Y, Y\u0302 ) but this includes the case of functions depending only on the (X,Y ). For t \u2208 Rk, we aim at finding a new distribution Qt satisfying the constraint\u222b\nRk \u03a6(x) dQt(x) = t,\nthe closest possible from the initial empirical distribution Qn in the sense of Kullback-Leibler distance, i.e with KL(Qt, Qn) as small as possible.\nWe set for two vectors x, y \u2208 Rk the scalar product as \u3008x, y\u3009 = x>y.\nTheorem 2.1. Let t \u2208 Rk and \u03a6 : Rp+2 \u2192 Rk be measurable. Assume that t can be written as a convex combination of \u03a6(X1, Y\u03021, Y1), . . . ,\u03a6(Xn, Y\u0302n, Yn), with positive weights. Assume also that the empirical covariance matrix of \u03a6(X1, Y\u03021, Y1), . . . ,\u03a6(Xn, Y\u0302n, Yn) is invertible.\nLet P\u03a6,t be the set of all probability measures P on Rp+2 such that \u222b Rp+2 \u03a6(x) dP (x) =\nt. For a vector \u03be \u2208 Rk, let Z(\u03be) := (1/n) \u2211n i=1 e\n\u3008\u03a6(Xi,Y\u0302i,Yi),\u03be\u3009. Define now \u03be(t) as the unique minimizer of the strictly convex function H(\u03be) := logZ(\u03be)\u2212 \u3008\u03be, t\u3009. Then,\nQt := arginfP\u2208P\u03a6,tKL(P,Qn) (1)\nexists and is unique. Furthermore, we have\nQt = 1\nn n\u2211 i=1 \u03bb (t) i \u03b4Xi,Y\u0302i,Yi , (2)\nwith, for i = 1, . . . , n,\n\u03bb (t) i = exp ( \u3008\u03be(t),\u03a6(Xi, Y\u0302i, Yi)\u3009 \u2212 logZ(\u03be(t)) ) . (3)\n\u2022 A particularly appealing aspect of Theorem 2.1 is that Qt is supported by the same observations as Qn, the mean change of \u03a6 only leading to different weights for the observations. This desirable property is obtained thorough the choice of the Kullback-Leibler information as a measure of similarity between Qt and Qn. It also turns the corresponding optimization problem into a favorable proble, both theoretically and numerically. As a consequence, sampling new stressed test sets does not require to create new input-output observations (Xi, Y\u0302i, Yi) but only to compute the weights\n\u03bb (t) i . This can be solved very quickly using Eq. (3).\n\u2022 The optimization problem in Theorem 2.1 is convex and can be addressed very efficiently. The gradient of its objective function is provided in Appendix B. This makes it possible to deal with very large databases without computing new values for new observations. This differs from existing techniques based on perturbed observations as e.g. in LIME Ribeiro et al. (2016), where the data used for testing are created by changing randomly the labels or by bootstrapping the observations.\n\u2022 Then set\nt0 = \u222b Rk \u03a6(x) dQn(x) = 1 n n\u2211 i=1 \u03a6(Xi, Y\u0302i, Yi)\nthe empirical mean of \u03a6 with the distribution Qn. The quantity t \u2212 t0 can be thus understood as the amount of change on the mean of the distribution induced by changing Qn into Qt. We remark that, in Theorem 2.1, the condition that t can be written as a convex combination of \u03a6(X1, Y\u03021, Y1), . . . ,\u03a6(Xn, Y\u0302n, Yn), with positive weights, is almost minimal. Indeed, it is necessary that t can be written as a convex combination of \u03a6(X1, Y\u03021, Y1), . . . ,\u03a6(Xn, Y\u0302n, Yn) (otherwise the set of distributions that are absolutely continuous with respect to Qn and yield expectation t for \u03a6 is empty). For all the examples we have considered, this condition in Theorem 2.1 was not restrictive.\nHereafter, we show how to choose \u03a6 specifically, to shed light on the impact of various features of the input variables."
+    },
+    {
+      "heading": "2.2 Application to variable importance by stress of the mean",
+      "text": "We now apply Theorem 2.1 to the special case of perturbing the mean of one of the p input variables, meaning that \u03a6 is valued in R (i.e. k = 1).\nTheorem 2.2. Let t \u2208 R and j0 \u2208 {1, . . . , p}. Assume that minni=1X j0 i < t < maxni=1X j0 i .\nLet Pj0,t be the set of probability measures on Rp+2 such that, when (X, Y\u0302 , Y ) follows a distribution P \u2208 Pj0,t, we have E(Xj0) = t. For \u03be \u2208 R, let Z(\u03be) :=\n(1/n) \u2211n i=1 e \u03beX j0 i . Define now \u03be(t) as the unique minimizer of the strictly convex function H(\u03be) := logZ(\u03be)\u2212 \u03bet. Then,\nQj0,\u03c4 := arginfP\u2208Pj0,\u03c4KL(P,Qn)\nexists and is unique. Furthermore, we have\nQj0,t = 1\nn n\u2211 i=1 \u03bb (j0,t) i \u03b4Xi,Y\u0302i,Yi ,\nwith, for i = 1, . . . , n,\n\u03bb (j0,t) i = exp ( \u03be(t)Xj0i \u2212 logZ(\u03be(t)) ) .\nThis theorem enables to re-weight the observations of a variable so that its mean increases or decreases. This is then used in Section 3 to understand the particular role played by each variable."
+    },
+    {
+      "heading": "2.3 Stressing several means, variances and covariances",
+      "text": "The next proposition enables to stress the means of several variables at the same time.\nProposition 2.3. Let 1 \u2264 c \u2264 p and let j1, . . . , jc be two-by-two distinct in {1, . . . , p}. Let t1, . . . , tc \u2208 R. Assume that there exists a convex combination of (Xj1i , . . . , X jc i )i=1,...,n with positive weights that is equal to (t1, . . . , tc). Assume also that the empirical covariance matrix of (Xj1i , . . . , X jc i )i=1,...,n is invertible. Then, there exists a unique distribution Qt1,...,tc on Rp+2 such that for (X1, . . . , Xp, Y\u0302 , Y ) \u223c Qt1,...,tc we have E(Xja) = ta for a = 1, . . . , c and such that KL(Qt1,...,tc , Qn) is minimal. This distribution is obtained by the distribution Qt in Theorem 2.1, in the case where k = c and \u03a6(X 1, . . . , Xp, Y\u0302 , Y ) = (Xj1 , . . . , Xjc).\nThe next proposition enables to stress the variance of a variable while preserving its mean mj0 = (1/n) \u2211n i=1X j0 i .\nProposition 2.4. Let j0 \u2208 {1, . . . , p}. Let v \u2208 [0,\u221e). Assume that there exists a convex combination of (Xj0i , (X j0 i )\n2)i=1,...,n with positive weights that is equal to (mj0 ,m 2 j0 + v). Assume also that the empirical covariance matrix of (Xj0i , (X j0 i ) 2)i=1,...,n is invertible. Then, there exists a unique distribution Qj0,v on Rp+2 such that for (X1, . . . , Xp, Y\u0302 , Y ) \u223c Qj0,v we have E(Xj0) = mj0 and Var(Xj0) = v and such that KL(Qj0,v, Qn) is minimal. This distribution is obtained by the distribution Qt in Theorem 2.1, in the case where k = 2, \u03a6(X1, . . . , Xp, Y\u0302 , Y ) = (Xj0 , (Xj0)2) and t = (mj0 ,m 2 j0 + v).\nFinally, we next show how to stress the covariance between two variables while preserving their means mj1 = (1/n) \u2211n i=1X j1 i and mj2 = (1/n) \u2211n i=1X j2 i .\nProposition 2.5. Let j1, j2 \u2208 {1, . . . , p} be distinct. Let c \u2208 R. Assume that there exists a convex combination of (Xj1i , X j2 i , X j1 i X j2 i ) with positive weights that is equal to (mj1 ,mj2 ,mj1mj2 + c). Assume also that the empirical covariance matrix of (Xj1i , X j2 i , X j1 i X j2 i )i=1,...,n is invertible. Then, there exists a unique distribution Qj1,j2,c on Rp+2 such that for (X1, . . . , Xp, Y\u0302 , Y ) \u223c Qj1,j2,c we have E(Xj1) = mj1 , E(Xj2) = mj2 and Cov(Xj1 , Xj2) = c and such that KL(Qj1,j2,c, Qn) is minimal. This distribution is obtained by the distribution Qt in Theorem 2.1, in the case where k = 3, \u03a6(X 1, . . . , Xp, Y\u0302 , Y ) = (Xj1 , Xj2 , Xj1Xj2) and t = (mj1 ,mj2 ,mj1mj2 + c)."
+    },
+    {
+      "heading": "2.4 Asymptotic rate of convergence",
+      "text": "While, in this paper, the test set (Xi, Y\u0302i, Yi)i=1,...,n with empirical distribution Qn is considered fixed, in Section 2.4 (and only in Section 2.4), we assume that this test set (Xi, Y\u0302i, Yi)i=1,...,n is random, composed of i.i.d. realizations of a distribution Q?.\nThe following proposition proves a statistical rate of convergence of our methodology. We show that the optimally perturbed distribution Qt of Theorem 2.1 (defined w.r.t. Qn, \u03a6 and t) converges to the corresponding optimally perturbed distribution Q?t , (defined w.r.t. Q\n?, \u03a6 and t). The convergence is measured with the L1 Wasserstein distance W1, defined by, for two distributions P,Q on Rp+2 with finite first moments,\nW1(P,Q) = inf U\u223cP,V\u223cQ E (||U \u2212 V ||) ,\nwhere the above infimum is taken over all pairs of (dependent or independent) random variables U, V such that U \u223c P, V \u223c Q. We refer for instance to Peyre\u0301 et al. (2019) for defintion and computation of W1. Proposition 2.6. Let \u03a6 : Rp+2 \u2192 Rk and t \u2208 Rk be fixed. Assume that the support of Q? is bounded and that \u03a6 is bounded in absolute value and Lipschitz continuous on the support of Q?. Assume also that for v \u2208 Rk, b \u2208 R, Q?({x \u2208 Rp+2; \u3008v,\u03a6(x)\u3009 = b}) = 1 if and only if v = 0 and b = 0. Assume finally that there exists a distribution Q, absolutely continuous w.r.t. Q?, such that \u222b Rp+2 \u03a6(x) dQ(x) = t.\nThen there exists a unique measure Q?t on Rp+2 such that \u222b Rp+2 \u03a6(x) dQ ? t (x) = t and KL(Q?t , Q ?) is minimal. Furthermore, as n\u2192\u221e, with Qt given in Theorem 2.1,\nW1 (Qt, Q?t ) = Op ( n\u22121/(p+2) ) .\nThe rate of convergence Op ( n\u22121/(p+2) ) is standard for the L1 Wasserstein distance in dimension p+ 2, see Fournier and Guillin (2015) for instance. The proof of Proposition 2.6 combines techniques from the analysis of Wasserstein distances and from M-estimation with convex objective functions.\nFor the sake of concision, Proposition 2.6 is stated under boundedness assumptions and with independent realizations from Q?. These conditions could be weakened."
+    },
+    {
+      "heading": "3 Explainable models using optimally perturbed",
+      "text": "data sets\nIn this section we consider that the transformation \u03a6 : Rp+2 \u2192 Rk and the target multidimensional moment t \u2208 Rk have been selected and that the conditions of Theorem 2.1 are satisfied. This theorem provides the optimally perturbed distribution Qt, given by the weights (\u03bb (t) i )i=1,...,n. We now suggest various quantitative properties of Qt (that we call quantities of interest), that can quantify the behavior of the studied black box decision rule.\nWe shall focus on two classical situations encountered in machine learning: binary classification and multi-class classification. The regression case is also explained in Appendix C."
+    },
+    {
+      "heading": "3.1 The case of binary classification",
+      "text": "Consider that Yi and Y\u0302i = f(Xi) belong to {0, 1} for all i = 1 . . . , n. This corresponds to the binary classification problem for which the usual loss function is `(Y, f(X)) = 1 {Y 6= f(X)} . We suggest to use the indicators described hereafter for the perturbed distributions Qt = 1 n \u2211n i=1 \u03bb (t) i \u03b4(Xi,Y\u0302i,Yi). Explaining the decision rules may first consist in quantifying the evolution of the error rate as a function of t\u2212 t0, hence the first indicator is the error rate, i.e.\nERt = 1\nn n\u2211 i=1 \u03bb (t) i 1 {f(Xi) 6= Yi} .\nIn terms of interpretation, when \u03a6 is given as in Theorem 2.2, with \u03a6(X1, . . . , Xp, Y\u0302 , Y ) = Xj0 , t corresponds to the new (stressed) mean of the variable Xj0 while the former (unstressed) mean is t0. In this case, plotting ERt as a function of t\u2212 t0 highlights the variables which produce the largest amount of confusion in the error, i.e. those for which small or large values provide the most variability among the two predicted classes, hampering the prediction error rate. The False and True Positive Rates may alternatively be represented using\nFPRt = 1 n\n\u2211n i=1 \u03bb (t) i 1 {Yi 6= 1}1 {f(Xi) = 1}\n1 n \u2211n i=1 \u03bb (t) i 1 {f(Xi) = 1}\nand\nTPRt = 1 n\n\u2211n i=1 \u03bb (t) i 1 {f(Xi) = 1}1 {Yi = 1}\n1 n \u2211n i=1 \u03bb (t) i 1 {Yi = 1}\n.\nAgain with \u03a6 as in Theorem 2.2, a ROC curve corresponding to perturbations of the variable j0 can then be obtained by plotting pairs (FPRt,TPRt) for a large number of t \u2208 R. We then obtain the evolution of both errors when t evolves, which allows a sharper analysis of the error evolution (see e.g. Appendix D.4).\nFinally, the variables influence on the predictions may be quantified by computing the proportion of predicted 1s\nP1t = 1\nn n\u2211 i=1 \u03bb (t) i f(Xi)\nwhich we suggest to plot similarly as ERt, with \u03a6 as in Theorem 2.2 (see Figure 1- (top)). The figures representing P1t make it possible to simply understand the particular influence of the variables to obtain a decision Y = 1, whatever the veracity of the prediction. Importantly, they point out which variables should be positively or negatively modified in order to change a given decision."
+    },
+    {
+      "heading": "3.2 The case of multi-class classification",
+      "text": "We now consider the case of a classification into k different categories, i.e. where Yi and f(Xi) belong to {1, . . . , k} for all i = 1, . . . , n, and where k \u2208 N is fixed. In this case, the strategy described for the binary classification can naturally be extended using\nPjt = 1\nn n\u2211 i=1 \u03bb (t) i 1 {f(Xi) = j} ,\nwhich denotes the portion of individuals assigned to the class j."
+    },
+    {
+      "heading": "3.3 Using quantiles to compare multiple mean changes",
+      "text": "Consider the case where \u03a6 is given as in Theorem 2.2, with \u03a6(X1, . . . , Xp, Y\u0302 , Y ) = Xj0 , and where we want to plot the quantities of interest of Sections 3.1 and 3.2, as a function of t \u2212 t0, for all the values of j0 = 1, . . . , p. In this case, an issue is that the interpretation of t\u2212 t0 depends on the order of magnitude of the variable j0, and thus changes with j0.\nIn order to compare values of t\u2212 t0 accross different variables, we suggest a common parametrization of t \u2212 t0 for j0 = 1, . . . , p. For j0 = 1, . . . , p, we consider the empirical quantile function qj0 associated to the variable X j0 , so qj0(\u03c1) = X j0 \u03c3([n\u03c1]) for 0 \u2264 \u03c1 < 1 and where \u03c3(.) is a function ordering the sample, i.e. Xj0\u03c3(0) \u2264 X j0 \u03c3(1) \u2264 . . . \u2264 X j0 \u03c3(n\u22121). Then, the range of the stressed mean t will be in [qj0(\u03b1), qj0(1\u2212 \u03b1)], where \u03b1 \u2208 (0, 1/2) (a typical value is 0.05). We then tune t\u2212t0 as equal to j0,\u03c4 , where j0,\u03c4 = \u03c4(t0\u2212qj0(\u03b1)) if \u03c4 \u2208 [\u22121, 0], and j0,\u03c4 = \u03c4(qj0(1 \u2212 \u03b1) \u2212 t0) if \u03c4 \u2208 [0, 1]. Parameter \u03c4 therefore allows to intuitively parametrize the level of stress whatever the distribution of the {Xj01 , . . . , Xj0n }. More precisely, \u03c4 = 0 yields no change of mean, \u03c4 = \u22121 changes the mean from t0 to the (small) quantile qj0(\u03b1) and \u03c4 = 1 changes the mean from t0 to the (large) quantile qj0(1\u2212 \u03b1).\nFor j0 = 1, . . . , p and \u03c4 \u2208 [\u22121, 1], we thus naturally suggest to compute\nERj0,\u03c4 , FPRj0,\u03c4 , TPRj0,\u03c4 , P1j0,\u03c4 , Pjj0,\u03c4 (4)\nthat are defined as ERt,FPRt,TPRt,P1t,Pjt in Sections 3.1 and 3.2, with \u03a6(X1, . . . , Xp, Y\u0302 , Y ) = Xj0 and t = t0 + j0,\u03c4 as explained above. For a given \u03c4 , it makes sense to compare the indicators in (4) accros j0 = 1, . . . , p. For instance, one can plot ERj0,\u03c4 as a function of \u03c4 for \u03c4 \u2208 [\u22121, 1] and for each j0 \u2208 {1, . . . , p}, as shown in Figure 1-(bottom). Remark that \u03c4 = 0 corresponds to the algorithm performance baseline, without any perturbation of the test sample."
+    },
+    {
+      "heading": "4 Results",
+      "text": "In this section, we illustrate the use of the indices obtained using the entropic projection of samples on two classification cases: In subsection 4.1, the Adult income dataset1 is considered, where X represents n = 32000 observations of dimension p = 14 and Y has 2 classes. Results of subsection 4.2 are obtained on the MNIST dataset2, where X represents n = 60000 images of p = 784 pixels and Y has 10 classes. Note that the method accuracy is also assessed on synthetic data in Appendix D.2 and that the effect of 4 variables on the classification of the well known Iris dataset is shown in Appendix D.3. Importantly, the Python code to reproduce these experiments is freely available on GitHub3."
+    },
+    {
+      "heading": "4.1 Two class classification",
+      "text": "In order to illustrate the performance of our procedure, we first consider the Adult Income dataset. It is made of about n = 32000 observations represented by p = 14 attributes (6 numeric and 9 categorical), each of them describing an adult. We specifically interpret the influence of 5 numeric variables on the categorical variable representing whether each adult has an income higher (Yi = 1) or lower (Yi = 0) than 50000$ per year.\nWe first trained three different classifiers (Logit Regression, XGboost and Random Forest4) on 25600 randomly chosen observations (80% of the whole dataset). We then performed the proposed sensitivity analysis strategy for each learned classifier on a test set made of the 6400 remaining observations. Detailed results are shown in Figure 1. Instead of only quantifying a score for each variable, we display in this figure the evolution of the algorithm confronted at gradually lower or higher values of \u03c4 (see Section 3.3) for each variable. The curves were computed using 21 regularly sampled values of \u03c4 between \u22121 and 1 with \u03b1 = 0.05. For each variable, the weighted observations were therefore stressed so that their mean is contained between the 0.05 and 0.95 quantiles of the original (non-weighted) values distribution in the test set. Note that for a quick and quantified overview of the variables response to a positive (resp. negative) stress, the user can simply interpret the difference of the response for\n1https://archive.ics.uci.edu/ml/datasets/adult 2http://yann.lecun.com/exdb/mnist/ 3[Subject to paper acceptance, private repository for now] 4R command glm and packages xgboost and ranger.\n\u03c4 = 1. and \u03c4 = 0 (resp. \u03c4 = 0 and \u03c4 = \u22121.), as illustrated in Section 4.2 in the image case.\nInfluence of the variables in the decision rule We present in Figure 1 (Top) the role played by each variable in the portion of predicted ones (i.e. high incomes) for the Logit Regression, XGboost and Random Forest classifiers. The curves in Figure 1 (Top) highlight the role played by the variable education-num. The more educated the adult, the higher his/her income will be. The two variables capital-gain and capital-loss are also testimonial of high incomes since the adults having large incomes can obviously have more money than others on their bank accounts, or may easily contract debts, although the contrary is not true. It is worth pointing out the role played by the age variable which appears clearly in the figure: young adults earn increasingly large incomes with time, which is well captured by the decision rules (left part of the red curves). For \u03c4 higher than about 0.25 (corresponding to 34 years old), being increasingly old is however not captured by the three tested decision rules to be related to higher incomes.\nWe emphasize that these curves enable to intuitively interpret the complex trends captured by black-box decision rules. They indeed quantify non-linear effects of the variables and very different behaviors depending on whether the variables increase or decrease. In other strategies designed to explain black-box decision rules, explainability is obtained by using the global feature importance indexes included in the decision rules. The Feature Weights count the number of\ntimes a feature appears in a classifier obtained by combining several classifiers (e.g. an ensemble of trees). For tree based methods, the Gain counts the average gain of splits using the feature, while the Coverage is based on the average coverage (number of samples affected) of splits using the feature. Implemented algorithms in Python or R enable to view these features importance, but they often contradict themselves as already quoted by several authors (see for instance in LIME Ribeiro et al. (2016)). Contrary to algorithms that study the influence of a variable by computing information theory criterion between different outputs of the algorithm for changes in the variables (see in Skater Kramer and Choudhary (2018)), the variable changes we use are plausible since the stressed variables have distribution that are as close as possible to the initial distribution of true variables. Finally, we work directly on the real black-box model and do not approximate it by any surrogate model, as in Ribeiro et al. (2016).\nInfluence of the variables in the accuracy of the classifier Besides the influence of the variables on the algorithm outcome, it is worth studying their influence on the accuracy or veracity of the model. We then present in Figure 1 (Bottom) the evolution of the classification error when each variable is stressed by \u03c4 . The three sub-figures (one for each prediction model) represents the evolution of the error confronted to the same modification of each variables. The error of the method on the original data is obtained for \u03c4 = 0. Such curves point out which variables are the most sensitive to increasing prediction flaws. Such result may be used to temper the trust in the forecast depending on the values of the variables.\nAs previously, the curves appear as more informative than single scores: The three models enable to select the same couple of variables that are important for the accuracy of the prediction when they increase i.e. education number and numbers of hours worked pro week. The latter makes the prediction task the most difficult when it is increased. Indeed, the people working a large number of hours per week may not always increase their income, since it relies on different factors. People with high income however usually work a large number of weekly hours. Hence, these two variables play an important role in the prediction and their changes impact the prediction error. In the same flavor, more insight on the error terms could be obtained by dealing with the evolution of the False Positive Rate and True Positive Rate as presented in Appendix D.4."
+    },
+    {
+      "heading": "4.2 Image classification",
+      "text": "We now measure the influence of pixel intensities in image recognition tasks. Each pixel intensity is treated as a variable and the stress is used to saturate the intensities towards one side of their spectrum (red if \u03c4 = 1 or blue if \u03c4 = \u22121). We specifically trained a CNN on the MNIST dataset using a typical architecture that can be found on the Keras documentation5. The CNN was trained on a set of 60,000 images whilst the predictions were made on another 10,000 images.\n5https://keras.io/examples/mnist cnn\nIt achieved a test set accuracy north of 99%. For each of the 784 pixels j0, we computed the {\u03bb(j0,\u03c4)i }i=1,...,10000 in the cases where \u03c4 equals -1 as well as 1, using the method of Section 2. The prediction proportions of each of the 10 digits was then computed using the method of Section 3.2. The whole process took around 9 seconds to run on a modern laptop (Intel Core i7-8550U CPU @ 1.80GHz, 24GB RAM) running Linux. The results are presented in Figure 2-(top).\n0 1 2 3 4\n5 6 7 8 9\n\u22120.30\n\u22120.15\n0.00\n0.15\n0.30\nEn tro\npi c\nVa ria\nbl e\nPr oj\nec tio n In di vi du al\nAv er\nag ed\nRef. image LIME SHAP LIME SHAP\nFigure 2: (top) Pixel contributions towards each digit according to our Entropic Variable Projection method. (bottom-left) Pixel contributions to predict seven in an individual image representing a seven, using the LIME and SHAP packages. (bottom-right) Average pixel contributions to predict seven in all images of the MNIST test set representing a seven, using the LIME and SHAP packages.\nThe color of each pixel in Figure 2-(top) represents its contribution towards the prediction of each digit. For example, a value of 0.15 means that the CNN predicts on average this digit 15% more often when the associated pixel is activated (\u03c4 = 1) instead of having the background intensity (\u03c4 = \u22121). Although our method is pixel-based, it is still able to uncover regions which the CNN uses to predict each digit. Likewise, redder regions contain pixels that are positively correlated with each digit. Note that the edges of each image don\u2019t change color because the corresponding pixels have no impact whatsoever on the predictions. The left part of number 5 has pixels in common with number 6. However, we are able to see that the CNN identifies 6s by using the bottom part of the 6, more so than the top stroke which it uses to recognize 5s. Likewise, according to the CNN, the most distinguishing part of number 9 is the part that links the top ring with the bottom stroke.\nWe finally emphasize the main difference between our strategy and the two\npopular interpretability solutions LIME (Ribeiro et al. (2016))6 and SHAP (Lundberg and Lee (2017))7: we work on whole test sets while these solutions interpret the variables (here pixels) influence when predicting specific labels in individual observations. As an illustration, Figure 2-(bottom-left) represents the most influential pixels found with LIME and SHAP to predict a seven in an image of the MNIST test set representing a seven. To draw similar interpretations as those made on Figure 2-(top), one can represent the average results obtained by using LIME or SHAP over all images of the MNIST test set representing a seven, as represented in Figure 2-(bottom-left). Note that the computations required take about 7 and 10 hours using LIME and SHAP, respectively, which is much longer than when using our method (10 seconds). Averaged results are also less resolved for LIME and harder to interpret for SHAP. Our method can also natively compute other properties of the black-box decision rules with a negligible additional computational cost, as described in Section 3."
+    },
+    {
+      "heading": "5 Conclusion",
+      "text": "Explainability of black-box decision rules in the machine learning paradigm has many interpretations and has been tackled in a large variety of contributions. Here, we focused on the analysis of the variables importance and sensitivity and their impact on a decision rule, inspired by the field of computer code experiments. When building a surface response in computer code experiments, the prediction algorithm is applied to new entries to explore its possible outcomes. In a Machine Learning problem, the context is quite different since the test input variables must follow the distribution of the learning sample. Therefore, evaluating the decision rule at all possible points does not make any sense. To cope with this issue, we have proposed an information theory procedure to stress the original variables without losing the information conveyed by the initial distribution. We proved that this solution amounts in re-weighting the observations of the test sample, leading to very fast computations and the construction of new indices to make clear the role played by each variable.\nRemark that our strategy can be seen as a what if tool, as counterfactual methods Wachter et al. (2018). It indeed explains model decisions by quantifying how their outputs change when the machine learning data are transformed. Nevertheless, existing counterfactual methods substitute individual counterfactual observations for individual baseline observations. In contrast, our strategy substitutes counterfactual data sets, with new variable distribution characteristics, for the original data set.\nThe first key advantage of this strategy is to preserve as much as possible the distribution of the test set (X1i , . . . , X p i , Y\u0302i, Yi), i = 1, . . . , n and thus preserving the correlations of the input variables that have then an impact on the indicators computed by using our procedure. In contrasts with other interpretability paradigms such as the PAC learning framework Valiant (2013), we do not create\n6https://github.com/marcotcr/lime 7https://github.com/slundberg/shap\nartificial outliers. Its second key advantage is that, for a given perturbation, the weights are obtained by minimizing a convex function, for which the evaluation cost is O(n). The total cost is then O(np) for studying the impact of each of the p variables (see Appendix D.1) and there is no need to generate new data, nor even to compute new predictions from the black box algorithm, which is particularly costly if n or p is large. Our procedure therefore scales particularly well to large datasets as e.g. real-world image databases. Finally, the flexibility of the entropic variable projection procedure enables to study the response to various types of stress on the input variables (not only their mean but also their variability, joint correlations, ...) and thus to interpret the decision rules encountered in a wide range of applications encountered in the field of Machine Learning. A package in Python with other examples and industrial use cases in available at https://xai-aniti.github.io/ethik/.\nAcknowledgements : This project received funding from the French Investing for the Future PIA3 program within theArticial and Natural Intelligence Toulouse Institute (ANITI)."
+    },
+    {
+      "heading": "A Proofs of the main results",
+      "text": "The proofs rely on the following theorem, that is a simplified version of the Theorems in Csisza\u0301r (1975) and in Csisza\u0301r (1984).\nTheorem A.1. Let (E,B(E)) be a measurable space and Q a probability measure on E. Consider t \u2208 Rk and a measurable function \u03a6 : E \u2192 Rk. We assume that, for v \u2208 Rk, b \u2208 R, Q({x \u2208 E; \u3008v,\u03a6(x)\u3009 = b}) = 1 if and only if v = 0 and b = 0. Let P\u03a6,t be the set of all probability measures P on (E,B(E)) such that \u222b E\n\u03a6(x) dP (x) = t. Assume that P\u03a6,t contains a probability measure that is mutually absolutely continuous with respect to Q.\nFor a vector \u03be \u2208 Rk, let Z(\u03be) := \u222b E e\u3008\u03be,\u03a6(x)\u3009 dQ(x). We assume that the set on which Z is finite is open. Define now \u03be(t) as the unique minimizer of the strictly convex function H(\u03be) := logZ(\u03be)\u2212 \u3008\u03be, t\u3009. Then,\nQt := arginf P\u2208P\u03a6,t KL(P,Q) (5)\nexists and is unique. Furthermore it can be computed as\nQt = exp\u3008\u03be(t),\u03a6\u3009 Z(\u03be(t)) Q.\nProof of Theorem 2.1 We will apply Theorem A.1 with E = Rp+2 and Q = Qn. Because of the assumption that t can be written as a convex combination of \u03a6(X1, Y\u03021, Y1), . . . ,\u03a6(Xn, Y\u0302n, Yn), with positive weights, we have that P\u03a6,t in Theorem A.1 contains a probability measure that is mutually absolutely continuous with respect to Q. Furthermore, we have assumed that the empirical covariance matrix of \u03a6(X1, Y\u03021, Y1), . . . ,\u03a6(Xn, Y\u0302n, Yn) is invertible, which means that for any v \u2208 Rk, b \u2208 R, \u3008v,\u03a6(X1, Y\u03021, Y1)\u3009, . . . , \u3008v,\u03a6(Xn, Y\u0302n, Yn)\u3009 are not all equal to b. This implies that Qn({x \u2208 Rp+2; \u3008v,\u03a6(x)\u3009 = b}) = 1 if and only if v = 0 and b = 0. Hence, all the assumptions of Theorem A.1 are satisfied.\nWe have, starting from the notation of Theorem A.1,\u222b E e\u3008\u03be,\u03a6\u3009 dQ(x) = 1 n n\u2211 i=1 e\u3008\u03be,\u03a6(Xi,Y\u0302i,Yi)\u3009\nand thus the definitions of Z(\u03be) in Theorems A.1 and 2.1 indeed coincide. Hence,\nalso the definitions of \u03be(t) in Theorems A.1 and 2.1 coincide. Hence, we have\nQt = exp\u3008\u03be(t),\u03a6\u3009 Z(\u03be(t)) Q\n= 1\n1 n \u2211n i=1 e \u3008\u03be(t),\u03a6(Xi,Y\u0302i,Yi)\u3009\n1\nn n\u2211 i=1 exp ( \u3008\u03be(t),\u03a6(Xi, Y\u0302i, Yi)\u3009 ) \u03b4Xi,Y\u0302i,Yi\n= 1\nn n\u2211 i=1 \u03bb (t) i \u03b4Xi,Y\u0302i,Yi .\nThis concludes the proof. Proof of Theorem 2.2 The proof of this theorem comes from Theorem 2.1, by considering \u03a6 : Rp+2 \u2192 R defined by \u03a6(X1, . . . , Xp, Y\u0302 , Y ) = Xj0 and by considering the same t \u2208 R in Theorems 2.1 and 2.2. We have assumed that minni=1X j0 i < t < max n i=1X j0 i . Hence, t can be written as a convex combination of Xj01 , . . . , X j0 n with positive weights. Furthermore, X j0 1 , . . . , X j0 n are not all equal and thus their empirical variance is non-zero. Hence the conditions of Theorem 2.1 hold and the conclusion of this theorem directly provides Theorem 2.2.\nProof of Proposition 2.3 With the choice of \u03a6 of the proposition and with the assumptions there, the conditions of Theorem 2.1 hold. Hence the conclusion of this theorem proves the proposition.\nProof of Proposition 2.4 With the choice of \u03a6 of the proposition and with the assumptions there, the conditions of Theorem 2.1 hold. Hence the conclusion of this theorem proves the proposition, since ( E(Xj0) = mj0 ,Var(Xj0) = v ) is\nequivalent to ( E(Xj0) = mj0 ,E((Xj0)2) = m2j0 + v ) .\nProof of Proposition 2.5 With the choice of \u03a6 of the proposition and with the assumptions there, the conditions of Theorem 2.1 hold. Hence the conclusion of this theorem proves the proposition, since ( E(Xj1) = mj1 ,E(Xj2) = mj2 ,Cov(Xj1 , Xj2) = c ) is equivalent to E(Xj1) = mj1 ,E(Xj2) = mj2 ,E(Xj1Xj2) = mj1mj2 + c.\nProof of Proposition 2.6 The existence and unicity of Q?t follows from Theorem A.1. Also from this theorem, Q?t is of the form\ndQ?t (x) = e \u3008\u03be?(t),\u03a6(x)\u3009\u2212log(Z?(\u03be?(t))) dQ?(x),\nwhere \u03be?(t) is the minimizer of the strictly convex function\n\u03be 7\u2192 F (\u03be) := log(Z?(\u03be))\u2212 \u3008\u03be, t\u3009\nwith\nZ?(\u03be) = \u222b Rp+2 e\u3008\u03be,\u03a6(x)\u3009 dQ?(x).\nWe also recall from Theorem 2.1 that Qt is of the form\ndQt(x) = e \u3008\u03be(t),\u03a6(x)\u3009\u2212log(Z(\u03be(t))) dQn(x),\nwhere \u03be(t) is the minimizer of the strictly convex function\n\u03be 7\u2192 Fn(\u03be) := log(Z(\u03be))\u2212 \u3008\u03be, t\u3009\nwith\nZ(\u03be) = \u222b Rp+2 e\u3008\u03be,\u03a6(x)\u3009 dQn(x).\nLet us first prove that n1/2(\u03be?(t) \u2212 \u03be(t)) = Op(1). The gradient of F at \u03be can be computed as\n\u2207\u03beF (\u03be) = \u222b Rp+2 \u03a6(x)e\n\u3008\u03be,\u03a6(x)\u3009 dQ?(x)\u222b Rp+2 e \u3008\u03be,\u03a6(x)\u3009 dQ?(x) \u2212 t.\nThe norm of this gradient is bounded by a constant Csup,1 < \u221e from the assumption that \u03a6 is bounded on the support of Q?.\nThe Hessian matrix of F at \u03be is\nH\u03beF (\u03be) =\n\u222b Rp+2 \u03a6(x)\u03a6(x)\n>e\u3008\u03be,\u03a6(x)\u3009 dQ?(x)\u222b Rp+2 e \u3008\u03be,\u03a6(x)\u3009 dQ?(x)\n\u2212 \u222b Rp+2 \u03a6(x)e\n\u3008\u03be,\u03a6(x)\u3009 dQ?(x)\u222b Rp+2 e\n\u3008\u03be,\u03a6(x)\u3009 dQ?(x)\u222b Rp+2 \u03a6(x)\n>e\u3008\u03be,\u03a6(x)\u3009 dQ?(x)\u222b Rp+2 e \u3008\u03be,\u03a6(x)\u3009 dQ?(x) .\nThe two last above fractions are t and t> when \u03be = \u03be?(t), because \u2207\u03beF (\u03be?(t)) is zero because F is minimal at \u03be?(t). Hence, we obtain\nH\u03beF (\u03be ?(t)) =\n\u222b Rp+2 \u03a6(x)\u03a6(x) >e\u3008\u03be ?(t),\u03a6(x)\u3009 dQ?(x)\u222b\nRp+2 e \u3008\u03be?(t),\u03a6(x)\u3009 dQ?(x)\n\u2212 tt>.\nHence, H\u03beF (\u03be ?(t)) is the covariance matrix of \u03a6(\u00b7), under the probability distribution proportional to e\u3008\u03be ?(t),\u03a6(\u00b7)\u3009 dQ?(\u00b7) on Rp+2. Assume that H\u03beF (\u03be) is not invertible. Then there exists an affine subspace G of Rk with dimension strictly less than k that contains \u03a6(\u00b7) almost surely under the probability distribution proportional to e\u3008\u03be\n?(t),\u03a6(\u00b7)\u3009 dQ?(\u00b7). Since \u03a6 is bounded on the support of Q?, this distribution is equivalent to dQ?(\u00b7) and thus \u03c6(\u00b7) \u2208 G almost surely under the probability distribution dQ?(\u00b7). This is in contradiction with an assumption of Proposition 2.6. Hence, H\u03beF (\u03be\n?(t)) is invertible. Let B(\u03be, r) be the Euclidean ball with center \u03be and radius r. One can see that the partial derivatives of H\u03beF (\u03be) are bounded on B(\u03be ?(t), \u03b4) using that \u03a6 is bounded on the support of Q?. Hence, there are constants Cinf,2 > 0 and \u03b4 > 0 such that\ninf \u03be\u2208B(\u03be?(t),\u03b4)\n\u03bbinf(H\u03beF (\u03be ?(t))) \u2265 Cinf,2, (6)\nwith \u03bbinf(\u00b7) the smallest eigenvalue.\nFurthermore, we can compute similarly the Hessian matrix of Fn at \u03be,\nH\u03beFn(\u03be) =\n\u222b Rp+2 \u03a6(x)\u03a6(x)\n>e\u3008\u03be,\u03a6(x)\u3009 dQn(x)\u222b Rp+2 e \u3008\u03be,\u03a6(x)\u3009 dQn(x)\n\u2212 \u222b Rp+2 \u03a6(x)e\n\u3008\u03be,\u03a6(x)\u3009 dQn(x)\u222b Rp+2 e\n\u3008\u03be,\u03a6(x)\u3009 dQn(x)\u222b Rp+2 \u03a6(x)\n>e\u3008\u03be,\u03a6(x)\u3009 dQn(x)\u222b Rp+2 e \u3008\u03be,\u03a6(x)\u3009 dQn(x) .\nHence, one can see that the partial derivatives of H\u03beFn(\u03be) are bounded uniformly in \u03be \u2208 B(\u03be?(t), \u03b4), with a fixed deterministic bound, using again that \u03a6 is bounded on the support of Q?. Furthermore, for any fixed \u03be, from the law of large number H\u03beFn(\u03be)\u2192 H\u03beF (\u03be) almost surely. Hence, we can show\nsup \u03be\u2208B(\u03be?(t),\u03b4)\n|\u03bbinf(H\u03beFn(\u03be))\u2212 \u03bbinf(H\u03beF (\u03be))| = op(1). (7)\nLet us consider M > 0 to be fixed later. By convexity, we have P ( ||\u03be(t)\u2212 \u03be?(t)|| \u2265 M\u221a\nn\n) \u2264\nP (\ninf ||\u03be\u2212\u03be?(t)||=M/n1/2\n(Fn(\u03be)\u2212 Fn(\u03be?(t))) \u2264 0 ) . (8)\nLet us bound the probability of this last event. We have, for some random \u03be\u0302 \u2208 B(\u03be?(t),M/n1/2) and \u02c6\u0302\u03be with || \u02c6\u0302\u03be \u2212 \u03be?(t)|| = M/n1/2,\ninf ||\u03be\u2212\u03be?(t)||=M/n1/2\n(Fn(\u03be)\u2212 Fn(\u03be?(t)))\n= (\u2207\u03beFn(\u03be?(t)))>( \u02c6\u0302\u03be \u2212 \u03be?(t)) + 1 2 ( \u02c6\u0302 \u03be \u2212 \u03be?(t))>H\u03beFn(\u03be\u0302)( \u02c6\u0302\u03be \u2212 \u03be?(t)).\nSince \u2207\u03beF (\u03be?(t)) = 0 we can show simply ||\u2207\u03beFn(\u03be?(t))|| = Op(n\u22121/2). Furthermore, from (7) and (6), we obtain\ninf ||\u03be\u2212\u03be?(t)||=M/n1/2\n(Fn(\u03be)\u2212 Fn(\u03be?(t)))\n\u2265 \u2212Op (\n1\u221a n ) M\u221a n + 1 2 ( M\u221a n )2 (Cinf,2 + op(1)) .\nThe above Op(1) and op(1) can be taken to be independent on M . Hence, for any \u03b7 > 0 we can take M large enough such that (8) is smaller than \u03b7. Hence we have shown\n||\u03be?(t)\u2212 \u03be(t)|| = Op (\n1\u221a n\n) . (9)\nWe have\nZ?(\u03be?(t))\u2212 Z(\u03be(t))\n= \u222b Rp+2 e\u3008\u03a6(x),\u03be ?(t)\u3009 dQ? \u2212 \u222b Rp+2 e\u3008\u03a6(x),\u03be(t)\u3009 dQn\n= \u222b Rp+2 e\u3008\u03a6(x),\u03be ?(t)\u3009 dQ? \u2212 \u222b Rp+2 e\u3008\u03a6(x),\u03be ?(t)\u3009 dQn (10)\n+ \u222b Rp+2 e\u3008\u03a6(x),\u03be ?(t)\u3009 dQn \u2212 \u222b Rp+2 e\u3008\u03a6(x),\u03be(t)\u3009 dQn. (11)\nThe quantity in (10) is a Op(n \u22121/2) by the central limit theorem since \u03a6 is bounded on the support of Q?. The quantity in (11) is a Op(n \u22121/2) from (9) and because \u03a6 is bounded on the support of Q?. Hence, we have shown\nZ?(\u03be?(t))\u2212 Z(\u03be(t)) = Op (\n1\u221a n\n) . (12)\nLet now F = {f : Rp+2 \u2192 R; f is 1-Lipschitz, f(0) = 0}. We have\nsup f\u2208F \u2223\u2223\u2223\u2223\u222b Rp+2 f(x) dQ?t (x)\u2212 \u222b Rp+2 f(x) dQt(x) \u2223\u2223\u2223\u2223 \u2264 1 Z?(\u03be?(t)) sup f\u2208F \u2223\u2223\u2223 \u222b Rp+2 f(x)e\u3008\u03be ?(t),\u03a6(x)\u3009\n(dQ?(x)\u2212 dQn(x)) \u2223\u2223\u2223 (13)\n+ 1\nZ?(\u03be?(t)) sup f\u2208F \u2223\u2223\u2223 \u222b Rp+2 f(x)e\u3008\u03be ?(t),\u03a6(x)\u3009 dQn(x)\n\u2212 \u222b Rp+2 f(x)e\u3008\u03be(t),\u03a6(x)\u3009 dQn(x) \u2223\u2223\u2223 (14)\n+ \u2223\u2223\u2223\u2223 1Z?(\u03be?(t)) \u2212 1Z(\u03be(t)) \u2223\u2223\u2223\u2223\nsup f\u2208F \u2223\u2223\u2223\u2223\u222b Rp+2 f(x)e\u3008\u03be(t),\u03a6(x)\u3009 dQn(x) \u2223\u2223\u2223\u2223 . (15) The term (14) is smaller than a constant times ||\u03be?(t)\u2212 \u03be(t)|| because \u03a6 is bounded on the support of Q? and f is bounded. Hence this term is a Op(n \u22121/2) from (9). The term in (15) is also a Op(n \u22121/2) from (12). Let us finally address the term in (13). In this term, the function that is integrated is uniformly bounded, with uniformly bounded Lipschitz norm, because \u03a6 is bounded and Lipschitz continuous on the bounded support of Q? and since f \u2208 F . Also, from for instance Theorem 1 in Fournier and Guillin (2015), the L1 Wasserstein distance between Qn and Q ? satisfies\nW1 (Qn, Q?) = Op ( n\u22121/(p+2) ) .\nThis implies that the supremum over f \u2208 F in (13) is bounded by a constant times Op ( n\u22121/(p+2) ) , see for instance Villani (2008) for the link between the L1 Wasserstein distance and differences of expectations of Lipschitz functions. Hence we have proved that as n\u2192\u221e,\nsup f\u2208F \u2223\u2223\u2223\u2223\u222b Rp+2 f(x) dQ?t (x)\u2212 \u222b Rp+2 f(x) dQt(x) \u2223\u2223\u2223\u2223 = Op (n\u22121/(p+2)) . From for instance Villani (2008), this implies the conclusion of the proposition."
+    },
+    {
+      "heading": "B Gradient of the objective function in Theo-",
+      "text": "rem 2.1\nLet us denote vi = (Xi, Y\u0302i, Yi) for i = 1, . . . , n. In Theorem 2.1 we want to minimize, over \u03be \u2208 Rk,\nH(\u03be) = log\n( 1\nn n\u2211 i=1 exp (\u3008\u03be,\u03a6(vi)\u3009)\n) \u2212 \u3008\u03be, t\u3009. (16)\nThe gradient of Eq. (16) is: \u2207\u03beH(\u03be) = \u2211n i=1 \u03a6(vi) exp \u3008\u03be,\u03a6(vi)\u3009\u2211n\ni=1 exp \u3008\u03be,\u03a6(vi)\u3009 \u2212 t , (17)\nwhich makes it possible to compute \u03be(t) in Theorem 2.1 using gradient based optimization methods."
+    },
+    {
+      "heading": "C Extension to the regression case",
+      "text": "C.1 Methodology\nAs an extension to Section 3, we consider now the case of a real valued regression where Yi, f(Xi) \u2208 R for i = 1 . . . , n. In order to understand the effects of each variable, first we consider the mean criterion\nMi0,\u03c4 = 1\nn n\u2211 i=1 \u03bb (i0,\u03c4) i f(Xi),\nwhich will indicate how a change in the variable will modify the output of the learned regression (\u03c4 is explained in Section 3.3). Second the variance criterion\nVi0,\u03c4 = 1\nn n\u2211 i=1 \u03bb (i0,\u03c4) i (f(Xi)\u2212Mi0,\u03c4 ) 2\nis meant to study the stability of the regression with respect to the perturbation of the variables. Finally the root mean square error (RMSE) criterion\nRMSEi0,\u03c4 = \u221a\u221a\u221a\u221a 1 n n\u2211 i=1 \u03bb (i0,\u03c4) i (f(Xi)\u2212 Yi) 2\nis analogous to the classification error criterion since it enables to detect possibly misleading or confusing variables when learning the regression. For each i0 \u2208 {1, . . . , p}, these three criteria can be plotted as a function of \u03c4 for \u03c4 \u2208 [\u22121, 1].\nC.2 Application\nWe use now our strategy on the Boston Housing dataset8. This dataset deals with houses prices in Boston. It contains 506 observations with 13 variables that can be used to predict the price of the house to be sold. When considering an optimized Random Forest algorithm, the importance calculated as described in Breiman (2001), enables to select the 5 most important variables as follows: lstat (15227), rm (14852), dis (2413), crim (2144) and nox (2042). Remark that the coefficients obtained using a linear model would lead to similar interpretations, with the the 5 most important variables as follows: lstat (-3.74), dis ( -3.10), rm (2.67), rad (2.66), tax (-2.07)\nAs shown in Figure 3, our analysis goes further than this score. In particular we point out the non linear influence of the variables depending whether they are high or low. For instance the average number of rooms in a house (variable rm) is an important factor that makes the price increase in the case of large houses (\u03c4 > 0. in Figure 3 (Average)). Interestingly, this is far less the case for smaller houses (\u03c4 < 0. in Figure 3 (Average)) since there are other arguments than the number of rooms to keep a high price in this case.\nNote that when the number of variables is large, the presence of too many curves may make the graph difficult to understand. In this cases, scores that\n8https://www.kaggle.com/c/boston-housing\nrepresent average individual evolutions on given ranges of \u03c4 values for each variables can be computed. Then the highest and lowest scores can be represented as the most influential variables on the predictions. For instance, we represent in Table. 1 the evolution of the Mean curves in Figure 3 between \u03c4 = \u22120.5 and \u03c4 = 0, as well as between \u03c4 = 0 and \u03c4 = 0.5, which makes clearly understandable which are the most influential variables. It is important to remark that our methodology still allows that the learned decision rules won\u2019t be mainly influenced by the same variables depending on whether it the variable increases (\u03c4 > 0) or decreases (\u03c4 < 0). In Table. 1, the more influential variables are indeed rm, lstat and zn in the positive direction, while in the negative direction, the variables are lstat, black and pratio. Note that such variables are also cited in studies that relies on LIME Ribeiro et al. (2016) or SHAP Lundberg and Lee (2017) packages, but the curves we present are more informative and relies on the same distributional input."
+    },
+    {
+      "heading": "D Additional results in the Classification case",
+      "text": "D.1 Evaluation of the computational burden\nWe explained in Section 5 that our strategy only optimizes, for each of the p variables, a function which evaluation cost is O(n) with no additional outputs predictions out of the black box machine learning algorithm. To quantify this, we show in Table 2 the computational times dedicated to the analysis of synthetic datasets having a different amount of variables p and observations n. The variables interpretation was made using 21 values of \u03c4 , leading to curves as e.g. in Figure 1. Computations were run with Python on a standard Intel Core i7 laptop with 24GB memory and no parallelization. It appears that our strategy\nindeed has a O(np) cost, so we then believe it may have a high impact to study the rules learned by black-box machine learning algorithms on large real-life datasets. Remark that when interpreting the influence of the pixel intensities on image test sets, as in Figure 2, only 3 values of \u03c4 are used. The computations are therefore about 7 times faster. This coherent with the 10 seconds required on 10000 MNIST images of 28\u00d728 pixels in Section 4.2. Note finally that a preliminary implementation of our method in R has lead to very similar results.\nD.2 Results on simulated data\nIn order to further show that our procedure is able to properly recover the characteristics of machine learning algorithms, we again tested it on synthetic data. We have run an experiment with p = 5 variables and n = 106 observations, where synthetic data are generated using a logistic regression model, with independent regressors and coefficient vector equal to (\u22124, 2, 0, 2, 4). Figure 4 clearly shows that our method enables to recover the signs and the hierarchy of the coefficients.\nD.3 Results on the Iris dataset\nAs an additional assesment of the method on very well known and simple data, we now consider the Iris dataset9. This dataset is composed of 150 observations with 4 variables used to predict a label into three categories: setosa, versicolor, virginica. To predict the labels, we used an Extreme Gradient Boosting model and a Random Forest classifier. Results are show in Figure 5. We first present for both models the Classification error. Then the two other subfigures show the effects of increasing or decreasing the 4 parameters, i.e the width or the length of the sepal or petal is shown for all classes. As expected, we recover the well known result that the width of the sepal is the main parameter which enables to differentiate the class Setosa while the differentiation between the two other remaining classes is less obvious.\nD.4 Other indices: ROC Curves\nIn the case of two class classification on the Adult Income dataset (Section 4.1), we have shown the evolution of the classification error when the stress parameter \u03c4 increases. Such results can straightforwardly be extended to True and False Positive Rates, which are commonly represented in ROC curves, that we display\n9https://archive.ics.uci.edu/ml/datasets/iris\nin Figure 6. Each point of these curves corresponds to the False Positive Rate and the True Positive Rate, for a sample drawn for each \u03c4 and each variable. All curves cross at the same point which corresponds to \u03c4 = 0. It therefore becomes possible to study the evolution of each criterion."
+    }
+  ],
+  "title": "Entropic Variable Projection for Model Explainability and Intepretability",
+  "year": 2020
+}

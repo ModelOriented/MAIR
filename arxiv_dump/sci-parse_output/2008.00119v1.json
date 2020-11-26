@@ -1,0 +1,341 @@
+{
+  "abstractText": "Magnetic Resonance Imaging (MRI) is widely used for screening and staging prostate cancer. However, many prostate cancers have subtle features which are not easily identifiable on MRI, resulting in missed diagnoses and alarming variability in radiologist interpretation. Machine learning models have been developed in an effort to improve cancer identification, but current models localize cancer using MRI-derived features, while failing to consider the disease pathology characteristics observed on resected tissue. In this paper, we propose CorrSigNet, an automated two-step model that localizes prostate cancer on MRI by capturing the pathology features of cancer. First, the model learns MRI signatures of cancer that are correlated with corresponding histopathology features using Common Representation Learning. Second, the model uses the learned correlated MRI features to train a Convolutional Neural Network to localize prostate cancer. The histopathology images are used only in the first step to learn the correlated features. Once learned, these correlated features can be extracted from MRI of new patients (without histopathology or surgery) to localize cancer. We trained and validated our framework on a unique dataset of 75 patients with 806 slices who underwent MRI followed by prostatectomy surgery. We tested our method on an independent test set of 20 prostatectomy patients (139 slices, 24 cancerous lesions, 1.12M pixels) and achieved a per-pixel sensitivity of 0.81, specificity of 0.71, AUC of 0.86 and a per-lesion AUC of 0.96 \u00b1 0.07, outperforming the current state-of-the-art accuracy in predicting prostate cancer using MRI.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Indrani Bhattacharya"
+    },
+    {
+      "affiliations": [],
+      "name": "Arun Seetharaman"
+    },
+    {
+      "affiliations": [],
+      "name": "Wei Shao"
+    },
+    {
+      "affiliations": [],
+      "name": "Rewa Sood"
+    },
+    {
+      "affiliations": [],
+      "name": "Christian A. Kunder"
+    },
+    {
+      "affiliations": [],
+      "name": "Richard E. Fan"
+    },
+    {
+      "affiliations": [],
+      "name": "Simon John Christoph Soerensen"
+    },
+    {
+      "affiliations": [],
+      "name": "Jeffrey B. Wang"
+    },
+    {
+      "affiliations": [],
+      "name": "Pejman Ghanouni"
+    },
+    {
+      "affiliations": [],
+      "name": "Nikola C. Teslovich"
+    },
+    {
+      "affiliations": [],
+      "name": "James D. Brooks"
+    },
+    {
+      "affiliations": [],
+      "name": "Geoffrey A. Sonn"
+    },
+    {
+      "affiliations": [],
+      "name": "Mirabela Rusu"
+    }
+  ],
+  "id": "SP:790cd3d34e88a4cb865fd86a9875f8575f8ce463",
+  "references": [
+    {
+      "authors": [
+        "J.O. Barentsz",
+        "J.C. Weinreb",
+        "S. Verma",
+        "H.C. Thoeny",
+        "C.M. Tempany",
+        "F. Shtern",
+        "A.R. Padhani",
+        "D. Margolis",
+        "K.J. Macura",
+        "Haider",
+        "M.A"
+      ],
+      "title": "Synopsis of the PI-RADS v2 guidelines for multiparametric prostate magnetic resonance imaging and recommendations for use",
+      "venue": "European Urology 69(1), 41",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "H.U. Ahmed",
+        "A.E.S. Bosaily",
+        "L.C. Brown",
+        "R. Gabe",
+        "R. Kaplan",
+        "M.K. Parmar",
+        "Y. Collaco-Moraes",
+        "K. Ward",
+        "R.G. Hindley",
+        "A Freeman"
+      ],
+      "title": "Diagnostic accuracy of multi-parametric MRI and TRUS biopsy in prostate cancer (PROMIS): A paired validating confirmatory study",
+      "venue": "The Lancet 389(10071), 815\u2013822",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S.E. Viswanath",
+        "N.B. Bloch",
+        "J.C. Chappelow",
+        "R. Toth",
+        "N.M. Rofsky",
+        "E.M. Genega",
+        "R.E. Lenkinski",
+        "A. Madabhushi"
+      ],
+      "title": "Central gland and peripheral zone prostate tumors have significantly different quantitative imaging signatures on 3 Tesla endorectal, in vivo T2-weighted MR imagery",
+      "venue": "Journal of Magnetic Resonance Imaging 36(1), 213\u2013224",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Y. Sumathipala",
+        "N. Lay",
+        "B. Turkbey",
+        "C. Smith",
+        "P.L. Choyke",
+        "R.M. Summers"
+      ],
+      "title": "Prostate cancer detection from multi-institution multiparametric MRIs using deep convolutional neural networks",
+      "venue": "Journal of Medical Imaging 5(4), 044507",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "G. Litjens",
+        "O. Debats",
+        "J. Barentsz",
+        "N. Karssemeijer",
+        "H. Huisman"
+      ],
+      "title": "Computeraided detection of prostate cancer in MRI",
+      "venue": "IEEE Transactions on Medical Imaging 33(5), 1083\u20131092",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "S.G. Armato",
+        "H. Huisman",
+        "K. Drukker",
+        "L. Hadjiiski",
+        "J.S. Kirby",
+        "N. Petrick",
+        "G. Redmond",
+        "M.L. Giger",
+        "K. Cha",
+        "A Mamonov"
+      ],
+      "title": "PROSTATEx Challenges for computerized classification of prostate lesions from multiparametric magnetic resonance images",
+      "venue": "Journal of Medical Imaging 5(4), 044501",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "S.E. Viswanath",
+        "P.V. Chirra",
+        "M.C. Yim",
+        "N.M. Rofsky",
+        "A.S. Purysko",
+        "M.A. Rosen",
+        "B.N. Bloch",
+        "A. Madabhushi"
+      ],
+      "title": "Comparing radiomic classifiers and classifier ensembles for detection of peripheral zone prostate tumors on T2-weighted MRI: A multi-site study",
+      "venue": "BMC Medical Imaging 19(1), 22",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "R. Cao",
+        "A.M. Bajgiran",
+        "S.A. Mirak",
+        "S. Shakeri",
+        "X. Zhong",
+        "D. Enzmann",
+        "S. Raman",
+        "K. Sung"
+      ],
+      "title": "Joint prostate cancer detection and gleason score prediction in mp-MRI via FocalNet",
+      "venue": "IEEE Transactions on Medical Imaging 38(11), 2496\u20132506",
+      "year": 2019
+    },
+    {
+      "authors": [
+        "A. Priester",
+        "S. Natarajan",
+        "P. Khoshnoodi",
+        "D.J. Margolis",
+        "S.S. Raman",
+        "R.E. Reiter",
+        "J. Huang",
+        "W. Grundfest",
+        "L.S. Marks"
+      ],
+      "title": "Magnetic resonance imaging underestimation of prostate cancer geometry: Use of patient specific molds to correlate images with whole mount pathology",
+      "venue": "The Journal of Urology 197(2), 320\u2013326",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "S. Xie",
+        "Z. Tu"
+      ],
+      "title": "Holistically-nested edge detection",
+      "venue": "Proceedings of the IEEE International Conference on Computer Vision. pp. 1395\u20131403",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "M. Rusu",
+        "W. Shao",
+        "Kunder",
+        "A. Christian",
+        "Wang",
+        "B. Jeffrey",
+        "Soerensen",
+        "J. Simon",
+        "Teslovich",
+        "C. Nikola",
+        "Sood",
+        "R. Rewa",
+        "Chen",
+        "C. Leo",
+        "Fan",
+        "E. Richard",
+        "P Ghanouni"
+      ],
+      "title": "Registration of Pre-Surgical MRI and Histopathology Images From Radical Prostatectomy via RAPSODI",
+      "venue": "Medical Physics In Press",
+      "year": 2020
+    },
+    {
+      "authors": [
+        "L.G. Ny\u00fal",
+        "J.K. Udupa",
+        "X. Zhang"
+      ],
+      "title": "New variants of a method of MRI scale standardization",
+      "venue": "IEEE Transactions on Medical Imaging 19(2), 143\u2013150",
+      "year": 2000
+    },
+    {
+      "authors": [
+        "K. Simonyan",
+        "A. Zisserman"
+      ],
+      "title": "Very deep convolutional networks for large-scale image recognition",
+      "venue": "arXiv preprint arXiv:1409.1556",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "S. Chandar",
+        "M.M. Khapra",
+        "H. Larochelle",
+        "B. Ravindran"
+      ],
+      "title": "Correlational neural networks",
+      "venue": "Neural Computation 28(2), 257\u2013285",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "A.P. Harrison",
+        "Z. Xu",
+        "K. George",
+        "L. Lu",
+        "R.M. Summers",
+        "D.J. Mollura"
+      ],
+      "title": "Progressive and multi-path holistically nested neural networks for pathological lung segmentation from CT images",
+      "venue": "International Conference on Medical Image Computing and Computer-Assisted Intervention. pp. 621\u2013629. Springer",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "H.R. Roth",
+        "L. Lu",
+        "A. Farag",
+        "A. Sohn",
+        "R.M. Summers"
+      ],
+      "title": "Spatial aggregation of holistically-nested networks for automated pancreas segmentation",
+      "venue": "International Conference on Medical Image Computing and Computer-Assisted Intervention. pp. 451\u2013459. Springer",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "I. Nogues",
+        "L. Lu",
+        "X. Wang",
+        "H. Roth",
+        "G. Bertasius",
+        "N. Lay",
+        "J. Shi",
+        "Y. Tsehay",
+        "R.M. Summers"
+      ],
+      "title": "Automatic lymph node cluster segmentation using holisticallynested neural networks and structured optimization in CT images",
+      "venue": "International Conference on Medical Image Computing and Computer-Assisted Intervention. pp. 388\u2013397. Springer",
+      "year": 2016
+    }
+  ],
+  "sections": [
+    {
+      "text": "Keywords: Computer Aided Diagnosis \u00b7 Common Representation Learning \u00b7 MRI \u00b7 Histopathology Images \u00b7 Prostate Cancer\n? We thank the Departments of Radiology and Urology at Stanford University, for their support for this work.\nar X\niv :2\n00 8.\n00 11\n9v 1\n[ ee\nss .I"
+    },
+    {
+      "heading": "1 Introduction",
+      "text": "Early localization of prostate cancer from MRI is crucial for successful diagnosis and local therapy. However, subtle differences between benign conditions and cancer on MRI often make human interpretation challenging, leading to missed diagnoses and an alarming variability in radiologist interpretation. Human interpretation of prostate MRI suffers from low inter-reader agreement (0.46-0.78)[1] and high variability in reported sensitivity (58-98%) and specificity (23-87%) [2].\nPredictive models can help standardize radiologist interpretation, but current models [3\u20138] often learn from MRI only, without considering the disease pathology characteristics. These approaches derive MRI features that are agnostic to the biology of the tumor. Moreover, current predictive models mostly use inaccurate labels (either from biopsies [6] that suffer from sampling errors, or cognitive registration of pre-operative MRI with digital histopathology images of surgical specimens, where a radiologist retrospectively outlines the lesions on MRI [4]). MRI under-estimates the tumor size [9], making outlines on MRI alone insufficient to capture the entire extent of disease. Furthermore, it is challenging to outline the \u02dc20% of tumors that are not clearly seen on MRI, even when using histopathology images as reference [1]. These MRI-based models use a variety of techniques including traditional classifiers with hand-crafted and radiomic features [3,5,7], as well as deep learning based models [4,8]. The current state-of-the-art approach [4] to predict a cancer probability map for the entire prostate uses a Holistically Nested Edge Detection (HED) [10] algorithm.\nIn this paper, we propose CorrSigNet, a two-step approach for predicting prostate cancer using MRI. First, CorrSigNet leverages spatially aligned radiology and histopathology images of prostate surgery patients to learn MRI cancer signatures that correlate with features extracted from the histopathology images. Second, CorrSigNet uses these correlated MRI signatures to train a predictive model for localizing cancer when histopathology images are not available, e.g. before surgery. This approach enables learning MRI signatures that capture tumor biology information from surgery patients with histopathology images, and then translating those learned signatures for prediction in patients without surgery/biopsy. Prior studies lack such correlation analysis of the two modalities. Our approach shows improved prostate cancer prediction compared to the current state-of-the-art method [4]."
+    },
+    {
+      "heading": "2 Proposed Method",
+      "text": ""
+    },
+    {
+      "heading": "2.1 Dataset",
+      "text": "We used 95 prostate surgery patients with pre-operative multi-parametric MRI (T2-weighted and Apparent Diffusion Coefficient) and post-operative digitized histopathology images. Custom 3D printed molds were used to ensure that excised prostate tissue was sectioned in the same plane as the T2-weighted (T2W) MRI. An expert pathologist annotated cancer on the histopathology images. We spatially aligned the pre-operative MRI and digitized histopathology images of\nthe excised tissue via the state-of-the-art RAPSODI registration platform [11]. RAPSODI achieved a Dice similarity coefficient of 0.98\u00b10.01 for the prostate, prostate boundary Hausdorff distance of 1.71\u00b10.48 mm, and urethra deviation of 2.91\u00b11.25 mm between registered histopathology images and MRI. Such careful registration of radiology and pathology images of the prostate enabled (1) correlation analysis of the two modalities at a pixel-level, and (2) accurate mapping of cancer labels from pathology to radiology images. We considered multiple slices per patient (average 7 slices/patient) irrespective of cancer size. Slices with missing cancer annotations were discarded during training. The dataset included some patients with cancer that had extra prostatic extensions, but our analysis was focused only on cancers inside the prostate."
+    },
+    {
+      "heading": "2.2 Data Pre-processing",
+      "text": "We smoothed the histopathology images with a Gaussian filter with \u03c3 = 0.25 to prevent downsampling artifacts, padded and then downsampled them to 224 \u00d7 224, resulting in an X-Y resolution of 0.29 \u00d7 0.29 mm2. We projected and resampled the T2W and ADC images, prostate masks, and cancer labels on the corresponding downsampled histopathology images, such that they also had the same X-Y resolution of 0.29 \u00d7 0.29 mm2. This ensured that each pixel in each modality represented the same physical area.\nSince MRI intensities vary significantly between scanners and scanning protocols, we standardized the T2W and ADC intensities using the histogram alignment approach proposed by Nyu\u0301l et al. [12]. We used prostate masks to standardize intensities within the prostate, and then applied the learned transformation to the image region beyond the prostate. After intensity standardization, we normalized the intensities to have zero mean and standard deviation of 1.\nWe randomly split the 95 patients to create our train, validation, and test sets with 66, 9, and 20 patients respectively. After horizontal flipping based data augmentation, the train and validation sets had 700 and 106 slices respectively. The test set included 139 slices, 24 cancerous lesions, 1.12M pixels in the prostate with 9% cancer pixels. We performed MRI scale standardization on the train set, and used the learned histograms to standardize the validation and test sets. We followed a similar strategy for MRI intensity normalization."
+    },
+    {
+      "heading": "2.3 Learning correlated features",
+      "text": "Feature extraction: We extracted features from the T2W, ADC, and histopathology images by passing them through the first two convolutional layers of a pre-trained VGG-16 architecture [13]. Thus, each 224 \u00d7 224 image yielded a 224\u00d7224\u00d764 representation, generating 64 features per pixel. We sampled pixels from within the prostate, and concatenated the T2W and ADC features to form the MRI representation per pixel. Thus, for each pixel, we had the MRI representation Ri \u2208 R128 and the histopathology representation Pi \u2208 R64. Common Representation learning: We trained a Correlational Neural Network architecture (CorrNet) [14] to learn common representations from MRI\nand histopathology features per pixel. Given N pixels, each pixel input Zi to the CorrNet model had two views: the MRI feature representation for pixel i, Ri, and the histopathology feature representation for pixel i, Pi. We used a fullyconnected CorrNet model with a single hidden layer, where the hidden layer H(Zi) \u2208 Rk was computed as:\n(1)H(Zi) = WRi + V Pi + b\nwhere W \u2208 Rk\u00d7128, V \u2208 Rk\u00d764 and b \u2208 Rk\u00d71. The reconstructed output Z \u2032i was computed from the hidden layer as:\n(2)Z \u2032i = [W \u2032H(Zi), V \u2032H(Zi)] + b \u2032\nwhere W \u2032 \u2208 R128\u00d7k, V \u2032 \u2208 R64\u00d7k and b\u2032 \u2208 R(128+64)\u00d71. In contrast to the original CorrNet model, we did not use any non-linear activation function. We learned the parameters \u03b8 = {W,V,W \u2032, V \u2032, b, b\u2032} of the system by minimizing the following objective function, as detailed in [14]:\nJ(\u03b8) = N\u2211 i=1 [L(Zi, H(Zi)) +L(Zi, H(Ri)) +L(Zi, H(Pi))\u2212 \u03bbcorr(H(Ri), H(Pi))]\n(3)\n(4)\ncorr(H(Ri), H(Pi))\n= \u2211N i=1[(H(Ri)\u2212H(R))(H(Pi)\u2212H(P )]\u221a\u2211N\ni=1(H(Ri)\u2212H(R))2 \u2211N i=1(H(Pi)\u2212H(P ))2\nwhere L is the reconstruction error, \u03bb is the scaling parameter to determine the relative weight of the correlation error with respect to the reconstruction errors, H(R) is the mean hidden representation of the 1st view and H(P ) is the mean hidden representation of the 2nd view. Thus, the CorrNet model (i) minimizes the self and cross reconstruction errors, and (ii) maximizes the correlation between the hidden representations of the two views. Training CorrNet using pixel representations from within the prostate gave ample training samples to optimize the model, and to learn differences between cancer and non-cancer pixels.\nAfter the CorrNet model was trained, we used the learned weights W, b to project the MRI feature representations Ri onto the k dimensional hidden space to form CorrNet representations of the input MRI. The CorrNet representations are correlated with the corresponding histopathology features, and once trained, can be constructed even in the absence of histopathology images. Figure 1 shows the pipeline for learning common representations. Training: From the 66 patients in the training cohort, we sampled all the cancer pixels from within the prostate, and randomly sampled an equal number of noncancer pixels, also from within the prostate, thereby generating a training set of \u2248 1.2M pixels, with equal number of cancer and non-cancer pixels. This ensured that we train the CorrNet with a balanced dataset of two classes. We used \u03bb = 2\nto weigh the cross-correlation error higher than the reconstruction errors. We chose a squared error loss L for the reconstruction errors. We trained the CorrNet model with varying hidden layer dimensions, namely: k \u2208 {1, 3, 5, 15, 30}. For each k, we used a learning rate \u03b7 = 10\u22125, and 300 training epochs. Figure 2 shows CorrNet representations of an example MRI slice, with k = 5."
+    },
+    {
+      "heading": "2.4 Prediction of prostate cancer extent",
+      "text": "We modified the Holistically Nested Edge Detection (HED) architecture [10] to predict cancer probability maps for the entire prostate. We considered two modified versions of HED: (1) HED-3, and (2) HED-branch-3. The HED-3 model evaluates how well CorrNet representations alone perform in predicting cancer, while the HED-branch-3 model evaluates how well CorrNet representations combined with T2W and ADC images perform in predicting cancer. We represent our model using correlated feature learning and HED-3 as CorrSigNet(k), and our model with correlated feature learning and HED-branch-3 as CorrSigNet(T2W, ADC, k), where k is the CorrNet feature dimension. For example, CorrSigNet(5) uses only 5 correlated features for prediction, whereas CorrSigNet (T2W, ADC, 5) uses the normalized T2W and ADC intensities in addition to 5 correlated features for prediction. We chose a prediction model similar to the HED architecture because it is known to learn and combine multi-scale and multi-level features, and has been successfully applied to anatomy segmentations from CT scans [15\u201317], and to prostate cancer prediction [4].\nIn HED-3, we input three adjacent CorrNet slice representations of the prostate and output predictions for only the central slice. This ensured that the 2D-HED model learned the 3D volumetric continuity from MRI/ histopathology/ correlated features. This also helped in reducing false positive rates.\nIn HED-branch-3 (shown in Figure 3), we combined the CorrNet slice representations together with the normalized T2W and ADC images as inputs to the model. Similar to HED-3, we considered three adjacent slices for each input sequence (T2W, ADC, CorrNet representations), and predicted cancer probability maps for the central slice only. However, in HED-branch-3 model, we processed each input sequence independently using the first three blocks, concatenated the three outputs from the three independent blocks, and processed the concatenated output using the next 2 blocks. Since the input sequences are processed independently in the first three blocks, we had a total of 11 side outputs, which were fused together using a Conv-1D layer to form the weighted fused output. We computed balanced cross-entropy losses for each of the 12 outputs (11 side outputs and 1 fused output) while training the architecture, but computed evaluation metrics only on the fused output. We used 3\u00d73 kernels for all convolution layers except the last Conv-1D layer. The number of filters in each layer is stated in the legend in Figure 3. For both the HED-3 and HED-branch-3 models, we added Batch Normalization in each block, before ReLU activation, as opposed to the HED model used by [4] which used Batch Normalization in each layer. No post-processing steps were performed on the prediction maps.\nTraining: We trained both models using an Adam optimizer with an initial learning rate \u03b7 = 10\u22123, weight decay \u03b1 = 0.1, epochs = 200 and early stopping."
+    },
+    {
+      "heading": "3 Experimental Results",
+      "text": "Quantitative Evaluation: We quantitatively evaluated our models on a perpixel and a per-lesion basis, with ground truth labels derived from pathologist cancer annotations on registered histopathology images. For a direct comparison, we reproduced the current state-of-the-art model [4] to the best of our understanding, and computed both pixel-level and lesion-level evaluation metrics of this model on our test data (20 patients, 139 slices, 24 cancerous lesions, 1.12M pixels in the prostate). It may be noted that the AUC numbers reported in [4] are computed on a lesion level, and not on a pixel-level. Our pixel-level metrics including all pixels within the prostate provide a more rigorous evaluation. Pixel level analysis: We tested the performance of the CorrSigNet models with\ndifferent inputs and varying CorrNet feature dimension k using the following pixel-level evaluation metrics (computed using 1.12M pixels in the prostate): sensitivity, specificity, and AUC of the ROC curve, with a probability threshold of 0.5. We note from Table 1 that CorrSigNet performs better than [4], with consistently higher AUC numbers in pixel-level analysis. The sensitivity and specificity numbers vary within the models. Our tests showed that at least 3 CorrNet features were necessary for improved performance over MRI alone. We chose CorrSigNet (T2W, ADC, 5) as the optimum model, because it had high sensitivity, specificity and AUC, with an optimum number of parameters. Between false positives and false negatives, we note that a false negative is more detrimental than a false positive in the task of cancer prediction. Lesion level analysis: We performed lesion-level analysis using the evaluation method detailed in [4] and found that CorrSigNet(T2W, ADC, 5) achieved a per-lesion AUC of 0.96 \u00b1 0.07 compared to a per-lesion AUC of 0.92 \u00b1 0.09 by\n[4] on the same test set. Qualitative Evaluation: Figure 4 shows the same slice as in Figure 2 with\naligned T2W, ADC, and histopathology images, and prediction results using current state-of-the-art method [4], our CorrSigNet(5) and CorrSigNet(T2W, ADC, 5) models. It may be noted that [4] fails to detect the cancerous regions on the left and right of the images, while the CorrNet representations alone can identify the cancer regions, and when combined with T2W and ADC images, they predict the cancer regions with high probability. It may also be noted that CorrSigNet(T2W, ADC, 5) shows fewer false positives than [4]. This example shows the strength of learning correlated MRI signatures in identifying subtle, and sometimes MRI-invisible cancers. Figure 5 shows more example slices from different patients, comparing the state-of-the-art approach [4] and our prediction results with CorrSigNet(T2W, ADC, 5). We note that our model with correlated features (1) can identify subtle and smaller cancer regions, (2) have better overlap with ground truth cancer labels, and (3) have fewer false positives."
+    },
+    {
+      "heading": "4 Conclusion",
+      "text": "In this paper, we presented a novel method to learn correlated signatures of cancer from spatially aligned MRI and histopathology images of prostatectomy surgical specimens, and then use these learned correlated signatures in predicting\nprostate cancer extent from MRI. Quantitatively, our method improved performance of automated prostate cancer localization (per-pixel AUC of 0.86, perlesion AUC of 0.96\u00b1 0.07), as compared to the current state-of-the-art method [4] (per-pixel AUC 0.80, per-lesion 0.92 \u00b1 0.09). Qualitatively, we found that correlated features could capture subtle cancerous regions and sometimes MRIinvisible cancers, had better overlap with ground truth labels, and fewer false positives. Correlated features have the capability of capturing tumor biology information from histopathology images in an unprecedented way, and these features, once learned, can be extracted in patients without histopathology images. In future work, we intend to conduct experiments with augmented datasets and in a cross-validation framework to boost the performance of our models."
+    }
+  ],
+  "title": "CorrSigNet: Learning CORRelated Prostate Cancer SIGnatures from Radiology and Pathology Images for Improved Computer Aided Diagnosis",
+  "year": 2020
+}

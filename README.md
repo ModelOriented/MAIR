@@ -1,11 +1,11 @@
 # MAIR
-This project aims to monitor emerging regulations that have an impact on the creation and usage of solutions that are based on AI. Our goal is to create a comprehensive database of AI regulations from different regions, analyze possible consequences of such regulations, and build tools to run such analysis automatically. 
+This project aims to monitor emerging regulations that have an impact on the creation and usage of solutions that are based on AI. Our goal is to create a comprehensive database of AI regulations from different regions, analyze possible consequences of such regulations, and build tools to run such analysis automatically.
 
 # Contribution
 If you know any documents that are related to AI regulations and should be on this list, or have any suggestions, you can open an issue on this GitHub repository.
 
 # Documents
-The list is split into 2 parts. In the first part there non-formal documents from governments, describing intentions and directions of regulations. The second part consists of formalized regulations or regulations proposals. 
+The list is split into 2 parts. In the first part there non-formal documents from governments, describing intentions and directions of regulations. The second part consists of formalized regulations or regulations proposals.
 ## White papers/guidances
 ### USA
 - [Proposed Regulatory Framework for Modifications to Artificial Intelligence/Machine Learning - Based Software as a Medical Device](https://www.fda.gov/media/122535/download)
@@ -52,4 +52,3 @@ IN THE CONTEXT OF ARTIFICIAL INTELLIGENCE AND DIGITAL CHANGE](https://www.consil
     - [Policy initiatives](https://oecd.ai/dashboards/policy-initiatives)
 - [Library of congress](https://www.loc.gov/law/help/artificial-intelligence/index.php)
 - [AI governance database](https://www.nesta.org.uk/data-visualisation-and-interactive/ai-governance-database/)
-

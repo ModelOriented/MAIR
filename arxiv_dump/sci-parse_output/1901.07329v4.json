@@ -1,0 +1,421 @@
+{
+  "abstractText": "This paper describes the autofeat Python library, which provides scikit-learn style linear regression and classification models with automated feature engineering and selection capabilities. Complex non-linear machine learning models, such as neural networks, are in practice often difficult to train and even harder to explain to non-statisticians, who require transparent analysis results as a basis for important business decisions. While linear models are efficient and intuitive, they generally provide lower prediction accuracies. Our library provides a multi-step feature engineering and selection process, where first a large pool of non-linear features is generated, from which then a small and robust set of meaningful features is selected, which improve the prediction accuracy of a linear model while retaining its interpretability.",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "Michael Rieger"
+    }
+  ],
+  "id": "SP:d26dc231d92419b24aa58c5c0a06c9daf2b1ef0b",
+  "references": [
+    {
+      "authors": [
+        "Leila Arras",
+        "Franziska Horn",
+        "Gr\u00e9goire Montavon",
+        "Klaus-Robert M\u00fcller",
+        "Wojciech Samek"
+      ],
+      "title": "What is relevant in a text document?\u201d: An interpretable machine learning approach",
+      "venue": "PLOS ONE,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Sebastian Bach",
+        "Alexander Binder",
+        "Gr\u00e9goire Montavon",
+        "Frederick Klauschen",
+        "Klaus- Robert M\u00fcller",
+        "Wojciech Samek"
+      ],
+      "title": "On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation",
+      "venue": "PLOS ONE,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Richard G Baraniuk"
+      ],
+      "title": "Compressive sensing [lecture notes",
+      "venue": "IEEE Signal Processing Magazine,",
+      "year": 2007
+    },
+    {
+      "authors": [
+        "Yoshua Bengio"
+      ],
+      "title": "Deep learning of representations: Looking forward",
+      "venue": "In Statistical language and speech processing,",
+      "year": 2013
+    },
+    {
+      "authors": [
+        "Christopher M. Bishop"
+      ],
+      "title": "Pattern Recognition and Machine Learning (Information Science and Statistics)",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Thomas F Brooks",
+        "D Stuart Pope",
+        "Michael A Marcolini"
+      ],
+      "title": "Airfoil self-noise and prediction",
+      "venue": "Technical report, NASA RP-1218,",
+      "year": 1989
+    },
+    {
+      "authors": [
+        "Edgar Buckingham"
+      ],
+      "title": "On physically similar systems; illustrations of the use of dimensional equations",
+      "venue": "Physical review,",
+      "year": 1914
+    },
+    {
+      "authors": [
+        "Maximilian Christ",
+        "Andreas W Kempa-Liehr",
+        "Michael Feindt"
+      ],
+      "title": "Distributed and parallel time series feature extraction for industrial big data applications",
+      "venue": "arXiv preprint arXiv:1610.07717,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Maximilian Christ",
+        "Nils Braun",
+        "Julius Neuffer",
+        "Andreas W"
+      ],
+      "title": "Kempa-Liehr. Time series feature extraction on basis of scalable hypothesis tests (tsfresh\u2013a python package)",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Paulo Cortez",
+        "Ant\u00f3nio Cerdeira",
+        "Fernando Almeida",
+        "Telmo Matos",
+        "Jos\u00e9 Reis"
+      ],
+      "title": "Modeling wine preferences by data mining from physicochemical properties",
+      "venue": "Decision Support Systems,",
+      "year": 2009
+    },
+    {
+      "authors": [
+        "David R Cox"
+      ],
+      "title": "The regression analysis of binary sequences",
+      "venue": "Journal of the Royal Statistical Society: Series B (Methodological),",
+      "year": 1958
+    },
+    {
+      "authors": [
+        "Ofer Dor",
+        "Yoram Reich"
+      ],
+      "title": "Strengthening learning algorithms by feature discovery",
+      "venue": "Information Sciences,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Bradley Efron",
+        "Trevor Hastie",
+        "Iain Johnstone",
+        "Robert Tibshirani"
+      ],
+      "title": "Least angle regression",
+      "venue": "The Annals of Statistics,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Jerome Friedman",
+        "Trevor Hastie",
+        "Rob Tibshirani"
+      ],
+      "title": "Regularization paths for generalized linear models via coordinate descent",
+      "venue": "Journal of Statistical Software,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Isabelle Guyon",
+        "Andr\u00e9 Elisseeff"
+      ],
+      "title": "An introduction to variable and feature selection",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2003
+    },
+    {
+      "authors": [
+        "David Harrison Jr.",
+        "Daniel L Rubinfeld"
+      ],
+      "title": "Hedonic housing prices and the demand for clean air",
+      "venue": "Journal of environmental economics and management,",
+      "year": 1978
+    },
+    {
+      "authors": [
+        "James Max Kanter",
+        "Kalyan Veeramachaneni"
+      ],
+      "title": "Deep feature synthesis: Towards automating data science endeavors",
+      "venue": "IEEE International Conference on Data Science and Advanced Analytics,",
+      "year": 2015
+    },
+    {
+      "authors": [
+        "Gilad Katz",
+        "Eui Chul Richard Shin",
+        "Dawn Song"
+      ],
+      "title": "Explorekit: Automatic feature generation and selection",
+      "venue": "In 2016 IEEE 16th International Conference on Data Mining (ICDM),",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Udayan Khurana",
+        "Deepak Turaga",
+        "Horst Samulowitz",
+        "Srinivasan Parthasrathy"
+      ],
+      "title": "Cognito: Automated feature engineering for supervised learning",
+      "venue": "In 2016 IEEE 16th International Conference on Data Mining Workshops (ICDMW),",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Udayan Khurana",
+        "Horst Samulowitz",
+        "Deepak Turaga"
+      ],
+      "title": "Feature engineering for predictive modeling using reinforcement learning",
+      "venue": "In Thirty-Second AAAI Conference on Artificial Intelligence,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Miron B Kursa",
+        "Witold R Rudnicki"
+      ],
+      "title": "Feature selection with the boruta package",
+      "venue": "J Stat Softw,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Hoang Thanh Lam",
+        "Johann-Michael Thiebaut",
+        "Mathieu Sinn",
+        "Bei Chen",
+        "Tiep Mai",
+        "Oznur Alkan"
+      ],
+      "title": "One button machine for automating feature engineering in relational databases",
+      "venue": "arXiv preprint arXiv:1706.00327,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Mantas Luko\u0161evi\u010dius"
+      ],
+      "title": "A practical guide to applying echo state networks",
+      "venue": "In Neural networks: Tricks of the trade,",
+      "year": 2012
+    },
+    {
+      "authors": [
+        "Shaul Markovitch",
+        "Dan Rosenstein"
+      ],
+      "title": "Feature generation using general constructor functions",
+      "venue": "Machine Learning,",
+      "year": 2002
+    },
+    {
+      "authors": [
+        "Georg Martius",
+        "Christoph H Lampert"
+      ],
+      "title": "Extrapolation and learning equations",
+      "venue": "arXiv preprint arXiv:1610.02995,",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Wes McKinney"
+      ],
+      "title": "Data structures for statistical computing in python",
+      "venue": "In Proceedings of the 9th Python in Science Conference,",
+      "year": 2010
+    },
+    {
+      "authors": [
+        "Aaron Meurer",
+        "Christopher P Smith",
+        "Mateusz Paprocki",
+        "Ond\u0159ej \u010cert\u00edk",
+        "Sergey B Kirpichev",
+        "Matthew Rocklin",
+        "AMiT Kumar",
+        "Sergiu Ivanov",
+        "Jason K Moore",
+        "Sartaj Singh"
+      ],
+      "title": "Sympy: symbolic computing in python",
+      "venue": "PeerJ Computer Science,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Gr\u00e9goire Montavon",
+        "Wojciech Samek",
+        "Klaus-Robert M\u00fcller"
+      ],
+      "title": "Methods for interpreting and understanding deep neural networks",
+      "venue": "Digital Signal Processing,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Klaus-Robert M\u00fcller",
+        "Sebastian Mika",
+        "Gunnar R\u00e4tsch",
+        "Koji Tsuda",
+        "Bernhard Sch\u00f6lkopf"
+      ],
+      "title": "An introduction to kernel-based learning algorithms",
+      "venue": "IEEE Transactions on Neural Networks,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "Fatemeh Nargesian",
+        "Horst Samulowitz",
+        "Udayan Khurana",
+        "Elias B Khalil",
+        "Deepak S Turaga"
+      ],
+      "title": "Learning feature engineering for classification",
+      "venue": "In IJCAI,",
+      "year": 2017
+    },
+    {
+      "authors": [
+        "Andrew Y Ng"
+      ],
+      "title": "Feature selection, l1 vs. l2 regularization, and rotational invariance",
+      "venue": "In Proceedings of the twenty-first international conference on Machine learning,",
+      "year": 2004
+    },
+    {
+      "authors": [
+        "Travis E Oliphant"
+      ],
+      "title": "A guide to NumPy, volume 1",
+      "venue": "Trelgol Publishing USA,",
+      "year": 2006
+    },
+    {
+      "authors": [
+        "Runhai Ouyang",
+        "Stefano Curtarolo",
+        "Emre Ahmetcik",
+        "Matthias Scheffler",
+        "Luca M Ghiringhelli"
+      ],
+      "title": "Sisso: A compressed-sensing method for identifying the best lowdimensional descriptor in an immensity of offered candidates",
+      "venue": "Physical Review Materials,",
+      "year": 2018
+    },
+    {
+      "authors": [
+        "Fabian Pedregosa",
+        "Ga\u00ebl Varoquaux",
+        "Alexandre Gramfort",
+        "Vincent Michel",
+        "Bertrand Thirion",
+        "Olivier Grisel",
+        "Mathieu Blondel",
+        "Peter Prettenhofer",
+        "Ron Weiss",
+        "Vincent Dubourg"
+      ],
+      "title": "Scikit-learn: Machine learning in python",
+      "venue": "Journal of Machine Learning Research,",
+      "year": 2011
+    },
+    {
+      "authors": [
+        "Marco Tulio Ribeiro",
+        "Sameer Singh",
+        "Carlos Guestrin"
+      ],
+      "title": "why should I trust you?\": Explaining the predictions of any classifier",
+      "venue": "In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data",
+      "year": 2016
+    },
+    {
+      "authors": [
+        "Ali Sharif Razavian",
+        "Hossein Azizpour",
+        "Josephine Sullivan",
+        "Stefan Carlsson"
+      ],
+      "title": "Cnn features off-the-shelf: an astounding baseline for recognition",
+      "venue": "In Proceedings of the IEEE conference on computer vision and pattern recognition workshops,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "I-C Yeh"
+      ],
+      "title": "Modeling of strength of high-performance concrete using artificial neural networks",
+      "venue": "Cement and Concrete research,",
+      "year": 1998
+    }
+  ],
+  "sections": [
+    {
+      "text": "ar X\niv :1\n90 1.\n07 32\n9v 4\n[ cs\n.L G\n] 2\nlinear regression and classification models with automated feature engineering and selection capabilities. Complex non-linear machine learning models, such as neural networks, are in practice often difficult to train and even harder to explain to non-statisticians, who require transparent analysis results as a basis for important business decisions. While linear models are efficient and intuitive, they generally provide lower prediction accuracies. Our library provides a multi-step feature engineering and selection process, where first a large pool of non-linear features is generated, from which then a small and robust set of meaningful features is selected, which improve the prediction accuracy of a linear model while retaining its interpretability.\nKeywords: AutoML, Feature Engineering, Feature Selection, Explainable ML"
+    },
+    {
+      "heading": "1. Introduction",
+      "text": "More and more companies aim to improve production processes with data science and machine learning (ML) methods, for example, by using a ML model to better understand which factors contribute to higher quality products or greater production yield. While advanced ML models such as neural networks (NN) might, theoretically, in many cases provide the most accurate predictions, they have several drawbacks in practice. First of all, with many hyperparameters to set, these model can be difficult and time consuming to fit, which is only aggravated by the current shortage of ML specialists in industry. Second, in many cases there is not enough data available in the first place to train a low bias/high variance model like a NN, for example, because comprehensive data collection pipelines are not yet fully implemented or because obtaining individual data points is expensive, e.g., when it takes several days to produce a single product. Last but not least, the insights generated by a ML analysis need to be communicated to others in the company, who want to use these results as a basis for important business decisions [37]. While great progress has been made to improve the interpretability of NNs, e.g., by using layer-wise relevance propagation (LRP) to reveal which of the input features contributed most to a neural net\u2019s prediction [1, 2, 30], this is in practice still not sufficient to convince those with only a limited understanding\nof statistics. Especially when dealing with data collected from physical systems, using a plausible model might even be more important than getting small prediction errors [27].\nTo avoid these shortcomings of NNs and other non-linear ML models, in practice we find it necessary to rely mostly on linear prediction models, which are intuitive to understand and can be trained easily and efficiently even on very small datasets. But of course, employing linear models generally comes at the cost of a lower prediction accuracy, because in most datasets there is no linear relation between the original input features and the target variable.\nThe ability to learn expressive representations from the given input features is one of the main reasons for the popularity of neural networks and \u201cdeep learning\u201d [4, 24]. Upon closer examination, a NN is nothing more than a linear model operating on better features: While a complex layer hierarchy maps the inputs to the last hidden layer, thereby transforming the original features into a more informative representation, the output layer, acting on the activations of this last hidden layer to generate the final prediction, corresponds to a simple linear model. Using pre-trained NNs as feature extractors, i.e., to transform the original inputs into more useful representations, often improves the performance of simpler models on tasks such as image classification [38]. To improve forecasts involving time series data, echo state networks use a randomly connected \u201creservoir\u201d to create more informative feature vectors that are then used to train a ridge regression model [25]. Similarly, kernel methods like SVM use the kernel trick to employ linear models but implicitly operate in a very high dimensional feature space where, e.g., classification problems become linearly separable [31]. As these examples demonstrate, linear models are very capable of solving complex problems \u2013 provided the right features are available. While NNs and kernel methods transform the original inputs into more useful feature representations internally, explicit feature engineering aims to create better features in a preprocessing step, i.e., before using the data to fit a (linear) prediction model.\nManually engineering new, more informative features is often quite tedious. Therefore, inspired by the SISSO algorithm [35], we propose a framework to automatically generate several tens of thousands of non-linear features from the original inputs and then carefully select the most informative of them as additional input features for a linear model. We have found that this approach leads to sufficiently accurate predictions on real world data while providing a transparent model that has a high acceptance rate amongst non-statisticians in the company and therefore provides the possibility to positively contribute to important business decisions. To make this framework more accessible to other data scientists, our implementation is publicly available on GitHub.1\nThe rest of the paper is structured as follows: After introducing some related work in the area of automated feature engineering and selection, we describe our approach and the autofeat Python library in detail (Section 2). We then report experimental results on several datasets (Section 3) before concluding the paper with a brief discussion (Section 4)."
+    },
+    {
+      "heading": "1.1 Related Work",
+      "text": "Feature construction frameworks generally include both a feature engineering, as well as a feature selection component [26]. One of the main differences between feature construction approaches is whether they first generate an exhaustive feature pool and then perform\n1. https://github.com/cod3licious/autofeat\nfeature selection on the whole feature set (which is also the strategy autofeat follows), or if the set of features is expanded iteratively, by evaluating at each step whether the inclusion of the new features would improve the prediction accuracy. Both approaches have their drawbacks: The first approach is very memory intensive, especially when starting off with a large initial feature set from which the additional features are constructed via various transformations. With the second approach, important features might be missed if some variables are eliminated too early in the feature engineering process and can therefore not serve to construct more complex, possibly helpful features. Furthermore, depending on the strategy for including additional features, the whole process might either be very time intensive, if at each step a model is trained and evaluated on the feature subset, or can fail to include (only) the relevant features, if a simple heuristic is used for the feature evaluation and selection.\nMost existing feature construction frameworks follow the second, iterative feature engineering approach: The FICUS algorithm [26] uses a beam search to expand the feature space based on a simple heuristic, while the FEADIS algorithm [13] and Cognito [20] use more complex selection strategies. A more recent trend is to use meta-learning, i.e., algorithms trained on other datasets, to decide whether to apply specific transformation to the features or not [19, 21, 32]. While theoretically promising, we could not find an easy to use open source library for any of these approaches, which makes them essentially irrelevant for practical data science use cases.\nThe well-known scikit-learn Python library [36] provides a function to generate polynomial features (e.g. x2), including feature interactions (e.g. x1 \u00b7 x2, x21 \u00b7 x32). Polynomial features are a subset of the features generated by autofeat, yet, while they might be helpful for many datasets, in our experience with autofeat, a lot of times the ratios of two features or feature combinations turn out to be informative additional features, which can not be generated with the scikit-learn method. The scikit-learn library also contains several options for feature selection, such as univariate feature scoring, recursive feature elimination, and other model-based feature selection approaches [16, 22]. Univariate feature selection methods consider each feature individually, which can lead to the inclusion of many correlated features, like those contained in the feature pool generated by autofeat. The more sophisticated feature selection techniques rely on the use of an external prediction model that provides coefficients indicating the importance of each feature. However, algorithms such as linear regression get numerically unstable if the number of features is larger than the number of samples, which makes these approaches impractical for feature pools as large as those generated by autofeat.\nOne popular Python library for automated feature engineering is featuretools, which generates a large feature set using \u201cdeep feature synthesis\u201d [18]. This library is targeted towards relational data, where features can be created through aggregations (e.g. given some customers (data table 1) and their associated loans (in table 2), a new feature could be the sum of each customer\u2019s loans), or transformations (e.g. time since the last loan payment). A similar approach is also implemented by the \u201cone button machine\u201d [23]. The strategy followed by autofeat is somewhat orthogonal to that of featuretools: It is not meant for relational data, found in many business application areas, but was rather built with scientific use cases in mind, where e.g. experimental measurements would instead be stored\nin a single table. For this reason, autofeat also makes it possible to specify the units of the input variables to prevent the creation of physically nonsensical features.\nAnother Python library worth mentioning is tsfresh [8, 9], which provides feature engineering methods for time series, together with a univariate feature selection strategy. However, while autofeat can be applied to a variety of datasets, the features generated by tsfresh only make sense for time series data, as they are constructed, e.g., using rolling windows.\nTo the best of our knowledge, there does not exist a general purpose open source library for automated feature engineering and selection, which is why we felt compelled to share our work.\n2. Automated Feature Engineering and Selection with autofeat\nThe autofeat library provides the AutoFeatRegressor and AutoFeatClassifier models, which automatically generate and select additional non-linear input features given the original data and then train a linear prediction model with these features. The models provide a familiar scikit-learn [36] style interface, as demonstrated by a simple usage example, where X corresponds to a n\u00d7d feature matrix and y to an n-dimensional target vector (both NumPy arrays [34] and Pandas DataFrames [28] are supported as inputs):\n# instantiate the model model = AutoFeatRegressor() # fit the model and get a pandas DataFrame with the original, # as well as the additional non-linear features df = model.fit_transform(X, y) # predict the target for new test data points y_pred = model.predict(X_test) # compute the additional features for new test data points # (e.g. as input for a different model) df_test = model.transform(X_test)\nIn the following, we describe the feature engineering and selection steps happening during a call to e.g. AutoFeatRegressor.fit() or AutoFeatRegressor.fit_transform() in more detail. The autofeat library requires Python 3 and is pip-installable."
+    },
+    {
+      "heading": "2.1 Construction of Non-Linear Features",
+      "text": "Additional non-linear features are generated in an alternating multi-step process by applying user selectable non-linear transformations to the features (e.g. log(x), \u221a x, 1/x, x2, x3, |x|, exp(x), 2x, sin(x), cos(x)) and combining pairs of features with different operators (+,\u2212, \u00b7). This results in an exponentially growing feature space, e.g., with only three original features, the first feature engineering step (applying non-linear transformation) results in about 20 new features, the second step (combining features), results in about 750 new features, and after a third step (again applying transformations), the feature space has grown to include over 4000 features. As this may require a fair amount of RAM depending on the number of original input features, the data points can be subsampled before computing the new features. In practice, performing only two or three feature engineering steps is usually sufficient.\nThe new features are computed using the SymPy Python library [29], which automatically simplifies the generated mathematical expressions and thereby makes it possible to exclude redundant features. If the original features are provided with physical units, only \u2018legal\u2019 new features are retained, e.g., a feature representing a temperature would not be subtracted from a feature representing a volume of something. This is implemented using the Pint Python library,2 which is additionally used to compute several dimensionless quantities from the original features using the Buckingham \u03c0-theorem [7]. If categorical features are included in the original features, these are first transformed into one-hot encoded vectors using the corresponding scikit-learn model before using them in the main feature engineering procedure."
+    },
+    {
+      "heading": "2.2 Feature Selection",
+      "text": "After having generated several thousands of features (often more than data points in the original dataset), it is now indispensable to carefully select only those features that contribute meaningful information when used as input to a linear model. To this end, we first remove those engineered features that are highly correlated with the original or other simpler features and then employ a multi-step feature selection approach relying heavily on L1-regularized linear models. In addition to the AutoFeatRegressor and AutoFeatClassifier models, the library also provides only this feature selection part alone in the FeatureSelector class, which again provides a scikit-learn style interface.\nIndividual features can provide redundant information or they might seem uninformative by themselves yet proof useful in combination with others. Therefore, instead of ranking the features independently by some criterion, it is advantageous to use a wrapper method that considers multiple features at once to select a promising subset [16]. For this we use the Lasso LARS regression model [3, 14, 15] and an L1-regularized logistic regression model [5, 11] provided in the scikit-learn library, which yield sparse weights based on which the features can be chosen [33]. To select the features, we mainly rely on a noise filtering approach, where the model is trained on the original features, as well as several additional \u2018noise\u2019 features (either created by shuffling the original data or randomly drawn from a normal distribution), and only those of the original features are kept that have a model coefficient larger than the largest coefficient associated with any of the noise features [22].\nSelecting relevant features with an L1-regularized model amongst a feature pool that contains more features than data samples works quite well when the features are independent [12, 33]. However, when trained with a large set of interrelated features, such as those generated in our feature engineering process, the models often fail to identify all of the truly relevant features. Therefore, we first identify an initial set of promising features by training an L1-regularized linear model on all features and selecting those with the largest absolute coefficients. Then, the remaining features are split into equal chunks and combined with the initial set (such that each of the chunks contains less than n/2 features) and a model is then fit on each chunk to select additional features. The feature subsets are then combined and used to train another model based on which a final feature set is determined. To get a more robust set of features, this selection process is performed multiple times on subsamples of the data. The feature subsets of the independent feature selection runs are then combined\n2. https://pint.readthedocs.io/en/latest/\nand highly correlated features are filtered out (keeping those features that were selected in the most runs). The remaining features are then again used to fit a model to select the ultimate feature set.\nAfter this multi-step selection process, typically only a few dozen of the several thousand engineered features are retained and used to train the actual prediction model. For new test data points, the AutoFeatRegressor and AutoFeatClassifier models can then either generate predictions directly, or a DataFrame with the new features can be computed for all data points and used to train other models. By examining the coefficients of the linear prediction model (possibly normalized by the standard deviation of the corresponding features, in case these are not of comparable magnitudes), the most prominent influencing factors related to higher or lower values of the target variable can be identified."
+    },
+    {
+      "heading": "3. Experimental Results",
+      "text": "To give an indication of the performance of the AutoFeatRegressor model in practice, compared to other non-linear ML algorithms, we test our approach on five regression datasets (Table 1), provided in the scikit-learn package (diabetes and boston) or obtainable from the UCI Machine Learning Repository.3 For further details on the experiments, including the hyperparameter selection of the other models, please refer to the corresponding Jupyter notebook in the GitHub repository.\nWhile on most datasets, the AutoFeatRegressor model does not quite reach the stateof-the-art performance of a random forest regression model (Table 2), it clearly outperforms standard linear ridge regression, while retaining its interpretability. Across all datasets, with one feature engineering step, autofeat generated between 2 and 11 additional features, while with two and three steps, it produced on average 31 additional features (Table 3). Most of the selected features are ratios or products of (transformed) features (Table 4).\nWith only a single feature engineering step, the AutoFeatRegressor model often only performs slightly better than ridge regression on the original features. With three feature engineering steps, on the other hand, the model can overfit on the training data (as indicated by the discrepancy between the training and test R2 scores), because the complex features do not only explain the signal, but also the noise contained in the data. However, the only\n3. http://archive.ics.uci.edu/ml/index.php\ndatasets where this is a serious problem here is the diabetes and boston datasets, where over 30k and 50k features were generated in the feature engineering process, while less than 500\ndata points were available for feature selection and model fitting, which means overfitting is somewhat to be expected."
+    },
+    {
+      "heading": "4. Conclusion",
+      "text": "In this paper, we have introduced the autofeat Python library, which includes an automated feature engineering and selection procedure to improve the prediction accuracy of a linear model by using additional non-linear features. The regression and classification models are based on scikit-learn models and provide a familiar interface. During the model fit, a vast number of non-linear features is generated from the original features and a few of these are selected in an elaborate iterative process to optimally explain the target variable. By combining a linear model with complex non-linear features, a high prediction accuracy can be achieved, while retaining a transparent model that yields traceable results as a basis for business decisions made by non-statisticians.\nThe autofeat library was developed with scientific use cases in mind and is especially useful for heterogeneous datasets, e.g., containing sensor measurements with different physical units. It should not be seen as a competitor for the existing feature engineering libraries featuretools or tsfresh, which would be the first choice when dealing with relational business data or time series respectively.\nWe have demonstrated on several datasets that the AutoFeatRegressor model significantly improves upon the performance of a linear regression model and sometimes even outperforms other non-linear ML models. While the model can be used for predictions directly, it might also be beneficial to use the generated features as input to train other ML models. By adapting the kinds of transformations applied in the feature engineering process, as well as the number of feature engineering steps, further insights can be gained with respect to how which of the input features influences the target variable, as well as the complexity of the system as a whole."
+    },
+    {
+      "heading": "Acknowledgments",
+      "text": "FH was a part-time employee at BASF when initially programming the autofeat library."
+    }
+  ],
+  "year": 2020
+}

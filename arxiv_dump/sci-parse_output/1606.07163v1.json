@@ -1,0 +1,209 @@
+{
+  "abstractText": "The Clock Drawing Test (CDT) is a rapid, inexpensive, and popular neuropsychological screening tool for cognitive conditions. The Digital Clock Drawing Test (dCDT) uses novel software to analyze data from a digitizing ballpoint pen that reports its position with considerable spatial and temporal precision, making possible the analysis of both the drawing process and final product. We developed methodology to analyze pen stroke data from these drawings, and computed a large collection of features which were then analyzed with a variety of machine learning techniques. The resulting scoring systems were designed to be more accurate than the systems currently used by clinicians, but just as interpretable and easy to use. The systems also allow us to quantify the tradeoff between accuracy and interpretability. We created automated versions of the CDT scoring systems currently used by clinicians, allowing us to benchmark our models, which indicated that our machine learning models substantially outperformed the existing scoring systems. 2016 ICML Workshop on Human Interpretability in Machine Learning (WHI 2016), New York, NY, USA. Copyright by the author(s). 1. Background The Clock Drawing Test (CDT) a simple pencil and paper test has been used as a screening tool to differentiate normal individuals from those with cognitive impairment. The test takes less than two minutes, is easily administered and inexpensive, and is deceptively simple: it asks subjects first to draw an analog clock-face showing 10 minutes after 11 (the command clock), then to copy a pre-drawn clock showing the same time (the copy clock). It has proven useful in helping to diagnose cognitive dysfunction associated with neurological disorders such as Alzheimer\u2019s disease, Parkinson\u2019s disease, and other dementias and conditions. (Freedman et al., 1994; Grande et al., 2013). The CDT is often used by neuropsychologists, neurologists and primary care physicians as part of a general screening for cognitive change (Strub et al., 1985). For the past decade, neuropsychologists in our group have been administering the CDT using a commercially available digitizing ballpoint pen (the DP-201 from Anoto, Inc.) that records its position on the page with considerable spatial (\u00b10.005 cm) and temporal (13ms) accuracy, enabling the analysis of not only the end product \u2013 the drawing \u2013 but also the process that produced it, including all of the subject\u2019s movements and hesitations. The resulting test is called the digital Clock Drawing Test (dCDT). Figure 1 and Figure 2 illustrate clock drawings from a subject in the memory impairment group, and a subject diagnosed with Parkinson\u2019s disease, respectively. 61 ar X iv :1 60 6. 07 16 3v 1 [ st at .M L ] 2 3 Ju n 20 16 Interpretable Machine Learning Models for the Digital Clock Drawing Test Figure 1. Example Alzheimer\u2019s Disease clock from our dataset. Figure 2. Example Parkinson\u2019s Disease clock from our dataset. 2. Existing Scoring Systems There are a variety of methods for scoring the CDT, varying in complexity and the types of features they use. They often take the form of systems that add or subtract points based on features of the clock, and often have the additional constraint that the (n + 1) feature matters only if the previous n features have been satisfied, adding a higher level of complexity in understanding the resulting score. A threshold is then used to decide whether the test gives evidence of impairment. While the scoring system are typically short and understandable by a human, the features they attend to are often expressed in relatively vague terms, leading to potentially lower inter-rater reliability. For example, the Rouleau (Rouleau et al., 1992) scoring system, shown in Table 1, asks whether there are \u201cslight errors in the placement of the hands\u201d and whether \u201cthe clockface is present without gross distortion\u201d. In order to benchmark our models for the dCDT against existing scoring systems, we needed to create automated versions of them so that we could apply them to our set of clocks. We did this for seven of the most widely used existing scoring systems (Souillard-Mandar et al., 2015) by specifying the computations to be done in enough detail that they could be expressed unambiguously in code. As maximum: 10 points 1. Integrity of the clockface (maximum: 2 points) 2: Present without gross distortion 1: Incomplete or some distortion 0: Absent or totally inappropriate 2. Presence and sequencing of the numbers (maximum: 4 points) 4: All present in the right order and at most minimal error in the spatial arrangement 3: All present but errors in spatial arrangement 2: Numbers missing or added but no gross distortions of the remaining numbers Numbers placed in counterclockwise direction Numbers all present but gross distortion in spatial layout 1: Missing or added numbers and gross spatial distortions 0: Absence or poor representation of numbers 3. Presence and placement of the hands (maximum: 4 points) 4: Hands are in correct position and the size difference is respected 3: Sight errors in the placement of the hands or no representation of size difference between the hands 2: Major errors in the placement of the hands (significantly out of course including 10 to 11) 1: Only one hand or poor representation of two hands 0: No hands or perseveration on hands Table 1. Original Rouleau scoring system (Rouleau et al., 1992) one example, we translated \u201cslight errors in the placement of the hands\u201d to \u201cexactly two hands present AND at most one hand with a pointing error of between 1 and 2 degrees\u201d, where the i are thresholds to be optimized. We refer to these new models as operationalized scoring systems. 3. An Interpretable Machine Learning Approach 3.1. Stroke-Classification and Feature Computation The raw data from the pen is analyzed using novel software developed for this task (Davis et al., 2014; Davis & Penney, 2014; Cohen et al., 2014). An algorithm classifies the pen strokes as one or another of the clock drawing symbols (i.e. clockface, hands, digits, noise); stroke classification errors are easily corrected by human scorer using a simple drag-and-drop interface. Figure 3 shows a screenshot of the system after the strokes in the command clock from Figure 1 have been classified. Using these symbol-classified strokes, we compute a large collection of features from the test, measuring geometric and temporal properties in a single clock, both clocks, and 62 Interpretable Machine Learning Models for the Digital Clock Drawing Test Figure 3. Classified command clock from Figure 1 differences between them. Example features include: \u2022 The number of strokes; the total ink length; the time it took to draw; and the pen speed for various clock components; timing information is used to measure how quickly different parts of the clock were drawn; latencies between components. \u2022 The length of the major and minor axis and eccentricity of the fitted ellipse; largest angular gaps in the clockface; distance and angular difference between starting and ending points of the clock face. \u2022 Digits that are missing or repeated; the height and width of digit bounding boxes. \u2022 Omissions or repetitions of hands; angular error from their correct angle; the hour hand to minute hand size ratio; the presence and direction of arrowheads. We also selected a subset of our features that we believe are both particularly understandable and that have values easily verifiable by clinicians. We expect, for example, that there would be wide agreement on whether a number is present, whether hands have arrowheads on them, whether there are easily noticeable noise strokes, or if the total drawing time particularly high or low. We call this subset the Simplest Features. 3.2. Traditional Machine Learning We focused on three categories of cognitive impairment, for which we had a total of 453 tests: memory impairment disorders (MID) consisting of Alzheimer\u2019s disease and amnestic mild cognitive impairment (aMCI); vascular cognitive disorders (VCD) consisting of vascular dementia, mixed MCI and vascular cognitive impairment; and Parkinson\u2019s disease (PD). Our set of 406 healthy controls (HC) comes from people who have been longitudinally studied as participants in the Framingham Heart Study. Our task is screening: we want to distinguish between healthy and one of the three categories of cognitive impairment, as well as a group screening, distinguish between healthy and all three conditions together. We started our machine learning work by applying state-ofthe-art machine learning methods to the set of all features. We generated classifiers using multiple machine learning methods, including CART (Breiman et al., 1984), C4.5 (Quinlan, 1993), SVM with gaussian kernels (Joachims, 1998), random forests (Breiman, 2001), boosted decision trees (Friedman, 2001), and regularized logistic regression (Fan et al., 2008). We used stratified cross-validation to divide the data into 5 folds to obtain training and testing sets. We further cross-validated each training set into 5 folds to optimize the parameters of the algorithm using grid search over a set of ranges. We chose to measure quality using area under the receiver operator characteristic curve (AUC) as a single, concise statistic. We found that the AUC for best classifiers ranged from 0.88 to 0.93. We also ran our experiment on the subset of Simplest Features, and found that the AUC ranged from 0.82 to 0.83. Finally, we measured the performance of the operationalized scoring systems; the best ones ranged from 0.70 to 0.73. Complete results can be found in Table 2. 3.3. Human Interpretable Machine Learning 3.3.1. DEFINITION OF INTERPRETABILITY To ensure that we produced models that can be used and accepted in a clinical context, we obtained guidelines from clinicians. This led us to focus on three components in defining complexity: Computational complexity: the models should be relatively easy to compute, requiring a small number of simple operations, similar to the existing manual scoring systems. Those systems have on average 8 to 15 rules, with each rule containing on average one or two features. We thus focus on models that use fewer than 20 features, and have a simple form. Understandability: the rationale for a decision made by the model should be easily understandable, so that the user can understand why the prediction was made and can easily explain it. Thus if several features are roughly equally useful in the model, the most understandable one should be used. Ease of feature measurement: Features that can be easily understood and verified by eye should be prioritized; this lead to the creation of the Simplest Features subset mentioned above. 3.3.2. SUPERSPARSE LINEAR INTERPRETABLE MODELS We use a recently developed framework, Supersparse Linear Interpretable Models (SLIM) (Ustun & Rudin, 2015), designed to create sparse linear models that have integer 63 Interpretable Machine Learning Models for the Digital Clock Drawing Test Table 2. Classification results for the screening task: distinguishing clinical group from Healthy Control. Each entry in the table shows the mean and standard deviation of the AUC of a machine learning algorithm across 5 folds Algorithm Memory impairment disorders Vascular cognitive disorders PD All three vs. HC vs. HC vs. HC vs. HC Best operationalized scoring system 0.73 (0.08) 0.72 (0.09) 0.73 (0.09) 0.70 (0.06) Best ML with simplest features 0.83 (0.06) 0.82 (0.07) 0.83 (0.08) 0.83 (0.07) Best ML with all features 0.93 (0.09) 0.88 (0.11) 0.91 (0.11) 0.91 (0.09) SLIM with simplest features 0.78 (0.08) 0.75 (0.05) 0.78 (0.07) 0.74 (0.05) SLIM with all features 0.83 (0.09) 0.81 (0.13) 0.81 (0.10) 0.83 (0.09) coefficients. The framework produces models that meet many of our interpretability goals. Integer coefficients allow for models that are more easily computable, have greater expository power, and have the same form as the scoring systems already in use; hard constraints on the coefficients allow us to set a hard limit on the number of variables used in the model, thus reducing computational complexity. To improve model understandability, we added feature preferences by introducing an understandability penalty that indicates which features would be preferred over others when their performance is similar. Given a dataset of N examples DN = {(xi, yi)}i=1, where observation xi \u2208 R and label yi \u2208 {\u22121, 1}, and an extra element with value 1 is included within each xi vector to act as the intercept term, we want to build models of the form \u0177 = sign(\u03bbx), where \u03bb \u2286 Z is a vector of integer coefficients. The framework determines the coefficients of the models by solving an optimization problem of the form: min \u03bb Loss(\u03bb;DN ) + \u00b7\u03a6(\u03bb)",
+  "authors": [
+    {
+      "affiliations": [],
+      "name": "William Souillard-Mandar"
+    },
+    {
+      "affiliations": [],
+      "name": "Randall Davis"
+    },
+    {
+      "affiliations": [],
+      "name": "Cynthia Rudin"
+    },
+    {
+      "affiliations": [],
+      "name": "Dana L. Penney"
+    }
+  ],
+  "id": "SP:cea9862a2e36b83c64d683a61e5376ff387f7033",
+  "references": [
+    {
+      "authors": [
+        "Breiman",
+        "Leo",
+        "Friedman",
+        "Jerome H",
+        "Olshen",
+        "Richard A",
+        "Stone",
+        "Charles J"
+      ],
+      "title": "Classification and Regression Trees",
+      "year": 1984
+    },
+    {
+      "authors": [
+        "Davis",
+        "Randall",
+        "Penney",
+        "Dana L"
+      ],
+      "title": "Method and apparatus for measuring representational motions in a medical",
+      "venue": "US Patent 8,740,819",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Davis",
+        "Randall",
+        "Libon",
+        "David J",
+        "Au",
+        "Rhoda",
+        "Pitman",
+        "David",
+        "Penney",
+        "Dana L"
+      ],
+      "title": "THink: Inferring cognitive status from subtle behaviors",
+      "venue": "In Twenty-Sixth IAAI Conference,",
+      "year": 2014
+    },
+    {
+      "authors": [
+        "Fan",
+        "Rong-En",
+        "Chang",
+        "Kai-Wei",
+        "Hsieh",
+        "Cho-Jui",
+        "Wang",
+        "Xiang-Rui",
+        "Lin",
+        "Chih-Jen"
+      ],
+      "title": "LIBLINEAR: A library for large linear classification",
+      "venue": "The Journal of Machine Learning Research,",
+      "year": 2008
+    },
+    {
+      "authors": [
+        "Freedman",
+        "Morris",
+        "Leach",
+        "Larry",
+        "Kaplan",
+        "Edith",
+        "Winocur",
+        "Gordon",
+        "Shulman",
+        "Kenneth I",
+        "Delis",
+        "Dean C"
+      ],
+      "title": "Clock drawing: A neuropsychological analysis",
+      "year": 1994
+    },
+    {
+      "authors": [
+        "Friedman",
+        "Jerome H"
+      ],
+      "title": "Greedy function approximation: a gradient boosting machine",
+      "venue": "Annals of Statistics,",
+      "year": 2001
+    },
+    {
+      "authors": [
+        "T. Joachims"
+      ],
+      "title": "Making large-scale SVM learning practical. LS8-Report 24, Universit\u00e4t Dortmund",
+      "venue": "LS VIII-Report,",
+      "year": 1998
+    },
+    {
+      "authors": [
+        "Quinlan",
+        "J. Ross"
+      ],
+      "title": "Programs for Machine Learning",
+      "year": 1993
+    },
+    {
+      "authors": [
+        "Rouleau",
+        "Isabelle",
+        "Salmon",
+        "David P",
+        "Butters",
+        "Nelson",
+        "Kennedy",
+        "Colleen",
+        "McGuire",
+        "Katheryn"
+      ],
+      "title": "Quantitative and qualitative analyses of clock drawings in Alzheimer\u2019s and Huntington\u2019s disease",
+      "venue": "Brain and Cognition,",
+      "year": 1992
+    },
+    {
+      "authors": [
+        "Strub",
+        "Richard L",
+        "Black",
+        "F William",
+        "Ann C"
+      ],
+      "title": "The mental status examination in neurology",
+      "venue": "FA Davis Philadelphia,",
+      "year": 1985
+    },
+    {
+      "authors": [
+        "Ustun",
+        "Berk",
+        "Rudin",
+        "Cynthia"
+      ],
+      "title": "Supersparse linear integer models for optimized medical scoring systems",
+      "venue": "Machine Learning,",
+      "year": 2015
+    }
+  ],
+  "sections": [
+    {
+      "text": "The Clock Drawing Test (CDT) is a rapid, inexpensive, and popular neuropsychological screening tool for cognitive conditions. The Digital Clock Drawing Test (dCDT) uses novel software to analyze data from a digitizing ballpoint pen that reports its position with considerable spatial and temporal precision, making possible the analysis of both the drawing process and final product. We developed methodology to analyze pen stroke data from these drawings, and computed a large collection of features which were then analyzed with a variety of machine learning techniques. The resulting scoring systems were designed to be more accurate than the systems currently used by clinicians, but just as interpretable and easy to use. The systems also allow us to quantify the tradeoff between accuracy and interpretability. We created automated versions of the CDT scoring systems currently used by clinicians, allowing us to benchmark our models, which indicated that our machine learning models substantially outperformed the existing scoring systems.\n2016 ICML Workshop on Human Interpretability in Machine Learning (WHI 2016), New York, NY, USA. Copyright by the author(s)."
+    },
+    {
+      "heading": "1. Background",
+      "text": "The Clock Drawing Test (CDT) - a simple pencil and paper test - has been used as a screening tool to differentiate normal individuals from those with cognitive impairment. The test takes less than two minutes, is easily administered and inexpensive, and is deceptively simple: it asks subjects first to draw an analog clock-face showing 10 minutes after 11 (the command clock), then to copy a pre-drawn clock showing the same time (the copy clock). It has proven useful in helping to diagnose cognitive dysfunction associated with neurological disorders such as Alzheimer\u2019s disease, Parkinson\u2019s disease, and other dementias and conditions. (Freedman et al., 1994; Grande et al., 2013). The CDT is often used by neuropsychologists, neurologists and primary care physicians as part of a general screening for cognitive change (Strub et al., 1985).\nFor the past decade, neuropsychologists in our group have been administering the CDT using a commercially available digitizing ballpoint pen (the DP-201 from Anoto, Inc.) that records its position on the page with considerable spatial (\u00b10.005 cm) and temporal (13ms) accuracy, enabling the analysis of not only the end product \u2013 the drawing \u2013 but also the process that produced it, including all of the subject\u2019s movements and hesitations. The resulting test is called the digital Clock Drawing Test (dCDT). Figure 1 and Figure 2 illustrate clock drawings from a subject in the memory impairment group, and a subject diagnosed with Parkinson\u2019s disease, respectively.\nar X\niv :1\n60 6.\n07 16\n3v 1\n[ st\nat .M"
+    },
+    {
+      "heading": "2. Existing Scoring Systems",
+      "text": "There are a variety of methods for scoring the CDT, varying in complexity and the types of features they use. They often take the form of systems that add or subtract points based on features of the clock, and often have the additional constraint that the (n + 1)th feature matters only if the previous n features have been satisfied, adding a higher level of complexity in understanding the resulting score. A threshold is then used to decide whether the test gives evidence of impairment.\nWhile the scoring system are typically short and understandable by a human, the features they attend to are often expressed in relatively vague terms, leading to potentially lower inter-rater reliability. For example, the Rouleau (Rouleau et al., 1992) scoring system, shown in Table 1, asks whether there are \u201cslight errors in the placement of the hands\u201d and whether \u201cthe clockface is present without gross distortion\u201d.\nIn order to benchmark our models for the dCDT against existing scoring systems, we needed to create automated versions of them so that we could apply them to our set of clocks. We did this for seven of the most widely used existing scoring systems (Souillard-Mandar et al., 2015) by specifying the computations to be done in enough detail that they could be expressed unambiguously in code. As\none example, we translated \u201cslight errors in the placement of the hands\u201d to \u201cexactly two hands present AND at most one hand with a pointing error of between 1 and 2 degrees\u201d, where the i are thresholds to be optimized. We refer to these new models as operationalized scoring systems."
+    },
+    {
+      "heading": "3. An Interpretable Machine Learning Approach",
+      "text": ""
+    },
+    {
+      "heading": "3.1. Stroke-Classification and Feature Computation",
+      "text": "The raw data from the pen is analyzed using novel software developed for this task (Davis et al., 2014; Davis & Penney, 2014; Cohen et al., 2014). An algorithm classifies the pen strokes as one or another of the clock drawing symbols (i.e. clockface, hands, digits, noise); stroke classification errors are easily corrected by human scorer using a simple drag-and-drop interface. Figure 3 shows a screenshot of the system after the strokes in the command clock from Figure 1 have been classified.\nUsing these symbol-classified strokes, we compute a large collection of features from the test, measuring geometric and temporal properties in a single clock, both clocks, and\ndifferences between them. Example features include:\n\u2022 The number of strokes; the total ink length; the time it took to draw; and the pen speed for various clock components; timing information is used to measure how quickly different parts of the clock were drawn; latencies between components.\n\u2022 The length of the major and minor axis and eccentricity of the fitted ellipse; largest angular gaps in the clockface; distance and angular difference between starting and ending points of the clock face.\n\u2022 Digits that are missing or repeated; the height and width of digit bounding boxes.\n\u2022 Omissions or repetitions of hands; angular error from their correct angle; the hour hand to minute hand size ratio; the presence and direction of arrowheads.\nWe also selected a subset of our features that we believe are both particularly understandable and that have values easily verifiable by clinicians. We expect, for example, that there would be wide agreement on whether a number is present, whether hands have arrowheads on them, whether there are easily noticeable noise strokes, or if the total drawing time particularly high or low. We call this subset the Simplest Features."
+    },
+    {
+      "heading": "3.2. Traditional Machine Learning",
+      "text": "We focused on three categories of cognitive impairment, for which we had a total of 453 tests: memory impairment disorders (MID) consisting of Alzheimer\u2019s disease and amnestic mild cognitive impairment (aMCI); vascular cognitive disorders (VCD) consisting of vascular dementia, mixed MCI and vascular cognitive impairment; and Parkinson\u2019s disease (PD). Our set of 406 healthy controls (HC) comes from people who have been longitudinally studied as participants in the Framingham Heart Study.\nOur task is screening: we want to distinguish between healthy and one of the three categories of cognitive impairment, as well as a group screening, distinguish between healthy and all three conditions together.\nWe started our machine learning work by applying state-ofthe-art machine learning methods to the set of all features. We generated classifiers using multiple machine learning methods, including CART (Breiman et al., 1984), C4.5 (Quinlan, 1993), SVM with gaussian kernels (Joachims, 1998), random forests (Breiman, 2001), boosted decision trees (Friedman, 2001), and regularized logistic regression (Fan et al., 2008). We used stratified cross-validation to divide the data into 5 folds to obtain training and testing sets. We further cross-validated each training set into 5 folds to optimize the parameters of the algorithm using grid search over a set of ranges. We chose to measure quality using area under the receiver operator characteristic curve (AUC) as a single, concise statistic.\nWe found that the AUC for best classifiers ranged from 0.88 to 0.93. We also ran our experiment on the subset of Simplest Features, and found that the AUC ranged from 0.82 to 0.83. Finally, we measured the performance of the operationalized scoring systems; the best ones ranged from 0.70 to 0.73. Complete results can be found in Table 2."
+    },
+    {
+      "heading": "3.3. Human Interpretable Machine Learning",
+      "text": ""
+    },
+    {
+      "heading": "3.3.1. DEFINITION OF INTERPRETABILITY",
+      "text": "To ensure that we produced models that can be used and accepted in a clinical context, we obtained guidelines from clinicians. This led us to focus on three components in defining complexity:\nComputational complexity: the models should be relatively easy to compute, requiring a small number of simple operations, similar to the existing manual scoring systems. Those systems have on average 8 to 15 rules, with each rule containing on average one or two features. We thus focus on models that use fewer than 20 features, and have a simple form.\nUnderstandability: the rationale for a decision made by the model should be easily understandable, so that the user can understand why the prediction was made and can easily explain it. Thus if several features are roughly equally useful in the model, the most understandable one should be used.\nEase of feature measurement: Features that can be easily understood and verified by eye should be prioritized; this lead to the creation of the Simplest Features subset mentioned above."
+    },
+    {
+      "heading": "3.3.2. SUPERSPARSE LINEAR INTERPRETABLE MODELS",
+      "text": "We use a recently developed framework, Supersparse Linear Interpretable Models (SLIM) (Ustun & Rudin, 2015), designed to create sparse linear models that have integer\ncoefficients. The framework produces models that meet many of our interpretability goals. Integer coefficients allow for models that are more easily computable, have greater expository power, and have the same form as the scoring systems already in use; hard constraints on the coefficients allow us to set a hard limit on the number of variables used in the model, thus reducing computational complexity.\nTo improve model understandability, we added feature preferences by introducing an understandability penalty that indicates which features would be preferred over others when their performance is similar.\nGiven a dataset of N examples DN = {(xi, yi)}Ni=1, where observation xi \u2208 RJ and label yi \u2208 {\u22121, 1}, and an extra element with value 1 is included within each xi vector to act as the intercept term, we want to build models of the form y\u0302 = sign(\u03bbTx), where \u03bb \u2286 ZJ+1 is a vector of integer coefficients. The framework determines the coefficients of the models by solving an optimization problem of the form:\nmin \u03bb\nLoss(\u03bb;DN ) + \u00b7\u03a6(\u03bb)\ns.t. \u03bb \u2208 L. The Loss function is:\nLoss(\u03bb;DN ) = C+ 1\nN \u2211 i:yi=1 \u03c8i + C\u2212 1 N \u2211 i:yi=\u22121 \u03c8i,\nwhere \u03c8i is 1 if an incorrect prediction is made. It penalizes misclassifications and allows to set relative costs for accuracy on the positive examples and accuracy on the negative examples by setting C+ and C\u2212.\nThe interpretability penalty function \u03a6(\u03bb) : RJ+1 \u2192 R is defined as\n\u03a6(\u03bb) = sparsity penalty + understandability penalty\n= C0 J\u2211 j=1 1[\u03bbj 6= 0] + C1 J\u2211 j=1 uj \u00b7 1[\u03bbj 6= 0]. (1)\nThe first term computes the count of the number of nonzero features, encouraging the model to use fewer features.\nThe second term allows for the prioritization of certain features, helping to ensure that the most understandable features appear in the model. In particular, we defined an understandability penalty uj for each feature j by organizing our features into trees such that the children of each feature are those it depends on. For instance \u201ctotal time to draw both clocks\u201d has as children \u201ctotal time to draw command clock\u201d and \u201ctotal time to draw copy clock.\u201d The height of a given node is the number of nodes traversed from the top of the tree to the given node. We define\nuj = height(j) \u2200j\nwhich produces a bias toward simpler features, i.e., those lower in the tree. The constants C0 and C1 trade off between sparsity and understandability.\nGiven the above formulation, we used stratified crossvalidation to divide the data into 5 folds to obtain training and testing sets and further cross-validated each training set into 5 folds to optimize the parameters (C+, C\u2212, C0, C1) using grid search. We ran our optimization problem on the set of simplest features and all features, with a hard upper bound of 10 features, to keep the resulting models interpretable.\nThe resulting AUCs ranged from 0.74 to 0.78 and 0.81 to 0.83, respectively. While this is lower than the traditional machine learning methods, it still outperforms existing scoring systems and, yet remains equally interpretable. As one example, the SLIM model for Memory Impairment screening containing only 9 binary features, yet it achieves an AUC score of 0.78 (Table 3)."
+    },
+    {
+      "heading": "4. Conclusion",
+      "text": "The dCDT combined with machine learning techniques allows for a significantly better screening of cognitive conditions than the existing CDT scoring systems. Traditional machine learning methods have high accuracy, but by constraining our models with formats similar to existing scoring systems, we can still obtain a significant improvement in accuracy and remove any subjectivity, while maintaining the human interpretability of the models."
+    }
+  ],
+  "title": "Interpretable Machine Learning Models  for the Digital Clock Drawing Test",
+  "year": 2020
+}
