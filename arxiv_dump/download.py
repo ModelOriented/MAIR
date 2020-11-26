@@ -34,6 +34,11 @@ def parse_entry(entry, keyword):
     links = entry['links']
     keyword_name = re.sub('"', '', keyword['name'])
     keyword_name = re.sub('\+', ' ', keyword_name)
+    try:
+        affiliation = entry['arxiv_affiliation']
+    except KeyError:
+        affiliation = None
+
     return {
         'id': entry['id'].split('/')[-1],
         'abs_id': entry['id'],
@@ -44,6 +49,7 @@ def parse_entry(entry, keyword):
         'authors': entry['authors'],
         'journal_ref': entry['arxiv_journal_ref'] if 'arxiv_journal_ref' in entry else None,
         'links': links,
+        'affiliation': affiliation,
         'primary_category': entry['arxiv_primary_category']['term'],
         'keywords': [re.sub('"', '', keyword_name)],
     }
