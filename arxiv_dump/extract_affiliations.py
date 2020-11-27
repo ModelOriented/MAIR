@@ -1,22 +1,19 @@
-"""
-GOALS
-* extract affiliations
-* generate a list of unmatched papers
-* generate a list of papers without sources
-* utility for returning all tex files
-* dump results in json format
-* improve and clean, regular regex doesn't work! (prune some latex syntax, parse no of brackets etc.)
-"""
-
 import json
 import os
 import re
 import spacy
+from collections import Counter
+
+from arxiv_dump.utils import uni_phrases
 
 SOURCE_DIR = 'sources'
+nlp = spacy.load('en_core_web_sm')
 
 
-def clean_text(text):
+def clean_text(text, prune_document=True):
+    pos = text.find('\\begin{abstract}')
+    if pos >= 0:
+        text = text[:pos]
     lines = text.split('\n')
     lines = [l for l in lines if not l.startswith('%')]
     return '\n'.join(lines)
@@ -52,43 +49,69 @@ def extract_candidate_affiliation(text, start):
     return text[start:pos - 1]
 
 
-def retrieve_ner(cand):
+def cleanup(text):
+    text = re.sub('\\\[a-zA-z]+?{', '', text)
+    text = re.sub('[a-zA-z0-9]+@.+?\.[a-z]+?', '', text)  # remove emails
+    text = text.replace('\n', ' ')
+    text = text.replace('\t', ' ')
+    text = re.sub('\s+', ' ', text)
+    text = re.sub('[\\\\%\{\}\(\)\[\]\~\$\^\*]', '', text)
+    return text
 
 
-    return {}
+def is_academic_match(text):
+    for u in uni_phrases:
+        if re.search(u, text):
+            return True
+    return False
+
+
+def retrieve_ner(cand, confidence):
+    cand = cleanup(cand)
+    if len(cand) < 3:
+        return []
+    doc = nlp(cand)
+    orgs = []
+    for ent in doc.ents:
+        if is_academic_match(ent.text.lower()):
+            orgs.append(ent.text)
+        elif ent.label_ == 'ORG' and len(ent.text) > 2:
+            orgs.append(ent.text)
+    return orgs
 
 
 def extract_affiliations_from_text(text):
     affiliations = set()
 
     # list of patterns TODO optimize this
-    patterns = [
-        '\\\icmlaffiliation *{.*?}{',
-        '\\\institution *{',
-        '\\\\affil(iation)?.*?(\[.*?\])?{',
-        '\\\institute *{',
-        '\\\\AFF *{',
-        '\\\IEEEauthorblockA *{',
-        '\\\\address\[.*?\] *{',
-        '\\\\affiliations *{',
-        '\\\\aistatsaddress{',
-        '\\\\author *{',  # TOO broad???
-    ]
+    patterns = {
+        '\\\icmlaffiliation *{.*?}{': 1,
+        '\\\institution *{': 1,
+        '\\\\affil(iation)?.*?(\[.*?\])?{': 1,
+        '\\\institute *{': 1,
+        '\\\\AFF *{': 1,
+        '\\\IEEEauthorblockA *{': 1,
+        '\\\\address\[.*?\] *{': 0,
+        '\\\\affiliations *{': 0,
+        '\\\\aistatsaddress{': 0,
+        '\\\\author *{': 0,  # TOO broad might cover some other tags
+    }
 
-    for pattern in patterns:
+    for pattern in patterns.keys():
         compiled_pattern = re.compile(pattern)
         for m in compiled_pattern.finditer(text, re.DOTALL):
             cand = extract_candidate_affiliation(text, m.end())
-            affs = retrieve_ner(cand)
-            if aff:
-                affiliations.update(aff)
+            affs = retrieve_ner(cand, patterns[pattern])
+            if affs:
+                affiliations.update(affs)
         if affiliations:
             return affiliations
 
-    for m in re.finditer('\$\^\{\d+?\}\$(.*)', text):
-        affiliations.add(m.group()[0])
     if affiliations:
         return affiliations
+
+    # last case resort
+    retrieve_ner(text, confidence=-1)
 
     return affiliations
 
@@ -130,7 +153,31 @@ def generate_results(sources, path):
     return results
 
 
+def generate_stats(results):
+    affiliations = results['affiliations']
+    academic = 0
+    companies_count = Counter()
+    companies_set = {'google', 'apple', 'netflix', 'microsoft', 'ibm', 'facebook', 'amazon'}
+
+    for aff in affiliations.values():
+        if any(is_academic_match(text.lower()) for text in aff):
+            academic += 1
+        else:
+            pass
+            #print(aff)
+
+    for aff in affiliations.values():
+        merge = ' '.join(aff)
+        for c in companies_set:
+            if c in merge.lower():
+                companies_count[c] += 1
+
+    print('Academic: {} / {} / {}'.format(academic, results['matched_count'], results['all_count']))
+    print(companies_count)
+
+
 if __name__ == "__main__":
     sources = [f for f in os.listdir(SOURCE_DIR) if not f.endswith('tar.gz')]
-    results = generate_results(sources, 'affiliations.json')
-    # some postprocessing (answering questions, report, stats)
+    # results = generate_results(sources, 'affiliations.json')
+    results = json.load(open('affiliations.json', 'r'))
+    generate_stats(results)
