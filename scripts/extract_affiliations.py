@@ -1,30 +1,30 @@
 import json
 import os
 import re
-import spacy
 from collections import Counter
 
-from arxiv_dump.utils import uni_phrases
+import spacy
+from mair.affiliations_extraction import uni_phrases
 
-SOURCE_DIR = 'sources'
-nlp = spacy.load('en_core_web_sm')
+SOURCE_DIR = "sources"
+nlp = spacy.load("en_core_web_sm")
 
 
 def clean_text(text, prune_document=True):
-    pos = text.find('\\begin{abstract}')
+    pos = text.find("\\begin{abstract}")
     if pos >= 0:
         text = text[:pos]
-    lines = text.split('\n')
-    lines = [l for l in lines if not l.startswith('%')]
-    return '\n'.join(lines)
+    lines = text.split("\n")
+    lines = [line for line in lines if not line.startswith("%")]
+    return "\n".join(lines)
 
 
 def get_text(path):
-    with open(path, 'r') as f:
+    with open(path, "r") as f:
         try:
             return f.read()
-        except UnicodeDecodeError as e:
-            #print('Failed to read the file {}'.format(path))
+        except UnicodeDecodeError:
+            # print('Failed to read the file {}'.format(path))
             return ""
 
 
@@ -34,28 +34,28 @@ def get_all_files(s):
 
 
 def get_tex_files(s):
-    return [f for f in get_all_files(s) if f.endswith('.tex')]
+    return [f for f in get_all_files(s) if f.endswith(".tex")]
 
 
 def extract_candidate_affiliation(text, start):
     pos = start
     open = 1
     while open > 0:
-        if text[pos] == '{':
+        if text[pos] == "{":
             open += 1
-        elif text[pos] == '}':
+        elif text[pos] == "}":
             open -= 1
         pos += 1
-    return text[start:pos - 1]
+    return text[start : pos - 1]
 
 
 def cleanup(text):
-    text = re.sub('\\\[a-zA-z]+?{', '', text)
-    text = re.sub('[a-zA-z0-9]+@.+?\.[a-z]+?', '', text)  # remove emails
-    text = text.replace('\n', ' ')
-    text = text.replace('\t', ' ')
-    text = re.sub('\s+', ' ', text)
-    text = re.sub('[\\\\%\{\}\(\)\[\]\~\$\^\*]', '', text)
+    text = re.sub(r"\\\[a-zA-z]+?{", "", text)
+    text = re.sub(r"[a-zA-z0-9]+@.+?\.[a-z]+?", "", text)  # remove emails
+    text = text.replace(r"\n", " ")
+    text = text.replace(r"\t", " ")
+    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r"[\\\\%\{\}\(\)\[\]\~\$\^\*]", "", text)
     return text
 
 
@@ -75,7 +75,7 @@ def retrieve_ner(cand, confidence):
     for ent in doc.ents:
         if is_academic_match(ent.text.lower()):
             orgs.append(ent.text)
-        elif ent.label_ == 'ORG' and len(ent.text) > 2:
+        elif ent.label_ == "ORG" and len(ent.text) > 2:
             orgs.append(ent.text)
     return orgs
 
@@ -85,16 +85,16 @@ def extract_affiliations_from_text(text):
 
     # list of patterns TODO optimize this
     patterns = {
-        '\\\icmlaffiliation *{.*?}{': 1,
-        '\\\institution *{': 1,
-        '\\\\affil(iation)?.*?(\[.*?\])?{': 1,
-        '\\\institute *{': 1,
-        '\\\\AFF *{': 1,
-        '\\\IEEEauthorblockA *{': 1,
-        '\\\\address\[.*?\] *{': 0,
-        '\\\\affiliations *{': 0,
-        '\\\\aistatsaddress{': 0,
-        '\\\\author *{': 0,  # TOO broad might cover some other tags
+        "\\\icmlaffiliation *{.*?}{": 1,
+        "\\\institution *{": 1,
+        "\\\\affil(iation)?.*?(\[.*?\])?{": 1,
+        "\\\institute *{": 1,
+        "\\\\AFF *{": 1,
+        "\\\IEEEauthorblockA *{": 1,
+        "\\\\address\[.*?\] *{": 0,
+        "\\\\affiliations *{": 0,
+        "\\\\aistatsaddress{": 0,
+        "\\\\author *{": 0,  # TOO broad might cover some other tags
     }
 
     for pattern in patterns.keys():
@@ -140,44 +140,56 @@ def generate_results(sources, path):
             else:
                 notex.append(s)
     results = {
-        'unmatched_count': len(unmatched),
-        'all_count': len(unmatched) + len(notex) + len(affiliations_dict),
-        'notex_count': len(notex),
-        'matched_count': len(affiliations_dict),
-        'unmatched': unmatched,
-        'notex': notex,
-        'affiliations': affiliations_dict
+        "unmatched_count": len(unmatched),
+        "all_count": len(unmatched) + len(notex) + len(affiliations_dict),
+        "notex_count": len(notex),
+        "matched_count": len(affiliations_dict),
+        "unmatched": unmatched,
+        "notex": notex,
+        "affiliations": affiliations_dict,
     }
-    with open(path, 'w') as f:
+    with open(path, "w") as f:
         json.dump(results, f, indent=2)
     return results
 
 
 def generate_stats(results):
-    affiliations = results['affiliations']
+    affiliations = results["affiliations"]
     academic = 0
     companies_count = Counter()
-    companies_set = {'google', 'apple', 'netflix', 'microsoft', 'ibm', 'facebook', 'amazon'}
+    companies_set = {
+        "google",
+        "apple",
+        "netflix",
+        "microsoft",
+        "ibm",
+        "facebook",
+        "amazon",
+    }
 
     for aff in affiliations.values():
         if any(is_academic_match(text.lower()) for text in aff):
             academic += 1
         else:
             pass
-            #print(aff)
+            # print(aff)
 
     for aff in affiliations.values():
-        merge = ' '.join(aff)
+        merge = " ".join(aff)
         for c in companies_set:
             if c in merge.lower():
                 companies_count[c] += 1
 
-    print('Academic: {} / {} / {}'.format(academic, results['matched_count'], results['all_count']))
+    print(
+        "Academic: {} / {} / {}".format(
+            academic, results["matched_count"], results["all_count"]
+        )
+    )
     print(companies_count)
 
 
 if __name__ == "__main__":
-    sources = [f for f in os.listdir(SOURCE_DIR) if not f.endswith('tar.gz')]
+    sources = [f for f in os.listdir(SOURCE_DIR) if not f.endswith("tar.gz")]
     # results = generate_results(sources, 'affiliations.json')
-    results = json.load(open('affiliations.json', 'r'))
+    results = json.load(open("affiliations.json", "r"))
     generate_stats(results)

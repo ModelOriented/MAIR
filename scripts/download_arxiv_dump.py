@@ -1,19 +1,20 @@
+"""Script downloading arxiv dump"""
+
+import json
 import os
+import re
+import time
 import urllib.request as libreq
+
 import feedparser
 import requests
-import json
-import time
-import re
-
-from arxiv_dump.keywords import KEYWORDS
+from mair.arxiv_dump.keywords import KEYWORDS
 
 BASE_URL = "http://export.arxiv.org/api/query"
-KEYWORDS_FILE = "keywords.txt"
-CATEGORIES = "arxiv_categories.txt"
-PAPERS_DIR = "papers"
+ARXIV_CATEGORIES_PATH = "../data/arxiv_dump/arxiv_categories.txt"
+PAPERS_DIR = "../data/arxiv_dump/papers"
 SOURCES_DIR = "sources"
-SEARCH_RESULTS = "search_results.json"
+SEARCH_RESULTS_PATH = "search_results.json"
 
 SOURCES = True
 if SOURCES:
@@ -24,34 +25,36 @@ else:
 
 def get_categories():
     categories = []
-    with open(CATEGORIES, "r") as f:
+    with open(ARXIV_CATEGORIES_PATH, "r") as f:
         for line in f:
             categories.append(line.split(" ")[0])
     return categories
 
 
 def parse_entry(entry, keyword):
-    links = entry['links']
-    keyword_name = re.sub('"', '', keyword['name'])
-    keyword_name = re.sub('\+', ' ', keyword_name)
+    links = entry["links"]
+    keyword_name = re.sub('"', "", keyword["name"])
+    keyword_name = re.sub(r"\+", " ", keyword_name)
     try:
-        affiliation = entry['arxiv_affiliation']
+        affiliation = entry["arxiv_affiliation"]
     except KeyError:
         affiliation = None
 
     return {
-        'id': entry['id'].split('/')[-1],
-        'abs_id': entry['id'],
-        'title': entry['title'],
-        'published': entry['published'],
-        'updated': entry['updated'],
-        'summary': entry['summary'],
-        'authors': entry['authors'],
-        'journal_ref': entry['arxiv_journal_ref'] if 'arxiv_journal_ref' in entry else None,
-        'links': links,
-        'affiliation': affiliation,
-        'primary_category': entry['arxiv_primary_category']['term'],
-        'keywords': [re.sub('"', '', keyword_name)],
+        "id": entry["id"].split("/")[-1],
+        "abs_id": entry["id"],
+        "title": entry["title"],
+        "published": entry["published"],
+        "updated": entry["updated"],
+        "summary": entry["summary"],
+        "authors": entry["authors"],
+        "journal_ref": entry["arxiv_journal_ref"]
+        if "arxiv_journal_ref" in entry
+        else None,
+        "links": links,
+        "affiliation": affiliation,
+        "primary_category": entry["arxiv_primary_category"]["term"],
+        "keywords": [re.sub('"', "", keyword_name)],
     }
 
 
@@ -129,7 +132,7 @@ def get_link_and_filename(record):
 
 
 def download_file(record):
-    # TODO remove older versions when duplicated
+    # @TODO remove older versions when duplicated
     if not record["links"]:
         print("Links unavailable for {}".format(record["id"]))
     filename, link = get_link_and_filename(record)
@@ -169,7 +172,7 @@ def download_files(records):
 
 def update_records(records, new_records):
     for key, v in new_records.items():
-        if not key in records:
+        if key not in records:
             records[key] = v
         else:
             records[key]["keywords"] = list(
@@ -184,8 +187,8 @@ if __name__ == "__main__":
 
     records = dict()
 
-    if os.path.exists(SEARCH_RESULTS):
-        with open(SEARCH_RESULTS, "r") as f:
+    if os.path.exists(SEARCH_RESULTS_PATH):
+        with open(SEARCH_RESULTS_PATH, "r") as f:
             records = json.load(f)
     else:
         for k in KEYWORDS:
@@ -193,6 +196,6 @@ if __name__ == "__main__":
             new_records = get_atom_results(k, categories, step=1000)
             update_records(records, new_records)
 
-        with open(SEARCH_RESULTS, "w") as f:
+        with open(SEARCH_RESULTS_PATH, "w") as f:
             json.dump(records, f, indent=2, ensure_ascii=False)
     download_files(records)

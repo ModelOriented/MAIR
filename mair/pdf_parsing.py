@@ -1,3 +1,6 @@
+"""Functions for parsing raw pdf to text"""
+
+import glob
 import os
 from dataclasses import dataclass
 from typing import List
@@ -25,8 +28,20 @@ class Pdf:
     full_text: str
 
 
+def parse_all_files_from_path(path: str) -> List[Pdf]:
+    pdfs = []
+
+    for filename in glob.glob(os.path.join(path, "*.pdf")):
+        try:
+            pdf = parse(filename)
+            pdfs.append(pdf)
+        except Exception as e:
+            print(f"Error parsing ({filename}):", e)
+    return pdfs
+
+
 def parse(path: str) -> Pdf:
-    "Function to extract text and metadata from *.pdf file"
+    """Extracts text and metadata from *.pdf file"""
     file_name = os.path.splitext(os.path.basename(path))[0]
     empty_pages = []
     separated_text = []

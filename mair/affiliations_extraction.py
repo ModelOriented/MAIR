@@ -2,14 +2,27 @@ import re
 
 import pandas as pd
 
+UNI_LIST_PATH = "world-universities.csv"
+
+
+uni_phrases = {
+    "universit",
+    "school",
+    "college",
+    "institut",
+    "academy",
+    "universidad",
+    "polyte",
+    "schule",
+    "ecole",
+    "escuela",
+}
+
 
 def get_unis():
-    df = pd.read_csv('world-universities.csv')
+    df = pd.read_csv(UNI_LIST_PATH)
     print(df.head())
-    return set(df['name'])
-
-uni_phrases = {'universit', 'school', 'college', 'institut', 'academy', 'universidad', 'polyte', 'schule', 'ecole',
-               'escuela'}
+    return set(df["name"])
 
 
 def match(text):
@@ -27,4 +40,4 @@ def find_phrases():
         if not match(u.lower()):
             unmatched += 1
             print(u)
-    print('{} / {}'.format(unmatched, all_count))
+    print("{} / {}".format(unmatched, all_count))
