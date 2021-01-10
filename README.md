@@ -2,6 +2,8 @@
 
 This project aims to monitor emerging regulations that have an impact on the creation and usage of solutions that are based on AI. Our goal is to create a comprehensive database of AI regulations from different regions, and research papers regarding issues which should be regulated, analyze possible consequences of such regulations, and build tools to run such analysis automatically.
 
+Initial results were presented on a [MLinPL conference poster](AI_regulations_MLinPL.pdf).
+
 # Project structure
 
 - `data` directory contains raw and processed regulations and papers.
