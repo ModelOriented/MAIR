@@ -77,7 +77,7 @@ The list is split into 2 parts. In the first part there non-formal documents fro
   - [Policy initiatives](https://oecd.ai/dashboards/policy-initiatives)
 - [Library of congress](https://www.loc.gov/law/help/artificial-intelligence/index.php)
 - [AI governance database](https://www.nesta.org.uk/data-visualisation-and-interactive/ai-governance-database/)
-
+- [AI Ethics Guidelines Global Inventory](https://inventory.algorithmwatch.org/database)
 # Contact
 
 ## Authors
