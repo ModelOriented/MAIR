@@ -1,0 +1,28 @@
+scrap-oecd:
+  cmd: python scripts/scrap_oecd_ai_database.py
+  deps:
+  - path: scripts/scrap_oecd_ai_database.py
+    md5: 8c8f8c874835b8e8d3592bba2de54126
+    size: 1750
+  outs:
+  - path: data/oecd_docs/meta.csv
+    md5: 9bd3ecb03d83ba65fb63667e742b7ce5
+    size: 182746
+  - path: data/oecd_docs/raw/
+    md5: c66b224ae6618541a691dc97549c5acf.dir
+    size: 212909057
+    nfiles: 84
+scrap-nesta:
+  cmd: python scripts/scrap_nesta_ai_database.py
+  deps:
+  - path: scripts/scrap_nesta_ai_database.py
+    md5: 55410914f8606c1f1f3de51147c2ac25
+    size: 2252
+  outs:
+  - path: data/nesta_ai_governance_docs/meta.csv
+    md5: 86f7b8dc9aecbf1fcba4abc8df18e02f
+    size: 65231
+  - path: data/nesta_ai_governance_docs/raw/
+    md5: d4fd5905d8b4924fba87c9669a28a0d8.dir
+    size: 224996664
+    nfiles: 102

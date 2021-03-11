@@ -8,19 +8,14 @@ import urllib.request as libreq
 
 import feedparser
 import requests
+import typer
 from mair.arxiv_dump.keywords import KEYWORDS
 
 BASE_URL = "http://export.arxiv.org/api/query"
-ARXIV_CATEGORIES_PATH = "../data/arxiv_dump/arxiv_categories.txt"
-PAPERS_DIR = "../data/arxiv_dump/papers"
-SOURCES_DIR = "sources"
-SEARCH_RESULTS_PATH = "search_results.json"
-
-SOURCES = True
-if SOURCES:
-    FILES_DIR = SOURCES_DIR
-else:
-    FILES_DIR = PAPERS_DIR
+ARXIV_CATEGORIES_PATH = "data/arxiv_dump/arxiv_categories.txt"
+PAPERS_DIR = "data/arxiv_dump/papers"
+SOURCES_DIR = "data/arxiv_dump/sources"
+SEARCH_RESULTS_PATH = "data/arxiv_dump/search_results.json"
 
 
 def get_categories():
@@ -119,23 +114,24 @@ def get_atom_results(k, categories, step=100):
     return records
 
 
-def get_link_and_filename(record):
-    if SOURCES:
+def get_link_and_filename(record, sources: bool, files_dir: str):
+    if sources:
         extension = "tar.gz"
     else:
         extension = "pdf"
-    filename = os.path.join(FILES_DIR, record["id"] + ".{}".format(extension))
-    link = [r["href"] for r in record["links"] if r["type"] == "application/pdf"][0]
-    if SOURCES:
+    filename = os.path.join(files_dir, record["id"] + ".{}".format(extension))
+    link = record["link"]
+    # link = [r["href"] for r in record["links"] if r["type"] == "application/pdf"][0]
+    if sources:
         link = re.sub("/pdf/", "/src/", link)
     return filename, link
 
 
-def download_file(record):
+def download_file(record, sources, files_dir):
     # @TODO remove older versions when duplicated
-    if not record["links"]:
+    if not record.get("link"):
         print("Links unavailable for {}".format(record["id"]))
-    filename, link = get_link_and_filename(record)
+    filename, link = get_link_and_filename(record, sources, files_dir)
     if not os.path.exists(filename):
         while True:
             try:
@@ -165,9 +161,9 @@ def download_file(record):
         # print('{} already exists'.format(record['title']))
 
 
-def download_files(records):
+def download_files(records, sources, files_dir):
     for i, r in enumerate(records.values()):
-        download_file(r)
+        download_file(r, sources, files_dir)
 
 
 def update_records(records, new_records):
@@ -180,10 +176,15 @@ def update_records(records, new_records):
             )
 
 
-if __name__ == "__main__":
+def main(download_sources: bool = False):
+    if download_sources:
+        files_dir = SOURCES_DIR
+    else:
+        files_dir = PAPERS_DIR
+
     categories = get_categories()
-    if not os.path.exists(FILES_DIR):
-        os.mkdir(FILES_DIR)
+    if not os.path.exists(files_dir):
+        os.mkdir(files_dir)
 
     records = dict()
 
@@ -198,4 +199,8 @@ if __name__ == "__main__":
 
         with open(SEARCH_RESULTS_PATH, "w") as f:
             json.dump(records, f, indent=2, ensure_ascii=False)
-    download_files(records)
+    download_files(records, download_sources, files_dir)
+
+
+if __name__ == "__main__":
+    typer.run(main)

@@ -1,0 +1,15 @@
+stages:
+  scrap-oecd:
+    cmd: python scripts/scrap_oecd_ai_database.py
+    deps:
+      - scripts/scrap_oecd_ai_database.py
+    outs:
+      - data/oecd_docs/raw/
+      - data/oecd_docs/meta.csv
+  scrap-nesta:
+    cmd: python scripts/scrap_nesta_ai_database.py
+    deps:
+      - scripts/scrap_nesta_ai_database.py
+    outs:
+      - data/nesta_ai_governance_docs/raw/
+      - data/nesta_ai_governance_docs/meta.csv
