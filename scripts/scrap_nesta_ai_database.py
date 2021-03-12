@@ -1,17 +1,16 @@
+import os
+from pathlib import Path
 from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
 import pandas as pd
 from bs4 import BeautifulSoup
+from mair import downloading
 from tqdm import tqdm
 
 URL = "https://super-ai.diascreative.net/"
-OUT_TABLE_PATH = "data/ai_governance_meta.csv"
-page_url = URL
-
-text = urlopen(Request(page_url, headers={"User-Agent": "Mozilla/5.0"})).read()
-soup = BeautifulSoup(text)
-articles = soup.find_all("article")
+OUT_META_PATH = "data/nesta_ai_governance_docs/meta.csv"
+OUT_DOCS_PATH = "data/nesta_ai_governance_docs/raw"
 
 
 def get_document_link(link_to_page: str):
@@ -43,6 +42,7 @@ def gather_document_data(article):
         document_type = ""
     actors = article.find("p", "listings-text").text
     data = {
+        "id": article["id"],
         "title": title,
         "country": country,
         "documentLink": document_link,
@@ -55,6 +55,20 @@ def gather_document_data(article):
 
 
 if __name__ == "__main__":
+    Path(OUT_DOCS_PATH).mkdir(parents=True, exist_ok=True)
+
+    page_url = URL
+    text = urlopen(Request(page_url, headers={"User-Agent": "Mozilla/5.0"})).read()
+    soup = BeautifulSoup(text)
+    articles = soup.find_all("article")
+
     data = [gather_document_data(article) for article in tqdm(articles)]
     df = pd.DataFrame(data)
-    df.to_csv(OUT_TABLE_PATH)
+    df.to_csv(OUT_META_PATH, index=False)
+
+    documents = df.to_dict(orient="records")
+    for doc in tqdm(documents):
+        link = doc["documentLink"]
+        doc_id = doc["id"]
+        file_path = os.path.join(OUT_DOCS_PATH, f"{doc_id}.pdf")
+        downloading.save_pdf_under_path(link, file_path)
