@@ -6,6 +6,15 @@ stages:
     outs:
       - data/oecd_docs/raw/
       - data/oecd_docs/meta.csv
+
+  parse-text-oecd:
+    cmd: python scripts/parse_docs_to_text.py oecd
+    deps:
+      - scripts/parse_docs_to_text.py
+      - data/oecd_docs/raw/
+    outs:
+      - data/oecd_docs/texts/
+
   scrap-nesta:
     cmd: python scripts/scrap_nesta_ai_database.py
     deps:
@@ -13,3 +22,45 @@ stages:
     outs:
       - data/nesta_ai_governance_docs/raw/
       - data/nesta_ai_governance_docs/meta.csv
+
+  parse-text-nesta:
+    cmd: python scripts/parse_docs_to_text.py nesta
+    deps:
+      - scripts/parse_docs_to_text.py
+      - data/nesta_ai_governance_docs/raw/
+    outs:
+      - data/nesta_ai_governance_docs/texts/
+
+  download-s2orc-compsci-meta:
+    cmd: python scripts/download_s2orc_meta.py
+    deps:
+      - scripts/download_s2orc_meta.py
+    outs:
+      - data/s2orc/metadata/comp_sci/
+
+  filter-ai-s2orc:
+    cmd: python scripts/filter_ai_s2orc.py
+    deps:
+      - scripts/filter_ai_s2orc.py
+      - data/s2orc/metadata/comp_sci/
+    outs:
+      - data/s2orc/ai_papers_meta.csv
+
+  download-full-ai-texts-s2orc:
+    cmd: python scripts/download_full_text_s2orc.py
+    deps:
+      - scripts/download_full_text_s2orc.py
+      - data/s2orc/ai_papers_meta.csv
+    outs:
+      - data/s2orc/pdf_parses/ai/
+
+  download-arxiv-dump:
+    cmd: python scripts/download_arxiv_dump.py --download-sources --download-pdfs
+    deps:
+      - scripts/download_arxiv_dump.py
+      - mair/arxiv_dump/keywords.py
+      - data/arxiv_dump/arxiv_categories.txt
+    outs:
+      - data/arxiv_dump/search_results.json
+      - data/arxiv_dump/papers
+      - data/arxiv_dump/sources
