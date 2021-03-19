@@ -115,12 +115,11 @@ def get_atom_results(k, categories, step=100):
 
 
 def get_link_and_filename(record, sources: bool, files_dir: str):
+    link = [r["href"] for r in record["links"] if r["type"] == "application/pdf"][0]
     if sources:
         extension = "tar.gz"
-        link = record["link"]
     else:
         extension = "pdf"
-        link = [r["href"] for r in record["links"] if r["type"] == "application/pdf"][0]
     filename = os.path.join(files_dir, record["id"] + ".{}".format(extension))
     if sources:
         print(link)
@@ -130,8 +129,6 @@ def get_link_and_filename(record, sources: bool, files_dir: str):
 
 def download_file(record, sources, files_dir):
     # @TODO remove older versions when duplicated
-    if sources and not record.get("link"):
-        print("Links unavailable for {}".format(record["id"]))
     filename, link = get_link_and_filename(record, sources, files_dir)
     if not os.path.exists(filename):
         while True:
