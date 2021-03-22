@@ -31,6 +31,15 @@ stages:
     outs:
       - data/nesta_ai_governance_docs/texts/
 
+  embedd-legal-docs:
+    cmd: python scripts/calculate_docs_embeddings.py
+    deps:
+      - scripts/calculate_docs_embeddings.py
+      - data/nesta_ai_governance_docs/texts/
+      - data/oecd_docs/texts/
+    outs:
+      - data/processed/docs-bert-embeddings.joblib
+
   download-s2orc-compsci-meta:
     cmd: python scripts/download_s2orc_meta.py
     deps:

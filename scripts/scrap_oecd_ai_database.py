@@ -15,6 +15,7 @@ OUT_DOCS_PATH = "data/oecd_docs/raw"
 OUT_META_PATH = "data/oecd_docs/meta.csv"
 
 
+# TODO: download metadata from https://www.oecd.ai/ws/AIPO/API/dashboards/policyInitiative.xqy?uri=http://stip.oecd.org/...
 def parse_result_dict(result):
     name = result["label"]
     oecd_id = result["uri"].split("/")[-1]
@@ -32,7 +33,7 @@ def parse_result_dict(result):
             end_date = value
 
     document_info = {
-        "name": name,
+        "title": name,
         "description": description,
         "country": country,
         "documentUrl": document_url,

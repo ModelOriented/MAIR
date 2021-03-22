@@ -9,7 +9,6 @@ import pdfminer.converter
 import pdfminer.layout
 import pdfminer.pdfinterp
 import pdfminer.pdfpage
-import PyPDF2
 
 
 @dataclass
@@ -22,7 +21,7 @@ class PdfMeta:
 
 @dataclass
 class Pdf:
-    metadata: PdfMeta
+    # metadata: PdfMeta
     pages: List[List[str]]
     empty_pages: list
     full_text: str
@@ -48,8 +47,8 @@ def parse(path: str) -> Pdf:
     all_text = ""
     page_no = 0
     document = open(path, "rb")
-    pdf_info = PyPDF2.PdfFileReader(document).getDocumentInfo()
-    pdf_metadata = PdfMeta(pdf_info.author, pdf_info.creator, pdf_info.title, file_name)
+    # pdf_info = PyPDF2.PdfFileReader(document).getDocumentInfo()
+    # pdf_metadata = PdfMeta(pdf_info.author, pdf_info.creator, pdf_info.title, file_name)
     rsrcmgr = pdfminer.pdfinterp.PDFResourceManager()
     laparams = pdfminer.layout.LAParams()
     device = pdfminer.converter.PDFPageAggregator(rsrcmgr, laparams=laparams)
@@ -68,4 +67,4 @@ def parse(path: str) -> Pdf:
         page_no += 1
     document.close()
 
-    return Pdf(pdf_metadata, separated_text, empty_pages, all_text)
+    return Pdf(separated_text, empty_pages, all_text)

@@ -42,10 +42,10 @@ def gather_document_data(article):
         document_type = ""
     actors = article.find("p", "listings-text").text
     data = {
-        "id": article["id"],
+        "nestaId": article["id"],
         "title": title,
         "country": country,
-        "documentLink": document_link,
+        "documentUrl": document_link,
         "year": int(year),
         "category": category,
         "documentType": document_type,
@@ -68,7 +68,7 @@ if __name__ == "__main__":
 
     documents = df.to_dict(orient="records")
     for doc in tqdm(documents):
-        link = doc["documentLink"]
+        link = doc["documentUrl"]
         doc_id = doc["id"]
         file_path = os.path.join(OUT_DOCS_PATH, f"{doc_id}.pdf")
         downloading.save_pdf_under_path(link, file_path)
