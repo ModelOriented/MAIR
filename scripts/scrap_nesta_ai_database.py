@@ -69,6 +69,6 @@ if __name__ == "__main__":
     documents = df.to_dict(orient="records")
     for doc in tqdm(documents):
         link = doc["documentUrl"]
-        doc_id = doc["id"]
+        doc_id = doc["nestaId"]
         file_path = os.path.join(OUT_DOCS_PATH, f"{doc_id}.pdf")
         downloading.save_pdf_under_path(link, file_path)
