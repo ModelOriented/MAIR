@@ -58,3 +58,21 @@ stages:
       md5: bdac8556ea86146fc38c20a41bc35935.dir
       size: 9142758
       nfiles: 102
+  embedd-legal-docs:
+    cmd: python scripts/calculate_docs_embeddings.py
+    deps:
+    - path: data/nesta_ai_governance_docs/texts/
+      md5: bdac8556ea86146fc38c20a41bc35935.dir
+      size: 9142758
+      nfiles: 102
+    - path: data/oecd_docs/texts/
+      md5: c5431d9156654c02670da8abbbe8db84.dir
+      size: 13457505
+      nfiles: 84
+    - path: scripts/calculate_docs_embeddings.py
+      md5: f70fd78bed435affdbeddb04198e5b73
+      size: 682
+    outs:
+    - path: data/processed/docs-bert-embeddings.joblib
+      md5: f76a3278b1fb75110bb8079daeb741f8
+      size: 637243
