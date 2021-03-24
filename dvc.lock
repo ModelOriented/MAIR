@@ -1,58 +1,60 @@
-scrap-oecd:
-  cmd: python scripts/scrap_oecd_ai_database.py
-  deps:
-  - path: scripts/scrap_oecd_ai_database.py
-    md5: 6e18c0d5a2117ce382ededccbea66168
-    size: 1753
-  outs:
-  - path: data/oecd_docs/meta.csv
-    md5: 9bd3ecb03d83ba65fb63667e742b7ce5
-    size: 182746
-  - path: data/oecd_docs/raw/
-    md5: 075234af62d31f5c0e6b3b882884d4be.dir
-    size: 206446998
-    nfiles: 84
-scrap-nesta:
-  cmd: python scripts/scrap_nesta_ai_database.py
-  deps:
-  - path: scripts/scrap_nesta_ai_database.py
-    md5: 55410914f8606c1f1f3de51147c2ac25
-    size: 2252
-  outs:
-  - path: data/nesta_ai_governance_docs/meta.csv
-    md5: 86f7b8dc9aecbf1fcba4abc8df18e02f
-    size: 65231
-  - path: data/nesta_ai_governance_docs/raw/
-    md5: d4fd5905d8b4924fba87c9669a28a0d8.dir
-    size: 224996664
-    nfiles: 102
-parse-text-oecd:
-  cmd: python scripts/parse_docs_to_text.py oecd
-  deps:
-  - path: data/oecd_docs/raw/
-    md5: 075234af62d31f5c0e6b3b882884d4be.dir
-    size: 206446998
-    nfiles: 84
-  - path: scripts/parse_docs_to_text.py
-    md5: fdf241e4640e53c8d36081a7964eda80
-    size: 1046
-  outs:
-  - path: data/oecd_docs/texts/
-    md5: c3477b35c68b7e4917421441f4ce0947.dir
-    size: 12476318
-    nfiles: 84
-parse-text-nesta:
-  cmd: python scripts/parse_docs_to_text.py nesta
-  deps:
-  - path: data/nesta_ai_governance_docs/raw/
-    md5: d4fd5905d8b4924fba87c9669a28a0d8.dir
-    size: 224996664
-    nfiles: 102
-  - path: scripts/parse_docs_to_text.py
-    md5: fdf241e4640e53c8d36081a7964eda80
-    size: 1046
-  outs:
-  - path: data/nesta_ai_governance_docs/texts/
-    md5: e1d85ba8c55e2e7c1cc393abb57cf5ac.dir
-    size: 8764624
-    nfiles: 102
+schema: '2.0'
+stages:
+  scrap-oecd:
+    cmd: python scripts/scrap_oecd_ai_database.py
+    deps:
+    - path: scripts/scrap_oecd_ai_database.py
+      md5: bbde9a137353aab423e627b54f192476
+      size: 1878
+    outs:
+    - path: data/oecd_docs/meta.csv
+      md5: 6b29959be888533946a5a9836caa9c05
+      size: 182747
+    - path: data/oecd_docs/raw/
+      md5: e95798bc3b2ee45a42e325309b826bd5.dir
+      size: 203091915
+      nfiles: 84
+  scrap-nesta:
+    cmd: python scripts/scrap_nesta_ai_database.py
+    deps:
+    - path: scripts/scrap_nesta_ai_database.py
+      md5: 3c7cf1ff0a7a4d0dea0fe5fa3d92767c
+      size: 2260
+    outs:
+    - path: data/nesta_ai_governance_docs/meta.csv
+      md5: 3dc67b24eab575a380194ea8ffb2e80f
+      size: 65235
+    - path: data/nesta_ai_governance_docs/raw/
+      md5: 881135d944d83c90d70503e80854c7a8.dir
+      size: 229589096
+      nfiles: 102
+  parse-text-oecd:
+    cmd: python scripts/parse_docs_to_text.py oecd
+    deps:
+    - path: data/oecd_docs/raw/
+      md5: e95798bc3b2ee45a42e325309b826bd5.dir
+      size: 203091915
+      nfiles: 84
+    - path: scripts/parse_docs_to_text.py
+      md5: fdf241e4640e53c8d36081a7964eda80
+      size: 1046
+    outs:
+    - path: data/oecd_docs/texts/
+      md5: c5431d9156654c02670da8abbbe8db84.dir
+      size: 13457505
+      nfiles: 84
+  parse-text-nesta:
+    cmd: python scripts/parse_docs_to_text.py nesta
+    deps:
+    - path: data/nesta_ai_governance_docs/raw/
+      md5: 881135d944d83c90d70503e80854c7a8.dir
+      size: 229589096
+      nfiles: 102
+    - path: scripts/parse_docs_to_text.py
+      md5: fdf241e4640e53c8d36081a7964eda80
+      size: 1046
+    outs:
+    - path: data/nesta_ai_governance_docs/texts/
+      md5: bdac8556ea86146fc38c20a41bc35935.dir
+      size: 9142758
+      nfiles: 102
