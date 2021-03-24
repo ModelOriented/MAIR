@@ -1,24 +1,25 @@
 import joblib
+from flair.data import Sentence
+from flair.embeddings import TransformerDocumentEmbeddings
 from mair.data_loading import load_legal_documents
 from tqdm import tqdm
-from transformers import DistilBertTokenizer, TFDistilBertModel
 
 OUT = "data/processed/docs-bert-embeddings.joblib"
 
-tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
-model = TFDistilBertModel.from_pretrained("distilbert-base-uncased")
+
+embedder = TransformerDocumentEmbeddings("roberta-base")
 
 
-def get_bert_embedding(data_series):
-    tokens = tokenizer(list(data_series), return_tensors="tf", padding=True)
-    r = model(tokens)
-    vectors = r.pooler_output.numpy()
-    return vectors
+def get_bert_embedding(text):
+    sent = Sentence(text)
+    sent = embedder.embed(sent)[0]
+    return sent.embedding
 
 
-texts = load_legal_documents()
+data = load_legal_documents()
+
 embeddings = dict()
-for p, text in tqdm(texts.items()):
+for p, text in tqdm(data.items()):
     embeddings[p] = get_bert_embedding(text)
 
 joblib.dump(embeddings, OUT)
