@@ -362,6 +362,18 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*"
 
 [[package]]
+name = "defaultlist"
+version = "1.0.0"
+description = " collections.defaultdict equivalent implementation of list."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+dev = ["check-manifest"]
+test = ["coverage"]
+
+[[package]]
 name = "defusedxml"
 version = "0.6.0"
 description = "XML bomb protection for Python stdlib modules"
@@ -449,7 +461,7 @@ watch = ["pyinotify"]
 
 [[package]]
 name = "dvc"
-version = "2.0.7"
+version = "2.0.10"
 description = "Git for data scientists - manage your code and data together"
 category = "main"
 optional = false
@@ -508,7 +520,7 @@ oss = ["oss2 (==2.6.1)", "pycryptodome (<3.9.9)"]
 s3 = ["boto3 (>=1.9.201)"]
 ssh = ["paramiko[invoke] (>=2.7.0)"]
 ssh_gssapi = ["paramiko[invoke,gssapi] (>=2.7.0)"]
-tests = ["wheel (>=0.31.1)", "pytest (>=6.0.1,<6.2.2)", "pytest-docker (>=0.7.2)", "pytest-timeout (>=1.3.3)", "pytest-cov (>=2.6.1)", "pytest-xdist (>=1.26.1)", "pytest-mock (==1.11.2)", "pytest-lazy-fixture", "pytest-tap", "flaky (>=3.5.3)", "mock (>=3.0.0)", "xmltodict (>=0.11.0)", "google-compute-engine (==2.8.13)", "pygments", "collective.checkdocs", "psutil", "pydocstyle (<4.0)", "jaraco.windows (==3.9.2)", "mock-ssh-server (>=0.8.2)", "moto (==1.3.16.dev122)", "aws-sam-translator (<1.29.0)", "urllib3 (<1.26.0)", "rangehttpserver (==1.2.0)", "beautifulsoup4 (==4.4.0)", "pylint (==2.7.2)", "pylint-pytest (==0.3.0)", "pylint-plugin-utils (==0.6)", "wget", "filelock", "mypy", "wsgidav", "crc32c", "google-cloud-storage (==1.19.0)"]
+tests = ["wheel (>=0.31.1)", "pytest (>=6.0.1,<6.2.2)", "pytest-docker (>=0.7.2)", "pytest-timeout (>=1.3.3)", "pytest-cov (>=2.6.1)", "pytest-xdist (>=1.26.1)", "pytest-mock (==1.11.2)", "pytest-lazy-fixture", "pytest-tap", "flaky (>=3.5.3)", "mock (>=3.0.0)", "xmltodict (>=0.11.0)", "google-compute-engine (==2.8.13)", "pygments", "collective.checkdocs", "psutil", "pydocstyle (<4.0)", "jaraco.windows (==3.9.2)", "mock-ssh-server (>=0.8.2)", "moto (==1.3.16.dev122)", "aws-sam-translator (<1.29.0)", "urllib3 (<1.26.0)", "rangehttpserver (==1.2.0)", "beautifulsoup4 (==4.4.0)", "pylint (==2.7.2)", "pylint-pytest (==1.0.3)", "pylint-plugin-utils (==0.6)", "wget", "filelock", "mypy", "wsgidav", "crc32c", "google-cloud-storage (==1.19.0)"]
 webdav = ["webdavclient3 (>=3.14.5)"]
 webhdfs = ["hdfs (==2.5.8)"]
 
@@ -2889,7 +2901,7 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "34bea0c13c5c83623b50a4826c0b43db501059f745f39c4b9f7ce0ee91e766da"
+content-hash = "7cbbc992fbf132be1285e77169e0aa01191eb4d01399ba70ec3c18e844260329"
 
 [metadata.files]
 absl-py = [
@@ -3164,6 +3176,9 @@ decorator = [
     {file = "decorator-4.4.2-py2.py3-none-any.whl", hash = "sha256:41fa54c2a0cc4ba648be4fd43cff00aedf5b9465c9bf18d64325bc225f08f760"},
     {file = "decorator-4.4.2.tar.gz", hash = "sha256:e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"},
 ]
+defaultlist = [
+    {file = "defaultlist-1.0.0.tar.gz", hash = "sha256:58cec08e2b1bd8a1a39e7a78dbbf6f66250258f461eb9b9ac0cc3eb78d3a0aca"},
+]
 defusedxml = [
     {file = "defusedxml-0.6.0-py2.py3-none-any.whl", hash = "sha256:6687150770438374ab581bb7a1b327a847dd9c5749e396102de3fad4e8a3ef93"},
     {file = "defusedxml-0.6.0.tar.gz", hash = "sha256:f684034d135af4c6cbb949b8a4d2ed61634515257a67299e5f940fbaa34377f5"},
@@ -3211,8 +3226,8 @@ dulwich = [
     {file = "dulwich-0.20.20.tar.gz", hash = "sha256:426959b9705fadcc6c820e5adf3291d71a48aba0afccf7411422e3308f115f87"},
 ]
 dvc = [
-    {file = "dvc-2.0.7-py2.py3-none-any.whl", hash = "sha256:d1b021d4c216a542fdb2d293b233daf61aeff6bb6b37e9cca9180d3fcd37c968"},
-    {file = "dvc-2.0.7.tar.gz", hash = "sha256:e1c230c4fb367ce30f10e1f2c7c03fa7e4b10c086f872fe27b66c35d74cd92a2"},
+    {file = "dvc-2.0.10-py2.py3-none-any.whl", hash = "sha256:29545589cd79e11c617028e71b4384da35fb6f30dfc3844ca02ea43bc5374910"},
+    {file = "dvc-2.0.10.tar.gz", hash = "sha256:e7efa0777c4edc0628f8731ff664b98052e1c5036a2402f4071325db80d55218"},
 ]
 en-core-sci-sm = []
 entrypoints = [
