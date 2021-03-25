@@ -3,6 +3,8 @@ import os
 from glob import glob
 from typing import Dict, List
 
+import pandas as pd
+
 ARXIV_DUMP_PATH_CLEANED_TEXT_PATH = "data/arxiv_dump/cleaned_texts"
 ARXIV_DUMP_PATH_RAW_TEXT_PATH = "data/arxiv_dump/raw_extracted_texts"
 
@@ -51,3 +53,14 @@ def load_legal_documents():
         with open(p, "r") as f:
             d[p] = f.read()
     return d
+
+
+def load_legal_documents_metadata() -> pd.DataFrame:
+    meta_nesta = pd.read_csv("data/nesta_ai_governance_docs/meta.csv")
+    meta_nesta["id"] = "nesta|" + meta_nesta["nestaId"]
+
+    oecd_meta = pd.read_csv("data/oecd_docs/meta.csv")
+    oecd_meta["id"] = "oecd|" + oecd_meta["oecdId"].astype("str")
+    oecd_meta["year"] = oecd_meta["startDate"]
+    df_meta = pd.concat([meta_nesta, oecd_meta])
+    return df_meta
