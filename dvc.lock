@@ -76,3 +76,27 @@ stages:
     - path: data/processed/docs-bert-embeddings.joblib
       md5: f76a3278b1fb75110bb8079daeb741f8
       size: 637243
+  download-arxiv-dump:
+    cmd: python scripts/download_arxiv_dump.py --download-sources --download-pdfs
+    deps:
+    - path: data/arxiv_dump/arxiv_categories.txt
+      md5: 6636f37f222ea6f6547b0a7200b487ec
+      size: 1057
+    - path: mair/arxiv_dump/keywords.py
+      md5: 25e2f9c96594facaef4c3af0d402c3da
+      size: 1385
+    - path: scripts/download_arxiv_dump.py
+      md5: 8b985181a44373ea77ea20c01dd01abd
+      size: 6478
+    outs:
+    - path: data/arxiv_dump/papers
+      md5: d19dfe4c05101c1931cfcbff9110364a.dir
+      size: 1119198961
+      nfiles: 742
+    - path: data/arxiv_dump/search_results.json
+      md5: 998d3a8a9340cc3885883b2a028ce049
+      size: 1676155
+    - path: data/arxiv_dump/sources
+      md5: f15be23a5b55f4a749a562fae8aa4042.dir
+      size: 1959808118
+      nfiles: 742
