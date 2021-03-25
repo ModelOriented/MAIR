@@ -15,7 +15,7 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 ```
 Reopen your current shell to load poetry to `$PATH`.
 # Instruction for downloading artifacts
-1. Init poetry -- in repository folder run: 
+1. In repository folder run: 
 ```
 poetry install
 poetry shell
