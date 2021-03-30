@@ -1,4 +1,10 @@
 Google cloud storage is already configured in repository in file [.dvc/config](.dvc/config)
+```
+[core]
+    remote = google-cloud
+['remote "google-cloud"']
+    url = gs://mair-dvc-storage
+```
 # Pre-requirements
 * python 3.8
 * poetry
