@@ -100,3 +100,45 @@ stages:
       md5: f15be23a5b55f4a749a562fae8aa4042.dir
       size: 1959808118
       nfiles: 742
+  download-s2orc-meta:
+    cmd: python scripts/download_s2orc_meta.py
+    deps:
+    - path: mair/s2orc_links.py
+      md5: 4a957ba3960cf3fd5c24e1bd17d8c330
+      size: 42832
+    - path: scripts/download_s2orc_meta.py
+      md5: 765a7c1b765b3daa7d3423c6c3766f51
+      size: 2371
+    outs:
+    - path: data/s2orc/metadata/comp_sci/
+      md5: aebab75f488d845e9d610fabf91d2f17.dir
+      size: 19637376594
+      nfiles: 100
+  filter-ai-s2orc:
+    cmd: python scripts/filter_ai_s2orc.py
+    deps:
+    - path: data/s2orc/metadata/comp_sci/
+      md5: aebab75f488d845e9d610fabf91d2f17.dir
+      size: 19637376594
+      nfiles: 100
+    - path: scripts/filter_ai_s2orc.py
+      md5: ea05646cd5cfe3327b0bc3470a372ed2
+      size: 1958
+    outs:
+    - path: data/s2orc/ai_papers_meta.csv
+      md5: 5db86603f07f695aaec261639a1b57ef
+      size: 978702792
+  download-full-ai-texts-s2orc:
+    cmd: python scripts/download_full_text_s2orc.py
+    deps:
+    - path: data/s2orc/ai_papers_meta.csv
+      md5: 5db86603f07f695aaec261639a1b57ef
+      size: 978702792
+    - path: scripts/download_full_text_s2orc.py
+      md5: a539413dd1f10c820e2ef84faa9d174c
+      size: 1959
+    outs:
+    - path: data/s2orc/pdf_parses/ai/
+      md5: 05598a81abbe366313bbcb3308a71fb8.dir
+      size: 0
+      nfiles: 100
