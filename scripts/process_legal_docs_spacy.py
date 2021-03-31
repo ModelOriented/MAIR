@@ -11,8 +11,7 @@ OUT = "data/processed/intermediate/parsed_legal_texts.joblib"
 ensure_dirs_exist(OUT)
 nlp = spacy.load("en_core_web_sm")
 nlp.max_length = 3000000
-coref = neuralcoref.NeuralCoref(nlp.vocab)
-nlp.add_pipe(coref, name="neuralcoref")
+neuralcoref.add_to_pipe(nlp)
 
 
 texts = load_legal_documents()
