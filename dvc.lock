@@ -142,3 +142,51 @@ stages:
       md5: 05598a81abbe366313bbcb3308a71fb8.dir
       size: 0
       nfiles: 100
+  extract-text-nesta:
+    cmd: python scripts/parse_docs_to_text.py nesta
+    deps:
+    - path: data/nesta_ai_governance_docs/raw/
+      md5: 881135d944d83c90d70503e80854c7a8.dir
+      size: 229589096
+      nfiles: 102
+    - path: scripts/parse_docs_to_text.py
+      md5: fdf241e4640e53c8d36081a7964eda80
+      size: 1046
+    outs:
+    - path: data/nesta_ai_governance_docs/texts/
+      md5: 2916be574866433731ad51f66b39b47b.dir
+      size: 8821922
+      nfiles: 102
+  extract-text-oecd:
+    cmd: python scripts/parse_docs_to_text.py oecd
+    deps:
+    - path: data/oecd_docs/raw/
+      md5: e95798bc3b2ee45a42e325309b826bd5.dir
+      size: 203091915
+      nfiles: 84
+    - path: scripts/parse_docs_to_text.py
+      md5: fdf241e4640e53c8d36081a7964eda80
+      size: 1046
+    outs:
+    - path: data/oecd_docs/texts/
+      md5: 5a5f576150194af1d1e5230ff632843e.dir
+      size: 12574153
+      nfiles: 84
+  parse-trees-legal-docs:
+    cmd: python scripts/process_legal_docs_spacy.py
+    deps:
+    - path: data/nesta_ai_governance_docs/texts/
+      md5: 2916be574866433731ad51f66b39b47b.dir
+      size: 8821922
+      nfiles: 102
+    - path: data/oecd_docs/texts/
+      md5: 5a5f576150194af1d1e5230ff632843e.dir
+      size: 12574153
+      nfiles: 84
+    - path: scripts/process_legal_docs_spacy.py
+      md5: 6ddececb4507f12208229c9306ef4373
+      size: 534
+    outs:
+    - path: data/processed/intermediate/parsed_legal_texts.joblib
+      md5: 5d82d6956618a73c986af74f7d06b1f9
+      size: 1895689799

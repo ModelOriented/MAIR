@@ -45,6 +45,7 @@ def load_golden_dataset() -> List[Dict[str, str]]:
 
 
 def load_legal_documents():
+    """Load text extracted from nesta and oecd"""
     a = glob(os.path.join(OECD_TEXTS_PATH, "*")) + glob(
         os.path.join(NESTA_TEXTS_PATH, "*")
     )
