@@ -83,3 +83,19 @@ stages:
       - data/arxiv_dump/search_results.json
       - data/arxiv_dump/papers
       - data/arxiv_dump/sources
+
+  extract-texts-arxiv:
+    cmd: python scripts/parse_arxiv_pdfs.py
+    deps:
+      - scripts/parse_arxiv_pdfs.py
+      - data/arxiv_dump/papers
+    outs:
+      - data/arxiv_dump/raw_extracted_texts
+
+  clean-arxiv-texts:
+    cmd: python scripts/clean_raw_papers_text.py
+    deps:
+      - scripts/clean_raw_papers_text.py
+      - data/arxiv_dump/raw_extracted_texts
+    outs:
+      - data/arxiv_dump/cleaned_texts
