@@ -1,0 +1,130 @@
+---
+title: "Deontic exploration"
+author: "PBi"
+date: "2021/04/04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Read data
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+library(ca)
+library(ggtern)
+library(plotly)
+library(ggplot2)
+
+plot_triangle <- function(tab, title = "Share of deontic for countries") {
+  tab <- t(tab)
+  class(tab) = "matrix"
+  tab <- as.data.frame(tab)
+  tab$names <- rownames(tab)
+  
+  ggtern(data = tab, aes(x=can, y=must, z=shall, label = names)) +
+    geom_text() +
+    labs(title=title) +
+    theme_rgbw() 
+}
+
+
+deontics <- read.table("../data/processed/deontics.csv", sep = ",", 
+                      header = TRUE, fill = TRUE, 
+                      quote = '"')
+deontics <- deontics[deontics$modal != "", ]
+dim(deontics)
+```
+
+# The 100 most common subjects
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+rev(tail(sort(table(tolower(deontics$subject))),100))
+```
+
+# Modal verb vs year
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, fig.width=9, fig.height=9}
+tab <- table(deontics$modal,
+      deontics$year)
+t(tab)
+plot(ca(tab), arrows = c(TRUE, FALSE))
+```
+
+# Modal verb vs country
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, fig.width=9, fig.height=9}
+tab <- table(deontics$modal,
+             deontics$country)
+tab <- tab[,colSums(tab) > 200]
+t(tab)
+plot(ca(tab), arrows = c(TRUE, FALSE))
+
+plot_triangle(tab, title = "Share of deontic for countries") 
+```
+
+# Modal verb vs verb
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, fig.width=9, fig.height=9}
+tab_verb <- table(deontics$modal,
+             deontics$verb)
+tab_verb2 <- tab_verb[,colSums(tab_verb) > 100]
+t(tab_verb2)
+plot(ca(tab_verb2), arrows = c(TRUE, FALSE))
+
+plot_triangle(tab_verb2, title = "Share of deontic for verbs") 
+```
+
+# Modal verb vs verb
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, fig.width=9, fig.height=9}
+tab_subject <- table(deontics$modal,
+                  deontics$subject)
+tab_subject2 <- tab_subject[,colSums(tab_subject) > 100]
+t(tab_subject2)
+plot(ca(tab_subject2), arrows = c(TRUE, FALSE))
+
+plot_triangle(tab_subject2, title = "Share of deontic for subjects") 
+```
+
+# Subject
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE, fig.width=9, fig.height=9}
+subject <- table(tolower(deontics$subject))
+
+results_small <- deontics[tolower(deontics$subject) %in% c("country", "drivers", "processes", "automation", 
+ "guidelines", "implementation", "public", "services",
+"society", "laws", "work", "actors", 
+"centre", "research", "solutions", "humans", "manufacturer", "state", "authorities", 
+"industry", "operators", "transparency", 
+"vehicle", "controller", "banks", "developers", "institutions", "law", 
+"regulation", "researchers", "model", 
+"businesses", "court", "robots", "individuals", 
+"machines", "principle", "organisations", 
+"agency", "development", 
+"governments", "technologies", "algorithms", "vehicles", "structure", 
+"machine", "technology", "driver", "intelligence", "manufacturers", 
+"users",  "people", "states", "system", "data", 
+"companies", "systems", "agencies", "government", "ai"),]
+
+tab_subj <- table(results_small$modal,
+                  tolower(results_small$subject))
+t(tab_subj)
+plot(ca(tab_subj), arrows = c(TRUE, FALSE))
+
+
+
+tab_col <- t(tab_subj)
+class(tab_col) = "matrix"
+tab_col <- as.data.frame(tab_col)
+tab_col$names <- rownames(tab_col)
+
+ggtern(data = tab_col, aes(x=can, y=must, z=shall, label = names)) +
+#  geom_point() +
+  geom_text() +
+  labs(title="Share of deontic for subjects") +
+  theme_rgbw()
+```
+
+
