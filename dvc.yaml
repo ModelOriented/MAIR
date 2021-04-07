@@ -49,6 +49,16 @@ stages:
     outs:
       - data/processed/intermediate/parsed_legal_texts.joblib
 
+  analyse-deontic-sentences:
+    cmd: python scripts/analyse_deontics_sentences.py
+    deps:
+      - scripts/analyse_deontics_sentences.py
+      - data/processed/intermediate/parsed_legal_texts.joblib
+      - data/oecd_docs/meta.csv
+      - data/nesta_ai_governance_docs/meta.csv
+    outs:
+      - data/processed/deontics.csv
+
   download-s2orc-meta:
     cmd: python scripts/download_s2orc_meta.py
     deps:
@@ -99,3 +109,11 @@ stages:
       - data/arxiv_dump/raw_extracted_texts
     outs:
       - data/arxiv_dump/cleaned_texts
+
+  parse-arxiv-papers:
+    cmd: python scripts/process_legal_docs_spacy.py
+    deps:
+      - scripts/process_legal_docs_spacy.py
+      - data/arxiv_dump/cleaned_texts
+    outs:
+      - data/intermediate/parsed_arxiv_papers.joblib
