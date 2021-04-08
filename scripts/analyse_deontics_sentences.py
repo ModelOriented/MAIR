@@ -9,8 +9,8 @@ from mair.data_loading import load_legal_documents_metadata, load_parsed_legal_d
 
 OUT = "data/processed/deontics.csv"
 if __name__ == "__main__":
-    parsed_documents = load_legal_documents_metadata()
-    df_meta = load_parsed_legal_documents()
+    df_meta = load_legal_documents_metadata()
+    parsed_documents = load_parsed_legal_documents()
 
     result_df = mair.deontics.get_deontic_sentences_table(parsed_documents)
 
