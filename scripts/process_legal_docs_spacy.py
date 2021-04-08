@@ -5,7 +5,7 @@ from mair.data_loading import load_legal_documents
 from mair.read_write_utilities import ensure_dirs_exist
 from tqdm import tqdm
 
-OUT = "data/processed/intermediate/parsed_legal_texts.joblib"
+OUT = "data/intermediate/parsed_arxiv_papers.joblib"
 ensure_dirs_exist(OUT)
 
 
