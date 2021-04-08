@@ -39,9 +39,9 @@ for path in text_input_file_paths:
         cleaned_text = papers_processing_utils.clean_text(text)
         texts[filename] = cut_beggining(cleaned_text)
     else:
-        print(path, f"is to short ({len(text)}), passing...")
+        print(path, f"is too short ({len(text)}), passing...")
 
-os.path.makedirs(OUTPUT_FOLDER, exist_ok=True)
+os.path.makedir(OUTPUT_FOLDER, exist_ok=True)
 for filename, text in texts.items():
     save(filename, text)
 
