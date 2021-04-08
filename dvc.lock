@@ -202,9 +202,24 @@ stages:
       size: 12574153
       nfiles: 84
     - path: scripts/process_legal_docs_spacy.py
-      md5: 923b0f1bf41cbd1b33a08442b9ae08e9
-      size: 1400
+      md5: 953b3d25a47cf70424a2bfc898ebd5df
+      size: 547
     outs:
     - path: data/processed/intermediate/parsed_legal_texts.joblib
-      md5: 1915513ca76480e4d04545d6404eb765
+      md5: b38a6be2cd7a7c7e3a5d2040e1bb2ef5
       size: 2204971189
+  extract-texts-arxiv:
+    cmd: python scripts/parse_arxiv_pdfs.py
+    deps:
+    - path: data/arxiv_dump/papers
+      md5: d19dfe4c05101c1931cfcbff9110364a.dir
+      size: 1119198961
+      nfiles: 742
+    - path: scripts/parse_arxiv_pdfs.py
+      md5: 8f6ba6b860b83a70968fb1f18d999e0d
+      size: 757
+    outs:
+    - path: data/arxiv_dump/raw_extracted_texts
+      md5: cfcbbb7916819c31c09ad98ce2325cc0.dir
+      size: 32439833
+      nfiles: 523
