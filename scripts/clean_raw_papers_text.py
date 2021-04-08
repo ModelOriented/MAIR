@@ -34,11 +34,15 @@ texts = dict()
 for path in text_input_file_paths:
     with open(path, "r") as text_file:
         text = text_file.read()
-    if len(text) < MIN_PAPER_LEN:
+    if len(text) > MIN_PAPER_LEN:
         filename = os.path.basename(path)
         cleaned_text = papers_processing_utils.clean_text(text)
         texts[filename] = cut_beggining(cleaned_text)
+    else:
+        print(path, f"is to short ({len(text)}), passing...")
 
 
 for filename, text in texts.items():
     save(filename, text)
+
+print(f"Saved {len(texts)} out of {len(text_input_file_paths)}")
