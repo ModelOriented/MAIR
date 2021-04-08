@@ -41,7 +41,7 @@ for path in text_input_file_paths:
     else:
         print(path, f"is to short ({len(text)}), passing...")
 
-
+os.path.makedirs(OUTPUT_FOLDER, exist_ok=True)
 for filename, text in texts.items():
     save(filename, text)
 
