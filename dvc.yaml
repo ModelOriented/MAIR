@@ -111,9 +111,9 @@ stages:
       - data/arxiv_dump/cleaned_texts
 
   parse-arxiv-papers:
-    cmd: python scripts/process_legal_docs_spacy.py
+    cmd: python scripts/process_arxiv_spacy.py
     deps:
-      - scripts/process_legal_docs_spacy.py
+      - scripts/process_arxiv_spacy.py
       - data/arxiv_dump/cleaned_texts
     outs:
-      - data/intermediate/parsed_arxiv_papers.joblib
+      - data/processed/intermediate/parsed_arxiv_papers.joblib
