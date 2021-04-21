@@ -223,3 +223,51 @@ stages:
       md5: cfcbbb7916819c31c09ad98ce2325cc0.dir
       size: 32439833
       nfiles: 523
+  analyse-deontic-sentences:
+    cmd: python scripts/analyse_deontics_sentences.py
+    deps:
+    - path: data/nesta_ai_governance_docs/meta.csv
+      md5: 3dc67b24eab575a380194ea8ffb2e80f
+      size: 65235
+    - path: data/oecd_docs/meta.csv
+      md5: 6b29959be888533946a5a9836caa9c05
+      size: 182747
+    - path: data/processed/intermediate/parsed_legal_texts.joblib
+      md5: b38a6be2cd7a7c7e3a5d2040e1bb2ef5
+      size: 2204971189
+    - path: scripts/analyse_deontics_sentences.py
+      md5: 4d739210b5f9118a4f2af7ded730af76
+      size: 1310
+    outs:
+    - path: data/processed/deontics.csv
+      md5: 7a0b26586d77d812ef341b39e08cd870
+      size: 14984872
+  clean-arxiv-texts:
+    cmd: python scripts/clean_raw_papers_text.py
+    deps:
+    - path: data/arxiv_dump/raw_extracted_texts
+      md5: cfcbbb7916819c31c09ad98ce2325cc0.dir
+      size: 32439833
+      nfiles: 523
+    - path: scripts/clean_raw_papers_text.py
+      md5: 9befa87c7d64aca8a431d077fb0eb635
+      size: 1368
+    outs:
+    - path: data/arxiv_dump/cleaned_texts
+      md5: d0f56f3df0999c638f1da03b39fdc1d8.dir
+      size: 25132499
+      nfiles: 517
+  parse-arxiv-papers:
+    cmd: python scripts/process_arxiv_spacy.py
+    deps:
+    - path: data/arxiv_dump/cleaned_texts
+      md5: d0f56f3df0999c638f1da03b39fdc1d8.dir
+      size: 25132499
+      nfiles: 517
+    - path: scripts/process_arxiv_spacy.py
+      md5: 57f373f3132fb95c36614e6dc9fb7b01
+      size: 563
+    outs:
+    - path: data/processed/intermediate/parsed_arxiv_papers.joblib
+      md5: 6a56b89bd8d29219932d4a3dff215944
+      size: 2733274491
