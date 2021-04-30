@@ -271,3 +271,18 @@ stages:
     - path: data/processed/intermediate/parsed_arxiv_papers.joblib
       md5: 6a56b89bd8d29219932d4a3dff215944
       size: 2733274491
+  unpack-sources-arxiv:
+    cmd: scripts/unpack_sources.sh
+    deps:
+    - path: data/arxiv_dump/sources
+      md5: f15be23a5b55f4a749a562fae8aa4042.dir
+      size: 1959808118
+      nfiles: 742
+    - path: scripts/unpack_sources.sh
+      md5: cc3af9d45182eececbc437b0cf713e9d
+      size: 249
+    outs:
+    - path: data/arxiv_dump/unpacked_sources
+      md5: fd5ec3c0c29649231aa369a83168db10.dir
+      size: 2439008640
+      nfiles: 18263

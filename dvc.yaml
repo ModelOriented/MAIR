@@ -86,14 +86,21 @@ stages:
   download-arxiv-dump:
     cmd: python scripts/download_arxiv_dump.py --download-sources --download-pdfs
     deps:
-      - scripts/download_arxiv_dump.py
-      - mair/arxiv_dump/keywords.py
       - data/arxiv_dump/arxiv_categories.txt
+      - mair/arxiv_dump/keywords.py
+      - scripts/download_arxiv_dump.py
     outs:
-      - data/arxiv_dump/search_results.json
       - data/arxiv_dump/papers
+      - data/arxiv_dump/search_results.json
       - data/arxiv_dump/sources
-
+    frozen: true
+  unpack-sources-arxiv:
+    cmd: scripts/unpack_sources.sh
+    deps:
+      - scripts/unpack_sources.sh
+      - data/arxiv_dump/sources
+    outs:
+      - data/arxiv_dump/unpacked_sources
   extract-texts-arxiv:
     cmd: python scripts/parse_arxiv_pdfs.py
     deps:
