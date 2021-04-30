@@ -6,8 +6,8 @@ import requests
 from tqdm import tqdm
 
 PARSE_ENDPOINT = "http://localhost:8080/v1"
-INPUT_FOLDER = "../data/arxiv_dump/papers/"
-OUTPUT_FOLDER = "../data/arxiv_dump/sci-parse_output/"
+INPUT_FOLDER = "data/arxiv_dump/papers/"
+OUTPUT_FOLDER = "data/arxiv_dump/sci-parse_output/"
 pdfs_path = os.path.join(INPUT_FOLDER, "*.pdf")
 
 

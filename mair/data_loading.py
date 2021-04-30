@@ -88,3 +88,13 @@ def load_parsed_legal_documents() -> pd.Series:
     docs = df["doc"]
 
     return docs
+
+
+def load_parsed_arxiv_papers() -> pd.Series:
+    r = joblib.load("data/processed/intermediate/parsed_arxiv_papers.joblib")
+    df = pd.Series(r, name="doc")
+    df = df.reset_index()
+    df = df.set_index("index")
+    docs = df["doc"]
+
+    return docs
