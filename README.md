@@ -10,6 +10,12 @@ Initial results were presented on a [MLinPL conference poster](AI_regulations_ML
 - `scripts` directory containts runnable processing pipeline steps.
 - `mair` directory contains python modules used in processing pipeline.
 - `notebooks` directory contains notebooks with PoC versions of pipeline steps, and analysis.
+# Pipeline
+Pipeline is controlled by dvc. To run it, run `dvc repro <step_name>`
+### Pipeline steps
+![](pipeline.png)
+### Artifacts
+![](artifacts.png)
 
 # Contributing
 
