@@ -286,3 +286,20 @@ stages:
       md5: fd5ec3c0c29649231aa369a83168db10.dir
       size: 2439008640
       nfiles: 18263
+  extract-affiliations:
+    cmd: python scripts/extract_affiliations.py
+    deps:
+    - path: data/arxiv_dump/unpacked_sources
+      md5: fd5ec3c0c29649231aa369a83168db10.dir
+      size: 2439008640
+      nfiles: 18263
+    - path: mair/affiliations_extraction.py
+      md5: eadd2c21f0be6fe8b5f3f3117068e018
+      size: 702
+    - path: scripts/extract_affiliations.py
+      md5: a59d954cf943e7a0e97cebb40766f5c4
+      size: 5380
+    outs:
+    - path: data/arxiv_dump/affiliations.json
+      md5: 7550466eac264af911bc70e75729b552
+      size: 83442

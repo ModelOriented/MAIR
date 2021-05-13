@@ -125,3 +125,12 @@ stages:
       - data/arxiv_dump/cleaned_texts
     outs:
       - data/processed/intermediate/parsed_arxiv_papers.joblib
+
+  extract-affiliations:
+    cmd: python scripts/extract_affiliations.py
+    deps:
+      - data/arxiv_dump/unpacked_sources
+      - mair/affiliations_extraction.py
+      - scripts/extract_affiliations.py
+    outs:
+      - data/arxiv_dump/affiliations.json
