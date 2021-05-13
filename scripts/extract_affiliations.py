@@ -5,15 +5,17 @@ from collections import Counter
 
 import spacy
 from mair.affiliations_extraction import uni_phrases
+from tqdm import tqdm
 
-SOURCE_DIR = "sources"
-nlp = spacy.load("en_core_web_sm")
+INPUT_SOURCES_DIR = "data/arxiv_dump/unpacked_sources"
+OUT = "data/arxiv_dump/affiliations.json"
+nlp = spacy.load("en_core_web_lg")
 
 
-def clean_text(text, prune_document=True):
-    pos = text.find("\\begin{abstract}")
-    if pos >= 0:
-        text = text[:pos]
+def get_text_before_abstract(text):
+    position = text.find("\\begin{abstract}")
+    if position >= 0:
+        text = text[:position]
     lines = text.split("\n")
     lines = [line for line in lines if not line.startswith("%")]
     return "\n".join(lines)
@@ -29,7 +31,7 @@ def get_text(path):
 
 
 def get_all_files(s):
-    paper_dir = os.path.join(SOURCE_DIR, s)
+    paper_dir = os.path.join(INPUT_SOURCES_DIR, s)
     return [os.path.join(paper_dir, f) for f in os.listdir(paper_dir)]
 
 
@@ -121,16 +123,17 @@ def get_paper_affiliations(s):
     affiliations = set()
     for f in tex_files:
         text = get_text(f)
-        text = clean_text(text)
+        text = get_text_before_abstract(text)
         affiliations.update(extract_affiliations_from_text(text))
     return affiliations, len(tex_files) > 0
 
 
-def generate_results(sources, path):
+def generate_results(sources):
     unmatched = []
     notex = []
     affiliations_dict = {}
-    for s in sources:
+    print("Processing sources...")
+    for s in tqdm(sources):
         aff, latex = get_paper_affiliations(s)
         if aff:
             affiliations_dict[s] = list(aff)
@@ -148,8 +151,6 @@ def generate_results(sources, path):
         "notex": notex,
         "affiliations": affiliations_dict,
     }
-    with open(path, "w") as f:
-        json.dump(results, f, indent=2)
     return results
 
 
@@ -185,11 +186,18 @@ def generate_stats(results):
             academic, results["matched_count"], results["all_count"]
         )
     )
+    print(f"Academic:{academic}")
+    print(f'Matched:{results["matched_count"]}')
+    print(f'All:{results["all_count"]}')
     print(companies_count)
 
 
 if __name__ == "__main__":
-    sources = [f for f in os.listdir(SOURCE_DIR) if not f.endswith("tar.gz")]
-    # results = generate_results(sources, 'affiliations.json')
-    results = json.load(open("affiliations.json", "r"))
+    sources = [f for f in os.listdir(INPUT_SOURCES_DIR) if not f.endswith("tar.gz")]
+    print("Sources:", len(sources))
+    results = generate_results(sources)
+
     generate_stats(results)
+    print(f"Saving results to: {OUT}")
+    with open(OUT, "w") as f:
+        json.dump(results, f, indent=2)
