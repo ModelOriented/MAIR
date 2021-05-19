@@ -1,10 +1,14 @@
 """Saving and loading utilities"""
 
 import glob
-import os.path
-from typing import List
+import os
 
 import pandas as pd
+
+
+def ensure_dirs_exist(path):
+    """Create all directories that lead to file if they dont exist"""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
 
 
 def load_texts_as_df(input_file_pattarn: str) -> pd.DataFrame:

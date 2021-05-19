@@ -1,4 +1,10 @@
 Google cloud storage is already configured in repository in file [.dvc/config](.dvc/config)
+```
+[core]
+    remote = google-cloud
+['remote "google-cloud"']
+    url = gs://mair-dvc-storage
+```
 # Pre-requirements
 * python 3.8
 * poetry
@@ -20,7 +26,8 @@ Reopen your current shell to load poetry to `$PATH`.
 poetry install
 poetry shell
 ```
-2. Authenticate google cloud with:
+2. Install Google Cloud SDK following https://cloud.google.com/sdk/docs/install
+3. Authenticate google cloud with:
 `gcloud auth application-default login`
-3. Then you should be able to download artifacts
+4. Then you should be able to download artifacts
 `dvc pull <artfact name>`

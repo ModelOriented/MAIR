@@ -127,8 +127,7 @@ def get_link_and_filename(record, sources: bool, files_dir: str):
     return filename, link
 
 
-def download_file(record, sources, files_dir):
-    # @TODO remove older versions when duplicated
+def download_file(record, sources: bool, files_dir):
     filename, link = get_link_and_filename(record, sources, files_dir)
     if not os.path.exists(filename):
         while True:
@@ -158,7 +157,7 @@ def download_file(record, sources, files_dir):
         # print('{} already exists'.format(record['title']))
 
 
-def download_files(records, sources, files_dir):
+def download_files(records: dict, sources: bool, files_dir: str):
     for i, r in enumerate(records.values()):
         download_file(r, sources, files_dir)
 
@@ -179,16 +178,16 @@ def main(download_sources: bool = False, download_pdfs: bool = False):
     records = dict()
 
     if os.path.exists(SEARCH_RESULTS_PATH_OUT):
-        with open(SEARCH_RESULTS_PATH_OUT, "r") as f:
-            records = json.load(f)
+        with open(SEARCH_RESULTS_PATH_OUT, "r") as search_results_file:
+            records = json.load(search_results_file)
     else:
         for k in KEYWORDS:
             print("Processing keyword: {}".format(k["name"]))
             new_records = get_atom_results(k, categories, step=1000)
             update_records(records, new_records)
 
-        with open(SEARCH_RESULTS_PATH_OUT, "w") as f:
-            json.dump(records, f, indent=2, ensure_ascii=False)
+        with open(SEARCH_RESULTS_PATH_OUT, "w") as search_results_file:
+            json.dump(records, search_results_file, indent=2, ensure_ascii=False)
     if download_sources:
         if not os.path.exists(SOURCES_DIR_OUT):
             os.mkdir(SOURCES_DIR_OUT)

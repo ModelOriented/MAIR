@@ -7,7 +7,7 @@ stages:
       - data/oecd_docs/raw/
       - data/oecd_docs/meta.csv
 
-  parse-text-oecd:
+  extract-text-oecd:
     cmd: python scripts/parse_docs_to_text.py oecd
     deps:
       - scripts/parse_docs_to_text.py
@@ -23,7 +23,7 @@ stages:
       - data/nesta_ai_governance_docs/raw/
       - data/nesta_ai_governance_docs/meta.csv
 
-  parse-text-nesta:
+  extract-text-nesta:
     cmd: python scripts/parse_docs_to_text.py nesta
     deps:
       - scripts/parse_docs_to_text.py
@@ -39,6 +39,25 @@ stages:
       - data/oecd_docs/texts/
     outs:
       - data/processed/docs-bert-embeddings.joblib
+
+  parse-legal-docs:
+    cmd: python scripts/process_legal_docs_spacy.py
+    deps:
+      - scripts/process_legal_docs_spacy.py
+      - data/nesta_ai_governance_docs/texts/
+      - data/oecd_docs/texts/
+    outs:
+      - data/processed/intermediate/parsed_legal_texts.joblib
+
+  analyse-deontic-sentences:
+    cmd: python scripts/analyse_deontics_sentences.py
+    deps:
+      - scripts/analyse_deontics_sentences.py
+      - data/processed/intermediate/parsed_legal_texts.joblib
+      - data/oecd_docs/meta.csv
+      - data/nesta_ai_governance_docs/meta.csv
+    outs:
+      - data/processed/deontics.csv
 
   download-s2orc-meta:
     cmd: python scripts/download_s2orc_meta.py
@@ -67,10 +86,41 @@ stages:
   download-arxiv-dump:
     cmd: python scripts/download_arxiv_dump.py --download-sources --download-pdfs
     deps:
-      - scripts/download_arxiv_dump.py
-      - mair/arxiv_dump/keywords.py
       - data/arxiv_dump/arxiv_categories.txt
+      - mair/arxiv_dump/keywords.py
+      - scripts/download_arxiv_dump.py
     outs:
-      - data/arxiv_dump/search_results.json
       - data/arxiv_dump/papers
+      - data/arxiv_dump/search_results.json
       - data/arxiv_dump/sources
+    frozen: true
+  unpack-sources-arxiv:
+    cmd: scripts/unpack_sources.sh
+    deps:
+      - scripts/unpack_sources.sh
+      - data/arxiv_dump/sources
+    outs:
+      - data/arxiv_dump/unpacked_sources
+  extract-texts-arxiv:
+    cmd: python scripts/parse_arxiv_pdfs.py
+    deps:
+      - scripts/parse_arxiv_pdfs.py
+      - data/arxiv_dump/papers
+    outs:
+      - data/arxiv_dump/raw_extracted_texts
+
+  clean-arxiv-texts:
+    cmd: python scripts/clean_raw_papers_text.py
+    deps:
+      - scripts/clean_raw_papers_text.py
+      - data/arxiv_dump/raw_extracted_texts
+    outs:
+      - data/arxiv_dump/cleaned_texts
+
+  parse-arxiv-papers:
+    cmd: python scripts/process_arxiv_spacy.py
+    deps:
+      - scripts/process_arxiv_spacy.py
+      - data/arxiv_dump/cleaned_texts
+    outs:
+      - data/processed/intermediate/parsed_arxiv_papers.joblib

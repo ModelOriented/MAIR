@@ -100,3 +100,189 @@ stages:
       md5: f15be23a5b55f4a749a562fae8aa4042.dir
       size: 1959808118
       nfiles: 742
+  download-s2orc-meta:
+    cmd: python scripts/download_s2orc_meta.py
+    deps:
+    - path: mair/s2orc_links.py
+      md5: 4a957ba3960cf3fd5c24e1bd17d8c330
+      size: 42832
+    - path: scripts/download_s2orc_meta.py
+      md5: 765a7c1b765b3daa7d3423c6c3766f51
+      size: 2371
+    outs:
+    - path: data/s2orc/metadata/comp_sci/
+      md5: aebab75f488d845e9d610fabf91d2f17.dir
+      size: 19637376594
+      nfiles: 100
+  filter-ai-s2orc:
+    cmd: python scripts/filter_ai_s2orc.py
+    deps:
+    - path: data/s2orc/metadata/comp_sci/
+      md5: aebab75f488d845e9d610fabf91d2f17.dir
+      size: 19637376594
+      nfiles: 100
+    - path: scripts/filter_ai_s2orc.py
+      md5: ea05646cd5cfe3327b0bc3470a372ed2
+      size: 1958
+    outs:
+    - path: data/s2orc/ai_papers_meta.csv
+      md5: 5db86603f07f695aaec261639a1b57ef
+      size: 978702792
+  download-full-ai-texts-s2orc:
+    cmd: python scripts/download_full_text_s2orc.py
+    deps:
+    - path: data/s2orc/ai_papers_meta.csv
+      md5: 5db86603f07f695aaec261639a1b57ef
+      size: 978702792
+    - path: scripts/download_full_text_s2orc.py
+      md5: a539413dd1f10c820e2ef84faa9d174c
+      size: 1959
+    outs:
+    - path: data/s2orc/pdf_parses/ai/
+      md5: 05598a81abbe366313bbcb3308a71fb8.dir
+      size: 0
+      nfiles: 100
+  extract-text-nesta:
+    cmd: python scripts/parse_docs_to_text.py nesta
+    deps:
+    - path: data/nesta_ai_governance_docs/raw/
+      md5: 881135d944d83c90d70503e80854c7a8.dir
+      size: 229589096
+      nfiles: 102
+    - path: scripts/parse_docs_to_text.py
+      md5: fdf241e4640e53c8d36081a7964eda80
+      size: 1046
+    outs:
+    - path: data/nesta_ai_governance_docs/texts/
+      md5: 2916be574866433731ad51f66b39b47b.dir
+      size: 8821922
+      nfiles: 102
+  extract-text-oecd:
+    cmd: python scripts/parse_docs_to_text.py oecd
+    deps:
+    - path: data/oecd_docs/raw/
+      md5: e95798bc3b2ee45a42e325309b826bd5.dir
+      size: 203091915
+      nfiles: 84
+    - path: scripts/parse_docs_to_text.py
+      md5: fdf241e4640e53c8d36081a7964eda80
+      size: 1046
+    outs:
+    - path: data/oecd_docs/texts/
+      md5: 5a5f576150194af1d1e5230ff632843e.dir
+      size: 12574153
+      nfiles: 84
+  parse-trees-legal-docs:
+    cmd: python scripts/process_legal_docs_spacy.py
+    deps:
+    - path: data/nesta_ai_governance_docs/texts/
+      md5: 2916be574866433731ad51f66b39b47b.dir
+      size: 8821922
+      nfiles: 102
+    - path: data/oecd_docs/texts/
+      md5: 5a5f576150194af1d1e5230ff632843e.dir
+      size: 12574153
+      nfiles: 84
+    - path: scripts/process_legal_docs_spacy.py
+      md5: 6ddececb4507f12208229c9306ef4373
+      size: 534
+    outs:
+    - path: data/processed/intermediate/parsed_legal_texts.joblib
+      md5: 5d82d6956618a73c986af74f7d06b1f9
+      size: 1895689799
+  parse-legal-docs:
+    cmd: python scripts/process_legal_docs_spacy.py
+    deps:
+    - path: data/nesta_ai_governance_docs/texts/
+      md5: 2916be574866433731ad51f66b39b47b.dir
+      size: 8821922
+      nfiles: 102
+    - path: data/oecd_docs/texts/
+      md5: 5a5f576150194af1d1e5230ff632843e.dir
+      size: 12574153
+      nfiles: 84
+    - path: scripts/process_legal_docs_spacy.py
+      md5: 953b3d25a47cf70424a2bfc898ebd5df
+      size: 547
+    outs:
+    - path: data/processed/intermediate/parsed_legal_texts.joblib
+      md5: b38a6be2cd7a7c7e3a5d2040e1bb2ef5
+      size: 2204971189
+  extract-texts-arxiv:
+    cmd: python scripts/parse_arxiv_pdfs.py
+    deps:
+    - path: data/arxiv_dump/papers
+      md5: d19dfe4c05101c1931cfcbff9110364a.dir
+      size: 1119198961
+      nfiles: 742
+    - path: scripts/parse_arxiv_pdfs.py
+      md5: 8f6ba6b860b83a70968fb1f18d999e0d
+      size: 757
+    outs:
+    - path: data/arxiv_dump/raw_extracted_texts
+      md5: cfcbbb7916819c31c09ad98ce2325cc0.dir
+      size: 32439833
+      nfiles: 523
+  analyse-deontic-sentences:
+    cmd: python scripts/analyse_deontics_sentences.py
+    deps:
+    - path: data/nesta_ai_governance_docs/meta.csv
+      md5: 3dc67b24eab575a380194ea8ffb2e80f
+      size: 65235
+    - path: data/oecd_docs/meta.csv
+      md5: 6b29959be888533946a5a9836caa9c05
+      size: 182747
+    - path: data/processed/intermediate/parsed_legal_texts.joblib
+      md5: b38a6be2cd7a7c7e3a5d2040e1bb2ef5
+      size: 2204971189
+    - path: scripts/analyse_deontics_sentences.py
+      md5: 4d739210b5f9118a4f2af7ded730af76
+      size: 1310
+    outs:
+    - path: data/processed/deontics.csv
+      md5: 7a0b26586d77d812ef341b39e08cd870
+      size: 14984872
+  clean-arxiv-texts:
+    cmd: python scripts/clean_raw_papers_text.py
+    deps:
+    - path: data/arxiv_dump/raw_extracted_texts
+      md5: cfcbbb7916819c31c09ad98ce2325cc0.dir
+      size: 32439833
+      nfiles: 523
+    - path: scripts/clean_raw_papers_text.py
+      md5: 9befa87c7d64aca8a431d077fb0eb635
+      size: 1368
+    outs:
+    - path: data/arxiv_dump/cleaned_texts
+      md5: d0f56f3df0999c638f1da03b39fdc1d8.dir
+      size: 25132499
+      nfiles: 517
+  parse-arxiv-papers:
+    cmd: python scripts/process_arxiv_spacy.py
+    deps:
+    - path: data/arxiv_dump/cleaned_texts
+      md5: d0f56f3df0999c638f1da03b39fdc1d8.dir
+      size: 25132499
+      nfiles: 517
+    - path: scripts/process_arxiv_spacy.py
+      md5: 57f373f3132fb95c36614e6dc9fb7b01
+      size: 563
+    outs:
+    - path: data/processed/intermediate/parsed_arxiv_papers.joblib
+      md5: 6a56b89bd8d29219932d4a3dff215944
+      size: 2733274491
+  unpack-sources-arxiv:
+    cmd: scripts/unpack_sources.sh
+    deps:
+    - path: data/arxiv_dump/sources
+      md5: f15be23a5b55f4a749a562fae8aa4042.dir
+      size: 1959808118
+      nfiles: 742
+    - path: scripts/unpack_sources.sh
+      md5: cc3af9d45182eececbc437b0cf713e9d
+      size: 249
+    outs:
+    - path: data/arxiv_dump/unpacked_sources
+      md5: fd5ec3c0c29649231aa369a83168db10.dir
+      size: 2439008640
+      nfiles: 18263

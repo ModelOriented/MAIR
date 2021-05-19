@@ -8,4 +8,6 @@ def legal_doc_path_to_id(legal_doc_path):
         prefix = "oecd|"
     elif "nesta_ai_governance_docs" in legal_doc_path:
         prefix = "nesta|"
+    elif "arxiv_dump" in legal_doc_path:
+        prefix = "arxiv|"
     return prefix + suffix
