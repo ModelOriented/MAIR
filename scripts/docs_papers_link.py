@@ -74,7 +74,7 @@ def build_match_entry(title, path, matched_fragment, match_context, arxiv_url, m
     }
 
 
-def match_by_title(plain_title, title, plain_text):
+def match_by_title(plain_title, title, plain_text):  # TODO more enhanced strategy here
     MINI_OFFSET = 50
     if plain_title in plain_text and len(title.split(' ')) > 3 and len(plain_title) > 12:
         match_obj = re.search(plain_title, plain_text)
@@ -115,10 +115,16 @@ def search_arxiv_entry(title, rich_text, path, arxiv_url, metadata, doc_type):
         name_tokens = [tok for tok in name_tokens if len(tok) > 3]
 
         if any(tok in match_text for tok in name_tokens):
+            token = None
+            for tok in name_tokens:
+                if tok in match_text:
+                    token = tok
+                    break
+
             print("ACC: {}".format(plain_title))
             matches.append(
-                build_match_entry(title, path, plain_title, match_text,
-                                  arxiv_url, metadata, 'by_title', doc_type, match_confidence)
+                build_match_entry(title, path, "title: {}, author_token: {}".format(plain_title, token), match_text,
+                                  arxiv_url, metadata, 'by_title_and_author', doc_type, match_confidence)
             )
         else:  # lower confidence
             print("ACC: {}".format(plain_title))
@@ -226,4 +232,4 @@ if __name__ == "__main__":
 
     graph_df = pd.DataFrame.from_records(matched_records)
     graph_df.to_csv(open(CITATION_MATCHES_PATH, 'w'))
-    graph_df[graph_df['confidence' == 1]][['id_dest', 'id_source']].drop_duplicates().to_csv(open(CITATION_GRAPH_PATH, 'w'), index=False)
+    graph_df[graph_df['match_confidence' == 1]][['id_dest', 'id_source']].drop_duplicates().to_csv(open(CITATION_GRAPH_PATH, 'w'), index=False)
