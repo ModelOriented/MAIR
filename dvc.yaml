@@ -49,13 +49,22 @@ stages:
     outs:
       - data/processed/intermediate/parsed_legal_texts.joblib
 
+  merge_metadata:
+    cmd: python scripts/merge_metadata.py
+    deps:
+      - scripts/merge_metadata.py
+      - data/oecd_docs/meta.csv
+      - data/nesta_ai_governance_docs/meta.csv
+      - data/golden_standard/policy_docs_categories.csv
+    outs:
+      - data/policy_docs_all/metadata.csv
+
   analyse-deontic-sentences:
     cmd: python scripts/analyse_deontics_sentences.py
     deps:
       - scripts/analyse_deontics_sentences.py
       - data/processed/intermediate/parsed_legal_texts.joblib
-      - data/oecd_docs/meta.csv
-      - data/nesta_ai_governance_docs/meta.csv
+      - data/policy_docs_all/metadata.csv
     outs:
       - data/processed/deontics.csv
 

@@ -226,22 +226,19 @@ stages:
   analyse-deontic-sentences:
     cmd: python scripts/analyse_deontics_sentences.py
     deps:
-    - path: data/nesta_ai_governance_docs/meta.csv
-      md5: 3dc67b24eab575a380194ea8ffb2e80f
-      size: 65235
-    - path: data/oecd_docs/meta.csv
-      md5: 6b29959be888533946a5a9836caa9c05
-      size: 182747
+    - path: data/policy_docs_all/metadata.csv
+      md5: 2ac7c7c472376ace6c463a29c7d009de
+      size: 290579
     - path: data/processed/intermediate/parsed_legal_texts.joblib
       md5: b38a6be2cd7a7c7e3a5d2040e1bb2ef5
       size: 2204971189
     - path: scripts/analyse_deontics_sentences.py
-      md5: 4d739210b5f9118a4f2af7ded730af76
-      size: 1310
+      md5: 697464aa5a732fd4034eae90d4a79ef1
+      size: 1261
     outs:
     - path: data/processed/deontics.csv
-      md5: 7a0b26586d77d812ef341b39e08cd870
-      size: 14984872
+      md5: 138839c0659f7d917db9d18a916883e3
+      size: 15591758
   clean-arxiv-texts:
     cmd: python scripts/clean_raw_papers_text.py
     deps:
@@ -303,3 +300,22 @@ stages:
     - path: data/arxiv_dump/affiliations.json
       md5: 7550466eac264af911bc70e75729b552
       size: 83442
+  merge_metadata:
+    cmd: python scripts/merge_metadata.py
+    deps:
+    - path: data/golden_standard/policy_docs_categories.csv
+      md5: 79976e11144a64c686f0ae1b545cb4c4
+      size: 19984
+    - path: data/nesta_ai_governance_docs/meta.csv
+      md5: 3dc67b24eab575a380194ea8ffb2e80f
+      size: 65235
+    - path: data/oecd_docs/meta.csv
+      md5: 6b29959be888533946a5a9836caa9c05
+      size: 182747
+    - path: scripts/merge_metadata.py
+      md5: def6540ed8998509321ff8799891fc8d
+      size: 1341
+    outs:
+    - path: data/policy_docs_all/metadata.csv
+      md5: 2ac7c7c472376ace6c463a29c7d009de
+      size: 290579
