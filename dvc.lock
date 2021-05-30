@@ -319,3 +319,20 @@ stages:
     - path: data/policy_docs_all/metadata.csv
       md5: 2ac7c7c472376ace6c463a29c7d009de
       size: 290579
+  build-citation-graph:
+    cmd: python scripts/build_citations_graph.py
+    deps:
+    - path: data/arxiv_dump/unpacked_sources
+      md5: fd5ec3c0c29649231aa369a83168db10.dir
+      size: 2439008640
+      nfiles: 18263
+    - path: scripts/build_citations_graph.py
+      md5: 94b4304d319515025e2824d985fed2a0
+      size: 2263
+    outs:
+    - path: data/arxiv_dump/citations_graph.json
+      md5: e77340eacb21996e7a10bc30d71369bc
+      size: 239592
+    - path: data/arxiv_dump/semantic_scholar.json
+      md5: 79504bfa04bfc1d6770f9aa3dbb2a0f9
+      size: 53709992
