@@ -118,7 +118,14 @@ stages:
       - data/arxiv_dump/papers
     outs:
       - data/arxiv_dump/raw_extracted_texts
-
+  build-citation-graph:
+    cmd: python scripts/build_citations_graph.py
+    deps:
+      - scripts/build_citations_graph.py
+      - data/arxiv_dump/unpacked_sources
+    outs:
+      - data/arxiv_dump/citations_graph.json
+      - data/arxiv_dump/semantic_scholar.json
   clean-arxiv-texts:
     cmd: python scripts/clean_raw_papers_text.py
     deps:
